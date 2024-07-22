@@ -85,6 +85,18 @@ public:
 	const Vector<ContentType>& GetContents() const;
 	const Vector<String>& GetContentParts() const;
 	int GetAppMode() const;
+	
+	
+	template <class T> void DoT(int fn) {
+		T& sdi = T::Get(GetAppMode());
+		prog.Attach(sdi);
+		sdi.WhenRemaining << [this](String s) {PostCallback([this,s](){remaining.SetLabel(s);});};
+		
+		if (fn == 0)
+			sdi.Start();
+		else
+			sdi.Stop();
+	}
 };
 
 

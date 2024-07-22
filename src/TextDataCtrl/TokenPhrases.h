@@ -15,7 +15,7 @@ public:
 	
 	void Data() override;
 	void ToolMenu(Bar& bar) override;
-	void GetUnknownPairs();
+	void Do(int fn);
 	
 	
 };

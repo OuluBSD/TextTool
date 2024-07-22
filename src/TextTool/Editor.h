@@ -33,31 +33,31 @@ protected:
 	*/
 	// Database Ctrls
 	SourceDataCtrl					src_data;
-	/*
-	TextDataPage					src_data;
 	TokensPage						tokens_data;
+	TextDataWords					component_words;
 	TokenPhrases					token_phrases;
 	AmbiguousWordPairs				ambiguous_word_pairs;
 	VirtualPhrases					virtual_phrases;
 	VirtualPhraseParts				virtual_phrase_parts;
 	VirtualPhraseStructs			virtual_phrase_structs;
-	PhraseParts						phrase_parts;
 	PhrasePartAnalysis				phrase_part_analysis;
 	PhrasePartAnalysis2				phrase_part_analysis2;
-	RhymeContainerPage				rhyme_container;
 	ActionAttrsPage					action_attrs;
+	Attributes						db_attrs;
+	TextDataDiagnostics				db_diagnostics;
+	/*
+	StructuredScriptCtrl			structured_script;
+	TextDataPage					src_data;
+	PhraseParts						phrase_parts;
+	RhymeContainerPage				rhyme_container;
 	ActionParallelsPage				action_parallels;
 	ActionTransitionsPage			action_transitions;
-	TextDataWords					component_words;
 	TextDataWordnet					component_wordnet;
-	TextDataDiagnostics				db_diagnostics;
-	Attributes						db_attrs;
 	ScriptSolverCtrl				scripts_solver;
 	ScriptPool						script_pool;
 	SnapCoverImage					snap_cover;
 	VideoPromptMakerCtrl			video_prompt_maker;
 	ScriptPostFixCtrl				script_post_fix;
-	StructuredScriptCtrl			structured_script;
 	ScriptEditCtrl					script_edit;
 	*/
 public:

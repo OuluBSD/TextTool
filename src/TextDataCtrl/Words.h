@@ -20,14 +20,8 @@ public:
 	void Data() override;
 	void DataColor();
 	void ToolMenu(Bar& bar) override;
-	//void UpdateWords();
-	//void UpdateWordsProcess();
-	//void UpdateWordFlagGroups();
-	//void UpdateWordFlags();
 	void DumpWordGroups();
 	void DumpPhoneticChars();
-	//void DoWordFix(int fn);
-	//void DoWords(int fn);
 	void Do(int fn);
 	
 };

@@ -20,7 +20,7 @@ public:
 	
 	void Data() override;
 	void DataGroup();
-	void DoAttributes(int fn);
+	void Do(int fn);
 	
 	void ToolMenu(Bar& bar) override;
 	

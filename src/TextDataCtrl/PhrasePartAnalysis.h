@@ -28,7 +28,7 @@ public:
 	void DataAction();
 	void DataActionHeader();
 	void ToolMenu(Bar& bar) override;
-	void DoPhrases(int fn);
+	void Do(int fn);
 	void UpdateCounts();
 	
 };

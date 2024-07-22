@@ -15,8 +15,6 @@ public:
 	
 	void Data() override;
 	void ToolMenu(Bar& bar) override;
-	//void ProcessTokens();
-	//void ProcessTokensUsingExisting();
 	void Do(int fn);
 	
 	

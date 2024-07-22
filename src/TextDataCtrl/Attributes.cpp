@@ -1,6 +1,6 @@
 #include "TextDataCtrl.h"
 
-#if 0
+
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -166,20 +166,30 @@ void Attributes::DataGroup() {
 }
 
 void Attributes::ToolMenu(Bar& bar) {
+	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
+	bar.Separator();
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	#if 0
 	bar.Add(t_("Update"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
 	bar.Add(t_("Get main groups"), AppImg::RedRing(), THISBACK1(DoAttributes, 0)).Key(K_F6);
 	bar.Add(t_("Simplify attrs"), AppImg::RedRing(), THISBACK1(DoAttributes, 1)).Key(K_F7);
 	bar.Add(t_("Join orphaned groups"), AppImg::RedRing(), THISBACK1(DoAttributes, 2)).Key(K_F8);
 	bar.Add(t_("Fix data"), AppImg::RedRing(), THISBACK1(DoAttributes, 3)).Key(K_F9);
+	#endif
 }
 
-void Attributes::DoAttributes(int fn) {
+void Attributes::Do(int fn) {
+	DoT<AttributesProcess>(fn);
+}
+
+/*void Attributes::DoAttributes(int fn) {
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoAttributes(fn);
-}
+}*/
 
 
 
 END_TEXTLIB_NAMESPACE
-#endif
+

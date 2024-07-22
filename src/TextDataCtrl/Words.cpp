@@ -311,14 +311,7 @@ void TextDataWords::DumpPhoneticChars() {
 }
 
 void TextDataWords::Do(int fn) {
-	WordDataProcess& sdi = WordDataProcess::Get(GetAppMode());
-	prog.Attach(sdi);
-	sdi.WhenRemaining << [this](String s) {PostCallback([this,s](){remaining.SetLabel(s);});};
-	
-	if (fn == 0)
-		sdi.Start();
-	else
-		sdi.Stop();
+	DoT<WordDataProcess>(fn);
 }
 
 /*void TextDataWords::DoWordFix(int fn) {

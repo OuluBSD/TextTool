@@ -13,7 +13,8 @@
 #include "VirtualPhrases.h"
 #include "VirtualPhraseParts.h"
 #include "VirtualPhraseStructs.h"
-#include "PhraseParts.h"
+#include "ActionAttrs.h"
+#include "Attributes.h"
 #include "PhrasePartAnalysis.h"
 #include "RhymeContainer.h"
 

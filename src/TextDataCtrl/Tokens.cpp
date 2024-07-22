@@ -54,14 +54,7 @@ void TokensPage::ToolMenu(Bar& bar) {
 }
 
 void TokensPage::Do(int fn) {
-	TokenDataProcess& sdi = TokenDataProcess::Get(GetAppMode());
-	prog.Attach(sdi);
-	sdi.WhenRemaining << [this](String s) {PostCallback([this,s](){remaining.SetLabel(s);});};
-	
-	if (fn == 0)
-		sdi.Start();
-	else
-		sdi.Stop();
+	DoT<TokenDataProcess>(fn);
 }
 
 #if 0

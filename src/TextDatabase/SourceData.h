@@ -673,15 +673,19 @@ struct ScriptStruct : Moveable<ScriptStruct> {
 	struct SubPart : Moveable<SubPart> {
 		Vector<int> token_texts;
 		int repeat = 0;
+		void Serialize(Stream& s) {s % token_texts % repeat;}
 	};
 	struct Part : Moveable<Part> {
 		Vector<SubPart> sub;
 		int type = 0;
 		int num = 0;
+		void Serialize(Stream& s) {s % sub % type % num;}
 	};
 	Vector<Part> parts;
 	
+	void Serialize(Stream& s) {s % parts;}
 	
+	#if 0
 	String StoreToString() {
 		StringDumper d;
 		int i = parts.GetCount();
@@ -703,9 +707,13 @@ struct ScriptStruct : Moveable<ScriptStruct> {
 		StringParser d(s);
 		int i;
 		d % i;
+		if (d.err || i > 1000)
+			return;
 		parts.SetCount(i);
 		for (Part& p : parts) {
 			d % p.type % p.num % i;
+			if (d.err || i > 1000)
+				return;
 			p.sub.SetCount(i);
 			for (SubPart& s : p.sub) {
 				d % s.repeat % i;
@@ -715,12 +723,13 @@ struct ScriptStruct : Moveable<ScriptStruct> {
 			}
 		}
 	}
+	#endif
 };
 
 struct DatasetAnalysis {
 	ArrayMap<String, ComponentAnalysis> components;
 	
-	MapFile<hash_t, ScriptStruct> scripts;
+	SerializedFile<hash_t, ScriptStruct> scripts;
 	MapFile<String,Token> tokens;
 	MapFile<hash_t,TokenText> token_texts;
 	IndexFile word_classes;

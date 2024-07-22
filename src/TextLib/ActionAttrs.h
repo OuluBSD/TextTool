@@ -1,35 +1,35 @@
-#ifndef _TextLib_TokenData_h_
-#define _TextLib_TokenData_h_
+#ifndef _TextLib_PhraseParts_h_
+#define _TextLib_PhraseParts_h_
 
 
 BEGIN_TEXTLIB_NAMESPACE
 
 
-class TokenDataProcess : public SolverBase {
+class ActionAttrsProcess : public SolverBase {
 	
 public:
 	enum {
+		PHASE_GET_LINE_ACTIONS,
 		PHASE_GET_USING_EXISTING,
 		PHASE_GET,
 		
 		PHASE_COUNT
 	};
 	
-	int actual = 0, total = 0;
-	
+	void GetLineActions();
 	void GetUsingExisting();
 	void Get();
 
 public:
-	typedef TokenDataProcess CLASSNAME;
-	TokenDataProcess();
+	typedef ActionAttrsProcess CLASSNAME;
+	ActionAttrsProcess();
 	
 	int GetPhaseCount() const override;
 	int GetBatchCount(int phase) const override;
 	int GetSubBatchCount(int phase, int batch) const override;
 	void DoPhase() override;
 	
-	static TokenDataProcess& Get(int appmode);
+	static ActionAttrsProcess& Get(int appmode);
 	
 };
 

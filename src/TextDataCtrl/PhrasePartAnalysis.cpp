@@ -1,6 +1,6 @@
 #include "TextDataCtrl.h"
 
-#if 0
+
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -31,7 +31,9 @@ void ScoreDisplay::Paint(Draw& d, const Rect& r, const Value& q,
 
 
 PhrasePartAnalysis::PhrasePartAnalysis() {
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,30).HSizePos());
+	Add(prog.BottomPos(0,30).HSizePos(300));
+	Add(remaining.BottomPos(0,30).LeftPos(0,300));
 
 	hsplit.Horz() << vsplit << parts;
 	hsplit.SetPos(2000);
@@ -76,11 +78,16 @@ PhrasePartAnalysis::PhrasePartAnalysis() {
 }
 
 void PhrasePartAnalysis::ToolMenu(Bar& bar) {
+	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
+	bar.Separator();
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	#if 0
 	bar.Add(t_("Get phrase colors"), AppImg::RedRing(), THISBACK1(DoPhrases, 0)).Key(K_F5);
 	bar.Add(t_("Get phrase attributes"), AppImg::RedRing(), THISBACK1(DoPhrases, 1)).Key(K_F6);
 	bar.Add(t_("Get phrase actions"), AppImg::RedRing(), THISBACK1(DoPhrases, 2)).Key(K_F7);
 	bar.Add(t_("Get phrase scores"), AppImg::RedRing(), THISBACK1(DoPhrases, 3)).Key(K_F8);
-
+	#endif
 }
 
 void PhrasePartAnalysis::Data() {
@@ -302,11 +309,15 @@ void PhrasePartAnalysis::DataActionHeader() {
 
 }
 
-void PhrasePartAnalysis::DoPhrases(int fn) {
+void PhrasePartAnalysis::Do(int fn) {
+	DoT<PhrasePartAnalysisProcess>(fn);
+}
+
+/*void PhrasePartAnalysis::DoPhrases(int fn) {
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoPhrases(fn);
-}
+}*/
 
 
 END_TEXTLIB_NAMESPACE
-#endif
+

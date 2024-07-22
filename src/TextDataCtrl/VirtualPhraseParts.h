@@ -15,8 +15,7 @@ public:
 	
 	void Data() override;
 	void ToolMenu(Bar& bar) override;
-	void ProcessStructureNames();
-	void ProcessStructureNamesUsingExisting();
+	void Do(int fn);
 	
 };
 

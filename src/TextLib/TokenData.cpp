@@ -21,9 +21,11 @@ int TokenDataProcess::GetSubBatchCount(int phase, int batch) const {
 }
 
 void TokenDataProcess::DoPhase() {
-	
-	TODO
-	
+	switch (phase) {
+		case PHASE_GET_USING_EXISTING: GetUsingExisting(); return;
+		case PHASE_GET: Get(); return;
+		default: TODO;
+	}
 }
 
 TokenDataProcess& TokenDataProcess::Get(int appmode) {
@@ -36,8 +38,6 @@ TokenDataProcess& TokenDataProcess::Get(int appmode) {
 }
 
 void TokenDataProcess::GetUsingExisting() {
-	TODO
-	#if 0
 	TimeStop ts;
 	TextDatabase& db0 = GetDatabase();
 	SourceData& sd0 = db0.src_data;
@@ -166,28 +166,27 @@ void TokenDataProcess::GetUsingExisting() {
 	
 	LOG("TaskManager::GetTokenDataUsingExisting: copying values took " << ts.ToString());
 	LOG("");
-	#endif
 }
 
 void TokenDataProcess::Get() {
-	TODO
-	#if 0
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	
-	TokenArgs& args = token_args;
+	TokenArgs args;
 	args.fn = 0;
 	args.words.Clear();
 	
+	if (batch == 0) total = 0;
+	
 	int per_action_task = 100;
-	int begin = t->batch_i * per_action_task;
+	int begin = batch * per_action_task;
 	int end = begin + per_action_task;
 	end = min(end, da.tokens.GetCount());
 	int count = end - begin;
 	if (count <= 0) {
-		RemoveTask(*t);
+		NextPhase();
 		return;
 	}
 	
@@ -196,13 +195,87 @@ void TokenDataProcess::Get() {
 		args.words << tk;
 	}
 	
-	t->total += args.words.GetCount();
+	total += count;
 	
-	
+	SetWaiting(true);
 	TaskMgr& m = TaskMgr::Single();
-	if (t->fn == 0)
-		m.GetTokenData(appmode, args, THISBACK1(OnTokenData, t));
-	#endif
+	m.GetTokenData(appmode, args, [this](String result) {
+		TextDatabase& db = GetDatabase();
+		SourceData& sd = db.src_data;
+		SourceDataAnalysis& sda = db.src_data.a;
+		DatasetAnalysis& da = sda.dataset;
+		
+		// 9. suppote: verb | noun
+		
+		result.Replace("\r", "");
+		Vector<String> lines = Split(result, "\n");
+		
+		int offset = 3+1;
+		
+		for (String& line : lines) {
+			line = TrimBoth(line);
+			
+			if (line.IsEmpty() ||!IsDigit(line[0]))
+				continue;
+			
+			/*int line_i = ScanInt(line);
+			line_i -= offset;
+			if (line_i < 0 || line_i >= args.words.GetCount())
+				continue;
+			
+			const String& orig_word = args.words[line_i];*/
+			
+			int a = line.Find(".");
+			if (a < 0) continue;
+			line = TrimBoth(line.Mid(a+1));
+			
+			a = line.Find(":");
+			if (a == 0) {
+				// Rare case of ":" being asked
+				line = ":" + line;
+				a = 1;
+			}
+			else if (a < 0)
+				continue;
+			
+			//int orig_word_i = ;
+			
+			String result_word = TrimBoth(line.Left(a));
+			
+			/*ExportWord& wrd =
+				orig_word_i >= 0 ?
+					da.words[orig_word_i] :
+					da.words.GetAdd(result_word, orig_word_i);*/
+			int orig_word_i = -1;
+			ExportWord& wrd = da.words.GetAdd(result_word, orig_word_i);
+			
+			//TODO // token to word
+			
+			line = TrimBoth(line.Mid(a+1));
+			
+			a = line.Find("(");
+			if (a >= 0)
+				line = line.Left(a);
+			
+			Vector<String> parts = Split(line, "|");
+			for (String& p : parts) {
+				p = TrimBoth(p);
+				int wc_i = da.word_classes.FindAdd(p);
+				if (wrd.class_count < wrd.MAX_CLASS_COUNT)
+					FixedIndexFindAdd(wrd.classes, wrd.MAX_CLASS_COUNT, wrd.class_count, wc_i);
+			}
+			
+			actual++;
+		}
+		
+		
+		da.diagnostics.GetAdd("tokens: total") = IntStr(total);
+		da.diagnostics.GetAdd("tokens: actual") =  IntStr(actual);
+		da.diagnostics.GetAdd("tokens: percentage") =  DblStr((double)actual / (double) total * 100);
+		
+		SetWaiting(false);
+		NextBatch();
+	});
 }
 
 

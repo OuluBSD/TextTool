@@ -262,6 +262,54 @@ public:
 };
 
 template <class K, class T>
+class SerializedFile {
+	VectorMap<K, T> map;
+	String path;
+	hash_t orig_hash = 0;
+	
+public:
+	SerializedFile() {}
+	SerializedFile(const String& p) {Load(p);}
+	SerializedFile(const String& dir, const String& title) {Load(AppendFileName(dir, title + ".bin"));}
+	~SerializedFile() {Store();}
+	
+	int FindAdd(const K& s) {return map.FindAdd(s);}
+	int Find(const K& s) const {return map.Find(s);}
+	const T& operator[](int i) const {return map[i];}
+	T& operator[](int i) {return map[i];}
+	int GetCount() const {return map.GetCount();}
+	const Vector<K>& GetKeys() const {return map.GetKeys();}
+	const Vector<T>& GetValues() const {return map.GetValues();}
+	Vector<T>& GetValues() {return map.GetValues();}
+	T& GetAdd(const K& s) {return map.GetAdd(s);}
+	T& GetAdd(const K& s, int& i) {
+		i = map.Find(s);
+		if (i >= 0) return map[i];
+		i = map.GetCount();
+		return map.Add(s);
+	}
+	const K& GetKey(int i) const {return map.GetKey(i);}
+	
+	void Load(const String& dir, const String& title) {Load(AppendFileName(dir, title + ".bin"));}
+	void Load(const String& path) {
+		map.Clear();
+		this->path = path;
+		String s = LoadFile(path);
+		orig_hash = s.GetHashValue();
+		LoadFromString(map, s);
+	}
+	void Store() {
+		String s = StoreAsString(map);
+		if (s.GetHashValue() != orig_hash) {
+			FileOut fout(path);
+			fout << s;
+		}
+	}
+	void Clear() {map.Clear();}
+	
+};
+
+template <class K, class T>
 class MapFile {
 	VectorMap<K, T> map;
 	String path;
@@ -271,7 +319,7 @@ public:
 	MapFile(const String& p) {Load(p);}
 	MapFile(const String& dir, const String& title) {Load(AppendFileName(dir, title + ".txt"));}
 	~MapFile() {Store();}
-
+	
 	int FindAdd(const K& s) {return map.FindAdd(s);}
 	int Find(const K& s) const {return map.Find(s);}
 	const T& operator[](int i) const {return map[i];}
@@ -317,7 +365,6 @@ public:
 		}
 		ASSERT(map.GetCount() == lines.GetCount());
 	}
-	
 	void Store() {
 		String content;
 		MapKeys<K> k;
@@ -336,6 +383,12 @@ public:
 			fout << content;
 			fout.Close();
 		}
+	}
+	void LoadSerialized(const String& path) {
+		LoadFromFile(map, path);
+	}
+	void StoreSerialized() {
+		StoreToFile(map, path);
 	}
 	
 	void Clear() {map.Clear();}

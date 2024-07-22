@@ -18,8 +18,7 @@ public:
 	void DataAttribute();
 	void DataColor();
 	void UpdateFromCache();
-	void DoActionlist(int fn);
-	void DoActionlistUsingExisting(int fn);
+	void Do(int fn);
 	
 };
 

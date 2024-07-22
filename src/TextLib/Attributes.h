@@ -1,17 +1,14 @@
-#ifndef _TextLib_PhraseParts_h_
-#define _TextLib_PhraseParts_h_
+#ifndef _TextLib_Attributes_h_
+#define _TextLib_Attributes_h_
 
 
 BEGIN_TEXTLIB_NAMESPACE
 
 
-class PhrasePartsProcess : public SolverBase {
+class AttributesProcess : public SolverBase {
 	
 public:
 	enum {
-		PHASE_GET_LINE_ACTIONS,
-		PHASE_GET_USING_EXISTING,
-		PHASE_GET,
 		
 		PHASE_COUNT
 	};
@@ -21,15 +18,15 @@ public:
 	void Get();
 
 public:
-	typedef PhrasePartsProcess CLASSNAME;
-	PhrasePartsProcess();
+	typedef AttributesProcess CLASSNAME;
+	AttributesProcess();
 	
 	int GetPhaseCount() const override;
 	int GetBatchCount(int phase) const override;
 	int GetSubBatchCount(int phase, int batch) const override;
 	void DoPhase() override;
 	
-	static PhrasePartsProcess& Get(int appmode);
+	static AttributesProcess& Get(int appmode);
 	
 };
 

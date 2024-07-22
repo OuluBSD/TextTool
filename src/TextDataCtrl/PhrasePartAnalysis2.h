@@ -19,7 +19,7 @@ public:
 	void DataContrast();
 	void DataColor();
 	void ToolMenu(Bar& bar) override;
-	void DoPhrases(int fn);
+	void Do(int fn);
 	void UpdateCounts();
 	void ClearAll();
 	

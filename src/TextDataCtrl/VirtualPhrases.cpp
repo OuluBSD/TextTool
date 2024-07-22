@@ -1,11 +1,13 @@
 #include "TextDataCtrl.h"
 
-#if 0
+
 BEGIN_TEXTLIB_NAMESPACE
 
 
 VirtualPhrases::VirtualPhrases() {
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,30).HSizePos());
+	Add(prog.BottomPos(0,30).HSizePos(300));
+	Add(remaining.BottomPos(0,30).LeftPos(0,300));
 	
 	hsplit.Horz() << vsplit;
 	hsplit.SetPos(2000);
@@ -121,14 +123,23 @@ void VirtualPhrases::Data() {
 void VirtualPhrases::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	#if 0
+	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
+	bar.Separator();
 	bar.Add(t_("Make virtual phrases"), AppImg::RedRing(), THISBACK(ProcessVirtualPhrases)).Key(K_F5);
 	bar.Separator();
 	bar.Add(t_("Make virtual phrase parts using existing"), AppImg::VioletRing(), THISBACK(ProcessVirtualPhrasePartsUsingExisting)).Key(K_F6);
 	bar.Add(t_("Make virtual phrase parts"), AppImg::RedRing(), THISBACK(ProcessVirtualPhraseParts)).Key(K_F7);
-	
+	#endif
 }
 
-void VirtualPhrases::ProcessVirtualPhrases() {
+void VirtualPhrases::Do(int fn) {
+	DoT<VirtualPhrasesProcess>(fn);
+}
+
+/*void VirtualPhrases::ProcessVirtualPhrases() {
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoVirtualPhrases(0);
 }
@@ -141,8 +152,8 @@ void VirtualPhrases::ProcessVirtualPhraseParts() {
 void VirtualPhrases::ProcessVirtualPhrasePartsUsingExisting() {
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoVirtualPhrasesUsingExisting(1);
-}
+}*/
 
 
 END_TEXTLIB_NAMESPACE
-#endif
+

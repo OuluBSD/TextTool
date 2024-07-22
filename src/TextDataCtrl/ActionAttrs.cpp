@@ -1,11 +1,13 @@
 #include "TextDataCtrl.h"
 
-#if 0
+
 BEGIN_TEXTLIB_NAMESPACE
 
 
 ActionAttrsPage::ActionAttrsPage() {
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,30).HSizePos());
+	Add(prog.BottomPos(0,30).HSizePos(300));
+	Add(remaining.BottomPos(0,30).LeftPos(0,300));
 	
 	hsplit.Horz() << vsplit << actions;
 	hsplit.SetPos(2000);
@@ -31,6 +33,11 @@ ActionAttrsPage::ActionAttrsPage() {
 }
 
 void ActionAttrsPage::ToolMenu(Bar& bar) {
+	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
+	bar.Separator();
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	#if 0
 	bar.Add(t_("Update data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
 	//bar.Add(t_("Update from cache"), AppImg::RedRing(), THISBACK(UpdateFromCache)).Key(K_F5);
@@ -39,7 +46,7 @@ void ActionAttrsPage::ToolMenu(Bar& bar) {
 	bar.Separator();
 	bar.Add(t_("Update action attributes using existing"), AppImg::VioletRing(), THISBACK1(DoActionlistUsingExisting, 1)).Key(K_F7);
 	bar.Add(t_("Update action attributes"), AppImg::RedRing(), THISBACK1(DoActionlist, 1)).Key(K_F8);
-	
+	#endif
 }
 
 void ActionAttrsPage::Data() {
@@ -162,7 +169,11 @@ void ActionAttrsPage::DataColor() {
 	
 }
 
-void ActionAttrsPage::UpdateFromCache() {
+void ActionAttrsPage::Do(int fn) {
+	DoT<ActionAttrsProcess>(fn);
+}
+
+/*void ActionAttrsPage::UpdateFromCache() {
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoActionlistCache();
 }
@@ -175,8 +186,8 @@ void ActionAttrsPage::DoActionlist(int fn) {
 void ActionAttrsPage::DoActionlistUsingExisting(int fn) {
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoActionlistUsingExisting(fn);
-}
+}*/
 
 
 END_TEXTLIB_NAMESPACE
-#endif
+

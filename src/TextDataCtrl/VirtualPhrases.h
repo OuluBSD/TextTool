@@ -17,9 +17,7 @@ public:
 	
 	void Data() override;
 	void ToolMenu(Bar& bar) override;
-	void ProcessVirtualPhrases();
-	void ProcessVirtualPhraseParts();
-	void ProcessVirtualPhrasePartsUsingExisting();
+	void Do(int fn);
 	
 };
 

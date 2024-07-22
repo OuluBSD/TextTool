@@ -1,11 +1,13 @@
 #include "TextDataCtrl.h"
 
-#if 0
+
 BEGIN_TEXTLIB_NAMESPACE
 
 
 PhrasePartAnalysis2::PhrasePartAnalysis2() {
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,30).HSizePos());
+	Add(prog.BottomPos(0,30).HSizePos(300));
+	Add(remaining.BottomPos(0,30).LeftPos(0,300));
 	
 	hsplit.Horz() << vsplit << parts;
 	hsplit.SetPos(2000);
@@ -54,6 +56,11 @@ PhrasePartAnalysis2::PhrasePartAnalysis2() {
 }
 
 void PhrasePartAnalysis2::ToolMenu(Bar& bar) {
+	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
+	bar.Separator();
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	#if 0
 	bar.Add(t_("Get typecasts"), AppImg::RedRing(), THISBACK1(DoPhrases, 4)).Key(K_F5);
 	bar.Add(t_("Get contrasts"), AppImg::RedRing(), THISBACK1(DoPhrases, 5)).Key(K_F6);
 	bar.Separator();
@@ -61,6 +68,7 @@ void PhrasePartAnalysis2::ToolMenu(Bar& bar) {
 	#ifdef flagDEBUG
 	bar.Separator();
 	bar.Add(t_("Clear all"), AppImg::BlackRing(), THISBACK(ClearAll));
+	#endif
 	#endif
 }
 
@@ -237,10 +245,14 @@ void PhrasePartAnalysis2::DataColor() {
 	
 }
 
-void PhrasePartAnalysis2::DoPhrases(int fn) {
+void PhrasePartAnalysis2::Do(int fn) {
+	DoT<PhrasePartAnalysisProcess>(fn);
+}
+
+/*void PhrasePartAnalysis2::DoPhrases(int fn) {
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoPhrases(fn);
-}
+}*/
 
 void PhrasePartAnalysis2::UpdateCounts() {
 	TextDatabase& db = GetDatabase();
@@ -278,4 +290,4 @@ void PhrasePartAnalysis2::UpdateCounts() {
 
 
 END_TEXTLIB_NAMESPACE
-#endif
+

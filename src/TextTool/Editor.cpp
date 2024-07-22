@@ -80,8 +80,7 @@ void ToolEditor::InitSimplified() {
 	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
 	
 	AddItem(t_("Database"), t_("Components"), src_data);
-	/*
-	AddItem(t_("Database"), t_("Structured Scripts"), structured_script);
+	
 	AddItem(t_("Database"), t_("Tokens"), tokens_data);
 	AddItem(t_("Database"), t_("Words"), component_words);
 	AddItem(t_("Database"), t_("Token phrases"), token_phrases);
@@ -94,6 +93,8 @@ void ToolEditor::InitSimplified() {
 	AddItem(t_("Database"), t_("Action attributes"), action_attrs);
 	AddItem(t_("Database"), t_("Attributes"), db_attrs);
 	AddItem(t_("Database"), t_("Diagnostics"), db_diagnostics);
+	/*
+	AddItem(t_("Database"), t_("Structured Scripts"), structured_script);
 	AddItem(t_("Database (Optional)"), t_("Phrase parts"), phrase_parts);
 	AddItem(t_("Database (Optional)"), t_("Action parallels"), action_parallels);
 	AddItem(t_("Database (Optional)"), t_("Action transitions"), action_transitions);

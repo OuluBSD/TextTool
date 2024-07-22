@@ -1,11 +1,13 @@
 #include "TextDataCtrl.h"
 
-#if 0
+
 BEGIN_TEXTLIB_NAMESPACE
 
 
 VirtualPhraseParts::VirtualPhraseParts() {
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,30).HSizePos());
+	Add(prog.BottomPos(0,30).HSizePos(300));
+	Add(remaining.BottomPos(0,30).LeftPos(0,300));
 	
 	hsplit.Horz() << texts;
 	hsplit.SetPos(2000);
@@ -63,12 +65,21 @@ void VirtualPhraseParts::Data() {
 void VirtualPhraseParts::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	#if 0
+	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
+	bar.Separator();
 	bar.Add(t_("Make structure names using existing"), AppImg::VioletRing(), THISBACK(ProcessStructureNamesUsingExisting)).Key(K_F5);
 	bar.Add(t_("Make structure names"), AppImg::RedRing(), THISBACK(ProcessStructureNames)).Key(K_F6);
-	
+	#endif
 }
 
-void VirtualPhraseParts::ProcessStructureNames() {
+void VirtualPhraseParts::Do(int fn) {
+	DoT<VirtualPhrasePartsProcess>(fn);
+}
+
+/*void VirtualPhraseParts::ProcessStructureNames() {
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoVirtualPhrases(2);
 }
@@ -76,8 +87,8 @@ void VirtualPhraseParts::ProcessStructureNames() {
 void VirtualPhraseParts::ProcessStructureNamesUsingExisting() {
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoVirtualPhrasesUsingExisting(2);
-}
+}*/
 
 
 END_TEXTLIB_NAMESPACE
-#endif
+
