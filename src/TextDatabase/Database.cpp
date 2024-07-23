@@ -90,6 +90,8 @@ void TextDatabase::Load() {
 	lock.EnterWrite();
 	LoadFromJsonFileStandard(*this, dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir() + DIR_SEPS + "src.json");
 	lock.LeaveWrite();
+	
+	loaded = true;
 }
 
 void TextDatabase::FindOrphaned() {

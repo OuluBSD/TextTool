@@ -21,7 +21,7 @@ void SolverBase::ProcessInParallel() {
 	batch = 0;
 	sub_batch = -1;
 	
-	TimeStop update_ts, progress_ts, total_ts;
+	TimeStop update_ts, progress_ts;
 	time_started = GetSysTime();
 	
 	int workers = max(1,CPU_Cores()-1);
@@ -42,21 +42,7 @@ void SolverBase::ProcessInParallel() {
 		}
 		
 		if (progress_ts.Seconds() >= 10) {
-			double progress = GetProgress();
-			if (progress > 0.0) {
-				double seconds = total_ts.Seconds();
-				double per_second = progress / seconds;
-				double remaining = 1 - progress;
-				double remaining_seconds = remaining / per_second;
-				double mins = remaining_seconds / 60.0;
-				double hours = mins / 60.0;
-				double secs = fmod(remaining_seconds, 60.0);
-				mins = fmod(mins, 60.0);
-				String s = Format("Remaining: %d hours, %d mins, %d seconds", (int)hours, (int)mins, (int)secs);
-				//LOG(s);
-				WhenRemaining(s);
-			}
-			
+			PostRemaining();
 			progress_ts.Reset();
 		}
 		
@@ -65,6 +51,24 @@ void SolverBase::ProcessInParallel() {
 	
 	running = false;
 	stopped = true;
+}
+
+void SolverBase::PostRemaining() {
+	double progress = GetProgress();
+	if (progress > 0.0) {
+		Time now = GetSysTime();
+		double seconds = now.Get() - time_started.Get();
+		double per_second = progress / seconds;
+		double remaining = 1 - progress;
+		double remaining_seconds = remaining / per_second;
+		double mins = remaining_seconds / 60.0;
+		double hours = mins / 60.0;
+		double secs = fmod(remaining_seconds, 60.0);
+		mins = fmod(mins, 60.0);
+		String s = Format("Remaining: %d hours, %d mins, %d seconds", (int)hours, (int)mins, (int)secs);
+		//LOG(s);
+		WhenRemaining(s);
+	}
 }
 
 void SolverBase::SetNotRunning() {running = false;}
@@ -159,7 +163,7 @@ void SolverBase::ProcessInOrder() {
 	batch = 0;
 	sub_batch = 0;
 	
-	TimeStop update_ts;
+	TimeStop update_ts, progress_ts;
 	
 	while (running && !Thread::IsShutdownThreads()) {
 		if (waiting) {
@@ -194,6 +198,11 @@ void SolverBase::ProcessInOrder() {
 		if (update_ts.Seconds() >= 0.1) {
 			PostProgress();
 			update_ts.Reset();
+		}
+		
+		if (progress_ts.Seconds() >= 10) {
+			PostRemaining();
+			progress_ts.Reset();
 		}
 		
 		Sleep(1);

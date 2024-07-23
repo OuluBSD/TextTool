@@ -29,6 +29,8 @@ public:
 	void AttrsUsingExisting();
 	void Attrs();
 
+	int BatchCount(int phase) const;
+	
 public:
 	typedef ActionAttrsProcess CLASSNAME;
 	ActionAttrsProcess();

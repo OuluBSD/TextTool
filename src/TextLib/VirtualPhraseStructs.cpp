@@ -14,11 +14,14 @@ int VirtualPhraseStructsProcess::GetPhaseCount() const {
 }
 
 int VirtualPhraseStructsProcess::GetBatchCount(int phase) const {
-	TODO ; return 0;
+	if (phase == PHASE_GET)
+		return GetDatabase().src_data.a.dataset.token_texts.GetCount();
+	else
+		return 1;
 }
 
 int VirtualPhraseStructsProcess::GetSubBatchCount(int phase, int batch) const {
-	TODO ; return 0;
+	return 1;
 }
 
 void VirtualPhraseStructsProcess::DoPhase() {
@@ -33,14 +36,26 @@ void VirtualPhraseStructsProcess::Get() {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	
+	
+	if (batch >= da.token_texts.GetCount()) {
+		da.diagnostics.GetAdd("token text to phrase: total") = IntStr(da.token_texts.GetCount());
+		da.diagnostics.GetAdd("token text to phrase: actual") = IntStr(actual);
+		da.diagnostics.GetAdd("token text to phrase: percentage") =  DblStr((double)actual / (double)da.token_texts.GetCount() * 100);
+		NextPhase();
+		return;
+	}
+	
+	
 	// NOTE: see duplicate in fn 0
 	// TODO reduce duplicate code
 	Vector<int> word_is, word_classes;
-	int a = 0;
-	for(int i = 0; i < da.token_texts.GetCount(); i++) {
+	int i = batch;
+	{
 		const TokenText& txt = da.token_texts[i];
-		if (txt.virtual_phrase < 0)
-			continue;
+		if (txt.virtual_phrase < 0) {
+			NextBatch();
+			return;
+		}
 		
 		// NOTE: see duplicate in fn 0
 		bool succ = true;
@@ -62,10 +77,12 @@ void VirtualPhraseStructsProcess::Get() {
 		}
 		
 		const VirtualPhrase& vp = da.virtual_phrases[txt.virtual_phrase];
-		if (word_is.GetCount() != vp.word_classes.GetCount())
-			continue;
+		if (word_is.GetCount() != vp.word_classes.GetCount()) {
+			NextBatch();
+			return;
+		}
 		
-		a++;
+		actual++;
 		
 		Vector<Vector<int>> w_isv, wc_isv;
 		Vector<int> w_is, wc_is;
@@ -132,9 +149,7 @@ void VirtualPhraseStructsProcess::Get() {
 		}
 	}
 	
-	da.diagnostics.GetAdd("token text to phrase: total") = IntStr(da.token_texts.GetCount());
-	da.diagnostics.GetAdd("token text to phrase: actual") = IntStr(a);
-	da.diagnostics.GetAdd("token text to phrase: percentage") =  DblStr((double)a / (double)da.token_texts.GetCount() * 100);
+	NextBatch();
 }
 
 VirtualPhraseStructsProcess& VirtualPhraseStructsProcess::Get(int appmode) {

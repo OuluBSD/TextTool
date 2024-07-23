@@ -10,6 +10,9 @@ class VirtualPhrasesProcess : public SolverBase {
 	Vector<void*> tmp_ptrs;
 	TokenArgs token_args;
 	
+	// Params
+	int per_action_task = 40;
+	
 public:
 	enum {
 		PHASE_IMPORT_TOKEN_TEXTS,

@@ -14,11 +14,22 @@ int ActionAttrsProcess::GetPhaseCount() const {
 }
 
 int ActionAttrsProcess::GetBatchCount(int phase) const {
-	TODO ; return 0;
+	int per_action_task = BatchCount(phase);
+	int total = 0;
+	for (const auto& v : uniq_acts)
+		total += v.GetCount();
+	
+	switch (phase) {
+		case PHASE_COLORS_USING_EXISTING: return DB_COUNT;
+		case PHASE_COLORS: return (total + per_action_task - 1) / per_action_task;
+		case PHASE_ATTRS_USING_EXISTING: return DB_COUNT;
+		case PHASE_ATTRS: return (total + per_action_task - 1) / per_action_task;
+		default: TODO; return 1;
+	}
 }
 
 int ActionAttrsProcess::GetSubBatchCount(int phase, int batch) const {
-	TODO ; return 0;
+	return 1;
 }
 
 void ActionAttrsProcess::DoPhase() {
@@ -63,6 +74,13 @@ void ActionAttrsProcess::PrepareUsingExisting() {
 	}
 }
 
+int ActionAttrsProcess::BatchCount(int fn) const {
+	int per_action_task = 0;
+	if (fn == 0)	per_action_task = per_action_clrs;
+	if (fn == 1)	per_action_task = per_action_attrs;
+	return per_action_task;
+}
+
 void ActionAttrsProcess::Prepare(int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
@@ -71,10 +89,7 @@ void ActionAttrsProcess::Prepare(int fn) {
 	
 	args.fn = fn;
 	
-	int per_action_task = 0;
-	if (fn == 0)	per_action_task = per_action_clrs;
-	if (fn == 1)	per_action_task = per_action_attrs;
-	
+	int per_action_task = BatchCount(fn);
 	int begin = batch * per_action_task;
 	int end = begin + per_action_task;
 	
@@ -125,28 +140,35 @@ void ActionAttrsProcess::ColorsUsingExisting() {
 	
 	Color black(0,0,0);
 	
-	for(int i = 0; i < DB_COUNT; i++) {
-		if (i == appmode) continue;
-		TextDatabase& db1 = MetaDatabase::Single().db[i];
-		SourceData& sd1 = db1.src_data;
-		SourceDataAnalysis& sda1 = db1.src_data.a;
-		DatasetAnalysis& da1 = sda1.dataset;
+	if (batch >= DB_COUNT) {
+		NextPhase();
+		return;
+	}
+	
+	int i = batch;
+	if (i == appmode) {NextBatch(); return;}
+	TextDatabase& db1 = MetaDatabase::Single().db[i];
+	SourceData& sd1 = db1.src_data;
+	SourceDataAnalysis& sda1 = db1.src_data.a;
+	DatasetAnalysis& da1 = sda1.dataset;
+	if (!db1.loaded) {NextBatch(); return;}
+	
+	for(int j = 0; j < da0.actions.GetCount(); j++) {
+		const ActionHeader& ah0 = da0.actions.GetKey(j);
+		ExportAction& ea0 = da0.actions[j];
 		
-		for(int j = 0; j < da0.actions.GetCount(); j++) {
-			const ActionHeader& ah0 = da0.actions.GetKey(j);
-			ExportAction& ea0 = da0.actions[j];
+		if (ea0.clr == black) {
+			int k = da1.actions.Find(ah0);
+			if (k < 0)
+				continue;
 			
-			if (ea0.clr == black) {
-				int k = da1.actions.Find(ah0);
-				if (k < 0)
-					continue;
-				
-				const ExportAction& ea1 = da1.actions[k];
-				if (ea1.clr != black)
-					ea0.clr = ea1.clr;
-			}
+			const ExportAction& ea1 = da1.actions[k];
+			if (ea1.clr != black)
+				ea0.clr = ea1.clr;
 		}
 	}
+	
+	NextBatch();
 }
 
 void ActionAttrsProcess::Colors() {
@@ -227,36 +249,43 @@ void ActionAttrsProcess::AttrsUsingExisting() {
 	SourceDataAnalysis& sda0 = db0.src_data.a;
 	DatasetAnalysis& da0 = sda0.dataset;
 	
+	if (batch >= DB_COUNT) {
+		NextPhase();
+		return;
+	}
+	
 	actual = 0;
 	total = 0;
 	
 	Color black(0,0,0);
 	
-	for(int i = 0; i < DB_COUNT; i++) {
-		if (i == appmode) continue;
-		TextDatabase& db1 = MetaDatabase::Single().db[i];
-		SourceData& sd1 = db1.src_data;
-		SourceDataAnalysis& sda1 = db1.src_data.a;
-		DatasetAnalysis& da1 = sda1.dataset;
+	int i = batch;
+	if (i == appmode) {NextBatch(); return;}
+	TextDatabase& db1 = MetaDatabase::Single().db[i];
+	SourceData& sd1 = db1.src_data;
+	SourceDataAnalysis& sda1 = db1.src_data.a;
+	DatasetAnalysis& da1 = sda1.dataset;
+	if (!db1.loaded) {NextBatch(); return;}
+	
+	for(int j = 0; j < da0.actions.GetCount(); j++) {
+		const ActionHeader& ah0 = da0.actions.GetKey(j);
+		ExportAction& ea0 = da0.actions[j];
 		
-		for(int j = 0; j < da0.actions.GetCount(); j++) {
-			const ActionHeader& ah0 = da0.actions.GetKey(j);
-			ExportAction& ea0 = da0.actions[j];
+		if (ea0.attr < 0) {
+			int k = da1.actions.Find(ah0);
+			if (k < 0)
+				continue;
 			
-			if (ea0.attr < 0) {
-				int k = da1.actions.Find(ah0);
-				if (k < 0)
-					continue;
-				
-				const ExportAction& ea1 = da1.actions[k];
-				if (ea1.attr < 0)
-					continue;
-				
-				const AttrHeader& ath1 = da1.attrs.GetKey(ea1.attr);
-				ExportAttr& eat0 = da0.attrs.GetAdd(ath1, ea0.attr);
-			}
+			const ExportAction& ea1 = da1.actions[k];
+			if (ea1.attr < 0)
+				continue;
+			
+			const AttrHeader& ath1 = da1.attrs.GetKey(ea1.attr);
+			ExportAttr& eat0 = da0.attrs.GetAdd(ath1, ea0.attr);
 		}
 	}
+	
+	NextBatch();
 }
 
 void ActionAttrsProcess::Attrs() {
@@ -325,7 +354,6 @@ ActionAttrsProcess& ActionAttrsProcess::Get(int appmode) {
 	ts.appmode = appmode;
 	return ts;
 }
-
 
 
 END_TEXTLIB_NAMESPACE

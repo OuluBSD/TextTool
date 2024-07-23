@@ -13,11 +13,22 @@ int WordDataProcess::GetPhaseCount() const {
 }
 
 int WordDataProcess::GetBatchCount(int phase) const {
-	TODO ; return 0;
+	if (phase == PHASE_WORD_FIX)
+		return 1;
+	else if (phase == PHASE_WORD_PROCESS)
+		return GetDatabase().src_data.entities.GetCount();
+	else if (phase == PHASE_DETAILS)
+		return (GetDatabase().src_data.a.dataset.words.GetCount() + per_batch - 1) / per_batch;
+	else if (phase == PHASE_SYLLABLES)
+		return (GetDatabase().src_data.a.dataset.words.GetCount() + per_batch - 1) / per_batch;
+	else if (phase == PHASE_COPY_LINKED_DATA)
+		return 1;
+	else
+		return 1;
 }
 
 int WordDataProcess::GetSubBatchCount(int phase, int batch) const {
-	TODO ; return 0;
+	return 1;
 }
 
 void WordDataProcess::DoPhase() {
@@ -111,45 +122,46 @@ void WordDataProcess::WordProcess() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
-	
 	DatasetAnalysis& ds = sda.dataset;
-	
-	
 	const Vector<EntityDataset>& dataset = sd.entities;
-	for(int j = 0; j < dataset.GetCount(); j++) {
-		const EntityDataset& artist = dataset[j];
-		//EntityAnalysis& aa = ds.entities.GetAdd(artist.name);
-		//aa.word_counts.Clear();
+	
+	if (batch >= dataset.GetCount()) {
+		NextPhase();
+		return;
+	}
+	
+	const EntityDataset& artist = dataset[batch];
+	//EntityAnalysis& aa = ds.entities.GetAdd(artist.name);
+	//aa.word_counts.Clear();
+	
+	for(int k = 0; k < artist.scripts.GetCount(); k++) {
+		const ScriptDataset& song = artist.scripts[k];
 		
-		for(int k = 0; k < artist.scripts.GetCount(); k++) {
-			const ScriptDataset& song = artist.scripts[k];
+		String text = song.text;
+		if (GetDefaultCharset() != CHARSET_UTF8)
+			text = ToCharset(CHARSET_DEFAULT, text, CHARSET_UTF8);
+		
+		Vector<String> lines = Split(text, "\n");
+		for (String& l : lines) {
+			Vector<String> words;
+			GetWords(l, words);
+			if (words.IsEmpty()) continue;
 			
-			String text = song.text;
-			if (GetDefaultCharset() != CHARSET_UTF8)
-				text = ToCharset(CHARSET_DEFAULT, text, CHARSET_UTF8);
+			for (String& w : words) {
+				w = ToLower(w.ToWString()).ToString();
+			}
 			
-			Vector<String> lines = Split(text, "\n");
-			for (String& l : lines) {
-				Vector<String> words;
-				GetWords(l, words);
-				if (words.IsEmpty()) continue;
-				
-				for (String& w : words) {
-					w = ToLower(w.ToWString()).ToString();
-				}
-				
-				//aa.total_words += words.GetCount();
-				for (String& w : words) {
-					//aa.word_counts.GetAdd(w, 0)++;
-					int w_i = -1;
-					ExportWord& wa = ds.words.GetAdd(w, w_i);
-					wa.count++;
-				}
+			//aa.total_words += words.GetCount();
+			for (String& w : words) {
+				//aa.word_counts.GetAdd(w, 0)++;
+				int w_i = -1;
+				ExportWord& wa = ds.words.GetAdd(w, w_i);
+				wa.count++;
 			}
 		}
 	}
 	
-	NextPhase();
+	NextBatch();
 }
 
 void WordDataProcess::Details() {
@@ -157,7 +169,6 @@ void WordDataProcess::Details() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
-	int per_batch = 30;
 	
 	ASSERT(batch >= 0);
 	int begin = batch * per_batch;

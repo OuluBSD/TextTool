@@ -14,11 +14,21 @@ int PhrasePartAnalysisProcess::GetPhaseCount() const {
 }
 
 int PhrasePartAnalysisProcess::GetBatchCount(int phase) const {
-	TODO ; return 0;
+	int per_action_task = BatchCount(phase);
+	return (GetDatabase().src_data.a.dataset.phrase_parts.GetCount() + per_action_task + 1) / per_action_task;
 }
 
 int PhrasePartAnalysisProcess::GetSubBatchCount(int phase, int batch) const {
-	TODO ; return 0;
+	return 1;
+}
+
+int PhrasePartAnalysisProcess::BatchCount(int phase) const {
+	int per_action_task = 50;
+	if (phase == 5)
+		per_action_task = 20;
+	else if (phase >= 2)
+		per_action_task = 35;
+	return per_action_task;
 }
 
 void PhrasePartAnalysisProcess::DoPhase() {
@@ -45,11 +55,7 @@ void PhrasePartAnalysisProcess::Do(int fn) {
 	args.fn = fn;
 	args.phrases.Clear();
 	
-	int per_action_task = 50;
-	if (args.fn == 5)
-		per_action_task = 20;
-	else if (args.fn >= 2)
-		per_action_task = 35;
+	int per_action_task = BatchCount(fn);
 	
 	int begin = batch * per_action_task;
 	int end = begin + per_action_task;

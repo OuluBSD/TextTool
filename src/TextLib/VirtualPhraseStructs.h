@@ -6,6 +6,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class VirtualPhraseStructsProcess : public SolverBase {
+	int actual = 0;
 	
 public:
 	enum {

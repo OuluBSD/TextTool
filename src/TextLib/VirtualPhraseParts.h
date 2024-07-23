@@ -9,6 +9,9 @@ class VirtualPhrasePartsProcess : public SolverBase {
 	TokenArgs token_args;
 	Vector<void*> tmp_ptrs;
 	
+	// Params
+	int per_action_task = 65;
+	
 public:
 	enum {
 		PHASE_GET_USING_EXISTING,

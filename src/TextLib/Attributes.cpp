@@ -14,15 +14,27 @@ int AttributesProcess::GetPhaseCount() const {
 }
 
 int AttributesProcess::GetBatchCount(int phase) const {
-	TODO ; return 0;
+	switch (phase) {
+		case PHASE_MAIN_GROUPS:		return attr_extremes_batches.GetCount();
+		case PHASE_SIMPLIFY_ATTRS:	return attr_polar_batches.GetCount();
+		case PHASE_JOIN_ORPHANED:	return attr_join_batches.GetCount();
+		case PHASE_FIX_DATA:		return 1;
+		
+		default: return 1;
+	};
 }
 
 int AttributesProcess::GetSubBatchCount(int phase, int batch) const {
-	TODO ; return 0;
+	switch (phase) {
+		case PHASE_MAIN_GROUPS:		return 1;
+		case PHASE_SIMPLIFY_ATTRS:	return 1;
+		case PHASE_JOIN_ORPHANED:	return 1;
+		case PHASE_FIX_DATA:		return 1;
+		default: return 1;
+	};
 }
 
 void AttributesProcess::DoPhase() {
-	
 	switch (phase) {
 		case PHASE_MAIN_GROUPS:		MainGroups(); return;
 		case PHASE_SIMPLIFY_ATTRS:	SimplifyAttrs(); return;
@@ -407,7 +419,8 @@ void AttributesProcess::FixData() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
-		for(int i = 0; i < da.attrs.GetCount(); i++) {
+	
+	for(int i = 0; i < da.attrs.GetCount(); i++) {
 		da.attrs[i].simple_attr = -1;
 	}
 	// Fix: add simple_attr index value to ExportAttr

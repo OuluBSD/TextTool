@@ -14,20 +14,23 @@ int AmbiguousWordPairsProcess::GetPhaseCount() const {
 }
 
 int AmbiguousWordPairsProcess::GetBatchCount(int phase) const {
-	TODO ; return 0;
+	if (phase == PHASE_GET_USING_EXISTING)
+		return DB_COUNT;
+	else if (phase == PHASE_GET)
+		return GetDatabase().src_data.a.dataset.ambiguous_word_pairs.GetCount() / per_action_task;
+	else
+		return 1;
 }
 
 int AmbiguousWordPairsProcess::GetSubBatchCount(int phase, int batch) const {
-	TODO ; return 0;
+	return 1;
 }
 
 void AmbiguousWordPairsProcess::DoPhase() {
-	
 	if (phase == PHASE_GET_USING_EXISTING)
 		GetUsingExisting();
 	else if (phase == PHASE_GET)
 		Get();
-	
 }
 
 void AmbiguousWordPairsProcess::GetUsingExisting() {
@@ -37,55 +40,61 @@ void AmbiguousWordPairsProcess::GetUsingExisting() {
 	SourceDataAnalysis& sda0 = db0.src_data.a;
 	DatasetAnalysis& da0 = sda0.dataset;
 	
-	for(int i = 0; i < DB_COUNT; i++) {
-		if (i == appmode) continue;
-		TextDatabase& db1 = MetaDatabase::Single().db[i];
-		SourceData& sd1 = db1.src_data;
-		SourceDataAnalysis& sda1 = db1.src_data.a;
-		DatasetAnalysis& da1 = sda1.dataset;
+	if (batch >= DB_COUNT) {
+		LOG("TaskManager::GetAmbiguousWordPairsUsingExisting: copying values took " << ts.ToString());
+		LOG("");
+		NextPhase();
+		return;
+	}
+	
+	int i = batch;
+	if (i == appmode) {NextBatch(); return;}
+	TextDatabase& db1 = MetaDatabase::Single().db[i];
+	SourceData& sd1 = db1.src_data;
+	SourceDataAnalysis& sda1 = db1.src_data.a;
+	DatasetAnalysis& da1 = sda1.dataset;
+	if (!db1.loaded) {NextBatch(); return;}
+	
+	for(int j = 0; j < da0.ambiguous_word_pairs.GetCount(); j++) {
+		// If token has no connected word in this database
+		WordPairType& wpt0 = da0.ambiguous_word_pairs[j];
+		if (wpt0.from < 0 || wpt0.to < 0) continue;
 		
-		for(int j = 0; j < da0.ambiguous_word_pairs.GetCount(); j++) {
-			// If token has no connected word in this database
-			WordPairType& wpt0 = da0.ambiguous_word_pairs[j];
-			if (wpt0.from < 0 || wpt0.to < 0) continue;
+		if (wpt0.from_type < 0 || wpt0.to_type < 0) {
+			const String& from_str0 = da0.words.GetKey(wpt0.from);
+			const String& to_str0 = da0.words.GetKey(wpt0.to);
 			
-			if (wpt0.from_type < 0 || wpt0.to_type < 0) {
-				const String& from_str0 = da0.words.GetKey(wpt0.from);
-				const String& to_str0 = da0.words.GetKey(wpt0.to);
-				
-				
-				// Then find it in other
-				int k = -1;
-				for(int j = 0; j < da1.ambiguous_word_pairs.GetCount(); j++) {
-					const WordPairType& wpt1 = da1.ambiguous_word_pairs[j];
-					if (wpt1.from < 0 || wpt1.to < 0)
-						continue;
-					const String& from_str1 = da1.words.GetKey(wpt1.from);
-					const String& to_str1 = da1.words.GetKey(wpt1.to);
-					if (from_str0 == from_str1 && to_str0 == to_str1) {
-						k = j;
-						break;
-					}
+			
+			// Then find it in other
+			int k = -1;
+			for(int j = 0; j < da1.ambiguous_word_pairs.GetCount(); j++) {
+				const WordPairType& wpt1 = da1.ambiguous_word_pairs[j];
+				if (wpt1.from < 0 || wpt1.to < 0)
+					continue;
+				const String& from_str1 = da1.words.GetKey(wpt1.from);
+				const String& to_str1 = da1.words.GetKey(wpt1.to);
+				if (from_str0 == from_str1 && to_str0 == to_str1) {
+					k = j;
+					break;
 				}
-				if (k < 0)
-					continue;
-				
-				// ...if the other has type
-				const WordPairType& wpt1 = da1.ambiguous_word_pairs[k];
-				if (wpt1.from_type < 0 || wpt1.to_type < 0)
-					continue;
-				
-				// Copy word to avoid useless AI usage
-				const String& from_type_class1 = da1.word_classes[wpt1.from_type];
-				const String& to_type_class1 = da1.word_classes[wpt1.to_type];
-				wpt0.from_type = da0.word_classes.FindAdd(from_type_class1);
-				wpt0.to_type   = da0.word_classes.FindAdd(to_type_class1);
 			}
+			if (k < 0)
+				continue;
+			
+			// ...if the other has type
+			const WordPairType& wpt1 = da1.ambiguous_word_pairs[k];
+			if (wpt1.from_type < 0 || wpt1.to_type < 0)
+				continue;
+			
+			// Copy word to avoid useless AI usage
+			const String& from_type_class1 = da1.word_classes[wpt1.from_type];
+			const String& to_type_class1 = da1.word_classes[wpt1.to_type];
+			wpt0.from_type = da0.word_classes.FindAdd(from_type_class1);
+			wpt0.to_type   = da0.word_classes.FindAdd(to_type_class1);
 		}
 	}
 	
-	LOG("TaskManager::GetAmbiguousWordPairsUsingExisting: copying values took " << ts.ToString());
-	LOG("");
+	NextBatch();
 }
 
 void AmbiguousWordPairsProcess::Get() {
@@ -98,7 +107,6 @@ void AmbiguousWordPairsProcess::Get() {
 	args.fn = 1;
 	args.words.Clear();
 	
-	int per_action_task = 100;
 	int begin = batch * per_action_task;
 	int end = begin + per_action_task;
 	end = min(end, da.ambiguous_word_pairs.GetCount());

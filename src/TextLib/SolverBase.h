@@ -25,7 +25,7 @@ protected:
 	bool waiting = false;
 	bool running = false, stopped = true;
 	bool skip_ready = true;
-	bool parallel = true;
+	bool parallel = false;
 	
 	void Process();
 	void ProcessInParallel();
@@ -33,6 +33,7 @@ protected:
 	void ParallelWorker(int id);
 	
 	void PostProgress();
+	void PostRemaining();
 	void SetNotRunning();
 	void SetWaiting(bool b);
 	void SetGenerations(int i);

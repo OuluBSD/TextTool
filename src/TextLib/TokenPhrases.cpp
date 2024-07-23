@@ -14,11 +14,11 @@ int TokenPhrasesProcess::GetPhaseCount() const {
 }
 
 int TokenPhrasesProcess::GetBatchCount(int phase) const {
-	TODO ; return 0;
+	return 1;
 }
 
 int TokenPhrasesProcess::GetSubBatchCount(int phase, int batch) const {
-	TODO ; return 0;
+	return 1;
 }
 
 void TokenPhrasesProcess::DoPhase() {

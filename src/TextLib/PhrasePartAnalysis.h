@@ -30,7 +30,9 @@ public:
 	void OnPhraseScores(String result);
 	void OnPhraseTypeclasses(String result);
 	void OnPhraseContrast(String result);
-
+	
+	int BatchCount(int phase) const;
+	
 public:
 	typedef PhrasePartAnalysisProcess CLASSNAME;
 	PhrasePartAnalysisProcess();

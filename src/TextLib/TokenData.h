@@ -15,6 +15,7 @@ public:
 		PHASE_COUNT
 	};
 	
+	int per_action_task = 100;
 	int actual = 0, total = 0;
 	TokenArgs token_args;
 	

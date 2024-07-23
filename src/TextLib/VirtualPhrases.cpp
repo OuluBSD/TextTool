@@ -14,11 +14,16 @@ int VirtualPhrasesProcess::GetPhaseCount() const {
 }
 
 int VirtualPhrasesProcess::GetBatchCount(int phase) const {
-	TODO ; return 0;
+	switch (phase) {
+		case PHASE_IMPORT_TOKEN_TEXTS: return 1;
+		case PHASE_GET_PARTS_USING_EXISTING: return DB_COUNT;
+		case PHASE_GET_PARTS: return GetDatabase().src_data.a.dataset.virtual_phrase_parts.GetCount() / per_action_task;
+		default: TODO; return 1;
+	}
 }
 
 int VirtualPhrasesProcess::GetSubBatchCount(int phase, int batch) const {
-	TODO ; return 0;
+	return 1;
 }
 
 void VirtualPhrasesProcess::DoPhase() {
@@ -171,49 +176,56 @@ void VirtualPhrasesProcess::GetPartsUsingExisting() {
 	SourceDataAnalysis& sda0 = db0.src_data.a;
 	DatasetAnalysis& da0 = sda0.dataset;
 	
-	for(int i = 0; i < DB_COUNT; i++) {
-		if (i == appmode) continue;
-		TextDatabase& db1 = MetaDatabase::Single().db[i];
-		SourceData& sd1 = db1.src_data;
-		SourceDataAnalysis& sda1 = db1.src_data.a;
-		DatasetAnalysis& da1 = sda1.dataset;
-		
-		for(int j = 0; j < da0.virtual_phrase_parts.GetCount(); j++) {
-			// If virtual phrase part has no known type
-			VirtualPhrasePart& vpp0 = da0.virtual_phrase_parts[j];
-			if (vpp0.struct_part_type < 0) {
-				// Calculate da1 hash (since key hash is local to da0)
-				CombineHash ch;
-				bool hash_fail = false;
-				for (int wc0: vpp0.word_classes) {
-					const String& common_key = da0.word_classes[wc0];
-					int wc_i1 = da1.word_classes.Find(common_key);
-					if (wc_i1 < 0) {
-						hash_fail = true; // cannot make common hash (it's not in the list anyway then)
-						break;
-					}
-					ch.Do(wc_i1).Put(1);
+	if (batch >= DB_COUNT) {
+		NextPhase();
+		return;
+	}
+	
+	int i = batch;
+	if (i == appmode) {NextBatch(); return;}
+	TextDatabase& db1 = MetaDatabase::Single().db[i];
+	SourceData& sd1 = db1.src_data;
+	SourceDataAnalysis& sda1 = db1.src_data.a;
+	DatasetAnalysis& da1 = sda1.dataset;
+	if (!db1.loaded) {NextBatch(); return;}
+	
+	for(int j = 0; j < da0.virtual_phrase_parts.GetCount(); j++) {
+		// If virtual phrase part has no known type
+		VirtualPhrasePart& vpp0 = da0.virtual_phrase_parts[j];
+		if (vpp0.struct_part_type < 0) {
+			// Calculate da1 hash (since key hash is local to da0)
+			CombineHash ch;
+			bool hash_fail = false;
+			for (int wc0: vpp0.word_classes) {
+				const String& common_key = da0.word_classes[wc0];
+				int wc_i1 = da1.word_classes.Find(common_key);
+				if (wc_i1 < 0) {
+					hash_fail = true; // cannot make common hash (it's not in the list anyway then)
+					break;
 				}
-				if (hash_fail)
-					continue;
-				hash_t hash1 = ch;
-				
-				// Then find it in other
-				int k = da1.virtual_phrase_parts.Find(hash1);
-				if (k < 0)
-					continue;
-				
-				// ...if the other has type
-				const VirtualPhrasePart& vpp1 = da1.virtual_phrase_parts[k];
-				if (vpp1.struct_part_type < 0)
-					continue;
-				
-				// Copy type to avoid useless AI usage
-				const String& struct_part_type = da1.struct_part_types[vpp1.struct_part_type];
-				vpp0.struct_part_type = da0.struct_part_types.FindAdd(struct_part_type);
+				ch.Do(wc_i1).Put(1);
 			}
+			if (hash_fail)
+				continue;
+			hash_t hash1 = ch;
+			
+			// Then find it in other
+			int k = da1.virtual_phrase_parts.Find(hash1);
+			if (k < 0)
+				continue;
+			
+			// ...if the other has type
+			const VirtualPhrasePart& vpp1 = da1.virtual_phrase_parts[k];
+			if (vpp1.struct_part_type < 0)
+				continue;
+			
+			// Copy type to avoid useless AI usage
+			const String& struct_part_type = da1.struct_part_types[vpp1.struct_part_type];
+			vpp0.struct_part_type = da0.struct_part_types.FindAdd(struct_part_type);
 		}
 	}
+	
+	NextBatch();
 }
 
 void VirtualPhrasesProcess::GetParts() {
@@ -226,7 +238,6 @@ void VirtualPhrasesProcess::GetParts() {
 	args.fn = 2;
 	args.words.Clear();
 	
-	int per_action_task = 40;
 	int iter = 0;
 	int begin = batch * per_action_task;
 	int end = begin + per_action_task;

@@ -73,6 +73,7 @@ struct TextDatabase {
 	
 	// Temp
 	RWMutex			lock;
+	bool			loaded = false;
 	
 	TextDatabase();
 	Array<Entity>& GetSub() {return entities;}

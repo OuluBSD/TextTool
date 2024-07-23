@@ -13,11 +13,15 @@ int TokenDataProcess::GetPhaseCount() const {
 }
 
 int TokenDataProcess::GetBatchCount(int phase) const {
-	TODO ; return 0;
+	switch (phase) {
+		case PHASE_GET_USING_EXISTING: return 1;
+		case PHASE_GET: return (GetDatabase().src_data.a.dataset.tokens.GetCount() + per_action_task - 1) / per_action_task;
+		default: TODO; return 0;
+	}
 }
 
 int TokenDataProcess::GetSubBatchCount(int phase, int batch) const {
-	TODO ; return 0;
+	return 1;
 }
 
 void TokenDataProcess::DoPhase() {
@@ -53,6 +57,7 @@ void TokenDataProcess::GetUsingExisting() {
 		SourceData& sd1 = db1.src_data;
 		SourceDataAnalysis& sda1 = db1.src_data.a;
 		DatasetAnalysis& da1 = sda1.dataset;
+		if (!db1.loaded) continue;
 		
 		for(int j = 0; j < da0.tokens.GetCount(); j++) {
 			// If token has no connected word in this database
@@ -152,6 +157,7 @@ void TokenDataProcess::GetUsingExisting() {
 		SourceDataAnalysis& sda1 = db1.src_data.a;
 		DatasetAnalysis& da1 = sda1.dataset;
 		auto& translations1 = da1.translations[lng_i];
+		if (!db1.loaded) continue;
 		
 		for(const String& wrd_str0 : da0.words.GetKeys()) {
 			if (translations0[lng_i].Find(wrd_str0) < 0) {
@@ -166,6 +172,8 @@ void TokenDataProcess::GetUsingExisting() {
 	
 	LOG("TaskManager::GetTokenDataUsingExisting: copying values took " << ts.ToString());
 	LOG("");
+	
+	NextPhase();
 }
 
 void TokenDataProcess::Get() {
@@ -180,7 +188,6 @@ void TokenDataProcess::Get() {
 	
 	if (batch == 0) total = 0;
 	
-	int per_action_task = 100;
 	int begin = batch * per_action_task;
 	int end = begin + per_action_task;
 	end = min(end, da.tokens.GetCount());

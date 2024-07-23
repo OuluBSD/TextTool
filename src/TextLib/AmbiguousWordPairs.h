@@ -9,6 +9,9 @@ class AmbiguousWordPairsProcess : public SolverBase {
 	TokenArgs token_args;
 	Vector<void*> tmp_ptrs;
 	
+	// Params
+	int per_action_task = 100;
+	
 public:
 	enum {
 		PHASE_GET_USING_EXISTING,

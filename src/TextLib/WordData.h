@@ -10,6 +10,9 @@ class WordDataProcess : public SolverBase {
 	int total = 0, actual = 0;
 	int lng_i = 0;
 	
+	// Params
+	int per_batch = 30;
+	
 public:
 	enum {
 		PHASE_WORD_FIX,
