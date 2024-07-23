@@ -42,6 +42,12 @@ void SourceDataCtrl::Data() {
 	if (!entities.IsCursor() && entities.GetCount())
 		entities.SetCursor(0);
 	
+	if (0) {
+		int scripts_total = 0;
+		for (const auto& d : data)
+			scripts_total += d.scripts.GetCount();
+		DUMP(scripts_total);
+	}
 	DataEntity();
 }
 
@@ -61,6 +67,7 @@ void SourceDataCtrl::DataEntity() {
 			s = ToCharset(CHARSET_DEFAULT, s, CHARSET_UTF8);
 		
 		components.Set(i, 0, s);
+		
 	}
 	
 	if (!components.IsCursor() && components.GetCount())
