@@ -484,18 +484,25 @@ String DatasetAnalysis::GetScriptDump(int i) const {
 	for(int i = 0; i < ss.parts.GetCount(); i++) {
 		const auto& part = ss.parts[i];
 		if (s.GetCount()) s << "\n";
-		s << Format("[%s]\n", GetTextModeString(part.type) + " " + IntStr(part.num+1));
+		s << Format("[%d: %s]\n", i, GetTextModeString(part.type) + " " + IntStr(part.num+1));
 		
 		for(int j = 0; j < part.sub.GetCount(); j++) {
 			const auto& sub = part.sub[j];
 			if (s.GetCount()) s << "\n";
-			s << Format("\t[%d: repeat %.2!m]\n", j, sub.repeat);
+			s << Format("\t[%d.%d: repeat %.2!m]\n", i,j, sub.repeat);
 			
-			for(int k = 0; k < sub.token_texts.GetCount(); k++) {
-				int tt_i = sub.token_texts[k];
-				if (tt_i < 0) continue;
-				const TokenText& tt = this->token_texts[tt_i];
-				s << "\t\t" << GetTokenTextString(tt) << "\n";
+			bool show_subsub = sub.sub.GetCount() > 1;
+			for(int k = 0; k < sub.sub.GetCount(); k++) {
+				const auto& ssub = sub.sub[k];
+				if (show_subsub)
+					s << Format("\t\t[%d.%d.%d]\n", i,j,k);
+				for(int l = 0; l < ssub.token_texts.GetCount(); l++) {
+					int tt_i = ssub.token_texts[l];
+					if (tt_i < 0) continue;
+					const TokenText& tt = this->token_texts[tt_i];
+					if (show_subsub) s.Cat('\t');
+					s << "\t\t" << GetTokenTextString(tt) << "\n";
+				}
 			}
 		}
 	}

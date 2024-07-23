@@ -119,9 +119,11 @@ void SourceDataImporter::Tokenize() {
 	data_lock.Enter();
 	ScriptStruct& ss = da.scripts.GetAdd(ss_hash, ss_i);
 	
-	int prev_msect = -1, prev_sect = -1;
+	int prev_msect = -1, prev_sect = -1, prev_ssect = -1;
 	ScriptStruct::Part* part = 0;
 	ScriptStruct::SubPart* subpart = 0;
+	ScriptStruct::SubSubPart* ssubpart = 0;
+	int ssub_line_i = 0;
 	for(int i = 0; i < solver.lines.GetCount(); i++) {
 		auto& line = solver.lines[i];
 		auto& sect = solver.sections[line.section];
@@ -130,14 +132,20 @@ void SourceDataImporter::Tokenize() {
 		if (prev_msect != sect.meta_section) {
 			part = &ss.parts.Add();
 			subpart = &part->sub.Add();
+			ssubpart = &subpart->sub.Add();
 			part->type = msect.type;
 			part->num = msect.num;
 			subpart->repeat = sect.repeat;
+			ssub_line_i = 0;
 		}
 		else if (prev_sect != line.section) {
 			subpart = &part->sub.Add();
 			subpart->repeat = sect.repeat;
+			ssubpart = &subpart->sub.Add();
+			ssub_line_i = 0;
 		}
+		else if (ssub_line_i > 0 && ssub_line_i % 4 == 0)
+			ssubpart = &subpart->sub.Add();
 		
 		if (!tk.Parse(line.txt))
 			continue;
@@ -164,12 +172,13 @@ void SourceDataImporter::Tokenize() {
 			}
 			
 			if (tt_i >= 0)
-				subpart->token_texts << tt_i;
+				ssubpart->token_texts << tt_i;
 			//data_lock.Leave();
 		}
 		
 		prev_msect = sect.meta_section;
 		prev_sect = line.section;
+		ssub_line_i++;
 	}
 	data_lock.Leave();
 	

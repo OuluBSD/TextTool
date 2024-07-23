@@ -354,6 +354,8 @@ String TryStrDistSectionSolverBase::GetResult() const {
 	String s;
 	int prev_msect = -1;
 	int prev_sect = -1;
+	int sect_line_i = -1;
+	bool have_sub_sect = false;
 	for(int i = 0; i < lines.GetCount(); i++) {
 		const Line& line = lines[i];
 		if (line.section != prev_sect) {
@@ -365,10 +367,27 @@ String TryStrDistSectionSolverBase::GetResult() const {
 				prev_msect = sect.meta_section;
 			}
 			else if (s.GetCount()) s << "\n";
-			s << Format("\t[section %d: count %d, repeat %.2!m %s]\n", line.section, sect.count, sect.repeat, sect.flag_repeating ? ", flag-repeating" : "");
+			s << Format("\t[section %d.%d: count %d, repeat %.2!m %s]\n", sect.meta_section, line.section, sect.count, sect.repeat, sect.flag_repeating ? ", flag-repeating" : "");
+			
+			// Sub-section
+			sect_line_i = 0;
+			int peek_len = 1;
+			for(int j = i+1; j < lines.GetCount(); j++) {
+				if (lines[j].section != line.section) break;
+				peek_len++;
+			}
+			have_sub_sect = peek_len >= 6;
 		}
+		// Sub-section
+		if (have_sub_sect && sect_line_i % 4 == 0)
+			s << Format("\t\t[sub-section %d.%d.%d]\n", prev_msect, line.section, sect_line_i / 4);
+		if (have_sub_sect)
+			s.Cat('\t');
+		
 		s << "\t\t" << line.txt << "\n";
 		prev_sect = line.section;
+		
+		sect_line_i++;
 	}
 	return s;
 }

@@ -205,40 +205,122 @@ void TryNo5tStructureSolver::MakeSections() {
 		if (rv.GetCount() <= 1)
 			continue;
 		
-		int sect_i = sections.GetCount();
-		Section& sect = sections.Add();
-		sect.repeat = 1.0;
-		sect.flag_repeating = true;
-		sect.count = 0;
-		int max_range = 0;
-		for(int j = 0; j < rv.GetCount(); j++) {
-			RangeHash& rh = ranges[rv[j]];
-			for (int ts_i : rh.sections) {
-				TmpSection& ts = tmp[ts_i];
-				bool add_lines = sect.first_line < 0;
-				if (add_lines)
-					sect.first_line = ts.begin;
-				for(int k = ts.begin; k < ts.end; k++) {
-					Line& line = lines[k];
-					line.section = sect_i;
+		#if 0
+		int max_len = 0;
+		for (const auto& r : rv)
+			max_len = max(max_len, ranges[r].len);
+		
+		bool sub_ranges = max_len >= 6;
+		
+		// Without sub-ranges
+		if (!sub_ranges)
+		#endif
+		{
+			int sect_i = sections.GetCount();
+			Section& sect = sections.Add();
+			sect.repeat = 1.0;
+			sect.flag_repeating = true;
+			sect.count = 0;
+			int max_range = 0;
+			for(int j = 0; j < rv.GetCount(); j++) {
+				RangeHash& rh = ranges[rv[j]];
+				for (int ts_i : rh.sections) {
+					TmpSection& ts = tmp[ts_i];
+					bool add_lines = sect.first_line < 0;
 					if (add_lines)
-						sect.lines << line.txt;
+						sect.first_line = ts.begin;
+					for(int k = ts.begin; k < ts.end; k++) {
+						Line& line = lines[k];
+						line.section = sect_i;
+						if (add_lines)
+							sect.lines << line.txt;
+					}
+					max_range = max(max_range, ts.end - ts.begin);
+					if (sect.first_line < 0)
+						sect.first_line = ts.begin;
 				}
-				max_range = max(max_range, ts.end - ts.begin);
-				if (sect.first_line < 0)
-					sect.first_line = ts.begin;
+			}
+			
+			// Count parts
+			int prev_sect = -1;
+			for (const Line& l : lines) {
+				if (l.section == sect_i && prev_sect != sect_i)
+					sect.count++;
+				prev_sect = l.section;
+			}
+			
+			sect.orig_weight = max_range;
+		}
+		#if 0
+		// With sub-ranges
+		else {
+			int range_i = 0;
+			while (true) {
+				int begin = range_i * 4;
+				int end = begin + 4;
+				bool any_overlap = false;
+				for(int j = 0; j < rv.GetCount(); j++) {
+					RangeHash& rh = ranges[rv[j]];
+					int b = 0, e = rh.len;
+					if ((b <  begin && e > end) ||
+						(b >= begin && b < end) ||
+						(e >= begin && e < end)) {
+						any_overlap = true;
+						break;
+					}
+				}
+				if (!any_overlap)
+					break;
+				
+				int sect_i = sections.GetCount();
+				Section& sect = sections.Add();
+				sect.repeat = 1.0;
+				sect.flag_repeating = true;
+				sect.count = 0;
+				int max_range = 0;
+				for(int j = 0; j < rv.GetCount(); j++) {
+					RangeHash& rh = ranges[rv[j]];
+					int b = 0, e = rh.len;
+					bool overlap = false;
+					if ((b <  begin && e > end) ||
+						(b >= begin && b < end) ||
+						(e >= begin && e < end)) {
+						overlap = true;
+					}
+					if (!overlap)
+						continue;
+					
+					for (int ts_i : rh.sections) {
+						TmpSection& ts = tmp[ts_i];
+						bool add_lines = sect.first_line < 0;
+						if (add_lines)
+							sect.first_line = ts.begin + begin;
+						for(int k = ts.begin + begin; k < ts.begin + end; k++) {
+							Line& line = lines[k];
+							line.section = sect_i;
+							if (add_lines)
+								sect.lines << line.txt;
+						}
+						max_range = max(max_range, min(ts.begin + end, ts.end) - (ts.begin + begin));
+						if (sect.first_line < 0)
+							sect.first_line = ts.begin + begin;
+					}
+				}
+				
+				// Count parts
+				int prev_sect = -1;
+				for (const Line& l : lines) {
+					if (l.section == sect_i && prev_sect != sect_i)
+						sect.count++;
+					prev_sect = l.section;
+				}
+				
+				sect.orig_weight = max_range;
+				
+				range_i++;
 			}
 		}
-		
-		// Count parts
-		int prev_sect = -1;
-		for (const Line& l : lines) {
-			if (l.section == sect_i && prev_sect != sect_i)
-				sect.count++;
-			prev_sect = l.section;
-		}
-		
-		sect.orig_weight = max_range;
+		#endif
 	}
 	
 	

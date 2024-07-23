@@ -670,16 +670,23 @@ struct ComponentAnalysis {
 };
 
 struct ScriptStruct : Moveable<ScriptStruct> {
-	struct SubPart : Moveable<SubPart> {
+	struct SubSubPart : Moveable<SubSubPart> {
 		Vector<int> token_texts;
+		byte cls = 0;
+		void Serialize(Stream& s) {s % token_texts % cls;}
+	};
+	struct SubPart : Moveable<SubPart> {
+		Vector<SubSubPart> sub;
+		byte cls = 0;
 		int repeat = 0;
-		void Serialize(Stream& s) {s % token_texts % repeat;}
+		void Serialize(Stream& s) {s % sub % cls % repeat;}
 	};
 	struct Part : Moveable<Part> {
 		Vector<SubPart> sub;
 		int type = 0;
 		int num = 0;
-		void Serialize(Stream& s) {s % sub % type % num;}
+		byte cls = 0, typeclass = 0, content = 0;
+		void Serialize(Stream& s) {s % sub % type % num % cls % typeclass % content;}
 	};
 	Vector<Part> parts;
 	
