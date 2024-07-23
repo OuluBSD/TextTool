@@ -67,15 +67,5 @@ file
 	Try3.cpp,
 	Try4.cpp,
 	Try5.cpp,
-	TRASH readonly separator,
-	RhymeContainer.h,
-	RhymeContainer.cpp,
-	TaskManager.h,
-	On.cpp,
-	Get.cpp,
-	Do.cpp,
-	TaskManager.cpp,
-	Task.cpp,
-	CollabSolver.h,
-	CollabSolver.cpp;
+	TRASH readonly separator;
 
