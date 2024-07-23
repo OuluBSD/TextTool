@@ -100,6 +100,7 @@ void ToolEditor::InitSimplified() {
 	AddItem(t_("Database (Optional)"), t_("Action transitions"), action_transitions);
 	AddItem(t_("Database (Optional)"), t_("Rhyme container"), rhyme_container);
 	//AddItem(t_("Database"), t_("Wordnet"), component_wordnet);
+	*/
 	
 	AddItem("Entity", t_("Info"), entity_info);
 	
@@ -113,12 +114,16 @@ void ToolEditor::InitSimplified() {
 	
 	AddItem("Script", t_("Info"), script_info);
 	AddItem("Script", t_("Idea"), script_idea);
-	AddItem("Script", t_("Structure"), comp_struct);
-	AddItem("Script", t_("Pool"), script_pool);
-	AddItem("Script", t_("Script solver"), scripts_solver);
-	AddItem("Script", t_("Post edit"), script_edit);
-	AddItem("Script", t_("Post fix"), script_post_fix);
-	*/
+	AddItem("Script", t_("Structure solver"), script_struct_solver);
+	AddItem("Script", t_("Range solver"), script_range_solver);
+	AddItem("Script", t_("Text solver"), script_text_solver);
+	
+	// Deprecated
+	AddItem("Script", t_("_ Structure"), comp_struct);
+	AddItem("Script", t_("_ Pool"), script_pool);
+	AddItem("Script", t_("_ Script solver"), scripts_solver);
+	AddItem("Script", t_("_ Post edit"), script_edit);
+	AddItem("Script", t_("_ Post fix"), script_post_fix);
 }
 
 void ToolEditor::Init() {

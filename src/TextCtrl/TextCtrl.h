@@ -46,6 +46,9 @@
 #include "ScriptIdeaCtrl.h"
 #include "SocialBeliefs.h"
 #include "ScriptEdit.h"
+#include "ScriptStructureSolver.h"
+#include "ScriptRangeSolver.h"
+#include "ScriptTextSolver.h"
 
 
 #endif

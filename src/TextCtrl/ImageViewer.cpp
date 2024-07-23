@@ -20,11 +20,11 @@ void ImageViewerCtrl::Paint(Draw& d) {
 		Size new_sz;
 		if (orig_ratio < new_ratio) {
 			new_sz.cy = sz.cy;
-			new_sz.cx = sz.cy * orig_ratio;
+			new_sz.cx = (int)(sz.cy * orig_ratio);
 		}
 		else {
 			new_sz.cx = sz.cx;
-			new_sz.cy = sz.cx / orig_ratio;
+			new_sz.cy = (int)(sz.cx / orig_ratio);
 		}
 		
 		Image scaled_img = CachedRescale(img, new_sz, FILTER_BILINEAR);

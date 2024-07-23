@@ -21,16 +21,27 @@ protected:
 	bool				fast_exit = false;
 	
 	ImageGenTool					image_gen;
-	/*
-	SnapBriefing					snap_briefing;
-	SnapIdeas						snap_ideas;
-	ComponentStructure				comp_struct;
 	EntityInfoCtrl					entity_info;
 	SnapInfoCtrl					snap_info;
+	SnapBriefing					snap_briefing;
+	SnapIdeas						snap_ideas;
+	SnapCoverImage					snap_cover;
 	CompInfoCtrl					comp_info;
+	VideoPromptMakerCtrl			video_prompt_maker;
 	ScriptInfoCtrl					script_info;
 	ScriptIdeaCtrl					script_idea;
-	*/
+	ScriptStructureSolverCtrl		script_struct_solver;
+	ScriptRangeSolverCtrl			script_range_solver;
+	ScriptTextSolverCtrl			script_text_solver;
+	
+	// Deprecated
+	ComponentStructure				comp_struct;
+	ScriptPool						script_pool;
+	ScriptSolverCtrl				scripts_solver;
+	ScriptEditCtrl					script_edit;
+	ScriptPostFixCtrl				script_post_fix;
+	
+	
 	// Database Ctrls
 	SourceDataCtrl					src_data;
 	TokensPage						tokens_data;
@@ -53,12 +64,6 @@ protected:
 	ActionParallelsPage				action_parallels;
 	ActionTransitionsPage			action_transitions;
 	TextDataWordnet					component_wordnet;
-	ScriptSolverCtrl				scripts_solver;
-	ScriptPool						script_pool;
-	SnapCoverImage					snap_cover;
-	VideoPromptMakerCtrl			video_prompt_maker;
-	ScriptPostFixCtrl				script_post_fix;
-	ScriptEditCtrl					script_edit;
 	*/
 public:
 	typedef ToolEditor CLASSNAME;

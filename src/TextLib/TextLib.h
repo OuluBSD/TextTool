@@ -16,10 +16,11 @@
 #include "ActionAttrs.h"
 #include "Attributes.h"
 #include "PhrasePartAnalysis.h"
-#include "RhymeContainer.h"
+#include "ScriptStructure.h"
+#include "ScriptRange.h"
+#include "ScriptText.h"
 
 #if 1
-#include "TaskManager.h"
 #include "ScriptGenerator.h"
 #include "ScriptSolver.h"
 #include "LeadSolver.h"
