@@ -48,6 +48,8 @@ void ToolEditorBase::Init() {
 	
 	Data();
 	app.SetBar(); // requires Data();
+	
+	PostCallback(THISBACK2(SetView, page_group, page)); // fix quirky behaviour
 }
 
 void ToolEditorBase::AddItem(String g, String i, ToolAppCtrl& c) {
