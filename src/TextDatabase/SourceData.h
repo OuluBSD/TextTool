@@ -17,9 +17,15 @@ struct ScriptDataset : Moveable<ScriptDataset> {
 struct EntityDataset : Moveable<EntityDataset> {
 	String name;
 	Vector<ScriptDataset> scripts;
+	Vector<String> genres;
 	
 	void Serialize(Stream& s) {
-		s % name % scripts;
+		#if 0
+		if (s.IsLoading())
+			s % name % scripts;
+		else
+		#endif
+			s % name % scripts % genres;
 	}
 };
 

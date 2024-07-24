@@ -9,6 +9,7 @@ class SourceAnalysisProcess : public SolverBase {
 	
 public:
 	enum {
+		PHASE_ANALYZE_ARTISTS,
 		PHASE_ANALYZE_ELEMENTS,
 		PHASE_SUMMARIZE_CONTENT,
 		
@@ -32,6 +33,7 @@ public:
 	static SourceAnalysisProcess& Get(int appmode);
 	
 private:
+	void AnalyzeArtists();
 	void AnalyzeElements();
 	void SummarizeContent();
 };

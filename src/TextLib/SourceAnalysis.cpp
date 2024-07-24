@@ -14,6 +14,7 @@ int SourceAnalysisProcess::GetPhaseCount() const {
 
 int SourceAnalysisProcess::GetBatchCount(int phase) const {
 	switch (phase) {
+		case PHASE_ANALYZE_ARTISTS:			return GetDatabase().src_data.entities.GetCount();
 		case PHASE_ANALYZE_ELEMENTS:		return GetDatabase().src_data.a.dataset.scripts.GetCount();
 		case PHASE_SUMMARIZE_CONTENT:		TODO;
 		default: TODO; return 1;
@@ -26,10 +27,56 @@ int SourceAnalysisProcess::GetSubBatchCount(int phase, int batch) const {
 
 void SourceAnalysisProcess::DoPhase() {
 	switch (phase) {
+		case PHASE_ANALYZE_ARTISTS:			AnalyzeArtists(); return;
 		case PHASE_ANALYZE_ELEMENTS:		AnalyzeElements(); return;
 		case PHASE_SUMMARIZE_CONTENT:		SummarizeContent(); return;
 		default: TODO;
 	}
+}
+
+void SourceAnalysisProcess::AnalyzeArtists() {
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	
+	ASSERT(appmode == DB_SONG);
+	
+	if (batch >= sd.entities.GetCount()) {
+		NextPhase();
+		return;
+	}
+	
+	EntityDataset& ent = sd.entities[batch];
+	if (ent.genres.GetCount()) {
+		NextBatch();
+		return;
+	}
+	args.fn = 1;
+	args.artist = ent.name;
+	
+	SetWaiting(true);
+	TaskMgr& m = TaskMgr::Single();
+	m.GetSourceDataAnalysis(appmode, args, [this](String result) {
+		SourceDataAnalysisArgs& args = this->args;
+		TextDatabase& db = GetDatabase();
+		SourceData& sd = db.src_data;
+		
+		RemoveEmptyLines3(result);
+		RemoveEmptyLines2(result);
+		LOG(result);
+		
+		Vector<String> genres = Split(result, "\n");
+		for (String& genre : genres) {
+			genre = ToLower(TrimBoth(genre));
+			int i = genre.Find(":");
+			if (i >= 0)
+				genre = TrimBoth(genre.Mid(i+1));
+		}
+		EntityDataset& ent = sd.entities[batch];
+		ent.genres <<= genres;
+		
+		NextBatch();
+		SetWaiting(false);
+	});
 }
 
 void SourceAnalysisProcess::AnalyzeElements() {
