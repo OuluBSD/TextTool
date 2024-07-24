@@ -125,6 +125,7 @@ struct StaticPart {
 	Vector<int> valid_rhyme_schemes;
 };
 
+// Deprecated
 struct ScriptStructure {
 	String name;
 	Vector<String> parts;
@@ -153,6 +154,115 @@ struct ScriptStructure {
 			;
 	}
 };
+
+
+// In use
+struct ScriptStruct : Moveable<ScriptStruct> {
+	ScriptStruct() {}
+	ScriptStruct(const ScriptStruct& s) {*this = s;}
+	ScriptStruct(ScriptStruct&& s) {*this = s;}
+	void operator=(const ScriptStruct& s) {
+		parts <<= s.parts;
+	}
+	
+	struct SubSubPart : Moveable<SubSubPart> {
+		Vector<int> token_texts;
+		byte cls = 0;
+		
+		SubSubPart() {}
+		SubSubPart(const SubSubPart& s) {*this = s;}
+		void Serialize(Stream& s) {s % token_texts % cls;}
+		void Jsonize(JsonIO& json) {json("token_texts", token_texts)("cls", cls);}
+		void operator=(const SubSubPart& s) {
+			token_texts <<= s.token_texts;
+			cls = s.cls;
+		}
+	};
+	struct SubPart : Moveable<SubPart> {
+		Vector<SubSubPart> sub;
+		byte cls = 0;
+		int repeat = 0;
+		
+		SubPart() {}
+		SubPart(const SubPart& s) {*this = s;}
+		void Serialize(Stream& s) {s % sub % cls % repeat;}
+		void Jsonize(JsonIO& json) {json("sub", sub)("cls", cls)("repeat", repeat);}
+		void operator=(const SubPart& s) {
+			sub <<= s.sub;
+			cls = s.cls;
+			repeat = s.repeat;
+		}
+	};
+	struct Part : Moveable<Part> {
+		Vector<SubPart> sub;
+		int type = 0;
+		int num = 0;
+		byte cls = 0, typeclass = 0, content = 0;
+		
+		Part() {}
+		Part(const Part& p) {*this = p;}
+		void Serialize(Stream& s) {s % sub % type % num % cls % typeclass % content;}
+		void Jsonize(JsonIO& json) {json("sub", sub)("type", type)("num", num)("cls", cls)("tc", typeclass)("c", content);}
+		void operator=(const Part& s) {
+			sub <<= s.sub;
+			type = s.type;
+			num = s.num;
+			cls = s.cls;
+			typeclass = s.typeclass;
+			content = s.content;
+		}
+	};
+	Vector<Part> parts;
+	
+	void Serialize(Stream& s) {s % parts;}
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("parts", parts)
+			;
+	}
+	
+	#if 0
+	String StoreToString() {
+		StringDumper d;
+		int i = parts.GetCount();
+		d % i;
+		for (Part& p : parts) {
+			i = p.sub.GetCount();
+			d % p.type % p.num % i;
+			for (SubPart& s : p.sub) {
+				d % s.repeat;
+				i = s.token_texts.GetCount();
+				d % i;
+				for (int tt : s.token_texts)
+					d % tt;
+			}
+		}
+		return d;
+	}
+	void LoadFromString(const String& s) {
+		StringParser d(s);
+		int i;
+		d % i;
+		if (d.err || i > 1000)
+			return;
+		parts.SetCount(i);
+		for (Part& p : parts) {
+			d % p.type % p.num % i;
+			if (d.err || i > 1000)
+				return;
+			p.sub.SetCount(i);
+			for (SubPart& s : p.sub) {
+				d % s.repeat % i;
+				s.token_texts.SetCount(i,-1);
+				for (int& tt : s.token_texts)
+					d % tt;
+			}
+		}
+	}
+	#endif
+};
+
 
 #if 0
 enum {
@@ -373,9 +483,10 @@ struct Script : DataFile, ContentVisionOwner {
 	Vector<String>				post_analysis;
 	Array<ScriptPostFix>		postfixes;
 	Array<StaticPart>			parts;
-	ScriptStructure				active_struct;
+	ScriptStruct				ref_struct;
 	
 	// Deprecated
+	ScriptStructure				__active_struct;
 	VectorMap<int, String>		__suggestions;
 	String						__text;
 	
@@ -414,7 +525,8 @@ struct Script : DataFile, ContentVisionOwner {
 			("post_analysis", post_analysis)
 			("postfixes", postfixes)
 			("parts", parts)
-			("active_struct", active_struct)
+			("ref_struct", ref_struct)
+			("active_struct", __active_struct)
 			("suggestions", __suggestions)
 			("text", __text)
 			

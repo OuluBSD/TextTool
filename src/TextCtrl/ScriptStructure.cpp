@@ -164,6 +164,8 @@ void ComponentStructure::DataScript() {
 void ComponentStructure::DataActive() {
 	Script& l = GetScript();
 	
+	TODO
+	#if 0
 	ScriptStructure& s = l.active_struct;
 	
 	//s.chords.SetCount(s.parts.GetCount());
@@ -192,6 +194,7 @@ void ComponentStructure::DataActive() {
 		script_parts.SetCursor(0);
 	
 	DataPart();
+	#endif
 }
 
 void ComponentStructure::DataPart() {
@@ -347,6 +350,8 @@ void ComponentStructure::LoadReference() {
 	if (v.IsEmpty())
 		return;
 	
+	TODO
+	#if 0
 	v.Top()->WhenReady << [this,ss_i,appmode]() {
 		TextDatabase& db = GetDatabase();
 		StructuredScript& ss = db.structured_scripts[ss_i];
@@ -381,6 +386,7 @@ void ComponentStructure::LoadReference() {
 		PostCallback(THISBACK(Data));
 	};
 	v[0]->Start();
+	#endif
 }
 
 #if 0

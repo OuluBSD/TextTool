@@ -297,6 +297,7 @@ void DatasetAnalysis::Load() {
 	wordnets.Load(ds_dir, "wordnets");
 	diagnostics.Load(ds_dir, "diagnostics");
 	simple_attrs.Load(ds_dir, "simple_attrs");
+	element_keys.Load(ds_dir, "element_keys");
 	
 	
 	String comp_dir = AppendFileName(ds_dir, GetAppModeKeyN(AM_COMPONENT));

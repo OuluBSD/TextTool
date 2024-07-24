@@ -11,9 +11,10 @@ public:
 	enum {
 		PHASE_ANALYZE_ARTISTS,
 		PHASE_ANALYZE_ELEMENTS,
-		PHASE_SUMMARIZE_CONTENT,
 		
-		PHASE_COUNT
+		PHASE_COUNT,
+
+		PHASE_SUMMARIZE_CONTENT,
 	};
 	
 	bool filter_foreign = true;

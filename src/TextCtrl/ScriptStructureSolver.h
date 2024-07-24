@@ -18,6 +18,7 @@ public:
 	void Data() override;
 	void DataGenre();
 	void DataStructure();
+	void SetStructure();
 	void Do(int fn) {DoT<ScriptStructureProcess>(fn);}
 	
 };

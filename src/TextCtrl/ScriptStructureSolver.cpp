@@ -25,6 +25,8 @@ ScriptStructureSolverCtrl::ScriptStructureSolverCtrl() {
 void ScriptStructureSolverCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
+	bar.Add(t_("Set Structure"), AppImg::BlueRing(), THISBACK(SetStructure)).Key(K_CTRL_W);
+	bar.Separator();
 	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 }
@@ -101,6 +103,21 @@ void ScriptStructureSolverCtrl::DataStructure() {
 	int idx = structs.Get("IDX");
 	const ScriptStruct& ss = sd.a.dataset.scripts[idx];
 	src_struct.SetData(sd.a.dataset.GetScriptDump(idx));
+}
+
+void ScriptStructureSolverCtrl::SetStructure() {
+	if (structs.IsCursor())
+		return;
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	int idx = structs.Get("IDX");
+	const ScriptStruct& ss = sd.a.dataset.scripts[idx];
+	
+	Script& s = GetScript();
+	s.ref_struct = ss;
+	
+	
+	
 }
 
 

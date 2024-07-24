@@ -87,6 +87,8 @@ String Script::GetText() const {
 }
 
 String Script::GetTextStructure(bool coarse) const {
+	TODO
+	#if 0
 	String out;
 	for(int i = 0; i < active_struct.parts.GetCount(); i++) {
 		String type = active_struct.parts[i];
@@ -111,6 +113,8 @@ String Script::GetTextStructure(bool coarse) const {
 		}
 	}
 	return out;
+	#endif
+	return String();
 }
 
 int Script::GetFirstPartPosition() const {

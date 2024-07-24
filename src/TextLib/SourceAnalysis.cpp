@@ -62,7 +62,7 @@ void SourceAnalysisProcess::AnalyzeArtists() {
 		
 		RemoveEmptyLines3(result);
 		RemoveEmptyLines2(result);
-		LOG(result);
+		//LOG(result);
 		
 		Vector<String> genres = Split(result, "\n");
 		for (String& genre : genres) {
@@ -108,7 +108,44 @@ void SourceAnalysisProcess::AnalyzeElements() {
 		DatasetAnalysis& da = sda.dataset;
 		ScriptStruct& ss = da.scripts[batch];
 		
+		RemoveEmptyLines3(result);
 		//LOG(result);
+		
+		Vector<String> lines = Split(result, "\n");
+		VectorMap<String,String> section_values;
+		for (String& l : lines) {
+			int a = l.Find("[");
+			if (a < 0) continue;
+			a++;
+			int b = l.Find("]", a);
+			if (b < 0) continue;
+			String key = l.Mid(a,b-a);
+			a = l.Find(":", b);
+			if (a < 0) continue;
+			a++;
+			String value = TrimBoth(l.Mid(a));
+			RemoveQuotes(value);
+			ASSERT(key.GetCount());
+			ASSERT(value.GetCount());
+			section_values.GetAdd(key, value);
+		}
+		for(int i = 0; i < ss.parts.GetCount(); i++) {
+			auto& p = ss.parts[i];
+			for(int j = 0; j < p.sub.GetCount(); j++) {
+				auto& s = p.sub[j];
+				for(int k = 0; k < s.sub.GetCount(); k++) {
+					auto& ss = s.sub[k];
+					String key;
+					key << i << "." << j << "." << k;
+					int l = section_values.Find(key);
+					if (l < 0) continue;
+					String& val = section_values[l];
+					int el_i = da.element_keys.FindAdd(val);
+					ASSERT(el_i >= 0 && el_i < 256);
+					ss.cls = el_i;
+				}
+			}
+		}
 		
 		NextBatch();
 		SetWaiting(false);

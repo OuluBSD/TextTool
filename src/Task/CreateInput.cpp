@@ -323,7 +323,8 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 		{
 			TaskTitledList& results = input.PreAnswer();
 			results.Title("Analyze story and write matching word for all depths of sections (e.g. 0, 1.0, 2.1.0) from the list A (e.g. \"exposition\")");
-			results.Add(lines[0] + ": \"");
+			tmp_str = lines[0] + ": \"";
+			results.Add(tmp_str);
 		}
 		input.response_length = 1024;
 	}

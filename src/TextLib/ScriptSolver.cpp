@@ -1413,6 +1413,8 @@ void ScriptSolver::ProcessFillReferenceMatch() {
 	
 	MakeBelief(song, args, 1);
 	
+	TODO
+	#if 0
 	for(int i = 0; i < song.active_struct.parts.GetCount(); i++) {
 		String part = song.active_struct.parts[i];
 		StaticPart* sp1 = song.FindPartByName(part);
@@ -1441,6 +1443,7 @@ void ScriptSolver::ProcessFillReferenceMatch() {
 	
 	TaskMgr& m = TaskMgr::Single();
 	m.GetScriptSolver(appmode, args, THISBACK(OnProcessFillReferenceMatch));
+	#endif
 }
 
 void ScriptSolver::OnProcessFillReferenceMatch(String res) {
@@ -1561,6 +1564,8 @@ void ScriptSolver::ProcessSmoothReferenceMatch() {
 	
 	args.part = song.GetTextStructure(1);
 	
+	TODO
+	#if 0
 	if (song.active_struct.structured_script_i >= 0) {
 		TextDatabase& db = GetDatabase();
 		StructuredScript& ss = db.structured_scripts[song.active_struct.structured_script_i];
@@ -1574,6 +1579,7 @@ void ScriptSolver::ProcessSmoothReferenceMatch() {
 	
 	TaskMgr& m = TaskMgr::Single();
 	m.GetScriptSolver(appmode, args, THISBACK(OnProcessSmoothReferenceMatch));
+	#endif
 }
 
 void ScriptSolver::OnProcessSmoothReferenceMatch(String res) {

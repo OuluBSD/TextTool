@@ -675,70 +675,6 @@ struct ComponentAnalysis {
 	void Load(const String& dir);
 };
 
-struct ScriptStruct : Moveable<ScriptStruct> {
-	struct SubSubPart : Moveable<SubSubPart> {
-		Vector<int> token_texts;
-		byte cls = 0;
-		void Serialize(Stream& s) {s % token_texts % cls;}
-	};
-	struct SubPart : Moveable<SubPart> {
-		Vector<SubSubPart> sub;
-		byte cls = 0;
-		int repeat = 0;
-		void Serialize(Stream& s) {s % sub % cls % repeat;}
-	};
-	struct Part : Moveable<Part> {
-		Vector<SubPart> sub;
-		int type = 0;
-		int num = 0;
-		byte cls = 0, typeclass = 0, content = 0;
-		void Serialize(Stream& s) {s % sub % type % num % cls % typeclass % content;}
-	};
-	Vector<Part> parts;
-	
-	void Serialize(Stream& s) {s % parts;}
-	
-	#if 0
-	String StoreToString() {
-		StringDumper d;
-		int i = parts.GetCount();
-		d % i;
-		for (Part& p : parts) {
-			i = p.sub.GetCount();
-			d % p.type % p.num % i;
-			for (SubPart& s : p.sub) {
-				d % s.repeat;
-				i = s.token_texts.GetCount();
-				d % i;
-				for (int tt : s.token_texts)
-					d % tt;
-			}
-		}
-		return d;
-	}
-	void LoadFromString(const String& s) {
-		StringParser d(s);
-		int i;
-		d % i;
-		if (d.err || i > 1000)
-			return;
-		parts.SetCount(i);
-		for (Part& p : parts) {
-			d % p.type % p.num % i;
-			if (d.err || i > 1000)
-				return;
-			p.sub.SetCount(i);
-			for (SubPart& s : p.sub) {
-				d % s.repeat % i;
-				s.token_texts.SetCount(i,-1);
-				for (int& tt : s.token_texts)
-					d % tt;
-			}
-		}
-	}
-	#endif
-};
-
 struct DatasetAnalysis {
 	ArrayMap<String, ComponentAnalysis> components;
 	
@@ -764,6 +700,7 @@ struct DatasetAnalysis {
 	MapFile<String,String> diagnostics;
 	MapFile<String,ExportSimpleAttr> simple_attrs;
 	MapFile<hash_t,String> phrase_translations[LNG_COUNT];
+	IndexFile element_keys;
 	
 	
 	// Cached data
