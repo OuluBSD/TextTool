@@ -8,7 +8,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 
-SourceDataCtrl::SourceDataCtrl() {
+SourceAnalysisCtrl::SourceAnalysisCtrl() {
 	Add(hsplit.VSizePos(0,30).HSizePos());
 	Add(prog.BottomPos(0,30).HSizePos(300));
 	Add(remaining.BottomPos(0,30).LeftPos(0,300));
@@ -26,7 +26,7 @@ SourceDataCtrl::SourceDataCtrl() {
 	
 }
 
-void SourceDataCtrl::Data() {
+void SourceAnalysisCtrl::Data() {
 	TextDatabase& db = GetDatabase();
 	const auto& data = db.src_data.entities;
 	
@@ -53,7 +53,7 @@ void SourceDataCtrl::Data() {
 	DataEntity();
 }
 
-void SourceDataCtrl::DataEntity() {
+void SourceAnalysisCtrl::DataEntity() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	
@@ -78,8 +78,9 @@ void SourceDataCtrl::DataEntity() {
 	DataComponent();
 }
 
-void SourceDataCtrl::DataComponent() {
+void SourceAnalysisCtrl::DataComponent() {
 	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
 	
 	if (!entities.IsCursor() || !components.IsCursor()) return;
 	int acur = entities.GetCursor();
@@ -88,35 +89,30 @@ void SourceDataCtrl::DataComponent() {
 	const auto& artist = data[acur];
 	const auto& song = artist.scripts[scur];
 	
-	String s = song.text;
-	if (GetDefaultCharset() != CHARSET_UTF8)
-		s = ToCharset(CHARSET_DEFAULT, s, CHARSET_UTF8);
-	scripts.SetData(s);
+	String key = artist.name + " - " + song.name;
+	int ss_i = sd.a.dataset.scripts.Find(key.GetHashValue());
+	if (ss_i < 0) {
+		scripts.Clear();
+		analysis.Clear();
+		return;
+	}
+	
+	ScriptStruct& ss = sd.a.dataset.scripts[ss_i];
+	String txt = sd.a.dataset.GetScriptDump(ss_i);
+	scripts.SetData(txt);
 	analysis.Clear();
 	
 	
-	MultiScriptStructureSolver solver;
-	solver.Get().Process(s);
-	analysis.SetData(solver.Get().GetResult());
-	//analysis.SetData(solver.Get().GetDebugLines());
-	
 }
 
-void SourceDataCtrl::ToolMenu(Bar& bar) {
+void SourceAnalysisCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	
 }
 
-void SourceDataCtrl::Do(int fn) {
-	SourceDataImporter& sdi = SourceDataImporter::Get(GetAppMode());
-	prog.Attach(sdi);
-	sdi.WhenRemaining << [this](String s) {PostCallback([this,s](){remaining.SetLabel(s);});};
-	
-	if (fn == 0)
-		sdi.Start();
-	else
-		sdi.Stop();
+void SourceAnalysisCtrl::Do(int fn) {
+	DoT<SourceAnalysisProcess>(fn);
 }
 
 

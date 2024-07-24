@@ -44,6 +44,7 @@ protected:
 	
 	// Database Ctrls
 	SourceDataCtrl					src_data;
+	SourceAnalysisCtrl				src_anal;
 	TokensPage						tokens_data;
 	TextDataWords					component_words;
 	TokenPhrases					token_phrases;

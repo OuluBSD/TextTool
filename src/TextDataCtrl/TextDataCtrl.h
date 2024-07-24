@@ -8,6 +8,7 @@
 
 #include "Loader.h"
 #include "SourceData.h"
+#include "SourceAnalysis.h"
 #include "Tokens.h"
 #include "Words.h"
 #include "TokenPhrases.h"

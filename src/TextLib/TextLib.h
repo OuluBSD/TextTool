@@ -19,6 +19,7 @@
 #include "ScriptStructure.h"
 #include "ScriptRange.h"
 #include "ScriptText.h"
+#include "SourceAnalysis.h"
 
 #if 1
 #include "ScriptGenerator.h"

@@ -289,7 +289,46 @@ void AiTask::CreateInput_GetSourceDataAnalysis() {
 	args.Put(this->args[0]);
 	
 	
-	if (args.fn == 4) {
+	if (args.fn == 0) {
+		Vector<String> lines = Split(args.text, "\n");
+		ASSERT(lines.GetCount());
+		{
+			auto& txt = input.AddSub();
+			txt.NoColon();
+			txt.NoListChar();
+			for (String& l : lines)
+				txt.Add(l);
+		}
+		{
+			auto& list = input.AddSub().Title("List A: terms to define a section");
+			list.Add("exposition");
+			list.Add("climax");
+			list.Add("call to action");
+			list.Add("high stakes obstacle");
+			list.Add("rock bottom");
+			list.Add("rising action");
+			list.Add("falling action");
+			list.Add("conclusion");
+			list.Add("happy ending");
+			list.Add("tragedy");
+			list.Add("bittersweet ending");
+			list.Add("suspense");
+			list.Add("crisis");
+			list.Add("resolution");
+			list.Add("intensity");
+			list.Add("conflict");
+			list.Add("iteration");
+			list.Add("etc.");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Analyze story and write matching word for all depths of sections (e.g. 0, 1.0, 2.1.0) from the list A (e.g. \"exposition\")");
+			results.Add(lines[0] + ": \"");
+		}
+		input.response_length = 1024;
+	}
+	
+	else if (args.fn == 4) {
 		{
 			auto& list = input.AddSub().Title("List of words \"A\"");
 			list.Add("structure");

@@ -33,8 +33,8 @@ file
 	View readonly separator,
 	Leads.h,
 	Leads.cpp,
-	Editor.cpp,
 	Editor.h,
+	Editor.cpp,
 	Base.h,
 	Base.cpp;
 

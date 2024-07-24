@@ -13,6 +13,8 @@ file
 	"Database pipeline" readonly separator,
 	SourceData.h,
 	SourceData.cpp,
+	SourceAnalysis.h,
+	SourceAnalysis.cpp,
 	Tokens.h,
 	Tokens.cpp,
 	Words.h,

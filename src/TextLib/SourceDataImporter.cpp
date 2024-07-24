@@ -182,7 +182,9 @@ void SourceDataImporter::Tokenize() {
 	}
 	data_lock.Leave();
 	
-	//LOG(da.GetScriptDump(ss_i));
+	if (0) {
+		LOG(da.GetScriptDump(ss_i));
+	}
 	
 	actual++;
 	NextSubBatch();

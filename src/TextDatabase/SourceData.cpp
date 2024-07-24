@@ -483,12 +483,12 @@ String DatasetAnalysis::GetScriptDump(int i) const {
 	const ScriptStruct& ss = scripts[i];
 	for(int i = 0; i < ss.parts.GetCount(); i++) {
 		const auto& part = ss.parts[i];
-		if (s.GetCount()) s << "\n";
+		//if (s.GetCount()) s << "\n";
 		s << Format("[%d: %s]\n", i, GetTextModeString(part.type) + " " + IntStr(part.num+1));
 		
 		for(int j = 0; j < part.sub.GetCount(); j++) {
 			const auto& sub = part.sub[j];
-			if (s.GetCount()) s << "\n";
+			//if (s.GetCount()) s << "\n";
 			s << Format("\t[%d.%d: repeat %.2!m]\n", i,j, sub.repeat);
 			
 			bool show_subsub = sub.sub.GetCount() > 1;
