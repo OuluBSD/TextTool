@@ -93,7 +93,8 @@ void SourceAnalysisProcess::AnalyzeElements() {
 	
 	args.fn = 0;
 	args.text = TrimBoth(da.GetScriptDump(batch));
-	if (args.text.IsEmpty()) {
+	Vector<String> all_sections = Split(args.text, "[");
+	if (args.text.IsEmpty() || all_sections.GetCount() >= 50) {
 		NextBatch();
 		return;
 	}
