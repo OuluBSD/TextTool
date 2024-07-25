@@ -108,6 +108,11 @@ void SourceAnalysisProcess::AnalyzeElements() {
 	bool keep_going = true;
 	SetWaiting(true);
 	TaskMgr& m = TaskMgr::Single();
+	if (m.keep_going_counter >= 50) {
+		SetNotRunning();
+		return;
+	}
+	
 	m.GetSourceDataAnalysis(appmode, args, [this](String result) {
 		SourceDataAnalysisArgs& args = this->args;
 		TextDatabase& db = GetDatabase();

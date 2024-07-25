@@ -18,6 +18,7 @@ struct TaskMgr {
 	// Local
 	Vector<hash_t> task_order;
 	int task_i = 0;
+	int keep_going_counter = 0;
 	
 	// Temp
 	Vector<String> task_order_dbg;

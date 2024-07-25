@@ -268,7 +268,7 @@ bool AiTask::RunOpenAI_Image() {
 		}
 	}
 	catch (std::runtime_error e) {
-		if (keep_going) {output = " "; return true;}
+		if (keep_going) {output = " "; GetTaskMgr().keep_going_counter++; return true;}
 		LOG(prompt);
 		fatal_error = true;
 		SetError(e.what());
@@ -277,7 +277,7 @@ bool AiTask::RunOpenAI_Image() {
 		return false;
 	}
 	catch (std::string e) {
-		if (keep_going) {output = " "; return true;}
+		if (keep_going) {output = " "; GetTaskMgr().keep_going_counter++; return true;}
 		LOG(prompt);
 		fatal_error = true;
 		SetError(e.c_str());
@@ -286,7 +286,7 @@ bool AiTask::RunOpenAI_Image() {
 		return false;
 	}
 	catch (NLOHMANN_JSON_NAMESPACE::detail::parse_error e) {
-		if (keep_going) {output = " "; return true;}
+		if (keep_going) {output = " "; GetTaskMgr().keep_going_counter++; return true;}
 		LOG(prompt);
 		LOG(e.what());
 		fatal_error = true;
@@ -296,7 +296,7 @@ bool AiTask::RunOpenAI_Image() {
 		return false;
 	}
 	catch (std::exception e) {
-		if (keep_going) {output = " "; return true;}
+		if (keep_going) {output = " "; GetTaskMgr().keep_going_counter++; return true;}
 		LOG(prompt);
 		SetError(e.what());
 		fatal_error = true;
