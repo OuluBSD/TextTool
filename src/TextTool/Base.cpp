@@ -49,6 +49,11 @@ void ToolEditorBase::Init() {
 	Data();
 	app.SetBar(); // requires Data();
 	
+	FixMenuBar();
+}
+
+void ToolEditorBase::FixMenuBar() {
+	int page = this->page.GetAdd(page_group, 0);
 	PostCallback(THISBACK2(SetView, page_group, page)); // fix quirky behaviour
 }
 

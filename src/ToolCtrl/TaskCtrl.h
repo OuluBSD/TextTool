@@ -6,8 +6,10 @@ class Tasks : public Ctrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl list;
 	DocEdit input, output;
+	#if 0
 	ProgressIndicator prog;
 	Label lbl;
+	#endif
 	int data_cursor = -1;
 	
 public:

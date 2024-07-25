@@ -51,6 +51,7 @@ public:
 	void RemoveOwner();
 	void AddProfile();
 	void RemoveProfile();
+	void FixMenuBar();
 	virtual void Data() {}
 	virtual void ViewPageGroup();
 	virtual void DataPage();

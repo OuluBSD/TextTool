@@ -230,9 +230,9 @@ void TextTool::SetView(int i) {
 	
 	switch (i) {
 		default: i = 0;
-		case 0: lead.Show(); break;
+		case 0: lead.Show(); lead.FixMenuBar(); break;
 		case 1: org.Show(); break;
-		case 2: ed.Show(); break;
+		case 2: ed.Show(); ed.FixMenuBar(); break;
 		case 3: ai.Show(); PostCallback(THISBACK(StartUpdating)); break;
 		case 4: svc.Show(); break;
 		case 5: mc.Show(); break;

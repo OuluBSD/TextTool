@@ -99,6 +99,13 @@ void SourceAnalysisProcess::AnalyzeElements() {
 		return;
 	}
 	
+	// Another hotfix
+	if (args.text.Find("http://") >= 0 || args.text.Find("https://") >= 0) {
+		NextBatch();
+		return;
+	}
+	
+	bool keep_going = true;
 	SetWaiting(true);
 	TaskMgr& m = TaskMgr::Single();
 	m.GetSourceDataAnalysis(appmode, args, [this](String result) {
@@ -124,33 +131,58 @@ void SourceAnalysisProcess::AnalyzeElements() {
 			a = l.Find(":", b);
 			if (a < 0) continue;
 			a++;
-			String value = TrimBoth(l.Mid(a));
+			String value = ToLower(TrimBoth(l.Mid(a)));
 			RemoveQuotes(value);
-			ASSERT(key.GetCount());
-			ASSERT(value.GetCount());
+			for(int i = 0; i < key.GetCount(); i++) {
+				int chr = key[i];
+				if (chr == '.' || IsDigit(chr))
+					continue;
+				key = key.Left(i);
+				break;
+			}
+			if (key.IsEmpty() || value.IsEmpty())
+				continue;
 			section_values.GetAdd(key, value);
 		}
 		for(int i = 0; i < ss.parts.GetCount(); i++) {
 			auto& p = ss.parts[i];
+			String key;
+			key << i;
+			int l = section_values.Find(key);
+			if (l >= 0) {
+				String& val = section_values[l];
+				int el_i = da.element_keys.FindAdd(val);
+				p.cls = el_i;
+			}
+			
 			for(int j = 0; j < p.sub.GetCount(); j++) {
 				auto& s = p.sub[j];
+				String key;
+				key << i << "." << j;
+				int l = section_values.Find(key);
+				if (l >= 0) {
+					String& val = section_values[l];
+					int el_i = da.element_keys.FindAdd(val);
+					s.cls = el_i;
+				}
+				
 				for(int k = 0; k < s.sub.GetCount(); k++) {
 					auto& ss = s.sub[k];
 					String key;
 					key << i << "." << j << "." << k;
 					int l = section_values.Find(key);
-					if (l < 0) continue;
-					String& val = section_values[l];
-					int el_i = da.element_keys.FindAdd(val);
-					ASSERT(el_i >= 0 && el_i < 256);
-					ss.cls = el_i;
+					if (l >= 0) {
+						String& val = section_values[l];
+						int el_i = da.element_keys.FindAdd(val);
+						ss.cls = el_i;
+					}
 				}
 			}
 		}
 		
 		NextBatch();
 		SetWaiting(false);
-	});
+	}, keep_going);
 	
 	
 }

@@ -167,7 +167,7 @@ struct ScriptStruct : Moveable<ScriptStruct> {
 	
 	struct SubSubPart : Moveable<SubSubPart> {
 		Vector<int> token_texts;
-		byte cls = 0;
+		int cls = -1;
 		
 		SubSubPart() {}
 		SubSubPart(const SubSubPart& s) {*this = s;}
@@ -180,7 +180,7 @@ struct ScriptStruct : Moveable<ScriptStruct> {
 	};
 	struct SubPart : Moveable<SubPart> {
 		Vector<SubSubPart> sub;
-		byte cls = 0;
+		int cls = -1;
 		int repeat = 0;
 		
 		SubPart() {}
@@ -195,9 +195,9 @@ struct ScriptStruct : Moveable<ScriptStruct> {
 	};
 	struct Part : Moveable<Part> {
 		Vector<SubPart> sub;
-		int type = 0;
-		int num = 0;
-		byte cls = 0, typeclass = 0, content = 0;
+		int type = -1;
+		int num = -1;
+		int cls = -1, typeclass = -1, content = -1;
 		
 		Part() {}
 		Part(const Part& p) {*this = p;}

@@ -1,5 +1,12 @@
 
 v0.0.2
+- connect elements to phrases (new database page)
+- rate opening expositions with score (which expositions reveal the story smart and efficiently)
+- new script process: iterate section per section (1 phrase-bank, 2 script, 3 comparison)
+? colors for elements -> colors for script structures
+? typeclass/content for scripts based on phrases
+
+v0.0.?
 - improve script post fix: get scores per line. sort lines and replace worst
 - change "singer" to be database agnostic in StaticPart.. see all usage
 - DB_MEME
@@ -42,7 +49,7 @@ v0.0.2
 - lead templates + publishers + artist list: shadow leads for artists
 - generate better demo share data
 
-v0.0.3
+v0.0.?+1
 - calendar / operations overview
 	- content calendar
 - frontpage

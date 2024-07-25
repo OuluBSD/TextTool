@@ -2,11 +2,14 @@
 
 
 Tasks::Tasks() {
+	Add(hsplit.SizePos());
+	#if 0
 	Add(hsplit.HSizePos().VSizePos(0,30));
 	Add(lbl.LeftPos(5, 200-5).BottomPos(0,30));
 	Add(prog.HSizePos(200,0).BottomPos(0,30));
 	prog.Set(0,1);
 	lbl.SetLabel(t_("Idle"));
+	#endif
 	
 	hsplit.Horz() << list << vsplit;
 	vsplit.Vert() << input << output;
@@ -47,8 +50,10 @@ void Tasks::Data() {
 	if (!list.IsCursor() && cursor >= 0 && cursor < list.GetCount())
 		list.SetCursor(cursor);
 	
+	#if 0
 	prog.Set(m.actual, max(1,m.total));
 	lbl.SetLabel(m.status.IsEmpty() ? String(t_("Idle")) : m.status);
+	#endif
 	
 	DataTask();
 }
