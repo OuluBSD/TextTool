@@ -7,14 +7,13 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class ScriptRangeSolverCtrl : public ToolAppCtrl {
 	
-	
 public:
 	typedef ScriptRangeSolverCtrl CLASSNAME;
 	ScriptRangeSolverCtrl();
 	
 	void ToolMenu(Bar& bar) override;
 	void Data() override;
-	void Do(int fn) {DoT<ScriptRangeProcess>(fn);}
+	void Do(int fn);
 	
 };
 

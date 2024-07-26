@@ -9,9 +9,22 @@ class ScriptRangeProcess : public SolverBase {
 	
 public:
 	enum {
+		PHASE_COLOR,
+		PHASE_ATTR,
+		PHASE_ACTION,
 		
-		PHASE_COUNT
+		PHASE_COUNT,
 	};
+	
+	void ProcessColor();
+	void ProcessAttr();
+	void ProcessAction();
+	void OnProcessColor(String result);
+	void OnProcessAttr(String result);
+	
+	
+	Entity* artist = 0;
+	Script* script = 0;
 	
 public:
 	typedef ScriptRangeProcess CLASSNAME;
@@ -22,7 +35,7 @@ public:
 	int GetSubBatchCount(int phase, int batch) const override;
 	void DoPhase() override;
 	
-	static ScriptRangeProcess& Get(int appmode);
+	static ScriptRangeProcess& Get(int appmode, Entity& a, Script& l);
 	
 };
 

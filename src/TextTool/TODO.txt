@@ -1,10 +1,13 @@
 
 v0.0.2
+- move script range solver code to non-script specific
 - connect elements to phrases (new database page)
 - rate opening expositions with score (which expositions reveal the story smart and efficiently)
 - new script process: iterate section per section (1 phrase-bank, 2 script, 3 comparison)
 ? colors for elements -> colors for script structures
 ? typeclass/content for scripts based on phrases
+- text solver: show frozen sections in the phrase-bank generation phase
+
 
 v0.0.?
 - improve script post fix: get scores per line. sort lines and replace worst

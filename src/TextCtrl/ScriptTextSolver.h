@@ -14,7 +14,7 @@ public:
 	
 	void ToolMenu(Bar& bar) override;
 	void Data() override;
-	void Do(int fn) {DoT<ScriptTextProcess>(fn);}
+	void Do(int fn);
 	
 };
 

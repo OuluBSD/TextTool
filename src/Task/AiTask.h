@@ -245,6 +245,7 @@ public:
 	void CreateInput_GetPhraseData();
 	void CreateInput_GetAttributes();
 	void CreateInput_ScriptSolver();
+	void CreateInput_ScriptTextProcess();
 	void CreateInput_LeadSolver();
 	void CreateInput_Social();
 	void CreateInput_Vision();

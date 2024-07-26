@@ -2123,6 +2123,8 @@ void AiTask::CreateInput_ScriptSolver() {
 	}
 	
 	else if (args.fn == 11) {
+		MOVED // ScriptTextProcess fn 0
+		#if 0
 		String db_lang = Capitalize(MetaDatabase::Single().GetLanguage());
 		{
 			auto& list = input.AddSub().Title("List A: " + db_lang + " phrases");
@@ -2142,6 +2144,7 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		input.response_length = 2048;
 		this->SetHighQuality();
+		#endif
 	}
 	
 	else if (args.fn == 12 || args.fn == 13) {
@@ -3661,6 +3664,45 @@ void AiTask::CreateInput_BeliefSolver() {
 		input.response_length = 1024*2;
 	}
 }
+
+void AiTask::CreateInput_ScriptTextProcess() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadData& ld = mdb.lead_data;
+	LeadDataAnalysis& lda = mdb.lead_data.a;
+	
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	ScriptTextProcessArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		String db_lang = Capitalize(MetaDatabase::Single().GetLanguage());
+		{
+			auto& list = input.AddSub().Title("List A: " + db_lang + " phrases");
+			list.NumberedLines();
+			for(int j = 0; j < args.phrases.GetCount(); j++) {
+				const String& phrase = args.phrases[j];
+				list.Add(phrase);
+			}
+		}
+		{
+			ASSERT(args.lng_i > 0);
+			String lang = Capitalize(GetLanguageKey(args.lng_i));
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Translated phrases of List A in " + lang + " in slightly dialect");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+		this->SetHighQuality();
+	}
+	else TODO
+	
+}
+
 
 END_TEXTLIB_NAMESPACE
 

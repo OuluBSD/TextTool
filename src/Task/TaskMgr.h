@@ -57,6 +57,7 @@ struct TaskMgr {
 	void GetBeliefSolver(const BeliefArgs& args, Event<String> WhenResult);
 	void GetScriptPost(int appmode, const ScriptPostArgs& args, Event<String> WhenResult);
 	void GetVision(const String& jpeg, const VisionArgs& args, Event<String> WhenResult);
+	void GetScriptTextProcess(int appmode, const ScriptTextProcessArgs& args, Event<String> WhenResult);
 	
 	static TaskMgr& Single() {static TaskMgr tm; return tm;}
 	

@@ -6,6 +6,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 #define TODO Panic("TODO");
+#define MOVED Panic("MOVED");
 
 
 

@@ -26,6 +26,7 @@ typedef enum : int {
 	AITASK_LEAD_SOLVER,
 	AITASK_VISION,
 	AITASK_SNAPSHOT,
+	AITASK_SCRIPT_TEXT_PROCESS,
 	
 	AITASK_COUNT
 } AiTaskType;
@@ -344,6 +345,54 @@ struct BeliefArgs {
 				("pos", pos)
 				("neg", neg)
 				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+	
+};
+
+struct ScriptTextProcessArgs {
+	int fn = 0;
+	Vector<String> user;
+	Vector<String> pos, neg;
+	
+	int sub_fn = -1;
+	int lng_i = -1;
+	VectorMap<String,String> artist, release, song;
+	Vector<String> parts, attrs, phrases, scores;
+	Vector<int> counts, offsets;
+	String part, vision, ref;
+	bool is_story = false;
+	bool is_unsafe = false;
+	bool is_self_centered = false;
+	double factor = 0;
+	
+	
+
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("user", user)
+				("pos", pos)
+				("neg", neg)
+				("sub_fn", sub_fn)
+				("lng_i", lng_i)
+				("artist", artist)
+				("release", release)
+				("song", song)
+				("parts", parts)
+				("attrs", attrs)
+				("phrases", phrases)
+				("scores", scores)
+				("counts", counts)
+				("offsets", offsets)
+				("part", part)
+				("vision", vision)
+				("ref", ref)
+				("is_story", is_story)
+				("is_unsafe", is_unsafe)
+				("is_self_centered", is_self_centered)
+				("factor", factor)
+					;
 	}
 	String Get() const {return StoreAsJson(*this);}
 	void Put(const String& s) {LoadFromJson(*this, s);}

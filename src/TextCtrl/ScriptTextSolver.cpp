@@ -15,6 +15,10 @@ void ScriptTextSolverCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 }
 
+void ScriptTextSolverCtrl::Do(int fn) {
+	TODO
+}
+
 void ScriptTextSolverCtrl::Data() {
 	
 }

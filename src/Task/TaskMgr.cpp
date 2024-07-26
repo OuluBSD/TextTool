@@ -370,6 +370,24 @@ void TaskMgr::GetScriptSolver(int appmode, const ScriptSolverArgs& args, Event<S
 	task_lock.Leave();
 }
 
+void TaskMgr::GetScriptTextProcess(int appmode, const ScriptTextProcessArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
+	t.appmode = appmode;
+	t.SetRule(AITASK_SCRIPT_TEXT_PROCESS, MakeName(args, appmode, "script text process"))
+		.Input(&AiTask::CreateInput_ScriptTextProcess)
+		.Process(&AiTask::Process_Default);
+	
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
 void TaskMgr::GetLeadSolver(int appmode, const LeadSolverArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	TaskMgr& p = *this;
