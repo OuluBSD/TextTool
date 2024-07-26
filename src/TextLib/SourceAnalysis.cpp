@@ -90,6 +90,10 @@ void SourceAnalysisProcess::AnalyzeElements() {
 		return;
 	}
 	ScriptStruct& ss = da.scripts[batch];
+	if (ss.parts.GetCount() && ss.parts[0].cls >= 0) {
+		NextBatch();
+		return;
+	}
 	
 	args.fn = 0;
 	args.text = TrimBoth(da.GetScriptDump(batch));
