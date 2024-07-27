@@ -25,7 +25,7 @@ SocialHeaderCtrl::SocialHeaderCtrl() {
 		Option* o = new Option;
 		o->WhenAction << [this,o,i]() {
 			MetaPtrs& mp = MetaPtrs::Single();
-			BiographyAnalysis& analysis = mp.profile->biography_analysis;
+			BiographyAnalysis& analysis = *mp.analysis;
 			analysis.Realize();
 			analysis.platforms[i].platform_enabled = o->Get();
 		};
@@ -70,7 +70,7 @@ SocialHeaderCtrl::SocialHeaderCtrl() {
 void SocialHeaderCtrl::Data() {
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.profile) return;
-	BiographyAnalysis& analysis = mp.profile->biography_analysis;
+	BiographyAnalysis& analysis = *mp.analysis;
 	
 	for(int i = 0; i < platforms.GetCount(); i++) {
 		Option* o = dynamic_cast<Option*>(platforms.GetCtrl(i, 0));
@@ -99,8 +99,8 @@ void SocialHeaderCtrl::Data() {
 void SocialHeaderCtrl::DataPlatform() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
-	Biography& biography = mp.profile->biography_detailed;
-	BiographyAnalysis& analysis = mp.profile->biography_analysis;
+	Biography& biography = *mp.biography;
+	BiographyAnalysis& analysis = *mp.analysis;
 	
 	if (!mp.profile || !platforms.IsCursor()) {
 		attr_value.Clear();
@@ -137,8 +137,8 @@ void SocialHeaderCtrl::DataPlatform() {
 void SocialHeaderCtrl::OnValueChange() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
-	Biography& biography = mp.profile->biography_detailed;
-	BiographyAnalysis& analysis = mp.profile->biography_analysis;
+	Biography& biography = *mp.biography;
+	BiographyAnalysis& analysis = *mp.analysis;
 	
 	if (!platforms.IsCursor() || !attr_keys.IsCursor())
 		return;

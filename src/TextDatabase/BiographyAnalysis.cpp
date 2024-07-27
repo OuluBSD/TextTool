@@ -1730,7 +1730,7 @@ void BiographyAnalysis::Realize() {
 Index<int> BiographyAnalysis::GetRequiredRoles() const {
 	MetaPtrs& mp = MetaPtrs::Single();
 	MetaDatabase& mdb = MetaDatabase::Single();
-	BiographyAnalysis& analysis = mp.profile->biography_analysis;
+	BiographyAnalysis& analysis = *mp.analysis;
 	Index<int> ret;
 	for(int role_i0 = 0; role_i0 < SOCIETYROLE_COUNT; role_i0++) {
 		bool enabled = false;

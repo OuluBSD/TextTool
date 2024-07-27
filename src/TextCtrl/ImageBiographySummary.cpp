@@ -55,7 +55,7 @@ void ImageBiographySummaryCtrl::Data() {
 		return;
 	}
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.profile->biography_detailed;
+	Biography& biography = *mp.biography;
 	
 	for(int i = 0; i < categories.GetCount(); i++) {
 		int cat_i = categories.Get(i, "IDX");
@@ -73,7 +73,7 @@ void ImageBiographySummaryCtrl::DataCategory() {
 		return;
 	}
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.profile->biography_detailed;
+	Biography& biography = *mp.biography;
 	int cat_i = categories.Get("IDX");
 	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
 	bcat.RealizeSummaries();
@@ -114,7 +114,7 @@ void ImageBiographySummaryCtrl::DataYear() {
 	if (!mp.owner || !categories.IsCursor() || !blocks.IsCursor())
 		return;
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.profile->biography_detailed;
+	Biography& biography = *mp.biography;
 	int cat_i = categories.Get("IDX");
 	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
 	int block_i = blocks.Get("IDX");
@@ -132,8 +132,12 @@ void ImageBiographySummaryCtrl::OnValueChange() {
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.owner || !categories.IsCursor() || !blocks.IsCursor())
 		return;
+	if (!mp.editable_biography)
+		return;
+	mp.snap->last_modified = GetSysTime();
+	
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.profile->biography_detailed;
+	Biography& biography = *mp.biography;
 	int cat_i = categories.Get("IDX");
 	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
 	int block_i = blocks.Get("IDX");
@@ -186,6 +190,10 @@ void ImageBiographySummaryCtrl::Do(int fn) {
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.profile)
 		return;
+	if (mp.editable_biography) {
+		PromptOK(t_("The latest (and editable) revision can't be processed. Select older than latest revision."));
+		return;
+	}
 	SocialSolver& ss = SocialSolver::Get(*mp.profile);
 	if (fn == 0) {
 		ss.Start();

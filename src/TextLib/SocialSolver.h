@@ -39,6 +39,8 @@ class SocialSolver : public SolverBase {
 	};
 	Owner* owner = 0;
 	Profile* profile = 0;
+	BiographyAnalysis* analysis = 0;
+	Biography* biography = 0;
 	
 	Vector<BiographyProfileAnalysis*> ptrs;
 	Vector<const RoleProfile*> prof_ptrs;

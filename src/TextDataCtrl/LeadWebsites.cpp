@@ -1,6 +1,6 @@
 #include "TextDataCtrl.h"
 
-#if 0
+
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -613,4 +613,4 @@ void LeadWebsites::CopyHeaderClipboard() {
 
 
 END_TEXTLIB_NAMESPACE
-#endif
+

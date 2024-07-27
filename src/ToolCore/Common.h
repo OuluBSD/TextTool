@@ -186,6 +186,9 @@ struct Snapshot;
 struct Component;
 struct Script;
 struct StaticPart;
+struct Biography;
+struct BiographyAnalysis;
+struct BiographySnapshot;
 class ToolEditor;
 class LeadsCtrl;
 
@@ -269,6 +272,10 @@ struct MetaPtrs {
 	Owner*					owner = 0;
 	Profile*				profile = 0;
 	LeadsCtrl*				leads = 0;
+	Biography*				biography = 0;
+	BiographyAnalysis*		analysis = 0;
+	BiographySnapshot*		snap = 0;
+	bool					editable_biography = false;
 	
 	MetaPtrs();
 	static MetaPtrs& Single() {static MetaPtrs e; return e;}

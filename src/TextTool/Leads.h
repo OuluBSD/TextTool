@@ -12,11 +12,11 @@ class LeadsCtrl : public ToolEditorBase {
 protected:
 	friend class OwnerInfoCtrl;
 	friend class ProfileInfoCtrl;
-	Splitter			hsplit, menusplit;
-	ArrayCtrl			componentlist;
+	Splitter					hsplit, menusplit;
+	ArrayCtrl					componentlist;
 	
 	ImageGenTool				image_gen;
-	/*
+	
 	OwnerInfoCtrl				owner_info;
 	ProfileInfoCtrl				profile_info;
 	LeadWebsites				lead_sites;
@@ -34,7 +34,8 @@ protected:
 	PlatformProfileCtrl			platform_profile;
 	SocialNeedsCtrl				social_needs;
 	SocialBeliefsCtrl			social_beliefs;
-	*/
+	BiographyElementsCtrl		biography_elements;
+	
 	
 public:
 	typedef LeadsCtrl CLASSNAME;
@@ -45,7 +46,7 @@ public:
 	void DataComponent();
 	void InitSimplified();
 	void SetSubMenu(int i) override;
-	void OnDataProfile() override;
+	void OnDataSnapshot() override;
 	
 };
 

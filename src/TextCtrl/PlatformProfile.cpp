@@ -114,10 +114,10 @@ void PlatformProfileCtrl::DataPlatforms() {
 
 void PlatformProfileCtrl::DataPlatform() {
 	MetaPtrs& mp = MetaPtrs::Single();
-	if (!p.platforms.IsCursor() || !mp.profile) {
+	if (!p.platforms.IsCursor() || !mp.profile || !mp.analysis) {
 		return;
 	}
-	BiographyAnalysis& analysis = mp.profile->biography_analysis;
+	BiographyAnalysis& analysis = *mp.analysis;
 	int plat_i = p.platforms.Get("IDX");
 	const Platform& pl = GetPlatforms()[plat_i];
 	const PlatformAnalysis& pa = MetaDatabase::Single().GetAdd(pl);
@@ -150,7 +150,7 @@ void PlatformProfileCtrl::DataPlatform() {
 
 void PlatformProfileCtrl::DataClusters() {
 	MetaPtrs& mp = MetaPtrs::Single();
-	BiographyAnalysis& analysis = mp.profile->biography_analysis;
+	BiographyAnalysis& analysis = *mp.analysis;
 	
 	analysis.RealizePromptImageTypes();
 	
@@ -171,7 +171,7 @@ void PlatformProfileCtrl::DataClusters() {
 
 void PlatformProfileCtrl::DataImageType() {
 	MetaPtrs& mp = MetaPtrs::Single();
-	BiographyAnalysis& analysis = mp.profile->biography_analysis;
+	BiographyAnalysis& analysis = *mp.analysis;
 	
 	if (!c.image_types.IsCursor())
 		return;
@@ -206,7 +206,7 @@ void PlatformProfileCtrl::PhotoPromptMenu(Bar& bar) {
 		return;
 	
 		MetaPtrs& mp = MetaPtrs::Single();
-		BiographyAnalysis& analysis = mp.profile->biography_analysis;
+		BiographyAnalysis& analysis = *mp.analysis;
 		int plat_i = p.platforms.Get("IDX");
 		const Platform& pl = GetPlatforms()[plat_i];
 		const PlatformAnalysis& pa = MetaDatabase::Single().GetAdd(pl);
@@ -228,7 +228,7 @@ void PlatformProfileCtrl::PhotoPromptMenu(Bar& bar) {
 		return;
 	
 		MetaPtrs& mp = MetaPtrs::Single();
-		BiographyAnalysis& analysis = mp.profile->biography_analysis;
+		BiographyAnalysis& analysis = *mp.analysis;
 		int plat_i = p.platforms.Get("IDX");
 		const Platform& pl = GetPlatforms()[plat_i];
 		const PlatformAnalysis& pa = MetaDatabase::Single().GetAdd(pl);
@@ -267,7 +267,7 @@ void PlatformProfileCtrl::OnPhotoPrompt() {
 		return;
 	
 	MetaPtrs& mp = MetaPtrs::Single();
-	BiographyAnalysis& analysis = mp.profile->biography_analysis;
+	BiographyAnalysis& analysis = *mp.analysis;
 	int plat_i = p.platforms.Get("IDX");
 	const Platform& pl = GetPlatforms()[plat_i];
 	const PlatformAnalysis& pa = MetaDatabase::Single().GetAdd(pl);

@@ -22,6 +22,7 @@ protected:
 	
 	ImageGenTool					image_gen;
 	EntityInfoCtrl					entity_info;
+	ConceptualFrameworkCtrl			conceptual;
 	SnapInfoCtrl					snap_info;
 	SnapBriefing					snap_briefing;
 	SnapIdeas						snap_ideas;
@@ -75,7 +76,7 @@ public:
 	void SwitchAppMode();
 	void ViewPageGroup() override;
 	void Data() override;
-	void OnDataProfile() override;
+	void OnDataSnapshot() override;
 	void DataSnapshot();
 	void DataComponent();
 	void DataScript();

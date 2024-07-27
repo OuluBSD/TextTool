@@ -103,6 +103,7 @@ void ToolEditor::InitSimplified() {
 	*/
 	
 	AddItem("Entity", t_("Info"), entity_info);
+	AddItem("Entity", t_("Conceptual Framework"), conceptual);
 	
 	AddItem("Snapshot", t_("Info"), snap_info);
 	AddItem("Snapshot", t_("Briefing"), snap_briefing);
@@ -294,7 +295,7 @@ void ToolEditor::Data() {
 	DataMeta();
 }
 
-void ToolEditor::OnDataProfile() {
+void ToolEditor::OnDataSnapshot() {
 	MetaPtrs& mp = MetaPtrs::Single();
 	EditorPtrs& p = GetPointers();
 	if (!mp.profile) {
@@ -635,7 +636,7 @@ void ToolEditor::AddSnapshot() {
 	r.english_title = title;
 	p.release = &r;
 	
-	OnDataProfile();
+	OnDataSnapshot();
 }
 
 void ToolEditor::RenameSnapshot() {
@@ -655,7 +656,7 @@ void ToolEditor::RenameSnapshot() {
 	
 	p.release->english_title = title;
 	
-	OnDataProfile();
+	OnDataSnapshot();
 }
 
 void ToolEditor::RemoveSnapshot() {
@@ -666,7 +667,7 @@ void ToolEditor::RemoveSnapshot() {
 	int idx = p.GetActiveSnapshotIndex();
 	if (idx < 0) return;
 	p.entity->snaps.Remove(idx);
-	OnDataProfile();
+	OnDataSnapshot();
 }
 
 void ToolEditor::AddSong() {
@@ -705,7 +706,7 @@ void ToolEditor::AddSong() {
 	s.file_title = file_title;
 	p.component = &s;
 	
-	OnDataProfile();
+	OnDataSnapshot();
 }
 
 void ToolEditor::RenameSong() {

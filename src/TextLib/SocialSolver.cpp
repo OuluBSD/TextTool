@@ -209,7 +209,7 @@ void SocialSolver::OnProcessAnalyzePlatformRoles(String res) {
 }
 
 void SocialSolver::ProcessAudienceProfileCategories() {
-	BiographyAnalysis& analysis = profile->biography_analysis;
+	BiographyAnalysis& analysis = *this->analysis;
 	int role_i = batch;
 	int prof_i = sub_batch;
 	
@@ -254,7 +254,7 @@ void SocialSolver::OnProcessAudienceProfileCategories(String res) {
 	int prof_i = sub_batch;
 	const Array<RoleProfile>& profs = GetRoleProfile(role_i);
 	const RoleProfile& prof = profs[prof_i];
-	BiographyAnalysis& analysis = profile->biography_analysis;
+	BiographyAnalysis& analysis = *this->analysis;
 	analysis.Realize();
 	BiographyProfileAnalysis& pa = analysis.profiles[role_i][prof_i];
 	
@@ -544,7 +544,7 @@ void SocialSolver::OnProcessAnalyzeProfileEpkPhotoAiPrompts(String res) {
 
 void SocialSolver::TraverseProfileEPKTasks() {
 	MetaDatabase& mdb = MetaDatabase::Single();
-	BiographyAnalysis& analysis = profile->biography_analysis;
+	BiographyAnalysis& analysis = *this->analysis;
 	
 	for(int i = 0; i < analysis.platforms.GetCount(); i++) {
 		PlatformBiographyAnalysis& pba = analysis.platforms[i];
@@ -592,22 +592,23 @@ void SocialSolver::TraverseProfileEPKTasks() {
 }
 
 void SocialSolver::ProcessAnalyzeProfileEpkSummarizePhotoAiPrompts() {
+	BiographyAnalysis& analysis = *this->analysis;
 	
 	if (batch == 0) {
-		profile->biography_analysis.RealizePromptImageTypes();
+		analysis.RealizePromptImageTypes();
 	}
 	
-	if (batch >= profile->biography_analysis.image_types.GetCount()) {
+	if (batch >= analysis.image_types.GetCount()) {
 		NextPhase();
 		return;
 	}
-	PhotoPromptGroupAnalysis& ppga = profile->biography_analysis.image_types[batch];
+	PhotoPromptGroupAnalysis& ppga = analysis.image_types[batch];
 	if (skip_ready && ppga.prompt.GetCount()) {NextBatch(); return;}
 	
 	SocialArgs args;
 	args.fn = 17;
-	args.text = profile->biography_analysis.image_types.GetKey(batch);
-	Vector<PhotoPromptLink> links = profile->biography_analysis.GetImageTypePrompts(args.text);
+	args.text = analysis.image_types.GetKey(batch);
+	Vector<PhotoPromptLink> links = analysis.GetImageTypePrompts(args.text);
 	
 	if (links.GetCount() <= 1) {
 		ppga.prompt = links[0].pp->prompt;
@@ -626,7 +627,8 @@ void SocialSolver::ProcessAnalyzeProfileEpkSummarizePhotoAiPrompts() {
 }
 
 void SocialSolver::OnProcessAnalyzeProfileEpkSummarizePhotoAiPrompts(String res) {
-	PhotoPromptGroupAnalysis& ppga = profile->biography_analysis.image_types[batch];
+	BiographyAnalysis& analysis = *this->analysis;
+	PhotoPromptGroupAnalysis& ppga = analysis.image_types[batch];
 	
 	res = TrimBoth(res);
 	if (res.Left(2) == "1.") res = res.Mid(2);
@@ -754,7 +756,7 @@ void SocialSolver::OnProcessAnalyzePlatformEpkPhotoAiPrompts(String res) {
 }
 
 void SocialSolver::ProcessSummarize() {
-	Biography& biography = profile->biography_detailed;
+	Biography& biography = *this->biography;
 	
 	if (batch >= BIOCATEGORY_COUNT) {
 		NextPhase();
@@ -839,7 +841,7 @@ void SocialSolver::ProcessSummarize() {
 }
 
 void SocialSolver::OnProcessSummarize(String res) {
-	Biography& biography = profile->biography_detailed;
+	Biography& biography = *this->biography;
 	int bcat_i = batch;
 	BiographyCategory& bcat = biography.GetAdd(*owner, bcat_i);
 	const BioRange& range = bcat.summaries.GetKey(sub_batch);
@@ -853,10 +855,10 @@ void SocialSolver::OnProcessSummarize(String res) {
 }
 
 void SocialSolver::ProcessAudienceReactsSummary() {
-	Biography& biography = profile->biography_detailed;
+	BiographyAnalysis& analysis = *this->analysis;
+	Biography& biography = *this->biography;
 	
 	if (batch == 0 && sub_batch == 0) {
-		BiographyAnalysis& analysis = profile->biography_analysis;
 		analysis.Realize();
 		ptrs.Clear();
 		role_descs.Clear();
@@ -946,8 +948,8 @@ void SocialSolver::OnProcessAudienceReactsSummary(String res) {
 }
 
 void SocialSolver::ProcessRoleReactions() {
-	Biography& biography = profile->biography_detailed;
-	BiographyAnalysis& analysis = profile->biography_analysis;
+	Biography& biography = *this->biography;
+	BiographyAnalysis& analysis = *this->analysis;
 	int role_i = batch;
 	
 	if (role_i >= analysis.profiles.GetCount()) {
@@ -1029,8 +1031,8 @@ void SocialSolver::ProcessRoleReactions() {
 }
 
 void SocialSolver::OnProcessRoleReactions(String res) {
-	Biography& biography = profile->biography_detailed;
-	BiographyAnalysis& analysis = profile->biography_analysis;
+	Biography& biography = *this->biography;
+	BiographyAnalysis& analysis = *this->analysis;
 	int role_i = batch;
 	int range_i = ranges.GetCount() - 1 - sub_batch;
 	
@@ -1061,7 +1063,7 @@ int SocialSolver::CreateRange(int off, int len) {
 }
 
 void SocialSolver::ProcessPlatformReactions() {
-	BiographyAnalysis& analysis = profile->biography_analysis;
+	BiographyAnalysis& analysis = *this->analysis;
 	int plat_i = batch;
 	
 	if (plat_i >= PLATFORM_COUNT) {
@@ -1137,7 +1139,7 @@ void SocialSolver::ProcessPlatformReactions() {
 }
 
 void SocialSolver::OnProcessPlatformReactions(String res) {
-	BiographyAnalysis& analysis = profile->biography_analysis;
+	BiographyAnalysis& analysis = *this->analysis;
 	int plat_i = batch;
 	int range_i = ranges.GetCount() - 1 - sub_batch;
 	if (plat_i >= analysis.platforms.GetCount())
@@ -1155,7 +1157,7 @@ void SocialSolver::OnProcessPlatformReactions(String res) {
 }
 
 void SocialSolver::ProcessPlatformDescriptions() {
-	BiographyAnalysis& analysis = profile->biography_analysis;
+	BiographyAnalysis& analysis = *this->analysis;
 	int plat_i = batch;
 	
 	if (plat_i >= PLATFORM_COUNT) {
@@ -1191,7 +1193,7 @@ void SocialSolver::ProcessPlatformDescriptions() {
 }
 
 void SocialSolver::OnProcessPlatformDescriptions(String res) {
-	BiographyAnalysis& analysis = profile->biography_analysis;
+	BiographyAnalysis& analysis = *this->analysis;
 	int plat_i = batch;
 	if (plat_i >= analysis.platforms.GetCount())
 		analysis.platforms.SetCount(plat_i+1);
@@ -1208,7 +1210,7 @@ void SocialSolver::OnProcessPlatformDescriptions(String res) {
 }
 
 void SocialSolver::ProcessPlatformDescriptionRefinements() {
-	BiographyAnalysis& analysis = profile->biography_analysis;
+	BiographyAnalysis& analysis = *this->analysis;
 	int plat_i = batch;
 	
 	if (plat_i >= PLATFORM_COUNT) {
@@ -1252,7 +1254,7 @@ void SocialSolver::ProcessPlatformDescriptionRefinements() {
 }
 
 void SocialSolver::OnProcessPlatformDescriptionRefinements(String res) {
-	BiographyAnalysis& analysis = profile->biography_analysis;
+	BiographyAnalysis& analysis = *this->analysis;
 	int plat_i = batch;
 	const Platform& plat = GetPlatforms()[plat_i];
 	PlatformBiographyAnalysis& plat_anal = analysis.platforms[plat_i];
@@ -1269,7 +1271,7 @@ void SocialSolver::OnProcessPlatformDescriptionRefinements(String res) {
 }
 
 void SocialSolver::ProcessPlatformDescriptionTranslated() {
-	BiographyAnalysis& analysis = profile->biography_analysis;
+	BiographyAnalysis& analysis = *this->analysis;
 	int plat_i = batch;
 	
 	if (plat_i >= PLATFORM_COUNT) {
@@ -1310,7 +1312,7 @@ void SocialSolver::ProcessPlatformDescriptionTranslated() {
 }
 
 void SocialSolver::OnProcessPlatformDescriptionTranslated(String res) {
-	BiographyAnalysis& analysis = profile->biography_analysis;
+	BiographyAnalysis& analysis = *this->analysis;
 	int plat_i = batch;
 	const Platform& plat = GetPlatforms()[plat_i];
 	PlatformBiographyAnalysis& plat_anal = analysis.platforms[plat_i];
@@ -1459,7 +1461,7 @@ void SocialSolver::OnProcessSummarizeImageCategoryYear(String res) {
 }
 
 void SocialSolver::ProcessSummarizeImageBiography() {
-	Biography& biography = profile->biography_detailed;
+	Biography& biography = *this->biography;
 	
 	if (batch >= BIOCATEGORY_COUNT) {
 		NextPhase();
@@ -1544,7 +1546,7 @@ void SocialSolver::ProcessSummarizeImageBiography() {
 }
 
 void SocialSolver::OnProcessSummarizeImageBiography(String res) {
-	Biography& biography = profile->biography_detailed;
+	Biography& biography = *this->biography;
 	int bcat_i = batch;
 	BiographyCategory& bcat = biography.GetAdd(*owner, bcat_i);
 	const BioRange& range = bcat.summaries.GetKey(sub_batch);
@@ -1558,7 +1560,7 @@ void SocialSolver::OnProcessSummarizeImageBiography(String res) {
 }
 
 void SocialSolver::TraverseVisionTasks() {
-	Biography& biography = profile->biography_detailed;
+	Biography& biography = *this->biography;
 	for(int i = 0; i < BIOCATEGORY_COUNT; i++) {
 		BiographyCategory& bcat = biography.GetAdd(*owner, i);
 		for(int j = 0; j < bcat.years.GetCount(); j++) {
@@ -1583,7 +1585,7 @@ void SocialSolver::TraverseVisionTasks() {
 }
 
 void SocialSolver::TraverseImageSummaryTasks() {
-	Biography& biography = profile->biography_detailed;
+	Biography& biography = *this->biography;
 	for(int i = 0; i < BIOCATEGORY_COUNT; i++) {
 		BiographyCategory& bcat = biography.GetAdd(*owner, i);
 		int bcat_i = i;

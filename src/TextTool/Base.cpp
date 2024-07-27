@@ -22,6 +22,12 @@ ToolEditorBase::ToolEditorBase(const char* title, TextTool& app) : title(title),
 	profiles.WhenBar << THISBACK(ProfileMenu);
 	profiles.AddIndex("IDX");
 	
+	snapshots.AddColumn(t_("Snapshot revision"));
+	snapshots.AddColumn(t_("Last modified"));
+	snapshots.ColumnWidths("1 4");
+	snapshots <<= THISBACK(DataSnapshot);
+	snapshots.WhenBar << THISBACK(SnapshotMenu);
+	
 }
 
 void ToolEditorBase::Serialize(Stream& s) {
@@ -225,7 +231,36 @@ void ToolEditorBase::DataProfile() {
 	int prof_i = profiles.Get("IDX");
 	p.profile = profiles.IsCursor() ? &owner.profiles[prof_i] : 0;
 	
-	OnDataProfile();
+	for(int i = 0; i < p.profile->snapshots.GetCount(); i++) {
+		const auto& snap = p.profile->snapshots[i];
+		snapshots.Set(i, 0, snap.revision);
+		snapshots.Set(i, 1, snap.last_modified);
+	}
+	INHIBIT_CURSOR(snapshots);
+	snapshots.SetCount(p.profile->snapshots.GetCount());
+	if (snapshots.GetCount() && !snapshots.IsCursor())
+		snapshots.SetCursor(0);
+	
+	DataSnapshot();
+}
+
+void ToolEditorBase::DataSnapshot() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.profile || !snapshots.IsCursor()) {
+		mp.biography = 0;
+		mp.analysis = 0;
+		return;
+	}
+	
+	int snap_i = snapshots.GetCursor();
+	auto& snap = mp.profile->snapshots[snap_i];
+	mp.snap = &snap;
+	mp.biography = &snap.data;
+	mp.analysis = &snap.analysis;
+	mp.editable_biography = (snap_i == snapshots.GetCount()-1);
+	
+	OnDataSnapshot();
 }
 
 void ToolEditorBase::OwnerMenu(Bar& bar) {
@@ -242,6 +277,37 @@ void ToolEditorBase::ProfileMenu(Bar& bar) {
 	if (profiles.IsCursor()) {
 		bar.Add(t_("Delete Profile"), THISBACK(RemoveProfile));
 	}
+}
+
+void ToolEditorBase::SnapshotMenu(Bar& bar) {
+	bar.Add(t_("Add Snapshot"), [this]() {
+		MetaPtrs& mp = MetaPtrs::Single();
+		
+		int revision = 0;
+		String prev;
+		if (mp.profile->snapshots.GetCount()) {
+			auto& top = mp.profile->snapshots.Top();
+			revision = top.revision + 1;
+			prev = StoreAsJson(top.data);
+		}
+		
+		auto& snap = mp.profile->snapshots.Add();
+		snap.last_modified = GetSysTime();
+		snap.revision = revision;
+		
+		// Append previous revision
+		if (prev.GetCount())
+			LoadFromJson(snap.data, prev);
+		
+		PostCallback(THISBACK(Data));
+	});
+	bar.Add(snapshots.IsCursor(), t_("Remove Snapshot"), [this]() {
+		int snap_i = snapshots.GetCursor();
+		MetaPtrs& mp = MetaPtrs::Single();
+		if (!mp.profile) return;
+		mp.profile->snapshots.Remove(snap_i);
+		PostCallback(THISBACK(Data));
+	});
 }
 
 void ToolEditorBase::AddOwner() {

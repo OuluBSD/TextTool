@@ -48,7 +48,7 @@ BiographyCtrl::BiographyCtrl() {
 void BiographyCtrl::Data() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
-	if (!mp.profile) {
+	if (!mp.profile || !mp.analysis) {
 		for(int i = 0; i < categories.GetCount(); i++) {
 			categories.Set(i, 0, 0);
 			categories.Set(i, 2, 0);
@@ -57,9 +57,10 @@ void BiographyCtrl::Data() {
 	}
 	Owner& owner = *mp.owner;
 	Profile& profile = *mp.profile;
-	Biography& biography = mp.profile->biography_detailed;
+	BiographyAnalysis& analysis = *mp.analysis;
+	Biography& biography = *mp.biography;
 	
-	Index<int> req_cats = mp.profile->biography_analysis.GetRequiredCategories();
+	Index<int> req_cats = analysis.GetRequiredCategories();
 	for(int i = 0; i < categories.GetCount(); i++) {
 		int cat_i = categories.Get(i, "IDX");
 		bool req = req_cats.Find(cat_i) >= 0;
@@ -74,13 +75,13 @@ void BiographyCtrl::Data() {
 void BiographyCtrl::DataCategory() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
-	if (!mp.profile || !categories.IsCursor()) {
+	if (!mp.profile || !mp.biography || !categories.IsCursor()) {
 		years.Clear();
 		return;
 	}
 	Owner& owner = *mp.owner;
 	Profile& profile = *mp.profile;
-	Biography& biography = mp.profile->biography_detailed;
+	Biography& biography = *mp.biography;
 	int cat_i = categories.Get("IDX");
 	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
 	
@@ -118,7 +119,7 @@ void BiographyCtrl::DataYear() {
 		return;
 	Owner& owner = *mp.owner;
 	Profile& profile = *mp.profile;
-	Biography& biography = mp.profile->biography_detailed;
+	Biography& biography = *mp.biography;
 	int cat_i = categories.Get("IDX");
 	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
 	int year_i = years.Get("IDX");
@@ -136,13 +137,19 @@ void BiographyCtrl::OnValueChange() {
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.profile || !categories.IsCursor() || !years.IsCursor())
 		return;
+	if (!mp.editable_biography)
+		return;
+	
 	Owner& owner = *mp.owner;
 	Profile& profile = *mp.profile;
-	Biography& biography = mp.profile->biography_detailed;
+	Biography& biography = *mp.biography;
 	int cat_i = categories.Get("IDX");
 	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
 	int year_i = years.Get("IDX");
 	if (year_i >= bcat.years.GetCount()) return;
+	
+	mp.snap->last_modified = GetSysTime();
+	
 	BioYear& by = bcat.years[year_i];
 	by.keywords = year.keywords.GetData();
 	by.native_text = year.native_text.GetData();
@@ -153,6 +160,8 @@ void BiographyCtrl::OnValueChange() {
 }
 
 void BiographyCtrl::MakeKeywords () {
+	if (!MetaPtrs::Single().editable_biography)
+		return;
 	TaskMgr& m = TaskMgr::Single();
 	SocialArgs args;
 	args.text = year.text.GetData();
@@ -160,6 +169,8 @@ void BiographyCtrl::MakeKeywords () {
 }
 
 void BiographyCtrl::Translate() {
+	if (!MetaPtrs::Single().editable_biography)
+		return;
 	TaskMgr& m = TaskMgr::Single();
 	
 	String src = year.native_text.GetData();

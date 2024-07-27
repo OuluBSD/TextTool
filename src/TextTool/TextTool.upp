@@ -31,12 +31,12 @@ file
 	App.h,
 	App.cpp,
 	View readonly separator,
+	Base.h,
+	Base.cpp,
 	Leads.h,
 	Leads.cpp,
 	Editor.h,
-	Editor.cpp,
-	Base.h,
-	Base.cpp;
+	Editor.cpp;
 
 mainconfig
 	"" = "GUI",

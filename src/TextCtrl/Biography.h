@@ -25,6 +25,7 @@ public:
 	void OnKeywords(String s);
 	void ToolMenu(Bar& bar) override;
 	void EntryListMenu(Bar& bar);
+	void SnapshotMenu(Bar& bar);
 	
 	
 };

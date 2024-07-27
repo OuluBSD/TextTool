@@ -23,6 +23,7 @@ protected:
 	ArrayCtrl			parts, page_group_list, page_list;
 	ArrayCtrl			owners;
 	ArrayCtrl			profiles;
+	ArrayCtrl			snapshots;
 	int					page_group = 0;
 	VectorMap<int,int>	page;
 	bool				save_data = false;
@@ -44,9 +45,11 @@ public:
 	void ToolMenu(Bar& bar);
 	void OwnerMenu(Bar& bar);
 	void ProfileMenu(Bar& bar);
+	void SnapshotMenu(Bar& bar);
 	void DataMeta();
 	void DataOwner();
 	void DataProfile();
+	void DataSnapshot();
 	void AddOwner();
 	void RemoveOwner();
 	void AddProfile();
@@ -55,7 +58,7 @@ public:
 	virtual void Data() {}
 	virtual void ViewPageGroup();
 	virtual void DataPage();
-	virtual void OnDataProfile() {}
+	virtual void OnDataSnapshot() {}
 	virtual void SetSubMenu(int i) = 0;
 	void Serialize(Stream& s) override;
 	

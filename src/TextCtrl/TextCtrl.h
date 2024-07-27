@@ -19,6 +19,7 @@
 #include "ScriptPool.h"
 
 #include "CompInfoCtrl.h"
+#include "ConceptualFrameworkCtrl.h"
 
 #include "SnapInfoCtrl.h"
 #include "SnapBriefing.h"
@@ -49,6 +50,7 @@
 #include "ScriptStructureSolver.h"
 #include "ScriptRangeSolver.h"
 #include "ScriptTextSolver.h"
+#include "BiographyElements.h"
 
 
 #endif

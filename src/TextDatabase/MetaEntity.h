@@ -8,6 +8,22 @@ BEGIN_TEXTLIB_NAMESPACE
 struct Owner;
 struct LeadOpportunity;
 
+struct BiographySnapshot {
+	int revision = 0;
+	Time last_modified;
+	Biography data;
+	BiographyAnalysis analysis;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("revision", revision)
+			("last_modified", last_modified)
+			("data", data)
+			("analysis", analysis)
+		;
+	}
+};
+
 struct Profile
 {
 	Owner* owner = 0;
@@ -16,8 +32,7 @@ struct Profile
 	String biography;
 	String preferred_genres;
 	Index<int> languages;
-	Biography biography_detailed;
-	BiographyAnalysis biography_analysis;
+	Array<BiographySnapshot> snapshots;
 	
 	/*void Serialize(Stream& s) {
 		
@@ -30,9 +45,16 @@ struct Profile
 			("biography", biography)
 			("preferred_genres", preferred_genres)
 			("languages", languages)
-			("biography_detailed", biography_detailed)
-			("biography_analysis", biography_analysis)
+			("snapshots", snapshots)
 			;
+		if (json.IsLoading() && snapshots.IsEmpty()) {
+			auto& s = snapshots.Add();
+			json
+				("biography_detailed", s.data)
+				("biography_analysis", s.analysis)
+			;
+			s.last_modified = GetSysTime();
+		}
 	}
 	
 };

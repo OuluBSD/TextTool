@@ -20,6 +20,7 @@
 #include "ScriptRange.h"
 #include "ScriptText.h"
 #include "SourceAnalysis.h"
+#include "BiographyElementsProcess.h"
 
 #if 1
 #include "ScriptGenerator.h"

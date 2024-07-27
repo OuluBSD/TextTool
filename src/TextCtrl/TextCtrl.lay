@@ -16,6 +16,21 @@ LAYOUT(OwnerInfo, 672, 292)
 	ITEM(Upp::EditString, electronic_tools, LeftPosZ(164, 496).TopPosZ(208, 20))
 END_LAYOUT
 
+LAYOUT(ConceptualFramework, 844, 176)
+	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Conceptual Framework")).LeftPosZ(4, 416).VSizePosZ(0, 4))
+	ITEM(Upp::Label, lbl_name, SetLabel(t_("Name:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 76).TopPosZ(16, 20))
+	ITEM(Upp::EditString, name, LeftPosZ(92, 320).TopPosZ(16, 20))
+	ITEM(Upp::DocEdit, a, LeftPosZ(492, 320).TopPosZ(20, 20))
+	ITEM(Upp::Label, lbl_belief, SetLabel(t_("Belief:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 76).TopPosZ(40, 20))
+	ITEM(Upp::DropList, belief, LeftPosZ(92, 320).TopPosZ(40, 20))
+	ITEM(Upp::Label, lbl_typeclass, SetLabel(t_("Typeclass:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 76).TopPosZ(64, 20))
+	ITEM(Upp::DropList, typeclass, LeftPosZ(92, 320).TopPosZ(64, 20))
+	ITEM(Upp::Label, lbl_content, SetLabel(t_("Content:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 76).TopPosZ(88, 20))
+	ITEM(Upp::LabelBox, dv___9, SetLabel(t_("Text concecpt")).LeftPosZ(424, 416).VSizePosZ(0, 4))
+	ITEM(Upp::DropList, content, LeftPosZ(92, 320).TopPosZ(88, 20))
+	ITEM(Upp::Label, dv___11, SetLabel(t_("Name:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(412, 76).TopPosZ(20, 20))
+END_LAYOUT
+
 LAYOUT(ProfileInfo, 672, 292)
 	ITEM(Upp::LabelBox, lbl_profile, SetLabel(t_("Profile")).LeftPosZ(4, 664).TopPosZ(0, 288))
 	ITEM(Upp::Label, lbl_name, SetLabel(t_("Name:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).TopPosZ(16, 20))

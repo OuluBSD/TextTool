@@ -52,15 +52,15 @@ AudienceCtrl::AudienceCtrl() {
 
 void AudienceCtrl::Data() {
 	MetaPtrs& mp = MetaPtrs::Single();
-	if (!mp.profile) return;
+	if (!mp.profile || !mp.biography) return;
 	INHIBIT_CURSOR(roles);
 	if (!roles.IsCursor()) roles.SetCursor(0);
 	
 	
 	// Check if role is enabled (indirectly by enabled platforms)
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.profile->biography_detailed;
-	BiographyAnalysis& analysis = mp.profile->biography_analysis;
+	Biography& biography = *mp.biography;
+	BiographyAnalysis& analysis = *mp.analysis;
 	analysis.Realize();
 	Index<int> req_roles = analysis.GetRequiredRoles();
 	for(int role_i = 0; role_i < SOCIETYROLE_COUNT; role_i++) {
@@ -97,8 +97,8 @@ void AudienceCtrl::DataProfile() {
 	int prof_i = profiles.GetCursor();
 	
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.profile->biography_detailed;
-	BiographyAnalysis& analysis = mp.profile->biography_analysis;
+	Biography& biography = *mp.biography;
+	BiographyAnalysis& analysis = *mp.analysis;
 	analysis.Realize();
 	const BiographyProfileAnalysis& pa = analysis.profiles[role_i][prof_i];
 	const Array<RoleProfile>& profs = GetRoleProfile(role_i);
@@ -141,8 +141,8 @@ void AudienceCtrl::DataResponse() {
 	
 	
 	Owner& owner = *mp.owner;
-	Biography& biography = mp.profile->biography_detailed;
-	BiographyAnalysis& analysis = mp.profile->biography_analysis;
+	Biography& biography = *mp.biography;
+	BiographyAnalysis& analysis = *mp.analysis;
 	const BiographyProfileAnalysis& pa = analysis.profiles[role_i][prof_i];
 	const BiographyProfileAnalysis::Response& resp = pa.responses[resp_i];
 	const Array<RoleProfile>& profs = GetRoleProfile(role_i);

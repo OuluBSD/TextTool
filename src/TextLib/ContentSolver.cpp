@@ -106,6 +106,8 @@ void ContentSolver::OnProcessMergeMessages(String res) {
 }
 
 void ContentSolver::TraverseMessageTasks(int prof_i, int plat_i) {
+	TODO
+	#if 0
 	Profile& prof = owner->profiles[prof_i];
 	ProfileData& pd = ProfileData::Get(prof);
 	BiographyAnalysis& analysis = profile->biography_analysis;
@@ -131,6 +133,7 @@ void ContentSolver::TraverseMessageTasks(int prof_i, int plat_i) {
 			}
 		}
 	}
+	#endif
 }
 
 void ContentSolver::TraverseMessageTasks(Vector<PlatformComment*>& before, PlatformComment& plc) {
