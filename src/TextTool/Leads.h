@@ -35,6 +35,7 @@ protected:
 	SocialNeedsCtrl				social_needs;
 	SocialBeliefsCtrl			social_beliefs;
 	//BiographyElementsCtrl		biography_elements;
+	MarketplaceCtrl				marketplace;
 	
 	
 public:

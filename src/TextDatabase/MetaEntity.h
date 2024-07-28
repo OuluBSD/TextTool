@@ -134,6 +134,44 @@ struct Role {
 	
 };
 
+struct MarketplaceItem : Moveable<MarketplaceItem> {
+	Time added;
+	String generic, brand, model;
+	double price = 0., cx = 0., cy = 0., cz = 0., weight = 0.;
+	String faults, works;
+	bool broken = false, good = false;
+	Vector<int64> images;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("added",added)
+			("generic",generic)
+			("brand",brand)
+			("model",model)
+			("price",price)
+			("cx",cx)
+			("cy",cy)
+			("cz",cz)
+			("weight",weight)
+			("faults",faults)
+			("works",works)
+			("broken",broken)
+			("good",good)
+			("images",images)
+			;
+	}
+};
+
+struct MarketplaceData {
+	Vector<MarketplaceItem> items;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("items",items)
+			;
+	}
+};
+
 struct Owner
 {
 	String name;
@@ -145,6 +183,7 @@ struct Owner
 	String electronic_tools;
 	Array<Profile> profiles;
 	Array<Role> roles;
+	MarketplaceData marketplace;
 	
 	/*void Serialize(Stream& s) {
 		
@@ -164,6 +203,7 @@ struct Owner
 			("electronic_tools", electronic_tools)
 			("profiles", profiles)
 			("roles", roles)
+			("marketplace", marketplace)
 			;
 		if (json.IsLoading()) {
 			for (Profile& p : profiles)

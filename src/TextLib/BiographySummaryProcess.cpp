@@ -19,7 +19,7 @@ int BiographySummaryProcess::GetBatchCount(int phase) const {
 		case PHASE_SUMMARIZE:							return BIOCATEGORY_COUNT;
 		case PHASE_SUMMARIZE_ELEMENTS_USING_EXISTING:	return BIOCATEGORY_COUNT;
 		case PHASE_SUMMARIZE_ELEMENTS:					return BIOCATEGORY_COUNT;
-		default: TODO; return 1;
+		default: return 1;
 	}
 }
 
@@ -33,7 +33,7 @@ int BiographySummaryProcess::GetSubBatchCount(int phase, int batch) const {
 		case PHASE_SUMMARIZE:							return bcat.summaries.GetCount();
 		case PHASE_SUMMARIZE_ELEMENTS_USING_EXISTING:	return bcat.summaries.GetCount();
 		case PHASE_SUMMARIZE_ELEMENTS:					return bcat.summaries.GetCount();
-		default: TODO; return 1;
+		default: return 1;
 	}
 }
 
@@ -44,7 +44,7 @@ void BiographySummaryProcess::DoPhase() {
 		case PHASE_SUMMARIZE:							Summarize(); return;
 		case PHASE_SUMMARIZE_ELEMENTS_USING_EXISTING:	SummarizeElementsUsingExisting(); return;
 		case PHASE_SUMMARIZE_ELEMENTS:					SummarizeElements(); return;
-		default: TODO; return;
+		default: return;
 	}
 }
 
@@ -370,8 +370,16 @@ void BiographySummaryProcess::OnProcessSummarizeElements(String result) {
 		String value = TrimBoth(line.Mid(a+1));
 		RemoveQuotes(value);
 		String lvalue = ToLower(value);
-		if (lvalue.IsEmpty() || lvalue == "none." || lvalue == "none" || lvalue.Left(6) == "none (" || lvalue == "ready." || lvalue == "ready" || lvalue.Left(6) == "ready (")
+		if (lvalue.IsEmpty() || lvalue == "none." || lvalue == "none" || lvalue.Left(6) == "none (" || lvalue == "ready." || lvalue == "ready" || lvalue.Left(6) == "ready (" || lvalue == "n/a" || lvalue == "n/a." || lvalue == "n/a. n/a." ||  lvalue == "n/a; n/a" || lvalue == "n/a, n/a" || lvalue == "none mentioned.")
 			continue;
+		if (lvalue.Right(5) == " n/a.")
+			value = value.Left(value.GetCount() - 5);
+		if (lvalue.Left(4) == "n/a.")
+			value = TrimBoth(value.Mid(4));
+		else if (lvalue.Left(4) == "n/a,")
+			value = TrimBoth(value.Mid(4));
+		else if (lvalue.Left(3) == "n/a")
+			value = TrimBoth(value.Mid(3));
 		sum.elements.GetAdd(key) = value;
 	}
 	

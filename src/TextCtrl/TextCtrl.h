@@ -52,6 +52,8 @@
 #include "ScriptTextSolver.h"
 #include "BiographyElements.h"
 
+#include "Marketplace.h"
+
 
 #endif
 

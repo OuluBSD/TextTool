@@ -42,6 +42,8 @@ file
 	SocialNeeds.cpp,
 	SocialBeliefs.h,
 	SocialBeliefs.cpp,
+	Marketplace.h,
+	Marketplace.cpp,
 	Entity readonly separator,
 	EntityInfoCtrl.h,
 	EntityInfoCtrl.cpp,
