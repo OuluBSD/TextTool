@@ -2689,23 +2689,7 @@ void AiTask::CreateInput_Social() {
 		}
 	}
 	else if (args.fn == 1) {
-		{
-			input.AddSub().Title("Merging " + IntStr(args.parts.GetCount()) + " parts").NoColon();
-		}
-		for(int i = 0; i < args.parts.GetCount(); i++) {
-			String title = args.parts.GetKey(i);
-			String s = args.parts[i];
-			auto& list = input.AddSub();
-			list.Title("Part " + IntStr(i+1) + ": " + title);
-			list.NoListChar();
-			list.Add(s);
-		}
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.Title("Merge all " + IntStr(args.parts.GetCount()) + " parts and shorten slightly (to half of the total length or larger)");
-			results.NoListChar();
-			results.Add("");
-		}
+		// MOVED
 	}
 	else if (args.fn == 2) {
 		{
@@ -3801,6 +3785,36 @@ void AiTask::CreateInput_BiographyProcess() {
 	else TODO;
 }
 
+void AiTask::CreateInput_BiographySummaryProcess() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	BiographySummaryProcessArgs args;
+	args.Put(this->args[0]);
+	
+	
+	if (args.fn == 0) {
+		{
+			input.AddSub().Title("Merging " + IntStr(args.parts.GetCount()) + " parts").NoColon();
+		}
+		for(int i = 0; i < args.parts.GetCount(); i++) {
+			String title = args.parts.GetKey(i);
+			String s = args.parts[i];
+			auto& list = input.AddSub();
+			list.Title("Part " + IntStr(i+1) + ": " + title);
+			list.NoListChar();
+			list.Add(s);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Merge all " + IntStr(args.parts.GetCount()) + " parts and shorten slightly (to half of the total length or larger)");
+			results.NoListChar();
+			results.Add("");
+		}
+	}
+}
 
 END_TEXTLIB_NAMESPACE
 

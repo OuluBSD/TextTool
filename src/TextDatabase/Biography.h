@@ -136,6 +136,7 @@ struct BioYear {
 	ArrayMap<BioRange,BioImage> image_summaries;
 	String image_text;
 	VectorMap<String,String> elements;
+	hash_t source_hash = 0;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -147,6 +148,7 @@ struct BioYear {
 			("image_summaries", image_summaries)
 			("image_text", image_text)
 			("elements", elements)
+			("source_hash", (int64&)source_hash)
 			;
 	}
 	bool operator()(const BioYear& a, const BioYear& b) const {return a.year < b.year;}
@@ -181,6 +183,7 @@ struct Biography {
 protected:
 	friend class BiographyCtrl;
 	friend class BiographyProcess;
+	friend class BiographySummaryProcess;
 	ArrayMap<String, BiographyCategory> categories;
 	
 public:

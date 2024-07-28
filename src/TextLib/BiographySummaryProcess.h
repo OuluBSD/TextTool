@@ -9,6 +9,8 @@ class BiographySummaryProcess : public SolverBase {
 	
 public:
 	enum {
+		PHASE_FIX_SUMMARY_HASHES,
+		PHASE_SUMMARIZE_USING_EXISTING,
 		PHASE_SUMMARIZE,
 		
 		PHASE_COUNT,
@@ -31,6 +33,8 @@ public:
 	
 private:
 	
+	void FixSummaryHashes();
+	void SummarizeUsingExisting();
 	void Summarize();
 	void OnProcessSummarize(String res);
 	

@@ -236,7 +236,6 @@ void BiographyCtrl::GetElements() {
 	
 	BioYear& by = bcat.years[year_i];
 	
-	int appmode = GetAppMode();
 	BiographyProcessArgs args;
 	args.fn = 0;
 	args.category = KeyToName(biography.categories.GetKey(cat_i));
@@ -246,7 +245,7 @@ void BiographyCtrl::GetElements() {
 	
 	auto* snap_ptr = mp.snap;
 	auto* by_ptr = &by;
-	m.GetBiography(appmode, args, [this, snap_ptr, by_ptr](String result) {
+	m.GetBiography(args, [this, snap_ptr, by_ptr](String result) {
 		RemoveEmptyLines3(result);
 		Vector<String> lines = Split(result, "\n");
 		
@@ -288,7 +287,6 @@ void BiographyCtrl::GetElementHints() {
 	
 	BioYear& by = bcat.years[year_i];
 	
-	int appmode = GetAppMode();
 	BiographyProcessArgs args;
 	args.fn = 1;
 	args.category = KeyToName(biography.categories.GetKey(cat_i));
@@ -298,7 +296,7 @@ void BiographyCtrl::GetElementHints() {
 	
 	auto* snap_ptr = mp.snap;
 	auto* by_ptr = &by;
-	m.GetBiography(appmode, args, [this, snap_ptr, by_ptr](String result) {
+	m.GetBiography(args, [this, snap_ptr, by_ptr](String result) {
 		RemoveEmptyLines3(result);
 		Vector<String> lines = Split(result, "\n");
 		

@@ -388,7 +388,7 @@ void TaskMgr::GetScriptTextProcess(int appmode, const ScriptTextProcessArgs& arg
 	task_lock.Leave();
 }
 
-void TaskMgr::GetBiography(int appmode, const BiographyProcessArgs& args, Event<String> WhenResult) {
+void TaskMgr::GetBiography(const BiographyProcessArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	TaskMgr& p = *this;
 	
@@ -396,9 +396,25 @@ void TaskMgr::GetBiography(int appmode, const BiographyProcessArgs& args, Event<
 	
 	task_lock.Enter();
 	AiTask& t = tasks.Add();
-	t.appmode = appmode;
-	t.SetRule(AITASK_BIOGRAPHY_PROCESS, MakeName(args, appmode, "biography process"))
+	t.SetRule(AITASK_BIOGRAPHY_PROCESS, MakeName(args, -1, "biography process"))
 		.Input(&AiTask::CreateInput_BiographyProcess)
+		.Process(&AiTask::Process_Default);
+	
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
+void TaskMgr::GetBiographySummary(const BiographySummaryProcessArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
+	t.SetRule(AITASK_BIOGRAPHY_SUMMARY_PROCESS, MakeName(args, -1, "biography summary process"))
+		.Input(&AiTask::CreateInput_BiographySummaryProcess)
 		.Process(&AiTask::Process_Default);
 	
 	t.args << s;

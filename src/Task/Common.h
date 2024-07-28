@@ -28,6 +28,7 @@ typedef enum : int {
 	AITASK_SNAPSHOT,
 	AITASK_SCRIPT_TEXT_PROCESS,
 	AITASK_BIOGRAPHY_PROCESS,
+	AITASK_BIOGRAPHY_SUMMARY_PROCESS,
 	
 	AITASK_COUNT
 } AiTaskType;
@@ -413,6 +414,26 @@ struct BiographyProcessArgs {
 				("text", text)
 				("year", year)
 			;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+};
+
+struct BiographySummaryProcessArgs {
+	int fn = 0;
+	//String text, description, profile, photo_description;
+	VectorMap<String,String> parts;
+	//int len = 0;
+	
+	void Jsonize(JsonIO& json) {
+		json	//("text", text)
+				//("desc", description)
+				("fn", fn)
+				("parts", parts)
+				//("len", len)
+				//("profile", profile)
+				//("photo_description", photo_description)
+				;
 	}
 	String Get() const {return StoreAsJson(*this);}
 	void Put(const String& s) {LoadFromJson(*this, s);}

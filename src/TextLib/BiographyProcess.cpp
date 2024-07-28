@@ -75,7 +75,7 @@ void BiographyProcess::ElementsForSingleYears() {
 	
 	SetWaiting(true);
 	TaskMgr& m = TaskMgr::Single();
-	m.GetBiography(appmode, args, [this](String result) {
+	m.GetBiography(args, [this](String result) {
 		Biography& data = snap->data;
 		BiographyCategory& bcat = data.categories[batch];
 		BioYear& by = bcat.years[sub_batch];
