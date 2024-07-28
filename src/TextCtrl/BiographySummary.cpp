@@ -47,6 +47,10 @@ BiographySummaryCtrl::BiographySummaryCtrl() {
 	block.native_text <<= THISBACK(OnValueChange);
 	block.text <<= THISBACK(OnValueChange);
 	
+	block.elements.AddColumn("Key");
+	block.elements.AddColumn("Value");
+	block.elements.ColumnWidths("1 6");
+	
 }
 
 void BiographySummaryCtrl::Data() {
@@ -129,6 +133,29 @@ void BiographySummaryCtrl::DataYear() {
 	block.keywords.SetData(by.keywords);
 	block.native_text.SetData(by.native_text);
 	block.text.SetData(by.text);
+	
+	UpdateElements();
+}
+
+void BiographySummaryCtrl::UpdateElements() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.owner || !mp.biography || !categories.IsCursor() || !blocks.IsCursor())
+		return;
+	Owner& owner = *mp.owner;
+	Biography& biography = *mp.biography;
+	int cat_i = categories.Get("IDX");
+	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
+	int block_i = blocks.Get("IDX");
+	if (block_i >= bcat.summaries.GetCount()) return;
+	BioYear& by = bcat.summaries[block_i];
+	
+	for(int i = 0; i < by.elements.GetCount(); i++) {
+		block.elements.Set(i, 0, Capitalize(by.elements.GetKey(i)));
+		block.elements.Set(i, 1, by.elements[i]);
+	}
+	block.elements.SetCount(by.elements.GetCount());
+	
 }
 
 void BiographySummaryCtrl::OnValueChange() {

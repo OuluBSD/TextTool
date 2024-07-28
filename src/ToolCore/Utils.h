@@ -164,6 +164,10 @@ inline String MakeTitle(String s) {
 
 void RemoveSinger(String& s);
 
+
+String JoinMap(const VectorMap<String,String>& m, String delim0, String delim1);
+ 
+
 END_TEXTLIB_NAMESPACE
 
 

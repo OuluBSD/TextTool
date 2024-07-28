@@ -12,6 +12,8 @@ public:
 		PHASE_FIX_SUMMARY_HASHES,
 		PHASE_SUMMARIZE_USING_EXISTING,
 		PHASE_SUMMARIZE,
+		PHASE_SUMMARIZE_ELEMENTS_USING_EXISTING,
+		PHASE_SUMMARIZE_ELEMENTS,
 		
 		PHASE_COUNT,
 	};
@@ -35,8 +37,12 @@ private:
 	
 	void FixSummaryHashes();
 	void SummarizeUsingExisting();
+	bool SummarizeBase(int fn, BiographySummaryProcessArgs& args);
 	void Summarize();
+	void SummarizeElementsUsingExisting();
+	void SummarizeElements();
 	void OnProcessSummarize(String res);
+	void OnProcessSummarizeElements(String res);
 	
 };
 

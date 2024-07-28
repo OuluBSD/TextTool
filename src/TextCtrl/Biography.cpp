@@ -310,7 +310,7 @@ void BiographyCtrl::GetElementHints() {
 			String value = TrimBoth(line.Mid(a+1));
 			RemoveQuotes(value);
 			String lvalue = ToLower(value);
-			if (lvalue.IsEmpty() || lvalue == "none." || lvalue == "none" || lvalue.Left(6) == "none (" || lvalue == "ready." || lvalue == "ready" || lvalue.Left(6) == "ready (")
+			if (lvalue.IsEmpty() || lvalue == "none." || lvalue == "none" || lvalue.Left(6) == "none (" || lvalue == "ready." || lvalue == "ready" || lvalue.Left(6) == "ready (" || lvalue == "n/a")
 				continue;
 			element_hints.GetAdd(key) = value;
 		}

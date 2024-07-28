@@ -161,5 +161,11 @@ void RemoveSinger(String& s) {
 		s = s.Left(a);
 }
 
+String JoinMap(const VectorMap<String,String>& m, String delim0, String delim1) {
+	String o;
+	for(int i = 0; i < m.GetCount(); i++)
+		o << m.GetKey(i) << delim0 << m[i] << delim1;
+	return o;
+}
 
 END_TEXTLIB_NAMESPACE

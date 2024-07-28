@@ -21,6 +21,7 @@ public:
 	void OnValueChange();
 	void Translate();
 	void MakeKeywords();
+	void UpdateElements();
 	void Do(int fn);
 	void OnTranslate(String s);
 	void OnKeywords(String s);

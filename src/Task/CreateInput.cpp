@@ -3814,6 +3814,30 @@ void AiTask::CreateInput_BiographySummaryProcess() {
 			results.Add("");
 		}
 	}
+	else if (args.fn == 1) {
+		{
+			input.AddSub().Title("Merging " + IntStr(args.parts.GetCount()) + " lists").NoColon();
+		}
+		String header;
+		for(int i = 0; i < args.parts.GetCount(); i++) {
+			String title = args.parts.GetKey(i);
+			String s = args.parts[i];
+			int a = s.Find(":");
+			if (a >= 0 && header.IsEmpty())
+				header = s.Left(a+1);
+			auto& list = input.AddSub();
+			list.Title("List " + IntStr(i+1) + ": " + title);
+			list.NoListChar();
+			list.Add(s);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Merge all " + IntStr(args.parts.GetCount()) + " lists and values. Write empty values as \"N/A\"");
+			//results.NoListChar();
+			results.Add(header);
+			tmp_str = header;
+		}
+	}
 }
 
 END_TEXTLIB_NAMESPACE
