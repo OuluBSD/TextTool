@@ -135,6 +135,7 @@ struct BioYear {
 	Array<BioImage> images;
 	ArrayMap<BioRange,BioImage> image_summaries;
 	String image_text;
+	VectorMap<String,String> elements;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -145,6 +146,7 @@ struct BioYear {
 			("images", images)
 			("image_summaries", image_summaries)
 			("image_text", image_text)
+			("elements", elements)
 			;
 	}
 	bool operator()(const BioYear& a, const BioYear& b) const {return a.year < b.year;}
@@ -176,7 +178,9 @@ struct BiographyCategory {
 };
 
 struct Biography {
-private:
+protected:
+	friend class BiographyCtrl;
+	friend class BiographyProcess;
 	ArrayMap<String, BiographyCategory> categories;
 	
 public:
@@ -212,6 +216,7 @@ public:
 			else categories.Add(key);
 		}
 	}
+	void ClearSummary();
 };
 
 

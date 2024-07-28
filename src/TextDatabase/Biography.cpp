@@ -150,6 +150,13 @@ BiographyCategory& Biography::GetAdd(Owner& o, int enum_) {
 	return bc;
 }
 
+void Biography::ClearSummary() {
+	for (BiographyCategory& bc : categories) {
+		bc.summaries.Clear();
+		bc.RealizeSummaries();
+	}
+}
+
 
 END_TEXTLIB_NAMESPACE
 

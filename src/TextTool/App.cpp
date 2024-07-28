@@ -48,6 +48,25 @@ TextTool::~TextTool() {
 	
 	SaveWindowPos();
 	Store();
+	StoreLast();
+}
+
+void TextTool::StoreLast() {
+	if (!active) return;
+	MetaPtrs& mp = MetaPtrs::Single();
+	
+	TextDatabase& db = ed.GetDatabase();
+	last_owner = mp.owner ? mp.owner->name : String();
+	last_profile = mp.profile ? mp.profile->name : String();
+	
+	EditorPtrs& p = ed.GetPointers();
+	last_scripts = p.script ? p.script->file_title : String();
+	last_part = p.part ? p.part->name : String();
+	last_entity = p.entity ? p.entity->file_title : String();
+	last_snapshot = p.release ? p.release->file_title : String();
+	last_component = p.component ? p.component->file_title : String();
+	
+	Store();
 }
 
 void TextTool::Init() {
@@ -227,12 +246,12 @@ void TextTool::SetView(int i) {
 	mc.Hide();
 	
 	tc.Kill();
-	
+	active = 0;
 	switch (i) {
 		default: i = 0;
-		case 0: lead.Show(); lead.FixMenuBar(); break;
+		case 0: lead.Show(); active = &lead; lead.FixMenuBar(); break;
 		case 1: org.Show(); break;
-		case 2: ed.Show(); ed.FixMenuBar(); break;
+		case 2: ed.Show(); ed.FixMenuBar(); active = &ed; break;
 		case 3: ai.Show(); PostCallback(THISBACK(StartUpdating)); break;
 		case 4: svc.Show(); break;
 		case 5: mc.Show(); break;

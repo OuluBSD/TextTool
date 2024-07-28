@@ -11,6 +11,8 @@ class BiographyCtrl : public ToolAppCtrl {
 	WithBiography<Ctrl> year;
 	SocialTimelineCtrl timeline;
 	
+	VectorMap<String,String> element_hints;
+	
 public:
 	typedef BiographyCtrl CLASSNAME;
 	BiographyCtrl();
@@ -21,11 +23,16 @@ public:
 	void OnValueChange();
 	void Translate();
 	void MakeKeywords();
+	void GetElements();
+	void GetElementHints();
+	void UpdateElements();
+	void UpdateElementHints();
 	void OnTranslate(String s);
 	void OnKeywords(String s);
 	void ToolMenu(Bar& bar) override;
 	void EntryListMenu(Bar& bar);
 	void SnapshotMenu(Bar& bar);
+	void Do(int fn);
 	
 	
 };

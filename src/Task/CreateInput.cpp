@@ -3703,6 +3703,104 @@ void AiTask::CreateInput_ScriptTextProcess() {
 	
 }
 
+void AiTask::CreateInput_BiographyProcess() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	BiographyProcessArgs args;
+	args.Put(this->args[0]);
+	
+	
+	if (args.fn == 0 || args.fn == 1) {
+		auto& list = input.AddSub().Title("List A: conceptual elements");
+		list.Add("exposition");
+		list.Add("climax");
+		list.Add("call to action");
+		list.Add("high stakes obstacle");
+		list.Add("rock bottom");
+		list.Add("rising action");
+		list.Add("falling action");
+		list.Add("conclusion");
+		list.Add("happy ending");
+		list.Add("tragedy");
+		list.Add("bittersweet ending");
+		list.Add("suspense");
+		list.Add("crisis");
+		list.Add("resolution");
+		list.Add("intensity");
+		list.Add("conflict");
+		list.Add("iteration");
+		list.Add("character development");
+		list.Add("theme");
+		list.Add("symbolism");
+		list.Add("plot twist");
+		list.Add("irony");
+		list.Add("foils");
+		list.Add("moral dilemma");
+		list.Add("journey/quest");
+		list.Add("symbolism");
+		list.Add("emotional impact");
+		list.Add("tone");
+		list.Add("pacing");
+		list.Add("setting");
+		list.Add("personal social world context");
+		list.Add("metaphor");
+		list.Add("allegory");
+		list.Add("structure");
+		list.Add("tension");
+		list.Add("resolution");
+		list.Add("notion of self");
+		list.Add("fourth wall");
+	}
+	
+	if (args.fn == 0) {
+		{
+			auto& list = input.AddSub().Title("Source data");
+			list.NoListChar();
+			list.Add("Topic: " + args.category);
+			//list.Add("Year: " + IntStr(args.year));
+			list.Add("Text (multiline): \"\"\"");
+			args.text.Replace("\r", "");
+			Vector<String> lines = Split(args.text, "\n");
+			for (String& s : lines)
+				list.Add(s);
+			list.Add("\"\"\"");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Summarise previous text in first person perspective for conceptual elements in the list A, or \"none\" if not recognized nor mentioned");
+			tmp_str = "exposition:";
+			results.Add(tmp_str);
+		}
+		input.response_length = 1024;
+	}
+	else if (args.fn == 1) {
+		{
+			auto& list = input.AddSub().Title("Source data");
+			list.NoListChar();
+			list.Add("Topic: " + args.category);
+			//list.Add("Year: " + IntStr(args.year));
+			list.Add("Text (multiline): \"\"\"");
+			args.text.Replace("\r", "");
+			Vector<String> lines = Split(args.text, "\n");
+			for (String& s : lines)
+				list.Add(s);
+			list.Add("\"\"\"");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			//results.Title("Imagine, that we previously summarised previous text in first person perspective for conceptual elements in the list A, or wrote \"none\" if not recognized nor mentioned. Now, write \"ready\" if the answer wasn't \"none\", and write a hint of question for the writer if the answer was \"none\"");
+			results.Title("Imagine, that we previously summarised previous text in first person perspective for conceptual elements in the list A");
+			tmp_str = "exposition:";
+			results.Add(tmp_str);
+		}
+		input.response_length = 1024;
+	}
+	else TODO;
+}
+
 
 END_TEXTLIB_NAMESPACE
 

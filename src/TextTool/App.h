@@ -19,6 +19,7 @@ class TextTool : public TopWindow {
 	
 	TimeCallback		tc;
 	bool				skip_data = false;
+	ToolEditorBase*		active = 0;
 	
 	int page = 0;
 	Rect last_window;
@@ -60,6 +61,7 @@ public:
 	void SetSaveSongdata(bool b) {ed.SetSaveSongdata(b);}
 	void FastExit();
 	void SaveDatabase();
+	void StoreLast();
 	
 	ToolEditor& GetEditor() {return ed;}
 	LeadsCtrl& GetLeads() {return lead;}

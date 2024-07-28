@@ -136,7 +136,7 @@ void ToolEditor::Init() {
 void ToolEditor::DataPage() {
 	if (app.skip_data || !appmode_list.IsCursor()) return;
 	
-	StoreLast();
+	app.StoreLast();
 	
 	int appmode = appmode_list.Get("IDX");
 	EnterAppMode(appmode);
@@ -233,20 +233,6 @@ void ToolEditor::LoadLast() {
 			break;
 		}
 	}
-}
-
-void ToolEditor::StoreLast() {
-	TextDatabase& db = GetDatabase();
-	EditorPtrs& p = GetPointers();
-	MetaPtrs& mp = MetaPtrs::Single();
-	app.last_scripts = p.script ? p.script->file_title : String();
-	app.last_part = p.part ? p.part->name : String();
-	app.last_entity = p.entity ? p.entity->file_title : String();
-	app.last_snapshot = p.release ? p.release->file_title : String();
-	app.last_component = p.component ? p.component->file_title : String();
-	app.last_owner = mp.owner ? mp.owner->name : String();
-	app.last_profile = mp.profile ? mp.profile->name : String();
-	app.Store();
 }
 
 void ToolEditor::SwitchAppMode() {

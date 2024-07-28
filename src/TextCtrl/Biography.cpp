@@ -5,7 +5,10 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 BiographyCtrl::BiographyCtrl() {
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,20).HSizePos());
+	Add(prog.BottomPos(0,20).HSizePos(300));
+	Add(remaining.BottomPos(0,20).LeftPos(0,300));
+	
 	
 	hsplit.Horz() << categories << vsplit;
 	hsplit.SetPos(1500);
@@ -42,6 +45,10 @@ BiographyCtrl::BiographyCtrl() {
 	year.keywords <<= THISBACK(OnValueChange);
 	year.native_text <<= THISBACK(OnValueChange);
 	year.text <<= THISBACK(OnValueChange);
+	
+	year.elements.AddColumn("Key");
+	year.elements.AddColumn("Value");
+	year.elements.ColumnWidths("1 6");
 	
 }
 
@@ -130,6 +137,38 @@ void BiographyCtrl::DataYear() {
 	year.keywords.SetData(by.keywords);
 	year.native_text.SetData(by.native_text);
 	year.text.SetData(by.text);
+	
+	UpdateElements();
+}
+
+void BiographyCtrl::UpdateElements() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.profile || !categories.IsCursor() || !years.IsCursor())
+		return;
+	Owner& owner = *mp.owner;
+	Profile& profile = *mp.profile;
+	Biography& biography = *mp.biography;
+	int cat_i = categories.Get("IDX");
+	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
+	int year_i = years.Get("IDX");
+	if (year_i >= bcat.years.GetCount()) return;
+	BioYear& by = bcat.years[year_i];
+	
+	for(int i = 0; i < by.elements.GetCount(); i++) {
+		year.elements.Set(i, 0, Capitalize(by.elements.GetKey(i)));
+		year.elements.Set(i, 1, by.elements[i]);
+	}
+	year.elements.SetCount(by.elements.GetCount());
+	
+}
+
+void BiographyCtrl::UpdateElementHints() {
+	for(int i = 0; i < element_hints.GetCount(); i++) {
+		year.elements.Set(i, 0, Capitalize(element_hints.GetKey(i)));
+		year.elements.Set(i, 1, element_hints[i]);
+	}
+	year.elements.SetCount(element_hints.GetCount());
 }
 
 void BiographyCtrl::OnValueChange() {
@@ -178,6 +217,110 @@ void BiographyCtrl::Translate() {
 	m.Translate("FI-FI", src, "EN-US", [this](String s) {PostCallback(THISBACK1(OnTranslate, s));});
 }
 
+void BiographyCtrl::GetElements() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.profile || !categories.IsCursor() || !years.IsCursor())
+		return;
+	if (!mp.editable_biography)
+		return;
+	
+	Owner& owner = *mp.owner;
+	Profile& profile = *mp.profile;
+	Biography& biography = *mp.biography;
+	int cat_i = categories.Get("IDX");
+	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
+	int year_i = years.Get("IDX");
+	if (year_i >= bcat.years.GetCount()) return;
+	
+	
+	BioYear& by = bcat.years[year_i];
+	
+	int appmode = GetAppMode();
+	BiographyProcessArgs args;
+	args.fn = 0;
+	args.category = KeyToName(biography.categories.GetKey(cat_i));
+	args.text = by.text;
+	args.year = by.year;
+	TaskMgr& m = TaskMgr::Single();
+	
+	auto* snap_ptr = mp.snap;
+	auto* by_ptr = &by;
+	m.GetBiography(appmode, args, [this, snap_ptr, by_ptr](String result) {
+		RemoveEmptyLines3(result);
+		Vector<String> lines = Split(result, "\n");
+		
+		snap_ptr->last_modified = GetSysTime();
+		
+		by_ptr->elements.Clear();
+		for (String& line : lines) {
+			int a = line.Find(":");
+			if (a < 0) continue;
+			String key = ToLower(TrimBoth(line.Left(a)));
+			String value = TrimBoth(line.Mid(a+1));
+			RemoveQuotes(value);
+			String lvalue = ToLower(value);
+			if (lvalue.IsEmpty() || lvalue == "none." || lvalue == "none" || lvalue.Left(6) == "none (") {
+				int i = by_ptr->elements.Find(key);
+				if (i >= 0)
+					by_ptr->elements.Remove(i);
+				continue;
+			}
+			by_ptr->elements.GetAdd(key) = value;
+		}
+		
+		PostCallback(THISBACK(UpdateElements));
+	});
+}
+
+void BiographyCtrl::GetElementHints() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.profile || !categories.IsCursor() || !years.IsCursor())
+		return;
+	Owner& owner = *mp.owner;
+	Profile& profile = *mp.profile;
+	Biography& biography = *mp.biography;
+	int cat_i = categories.Get("IDX");
+	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
+	int year_i = years.Get("IDX");
+	if (year_i >= bcat.years.GetCount()) return;
+	
+	BioYear& by = bcat.years[year_i];
+	
+	int appmode = GetAppMode();
+	BiographyProcessArgs args;
+	args.fn = 1;
+	args.category = KeyToName(biography.categories.GetKey(cat_i));
+	args.text = by.text;
+	args.year = by.year;
+	TaskMgr& m = TaskMgr::Single();
+	
+	auto* snap_ptr = mp.snap;
+	auto* by_ptr = &by;
+	m.GetBiography(appmode, args, [this, snap_ptr, by_ptr](String result) {
+		RemoveEmptyLines3(result);
+		Vector<String> lines = Split(result, "\n");
+		
+		snap_ptr->last_modified = GetSysTime();
+		
+		element_hints.Clear();
+		for (String& line : lines) {
+			int a = line.Find(":");
+			if (a < 0) continue;
+			String key = ToLower(TrimBoth(line.Left(a)));
+			String value = TrimBoth(line.Mid(a+1));
+			RemoveQuotes(value);
+			String lvalue = ToLower(value);
+			if (lvalue.IsEmpty() || lvalue == "none." || lvalue == "none" || lvalue.Left(6) == "none (" || lvalue == "ready." || lvalue == "ready" || lvalue.Left(6) == "ready (")
+				continue;
+			element_hints.GetAdd(key) = value;
+		}
+		
+		PostCallback(THISBACK(UpdateElementHints));
+	});
+}
+
 void BiographyCtrl::OnTranslate(String s) {
 	year.text.SetData(s);
 	OnValueChange();
@@ -194,6 +337,28 @@ void BiographyCtrl::OnKeywords(String s) {
 void BiographyCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Translate"), AppImg::BlueRing(), THISBACK(Translate)).Key(K_F5);
 	bar.Add(t_("Make keywords"), AppImg::BlueRing(), THISBACK(MakeKeywords)).Key(K_F6);
+	bar.Add(t_("Get elements"), AppImg::BlueRing(), THISBACK(GetElements)).Key(K_F7);
+	bar.Add(t_("Get element hints"), AppImg::BlueRing(), THISBACK(GetElementHints)).Key(K_F8);
+	bar.Separator();
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+}
+
+void BiographyCtrl::Do(int fn) {
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.profile || !mp.snap)
+		return;
+	if (!mp.editable_biography) {
+		PromptOK(t_("Only the latest (and editable) revision can be processed. Select the latest revision."));
+		return;
+	}
+	BiographyProcess& sdi = BiographyProcess::Get(*mp.profile, *mp.snap);
+	prog.Attach(sdi);
+	sdi.WhenRemaining << [this](String s) {PostCallback([this,s](){remaining.SetLabel(s);});};
+	if (fn == 0)
+		sdi.Start();
+	else
+		sdi.Stop();
 }
 
 void BiographyCtrl::EntryListMenu(Bar& bar) {

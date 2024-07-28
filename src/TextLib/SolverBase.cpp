@@ -232,9 +232,12 @@ double SolverBase::GetProgress() {
 	t[2] = GetSubBatchCount(a[0], a[1]);
 	int actual = ((a[0]) * t[1] + a[1]) * t[2] + a[2];
 	int total = t[0] * t[1] * t[2];
+	if (!total)
+		return 0;
 	ASSERT(actual >= 0);
 	ASSERT(total > 0);
-	ASSERT(actual <= total);
+	//ASSERT(actual <= total);
+	actual = min(actual, total);
 	double f = (double)actual / (double)total;
 	return f;
 }

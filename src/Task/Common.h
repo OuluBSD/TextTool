@@ -27,6 +27,7 @@ typedef enum : int {
 	AITASK_VISION,
 	AITASK_SNAPSHOT,
 	AITASK_SCRIPT_TEXT_PROCESS,
+	AITASK_BIOGRAPHY_PROCESS,
 	
 	AITASK_COUNT
 } AiTaskType;
@@ -397,6 +398,24 @@ struct ScriptTextProcessArgs {
 	String Get() const {return StoreAsJson(*this);}
 	void Put(const String& s) {LoadFromJson(*this, s);}
 	
+};
+
+struct BiographyProcessArgs {
+	int fn = 0;
+	String category;
+	String text;
+	int year = 0;
+	
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("category", category)
+				("text", text)
+				("year", year)
+			;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
 };
 
 

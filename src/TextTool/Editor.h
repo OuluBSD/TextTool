@@ -81,7 +81,6 @@ public:
 	void DataComponent();
 	void DataScript();
 	//void DataPart();
-	void StoreLast();
 	void MovePageGroup(int d);
 	void MovePage(int d);
 	void MovePart(int d);

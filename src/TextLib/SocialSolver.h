@@ -27,7 +27,8 @@ class SocialSolver : public SolverBase {
 		SS_SUMMARIZE_IMAGE_CATEGORY_YEAR,
 		SS_SUMMARIZE_IMAGE_BIOGRAPHY,
 		
-		SS_SUMMARIZE,
+		// SS_SUMMARIZE, // moved
+		
 		SS_AUDIENCE_REACTS_SUMMARY,
 		SS_PACK_ROLE_REACTIONS,
 		SS_PACK_PLATFORM_REACTIONS,
@@ -97,7 +98,6 @@ class SocialSolver : public SolverBase {
 	void ProcessAnalyzeProfileEpkSummarizePhotoAiPrompts();
 	void ProcessAnalyzeProfileEpkPhotoDalle2Examples();
 	void ProcessAudienceProfileCategories();
-	void ProcessSummarize();
 	void ProcessAudienceReactsSummary();
 	void ProcessRoleReactions();
 	void ProcessPlatformReactions();
@@ -116,7 +116,6 @@ class SocialSolver : public SolverBase {
 	void OnProcessAnalyzeProfileEpkSummarizePhotoAiPrompts(String res);
 	void OnProcessAnalyzeProfileEpkPhotoDalle2Examples(Array<Image>& images, int batch);
 	void OnProcessAudienceProfileCategories(String res);
-	void OnProcessSummarize(String res);
 	void OnProcessAudienceReactsSummary(String res);
 	void OnProcessRoleReactions(String res);
 	void OnProcessPlatformReactions(String res);

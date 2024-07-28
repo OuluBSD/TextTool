@@ -164,28 +164,7 @@ void BiographyElementsCtrl::OnValueChange() {
 	
 }
 
-void BiographyElementsCtrl::Do(int fn) {
-	MetaPtrs& mp = MetaPtrs::Single();
-	if (!mp.profile || !mp.snap)
-		return;
-	if (mp.editable_biography) {
-		PromptOK(t_("The latest (and editable) revision can't be processed. Select older than latest revision."));
-		return;
-	}
-	
-	BiographyElementsProcess& sdi = BiographyElementsProcess::Get(*mp.profile, *mp.snap);
-	prog.Attach(sdi);
-	sdi.WhenRemaining << [this](String s) {PostCallback([this,s](){remaining.SetLabel(s);});};
-	
-	if (fn == 0)
-		sdi.Start();
-	else
-		sdi.Stop();
-}
-
 void BiographyElementsCtrl::ToolMenu(Bar& bar) {
-	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
-	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	
 }
 

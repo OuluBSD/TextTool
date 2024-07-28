@@ -260,6 +260,8 @@ void ToolEditorBase::DataSnapshot() {
 	mp.analysis = &snap.analysis;
 	mp.editable_biography = (snap_i == snapshots.GetCount()-1);
 	
+	app.StoreLast();
+	
 	OnDataSnapshot();
 }
 
@@ -296,8 +298,10 @@ void ToolEditorBase::SnapshotMenu(Bar& bar) {
 		snap.revision = revision;
 		
 		// Append previous revision
-		if (prev.GetCount())
+		if (prev.GetCount()) {
 			LoadFromJson(snap.data, prev);
+			snap.data.ClearSummary();
+		}
 		
 		PostCallback(THISBACK(Data));
 	});

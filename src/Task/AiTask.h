@@ -254,6 +254,7 @@ public:
 	void CreateInput_DemandSolver();
 	void CreateInput_ScriptPost();
 	void CreateInput_BeliefSolver();
+	void CreateInput_BiographyProcess();
 	
 	void Process_GetSuggestionAttributes();
 	void Process_StoryArc();

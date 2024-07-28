@@ -190,19 +190,19 @@ void BiographySummaryCtrl::ToolMenu(Bar& bar) {
 
 void BiographySummaryCtrl::Do(int fn) {
 	MetaPtrs& mp = MetaPtrs::Single();
-	if (!mp.profile)
+	if (!mp.profile || !mp.snap)
 		return;
 	if (mp.editable_biography) {
-		PromptOK(t_("The latest (and editable) revision can't be processed. Select older than latest revision."));
+		PromptOK(t_("The latest (and editable) revision won't be processed. Select other than the latest revision."));
 		return;
 	}
-	SocialSolver& ss = SocialSolver::Get(*mp.profile);
-	if (fn == 0) {
-		ss.Start();
-	}
-	else if (fn == 1) {
-		ss.Stop();
-	}
+	BiographySummaryProcess& sdi = BiographySummaryProcess::Get(*mp.profile, *mp.snap);
+	prog.Attach(sdi);
+	sdi.WhenRemaining << [this](String s) {PostCallback([this,s](){remaining.SetLabel(s);});};
+	if (fn == 0)
+		sdi.Start();
+	else
+		sdi.Stop();
 }
 
 void BiographySummaryCtrl::EntryListMenu(Bar& bar) {
