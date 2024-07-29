@@ -194,6 +194,8 @@ void ImageBiographySummaryCtrl::Do(int fn) {
 		PromptOK(t_("The latest (and editable) revision can't be processed. Select older than latest revision."));
 		return;
 	}
+	PromptOK("TODO"); return;
+	
 	SocialSolver& ss = SocialSolver::Get(*mp.profile);
 	if (fn == 0) {
 		ss.Start();
