@@ -14,14 +14,14 @@ int BiographyProcess::GetPhaseCount() const {
 
 int BiographyProcess::GetBatchCount(int phase) const {
 	switch (phase) {
-		case PHASE_ELEMENTS_SINGLE_YEAR:	return snap->data.categories.GetCount();
+		case PHASE_ELEMENTS_SINGLE_YEAR:	return snap->data.AllCategories().GetCount();
 		default: TODO; return 1;
 	}
 }
 
 int BiographyProcess::GetSubBatchCount(int phase, int batch) const {
 	switch (phase) {
-		case PHASE_ELEMENTS_SINGLE_YEAR:	return snap->data.categories[batch].summaries.GetCount();
+		case PHASE_ELEMENTS_SINGLE_YEAR:	return snap->data.AllCategories()[batch].summaries.GetCount();
 		default: TODO; return 1;
 	}
 }
@@ -46,13 +46,13 @@ BiographyProcess& BiographyProcess::Get(Profile& p, BiographySnapshot& snap) {
 void BiographyProcess::ElementsForSingleYears() {
 	Biography& data = snap->data;
 	BiographyAnalysis& analysis = snap->analysis;
+	auto& data_categories = data.AllCategories();
 	
-	
-	if (batch >= data.categories.GetCount()) {
+	if (batch >= data_categories.GetCount()) {
 		NextPhase();
 		return;
 	}
-	BiographyCategory& bcat = data.categories[batch];
+	BiographyCategory& bcat = data_categories[batch];
 	
 	
 	if (sub_batch >= bcat.years.GetCount()) {
@@ -69,15 +69,15 @@ void BiographyProcess::ElementsForSingleYears() {
 	
 	BiographyProcessArgs args;
 	args.fn = 0;
-	args.category = KeyToName(data.categories.GetKey(batch));
+	args.category = data.GetCategoryName(batch);
 	args.text = by.text;
 	args.year = by.year;
 	
 	SetWaiting(true);
 	TaskMgr& m = TaskMgr::Single();
 	m.GetBiography(args, [this](String result) {
-		Biography& data = snap->data;
-		BiographyCategory& bcat = data.categories[batch];
+		auto& data_categories = snap->data.AllCategories();
+		BiographyCategory& bcat = data_categories[batch];
 		BioYear& by = bcat.years[sub_batch];
 		
 		RemoveEmptyLines3(result);

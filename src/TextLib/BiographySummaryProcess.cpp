@@ -65,8 +65,9 @@ void BiographySummaryProcess::FixSummaryHashes() {
 	for(int i = 0; i < profile->snapshots.GetCount()-1; i++) {
 		auto& snap = profile->snapshots[i];
 		
-		for(int j = 0; j < snap.data.categories.GetCount(); j++) {
-			auto& bcat = snap.data.categories[j];
+		auto& cats = snap.data.AllCategories();
+		for(int j = 0; j < cats.GetCount(); j++) {
+			auto& bcat = cats[j];
 			
 			for(int k = 0; k < bcat.summaries.GetCount(); k++) {
 				const BioRange& range = bcat.summaries.GetKey(k);
@@ -98,6 +99,7 @@ void BiographySummaryProcess::FixSummaryHashes() {
 					}
 				}
 				sum.source_hash = ch;
+				ASSERT(sum.source_hash != 0);
 			}
 		}
 	}
@@ -144,16 +146,14 @@ void BiographySummaryProcess::SummarizeUsingExisting() {
 	bool found = false;
 	for(int i = 0; i < profile->snapshots.GetCount(); i++) {
 		const auto& snap = profile->snapshots[i];
-		for(int j = 0; j < snap.data.categories.GetCount(); j++) {
-			const auto& cat = snap.data.categories[j];
-			for(int k = 0; k < cat.summaries.GetCount(); k++) {
-				const auto& by = cat.summaries[k];
-				
-				if (cmp == by.source_hash && by.text.GetCount()) {
-					sum.text = by.text;
-					NextSubBatch();
-					return;
-				}
+		BiographyCategory& bcat1 = biography.GetAdd(*owner, bcat_i);
+		for(int k = 0; k < bcat1.summaries.GetCount(); k++) {
+			const auto& by = bcat1.summaries[k];
+			
+			if (cmp == by.source_hash && by.text.GetCount()) {
+				sum.text = by.text;
+				NextSubBatch();
+				return;
 			}
 		}
 	}
@@ -322,16 +322,15 @@ void BiographySummaryProcess::SummarizeElementsUsingExisting() {
 	bool found = false;
 	for(int i = 0; i < profile->snapshots.GetCount(); i++) {
 		const auto& snap = profile->snapshots[i];
-		for(int j = 0; j < snap.data.categories.GetCount(); j++) {
-			const auto& cat = snap.data.categories[j];
-			for(int k = 0; k < cat.summaries.GetCount(); k++) {
-				const auto& by = cat.summaries[k];
-				
-				if (cmp == by.source_hash && by.elements.GetCount()) {
-					sum.elements <<= by.elements;
-					NextSubBatch();
-					return;
-				}
+		const BiographyCategory* bcat1 = snap.data.Find(*owner, bcat_i);
+		if (!bcat1) continue;
+		for(int k = 0; k < bcat1->summaries.GetCount(); k++) {
+			const auto& by = bcat1->summaries[k];
+			
+			if (cmp == by.source_hash && by.elements.GetCount()) {
+				sum.elements <<= by.elements;
+				NextSubBatch();
+				return;
 			}
 		}
 	}

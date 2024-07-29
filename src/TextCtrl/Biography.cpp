@@ -228,8 +228,8 @@ void BiographyCtrl::GetElements() {
 	Owner& owner = *mp.owner;
 	Profile& profile = *mp.profile;
 	Biography& biography = *mp.biography;
-	int cat_i = categories.Get("IDX");
-	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
+	int cat_enum = categories.Get("IDX");
+	BiographyCategory& bcat = biography.GetAdd(owner, cat_enum);
 	int year_i = years.Get("IDX");
 	if (year_i >= bcat.years.GetCount()) return;
 	
@@ -238,7 +238,7 @@ void BiographyCtrl::GetElements() {
 	
 	BiographyProcessArgs args;
 	args.fn = 0;
-	args.category = KeyToName(biography.categories.GetKey(cat_i));
+	args.category = GetBiographyCategoryEnum(cat_enum);
 	args.text = by.text;
 	args.year = by.year;
 	TaskMgr& m = TaskMgr::Single();
@@ -280,8 +280,8 @@ void BiographyCtrl::GetElementHints() {
 	Owner& owner = *mp.owner;
 	Profile& profile = *mp.profile;
 	Biography& biography = *mp.biography;
-	int cat_i = categories.Get("IDX");
-	BiographyCategory& bcat = biography.GetAdd(owner, cat_i);
+	int cat_enum = categories.Get("IDX");
+	BiographyCategory& bcat = biography.GetAdd(owner, cat_enum);
 	int year_i = years.Get("IDX");
 	if (year_i >= bcat.years.GetCount()) return;
 	
@@ -289,7 +289,7 @@ void BiographyCtrl::GetElementHints() {
 	
 	BiographyProcessArgs args;
 	args.fn = 1;
-	args.category = KeyToName(biography.categories.GetKey(cat_i));
+	args.category = GetBiographyCategoryEnum(cat_enum);
 	args.text = by.text;
 	args.year = by.year;
 	TaskMgr& m = TaskMgr::Single();

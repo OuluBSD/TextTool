@@ -150,6 +150,20 @@ BiographyCategory& Biography::GetAdd(Owner& o, int enum_) {
 	return bc;
 }
 
+BiographyCategory* Biography::Find(Owner& o, int enum_) {
+	String s = GetBiographyCategoryEnum(enum_);
+	int i = categories.Find(s);
+	if (i < 0) return 0;
+	return &categories[i];
+}
+
+const BiographyCategory* Biography::Find(Owner& o, int enum_) const {
+	String s = GetBiographyCategoryEnum(enum_);
+	int i = categories.Find(s);
+	if (i < 0) return 0;
+	return &categories[i];
+}
+
 void Biography::ClearSummary() {
 	for (BiographyCategory& bc : categories) {
 		bc.summaries.Clear();

@@ -181,9 +181,9 @@ struct BiographyCategory {
 
 struct Biography {
 protected:
-	friend class BiographyCtrl;
-	friend class BiographyProcess;
-	friend class BiographySummaryProcess;
+	//friend class BiographyCtrl;
+	//friend class BiographyProcess;
+	//friend class BiographySummaryProcess;
 	ArrayMap<String, BiographyCategory> categories;
 	
 public:
@@ -206,6 +206,8 @@ public:
 		}
 	}
 	BiographyCategory& GetAdd(Owner& o, int enum_);
+	BiographyCategory* Find(Owner& o, int enum_);
+	const BiographyCategory* Find(Owner& o, int enum_) const;
 	void Sort() {
 		ArrayMap<String, BiographyCategory> tmp;
 		Swap(tmp, categories);
@@ -219,6 +221,10 @@ public:
 			else categories.Add(key);
 		}
 	}
+	Array<BiographyCategory>& AllCategories() {return categories.GetValues();}
+	const Array<BiographyCategory>& AllCategories() const {return categories.GetValues();}
+	String GetCategoryName(int i) {return KeyToName(categories.GetKey(i));}
+	
 	void ClearSummary();
 };
 
