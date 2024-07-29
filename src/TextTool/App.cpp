@@ -36,7 +36,7 @@ TextTool::TextTool() : ed(this), lead(this) {
 	
 	AddFrame(menu);
 	AddFrame(toolbar);
-	AddFrame(statusbar);
+	if (0) AddFrame(statusbar);
 	menu.Set(THISBACK(MainMenu));
 	
 	PostInit();
