@@ -9,6 +9,7 @@ class BiographyProcess : public SolverBase {
 	
 public:
 	enum {
+		PHASE_ELEMENTS_USING_EXISTING,
 		PHASE_ELEMENTS_SINGLE_YEAR,
 		PHASE_ELEMENT_SCORES,
 		
@@ -32,6 +33,7 @@ public:
 	
 private:
 	
+	void GetElementsUsingExisting();
 	void ElementsForSingleYears();
 	void GetElementScores();
 	

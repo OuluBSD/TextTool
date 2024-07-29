@@ -30,8 +30,9 @@ int BiographyProcess::GetSubBatchCount(int phase, int batch) const {
 
 void BiographyProcess::DoPhase() {
 	switch (phase) {
-		case PHASE_ELEMENTS_SINGLE_YEAR:	ElementsForSingleYears(); return;
-		case PHASE_ELEMENT_SCORES:			GetElementScores(); return;
+		case PHASE_ELEMENTS_USING_EXISTING:			GetElementsUsingExisting(); return;
+		case PHASE_ELEMENTS_SINGLE_YEAR:			ElementsForSingleYears(); return;
+		case PHASE_ELEMENT_SCORES:					GetElementScores(); return;
 		default: TODO; return;
 	}
 }
@@ -45,6 +46,58 @@ BiographyProcess& BiographyProcess::Get(Profile& p, BiographySnapshot& snap) {
 	ts.owner = p.owner;
 	ts.snap = &snap;
 	return ts;
+}
+
+void BiographyProcess::GetElementsUsingExisting() {
+	Biography& data = snap->data;
+	BiographyAnalysis& analysis = snap->analysis;
+	auto& data_categories = data.AllCategories();
+	
+	if (batch >= BIOCATEGORY_COUNT) {
+		NextPhase();
+		return;
+	}
+	int bcat_i = batch;
+	
+	BiographyCategory& bcat = data.GetAdd(*owner, bcat_i);
+	
+	
+	if (sub_batch >= bcat.years.GetCount()) {
+		NextBatch();
+		return;
+	}
+	BioYear& by = bcat.years[sub_batch];
+	
+	if (by.text.IsEmpty()) {
+		NextSubBatch();
+		return;
+	}
+	
+	if (skip_ready && by.elements.GetCount()) {
+		NextSubBatch();
+		return;
+	}
+	
+	
+	// Loop other snapshots to search for older summary with the same hash
+	const String& cmp = by.text;
+	bool found = false;
+	for(int i = 0; i < profile->snapshots.GetCount(); i++) {
+		const auto& snap = profile->snapshots[i];
+		BiographyCategory& bcat1 = data.GetAdd(*owner, bcat_i);
+		for(int k = 0; k < bcat1.years.GetCount(); k++) {
+			const auto& by1 = bcat1.years[k];
+			
+			if (by1.elements.GetCount() && cmp == by1.text) {
+				by.elements <<= by1.elements;
+				NextSubBatch();
+				return;
+			}
+		}
+	}
+	
+	
+	NextSubBatch();
 }
 
 void BiographyProcess::ElementsForSingleYears() {
