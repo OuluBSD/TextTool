@@ -5,7 +5,9 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 AudienceCtrl::AudienceCtrl() {
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,20).HSizePos());
+	Add(prog.BottomPos(0,20).HSizePos(300));
+	Add(remaining.BottomPos(0,20).LeftPos(0,300));
 	
 	hsplit.Horz() << menusplit << vsplit;
 	hsplit.SetPos(1500);
@@ -192,7 +194,9 @@ void AudienceCtrl::OnKeywords(int fn, String s) {
 }
 */
 void AudienceCtrl::ToolMenu(Bar& bar) {
-	ToolAppCtrl::ToolMenu(bar);
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	
 	/*
 	bar.Add(t_("Translate"), AppImg::BlueRing(), THISBACK(Translate)).Key(K_F5);
 	bar.Add(t_("Make keywords"), AppImg::BlueRing(), THISBACK1(MakeKeywords, 0)).Key(K_F6);
@@ -204,6 +208,18 @@ void AudienceCtrl::EntryListMenu(Bar& bar) {
 	
 }
 
+void AudienceCtrl::Do(int fn) {
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.profile || !mp.snap)
+		return;
+	AudienceProcess& ss = AudienceProcess::Get(*mp.profile, *mp.snap);
+	if (fn == 0) {
+		ss.Start();
+	}
+	else if (fn == 1) {
+		ss.Stop();
+	}
+}
 
 
 

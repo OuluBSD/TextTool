@@ -1,0 +1,105 @@
+#include "TextLib.h"
+#include <ToolCtrl/ToolCtrl.h>
+
+BEGIN_TEXTLIB_NAMESPACE
+
+
+ImageBiographyProcess::ImageBiographyProcess() {
+	
+}
+
+int ImageBiographyProcess::GetPhaseCount() const {
+	return PHASE_COUNT;
+}
+
+int ImageBiographyProcess::GetBatchCount(int phase) const {
+	switch (phase) {
+		case PHASE_ANALYZE_IMAGE_BIOGRAPHY:			return max(1, vision_tasks.GetCount());
+		default: return 1;
+	}
+}
+
+int ImageBiographyProcess::GetSubBatchCount(int phase, int batch) const {
+	return 1;
+}
+
+void ImageBiographyProcess::DoPhase() {
+	switch (phase) {
+		case PHASE_ANALYZE_IMAGE_BIOGRAPHY:			ProcessAnalyzeImageBiography(); return;
+		default: return;
+	}
+}
+
+ImageBiographyProcess& ImageBiographyProcess::Get(Profile& p, BiographySnapshot& snap) {
+	static ArrayMap<String, ImageBiographyProcess> arr;
+	
+	String key = "PROFILE(" + p.name + "), REVISION(" + IntStr(snap.revision) + ")";
+	ImageBiographyProcess& ts = arr.GetAdd(key);
+	ts.owner = p.owner;
+	ts.profile = &p;
+	ts.snap = &snap;
+	ASSERT(ts.owner);
+	return ts;
+}
+
+void ImageBiographyProcess::TraverseVisionTasks() {
+	Biography& biography = snap->data;
+	for(int i = 0; i < BIOCATEGORY_COUNT; i++) {
+		BiographyCategory& bcat = biography.GetAdd(*owner, i);
+		for(int j = 0; j < bcat.years.GetCount(); j++) {
+			BioYear& by = bcat.years[j];
+			
+			for(int k = 0; k < by.images.GetCount(); k++) {
+				BioImage& bimg = by.images[k];
+				if (phase == PHASE_ANALYZE_IMAGE_BIOGRAPHY && bimg.image_text.IsEmpty() && bimg.image_hash != 0) {
+					String path = CacheImageFile(bimg.image_hash);
+					if (!FileExists(path))
+						path = ThumbnailImageFile(bimg.image_hash);
+					String jpeg = LoadFile(path);
+					if (!jpeg.IsEmpty()) {
+						VisionTask& t = vision_tasks.Add();
+						t.bimg = &bimg;
+						t.jpeg = jpeg;
+					}
+				}
+			}
+		}
+	}
+}
+
+void ImageBiographyProcess::ProcessAnalyzeImageBiography() {
+	
+	if (batch == 0) {
+		vision_tasks.Clear();
+		TraverseVisionTasks();
+	}
+	
+	if (batch >= vision_tasks.GetCount()) {
+		NextPhase();
+		return;
+	}
+	
+	const VisionTask& t = vision_tasks[batch];
+	
+	VisionArgs args;
+	args.fn = 0;
+	
+	SetWaiting(1);
+	TaskMgr& m = TaskMgr::Single();
+	m.GetVision(t.jpeg, args, THISBACK(OnProcessAnalyzeImageBiography));
+}
+
+void ImageBiographyProcess::OnProcessAnalyzeImageBiography(String res) {
+	const VisionTask& t = vision_tasks[batch];
+	
+	String& s = t.bimg->image_text;
+	s = TrimBoth(res);
+	if (s.Left(1) == "\"") s = s.Mid(1);
+	if (s.Right(1) == "\"") s = s.Left(s.GetCount()-1);
+	
+	NextBatch();
+	SetWaiting(0);
+}
+
+
+END_TEXTLIB_NAMESPACE

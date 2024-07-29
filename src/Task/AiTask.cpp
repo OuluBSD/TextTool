@@ -352,6 +352,8 @@ bool AiTask::RunOpenAI_Completion() {
 			input.AsString();
 	//LOG(prompt);
 	
+	prompt = FixInvalidChars(prompt); // NOTE: warning: might break something
+	
 	// Cache prompts too (for crash debugging)
 	if (1) {
 		String prompt_cache_dir = ConfigFile("prompt-cache");

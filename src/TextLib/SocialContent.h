@@ -1,10 +1,10 @@
-#ifndef _TextLib_ContentSolver_h_
-#define _TextLib_ContentSolver_h_
+#ifndef _TextLib_SocialContentProcess_h_
+#define _TextLib_SocialContentProcess_h_
 
 BEGIN_TEXTLIB_NAMESPACE
 
 
-class ContentSolver : public SolverBase {
+class SocialContentProcess : public SolverBase {
 	
 public:
 	enum {
@@ -14,6 +14,7 @@ public:
 	};
 	
 	Owner* owner = 0;
+	BiographySnapshot* snap = 0;
 	
 	
 	struct MessageTask : Moveable<MessageTask> {
@@ -35,13 +36,15 @@ public:
 	void OnProcessMergeMessages(String res);
 	
 public:
-	typedef ContentSolver CLASSNAME;
-	ContentSolver();
+	typedef SocialContentProcess CLASSNAME;
+	SocialContentProcess();
 	
 	int GetPhaseCount() const override;
+	int GetBatchCount(int phase) const override;
+	int GetSubBatchCount(int phase, int batch) const override;
 	void DoPhase() override;
 	
-	static ContentSolver& Get(Profile& p);
+	static SocialContentProcess& Get(Profile& p, BiographySnapshot& snap);
 	
 };
 

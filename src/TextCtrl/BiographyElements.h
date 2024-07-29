@@ -7,9 +7,9 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class BiographyElementsCtrl : public ToolAppCtrl {
 	Splitter hsplit, vsplit;
-	ArrayCtrl categories, blocks;
-	ArrayCtrl block;
-	
+	ArrayCtrl categories, elements;
+	WithBiography<Ctrl> block;
+	int sort_column = 0;
 public:
 	typedef BiographyElementsCtrl CLASSNAME;
 	BiographyElementsCtrl();
@@ -18,6 +18,7 @@ public:
 	void Do(int fn);
 	void ToolMenu(Bar& bar) override;
 	void DataCategory();
+	void DataElement();
 	void DataYear();
 	void OnValueChange();
 	

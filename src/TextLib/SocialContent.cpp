@@ -5,15 +5,25 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 
-ContentSolver::ContentSolver() {
+SocialContentProcess::SocialContentProcess() {
 	//skip_ready = false;
 }
 
-int ContentSolver::GetPhaseCount() const {
+int SocialContentProcess::GetPhaseCount() const {
 	return PHASE_COUNT;
 }
 
-void ContentSolver::DoPhase() {
+int SocialContentProcess::GetBatchCount(int phase) const {
+	if (phase == PHASE_MERGE_MESSAGES)
+		return max(1, msg_tasks.GetCount());
+	return 1;
+}
+
+int SocialContentProcess::GetSubBatchCount(int phase, int batch) const {
+	return 1;
+}
+
+void SocialContentProcess::DoPhase() {
 	ASSERT(owner);
 	
 	if (phase == PHASE_MERGE_MESSAGES) {
@@ -23,26 +33,27 @@ void ContentSolver::DoPhase() {
 		
 }
 
-ArrayMap<hash_t, ContentSolver>& __ContentSolvers() {
-	static ArrayMap<hash_t, ContentSolver> map;
+ArrayMap<hash_t, SocialContentProcess>& __SocialContentProcesss() {
+	static ArrayMap<hash_t, SocialContentProcess> map;
 	return map;
 }
 
-ContentSolver& ContentSolver::Get(Profile& p) {
+SocialContentProcess& SocialContentProcess::Get(Profile& p, BiographySnapshot& snap) {
 	String t = p.owner->name + ": " + p.name;
 	hash_t h = t.GetHashValue();
-	ArrayMap<hash_t, ContentSolver>& map = __ContentSolvers();
+	ArrayMap<hash_t, SocialContentProcess>& map = __SocialContentProcesss();
 	int i = map.Find(h);
 	if (i >= 0)
 		return map[i];
 	
-	ContentSolver& ls = map.Add(h);
+	SocialContentProcess& ls = map.Add(h);
 	ls.owner = p.owner;
 	ls.profile = &p;
+	ls.snap = &snap;
 	return ls;
 }
 
-void ContentSolver::ProcessMergeMessages() {
+void SocialContentProcess::ProcessMergeMessages() {
 	
 	if (batch == 0) {
 		msg_tasks.Clear();
@@ -93,7 +104,7 @@ void ContentSolver::ProcessMergeMessages() {
 	m.GetSocial(args, THISBACK(OnProcessMergeMessages));
 }
 
-void ContentSolver::OnProcessMergeMessages(String res) {
+void SocialContentProcess::OnProcessMergeMessages(String res) {
 	const MessageTask& t = msg_tasks[batch];
 	
 	String& s = t.comments.Top()->text_merged_status;
@@ -105,12 +116,10 @@ void ContentSolver::OnProcessMergeMessages(String res) {
 	SetWaiting(0);
 }
 
-void ContentSolver::TraverseMessageTasks(int prof_i, int plat_i) {
-	TODO
-	#if 0
+void SocialContentProcess::TraverseMessageTasks(int prof_i, int plat_i) {
 	Profile& prof = owner->profiles[prof_i];
 	ProfileData& pd = ProfileData::Get(prof);
-	BiographyAnalysis& analysis = profile->biography_analysis;
+	BiographyAnalysis& analysis = snap->analysis;
 	const Platform& plat = GetPlatforms()[plat_i];
 	PlatformBiographyAnalysis& plat_anal = analysis.platforms[plat_i];
 	PlatformData& pld = pd.platforms[plat_i];
@@ -133,10 +142,9 @@ void ContentSolver::TraverseMessageTasks(int prof_i, int plat_i) {
 			}
 		}
 	}
-	#endif
 }
 
-void ContentSolver::TraverseMessageTasks(Vector<PlatformComment*>& before, PlatformComment& plc) {
+void SocialContentProcess::TraverseMessageTasks(Vector<PlatformComment*>& before, PlatformComment& plc) {
 	before.Add(&plc);
 	
 	if (phase == PHASE_MERGE_MESSAGES) {

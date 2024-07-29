@@ -144,7 +144,22 @@ Color GetPartColor(const String& key, Color def) {
 
 
 String FixInvalidChars(const String& s) {
-	#if 0
+	#if 1
+	WString ws = s.ToWString();
+	WString out;
+	for(int i = 0; i < ws.GetCount(); i++) {
+		int chr = ws[i];
+		
+		// ascii
+		if (chr < 32 && chr != '\n') {
+			// pass
+		}
+		else {
+			out.Cat(chr);
+		}
+	}
+	return out.ToString();
+	#elif 0
 	WString ws = s.ToWString();
 	WString out;
 	for(int i = 0; i < ws.GetCount(); i++) {

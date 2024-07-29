@@ -2,15 +2,15 @@
 
 BEGIN_TEXTLIB_NAMESPACE
 
-BeliefSolver::BeliefSolver() {
+SocialBeliefsProcess::SocialBeliefsProcess() {
 	
 }
 
-int BeliefSolver::GetPhaseCount() const {
+int SocialBeliefsProcess::GetPhaseCount() const {
 	return PHASE_COUNT;
 }
 
-void BeliefSolver::DoPhase() {
+void SocialBeliefsProcess::DoPhase() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	if (phase == PHASE_GET_POSITIVE_ATTRS) {
 		if (batch >= mdb.beliefs.GetCount()){
@@ -29,7 +29,7 @@ void BeliefSolver::DoPhase() {
 		
 		SetWaiting(1);
 		TaskMgr& m = TaskMgr::Single();
-		m.GetBeliefSolver(args, [this,&b](String res) {
+		m.GetSocialBeliefsProcess(args, [this,&b](String res) {
 			res = TrimBoth(res);
 			if (res.Left(2) != "1.")
 				res = "1." + res;
@@ -65,7 +65,7 @@ void BeliefSolver::DoPhase() {
 		
 		SetWaiting(1);
 		TaskMgr& m = TaskMgr::Single();
-		m.GetBeliefSolver(args, [this,&b](String res) {
+		m.GetSocialBeliefsProcess(args, [this,&b](String res) {
 			res = TrimBoth(res);
 			if (res.Left(2) != "1.")
 				res = "1." + res;
@@ -86,8 +86,20 @@ void BeliefSolver::DoPhase() {
 	}
 }
 
-BeliefSolver& BeliefSolver::Get() {
-	return Single<BeliefSolver>();
+SocialBeliefsProcess& SocialBeliefsProcess::Get(Profile& e, BiographySnapshot& snap) {
+	String t = e.owner->name + ": " + e.name;
+	hash_t h = t.GetHashValue();
+	static ArrayMap<hash_t, SocialBeliefsProcess> map;
+	int i = map.Find(h);
+	if (i >= 0)
+		return map[i];
+	
+	SocialBeliefsProcess& ls = map.Add(h);
+	ASSERT(e.owner);
+	ls.owner = e.owner;
+	ls.profile = &e;
+	ls.snap = &snap;
+	return ls;
 }
 
 	

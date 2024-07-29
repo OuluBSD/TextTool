@@ -4,7 +4,9 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 PlatformProfileCtrl::PlatformProfileCtrl() {
-	Add(tabs.SizePos());
+	Add(tabs.VSizePos(0,20).HSizePos());
+	Add(prog.BottomPos(0,20).HSizePos(300));
+	Add(remaining.BottomPos(0,20).LeftPos(0,300));
 	
 	// Platform tab
 	{
@@ -192,11 +194,8 @@ void PlatformProfileCtrl::DataImageType() {
 }
 
 void PlatformProfileCtrl::ToolMenu(Bar& bar) {
-	/*bar.Add(t_("Next Image"), AppImg::BlueRing(), [this]() {
-		img_i = (img_i + 1) % 4;
-		OnPhotoPrompt();
-	}).Key(K_CTRL_Q);*/
-	ToolAppCtrl::ToolMenu(bar);
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	
 }
 
@@ -255,7 +254,16 @@ void PlatformProfileCtrl::PlatformMenu(Bar& bar) {
 }
 
 void PlatformProfileCtrl::Do(int fn) {
-	
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.profile || !mp.snap)
+		return;
+	PlatformProfileProcess& ss = PlatformProfileProcess::Get(*mp.profile, *mp.snap);
+	if (fn == 0) {
+		ss.Start();
+	}
+	else if (fn == 1) {
+		ss.Stop();
+	}
 }
 
 void PlatformProfileCtrl::SetSorting(int col) {

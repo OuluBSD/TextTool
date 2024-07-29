@@ -5,7 +5,9 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 ImageBiographyCtrl::ImageBiographyCtrl() {
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,20).HSizePos());
+	Add(prog.BottomPos(0,20).HSizePos(300));
+	Add(remaining.BottomPos(0,20).LeftPos(0,300));
 	
 	hsplit.Horz() << categories << vsplit;
 	hsplit.SetPos(1500, 0);
@@ -287,14 +289,14 @@ void ImageBiographyCtrl::EntryListMenu(Bar& bar) {
 
 void ImageBiographyCtrl::Do(int fn) {
 	MetaPtrs& mp = MetaPtrs::Single();
-	if (!mp.profile)
+	if (!mp.profile || !mp.snap)
 		return;
 	if (mp.editable_biography) {
 		PromptOK(t_("The latest (and editable) revision can't be processed. Select older than latest revision."));
 		return;
 	}
-	PromptOK("TODO"); return;
-	SocialSolver& ss = SocialSolver::Get(*mp.profile);
+	
+	ImageBiographyProcess& ss = ImageBiographyProcess::Get(*mp.profile, *mp.snap);
 	if (fn == 0) {
 		ss.Start();
 	}

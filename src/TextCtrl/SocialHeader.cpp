@@ -8,14 +8,15 @@ BEGIN_TEXTLIB_NAMESPACE
 SocialHeaderCtrl::SocialHeaderCtrl() {
 	//CtrlLayout(entry);
 	
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,20).HSizePos());
+	Add(prog.BottomPos(0,20).HSizePos(300));
+	Add(remaining.BottomPos(0,20).LeftPos(0,300));
 	
 	hsplit.Horz() << platforms << vsplit;
 	hsplit.SetPos(1500);
 	
-	vsplit.Vert() << timeline << entries << entry_split;
-	vsplit.SetPos(800, 0);
-	vsplit.SetPos(3333, 1);
+	vsplit.Vert() << entries << entry_split;
+	vsplit.SetPos(3333);
 	platforms.AddColumn(t_("Enabled"));
 	platforms.AddColumn(t_("Platform"));
 	platforms.AddColumn(t_("Entries"));
@@ -159,7 +160,8 @@ void SocialHeaderCtrl::OnValueChange() {
 }
 
 void SocialHeaderCtrl::ToolMenu(Bar& bar) {
-	bar.Add(t_("Solve categories"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 }
 
 void SocialHeaderCtrl::EntryListMenu(Bar& bar) {
@@ -168,16 +170,15 @@ void SocialHeaderCtrl::EntryListMenu(Bar& bar) {
 
 void SocialHeaderCtrl::Do(int fn) {
 	MetaPtrs& mp = MetaPtrs::Single();
-	if (!mp.profile)
+	if (!mp.profile || !mp.snap)
 		return;
-	SocialSolver& ss = SocialSolver::Get(*mp.profile);
+	SocialHeaderProcess& ss = SocialHeaderProcess::Get(*mp.profile, *mp.snap);
 	if (fn == 0) {
-		ss.only_categories = true;
 		ss.Start();
 	}
-	/*else if (fn == 1) {
+	else if (fn == 1) {
 		ss.Stop();
-	}*/
+	}
 }
 
 

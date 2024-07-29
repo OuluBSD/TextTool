@@ -9,7 +9,6 @@ class BiographySummaryCtrl : public ToolAppCtrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl categories, blocks;
 	WithBiography<Ctrl> block;
-	SocialTimelineCtrl timeline;
 	
 public:
 	typedef BiographySummaryCtrl CLASSNAME;

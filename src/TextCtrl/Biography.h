@@ -9,7 +9,6 @@ class BiographyCtrl : public ToolAppCtrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl categories, years;
 	WithBiography<Ctrl> year;
-	SocialTimelineCtrl timeline;
 	
 	VectorMap<String,String> element_hints;
 	

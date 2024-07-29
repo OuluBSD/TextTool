@@ -253,7 +253,7 @@ public:
 	void CreateInput_VideoSolver();
 	void CreateInput_DemandSolver();
 	void CreateInput_ScriptPost();
-	void CreateInput_BeliefSolver();
+	void CreateInput_SocialBeliefsProcess();
 	void CreateInput_BiographyProcess();
 	void CreateInput_BiographySummaryProcess();
 	

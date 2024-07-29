@@ -3601,7 +3601,7 @@ void AiTask::CreateInput_ScriptPost() {
 	}
 }
 
-void AiTask::CreateInput_BeliefSolver() {
+void AiTask::CreateInput_SocialBeliefsProcess() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	LeadData& ld = mdb.lead_data;
 	LeadDataAnalysis& lda = mdb.lead_data.a;

@@ -5,7 +5,10 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 PlatformCtrl::PlatformCtrl() {
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,20).HSizePos());
+	Add(prog.BottomPos(0,20).HSizePos(300));
+	Add(remaining.BottomPos(0,20).LeftPos(0,300));
+	
 	hsplit.Horz() << platforms << vsplit;
 	hsplit.SetPos(2000);
 	
@@ -176,9 +179,9 @@ void PlatformCtrl::ToolMenu(Bar& bar) {
 
 void PlatformCtrl::Do(int fn) {
 	MetaPtrs& mp = MetaPtrs::Single();
-	if (!mp.profile)
+	if (!mp.profile || !mp.snap)
 		return;
-	SocialSolver& ss = SocialSolver::Get(*mp.profile);
+	PlatformProcess& ss = PlatformProcess::Get(*mp.profile, *mp.snap);
 	if (fn == 0) {
 		ss.Start();
 	}
@@ -186,7 +189,7 @@ void PlatformCtrl::Do(int fn) {
 		ss.Stop();
 	}
 	else if (fn == 2) {
-		
+		PromptOK("TODO");
 	}
 }
 

@@ -145,7 +145,8 @@ void BiographyProcess::GetElementScores() {
 		return;
 	}
 	
-	if (skip_ready && by.GetAverageScore() > 0) {
+	double av = by.GetAverageScore();
+	if (skip_ready && av > 0 && av <= 10.0) {
 		NextSubBatch();
 		return;
 	}

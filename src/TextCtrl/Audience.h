@@ -21,6 +21,7 @@ public:
 	void DataResponse();
 	void ToolMenu(Bar& bar) override;
 	void EntryListMenu(Bar& bar);
+	void Do(int fn);
 	
 	
 };

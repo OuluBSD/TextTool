@@ -5,7 +5,9 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 SocialNeedsCtrl::SocialNeedsCtrl() {
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,20).HSizePos());
+	Add(prog.BottomPos(0,20).HSizePos(300));
+	Add(remaining.BottomPos(0,20).LeftPos(0,300));
 	
 	hsplit.Vert() << rolesplit << platsplit << eventsplit;
 	
@@ -341,16 +343,21 @@ void SocialNeedsCtrl::DataEntry() {
 }
 
 void SocialNeedsCtrl::ToolMenu(Bar& bar) {
-	bar.Add(t_("Process social needs"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	
 }
 
 void SocialNeedsCtrl::Do(int fn) {
-	MetaPtrs& p = MetaPtrs::Single();
-	if (!p.owner) return;
-	
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.profile || !mp.snap)
+		return;
+	SocialNeedsProcess& ss = SocialNeedsProcess::Get(*mp.profile, *mp.snap);
 	if (fn == 0) {
-		DemandSolver& tm = DemandSolver::Get(*p.owner);
-		tm.Start();
+		ss.Start();
+	}
+	else if (fn == 1) {
+		ss.Stop();
 	}
 }
 

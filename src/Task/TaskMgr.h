@@ -54,7 +54,7 @@ struct TaskMgr {
 	void GetSnapshot(const SnapshotArgs& args, Event<String> WhenResult);
 	void GetVideoSolver(const VideoSolverArgs& args, Event<String> WhenResult);
 	void GetDemandSolver(const DemandArgs& args, Event<String> WhenResult);
-	void GetBeliefSolver(const BeliefArgs& args, Event<String> WhenResult);
+	void GetSocialBeliefsProcess(const BeliefArgs& args, Event<String> WhenResult);
 	void GetScriptPost(int appmode, const ScriptPostArgs& args, Event<String> WhenResult);
 	void GetVision(const String& jpeg, const VisionArgs& args, Event<String> WhenResult);
 	void GetScriptTextProcess(int appmode, const ScriptTextProcessArgs& args, Event<String> WhenResult);

@@ -9,7 +9,6 @@ class SocialContent : public ToolAppCtrl {
 	Splitter hsplit, vsplit, menusplit, threadsplit;
 	ArrayCtrl platforms, threads, entries, comments;
 	WithSocialEntry<Ctrl> entry;
-	SocialTimelineCtrl timeline;
 	
 public:
 	typedef SocialContent CLASSNAME;

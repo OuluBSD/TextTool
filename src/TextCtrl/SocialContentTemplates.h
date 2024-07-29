@@ -9,7 +9,6 @@ class SocialContentTemplateCtrl : public ToolAppCtrl {
 	Splitter hsplit, vsplit, menusplit, threadsplit;
 	ArrayCtrl platforms, threads, entries, campaign_tmpls, campaign_params, tmpl_params	;
 	WithSocialGeneratedEntry<Ctrl> entry;
-	SocialTimelineCtrl timeline;
 	TabCtrl tabs;
 	
 public:

@@ -12,7 +12,6 @@ class SocialHeaderCtrl : public ToolAppCtrl {
 	Splitter entry_split;
 	ArrayCtrl attr_keys;
 	DocEdit attr_value;
-	SocialTimelineCtrl timeline;
 	
 public:
 	typedef SocialHeaderCtrl CLASSNAME;

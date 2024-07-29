@@ -4,7 +4,7 @@
 
 BEGIN_TEXTLIB_NAMESPACE
 
-
+#if 0
 class LeadsCtrl;
 
 class SocialTimelineCtrl : public Ctrl {
@@ -16,7 +16,7 @@ public:
 	void Paint(Draw& d);
 	
 };
-
+#endif
 
 END_TEXTLIB_NAMESPACE
 

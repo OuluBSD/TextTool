@@ -10,7 +10,6 @@ class ImageBiographyCtrl : public ToolAppCtrl {
 	Splitter hsplit, vsplit, bsplit;
 	ArrayCtrl categories, years, entries;
 	WithImageBiography<Ctrl> year;
-	SocialTimelineCtrl timeline;
 	ImageViewerCtrl img;
 	
 public:

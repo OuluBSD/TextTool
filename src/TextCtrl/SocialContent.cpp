@@ -8,16 +8,17 @@ BEGIN_TEXTLIB_NAMESPACE
 SocialContent::SocialContent() {
 	CtrlLayout(entry);
 	
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,20).HSizePos());
+	Add(prog.BottomPos(0,20).HSizePos(300));
+	Add(remaining.BottomPos(0,20).LeftPos(0,300));
 	
 	hsplit.Horz() << menusplit << vsplit;
 	hsplit.SetPos(1500);
 	
 	menusplit.Vert() << platforms;
 	
-	vsplit.Vert() << timeline << threadsplit << entry;
-	vsplit.SetPos(800, 0);
-	vsplit.SetPos(3333, 1);
+	vsplit.Vert() << threadsplit << entry;
+	vsplit.SetPos(3333);
 	
 	threadsplit.Horz() << entries << threads << comments;
 	threadsplit.SetPos(2000, 0);
@@ -482,9 +483,9 @@ void SocialContent::PasteResponse(int fn) {
 
 void SocialContent::Do(int fn) {
 	MetaPtrs& mp = MetaPtrs::Single();
-	if (!mp.profile)
+	if (!mp.profile || !mp.snap)
 		return;
-	ContentSolver& ss = ContentSolver::Get(*mp.profile);
+	SocialContentProcess& ss = SocialContentProcess::Get(*mp.profile, *mp.snap);
 	if (fn == 0) {
 		ss.Start();
 	}

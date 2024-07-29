@@ -5,7 +5,9 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 SocialBeliefsCtrl::SocialBeliefsCtrl() {
-	Add(hsplit.SizePos());
+	Add(hsplit.VSizePos(0,20).HSizePos());
+	Add(prog.BottomPos(0,20).HSizePos(300));
+	Add(remaining.BottomPos(0,20).LeftPos(0,300));
 	
 	hsplit.Add(beliefs);
 	hsplit.Add(info);
@@ -77,17 +79,25 @@ void SocialBeliefsCtrl::DataBelief() {
 }
 
 void SocialBeliefsCtrl::ToolMenu(Bar& bar) {
-	bar.Add(t_("Paste user data"), AppImg::BlueRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	bar.Separator();
-	bar.Add(t_("Process"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	bar.Add(t_("Paste user data"), AppImg::BlueRing(), THISBACK1(Do, 2)).Key(K_F5);
 }
 
 void SocialBeliefsCtrl::Do(int fn) {
-	MetaDatabase& mdb = MetaDatabase::Single();
-	MetaPtrs& p = MetaPtrs::Single();
-	if (!p.owner) return;
-	
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.profile || !mp.snap)
+		return;
+	SocialBeliefsProcess& ss = SocialBeliefsProcess::Get(*mp.profile, *mp.snap);
 	if (fn == 0) {
+		ss.Start();
+	}
+	else if (fn == 1) {
+		ss.Stop();
+	}
+	else if (fn == 2) {
+		MetaDatabase& mdb = MetaDatabase::Single();
 		if (!beliefs.IsCursor())
 			return;
 		int b_i = beliefs.GetCursor();
@@ -96,11 +106,6 @@ void SocialBeliefsCtrl::Do(int fn) {
 		RemoveEmptyLines3(res);
 		b.user <<= Split(res, "\n");
 		DataBelief();
-	}
-	else if (fn == 1) {
-		BeliefSolver& tm = BeliefSolver::Get();
-		tm.WhenReady << [this](){PostCallback(THISBACK(DataBelief));};
-		tm.Start();
 	}
 }
 
