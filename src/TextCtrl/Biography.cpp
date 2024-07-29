@@ -159,7 +159,7 @@ void BiographyCtrl::UpdateElements() {
 	double score_sum = 0;
 	for(int i = 0; i < by.elements.GetCount(); i++) {
 		const auto& e = by.elements[i];
-		double sc = e.score / 255.0;
+		double sc = e.GetAverageScore();
 		year.elements.Set(i, 0, Capitalize(e.key));
 		year.elements.Set(i, 1, e.value);
 		year.elements.Set(i, 2, sc);
@@ -381,28 +381,17 @@ void BiographyCtrl::GetElementScores() {
 			if (i < 0)
 				continue;
 			auto& el = by_ptr->elements[i];
-			if (0) {
-				RemoveQuotes(value);
-				if (value.IsEmpty() || !IsDigit(value[0]))
+			
+			Vector<String> scores = Split(value, ",");
+			int j = -1;
+			el.ResetScore();
+			for (String& s : scores) {
+				j++;
+				Vector<String> parts = Split(s, ":");
+				if (parts.GetCount() != 2)
 					continue;
-				int score = ScanInt(value);
-				el.score = score;
-			}
-			else {
-				int score_sum = 0, score_count = 0;
-				Vector<String> scores = Split(value, ",");
-				for (String& s : scores) {
-					Vector<String> parts = Split(s, ":");
-					if (parts.GetCount() != 2)
-						continue;
-					int sc = ScanInt(TrimLeft(parts[1]));
-					score_sum += sc;
-					score_count++;
-				}
-				int score = 0;
-				if (score_count > 0)
-					score = max(0, min(255,score_sum * 255 / (10 * score_count)));
-				el.score = score;
+				int sc = ScanInt(TrimLeft(parts[1]));
+				el.scores[j] = sc;
 			}
 		}
 		

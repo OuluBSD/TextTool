@@ -3832,7 +3832,7 @@ void AiTask::CreateInput_BiographyProcess() {
 			tmp_str = first_line + ": S";
 			results.Add(tmp_str);
 		}
-		input.response_length = 1024;
+		input.response_length = 2048 + 512;
 	}
 	else TODO;
 }

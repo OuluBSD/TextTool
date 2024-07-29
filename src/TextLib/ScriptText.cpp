@@ -1282,7 +1282,8 @@ void ScriptTextProcess::OnProcessComparison(String res) {
 		if (a < 0) continue;
 		line = TrimBoth(line.Mid(a+1));
 		Vector<String> parts = Split(line, ",");
-		int score_sum = 0, score_count = 0;
+		double score_sum = 0;
+		int score_count = 0;
 		for (String& p : parts) {
 			p = TrimBoth(p);
 			a = p.Find(":");

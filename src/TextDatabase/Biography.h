@@ -132,8 +132,10 @@ struct BioRange : Moveable<BioRange> {
 struct BioYear {
 	struct Element : Moveable<Element> {
 		String key, value;
-		byte score = 0;
-		void Jsonize(JsonIO& json) {json("k",key)("v",value)("s",score);}
+		byte scores[SCORE_COUNT] = {0,0,0,0,0, 0,0,0,0,0};
+		void Jsonize(JsonIO& json) {json("k",key)("v",value); for(int i = 0; i < SCORE_COUNT; i++) json("s" + IntStr(i),scores[i]);}
+		void ResetScore() {memset(scores, 0, sizeof(scores));}
+		double GetAverageScore() const;
 	};
 	int year = 0;
 	String keywords, text, native_text;
@@ -161,6 +163,7 @@ struct BioYear {
 	BioImage& GetAddImageSummary(int begin_year, int years);
 	int FindElement(const String& key) const;
 	String JoinElementMap(String delim0, String delim1);
+	double GetAverageScore() const {double d = 0; for (const auto& el : elements) d += el.GetAverageScore(); return d;}
 	
 };
 

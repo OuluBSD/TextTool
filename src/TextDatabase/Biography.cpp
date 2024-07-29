@@ -63,6 +63,18 @@ int BioYear::FindElement(const String& key) const {
 	return -1;
 }
 
+double BioYear::Element::GetAverageScore() const {
+	double score_sum = 0;
+	int score_count = 0;
+	for(int i = 0; i < SCORE_COUNT; i++) {
+		int score = scores[i];
+		score_sum += score;
+		score_count++;
+	}
+	double score = score_sum / score_count;
+	return score;
+}
+
 void BiographyCategory::RealizeSummaries() {
 	if (years.IsEmpty()) return;
 	int begin_year = years[0].year;

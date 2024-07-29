@@ -388,7 +388,7 @@ void BiographySummaryProcess::OnProcessSummarizeElements(String result) {
 		auto& el = sum.elements[i];
 		el.key = key;
 		el.value = value;
-		el.score = 0;
+		el.ResetScore();
 	}
 	
 	NextSubBatch();

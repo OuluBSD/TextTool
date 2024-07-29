@@ -15,6 +15,7 @@ int BiographyProcess::GetPhaseCount() const {
 int BiographyProcess::GetBatchCount(int phase) const {
 	switch (phase) {
 		case PHASE_ELEMENTS_SINGLE_YEAR:	return snap->data.AllCategories().GetCount();
+		case PHASE_ELEMENT_SCORES:			return snap->data.AllCategories().GetCount();
 		default: TODO; return 1;
 	}
 }
@@ -22,6 +23,7 @@ int BiographyProcess::GetBatchCount(int phase) const {
 int BiographyProcess::GetSubBatchCount(int phase, int batch) const {
 	switch (phase) {
 		case PHASE_ELEMENTS_SINGLE_YEAR:	return snap->data.AllCategories()[batch].summaries.GetCount();
+		case PHASE_ELEMENT_SCORES:			return snap->data.AllCategories()[batch].summaries.GetCount();
 		default: TODO; return 1;
 	}
 }
@@ -29,6 +31,7 @@ int BiographyProcess::GetSubBatchCount(int phase, int batch) const {
 void BiographyProcess::DoPhase() {
 	switch (phase) {
 		case PHASE_ELEMENTS_SINGLE_YEAR:	ElementsForSingleYears(); return;
+		case PHASE_ELEMENT_SCORES:			GetElementScores(); return;
 		default: TODO; return;
 	}
 }
@@ -39,6 +42,7 @@ BiographyProcess& BiographyProcess::Get(Profile& p, BiographySnapshot& snap) {
 	String key = "PROFILE(" + p.name + "), REVISION(" + IntStr(snap.revision) + ")";
 	BiographyProcess& ts = arr.GetAdd(key);
 	ts.profile = &p;
+	ts.owner = p.owner;
 	ts.snap = &snap;
 	return ts;
 }
@@ -66,6 +70,10 @@ void BiographyProcess::ElementsForSingleYears() {
 		return;
 	}
 	
+	if (skip_ready && by.elements.GetCount()) {
+		NextSubBatch();
+		return;
+	}
 	
 	BiographyProcessArgs args;
 	args.fn = 0;
@@ -110,6 +118,79 @@ void BiographyProcess::ElementsForSingleYears() {
 		
 		NextSubBatch();
 		SetWaiting(false);
+	});
+}
+
+void BiographyProcess::GetElementScores() {
+	Biography& data = snap->data;
+	BiographyAnalysis& analysis = snap->analysis;
+	
+	
+	if (batch >= BIOCATEGORY_COUNT) {
+		NextPhase();
+		return;
+	}
+	ASSERT(owner);
+	BiographyCategory& bcat = data.GetAdd(*owner, batch);
+	
+	
+	if (sub_batch >= bcat.years.GetCount()) {
+		NextBatch();
+		return;
+	}
+	BioYear& by = bcat.years[sub_batch];
+	
+	if (by.elements.IsEmpty()) {
+		NextSubBatch();
+		return;
+	}
+	
+	if (skip_ready && by.GetAverageScore() > 0) {
+		NextSubBatch();
+		return;
+	}
+	
+	
+	BiographyProcessArgs args;
+	args.fn = 2;
+	args.category = GetBiographyCategoryEnum(batch);
+	args.text = by.JoinElementMap(": ", "\n");
+	args.year = by.year;
+	TaskMgr& m = TaskMgr::Single();
+	
+	SetWaiting(1);
+	auto* by_ptr = &by;
+	m.GetBiography(args, [this, by_ptr](String result) {
+		RemoveEmptyLines3(result);
+		Vector<String> lines = Split(result, "\n");
+		
+		snap->last_modified = GetSysTime();
+		
+		for (String& line : lines) {
+			int a = line.Find(":");
+			if (a < 0) continue;
+			String key = ToLower(TrimBoth(line.Left(a)));
+			String value = TrimBoth(line.Mid(a+1));
+			int i = by_ptr->FindElement(key);
+			if (i < 0)
+				continue;
+			auto& el = by_ptr->elements[i];
+			
+			Vector<String> scores = Split(value, ",");
+			int j = -1;
+			el.ResetScore();
+			for (String& s : scores) {
+				j++;
+				Vector<String> parts = Split(s, ":");
+				if (parts.GetCount() != 2)
+					continue;
+				int sc = ScanInt(TrimLeft(parts[1]));
+				el.scores[j] = sc;
+			}
+		}
+		
+		NextSubBatch();
+		SetWaiting(0);
 	});
 }
 

@@ -154,7 +154,7 @@ void BiographySummaryCtrl::UpdateElements() {
 	for(int i = 0; i < by.elements.GetCount(); i++) {
 		block.elements.Set(i, 0, Capitalize(by.elements[i].key));
 		block.elements.Set(i, 1, by.elements[i].value);
-		block.elements.Set(i, 2, by.elements[i].score);
+		block.elements.Set(i, 2, by.elements[i].GetAverageScore());
 	}
 	block.elements.SetCount(by.elements.GetCount());
 	
