@@ -53,6 +53,16 @@ BioImage& BioYear::GetAddImageSummary(int off, int len) {
 	return bi;
 }
 
+int BioYear::FindElement(const String& key) const {
+	int i = 0;
+	for (const auto& e : elements) {
+		if (e.key == key)
+			return i;
+		i++;
+	}
+	return -1;
+}
+
 void BiographyCategory::RealizeSummaries() {
 	if (years.IsEmpty()) return;
 	int begin_year = years[0].year;
@@ -169,6 +179,14 @@ void Biography::ClearSummary() {
 		bc.summaries.Clear();
 		bc.RealizeSummaries();
 	}
+}
+
+String BioYear::JoinElementMap(String delim0, String delim1) {
+	String s;
+	for (const BioYear::Element& e : elements) {
+		s << e.key << delim0 << e.value << delim1;
+	}
+	return s;
 }
 
 

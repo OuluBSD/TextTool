@@ -93,13 +93,20 @@ void BiographyProcess::ElementsForSingleYears() {
 			String value = TrimBoth(line.Mid(a+1));
 			RemoveQuotes(value);
 			String lvalue = ToLower(value);
+			int i = by.FindElement(key);
 			if (lvalue.IsEmpty() || lvalue == "none." || lvalue == "none" || lvalue.Left(6) == "none (") {
-				int i = by.elements.Find(key);
 				if (i >= 0)
 					by.elements.Remove(i);
 				continue;
 			}
-			by.elements.GetAdd(key) = value;
+			if (i < 0) {
+				i = by.elements.GetCount();
+				by.elements.Add();
+			}
+			auto& el = by.elements[i];
+			el.key = key;
+			el.value = value;
+			el.score = 0;
 		}
 		
 		NextSubBatch();

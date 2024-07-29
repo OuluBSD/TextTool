@@ -48,7 +48,8 @@ BiographyCtrl::BiographyCtrl() {
 	
 	year.elements.AddColumn("Key");
 	year.elements.AddColumn("Value");
-	year.elements.ColumnWidths("1 6");
+	year.elements.AddColumn("Score");
+	year.elements.ColumnWidths("2 12 1");
 	
 }
 
@@ -156,8 +157,9 @@ void BiographyCtrl::UpdateElements() {
 	BioYear& by = bcat.years[year_i];
 	
 	for(int i = 0; i < by.elements.GetCount(); i++) {
-		year.elements.Set(i, 0, Capitalize(by.elements.GetKey(i)));
-		year.elements.Set(i, 1, by.elements[i]);
+		year.elements.Set(i, 0, Capitalize(by.elements[i].key));
+		year.elements.Set(i, 1, by.elements[i].value);
+		year.elements.Set(i, 2, by.elements[i].score);
 	}
 	year.elements.SetCount(by.elements.GetCount());
 	
@@ -259,13 +261,20 @@ void BiographyCtrl::GetElements() {
 			String value = TrimBoth(line.Mid(a+1));
 			RemoveQuotes(value);
 			String lvalue = ToLower(value);
+			int i = by_ptr->FindElement(key);
 			if (lvalue.IsEmpty() || lvalue == "none." || lvalue == "none" || lvalue.Left(6) == "none (") {
-				int i = by_ptr->elements.Find(key);
 				if (i >= 0)
 					by_ptr->elements.Remove(i);
 				continue;
 			}
-			by_ptr->elements.GetAdd(key) = value;
+			if (i < 0) {
+				i = by_ptr->elements.GetCount();
+				by_ptr->elements.Add();
+			}
+			auto& el = by_ptr->elements[i];
+			el.key = key;
+			el.value = value;
+			el.score = 0;
 		}
 		
 		PostCallback(THISBACK(UpdateElements));

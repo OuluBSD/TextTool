@@ -49,7 +49,8 @@ BiographySummaryCtrl::BiographySummaryCtrl() {
 	
 	block.elements.AddColumn("Key");
 	block.elements.AddColumn("Value");
-	block.elements.ColumnWidths("1 6");
+	block.elements.AddColumn("Score");
+	block.elements.ColumnWidths("2 12 1");
 	
 }
 
@@ -151,8 +152,9 @@ void BiographySummaryCtrl::UpdateElements() {
 	BioYear& by = bcat.summaries[block_i];
 	
 	for(int i = 0; i < by.elements.GetCount(); i++) {
-		block.elements.Set(i, 0, Capitalize(by.elements.GetKey(i)));
-		block.elements.Set(i, 1, by.elements[i]);
+		block.elements.Set(i, 0, Capitalize(by.elements[i].key));
+		block.elements.Set(i, 1, by.elements[i].value);
+		block.elements.Set(i, 2, by.elements[i].score);
 	}
 	block.elements.SetCount(by.elements.GetCount());
 	

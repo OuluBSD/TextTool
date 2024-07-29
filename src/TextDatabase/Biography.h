@@ -130,12 +130,17 @@ struct BioRange : Moveable<BioRange> {
 
 
 struct BioYear {
+	struct Element : Moveable<Element> {
+		String key, value;
+		byte score = 0;
+		void Jsonize(JsonIO& json) {json("k",key)("v",value)("s",score);}
+	};
 	int year = 0;
 	String keywords, text, native_text;
 	Array<BioImage> images;
 	ArrayMap<BioRange,BioImage> image_summaries;
 	String image_text;
-	VectorMap<String,String> elements;
+	Vector<Element> elements;
 	hash_t source_hash = 0;
 	
 	void Jsonize(JsonIO& json) {
@@ -154,7 +159,11 @@ struct BioYear {
 	bool operator()(const BioYear& a, const BioYear& b) const {return a.year < b.year;}
 	void RealizeImageSummaries();
 	BioImage& GetAddImageSummary(int begin_year, int years);
+	int FindElement(const String& key) const;
+	String JoinElementMap(String delim0, String delim1);
+	
 };
+
 
 struct BiographyCategory {
 	

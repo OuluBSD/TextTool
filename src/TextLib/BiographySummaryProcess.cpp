@@ -204,7 +204,7 @@ bool BiographySummaryProcess::SummarizeBase(int fn, BiographySummaryProcessArgs&
 			if (fn == 0 && by.text.GetCount())
 				args.parts.Add(title, by.text);
 			else if (fn == 1 && by.elements.GetCount())
-				args.parts.Add(title, JoinMap(by.elements, ": ", "\n"));
+				args.parts.Add(title, by.JoinElementMap(": ", "\n"));
 		}
 		if (args.parts.IsEmpty()) {
 			NextSubBatch();
@@ -240,7 +240,7 @@ bool BiographySummaryProcess::SummarizeBase(int fn, BiographySummaryProcessArgs&
 			if (fn == 0 && by.text.GetCount())
 				args.parts.Add(title, by.text);
 			else if (fn == 1 && by.elements.GetCount())
-				args.parts.Add(title, JoinMap(by.elements, ": ", "\n"));
+				args.parts.Add(title, by.JoinElementMap(": ", "\n"));
 		}
 		if (args.parts.IsEmpty()) {
 			NextSubBatch();
@@ -369,6 +369,7 @@ void BiographySummaryProcess::OnProcessSummarizeElements(String result) {
 		String value = TrimBoth(line.Mid(a+1));
 		RemoveQuotes(value);
 		String lvalue = ToLower(value);
+		int i = sum.FindElement(key);
 		if (lvalue.IsEmpty() || lvalue == "none." || lvalue == "none" || lvalue.Left(6) == "none (" || lvalue == "ready." || lvalue == "ready" || lvalue.Left(6) == "ready (" || lvalue == "n/a" || lvalue == "n/a." || lvalue == "n/a. n/a." ||  lvalue == "n/a; n/a" || lvalue == "n/a, n/a" || lvalue == "none mentioned.")
 			continue;
 		if (lvalue.Right(5) == " n/a.")
@@ -379,7 +380,15 @@ void BiographySummaryProcess::OnProcessSummarizeElements(String result) {
 			value = TrimBoth(value.Mid(4));
 		else if (lvalue.Left(3) == "n/a")
 			value = TrimBoth(value.Mid(3));
-		sum.elements.GetAdd(key) = value;
+		
+		if (i < 0) {
+			i = sum.elements.GetCount();
+			sum.elements.Add();
+		}
+		auto& el = sum.elements[i];
+		el.key = key;
+		el.value = value;
+		el.score = 0;
 	}
 	
 	NextSubBatch();
