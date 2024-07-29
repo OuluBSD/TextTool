@@ -25,6 +25,7 @@ public:
 	void MakeKeywords();
 	void GetElements();
 	void GetElementHints();
+	void GetElementScores();
 	void UpdateElements();
 	void UpdateElementHints();
 	void OnTranslate(String s);

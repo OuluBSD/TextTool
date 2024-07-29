@@ -106,7 +106,6 @@ void BiographyProcess::ElementsForSingleYears() {
 			auto& el = by.elements[i];
 			el.key = key;
 			el.value = value;
-			el.score = 0;
 		}
 		
 		NextSubBatch();

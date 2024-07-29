@@ -94,7 +94,7 @@ LAYOUT(Biography, 424, 452)
 	ITEM(Upp::DocEdit, text, HSizePosZ(164, 8).BottomPosZ(192, 84))
 	ITEM(Upp::Label, dv___8, SetLabel(t_("Keywords:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).BottomPosZ(168, 20))
 	ITEM(Upp::ArrayCtrl, elements, HSizePosZ(164, 8).BottomPosZ(8, 156))
-	ITEM(Upp::Label, score, SetLabel(t_("Score:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(320, 92).BottomPosZ(168, 20))
+	ITEM(Upp::Label, score, SetLabel(t_("Score:")).SetAlign(Upp::ALIGN_RIGHT).RightPosZ(12, 92).BottomPosZ(168, 20))
 	ITEM(Upp::Label, dv___11, SetLabel(t_("Elements:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 148).BottomPosZ(144, 20))
 END_LAYOUT
 

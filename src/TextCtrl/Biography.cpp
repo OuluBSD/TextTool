@@ -156,12 +156,23 @@ void BiographyCtrl::UpdateElements() {
 	if (year_i >= bcat.years.GetCount()) return;
 	BioYear& by = bcat.years[year_i];
 	
+	double score_sum = 0;
 	for(int i = 0; i < by.elements.GetCount(); i++) {
-		year.elements.Set(i, 0, Capitalize(by.elements[i].key));
-		year.elements.Set(i, 1, by.elements[i].value);
-		year.elements.Set(i, 2, by.elements[i].score);
+		const auto& e = by.elements[i];
+		double sc = e.score / 255.0;
+		year.elements.Set(i, 0, Capitalize(e.key));
+		year.elements.Set(i, 1, e.value);
+		year.elements.Set(i, 2, sc);
+		score_sum += sc;
 	}
 	year.elements.SetCount(by.elements.GetCount());
+	year.elements.SetSortColumn(2,true);
+	
+	if (by.elements.GetCount() > 0) {
+		double score_av = score_sum / by.elements.GetCount();
+		year.score.SetLabel(Format("Score: %.2n", score_av));
+	}
+	else year.score.SetLabel("");
 	
 }
 
@@ -169,6 +180,7 @@ void BiographyCtrl::UpdateElementHints() {
 	for(int i = 0; i < element_hints.GetCount(); i++) {
 		year.elements.Set(i, 0, Capitalize(element_hints.GetKey(i)));
 		year.elements.Set(i, 1, element_hints[i]);
+		year.elements.Set(i, 2, Value());
 	}
 	year.elements.SetCount(element_hints.GetCount());
 }
@@ -274,7 +286,6 @@ void BiographyCtrl::GetElements() {
 			auto& el = by_ptr->elements[i];
 			el.key = key;
 			el.value = value;
-			el.score = 0;
 		}
 		
 		PostCallback(THISBACK(UpdateElements));
@@ -319,12 +330,83 @@ void BiographyCtrl::GetElementHints() {
 			String value = TrimBoth(line.Mid(a+1));
 			RemoveQuotes(value);
 			String lvalue = ToLower(value);
-			if (lvalue.IsEmpty() || lvalue == "none." || lvalue == "none" || lvalue.Left(6) == "none (" || lvalue == "ready." || lvalue == "ready" || lvalue.Left(6) == "ready (" || lvalue == "n/a")
+			if (lvalue.IsEmpty() || lvalue == "none." || lvalue == "none" || lvalue.Left(6) == "none (" || lvalue == "ready." || lvalue == "ready" || lvalue.Left(6) == "ready (" || lvalue == "n/a" || lvalue == "none mentioned.")
 				continue;
 			element_hints.GetAdd(key) = value;
 		}
 		
 		PostCallback(THISBACK(UpdateElementHints));
+	});
+}
+
+void BiographyCtrl::GetElementScores() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.profile || !categories.IsCursor() || !years.IsCursor())
+		return;
+	Owner& owner = *mp.owner;
+	Profile& profile = *mp.profile;
+	Biography& biography = *mp.biography;
+	int cat_enum = categories.Get("IDX");
+	BiographyCategory& bcat = biography.GetAdd(owner, cat_enum);
+	int year_i = years.Get("IDX");
+	if (year_i >= bcat.years.GetCount()) return;
+	
+	BioYear& by = bcat.years[year_i];
+	
+	if (by.elements.IsEmpty())
+		return;
+	
+	BiographyProcessArgs args;
+	args.fn = 2;
+	args.category = GetBiographyCategoryEnum(cat_enum);
+	args.text = by.JoinElementMap(": ", "\n");
+	args.year = by.year;
+	TaskMgr& m = TaskMgr::Single();
+	
+	auto* snap_ptr = mp.snap;
+	auto* by_ptr = &by;
+	m.GetBiography(args, [this, snap_ptr, by_ptr](String result) {
+		RemoveEmptyLines3(result);
+		Vector<String> lines = Split(result, "\n");
+		
+		snap_ptr->last_modified = GetSysTime();
+		
+		for (String& line : lines) {
+			int a = line.Find(":");
+			if (a < 0) continue;
+			String key = ToLower(TrimBoth(line.Left(a)));
+			String value = TrimBoth(line.Mid(a+1));
+			int i = by_ptr->FindElement(key);
+			if (i < 0)
+				continue;
+			auto& el = by_ptr->elements[i];
+			if (0) {
+				RemoveQuotes(value);
+				if (value.IsEmpty() || !IsDigit(value[0]))
+					continue;
+				int score = ScanInt(value);
+				el.score = score;
+			}
+			else {
+				int score_sum = 0, score_count = 0;
+				Vector<String> scores = Split(value, ",");
+				for (String& s : scores) {
+					Vector<String> parts = Split(s, ":");
+					if (parts.GetCount() != 2)
+						continue;
+					int sc = ScanInt(TrimLeft(parts[1]));
+					score_sum += sc;
+					score_count++;
+				}
+				int score = 0;
+				if (score_count > 0)
+					score = max(0, min(255,score_sum * 255 / (10 * score_count)));
+				el.score = score;
+			}
+		}
+		
+		PostCallback(THISBACK(UpdateElements));
 	});
 }
 
@@ -346,6 +428,7 @@ void BiographyCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Make keywords"), AppImg::BlueRing(), THISBACK(MakeKeywords)).Key(K_F6);
 	bar.Add(t_("Get elements"), AppImg::BlueRing(), THISBACK(GetElements)).Key(K_F7);
 	bar.Add(t_("Get element hints"), AppImg::BlueRing(), THISBACK(GetElementHints)).Key(K_F8);
+	bar.Add(t_("Get element scores"), AppImg::BlueRing(), THISBACK(GetElementScores)).Key(K_F9);
 	bar.Separator();
 	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);

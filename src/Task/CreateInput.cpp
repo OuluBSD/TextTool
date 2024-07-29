@@ -3782,6 +3782,58 @@ void AiTask::CreateInput_BiographyProcess() {
 		}
 		input.response_length = 1024;
 	}
+	else if (args.fn == 2) {
+		if (appmode < 0) {
+			appmode = DB_SONG;
+			EnterAppMode(appmode);
+		}
+		String audience = GetAppModeKey(appmode, AM_AUDIENCE);
+		if (args.scores.IsEmpty()) {
+			auto& list = input.AddSub().Title(__Script2 + " heuristic score factors");
+			list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
+			list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
+			list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
+			list.Add("S3: High share count from the " + audience + ". Low count means that the phrase was not relatable.");
+			list.Add("S4: High bookmark count from the " + audience + ". Low count means that the phrase had no value.");
+			list.Add("S5: High reference count towards comedy from the " + audience + ". Low count means that the phrase was not funny.");
+			list.Add("S6: High reference count towards sex from the " + audience + ". Low count means that the phrase was not sensual.");
+			list.Add("S7: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
+			list.Add("S8: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
+			list.Add("S9: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
+			list.Add("S10: How well " + __script2 + " fit the original vision.");
+		}
+		else {
+			auto& list = input.AddSub().Title(__Script2 + " heuristic score factors");
+			for(int i = 0; i < args.scores.GetCount(); i++)
+				list.Add(args.scores[i]);
+			list.Add("S10: How well " + __script2 + " fit the original vision.");
+		}
+		{
+			auto& list = input.AddSub().Title(__Script2 + " heuristic score factors for single phrase");
+			list.Add("\"I'm bleeding after you\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7, S5: 9, S6: 4, S7: 2, S8: 3, S9: 2, s10: 5");
+		}
+		String first_line;
+		{
+			auto& list = input.AddSub().Title("List of elements of " + __script2);
+			args.text.Replace("\r", "");
+			Vector<String> lines = Split(args.text, "\n");
+			for (String& s : lines) {
+				if (first_line.IsEmpty()) {
+					int a = s.Find(":");
+					if (a >= 0)
+						first_line = s.Left(a);
+				}
+				list.Add(s);
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(__Script2 + " heuristic score factors");
+			tmp_str = first_line + ": S";
+			results.Add(tmp_str);
+		}
+		input.response_length = 1024;
+	}
 	else TODO;
 }
 

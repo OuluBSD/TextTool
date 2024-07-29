@@ -406,6 +406,7 @@ struct BiographyProcessArgs {
 	String category;
 	String text;
 	int year = 0;
+	Vector<String> scores;
 	
 	
 	void Jsonize(JsonIO& json) {
@@ -413,6 +414,7 @@ struct BiographyProcessArgs {
 				("category", category)
 				("text", text)
 				("year", year)
+				("scores", scores)
 			;
 	}
 	String Get() const {return StoreAsJson(*this);}
