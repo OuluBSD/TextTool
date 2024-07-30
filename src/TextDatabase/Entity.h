@@ -8,9 +8,10 @@ BEGIN_TEXTLIB_NAMESPACE
 struct ConceptStory : Moveable<ConceptStory> {
 	struct Element : Moveable<Element> {
 		String key, value;
+		Color clr;
 		byte scores[SCORE_COUNT] = {0,0,0,0,0, 0,0,0,0,0};
-		void Serialize(Stream& s) {s % key % value; for(int i = 0; i < SCORE_COUNT; i++) s % scores[i];}
-		void Jsonize(JsonIO& json) {json("k",key)("v",value); for(int i = 0; i < SCORE_COUNT; i++) json("s" + IntStr(i),scores[i]);}
+		void Serialize(Stream& s) {s % key % value % clr; for(int i = 0; i < SCORE_COUNT; i++) s % scores[i];}
+		void Jsonize(JsonIO& json) {json("k",key)("v",value)("clr",clr); for(int i = 0; i < SCORE_COUNT; i++) json("s" + IntStr(i),scores[i]);}
 		void ResetScore() {memset(scores, 0, sizeof(scores));}
 		double GetAverageScore() const;
 	};
@@ -19,6 +20,8 @@ struct ConceptStory : Moveable<ConceptStory> {
 	String desc;
 	Vector<Element> elements, improved_elements;
 	int src = 0;
+	int typeclass = -1;
+	int content = -1;
 	//byte scores[SCORE_COUNT] = {0,0,0,0,0, 0,0,0,0,0};
 	
 	int FindElement(const String& key) const;
@@ -35,6 +38,8 @@ struct ConceptStory : Moveable<ConceptStory> {
 			("elements", elements)
 			("improved_elements", improved_elements)
 			("src", src)
+			("typeclass", typeclass)
+			("content", content)
 			;
 		//for(int i = 0; i < SCORE_COUNT; i++)
 		//	json("s" + IntStr(i), scores[i]);
@@ -53,6 +58,9 @@ struct ConceptStory : Moveable<ConceptStory> {
 		for (const auto& el : improved_elements)
 			sum += el.GetAverageScore();
 		return sum / (double)improved_elements.GetCount();
+	}
+	bool operator()(const ConceptStory& a, const ConceptStory& b) const {
+		return a.GetAverageScore() > b.GetAverageScore();
 	}
 };
 

@@ -3916,6 +3916,8 @@ void AiTask::CreateInput_ConceptualFrameworkProcess() {
 				list.Add("\"I'm bleeding after you\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7, S5: 9, S6: 4, S7: 2, S8: 3, S9: 2");
 			}
 		}
+	}
+	{
 		{
 			auto& list = input.AddSub().Title("List of elements");
 			list.NumberedLines();
@@ -3957,6 +3959,53 @@ void AiTask::CreateInput_ConceptualFrameworkProcess() {
 			results.Title(t);
 			results.NumberedLines();
 			tmp_str = args.elements.GetKey(0) + ": S";
+			results.Add(tmp_str);
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 3) {
+		{
+			auto& list = input.AddSub().Title(__Typeclasses + " of " + __entity + " profiles in relation to the " + __script2);
+			list.NoListChar();
+			int i = 0;
+			for (String tc : GetTypeclasses(appmode))
+				list.Add("#" + IntStr(i++) + ": " + tc);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("3 best matching " + __typeclasses + " describing all elements");
+			results.NumberedLines();
+			results.Add("#");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 4) {
+		{
+			auto& list = input.AddSub().Title("List of names for archetypical parts of storyline of a modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps2 + ", which contrasts each other");
+			list.NumberedLines();
+			int i = 0;
+			for (const auto& it : GetContents(appmode))
+				list.Add("#" + IntStr(i++) + ": " + it.key);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("3 best matching " + __contents + " describing all elements");
+			results.NumberedLines();
+			results.Add("#");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 5) {
+		{
+			auto& list = input.AddSub().Title("Metaphorical color of a word in RGB value");
+			list.Add("introducing: RGB(0, 150, 255)");
+			list.Add("shameless: RGB(255, 51, 153)");
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Metaphorical color in RGB value of elements");
+			results.NumberedLines();
+			tmp_str = args.elements.GetKey(0) + ": RGB(";
 			results.Add(tmp_str);
 		}
 		input.response_length = 2048;

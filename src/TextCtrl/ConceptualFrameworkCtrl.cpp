@@ -41,11 +41,13 @@ ConceptualFrameworkCtrl::ConceptualFrameworkCtrl() {
 	cf.revision.WhenAction << THISBACK(OnValueChange);
 	cf.belief.WhenAction << THISBACK(OnValueChange);
 	
+	stories.AddColumn(t_("Typeclass"));
+	stories.AddColumn(t_("Content"));
 	stories.AddColumn(t_("Description"));
 	for(int i = 0; i < SCORE_COUNT; i++)
 		stories.AddColumn("S" + IntStr(i));
 	stories.AddColumn("Total score");
-	stories.ColumnWidths("12 1 1 1 1 1 1 1 1 1 1 1");
+	stories.ColumnWidths("2 2 12 1 1 1 1 1 1 1 1 1 1 1");
 	stories.AddIndex("IDX");
 	stories.WhenCursor << THISBACK(DataStory);
 	stories <<= THISBACK(DataStory);
@@ -55,6 +57,8 @@ ConceptualFrameworkCtrl::ConceptualFrameworkCtrl() {
 	};
 	
 	cf.belief.WhenAction << THISBACK(OnValueChange);
+	
+	story.colors.AddColumn("Color");
 	
 }
 
@@ -78,6 +82,20 @@ void ConceptualFrameworkCtrl::Data() {
 	cfs.SetCount(ep.entity->concepts.GetCount());
 	if (!cfs.IsCursor() && cfs.GetCount())
 		cfs.SetCursor(0);
+	
+	
+	int appmode = GetAppMode();
+	
+	story.typeclass.Clear();
+	story.typeclass.Add("");
+	for (String tc : GetTypeclasses())
+		story.typeclass.Add(tc);
+	
+	story.content.Clear();
+	story.content.Add("");
+	for (const auto& it : GetContents())
+		story.content.Add(it.key);
+	
 	
 	DataFramework();
 }
@@ -126,23 +144,27 @@ void ConceptualFrameworkCtrl::DataFramework() {
 	
 	// Stories list
 	int row = 0;
+	const auto& tcs = GetTypeclasses();
+	const auto& cons = GetContents();
 	for(int i = 0; i < con.stories.GetCount(); i++) {
 		const ConceptStory& st = con.stories[i];
-		stories.Set(row, 0, st.desc);
+		stories.Set(row, 0, st.typeclass >= 0 ? tcs[st.typeclass] : String());
+		stories.Set(row, 1, st.content >= 0 ? cons[st.content].key : String());
+		stories.Set(row, 2, st.desc);
 		double sum = 0;
 		for(int j = 0; j < SCORE_COUNT; j++) {
 			double sc = st.AvSingleScore(j);
-			stories.Set(row, 1+j, sc);
+			stories.Set(row, 3+j, sc);
 			sum += sc;
 		}
 		double av = sum / (double)SCORE_COUNT;
 		if (av > 10.0) av = 0;
-		stories.Set(row, 1+SCORE_COUNT, av);
+		stories.Set(row, 3+SCORE_COUNT, av);
 		stories.Set(row, "IDX", i);
 		row++;
 	}
 	SetCountWithDefaultCursor(stories, row);
-	stories.SetSortColumn(1+SCORE_COUNT, true);
+	stories.SetSortColumn(3+SCORE_COUNT, true);
 	
 	DataStory();
 }
@@ -150,8 +172,10 @@ void ConceptualFrameworkCtrl::DataFramework() {
 void ConceptualFrameworkCtrl::DataStory() {
 	EditorPtrs& ep = GetPointers();
 	MetaDatabase& mdb = MetaDatabase::Single();
-	if (!cfs.IsCursor() || !stories.IsCursor())
+	if (!cfs.IsCursor() || !stories.IsCursor()) {
+		story.colors.SetCount(0);
 		return;
+	}
 	
 	int cf_i = cfs.Get("IDX");
 	int story_i = stories.Get("IDX");
@@ -161,6 +185,10 @@ void ConceptualFrameworkCtrl::DataStory() {
 	ConceptStory& st = con.stories[story_i];
 	
 	story.desc.SetData(st.desc);
+	if (st.typeclass >= -1 && st.typeclass < story.typeclass.GetCount())
+		story.typeclass.SetIndex(st.typeclass+1);
+	if (st.content >= -1 && st.content < story.content.GetCount())
+		story.content.SetIndex(st.content+1);
 	
 	//
 	String full;
@@ -177,8 +205,14 @@ void ConceptualFrameworkCtrl::DataStory() {
 		const auto& el = st.improved_elements[i];
 		improved << "[" << el.key << "]\n";
 		improved << el.value << "\n\n";
+		
+		story.colors.Set(i, 0, AttrText(el.key).NormalPaper(el.clr).Paper(el.clr));
 	}
 	story_improved.SetData(improved);
+	story.colors.SetCount(st.improved_elements.GetCount());
+	
+	//
+	
 }
 
 void ConceptualFrameworkCtrl::OnValueChange() {

@@ -1,8 +1,7 @@
 
 v0.0.2
-- conceptual framework: show all the lists of colors and attributes (user override?)
-	- move script range solver code to non-script specific
-		- same page ??
+- searcher for entity-story: find best matching story with custom song lead text
+	- also, modify the matching story and get score?
 - connect elements to phrases (new database page)
 - rate opening expositions with score (which expositions reveal the story smart and efficiently)
 - new script process: iterate section per section (1 phrase-bank, 2 script, 3 comparison)
@@ -176,3 +175,4 @@ x? vocabulary: for artist, for release, for song
 - add snapshots to biography summary
 - create elements for BOTH biography summaries AND single year texts
 - extend biography summary with elements
+- conceptual framework: show all the lists of colors and attributes (user override?)

@@ -13,6 +13,11 @@ public:
 		PHASE_MAKE_TOPIC_CONCEPTS,
 		PHASE_IMPROVE_STORY,
 		PHASE_SCORE_CONCEPTS,
+		PHASE_SORT_STORIES,
+		PHASE_TYPECLASS,
+		PHASE_CONTENT,
+		PHASE_COLORS,
+		PHASE_ATTRS,
 		
 		PHASE_COUNT,
 	};
@@ -30,6 +35,7 @@ public:
 	int elements_per_story_prompt = 30;
 	int max_stories = 30;
 	int max_topic_stories = 3;
+	int max_detailed_count = 100;
 	
 	
 	
@@ -62,6 +68,11 @@ private:
 	void MakeTopicConcepts();
 	void ImproveStory();
 	void ScoreConcepts();
+	void SortStories();
+	void GetTypeclass();
+	void GetContent();
+	void GetColors();
+	void GetAttrs();
 	void OnMakeConcepts(String res);
 };
 

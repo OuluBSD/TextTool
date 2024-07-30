@@ -18,6 +18,11 @@ int ConceptualFrameworkProcess::GetBatchCount(int phase) const {
 		case PHASE_MAKE_TOPIC_CONCEPTS:		return max(1, snap->data.AllCategories().GetCount());
 		case PHASE_IMPROVE_STORY:			return max(1, cf->stories.GetCount());
 		case PHASE_SCORE_CONCEPTS:			return max(1, cf->stories.GetCount());
+		case PHASE_SORT_STORIES:			return 1;
+		case PHASE_TYPECLASS:
+		case PHASE_CONTENT:
+		case PHASE_COLORS:
+		case PHASE_ATTRS:					return max_detailed_count;
 		default: return 1;
 	}
 }
@@ -28,6 +33,11 @@ int ConceptualFrameworkProcess::GetSubBatchCount(int phase, int batch) const {
 		case PHASE_MAKE_TOPIC_CONCEPTS:		return 1;
 		case PHASE_IMPROVE_STORY:			return 1;
 		case PHASE_SCORE_CONCEPTS:			return 1;
+		case PHASE_SORT_STORIES:			return 1;
+		case PHASE_TYPECLASS:
+		case PHASE_CONTENT:
+		case PHASE_COLORS:
+		case PHASE_ATTRS:					return 1;
 		default: return 1;
 	}
 }
@@ -38,6 +48,11 @@ void ConceptualFrameworkProcess::DoPhase() {
 		case PHASE_MAKE_TOPIC_CONCEPTS:		MakeTopicConcepts(); return;
 		case PHASE_IMPROVE_STORY:			ImproveStory(); return;
 		case PHASE_SCORE_CONCEPTS:			ScoreConcepts(); return;
+		case PHASE_SORT_STORIES:			SortStories(); return;
+		case PHASE_TYPECLASS:				GetTypeclass(); return;
+		case PHASE_CONTENT:					GetContent(); return;
+		case PHASE_COLORS:					GetColors(); return;
+		case PHASE_ATTRS:					GetAttrs(); return;
 		default: return;
 	}
 }
@@ -337,6 +352,7 @@ void ConceptualFrameworkProcess::OnMakeConcepts(String result) {
 			auto& e = story.elements.Add();
 			e.key = el->key;
 			e.value = el->value;
+			e.clr = Color(0,0,0);
 		}
 	}
 	
@@ -395,6 +411,7 @@ void ConceptualFrameworkProcess::ImproveStory() {
 			auto& el = story.improved_elements.Add();
 			el.key = key;
 			el.value = value;
+			el.clr = Color(0,0,0);
 		}
 		
 		NextBatch();
@@ -422,7 +439,6 @@ void ConceptualFrameworkProcess::ScoreConcepts() {
 		NextBatch();
 		return;
 	}
-	
 	
 	
 	if (cf->belief_uniq != 0) {
@@ -468,6 +484,160 @@ void ConceptualFrameworkProcess::ScoreConcepts() {
 		NextBatch();
 		SetWaiting(0);
 	});
+}
+
+void ConceptualFrameworkProcess::SortStories() {
+	Sort(cf->stories, ConceptStory());
+	
+	if (0) {
+		for (ConceptStory& story : cf->stories) {
+			story.typeclass = -1;
+			story.content = -1;
+		}
+	}
+	
+	NextPhase();
+}
+
+void ConceptualFrameworkProcess::GetTypeclass() {
+	if (batch >= max_detailed_count || batch >= cf->stories.GetCount()) {
+		NextPhase();
+		return;
+	}
+	
+	ConceptStory& story = cf->stories[batch];
+	args.fn = 3;
+	args.elements.Clear();
+	args.scores.Clear();
+	
+	for(int i = 0; i < story.improved_elements.GetCount(); i++) {
+		const auto& el = story.improved_elements[i];
+		args.elements.Add(el.key, el.value);
+	}
+	if (args.elements.IsEmpty()) {
+		NextBatch();
+		return;
+	}
+	
+	TaskMgr& m = TaskMgr::Single();
+	SetWaiting(1);
+	m.GetConceptualFramework(appmode, args, [this](String result) {
+		ConceptStory& story = cf->stories[batch];
+		RemoveEmptyLines2(result);
+		Vector<String> lines = Split(result, "\n");
+		
+		for (String& line : lines) {
+			int a = line.Find("#");
+			if (a < 0) continue;
+			String value = TrimBoth(line.Mid(a+1));
+			story.typeclass = ScanInt(value);
+		}
+		
+		NextBatch();
+		SetWaiting(0);
+	});
+}
+
+void ConceptualFrameworkProcess::GetContent() {
+	if (batch >= max_detailed_count || batch >= cf->stories.GetCount()) {
+		NextPhase();
+		return;
+	}
+	
+	ConceptStory& story = cf->stories[batch];
+	args.fn = 4;
+	args.elements.Clear();
+	args.scores.Clear();
+	
+	for(int i = 0; i < story.improved_elements.GetCount(); i++) {
+		const auto& el = story.improved_elements[i];
+		args.elements.Add(el.key, el.value);
+	}
+	if (args.elements.IsEmpty()) {
+		NextBatch();
+		return;
+	}
+	
+	TaskMgr& m = TaskMgr::Single();
+	SetWaiting(1);
+	m.GetConceptualFramework(appmode, args, [this](String result) {
+		ConceptStory& story = cf->stories[batch];
+		RemoveEmptyLines2(result);
+		Vector<String> lines = Split(result, "\n");
+		
+		for (String& line : lines) {
+			int a = line.Find("#");
+			if (a < 0) continue;
+			String value = TrimBoth(line.Mid(a+1));
+			story.content = ScanInt(value);
+		}
+		
+		NextBatch();
+		SetWaiting(0);
+	});
+}
+
+void ConceptualFrameworkProcess::GetColors() {
+	if (batch >= max_detailed_count || batch >= cf->stories.GetCount()) {
+		NextPhase();
+		return;
+	}
+	
+	ConceptStory& story = cf->stories[batch];
+	args.fn = 5;
+	args.elements.Clear();
+	args.scores.Clear();
+	
+	for(int i = 0; i < story.improved_elements.GetCount(); i++) {
+		const auto& el = story.improved_elements[i];
+		args.elements.Add(el.key, el.value);
+	}
+	if (args.elements.IsEmpty()) {
+		NextBatch();
+		return;
+	}
+	
+	TaskMgr& m = TaskMgr::Single();
+	SetWaiting(1);
+	m.GetConceptualFramework(appmode, args, [this](String result) {
+		ConceptStory& story = cf->stories[batch];
+		RemoveEmptyLines2(result);
+		Vector<String> lines = Split(result, "\n");
+		
+		for (String& line : lines) {
+			int a = line.Find(":");
+			if (a < 0) continue;
+			String key = ToLower(TrimBoth(line.Left(a)));
+			String value = TrimBoth(line.Mid(a+1));
+			
+			int i = story.FindImprovedElement(key);
+			if (i < 0)
+				continue;
+			auto& el = story.improved_elements[i];
+			
+			a = value.Find("RGB(");
+			if (a < 0) continue;
+			a += 4;
+			int b = value.Find(")");
+			String clr_str = value.Mid(a,b-a);
+			Vector<String> clr_parts = Split(clr_str, ",");
+			if (clr_parts.GetCount() != 3) continue;
+			int R = StrInt(TrimBoth(clr_parts[0]));
+			int G = StrInt(TrimBoth(clr_parts[1]));
+			int B = StrInt(TrimBoth(clr_parts[2]));
+			el.clr = Color(R,G,B);
+		}
+		
+		NextBatch();
+		SetWaiting(0);
+	});
+}
+
+void ConceptualFrameworkProcess::GetAttrs() {
+	SetNotRunning(); return;
+	
+	
+	
 }
 
 
