@@ -5,6 +5,14 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+#define USE_IMPROVED_ELEMENTS 0
+
+#if USE_IMPROVED_ELEMENTS
+	#define ELEMENTS_VAR	improved_elements
+#else
+	#define ELEMENTS_VAR	elements
+#endif
+
 struct ConceptStory : Moveable<ConceptStory> {
 	struct Element : Moveable<Element> {
 		String key, value;
@@ -18,50 +26,41 @@ struct ConceptStory : Moveable<ConceptStory> {
 	
 	hash_t hash = 0;
 	String desc;
-	Vector<Element> elements, improved_elements;
+	Vector<Element> elements;
+	#if USE_IMPROVED_ELEMENTS
+	Vector<Element> improved_elements;
+	#endif
 	int src = 0;
 	int typeclass = -1;
 	int content = -1;
-	//byte scores[SCORE_COUNT] = {0,0,0,0,0, 0,0,0,0,0};
 	
 	int FindElement(const String& key) const;
 	int FindImprovedElement(const String& key) const;
 	void Serialize(Stream& s) {
-		s % hash % desc % elements % improved_elements % src;
-		//for(int i = 0; i < SCORE_COUNT; i++)
-		//	s % scores[i];
+		s % hash % desc % elements % src;
+		#if USE_IMPROVED_ELEMENTS
+		s % improved_elements;
+		#endif
 	}
 	void Jsonize(JsonIO& json) {
 		json
 			("hash", (int64&)hash)
 			("desc", desc)
 			("elements", elements)
-			("improved_elements", improved_elements)
 			("src", src)
 			("typeclass", typeclass)
 			("content", content)
 			;
-		//for(int i = 0; i < SCORE_COUNT; i++)
-		//	json("s" + IntStr(i), scores[i]);
+		#if USE_IMPROVED_ELEMENTS
+		json("improved_elements", improved_elements);
+		#endif
 	}
-	double AvSingleScore(int i) const {
-		ASSERT(i >= 0 && i < SCORE_COUNT);
-		if (improved_elements.IsEmpty()) return 0;
-		int sum = 0;
-		for (const auto& el : improved_elements)
-			sum += el.scores[i];
-		return sum / (double)improved_elements.GetCount();
-	}
-	double GetAverageScore() const {
-		if (improved_elements.IsEmpty()) return 0;
-		int sum = 0;
-		for (const auto& el : improved_elements)
-			sum += el.GetAverageScore();
-		return sum / (double)improved_elements.GetCount();
-	}
-	bool operator()(const ConceptStory& a, const ConceptStory& b) const {
-		return a.GetAverageScore() > b.GetAverageScore();
-	}
+	
+	double AvSingleScore(int i) const;
+	Color GetAverageColor() const;
+	double GetAverageScore() const;
+	bool operator()(const ConceptStory& a, const ConceptStory& b) const;
+	
 };
 
 struct Concept {

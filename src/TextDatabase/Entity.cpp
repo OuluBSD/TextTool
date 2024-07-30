@@ -224,7 +224,7 @@ int ConceptStory::FindElement(const String& key) const {
 
 int ConceptStory::FindImprovedElement(const String& key) const {
 	int i = 0;
-	for (const auto& e : improved_elements) {
+	for (const auto& e : ELEMENTS_VAR) {
 		if (e.key == key)
 			return i;
 		i++;
@@ -244,6 +244,37 @@ double ConceptStory::Element::GetAverageScore() const {
 	return score;
 }
 
+double ConceptStory::AvSingleScore(int i) const {
+	ASSERT(i >= 0 && i < SCORE_COUNT);
+	if (ELEMENTS_VAR.IsEmpty()) return 0;
+	int sum = 0;
+	for (const auto& el : ELEMENTS_VAR)
+		sum += el.scores[i];
+	return sum / (double)ELEMENTS_VAR.GetCount();
+}
+
+Color ConceptStory::GetAverageColor() const {
+	if (ELEMENTS_VAR.IsEmpty()) return Color(128,128,128);
+	int clr[3] = {0,0,0};
+	for (const auto& el : ELEMENTS_VAR) {
+		clr[0] += el.clr.GetR();
+		clr[1] += el.clr.GetG();
+		clr[2] += el.clr.GetB();
+	}
+	int c = ELEMENTS_VAR.GetCount();
+	return Color(clr[0] / c, clr[1] / c, clr[2] / c);
+}
+
+double ConceptStory::GetAverageScore() const {
+	if (ELEMENTS_VAR.IsEmpty()) return 0;
+	int sum = 0;
+	for (const auto& el : ELEMENTS_VAR)
+		sum += el.GetAverageScore();
+	return sum / (double)ELEMENTS_VAR.GetCount();
+}
+bool ConceptStory::operator()(const ConceptStory& a, const ConceptStory& b) const {
+	return a.GetAverageScore() > b.GetAverageScore();
+}
 
 END_TEXTLIB_NAMESPACE
 

@@ -3,7 +3,6 @@
 
 BEGIN_TEXTLIB_NAMESPACE
 
-
 ConceptualFrameworkProcess::ConceptualFrameworkProcess() {
 	
 }
@@ -365,6 +364,13 @@ void ConceptualFrameworkProcess::OnMakeConcepts(String result) {
 }
 
 void ConceptualFrameworkProcess::ImproveStory() {
+	#if !USE_IMPROVED_ELEMENTS
+	{
+		NextPhase();
+		return;
+	}
+	#endif
+	
 	if (batch >= cf->stories.GetCount()) {
 		NextPhase();
 		return;
@@ -372,7 +378,7 @@ void ConceptualFrameworkProcess::ImproveStory() {
 	
 	ConceptStory& story = cf->stories[batch];
 	
-	if (skip_ready && story.improved_elements.GetCount()) {
+	if (skip_ready && story.ELEMENTS_VAR.GetCount()) {
 		NextBatch();
 		return;
 	}
@@ -402,13 +408,13 @@ void ConceptualFrameworkProcess::ImproveStory() {
 		Biography& data = snap->data;
 		RemoveEmptyLines2(result);
 		Vector<String> lines = Split(result, "\n");
-		story.improved_elements.Clear();
+		story.ELEMENTS_VAR.Clear();
 		for (String& l : lines) {
 			int a = l.Find(":");
 			if (a < 0) continue;
 			String key = TrimBoth(l.Left(a));
 			String value = TrimBoth(l.Mid(a+1));
-			auto& el = story.improved_elements.Add();
+			auto& el = story.ELEMENTS_VAR.Add();
 			el.key = key;
 			el.value = value;
 			el.clr = Color(0,0,0);
@@ -431,8 +437,8 @@ void ConceptualFrameworkProcess::ScoreConcepts() {
 	args.elements.Clear();
 	args.scores.Clear();
 	
-	for(int i = 0; i < story.improved_elements.GetCount(); i++) {
-		const auto& el = story.improved_elements[i];
+	for(int i = 0; i < story.ELEMENTS_VAR.GetCount(); i++) {
+		const auto& el = story.ELEMENTS_VAR[i];
 		args.elements.Add(el.key, el.value);
 	}
 	if (args.elements.IsEmpty()) {
@@ -465,7 +471,7 @@ void ConceptualFrameworkProcess::ScoreConcepts() {
 			int i = story.FindImprovedElement(key);
 			if (i < 0)
 				continue;
-			auto& el = story.improved_elements[i];
+			auto& el = story.ELEMENTS_VAR[i];
 			
 			Vector<String> scores = Split(value, ",");
 			int j = -1;
@@ -510,8 +516,8 @@ void ConceptualFrameworkProcess::GetTypeclass() {
 	args.elements.Clear();
 	args.scores.Clear();
 	
-	for(int i = 0; i < story.improved_elements.GetCount(); i++) {
-		const auto& el = story.improved_elements[i];
+	for(int i = 0; i < story.ELEMENTS_VAR.GetCount(); i++) {
+		const auto& el = story.ELEMENTS_VAR[i];
 		args.elements.Add(el.key, el.value);
 	}
 	if (args.elements.IsEmpty()) {
@@ -549,8 +555,8 @@ void ConceptualFrameworkProcess::GetContent() {
 	args.elements.Clear();
 	args.scores.Clear();
 	
-	for(int i = 0; i < story.improved_elements.GetCount(); i++) {
-		const auto& el = story.improved_elements[i];
+	for(int i = 0; i < story.ELEMENTS_VAR.GetCount(); i++) {
+		const auto& el = story.ELEMENTS_VAR[i];
 		args.elements.Add(el.key, el.value);
 	}
 	if (args.elements.IsEmpty()) {
@@ -588,8 +594,8 @@ void ConceptualFrameworkProcess::GetColors() {
 	args.elements.Clear();
 	args.scores.Clear();
 	
-	for(int i = 0; i < story.improved_elements.GetCount(); i++) {
-		const auto& el = story.improved_elements[i];
+	for(int i = 0; i < story.ELEMENTS_VAR.GetCount(); i++) {
+		const auto& el = story.ELEMENTS_VAR[i];
 		args.elements.Add(el.key, el.value);
 	}
 	if (args.elements.IsEmpty()) {
@@ -613,7 +619,7 @@ void ConceptualFrameworkProcess::GetColors() {
 			int i = story.FindImprovedElement(key);
 			if (i < 0)
 				continue;
-			auto& el = story.improved_elements[i];
+			auto& el = story.ELEMENTS_VAR[i];
 			
 			a = value.Find("RGB(");
 			if (a < 0) continue;

@@ -19,7 +19,10 @@ ConceptualFrameworkCtrl::ConceptualFrameworkCtrl() {
 	
 	tsplit.SetPos(2500);
 	
-	bsplit.Horz() << story << story_struct << story_improved;
+	bsplit.Horz() << story << story_struct;
+	#if USE_IMPROVED_ELEMENTS
+	bsplit << story_improved;
+	#endif
 	
 	CtrlLayout(cf);
 	CtrlLayout(story);
@@ -150,7 +153,8 @@ void ConceptualFrameworkCtrl::DataFramework() {
 		const ConceptStory& st = con.stories[i];
 		stories.Set(row, 0, st.typeclass >= 0 ? tcs[st.typeclass] : String());
 		stories.Set(row, 1, st.content >= 0 ? cons[st.content].key : String());
-		stories.Set(row, 2, st.desc);
+		//stories.Set(row, 2, st.desc);
+		SetColoredListValue(stories, row, 2, st.desc, st.GetAverageColor(), true);
 		double sum = 0;
 		for(int j = 0; j < SCORE_COUNT; j++) {
 			double sc = st.AvSingleScore(j);
@@ -201,15 +205,15 @@ void ConceptualFrameworkCtrl::DataStory() {
 	
 	//
 	String improved;
-	for(int i = 0; i < st.improved_elements.GetCount(); i++) {
-		const auto& el = st.improved_elements[i];
+	for(int i = 0; i < st.ELEMENTS_VAR.GetCount(); i++) {
+		const auto& el = st.ELEMENTS_VAR[i];
 		improved << "[" << el.key << "]\n";
 		improved << el.value << "\n\n";
 		
 		story.colors.Set(i, 0, AttrText(el.key).NormalPaper(el.clr).Paper(el.clr));
 	}
 	story_improved.SetData(improved);
-	story.colors.SetCount(st.improved_elements.GetCount());
+	story.colors.SetCount(st.ELEMENTS_VAR.GetCount());
 	
 	//
 	
