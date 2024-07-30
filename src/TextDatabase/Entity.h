@@ -5,6 +5,20 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+struct Concept {
+	String name;
+	
+	void Serialize(Stream& s) {
+		s % name;
+	}
+	void Jsonize(JsonIO& json) {
+		json
+			("name", name)
+			;
+	}
+};
+
+
 struct Entity :
 	DataFile, ContentVisionOwner
 {
@@ -30,6 +44,7 @@ struct Entity :
 	// Public (separate files)
 	Array<Script>		scripts;
 	Array<Snapshot>		snaps;
+	Array<Concept>		concepts;
 	
 	void Clear() {
 		native_name.Clear();
@@ -80,6 +95,7 @@ struct Entity :
 			% phrases_eng
 			% is_female
 			% language
+			% concepts
 			;
 		//SnapContext::Serialize(s);
 	}
@@ -101,6 +117,7 @@ struct Entity :
 			("is_female", is_female)
 			("language", language)
 			("ideas", ideas)
+			("concepts", concepts)
 			;
 		if (json.IsStoring()) {
 			Vector<String> names;

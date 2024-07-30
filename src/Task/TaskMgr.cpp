@@ -422,6 +422,23 @@ void TaskMgr::GetBiographySummary(const BiographySummaryProcessArgs& args, Event
 	task_lock.Leave();
 }
 
+void TaskMgr::GetBiographySummary(const ConceptualFrameworkArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
+	t.SetRule(AITASK_CONCECPTUAL_FRAMEWORK_PROCESS, MakeName(args, -1, "conceptual framework process"))
+		.Input(&AiTask::CreateInput_ConceptualFrameworkProcess)
+		.Process(&AiTask::Process_Default);
+	
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
 void TaskMgr::GetLeadSolver(int appmode, const LeadSolverArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	TaskMgr& p = *this;

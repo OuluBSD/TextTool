@@ -31,6 +31,7 @@
 #include "SocialContent.h"
 #include "SocialNeeds.h"
 #include "SocialBeliefs.h"
+#include "ConceptualFramework.h"
 
 #if 1
 #include "ScriptGenerator.h"

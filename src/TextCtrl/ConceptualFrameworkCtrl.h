@@ -19,6 +19,12 @@
 	- vaiheet
 		- tehdä elemnttiryhmät ja pyytää ryhmästä 1-3 parasta ideaa
 		- hakea pisteytys ideoille
+- promptit
+	- konseptit
+	- niiden pisteet
+	- konseptien värit
+	- konseptien attribuutit
+	- rakenteen parantamine
 */
 
 BEGIN_TEXTLIB_NAMESPACE
@@ -28,15 +34,24 @@ class ToolEditor;
 
 
 class ConceptualFrameworkCtrl : public ToolAppCtrl {
-	
+	Splitter vsplit, tsplit, bsplit;
+	ArrayCtrl cfs;
+	ArrayCtrl ideas;
+	WithConceptualFramework<Ctrl> cf;
+	WithConceptualFrameworkIdea<Ctrl> idea;
+	DocEdit idea_header, idea_struct, idea_improved;
 	
 public:
 	typedef ConceptualFrameworkCtrl CLASSNAME;
 	ConceptualFrameworkCtrl();
 	
 	void Data();
+	void DataFramework();
+	void DataIdea();
 	void Clear();
 	void OnValueChange();
+	void ToolMenu(Bar& bar) override;
+	void Do(int fn);
 	
 	ToolEditor* editor = 0;
 	

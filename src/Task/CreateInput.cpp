@@ -3892,5 +3892,20 @@ void AiTask::CreateInput_BiographySummaryProcess() {
 	}
 }
 
+void AiTask::CreateInput_ConceptualFrameworkProcess() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	ConceptualFrameworkArgs args;
+	args.Put(this->args[0]);
+	
+	
+	if (args.fn == 0) {
+		
+	}
+}
+
 END_TEXTLIB_NAMESPACE
 

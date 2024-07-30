@@ -256,6 +256,7 @@ public:
 	void CreateInput_SocialBeliefsProcess();
 	void CreateInput_BiographyProcess();
 	void CreateInput_BiographySummaryProcess();
+	void CreateInput_ConceptualFrameworkProcess();
 	
 	void Process_GetSuggestionAttributes();
 	void Process_StoryArc();

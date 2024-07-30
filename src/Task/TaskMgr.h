@@ -60,6 +60,7 @@ struct TaskMgr {
 	void GetScriptTextProcess(int appmode, const ScriptTextProcessArgs& args, Event<String> WhenResult);
 	void GetBiography(const BiographyProcessArgs& args, Event<String> WhenResult);
 	void GetBiographySummary(const BiographySummaryProcessArgs& args, Event<String> WhenResult);
+	void GetConceptualFramework(const ConceptualFrameworkArgs& args, Event<String> WhenResult);
 	
 	static TaskMgr& Single() {static TaskMgr tm; return tm;}
 	
