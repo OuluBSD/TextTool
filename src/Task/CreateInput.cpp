@@ -3901,9 +3901,65 @@ void AiTask::CreateInput_ConceptualFrameworkProcess() {
 	ConceptualFrameworkArgs args;
 	args.Put(this->args[0]);
 	
-	
+	bool fit_score = args.scores.GetCount();
+	if (args.fn == 0 || args.fn == 1 || args.fn == 2) {
+		if (fit_score) {
+			EnterAppMode(appmode);
+			{
+				auto& list = input.AddSub().Title(__Script2 + " heuristic score factors");
+				for(int i = 0; i < args.scores.GetCount(); i++)
+					list.Add(args.scores[i]);
+			}
+			
+			if (args.fn == 0 || args.fn == 2) {
+				auto& list = input.AddSub().Title(__Script2 + " heuristic score factors for single phrase");
+				list.Add("\"I'm bleeding after you\": S0: 9, S1: 8, S2: 8, S3: 6, S4: 7, S5: 9, S6: 4, S7: 2, S8: 3, S9: 2");
+			}
+		}
+		{
+			auto& list = input.AddSub().Title("List of elements");
+			list.NumberedLines();
+			for(int i = 0; i < args.elements.GetCount(); i++) {
+				list.Add(args.elements.GetKey(i), args.elements[i]);
+			}
+		}
+	}
 	if (args.fn == 0) {
-		
+		{
+			TaskTitledList& results = input.PreAnswer();
+			String t = "Combine elements to form a coherent " + __script + ". 2-8 elements per story. Write inline list of numbers per line and description after that inside parenthesis";
+			if (fit_score)
+				t += ". A " + __script + " must have high heuristic score factors";
+			results.Title(t);
+			results.NumberedLines();
+			results.Add("1,2,3,4 (dummy example. The next one is real)");
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 1) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			String t = "Fix story to have better elements that fit together";
+			if (fit_score)
+				t += ". Story elements must have high heuristic score factors";
+			results.Title(t);
+			results.NumberedLines();
+			tmp_str = args.elements.GetKey(0) + ":";
+			results.Add(tmp_str);
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 2) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			String t = "Heuristic scores for elements";
+			results.Title(t);
+			results.NumberedLines();
+			tmp_str = args.elements.GetKey(0) + ": S";
+			results.Add(tmp_str);
+		}
+		input.response_length = 2048;
 	}
 }
 

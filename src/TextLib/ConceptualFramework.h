@@ -11,6 +11,7 @@ public:
 	enum {
 		PHASE_MAKE_ALL_CONCEPTS,
 		PHASE_MAKE_TOPIC_CONCEPTS,
+		PHASE_IMPROVE_STORY,
 		PHASE_SCORE_CONCEPTS,
 		
 		PHASE_COUNT,
@@ -21,10 +22,14 @@ public:
 	Profile* profile = 0;
 	Concept* cf = 0;
 	BiographySnapshot* snap = 0;
+	int appmode = -1;
+	ConceptualFrameworkArgs args;
+	Vector<int> el_items;
 	
 	// Params
-	int elements_per_concept_prompt = 30;
-	int max_concepts = 100;
+	int elements_per_story_prompt = 30;
+	int max_stories = 30;
+	int max_topic_stories = 3;
 	
 	
 	
@@ -50,13 +55,14 @@ public:
 	int GetSubBatchCount(int phase, int batch) const override;
 	void DoPhase() override;
 	
-	static ConceptualFrameworkProcess& Get(Entity& e, Concept& cf, BiographySnapshot& snap);
+	static ConceptualFrameworkProcess& Get(int appmode, Entity& e, Concept& cf, BiographySnapshot& snap);
 	
 private:
 	void MakeAllConcepts();
 	void MakeTopicConcepts();
+	void ImproveStory();
 	void ScoreConcepts();
-	
+	void OnMakeConcepts(String res);
 };
 
 

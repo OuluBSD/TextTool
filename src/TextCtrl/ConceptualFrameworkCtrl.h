@@ -34,20 +34,20 @@ class ToolEditor;
 
 
 class ConceptualFrameworkCtrl : public ToolAppCtrl {
-	Splitter vsplit, tsplit, bsplit;
+	Splitter cfsplit, vsplit, tsplit, bsplit;
 	ArrayCtrl cfs;
-	ArrayCtrl ideas;
+	ArrayCtrl stories;
 	WithConceptualFramework<Ctrl> cf;
-	WithConceptualFrameworkIdea<Ctrl> idea;
-	DocEdit idea_header, idea_struct, idea_improved;
+	WithConceptualFrameworkStory<Ctrl> story;
+	DocEdit story_struct, story_improved;
 	
 public:
 	typedef ConceptualFrameworkCtrl CLASSNAME;
 	ConceptualFrameworkCtrl();
 	
-	void Data();
+	void Data() override;
 	void DataFramework();
-	void DataIdea();
+	void DataStory();
 	void Clear();
 	void OnValueChange();
 	void ToolMenu(Bar& bar) override;

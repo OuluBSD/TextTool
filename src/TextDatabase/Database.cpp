@@ -328,6 +328,17 @@ SocietyRoleAnalysis& MetaDatabase::GetAddRole(int role_i) {
 	return roles.GetAdd(key);
 }
 
+int MetaDatabase::FindBelief(int64 belief_uniq) const {
+	if (!belief_uniq)
+		return -1;
+	int i = 0;
+	for (const Belief& b : beliefs) {
+		if (b.uniq == belief_uniq)
+			return i;
+		i++;
+	}
+	return -1;
+}
 
 
 END_TEXTLIB_NAMESPACE

@@ -4,5 +4,6 @@
 
 void GuiStartup();
 
+void SetCountWithDefaultCursor(ArrayCtrl& arr, int count);
 
 #endif

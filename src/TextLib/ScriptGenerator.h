@@ -6,20 +6,25 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 template <class T>
+void MakeBelief(Belief& b, T& args, int fn) {
+	for(int i = 0; i < b.attrs.GetCount(); i++) {
+		Belief::Attr& a = b.attrs[i];
+		String s;
+		if (fn == 0)
+			s = "S" + IntStr(i) + ": High " + ToLower(a.positive) + " score. Low score means that the phrase is " + ToLower(a.negative) + ".";
+		else if (fn == 1)
+			s = "high " + ToLower(a.positive) + " value, low " + ToLower(a.negative) + " value";
+		args.scores << s;
+	}
+}
+
+template <class T>
 void MakeBelief(Script& song, T& args, int fn) {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	if (song.belief_i > 0) {
 		int b_i = song.belief_i -1;
 		Belief& b = mdb.beliefs[b_i];
-		for(int i = 0; i < b.attrs.GetCount(); i++) {
-			Belief::Attr& a = b.attrs[i];
-			String s;
-			if (fn == 0)
-				s = "S" + IntStr(i) + ": High " + ToLower(a.positive) + " score. Low score means that the phrase is " + ToLower(a.negative) + ".";
-			else if (fn == 1)
-				s = "high " + ToLower(a.positive) + " value, low " + ToLower(a.negative) + " value";
-			args.scores << s;
-		}
+		MakeBelief(b, args, fn);
 	}
 }
 

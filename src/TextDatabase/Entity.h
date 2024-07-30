@@ -5,15 +5,76 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-struct Concept {
-	String name;
+struct ConceptStory : Moveable<ConceptStory> {
+	struct Element : Moveable<Element> {
+		String key, value;
+		byte scores[SCORE_COUNT] = {0,0,0,0,0, 0,0,0,0,0};
+		void Serialize(Stream& s) {s % key % value; for(int i = 0; i < SCORE_COUNT; i++) s % scores[i];}
+		void Jsonize(JsonIO& json) {json("k",key)("v",value); for(int i = 0; i < SCORE_COUNT; i++) json("s" + IntStr(i),scores[i]);}
+		void ResetScore() {memset(scores, 0, sizeof(scores));}
+		double GetAverageScore() const;
+	};
 	
+	hash_t hash = 0;
+	String desc;
+	Vector<Element> elements, improved_elements;
+	int src = 0;
+	//byte scores[SCORE_COUNT] = {0,0,0,0,0, 0,0,0,0,0};
+	
+	int FindElement(const String& key) const;
+	int FindImprovedElement(const String& key) const;
 	void Serialize(Stream& s) {
-		s % name;
+		s % hash % desc % elements % improved_elements % src;
+		//for(int i = 0; i < SCORE_COUNT; i++)
+		//	s % scores[i];
 	}
 	void Jsonize(JsonIO& json) {
 		json
+			("hash", (int64&)hash)
+			("desc", desc)
+			("elements", elements)
+			("improved_elements", improved_elements)
+			("src", src)
+			;
+		//for(int i = 0; i < SCORE_COUNT; i++)
+		//	json("s" + IntStr(i), scores[i]);
+	}
+	double AvSingleScore(int i) const {
+		ASSERT(i >= 0 && i < SCORE_COUNT);
+		if (improved_elements.IsEmpty()) return 0;
+		int sum = 0;
+		for (const auto& el : improved_elements)
+			sum += el.scores[i];
+		return sum / (double)improved_elements.GetCount();
+	}
+	double GetAverageScore() const {
+		if (improved_elements.IsEmpty()) return 0;
+		int sum = 0;
+		for (const auto& el : improved_elements)
+			sum += el.GetAverageScore();
+		return sum / (double)improved_elements.GetCount();
+	}
+};
+
+struct Concept {
+	int64 belief_uniq = 0;
+	String name;
+	int snap_rev = -1;
+	Time created;
+	Vector<ConceptStory> stories;
+	
+	int FindStory(hash_t h) const;
+	ConceptStory& GetAddStory(hash_t h);
+	void Serialize(Stream& s) {
+		s % belief_uniq % name % snap_rev % created % stories;
+	}
+	void Jsonize(JsonIO& json) {
+		json
+			("belief_uniq", belief_uniq)
 			("name", name)
+			("snap_rev", snap_rev)
+			("created", created)
+			("stories", stories)
 			;
 	}
 };

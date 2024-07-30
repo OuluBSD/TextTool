@@ -765,6 +765,14 @@ void RemoveQuotes2(String& s_) {
 	s_ = ws.ToString();
 }
 
+void RemoveParenthesis(String& s) {
+	if (s.GetCount() > 0 && s[0] == '(')
+		s = s.Mid(1);
+	int c = s.GetCount();
+	if (c > 0 && s[c-1] == ')')
+		s = s.Left(c-1);
+}
+
 const char* VocabularyTypeString[VOCABULARYTYPE_COUNT] = {
 	"Important word",
 	"Positive word",

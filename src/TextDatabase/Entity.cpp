@@ -195,5 +195,55 @@ double ContentVisionOwner::FindBestScore(int tc_i, int con_i) const {
 	return max_score;
 }
 
+int Concept::FindStory(hash_t h) const {
+	for(int i = 0; i < stories.GetCount(); i++)
+		if (stories[i].hash == h)
+			return i;
+	return -1;
+}
+
+ConceptStory& Concept::GetAddStory(hash_t h) {
+	ASSERT(h != 0);
+	for(auto& s : stories)
+		if (s.hash == h)
+			return s;
+	auto& s = stories.Add();
+	s.hash = h;
+	return s;
+}
+
+int ConceptStory::FindElement(const String& key) const {
+	int i = 0;
+	for (const auto& e : elements) {
+		if (e.key == key)
+			return i;
+		i++;
+	}
+	return -1;
+}
+
+int ConceptStory::FindImprovedElement(const String& key) const {
+	int i = 0;
+	for (const auto& e : improved_elements) {
+		if (e.key == key)
+			return i;
+		i++;
+	}
+	return -1;
+}
+
+double ConceptStory::Element::GetAverageScore() const {
+	double score_sum = 0;
+	int score_count = 0;
+	for(int i = 0; i < SCORE_COUNT; i++) {
+		int score = scores[i];
+		score_sum += score;
+		score_count++;
+	}
+	double score = score_sum / score_count;
+	return score;
+}
+
+
 END_TEXTLIB_NAMESPACE
 

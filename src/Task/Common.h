@@ -444,9 +444,13 @@ struct BiographySummaryProcessArgs {
 
 struct ConceptualFrameworkArgs {
 	int fn = 0;
+	VectorMap<String,String> elements;
+	Vector<String> scores;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
+				("elements", elements)
+				("scores", scores)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

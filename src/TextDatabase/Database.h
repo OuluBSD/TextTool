@@ -105,12 +105,14 @@ struct Belief {
 		String positive, negative;
 		void Jsonize(JsonIO& json) {json("positive",positive)("negative",negative);}
 	};
+	int64 uniq = 0;
 	String name, reference;
 	Vector<Attr> attrs;
 	Vector<String> user;
 	
 	void Jsonize(JsonIO& json) {
-		json("name", name)("reference", reference)("attrs", attrs)("user", user);
+		json("uniq", uniq)("name", name)("reference", reference)("attrs", attrs)("user", user);
+		if (json.IsLoading() && uniq == 0) uniq = Random64();
 	}
 };
 
@@ -150,6 +152,7 @@ public:
 	PlatformAnalysis& GetAdd(int plat_i);
 	PlatformAnalysis& GetAdd(const Platform& plat);
 	SocietyRoleAnalysis& GetAddRole(int role_i);
+	int FindBelief(int64 belief_uniq) const;
 	
 };
 

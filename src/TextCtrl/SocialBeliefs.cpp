@@ -148,6 +148,7 @@ void SocialBeliefsCtrl::AddBelief() {
 	}
 	
 	Belief& a = mdb.beliefs.Add();
+	a.uniq = Random64();
 	a.name = name;
 	
 	Data();

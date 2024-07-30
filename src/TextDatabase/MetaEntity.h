@@ -34,6 +34,7 @@ struct Profile
 	Index<int> languages;
 	Array<BiographySnapshot> snapshots;
 	
+	BiographySnapshot* FindSnapshotRevision(int i);
 	/*void Serialize(Stream& s) {
 		
 	}*/

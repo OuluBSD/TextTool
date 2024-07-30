@@ -422,7 +422,7 @@ void TaskMgr::GetBiographySummary(const BiographySummaryProcessArgs& args, Event
 	task_lock.Leave();
 }
 
-void TaskMgr::GetBiographySummary(const ConceptualFrameworkArgs& args, Event<String> WhenResult) {
+void TaskMgr::GetConceptualFramework(int appmode, const ConceptualFrameworkArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	TaskMgr& p = *this;
 	
@@ -436,6 +436,7 @@ void TaskMgr::GetBiographySummary(const ConceptualFrameworkArgs& args, Event<Str
 	
 	t.args << s;
 	t.WhenResult << WhenResult;
+	t.appmode = appmode;
 	task_lock.Leave();
 }
 

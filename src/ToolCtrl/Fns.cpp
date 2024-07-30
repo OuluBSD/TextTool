@@ -92,3 +92,10 @@ void GuiStartup() {
 	
 	SetGlobalProxy(proxy);
 }
+
+void SetCountWithDefaultCursor(ArrayCtrl& arr, int count) {
+	INHIBIT_CURSOR(arr);
+	arr.SetCount(count);
+	if (!arr.IsCursor() && arr.GetCount())
+		arr.SetCursor(0);
+}
