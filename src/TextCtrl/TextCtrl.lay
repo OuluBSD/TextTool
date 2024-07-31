@@ -306,7 +306,7 @@ LAYOUT(ScriptInfo, 404, 292)
 	ITEM(Upp::Label, lbl_content, SetLabel(t_("Content:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 120).TopPosZ(236, 20))
 	ITEM(Upp::EditString, content, SetEditable(false).LeftPosZ(136, 256).TopPosZ(236, 20))
 	ITEM(Upp::Label, lbl_belief, SetLabel(t_("Belief:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 120).TopPosZ(260, 20))
-	ITEM(Upp::DropList, belief, LeftPosZ(136, 256).TopPosZ(260, 20))
+	ITEM(Upp::DropList, belief, SetEditable(false).LeftPosZ(136, 256).TopPosZ(260, 20))
 END_LAYOUT
 
 LAYOUT(KeyValueList, 400, 132)

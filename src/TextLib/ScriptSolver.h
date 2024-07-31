@@ -7,7 +7,6 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class ScriptSolver : public SolverBase {
 	enum {
-		LS_COLLECT,
 		LS_FILL_LINES,
 		LS_COMPARISON,
 		
@@ -50,7 +49,6 @@ class ScriptSolver : public SolverBase {
 	
 	void Process();
 	void ClearScript();
-	void ProcessCollect();
 	void ProcessFillLines();
 	void ProcessPrimary();
 	void ProcessMakeHoles();

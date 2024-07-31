@@ -99,3 +99,11 @@ void SetCountWithDefaultCursor(ArrayCtrl& arr, int count) {
 	if (!arr.IsCursor() && arr.GetCount())
 		arr.SetCursor(0);
 }
+
+void SetCountWithDefaultCursor(ArrayCtrl& arr, int count, int sort_row, bool descending) {
+	INHIBIT_CURSOR(arr);
+	arr.SetCount(count);
+	arr.SetSortColumn(sort_row, descending);
+	if (!arr.IsCursor() && arr.GetCount())
+		arr.SetCursor(0);
+}

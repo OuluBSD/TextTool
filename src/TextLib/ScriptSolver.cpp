@@ -44,10 +44,7 @@ void ScriptSolver::DoPhase() {
 	Script& song = *this->script;
 	sa = &da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
-	if (phase == LS_COLLECT) {
-		ProcessCollect();
-	}
-	else if (phase == LS_FILL_LINES) {
+	if (phase == LS_FILL_LINES) {
 		ProcessFillLines();
 	}
 	else if (phase == LS_COMPARISON) {
@@ -346,62 +343,6 @@ void ScriptGenerator::ProcessAction() {
 	}
 	
 	NextBatch();
-}
-
-void ScriptSolver::ProcessCollect() {
-	TextDatabase& db = GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.dataset;
-	Script& song = *this->script;
-	bool collect_token_texts = song.lng_i == LNG_NATIVE;
-	
-	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
-	
-	this->phrase_parts.Clear();
-	this->phrase_parts.SetCount(ContentType::PART_COUNT);
-	
-	if (collect_token_texts) {
-		for(int i = 0; i < ContentType::PART_COUNT; i++) {
-			auto& m = this->phrase_parts[i];
-			for(int j = 0; j < sa.phrase_parts[i].GetCount(); j++) {
-				const PhrasePart& pp = sa.phrase_parts[i][j];
-				
-				double score = 0;
-				for(int j = 0; j < SCORE_COUNT; j++)
-					score += pp.scores[j];
-				
-				// so this actually fixes cache misses
-				double separator = j * 0.001;
-				score += separator;
-				
-				m.Add(j, score);
-			}
-			SortByValue(m, StdGreater<double>());
-		}
-	}
-	else {
-		for(int i = 0; i < ContentType::PART_COUNT; i++) {
-			auto& m = this->phrase_parts[i];
-			const auto& v = sa.trans_phrase_combs[song.lng_i][i];
-			for(int j = 0; j < v.GetCount(); j++) {
-				const TranslatedPhrasePart& tpp = v[j];
-				
-				double score = 0;
-				for(int j = 0; j < SCORE_COUNT; j++)
-					score += tpp.scores[j];
-				
-				// so this actually fixes cache misses
-				double separator = j * 0.001;
-				score += separator;
-				
-				m.Add(j, score);
-			}
-			SortByValue(m, StdGreater<double>());
-		}
-	}
-	
-	NextPhase();
 }
 
 void ScriptSolver::ProcessFillLines() {

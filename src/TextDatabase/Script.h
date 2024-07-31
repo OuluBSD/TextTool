@@ -452,7 +452,7 @@ struct Script : DataFile {
 	String						copyright;
 	String						content_vision;
 	String						lead;
-	int							belief_i = 0;
+	int64						belief_uniq = 0;
 	int							lng_i = 0;
 	int							typeclass = 0;
 	int							content = 0;
@@ -496,7 +496,7 @@ struct Script : DataFile {
 			("copyright", copyright)
 			("content_vision", content_vision)
 			("lead", lead)
-			("belief_i", belief_i)
+			("belief_uniq", belief_uniq)
 			("lng_i", lng_i)
 			(__typeclass, typeclass)
 			(__content, content)

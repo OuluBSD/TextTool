@@ -12,6 +12,7 @@ public:
 		PHASE_COLOR,
 		PHASE_ATTR,
 		PHASE_ACTION,
+		LS_COLLECT,
 		
 		PHASE_COUNT,
 	};
@@ -19,12 +20,16 @@ public:
 	void ProcessColor();
 	void ProcessAttr();
 	void ProcessAction();
+	void ProcessCollect();
 	void OnProcessColor(String result);
 	void OnProcessAttr(String result);
 	
 	
 	Entity* artist = 0;
 	Script* script = 0;
+	
+	Vector<VectorMap<int,double>> phrase_parts;
+	
 	
 public:
 	typedef ScriptRangeProcess CLASSNAME;

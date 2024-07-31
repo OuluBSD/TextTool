@@ -13,9 +13,11 @@ class ConceptualFrameworkNavigator : public ToolAppCtrl {
 	ArrayCtrl cfs;
 	ArrayCtrl stories;
 	WithConceptualFramework<Ctrl> cf;
-	WithConceptualFrameworkStory<Ctrl> story;
 	DocEdit story_struct, story_improved;
 	int story_sort_column = 0;
+	
+public:
+	WithConceptualFrameworkStory<Ctrl> story;
 	
 public:
 	typedef ConceptualFrameworkNavigator CLASSNAME;
@@ -28,10 +30,12 @@ public:
 	void Do(int fn);
 	void MainLayout();
 	void SideLayout();
-	void GetElements(ConceptualFrameworkArgs& args);
 	void MoveSortColumn(int fn);
 	
 	void ToolMenu(Bar& bar) override;
+	
+	void GetElements(ConceptualFrameworkArgs& args);
+	int64 GetBeliefUniq() const;
 	
 };
 

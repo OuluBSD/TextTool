@@ -21,8 +21,9 @@ void MakeBelief(Belief& b, T& args, int fn) {
 template <class T>
 void MakeBelief(Script& song, T& args, int fn) {
 	MetaDatabase& mdb = MetaDatabase::Single();
-	if (song.belief_i > 0) {
-		int b_i = song.belief_i -1;
+	if (song.belief_uniq != 0) {
+		int b_i = mdb.FindBelief(song.belief_uniq);
+		ASSERT(b_i >= 0);
 		Belief& b = mdb.beliefs[b_i];
 		MakeBelief(b, args, fn);
 	}

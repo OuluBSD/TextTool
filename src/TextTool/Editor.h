@@ -30,7 +30,7 @@ protected:
 	VideoPromptMakerCtrl			video_prompt_maker;
 	ScriptInfoCtrl					script_info;
 	ScriptStructureSolverCtrl		script_struct_solver;
-	ScriptRangeSolverCtrl			script_range_solver;
+	//ScriptRangeSolverCtrl			script_range_solver;
 	ScriptTextSolverCtrl			script_text_solver;
 	
 	// Deprecated

@@ -4031,6 +4031,22 @@ void AiTask::CreateInput_ConceptualFrameworkProcess() {
 		}
 		input.response_length = 2048;
 	}
+	else if (args.fn == 7) {
+		{
+			String t = "Structured script A (genre: " + args.genre + ")";
+			auto& list = input.AddSub().Title(t);
+			Vector<String> lines = Split(args.lyrics, "\n");
+			list.NoListChar();
+			for (const String& l : lines)
+				list.Add(l);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Summarise script A");
+			results.NoListChar();
+		}
+		input.response_length = 2048;
+	}
 }
 
 END_TEXTLIB_NAMESPACE

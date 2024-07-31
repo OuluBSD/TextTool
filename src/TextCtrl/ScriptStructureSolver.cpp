@@ -46,11 +46,13 @@ void ScriptStructureSolverCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	bar.Separator();*/
 	bar.Add(t_("Morph lyrics"), AppImg::RedRing(), THISBACK1(Do, 2)).Key(K_F5);
+	bar.Add(t_("Convert to content idea"), AppImg::RedRing(), THISBACK1(Do, 3)).Key(K_F6);
 }
 
 void ScriptStructureSolverCtrl::Do(int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
+	
 	//DoT<ScriptStructureProcess>(fn);
 	if (fn == 2) {
 		if (!genres.IsCursor()) return;
@@ -73,7 +75,29 @@ void ScriptStructureSolverCtrl::Do(int fn) {
 				morphed_struct.SetData(FixStructIndent(res));
 			});
 		});
+	}
+	else if (fn == 3) {
+		String input = morphed_struct.GetData();
+		if (input.IsEmpty()) {
+			PromptOK("Morph text first");
+			return;
+		}
 		
+		ConceptualFrameworkArgs args;
+		args.fn = 7;
+		args.lyrics = input;
+		args.genre = genres.Get(0);
+		
+		TaskMgr& m = TaskMgr::Single();
+		m.GetConceptualFramework(GetAppMode(), args, [this](String res) {
+			Script& s = GetScript();
+			s.typeclass = concepts.story.typeclass.GetIndex() - 1;
+			s.belief_uniq = concepts.GetBeliefUniq();
+			s.content = concepts.story.content.GetIndex() - 1;
+			s.content_vision = TrimBoth(res);
+			s.content_vision.Replace("Script A ", "This ");
+			s.content_vision.Replace("script A ", "this ");
+		});
 	}
 }
 
@@ -143,11 +167,7 @@ void ScriptStructureSolverCtrl::DataGenre() {
 			row++;
 		}
 	}
-	INHIBIT_CURSOR(structs);
-	structs.SetCount(row);
-	if (structs.GetCount() && !structs.IsCursor())
-		structs.SetCursor(0);
-	structs.SetSortColumn(3, true);
+	SetCountWithDefaultCursor(structs, row, 3, true);
 	
 	DataStructure();
 }

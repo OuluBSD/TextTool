@@ -84,16 +84,18 @@ void ScriptInfoCtrl::Data() {
 		is_story.SetIndex(l.is_story);
 		is_self_centered.SetIndex(l.is_self_centered);
 		language.SetIndex(l.lng_i);
-		if (l.belief_i >= 0 && l.belief_i < belief.GetCount())
-			belief.SetIndex(l.belief_i);
+		int belief_i = mdb.FindBelief(l.belief_uniq) + 1;
+		if (belief_i >= 0 && belief_i < belief.GetCount())
+			belief.SetIndex(belief_i);
 	}
 }
 
 void ScriptInfoCtrl::OnValueChange() {
+	MetaDatabase& mdb = MetaDatabase::Single();
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
 	
-	if (p.script && editor->scripts.IsCursor()) {
+	if (p.script && p.editor->scripts.IsCursor()) {
 		Script& l = *p.script;
 		
 		l.copyright = copyright.GetData();
@@ -104,10 +106,11 @@ void ScriptInfoCtrl::OnValueChange() {
 		l.is_story = is_story.GetIndex();
 		l.is_self_centered = is_self_centered.GetIndex();
 		l.lng_i = language.GetIndex();
-		l.belief_i = belief.GetCount() ? belief.GetIndex() : -1;
+		int belief_i = belief.GetCount() ? belief.GetIndex() - 1 : -1;
+		l.belief_uniq = belief_i >= 0 ? mdb.beliefs[belief_i].uniq : 0;
 		
-		int c = editor->scripts.GetCursor();
-		editor->scripts.Set(c, 0, l.GetAnyTitle());
+		int c = p.editor->scripts.GetCursor();
+		p.editor->scripts.Set(c, 0, l.GetAnyTitle());
 	}
 }
 

@@ -16,7 +16,14 @@ void ScriptRangeSolverCtrl::ToolMenu(Bar& bar) {
 }
 
 void ScriptRangeSolverCtrl::Do(int fn) {
-	TODO
+	ScriptRangeProcess& sdi = ScriptRangeProcess::Get(GetAppMode(), GetEntity(), GetScript());
+	prog.Attach(sdi);
+	sdi.WhenRemaining << [this](String s) {PostCallback([this,s](){remaining.SetLabel(s);});};
+	
+	if (fn == 0)
+		sdi.Start();
+	else
+		sdi.Stop();
 }
 
 void ScriptRangeSolverCtrl::Data() {

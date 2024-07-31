@@ -219,8 +219,7 @@ void ConceptualFrameworkNavigator::DataFramework() {
 		stories.Set(row, "IDX", i);
 		row++;
 	}
-	SetCountWithDefaultCursor(stories, row);
-	stories.SetSortColumn(story_sort_column, true);
+	SetCountWithDefaultCursor(stories, row, story_sort_column, true);
 	
 	DataStory();
 }
@@ -287,6 +286,18 @@ void ConceptualFrameworkNavigator::GetElements(ConceptualFrameworkArgs& args) {
 		const auto& el = st.ELEMENTS_VAR[i];
 		args.elements.Add(el.key, el.value);
 	}
+}
+
+int64 ConceptualFrameworkNavigator::GetBeliefUniq() const {
+	MetaPtrs& mp = MetaPtrs::Single();
+	MetaDatabase& mdb = MetaDatabase::Single();
+	if (!mp.snap || !cfs.IsCursor() || !stories.IsCursor())
+		return 0;
+	int cf_i = cfs.Get("IDX");
+	int story_i = stories.Get("IDX");
+	if (cf_i >= mp.snap->concepts.GetCount()) return 0;
+	Concept& con = mp.snap->concepts[cf_i];
+	return con.belief_uniq;
 }
 
 void ConceptualFrameworkNavigator::OnValueChange() {

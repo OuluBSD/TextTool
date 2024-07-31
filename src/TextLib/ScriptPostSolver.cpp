@@ -129,12 +129,14 @@ void ScriptPostSolver::DoPhase() {
 		//args.desc = GetPostScriptAnalysisDescription(batch);
 		args.lines <<= spf.src_lines;
 		args.is_female = entity->is_female;
-		if (script->belief_i <= 0) {
+		if (script->belief_uniq == 0) {
 			args.key = GetScoreTitle(batch);
 			args.desc = GetScoreDescription(batch);
 		}
 		else {
-			Belief& b = MetaDatabase::Single().beliefs[script->belief_i - 1];
+			auto& mdb = MetaDatabase::Single();
+			int belief_i = mdb.FindBelief(script->belief_uniq);
+			Belief& b = mdb.beliefs[belief_i - 1];
 			if (batch >= b.attrs.GetCount()) {SetNotRunning(); return;}
 			args.key = b.attrs[batch].positive;
 			args.desc = "Has " + ToLower(b.attrs[batch].positive) + ". Doesn't have " + ToLower(b.attrs[batch].negative) + ".";
@@ -210,11 +212,13 @@ void ScriptPostSolver::DoPhase() {
 		args.is_female = entity->is_female;
 		//args.key = GetPostScriptModificationKey(batch);
 		args.lines <<= spf.src_lines;
-		if (script->belief_i <= 0) {
+		if (script->belief_uniq == 0) {
 			args.key = "Modify text to increase " + ToLower(GetScoreTitle(batch)) + " score";
 		}
 		else {
-			Belief& b = MetaDatabase::Single().beliefs[script->belief_i - 1];
+			auto& mdb = MetaDatabase::Single();
+			int belief_i = mdb.FindBelief(script->belief_uniq);
+			Belief& b = mdb.beliefs[belief_i - 1];
 			if (batch >= b.attrs.GetCount()) {SetNotRunning(); return;}
 			args.key = "Modify text to have more " + ToLower(b.attrs[batch].positive);
 		}
@@ -441,8 +445,10 @@ void ScriptPostSolver::DoPhase() {
 		args.fn = 2;
 		args.is_female = entity->is_female;
 		
-		if (script->belief_i > 0) {
-			Belief& b = MetaDatabase::Single().beliefs[script->belief_i - 1];
+		if (script->belief_uniq == 0) {
+			auto& mdb = MetaDatabase::Single();
+			int belief_i = mdb.FindBelief(script->belief_uniq);
+			Belief& b = mdb.beliefs[belief_i - 1];
 			if (batch >= b.attrs.GetCount()) {SetNotRunning(); return;}
 			for(int i = 0; i < b.attrs.GetCount(); i++) {
 				Belief::Attr& a = b.attrs[i];

@@ -20,8 +20,6 @@ public:
 	void PasteSongHeader();
 	void ToolMenu(Bar& bar) override;
 	
-	ToolEditor* editor = 0;
-	
 };
 
 

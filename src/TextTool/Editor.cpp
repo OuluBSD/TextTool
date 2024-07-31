@@ -114,7 +114,7 @@ void ToolEditor::InitSimplified() {
 	
 	AddItem("Script", t_("Info"), script_info);
 	AddItem("Script", t_("Reference solver"), script_struct_solver);
-	AddItem("Script", t_("Range solver"), script_range_solver);
+	//AddItem("Script", t_("Range solver"), script_range_solver);
 	AddItem("Script", t_("Text solver"), script_text_solver);
 	
 	// Deprecated
@@ -138,6 +138,9 @@ void ToolEditor::DataPage() {
 	
 	int appmode = appmode_list.Get("IDX");
 	EnterAppMode(appmode);
+	
+	EditorPtrs& p = GetPointers();
+	p.editor = this;
 	
 	ToolEditorBase::DataPage();
 	
