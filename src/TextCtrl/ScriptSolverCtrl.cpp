@@ -102,6 +102,7 @@ void ScriptSolverCtrl::StopProcess() {
 }
 
 void ScriptSolverCtrl::Data() {
+	return;
 	Script& l = GetScript();
 	
 	if (tabs.Get() == 0) {

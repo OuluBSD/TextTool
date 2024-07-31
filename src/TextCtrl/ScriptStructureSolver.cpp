@@ -36,7 +36,7 @@ void ScriptStructureSolverCtrl::Data() {
 	SourceData& sd = db.src_data;
 	
 	VectorMap<String,int> all_genres;
-	for (const auto& ent : sd.entities)
+	for (const auto& ent : db.src_data.a.entities)
 		for (const auto& g : ent.genres)
 			all_genres.GetAdd(g,0)++;
 	if (0)
@@ -68,8 +68,9 @@ void ScriptStructureSolverCtrl::DataGenre() {
 	int row = 0;
 	String genre = genres.Get(0);
 	for (const auto& ent : sd.entities) {
+		const auto& ea = db.src_data.a.entities.GetAdd(ent.name);
 		bool found = false;
-		for (const auto& g : ent.genres)
+		for (const auto& g : ea.genres)
 			found = found || g == genre;
 		if (!found)
 			continue;

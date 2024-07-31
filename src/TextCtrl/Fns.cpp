@@ -58,7 +58,7 @@ void AppModeStartup(int appmode) {
 	
 	db.Load();
 	
-	db.src_data.Load();
+	//db.src_data.Load();
 	db.src_data.a.Load();
 	
 	if (db.src_data.IsEmpty()) {

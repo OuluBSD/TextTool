@@ -9,7 +9,7 @@ SourceData::SourceData() {
 	
 }
 
-void SourceData::Store() {
+/*void SourceData::Store() {
 	StoreToFile(*this, ConfigFile(__Comp + "Data.bin"));
 }
 
@@ -19,7 +19,7 @@ void SourceData::Load() {
 
 void SourceData::Serialize(Stream& s) {
 	s % entities;
-}
+}*/
 
 /*void SourceData::StoreJson() {
 	String dir = GetDatabase().dir;

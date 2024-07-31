@@ -46,7 +46,8 @@ void SourceAnalysisProcess::AnalyzeArtists() {
 	}
 	
 	EntityDataset& ent = sd.entities[batch];
-	if (ent.genres.GetCount()) {
+	const auto& ea = db.src_data.a.entities.GetAdd(ent.name);
+	if (ea.genres.GetCount()) {
 		NextBatch();
 		return;
 	}
@@ -72,7 +73,8 @@ void SourceAnalysisProcess::AnalyzeArtists() {
 				genre = TrimBoth(genre.Mid(i+1));
 		}
 		EntityDataset& ent = sd.entities[batch];
-		ent.genres <<= genres;
+		auto& ea = db.src_data.a.entities.GetAdd(ent.name);
+		ea.genres <<= genres;
 		
 		NextBatch();
 		SetWaiting(false);

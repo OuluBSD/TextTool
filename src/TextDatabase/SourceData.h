@@ -8,24 +8,21 @@ BEGIN_TEXTLIB_NAMESPACE
 struct ScriptDataset : Moveable<ScriptDataset> {
 	String name;
 	String text;
-	
-	void Serialize(Stream& s) {
-		s % name % text;
-	}
 };
 
 struct EntityDataset : Moveable<EntityDataset> {
 	String name;
 	Vector<ScriptDataset> scripts;
+};
+
+struct EntityAnalysis : Moveable<EntityAnalysis> {
 	Vector<String> genres;
 	
-	void Serialize(Stream& s) {
-		#if 0
-		if (s.IsLoading())
-			s % name % scripts;
-		else
-		#endif
-			s % name % scripts % genres;
+	void Serialize(Stream& s) {s % genres;}
+	void Jsonize(JsonIO& json) {
+		json
+			("genres", genres)
+			;
 	}
 };
 
@@ -769,12 +766,14 @@ struct DatasetAnalysis {
 
 struct SourceDataAnalysis {
 	DatasetAnalysis dataset;
+	VectorMap<String, EntityAnalysis> entities;
 	
 	void Jsonize(JsonIO& json) {
 		if (json.IsLoading()) {
 			ArrayMap<String, DatasetAnalysis> datasets;
 			json
 				("datasets", datasets)
+				("entities", entities)
 			;
 			int i = datasets.Find("en");
 			if (i >= 0) {
@@ -788,13 +787,14 @@ struct SourceDataAnalysis {
 			}
 		}
 		else {
-			json("dataset", dataset);
+			json("dataset", dataset)
+				("entities", entities);
 		}
 	}
 	
 	
 	void Serialize(Stream& s) {
-		s % dataset;
+		s % dataset % entities;
 	}
 	void StoreJson();
 	void LoadJson();
@@ -810,29 +810,6 @@ struct SourceData {
 	
 	
 	SourceData();
-	/*int GetCount() const {return 2;}
-	Vector<EntityDataset>& operator[](int i) {
-		switch (i) {
-			case 0: return entities;
-			case 1: return entities_fi;
-			default: Panic("error");
-		}
-		return Single<Vector<EntityDataset>>();
-	}
-	String GetKey(int i) const {
-		switch (i) {
-			case 0: return "en";
-			case 1: return "fi";
-			default: Panic("error");
-		}
-		return "";
-	}*/
-	void Load();
-	void Store();
-	void Serialize(Stream& s);
-	/*void LoadJson();
-	void StoreJson();
-	void Jsonize(JsonIO& json);*/
 	bool IsEmpty() const {return entities.IsEmpty();}
 	
 };

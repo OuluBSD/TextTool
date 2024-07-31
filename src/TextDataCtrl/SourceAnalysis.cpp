@@ -18,7 +18,8 @@ SourceAnalysisCtrl::SourceAnalysisCtrl() {
 	
 	vsplit.Vert() << entities << components;
 	
-	entities.AddColumn(t_("File"));
+	entities.AddColumn(t_("Entity"));
+	entities.AddColumn(t_("Genres"));
 	entities.WhenCursor << THISBACK(DataEntity);
 	
 	components.AddColumn(t_("Entry"));
@@ -34,11 +35,14 @@ void SourceAnalysisCtrl::Data() {
 	
 	entities.SetCount(data.GetCount());
 	for(int i = 0; i < data.GetCount(); i++) {
-		String s = data[i].name;
+		const EntityDataset& ed = data[i];
+		const EntityAnalysis& ea = db.src_data.a.entities.GetAdd(ed.name);
+		String s = ed.name;
 		if (GetDefaultCharset() != CHARSET_UTF8)
 			s = ToCharset(CHARSET_DEFAULT, s, CHARSET_UTF8);
 		
 		entities.Set(i, 0, s);
+		entities.Set(i, 1, Join(ea.genres, ", "));
 	}
 	
 	if (!entities.IsCursor() && entities.GetCount())
