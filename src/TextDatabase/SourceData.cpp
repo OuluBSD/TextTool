@@ -510,6 +510,42 @@ String DatasetAnalysis::GetScriptDump(int i) const {
 	return s;
 }
 
+String DatasetAnalysis::GetScriptDump(DatasetAnalysis& da, int i) const {
+	String s;
+	String extra;
+	const ScriptStruct& ss = scripts[i];
+	for(int i = 0; i < ss.parts.GetCount(); i++) {
+		const auto& part = ss.parts[i];
+		//if (s.GetCount()) s << "\n";
+		
+		extra = part.cls >= 0 ? da.element_keys[part.cls] : String();
+		s << Format("[%d: %s] (%s)\n", i, GetTextModeString(part.type) + " " + IntStr(part.num+1), extra);
+		
+		for(int j = 0; j < part.sub.GetCount(); j++) {
+			const auto& sub = part.sub[j];
+			//if (s.GetCount()) s << "\n";
+			extra = sub.cls >= 0 ? da.element_keys[sub.cls] : String();
+			s << Format("\t[%d.%d: repeat %.2!m] (%s)\n", i,j, sub.repeat, extra);
+			
+			bool show_subsub = sub.sub.GetCount() > 1;
+			for(int k = 0; k < sub.sub.GetCount(); k++) {
+				const auto& ssub = sub.sub[k];
+				extra = ssub.cls >= 0 ? da.element_keys[ssub.cls] : String();
+				if (show_subsub)
+					s << Format("\t\t[%d.%d.%d] (%s)\n", i,j,k, extra);
+				for(int l = 0; l < ssub.token_texts.GetCount(); l++) {
+					int tt_i = ssub.token_texts[l];
+					if (tt_i < 0) continue;
+					const TokenText& tt = this->token_texts[tt_i];
+					if (show_subsub) s.Cat('\t');
+					s << "\t\t" << GetTokenTextString(tt) << "\n";
+				}
+			}
+		}
+	}
+	return s;
+}
+
 
 
 void ComponentCandidateCache::Realize(Script& l) {

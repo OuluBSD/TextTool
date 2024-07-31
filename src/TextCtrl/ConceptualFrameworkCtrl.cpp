@@ -76,6 +76,9 @@ void ConceptualFrameworkCtrl::Data() {
 	if (!mp.snap)
 		return;
 	
+	if (cfs.GetCount())
+		return;
+	
 	for(int i = 0; i < mp.snap->concepts.GetCount(); i++) {
 		Concept& c = mp.snap->concepts[i];
 		cfs.Set(i, 0, c.name);

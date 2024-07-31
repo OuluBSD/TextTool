@@ -35,6 +35,9 @@ void ScriptStructureSolverCtrl::Data() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	
+	if (this->genres.GetCount())
+		return;
+	
 	VectorMap<String,int> all_genres;
 	for (const auto& ent : db.src_data.a.entities)
 		for (const auto& g : ent.genres)
@@ -96,14 +99,14 @@ void ScriptStructureSolverCtrl::DataStructure() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	
-	if (structs.IsCursor()) {
+	if (!structs.IsCursor()) {
 		src_struct.Clear();
 		return;
 	}
 	
 	int idx = structs.Get("IDX");
 	const ScriptStruct& ss = sd.a.dataset.scripts[idx];
-	src_struct.SetData(sd.a.dataset.GetScriptDump(idx));
+	src_struct.SetData(sd.a.dataset.GetScriptDump(sd.a.dataset, idx));
 }
 
 void ScriptStructureSolverCtrl::SetStructure() {

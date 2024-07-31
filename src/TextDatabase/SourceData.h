@@ -716,6 +716,7 @@ struct DatasetAnalysis {
 	String GetActionString(const Vector<int>& actions) const;
 	ComponentAnalysis& GetComponentAnalysis(int appmode, const String& name);
 	String GetScriptDump(int i) const;
+	String GetScriptDump(DatasetAnalysis& da, int i) const;
 	
 	void Jsonize(JsonIO& json) {
 		json
