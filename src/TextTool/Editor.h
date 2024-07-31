@@ -22,7 +22,6 @@ protected:
 	
 	ImageGenTool					image_gen;
 	EntityInfoCtrl					entity_info;
-	ConceptualFrameworkCtrl			conceptual;
 	SnapInfoCtrl					snap_info;
 	SnapBriefing					snap_briefing;
 	SnapIdeas						snap_ideas;

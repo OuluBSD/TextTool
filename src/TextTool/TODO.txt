@@ -1,5 +1,8 @@
 
 v0.0.2
+- song idea: import concept, but change elements (exposition) from list which shows all
+	- also add custom text edit to adjust elements with gpt
+- structure idea: browse anonymised structures and edit selected to liking
 - searcher for entity-story: find best matching story with custom song lead text
 	- also, modify the matching story and get score?
 - connect elements to phrases (new database page)
@@ -176,3 +179,4 @@ x? vocabulary: for artist, for release, for song
 - create elements for BOTH biography summaries AND single year texts
 - extend biography summary with elements
 - conceptual framework: show all the lists of colors and attributes (user override?)
+- fix: concepts probably should move from entity to profile

@@ -36,6 +36,7 @@ protected:
 	SocialBeliefsCtrl			social_beliefs;
 	BiographyElementsCtrl		biography_elements;
 	MarketplaceCtrl				marketplace;
+	ConceptualFrameworkCtrl		conceptual;
 	
 	
 public:

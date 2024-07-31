@@ -22,7 +22,6 @@ public:
 		PHASE_COUNT,
 	};
 	
-	Entity* entity = 0;
 	Owner* owner = 0;
 	Profile* profile = 0;
 	Concept* cf = 0;
@@ -61,7 +60,7 @@ public:
 	int GetSubBatchCount(int phase, int batch) const override;
 	void DoPhase() override;
 	
-	static ConceptualFrameworkProcess& Get(int appmode, Entity& e, Concept& cf, BiographySnapshot& snap);
+	static ConceptualFrameworkProcess& Get(Profile& p, Concept& cf, BiographySnapshot& snap);
 	
 private:
 	void MakeAllConcepts();

@@ -58,6 +58,7 @@ ConceptualFrameworkCtrl::ConceptualFrameworkCtrl() {
 		bar.Add("Add item", THISBACK1(Do, 2));
 		bar.Add(cfs.IsCursor(), "Remove item", THISBACK1(Do, 3));
 	};
+	story_sort_column = 3+SCORE_COUNT;
 	
 	cf.belief.WhenAction << THISBACK(OnValueChange);
 	
@@ -70,11 +71,13 @@ void ConceptualFrameworkCtrl::Clear() {
 }
 
 void ConceptualFrameworkCtrl::Data() {
-	EditorPtrs& ep = GetPointers();
+	MetaPtrs& mp = MetaPtrs::Single();
 	MetaDatabase& mdb = MetaDatabase::Single();
+	if (!mp.snap)
+		return;
 	
-	for(int i = 0; i < ep.entity->concepts.GetCount(); i++) {
-		Concept& c = ep.entity->concepts[i];
+	for(int i = 0; i < mp.snap->concepts.GetCount(); i++) {
+		Concept& c = mp.snap->concepts[i];
 		cfs.Set(i, 0, c.name);
 		cfs.Set(i, 1, c.snap_rev);
 		int j = mdb.FindBelief(c.belief_uniq);
@@ -82,7 +85,7 @@ void ConceptualFrameworkCtrl::Data() {
 		cfs.Set(i, "IDX", i);
 	}
 	INHIBIT_CURSOR(cfs);
-	cfs.SetCount(ep.entity->concepts.GetCount());
+	cfs.SetCount(mp.snap->concepts.GetCount());
 	if (!cfs.IsCursor() && cfs.GetCount())
 		cfs.SetCursor(0);
 	
@@ -104,15 +107,31 @@ void ConceptualFrameworkCtrl::Data() {
 }
 
 void ConceptualFrameworkCtrl::DataFramework() {
-	EditorPtrs& ep = GetPointers();
+	MetaPtrs& mp = MetaPtrs::Single();
 	MetaDatabase& mdb = MetaDatabase::Single();
-	if (!cfs.IsCursor()) {
+	if (!cfs.IsCursor() || !mp.snap) {
 		stories.Clear();
 		return;
 	}
 	int cf_i = cfs.Get("IDX");
-	Concept& con = ep.entity->concepts[cf_i];
+	Concept& con = mp.snap->concepts[cf_i];
 	
+	// Header tabs for belief
+	int j = mdb.FindBelief(con.belief_uniq);
+	if (j >= 0) {
+		auto& b = mdb.beliefs[j];
+		for(int i = 0; i < SCORE_COUNT && i < b.attrs.GetCount(); i++) {
+			Belief::Attr& a = b.attrs[i];
+			stories.ColumnAt(3+i).HeaderTab()
+				.SetText(a.positive);
+		}
+	}
+	else {
+		for(int i = 0; i < SCORE_COUNT; i++) {
+			stories.ColumnAt(3+i).HeaderTab()
+				.SetText(GetScoreKey(i));
+		}
+	}
 	
 	// Form values
 	cf.name.SetData(con.name);
@@ -135,8 +154,8 @@ void ConceptualFrameworkCtrl::DataFramework() {
 	// Revision list
 	cf.revision.Clear();
 	int rev_cur = 0;
-	for(int i = 0; i < ep.entity->profile->snapshots.GetCount(); i++) {
-		auto& snap = ep.entity->profile->snapshots[i];
+	for(int i = 0; i < mp.profile->snapshots.GetCount(); i++) {
+		auto& snap = mp.profile->snapshots[i];
 		cf.revision.Add(snap.revision);
 		if (snap.revision == con.snap_rev)
 			rev_cur = i;
@@ -146,6 +165,8 @@ void ConceptualFrameworkCtrl::DataFramework() {
 	
 	
 	// Stories list
+	Color high = LtGreen();
+	Color low = LtRed();
 	int row = 0;
 	const auto& tcs = GetTypeclasses();
 	const auto& cons = GetContents();
@@ -158,33 +179,45 @@ void ConceptualFrameworkCtrl::DataFramework() {
 		double sum = 0;
 		for(int j = 0; j < SCORE_COUNT; j++) {
 			double sc = st.AvSingleScore(j);
-			stories.Set(row, 3+j, sc);
+			if (0) {
+				stories.Set(row, 3+j, sc);
+			}
+			else {
+				Color clr = Blend(low, high, sc / 10.0 * 256);
+				SetColoredListValue(stories, row, 3+j, DblStr(sc), clr, true);
+			}
 			sum += sc;
 		}
 		double av = sum / (double)SCORE_COUNT;
 		if (av > 10.0) av = 0;
-		stories.Set(row, 3+SCORE_COUNT, av);
+		if (0) {
+			stories.Set(row, 3+SCORE_COUNT, av);
+		}
+		else {
+			Color clr = Blend(low, high, av / 10.0 * 256);
+			SetColoredListValue(stories, row, 3+SCORE_COUNT, DblStr(av), clr, true);
+		}
 		stories.Set(row, "IDX", i);
 		row++;
 	}
 	SetCountWithDefaultCursor(stories, row);
-	stories.SetSortColumn(3+SCORE_COUNT, true);
+	stories.SetSortColumn(story_sort_column, true);
 	
 	DataStory();
 }
 
 void ConceptualFrameworkCtrl::DataStory() {
-	EditorPtrs& ep = GetPointers();
+	MetaPtrs& mp = MetaPtrs::Single();
 	MetaDatabase& mdb = MetaDatabase::Single();
-	if (!cfs.IsCursor() || !stories.IsCursor()) {
+	if (!mp.snap || !cfs.IsCursor() || !stories.IsCursor()) {
 		story.colors.SetCount(0);
 		return;
 	}
 	
 	int cf_i = cfs.Get("IDX");
 	int story_i = stories.Get("IDX");
-	if (cf_i >= ep.entity->concepts.GetCount()) return;
-	Concept& con = ep.entity->concepts[cf_i];
+	if (cf_i >= mp.snap->concepts.GetCount()) return;
+	Concept& con = mp.snap->concepts[cf_i];
 	if (story_i >= con.stories.GetCount()) return;
 	ConceptStory& st = con.stories[story_i];
 	
@@ -220,12 +253,12 @@ void ConceptualFrameworkCtrl::DataStory() {
 }
 
 void ConceptualFrameworkCtrl::OnValueChange() {
-	EditorPtrs& ep = GetPointers();
+	MetaPtrs& mp = MetaPtrs::Single();
 	MetaDatabase& mdb = MetaDatabase::Single();
 	if (!cfs.IsCursor())
 		return;
 	int cf_i = cfs.Get("IDX");
-	Concept& con = ep.entity->concepts[cf_i];
+	Concept& con = mp.snap->concepts[cf_i];
 	
 	con.name = cf.name.GetData();
 	
@@ -251,26 +284,38 @@ void ConceptualFrameworkCtrl::OnValueChange() {
 void ConceptualFrameworkCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
+	bar.Add(t_("Previous sort column"), AppImg::BlueRing(), THISBACK1(MoveSortColumn, -1)).Key(K_F1);
+	bar.Add(t_("Next sort column"), AppImg::BlueRing(), THISBACK1(MoveSortColumn, +1)).Key(K_F2);
+	bar.Separator();
 	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 }
 
+void ConceptualFrameworkCtrl::MoveSortColumn(int i) {
+	int base = story_sort_column - 3;
+	base += i;
+	while (base < 0) base += SCORE_COUNT+1;
+	base = base % (SCORE_COUNT+1);
+	story_sort_column = 3 + base;
+	PostCallback(THISBACK(DataFramework));
+}
+
 void ConceptualFrameworkCtrl::Do(int fn) {
 	MetaPtrs& mp = MetaPtrs::Single();
-	EditorPtrs& ep = GetPointers();
+	
 	int appmode = GetAppMode();
-	if (!ep.entity)
+	if (!mp.snap)
 		return;
 	if (fn == 0 || fn == 1) {
 		if (!cfs.IsCursor())
 			return;
 		int cf_i = cfs.Get("IDX");
-		Concept& c = ep.entity->concepts[cf_i];
+		Concept& c = mp.snap->concepts[cf_i];
 		if (c.snap_rev < 0) {PromptOK("No snapshot revision set"); return;}
-		BiographySnapshot* snap = ep.entity->profile->FindSnapshotRevision(c.snap_rev);
+		BiographySnapshot* snap = mp.profile->FindSnapshotRevision(c.snap_rev);
 		if (!snap) {PromptOK("No snapshot revision found"); return;}
 		
-		ConceptualFrameworkProcess& sdi = ConceptualFrameworkProcess::Get(appmode, *ep.entity, c, *snap);
+		ConceptualFrameworkProcess& sdi = ConceptualFrameworkProcess::Get(*mp.profile, c, *snap);
 		prog.Attach(sdi);
 		sdi.WhenRemaining << [this](String s) {PostCallback([this,s](){remaining.SetLabel(s);});};
 		if (fn == 0)
@@ -279,18 +324,18 @@ void ConceptualFrameworkCtrl::Do(int fn) {
 			sdi.Stop();
 	}
 	else if (fn == 2) {
-		Concept& c = ep.entity->concepts.Add();
+		Concept& c = mp.snap->concepts.Add();
 		c.created = GetSysTime();
-		c.name = "Unnamed #" + IntStr(ep.entity->concepts.GetCount());
-		c.snap_rev = ep.entity->profile->snapshots.Top().revision;
-		//c.snap_rev = ep.entity->profile->snapshots.GetCount()-2; // latest can't be used
+		c.name = "Unnamed #" + IntStr(mp.snap->concepts.GetCount());
+		c.snap_rev = mp.profile->snapshots.Top().revision;
+		//c.snap_rev = mp.snap->profile->snapshots.GetCount()-2; // latest can't be used
 		PostCallback(THISBACK(Data));
 	}
 	else if (fn == 3) {
 		if (!cfs.IsCursor())
 			return;
 		int cf_i = cfs.Get("IDX");
-		ep.entity->concepts.Remove(cf_i);
+		mp.snap->concepts.Remove(cf_i);
 	}
 }
 

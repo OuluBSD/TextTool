@@ -4,6 +4,39 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+void Entity::Jsonize(JsonIO& json) {
+	json
+		("name", native_name)
+		("english_name", english_name)
+		("year_of_birth", year_of_birth)
+		("year_of_career_begin", year_of_career_begin)
+		("biography", biography)
+		(GetAppModeLabel(AML_FIELD_TEXT_STYLE), text_style)
+		(GetAppModeLabel(AML_FIELD_VIBE_OF_TEXT), vibe_of_text)
+		(GetAppModeLabel(AML_FIELD_NATURAL_TOOLS), natural_tools)
+		(GetAppModeLabel(AML_FIELD_ELECTRONIC_TOOLS), electronic_tools)
+		(GetAppModeLabel(AML_FIELD_PERSON_VISUALLY), speaker_visually)
+		("data", data)
+		("phrases", phrases_nat)
+		("phrases_eng", phrases_eng)
+		("is_female", is_female)
+		("language", language)
+		("ideas", ideas)
+		;
+	if (json.IsStoring()) {
+		Vector<String> names;
+		for (Snapshot& r : snaps) {r.Store(*this); names.Add(r.file_title);}
+		json(__snaps, names);
+		
+	}
+	if (json.IsLoading()) {
+		snaps.Clear();
+		Vector<String> names;
+		json(__snaps, names);
+		for (String n : names) snaps.Add().LoadTitle(*this, n);
+	}
+}
+
 void Entity::Store() {
 	String dir = AppendFileName(GetAppModeDatabase().GetEntitiesDir(), file_title);
 	RealizeDirectory(dir);

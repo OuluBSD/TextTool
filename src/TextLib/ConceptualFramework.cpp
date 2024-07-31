@@ -56,17 +56,16 @@ void ConceptualFrameworkProcess::DoPhase() {
 	}
 }
 
-ConceptualFrameworkProcess& ConceptualFrameworkProcess::Get(int appmode, Entity& e, Concept& cf, BiographySnapshot& snap) {
+ConceptualFrameworkProcess& ConceptualFrameworkProcess::Get(Profile& p, Concept& cf, BiographySnapshot& snap) {
 	static ArrayMap<String, ConceptualFrameworkProcess> arr;
 	
-	String key = "APPMODE(" + IntStr(appmode) + ", PROFILE(" + e.profile->name + "), CF(" + cf.name + "), REVISION(" + IntStr(snap.revision) + ")";
+	String key = "PROFILE(" + p.name + "), CF(" + cf.name + "), REVISION(" + IntStr(snap.revision) + ")";
 	ConceptualFrameworkProcess& ts = arr.GetAdd(key);
-	ts.owner = e.profile->owner;
-	ts.entity = &e;
-	ts.profile = e.profile;
+	ts.owner = p.owner;
+	ts.profile = &p;
 	ts.snap = &snap;
 	ts.cf = &cf;
-	ts.appmode = appmode;
+	ts.appmode = DB_SONG; // TODO don't hardcode this (remove?)
 	ASSERT(ts.owner);
 	return ts;
 }

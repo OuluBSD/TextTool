@@ -13,6 +13,7 @@ struct BiographySnapshot {
 	Time last_modified;
 	Biography data;
 	BiographyAnalysis analysis;
+	Array<Concept> concepts;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -20,6 +21,7 @@ struct BiographySnapshot {
 			("last_modified", last_modified)
 			("data", data)
 			("analysis", analysis)
+			("concepts", concepts)
 		;
 	}
 };

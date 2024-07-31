@@ -103,7 +103,6 @@ void ToolEditor::InitSimplified() {
 	*/
 	
 	AddItem("Entity", t_("Info"), entity_info);
-	AddItem("Entity", t_("Conceptual Framework"), conceptual);
 	
 	AddItem("Snapshot", t_("Info"), snap_info);
 	AddItem("Snapshot", t_("Briefing"), snap_briefing);
