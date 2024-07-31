@@ -221,6 +221,19 @@ struct ScriptStruct : Moveable<ScriptStruct> {
 			("parts", parts)
 			;
 	}
+	bool HasAnyClasses() const {
+		for (const auto& p : parts) {
+			if (p.cls >= 0) return true;
+			for (const auto& s : p.sub) {
+				if (s.cls >= 0) return true;
+				for (const auto& ss : s.sub) {
+					if (ss.cls >= 0) return true;
+				}
+			}
+		}
+		return false;
+	}
+	double GetNormalScore() const;
 	
 	#if 0
 	String StoreToString() {
@@ -406,38 +419,7 @@ struct ScriptPostFix {
 	}
 };
 
-struct ContentVisionIdea : Moveable<ContentVisionIdea> {
-	int tc_i = -1, con_i = -1;
-	String text, singers_2, singers_3;
-	Vector<int> scores;
-	double ScoreAv() const {if (scores.IsEmpty()) return 0; int s = 0; for (int i : scores) s += i; return (double)s/scores.GetCount();}
-	
-	void Jsonize(JsonIO& json) {
-		json
-			("tc_i", tc_i)
-			("con_i", con_i)
-			("text", text)
-			("s2", singers_2)
-			("s3", singers_3)
-			("scores", scores)
-			;
-	}
-	bool operator()(const ContentVisionIdea& a, const ContentVisionIdea& b) const {return a.ScoreAv() >= b.ScoreAv();}
-};
-
-struct ContentVisionOwner {
-	Vector<ContentVisionIdea>	ideas;
-	
-	Vector<int> FindIdeaIndices(int tc_i, int con_i) const;
-	Vector<const ContentVisionIdea*> FindIdeas(int tc_i, int con_i) const;
-	Vector<ContentVisionIdea*> FindIdeas(int tc_i, int con_i);
-	void ClearIdeas(int tc_i, int con_i);
-	double FindBestScore(int tc_i) const;
-	double FindBestScore(int tc_i, int con_i) const;
-};
-
-
-struct Script : DataFile, ContentVisionOwner {
+struct Script : DataFile {
 	#if 0
 	String						native_title;
 	String						english_title;

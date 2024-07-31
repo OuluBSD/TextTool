@@ -166,7 +166,8 @@ void RemoveSinger(String& s);
 
 
 String JoinMap(const VectorMap<String,String>& m, String delim0, String delim1);
- 
+String FixStructIndent(const String& s);
+
 
 END_TEXTLIB_NAMESPACE
 

@@ -29,7 +29,6 @@ protected:
 	CompInfoCtrl					comp_info;
 	VideoPromptMakerCtrl			video_prompt_maker;
 	ScriptInfoCtrl					script_info;
-	ScriptIdeaCtrl					script_idea;
 	ScriptStructureSolverCtrl		script_struct_solver;
 	ScriptRangeSolverCtrl			script_range_solver;
 	ScriptTextSolverCtrl			script_text_solver;

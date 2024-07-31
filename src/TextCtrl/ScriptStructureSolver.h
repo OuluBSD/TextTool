@@ -6,9 +6,15 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 class ScriptStructureSolverCtrl : public ToolAppCtrl {
+	
+	// Left side: partial duplicate of ConceptualFrameworkCtrl
+	ConceptualFrameworkNavigator concepts;
+	
+	// Right side
 	Splitter hsplit;
+	Splitter rsplit, rtsplit, rbsplit;
 	ArrayCtrl genres, structs;
-	DocEdit src_struct;
+	DocEdit src_struct, morphed_struct;
 	
 public:
 	typedef ScriptStructureSolverCtrl CLASSNAME;
@@ -19,7 +25,7 @@ public:
 	void DataGenre();
 	void DataStructure();
 	void SetStructure();
-	void Do(int fn) {DoT<ScriptStructureProcess>(fn);}
+	void Do(int fn);
 	
 };
 

@@ -88,7 +88,7 @@ struct Concept {
 
 
 struct Entity :
-	DataFile, ContentVisionOwner
+	DataFile
 {
 	Profile* profile = 0;
 	

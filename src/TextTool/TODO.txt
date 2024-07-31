@@ -13,6 +13,7 @@ v0.0.2
 - text solver: show frozen sections in the phrase-bank generation phase
 - text solver: user override for frozen sections to pick best sections (from compared)
 - use GPT to hallucinate new biografies for profiles
+- concepts to use only data before certain year
 
 
 v0.0.?

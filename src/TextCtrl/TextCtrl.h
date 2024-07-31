@@ -44,7 +44,6 @@
 #include "VideoPromptMaker.h"
 #include "SocialNeeds.h"
 #include "ScriptPostFix.h"
-#include "ScriptIdeaCtrl.h"
 #include "SocialBeliefs.h"
 #include "ScriptEdit.h"
 #include "ScriptStructureSolver.h"

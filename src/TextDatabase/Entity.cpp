@@ -21,7 +21,6 @@ void Entity::Jsonize(JsonIO& json) {
 		("phrases_eng", phrases_eng)
 		("is_female", is_female)
 		("language", language)
-		("ideas", ideas)
 		;
 	if (json.IsStoring()) {
 		Vector<String> names;
@@ -177,7 +176,7 @@ Script& Entity::GetAddScript(String name) {
 	return s;
 }
 
-
+#if 0
 Vector<int> ContentVisionOwner::FindIdeaIndices(int tc_i, int con_i) const {
 	Vector<int> v;
 	for(int i = 0; i < ideas.GetCount(); i++)
@@ -227,6 +226,7 @@ double ContentVisionOwner::FindBestScore(int tc_i, int con_i) const {
 			max_score = max(max_score, i.ScoreAv());
 	return max_score;
 }
+#endif
 
 int Concept::FindStory(hash_t h) const {
 	for(int i = 0; i < stories.GetCount(); i++)

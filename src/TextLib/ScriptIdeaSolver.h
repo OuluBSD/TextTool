@@ -19,7 +19,6 @@ public:
 	Owner* owner = 0;
 	Profile* profile = 0;
 	Entity* entity = 0;
-	ContentVisionOwner* cvo = 0;
 	Script* script = 0;
 	
 	bool only_single = false;

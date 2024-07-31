@@ -3918,7 +3918,7 @@ void AiTask::CreateInput_ConceptualFrameworkProcess() {
 		}
 	}
 	{
-		{
+		if (args.elements.GetCount()) {
 			auto& list = input.AddSub().Title("List of elements");
 			list.NumberedLines();
 			for(int i = 0; i < args.elements.GetCount(); i++) {
@@ -4007,6 +4007,27 @@ void AiTask::CreateInput_ConceptualFrameworkProcess() {
 			results.NumberedLines();
 			tmp_str = args.elements.GetKey(0) + ": RGB(";
 			results.Add(tmp_str);
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 6) {
+		String first_line;
+		{
+			String t = "Structured lyrics A (genre: " + args.genre + ")";
+			auto& list = input.AddSub().Title(t);
+			Vector<String> lines = Split(args.lyrics, "\n");
+			list.NoListChar();
+			for (const String& l : lines)
+				list.Add(l);
+			first_line = lines[0];
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Use elements to replace content in structured lyrics A. Make lyrics");
+			results.NoListChar();
+			results.Add(first_line);
+			results.Add("");
+			tmp_str = first_line + "\n";
 		}
 		input.response_length = 2048;
 	}

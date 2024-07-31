@@ -113,8 +113,7 @@ void ToolEditor::InitSimplified() {
 	AddItem("Component", t_("Video prompt maker"), video_prompt_maker);
 	
 	AddItem("Script", t_("Info"), script_info);
-	AddItem("Script", t_("Idea"), script_idea);
-	AddItem("Script", t_("Structure solver"), script_struct_solver);
+	AddItem("Script", t_("Reference solver"), script_struct_solver);
 	AddItem("Script", t_("Range solver"), script_range_solver);
 	AddItem("Script", t_("Text solver"), script_text_solver);
 	

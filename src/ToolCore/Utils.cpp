@@ -168,4 +168,33 @@ String JoinMap(const VectorMap<String,String>& m, String delim0, String delim1) 
 	return o;
 }
 
+String FixStructIndent(const String& s) {
+	Vector<String> lines = Split(s, "\n");
+	int indent = 0;
+	for (String& l : lines) {
+		l = TrimBoth(l);
+		if (l.IsEmpty()) continue;
+		int diff = 0;;
+		if (l[0] == '[') {
+			int a = 1;
+			int b0 = l.Find("]");
+			int b1 = l.Find(":");
+			int b = -1;
+			if (b0 >= 0 && b1 >= 0) b = min(b0,b1);
+			else if (b0 >= 0) b = b0;
+			else b = b1;
+			
+			if (b >= 0) {
+				indent = Split(l.Mid(a,b-a),".").GetCount();
+				diff = -1;
+			}
+		}
+		String new_l;
+		new_l.Cat('\t', indent + diff);
+		new_l.Cat(l);
+		l = new_l;
+	}
+	return Join(lines, "\n");
+}
+
 END_TEXTLIB_NAMESPACE

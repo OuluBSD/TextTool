@@ -8,7 +8,7 @@ BEGIN_TEXTLIB_NAMESPACE
 class ToolEditor;
 
 
-class ConceptualFrameworkCtrl : public ToolAppCtrl {
+class ConceptualFrameworkNavigator : public ToolAppCtrl {
 	Splitter cfsplit, vsplit, tsplit, bsplit;
 	ArrayCtrl cfs;
 	ArrayCtrl stories;
@@ -18,19 +18,31 @@ class ConceptualFrameworkCtrl : public ToolAppCtrl {
 	int story_sort_column = 0;
 	
 public:
-	typedef ConceptualFrameworkCtrl CLASSNAME;
-	ConceptualFrameworkCtrl();
+	typedef ConceptualFrameworkNavigator CLASSNAME;
+	ConceptualFrameworkNavigator();
 	
 	void Data() override;
 	void DataFramework();
 	void DataStory();
-	void Clear();
 	void OnValueChange();
-	void ToolMenu(Bar& bar) override;
 	void Do(int fn);
+	void MainLayout();
+	void SideLayout();
+	void GetElements(ConceptualFrameworkArgs& args);
 	void MoveSortColumn(int fn);
 	
-	ToolEditor* editor = 0;
+	void ToolMenu(Bar& bar) override;
+	
+};
+
+class ConceptualFrameworkCtrl : public ConceptualFrameworkNavigator {
+	
+public:
+	typedef ConceptualFrameworkCtrl CLASSNAME;
+	ConceptualFrameworkCtrl();
+	
+	void ToolMenu(Bar& bar) override;
+	
 	
 };
 

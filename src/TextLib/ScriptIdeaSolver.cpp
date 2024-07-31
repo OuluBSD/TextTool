@@ -13,6 +13,8 @@ int ScriptIdeaSolver::GetPhaseCount() const {
 }
 
 void ScriptIdeaSolver::DoPhase() {
+	TODO
+	#if 0
 	const auto& tcs = GetTypeclasses(appmode);
 	const auto& cons = GetContents(appmode);
 	
@@ -159,10 +161,11 @@ void ScriptIdeaSolver::DoPhase() {
 		});
 	}
 	else TODO;
-	
+	#endif
 }
 
 void ScriptIdeaSolver::ParseSuggestions(String res, bool types, int tc_i, int con_i) {
+	#if 0
 	bool req_storyline = res.Find("Storyline:") >= 0 || res.Find("storyline:") >= 0;
 	if (types)
 		res = "1. A #" + res;
@@ -234,6 +237,7 @@ void ScriptIdeaSolver::ParseSuggestions(String res, bool types, int tc_i, int co
 		NextPhase();
 	else
 		NextSubBatch();
+	#endif
 }
 
 ArrayMap<hash_t, ScriptIdeaSolver>& __ScriptIdeaSolvers() {
@@ -242,6 +246,9 @@ ArrayMap<hash_t, ScriptIdeaSolver>& __ScriptIdeaSolvers() {
 }
 
 ScriptIdeaSolver& ScriptIdeaSolver::Get(Entity& e, Script* s, int appmode) {
+	TODO
+	static ScriptIdeaSolver ss; return ss;
+	#if 0
 	String t = e.profile->owner->name + ": " + e.profile->name;
 	if (s) t += ": " + s->GetAnyTitle();
 	
@@ -259,6 +266,7 @@ ScriptIdeaSolver& ScriptIdeaSolver::Get(Entity& e, Script* s, int appmode) {
 	ls.appmode = appmode;
 	ls.cvo = s ? static_cast<ContentVisionOwner*>(s) : static_cast<ContentVisionOwner*>(&e);
 	return ls;
+	#endif
 }
 
 

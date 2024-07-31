@@ -6,24 +6,11 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 ConceptualFrameworkCtrl::ConceptualFrameworkCtrl() {
-	Add(vsplit.VSizePos(0,20).HSizePos());
-	Add(prog.BottomPos(0,20).HSizePos(300));
-	Add(remaining.BottomPos(0,20).LeftPos(0,300));
-	
-	
-	vsplit.Vert() << tsplit << bsplit;
-	tsplit.Horz() << cfsplit << stories;
-	
-	cfsplit.Vert() << cfs << cf;
-	cfsplit.SetPos(7500);
-	
-	tsplit.SetPos(2500);
-	
-	bsplit.Horz() << story << story_struct;
-	#if USE_IMPROVED_ELEMENTS
-	bsplit << story_improved;
-	#endif
-	
+	MainLayout();
+}
+
+
+ConceptualFrameworkNavigator::ConceptualFrameworkNavigator() {
 	CtrlLayout(cf);
 	CtrlLayout(story);
 	
@@ -66,11 +53,40 @@ ConceptualFrameworkCtrl::ConceptualFrameworkCtrl() {
 	
 }
 
-void ConceptualFrameworkCtrl::Clear() {
+void ConceptualFrameworkNavigator::MainLayout() {
+	Add(vsplit.VSizePos(0,20).HSizePos());
+	Add(prog.BottomPos(0,20).HSizePos(300));
+	Add(remaining.BottomPos(0,20).LeftPos(0,300));
 	
+	vsplit.Vert() << tsplit << bsplit;
+	tsplit.Horz() << cfsplit << stories;
+	
+	cfsplit.Vert() << cfs << cf;
+	cfsplit.SetPos(7500);
+	
+	tsplit.SetPos(2500);
+	
+	bsplit.Horz() << story << story_struct;
+	#if USE_IMPROVED_ELEMENTS
+	bsplit << story_improved;
+	#endif
 }
 
-void ConceptualFrameworkCtrl::Data() {
+void ConceptualFrameworkNavigator::SideLayout() {
+	Add(vsplit.SizePos());
+	vsplit.Vert() << cfsplit << stories << bsplit;
+	vsplit.SetPos(1500,0);
+	vsplit.SetPos(6666,1);
+	
+	cfsplit.Horz() << cfs << cf;
+	
+	bsplit.Horz() << story << story_struct;
+	#if USE_IMPROVED_ELEMENTS
+	bsplit << story_improved;
+	#endif
+}
+
+void ConceptualFrameworkNavigator::Data() {
 	MetaPtrs& mp = MetaPtrs::Single();
 	MetaDatabase& mdb = MetaDatabase::Single();
 	if (!mp.snap)
@@ -109,7 +125,7 @@ void ConceptualFrameworkCtrl::Data() {
 	DataFramework();
 }
 
-void ConceptualFrameworkCtrl::DataFramework() {
+void ConceptualFrameworkNavigator::DataFramework() {
 	MetaPtrs& mp = MetaPtrs::Single();
 	MetaDatabase& mdb = MetaDatabase::Single();
 	if (!cfs.IsCursor() || !mp.snap) {
@@ -209,7 +225,7 @@ void ConceptualFrameworkCtrl::DataFramework() {
 	DataStory();
 }
 
-void ConceptualFrameworkCtrl::DataStory() {
+void ConceptualFrameworkNavigator::DataStory() {
 	MetaPtrs& mp = MetaPtrs::Single();
 	MetaDatabase& mdb = MetaDatabase::Single();
 	if (!mp.snap || !cfs.IsCursor() || !stories.IsCursor()) {
@@ -255,7 +271,25 @@ void ConceptualFrameworkCtrl::DataStory() {
 	
 }
 
-void ConceptualFrameworkCtrl::OnValueChange() {
+void ConceptualFrameworkNavigator::GetElements(ConceptualFrameworkArgs& args) {
+	MetaPtrs& mp = MetaPtrs::Single();
+	MetaDatabase& mdb = MetaDatabase::Single();
+	if (!mp.snap || !cfs.IsCursor() || !stories.IsCursor())
+		return;
+	int cf_i = cfs.Get("IDX");
+	int story_i = stories.Get("IDX");
+	if (cf_i >= mp.snap->concepts.GetCount()) return;
+	Concept& con = mp.snap->concepts[cf_i];
+	if (story_i >= con.stories.GetCount()) return;
+	ConceptStory& st = con.stories[story_i];
+	args.elements.Clear();
+	for(int i = 0; i < st.ELEMENTS_VAR.GetCount(); i++) {
+		const auto& el = st.ELEMENTS_VAR[i];
+		args.elements.Add(el.key, el.value);
+	}
+}
+
+void ConceptualFrameworkNavigator::OnValueChange() {
 	MetaPtrs& mp = MetaPtrs::Single();
 	MetaDatabase& mdb = MetaDatabase::Single();
 	if (!cfs.IsCursor())
@@ -284,17 +318,21 @@ void ConceptualFrameworkCtrl::OnValueChange() {
 	}
 }
 
-void ConceptualFrameworkCtrl::ToolMenu(Bar& bar) {
+void ConceptualFrameworkNavigator::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
 	bar.Add(t_("Previous sort column"), AppImg::BlueRing(), THISBACK1(MoveSortColumn, -1)).Key(K_F1);
 	bar.Add(t_("Next sort column"), AppImg::BlueRing(), THISBACK1(MoveSortColumn, +1)).Key(K_F2);
+}
+
+void ConceptualFrameworkCtrl::ToolMenu(Bar& bar) {
+	ConceptualFrameworkNavigator::ToolMenu(bar);
 	bar.Separator();
 	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 }
 
-void ConceptualFrameworkCtrl::MoveSortColumn(int i) {
+void ConceptualFrameworkNavigator::MoveSortColumn(int i) {
 	int base = story_sort_column - 3;
 	base += i;
 	while (base < 0) base += SCORE_COUNT+1;
@@ -303,7 +341,7 @@ void ConceptualFrameworkCtrl::MoveSortColumn(int i) {
 	PostCallback(THISBACK(DataFramework));
 }
 
-void ConceptualFrameworkCtrl::Do(int fn) {
+void ConceptualFrameworkNavigator::Do(int fn) {
 	MetaPtrs& mp = MetaPtrs::Single();
 	
 	int appmode = GetAppMode();

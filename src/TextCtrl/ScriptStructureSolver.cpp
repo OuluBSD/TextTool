@@ -7,9 +7,13 @@ BEGIN_TEXTLIB_NAMESPACE
 ScriptStructureSolverCtrl::ScriptStructureSolverCtrl() {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << genres << structs << src_struct;
-	hsplit.SetPos(1500, 0);
-	hsplit.SetPos(3000, 1);
+	hsplit.Horz() << concepts << rsplit;
+	
+	rsplit.Vert() << rtsplit << rbsplit;;
+	rsplit.SetPos(2500);
+	rtsplit.Horz() << genres << structs;
+	rbsplit.Horz() << src_struct << morphed_struct;
+	
 	
 	genres.AddColumn("Genre");
 	genres.AddColumn("Count");
@@ -17,26 +21,71 @@ ScriptStructureSolverCtrl::ScriptStructureSolverCtrl() {
 	genres.WhenCursor << THISBACK(DataGenre);
 	
 	structs.AddColumn("Structure");
+	structs.AddColumn("Normal-score");
+	structs.AddColumn("Genre-score");
+	structs.AddColumn("Total-score");
 	structs.AddIndex("IDX");
 	structs.WhenCursor << THISBACK(DataStructure);
+	structs.WhenBar << [this](Bar& bar) {
+		bar.Add("Sort by normal-score", [this]() {structs.SetSortColumn(1, true);});
+		bar.Add("Sort by genre-score", [this]() {structs.SetSortColumn(2, true);});
+		bar.Add("Sort by total-score", [this]() {structs.SetSortColumn(3, true);});
+	};
+	concepts.SideLayout();
 	
 }
 
 void ScriptStructureSolverCtrl::ToolMenu(Bar& bar) {
+	concepts.ToolMenu(bar);
+	bar.Separator();
 	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Separator();
 	bar.Add(t_("Set Structure"), AppImg::BlueRing(), THISBACK(SetStructure)).Key(K_CTRL_W);
 	bar.Separator();
-	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	/*bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
+	bar.Separator();*/
+	bar.Add(t_("Morph lyrics"), AppImg::RedRing(), THISBACK1(Do, 2)).Key(K_F5);
+}
+
+void ScriptStructureSolverCtrl::Do(int fn) {
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	//DoT<ScriptStructureProcess>(fn);
+	if (fn == 2) {
+		if (!genres.IsCursor()) return;
+		if (!structs.IsCursor()) return;
+		int idx = structs.Get("IDX");
+		const ScriptStruct& ss = sd.a.dataset.scripts[idx];
+		
+		ConceptualFrameworkArgs args;
+		args.fn = 6;
+		args.lyrics = sd.a.dataset.GetScriptDump(sd.a.dataset, idx);
+		args.genre = genres.Get(0);
+		concepts.GetElements(args);
+		if (args.elements.IsEmpty()) {
+			PromptOK("No elements");
+			return;
+		}
+		TaskMgr& m = TaskMgr::Single();
+		m.GetConceptualFramework(GetAppMode(), args, [this](String res) {
+			PostCallback([this, res]() {
+				morphed_struct.SetData(FixStructIndent(res));
+			});
+		});
+		
+	}
 }
 
 void ScriptStructureSolverCtrl::Data() {
+	concepts.Data();
+	
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	
 	if (this->genres.GetCount())
 		return;
+	
 	
 	VectorMap<String,int> all_genres;
 	for (const auto& ent : db.src_data.a.entities)
@@ -77,20 +126,28 @@ void ScriptStructureSolverCtrl::DataGenre() {
 			found = found || g == genre;
 		if (!found)
 			continue;
+		double genre_score = 1.0 / ea.genres.GetCount();
 		for (const auto& s : ent.scripts) {
 			String key = ent.name + " - " + s.name;
 			int i = sd.a.dataset.scripts.Find(key.GetHashValue());
 			if (i < 0) continue;
 			const ScriptStruct& ss = sd.a.dataset.scripts[i];
+			if (!ss.HasAnyClasses())
+				continue;
+			double norm_score = ss.GetNormalScore();
 			structs.Set(row, 0, row);
+			structs.Set(row, 1, norm_score);
+			structs.Set(row, 2, genre_score);
+			structs.Set(row, 3, norm_score + genre_score);
 			structs.Set(row, "IDX", i);
 			row++;
 		}
 	}
-	structs.SetCount(row);
 	INHIBIT_CURSOR(structs);
+	structs.SetCount(row);
 	if (structs.GetCount() && !structs.IsCursor())
 		structs.SetCursor(0);
+	structs.SetSortColumn(3, true);
 	
 	DataStructure();
 }

@@ -411,5 +411,47 @@ String GetPostScriptModificationKey(int i) {
 #endif
 
 
+
+double ScriptStruct::GetNormalScore() const {
+	bool verse1 = false;
+	bool verse2 = false;
+	bool prerepeat1 = false;
+	bool repeat1 = false;
+	bool repeat2 = false;
+	bool twist1 = false;
+	
+	for (const auto& part : parts) {
+		if (!verse1 && part.type == TXT_NORMAL && part.num == 0)
+			verse1 = true;
+		if (!verse2 && part.type == TXT_NORMAL && part.num == 1)
+			verse2 = true;
+		if (!prerepeat1 && part.type == TXT_PRE_REPEAT && part.num == 0)
+			prerepeat1 = true;
+		if (!repeat1 && part.type == TXT_REPEAT && part.num == 0)
+			repeat1 = true;
+		if (!repeat2 && part.type == TXT_REPEAT && part.num == 1)
+			repeat2 = true;
+		if (!twist1 && part.type == TXT_TWIST && part.num == 0)
+			twist1 = true;
+		
+		/*for (const auto& subpart : part.sub) {
+			for (const auto& subsubpart : part.sub) {
+				
+			}
+		}*/
+	}
+	double score =
+		verse1 * 1.0 +
+		verse2 * 0.9 +
+		prerepeat1 * 0.5 +
+		repeat1 * 1.0 +
+		repeat2 * 0.6 +
+		twist1 * 0.8
+		;
+	
+	return score;
+}
+
+
 END_TEXTLIB_NAMESPACE
 
