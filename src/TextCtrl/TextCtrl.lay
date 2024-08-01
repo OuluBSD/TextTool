@@ -331,3 +331,19 @@ LAYOUT(SnapIdeas, 400, 228)
 	ITEM(Upp::DocEdit, desc, HSizePosZ(100, 12).VSizePosZ(92, 12))
 END_LAYOUT
 
+LAYOUT(EditorPart, 400, 76)
+	ITEM(Upp::Label, dv___0, SetLabel(t_("Part type:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(4, 100).TopPosZ(4, 19))
+	ITEM(Upp::DropList, text_type, HSizePosZ(108, 4).TopPosZ(4, 19))
+	ITEM(Upp::Label, dv___2, SetLabel(t_("Part number:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(4, 100).TopPosZ(28, 19))
+	ITEM(Upp::EditIntSpin, text_num, HSizePosZ(108, 4).TopPosZ(28, 19))
+	ITEM(Upp::Label, dv___4, SetLabel(t_("Element:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(4, 100).TopPosZ(52, 19))
+	ITEM(Upp::DropList, element, HSizePosZ(108, 4).TopPosZ(52, 19))
+END_LAYOUT
+
+LAYOUT(EditorSub, 400, 76)
+	ITEM(Upp::Label, dv___0, SetLabel(t_("Element 1:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(4, 100).TopPosZ(4, 19))
+	ITEM(Upp::DropList, element0, HSizePosZ(108, 4).TopPosZ(4, 19))
+	ITEM(Upp::Label, dv___2, SetLabel(t_("Element 2:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(4, 100).TopPosZ(28, 19))
+	ITEM(Upp::DropList, element1, HSizePosZ(108, 4).TopPosZ(28, 19))
+END_LAYOUT
+

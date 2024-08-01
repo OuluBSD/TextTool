@@ -85,7 +85,8 @@ void ScriptStructureSolverCtrl::Do(int fn) {
 		}
 		if (s.parts.GetCount() && !PromptYesNo("Are you sure you want to replace current text of this script?"))
 			return;
-		s.LoadStructuredText(input);
+		s.LoadStructuredText(src_struct.GetData());
+		s.LoadStructuredTextExt(input);
 		
 		ConceptualFrameworkArgs args;
 		args.fn = 7;

@@ -6,7 +6,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 StructuredScriptEditor::StructuredScriptEditor() {
 	WantFocus();
-	line_h = 15;
+	line_h = 16;
 	Ctrl::AddFrame(scroll_v);
 	scroll_v.WhenScroll << [this]() {
 		Refresh();
@@ -32,6 +32,35 @@ void StructuredScriptEditor::Update() {
 		total_h += line_h;
 	}
 	scroll_v.SetTotal(total_h);
+}
+
+void StructuredScriptEditor::CheckClearSelected() {
+	bool line_found = false;
+	bool part_found = false;
+	bool sub_found = false;
+	if (!HasAnyEditor()) return;
+	Script& s = owner->GetScript();
+	for(int i = 0; i < s.parts.GetCount(); i++) {
+		const DynPart& dp = s.parts[i];
+		if (&dp == selected_part) part_found = true;
+		for(int j = 0; j < dp.sub.GetCount(); j++) {
+			const DynSub& ds = dp.sub[j];
+			if (&ds == selected_sub) sub_found = true;
+			for(int k = 0; k < ds.lines.GetCount(); k++) {
+				const DynLine& dl = ds.lines[k];
+				if (&dl == selected_line) line_found = true;
+			}
+		}
+	}
+	if (!line_found) selected_line = 0;
+	if (!part_found) selected_part = 0;
+	if (!sub_found) selected_sub = 0;
+}
+
+void StructuredScriptEditor::ClearSelected() {
+	selected_line = 0;
+	selected_part = 0;
+	selected_sub = 0;
 }
 
 void StructuredScriptEditor::Layout() {
@@ -156,10 +185,11 @@ void StructuredScriptEditor::ScrollView(const Rect& r) {
 
 void StructuredScriptEditor::Paint(Draw& d) {
 	Size sz = GetSize();
+	int cx_2 = sz.cx / 2;
 	
 	d.DrawRect(sz, White());
 	
-	Font fnt = Monospace(line_h-3);
+	Font fnt = SansSerif(line_h-3); // Monospace(line_h-3);
 	Script& s = owner->GetScript();
 	int y = -scroll_v;
 	int indent_cx = 30;
@@ -167,7 +197,10 @@ void StructuredScriptEditor::Paint(Draw& d) {
 	Color part_border = Color(203, 205, 225);
 	Color sub_bg = Color(241, 254, 240);
 	Color line_bg = Color(253, 242, 241);
-	Color sel_clr = LtRed();
+	Color sel_clr = Blend(LtRed(), White());
+	Color shadow_clr = GrayColor();
+	bool is_sel_shadow = false;
+	int off = 3;
 	
 	areas.Clear();
 	vert_areas.Clear();
@@ -177,10 +210,13 @@ void StructuredScriptEditor::Paint(Draw& d) {
 		String txt = GetTextTypeString(dp.text_type) + " " + IntStr(dp.text_num+1);
 		if (dp.element.GetCount()) txt << ": " << dp.element;
 		
-		Color part_clr = &dp == selected_part ? Blend(part_bg, sel_clr) : part_bg;
+		bool sel = &dp == selected_part;
+		Color part_clr = sel ? Blend(part_bg, sel_clr) : part_bg;
 		Rect part_header_rect = RectC(0,y,sz.cx,line_h);
 		d.DrawRect(part_header_rect, part_clr);
-		d.DrawText(0,y,txt,fnt,Black());
+		if (is_sel_shadow && sel)
+			d.DrawText(off+1,y+1,txt,fnt,shadow_clr);
+		d.DrawText(off+0,y,txt,fnt,Black());
 		d.DrawLine(0, y, sz.cx, y, 1, part_border);
 		areas.Add().Set(part_header_rect, dp);
 		vert_areas.Add().Set(part_header_rect, dp);
@@ -194,7 +230,8 @@ void StructuredScriptEditor::Paint(Draw& d) {
 			if (ds.element0.GetCount()) txt << ds.element0;
 			if (ds.element1.GetCount()) {if (txt.GetCount()) txt << ", "; txt << ds.element1;}
 			
-			Color sub_clr = &ds == selected_sub ? Blend(sub_bg, sel_clr) : sub_bg;
+			bool sel = &ds == selected_sub;
+			Color sub_clr = sel ? Blend(sub_bg, sel_clr) : sub_bg;
 			int left = indent_cx;
 			part_header_rect = RectC(0,y,left,line_h);
 			d.DrawRect(part_header_rect, part_clr);
@@ -202,7 +239,9 @@ void StructuredScriptEditor::Paint(Draw& d) {
 			
 			Rect sub_header_rect = RectC(left,y,sz.cx-left,line_h);
 			d.DrawRect(sub_header_rect, sub_clr);
-			d.DrawText(left,y,txt,fnt,Black());
+			if (is_sel_shadow && sel)
+				d.DrawText(off+left+1,y+1,txt,fnt,shadow_clr);
+			d.DrawText(off+left,y,txt,fnt,Black());
 			areas.Add().Set(sub_header_rect, ds);
 			vert_areas.Add().Set(sub_header_rect, ds);
 			
@@ -227,11 +266,17 @@ void StructuredScriptEditor::Paint(Draw& d) {
 				int left = indent_cx*2;
 				txt = dl.text;
 				Rect line_header_rect = RectC(left,y,sz.cx-left,line_h);
-				d.DrawRect(line_header_rect, &dl == selected_line ? Blend(line_bg, sel_clr) : line_bg);
-				d.DrawText(left,y,txt,fnt,Black());
+				bool sel = &dl == selected_line;
+				d.DrawRect(line_header_rect, sel ? Blend(line_bg, sel_clr) : line_bg);
+				if (is_sel_shadow && sel)
+					d.DrawText(off+left+1,y+1,txt,fnt,shadow_clr);
+				d.DrawText(off+left,y,txt,fnt,Black());
 				areas.Add().Set(line_header_rect, dl);
 				vert_areas.Add().Set(line_header_rect, dl);
 				areas.Add().Set(line_header_rect, dl);
+				
+				
+				d.DrawText(off+cx_2,y,dl.alt_text,fnt,Black());
 				
 				y += line_h;
 				
@@ -241,6 +286,8 @@ void StructuredScriptEditor::Paint(Draw& d) {
 		d.DrawLine(0, y, sz.cx, y, 1, part_border);
 		y += line_h;
 	}
+	
+	d.DrawLine(cx_2, 0, cx_2, sz.cy, 1, part_border);
 }
 
 

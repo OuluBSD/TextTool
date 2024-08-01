@@ -93,6 +93,11 @@ void GuiStartup() {
 	SetGlobalProxy(proxy);
 }
 
+void SetCountForArray(ArrayCtrl& arr, int count) {
+	INHIBIT_CURSOR(arr);
+	arr.SetCount(count);
+}
+
 void SetCountWithDefaultCursor(ArrayCtrl& arr, int count) {
 	INHIBIT_CURSOR(arr);
 	arr.SetCount(count);

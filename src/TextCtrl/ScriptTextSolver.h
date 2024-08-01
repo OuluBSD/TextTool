@@ -39,6 +39,8 @@ public:
 	bool Key(dword key, int count) override;
 	void MoveSelected(int i);
 	void Update();
+	void CheckClearSelected();
+	void ClearSelected();
 	void ScrollView(const Rect& r);
 	bool IsAnySelected() const;
 	ScriptTextSolverCtrl* owner = 0;
@@ -65,9 +67,15 @@ class ScriptTextSolverCtrl : public ToolAppCtrl {
 	
 	// Part tab
 	ParentCtrl part_tab;
+	WithEditorPart<Ctrl> part_form;
+	Splitter part_split;
+	ArrayCtrl part_suggs;
 	
 	// Sub tab
 	ParentCtrl sub_tab;
+	WithEditorSub<Ctrl> sub_form;
+	Splitter sub_split;
+	ArrayCtrl sub_suggs;
 	
 	// Line tab
 	ParentCtrl line_tab;
@@ -80,9 +88,12 @@ public:
 	void ToolMenu(Bar& bar) override;
 	void Data() override;
 	void DataWhole();
+	void DataPart();
+	void DataSub();
 	void Do(int fn);
 	void DoWhole(int fn);
 	void OnEditorCursor();
+	void OnValueChange();
 	
 };
 

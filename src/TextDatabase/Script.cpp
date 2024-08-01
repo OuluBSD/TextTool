@@ -302,6 +302,97 @@ void Script::LoadStructuredText(const String& s) {
 	}
 }
 
+void Script::LoadStructuredTextExt(const String& s) {
+	Vector<String> lines = Split(s, "\n");
+	int indent = 0;
+	DynPart* part = 0;
+	DynSub* sub = 0;
+	int part_i = -1, sub_i = -1, line_i = -1;
+	int sub_lines = 0;
+	String el1;
+	for (String& l : lines) {
+		l = TrimBoth(l);
+		if (l.IsEmpty()) continue;
+		int diff = 0;;
+		if (l[0] == '[') {
+			int a = 1;
+			int b0 = l.Find("]");
+			int b1 = l.Find(":");
+			int b = -1;
+			//String part_name;
+			if (b0 >= 0 && b1 >= 0) {
+				b = min(b0,b1);
+				b1++;
+				//part_name = l.Mid(b1,b0-b1);
+			}
+			else if (b0 >= 0) b = b0;
+			else b = b1;
+			
+			if (b >= 0) {
+				indent = Split(l.Mid(a,b-a),".").GetCount();
+				
+				String el;
+				b = l.Find("]",b);
+				a = l.Find("(",b);
+				if (a >= 0) {
+					a++;
+					b = l.Find(")",a);
+					el = l.Mid(a,b-a);
+				}
+				
+				diff = -1;
+				int level = indent + diff;
+				if (level == 0) {
+					part_i++;
+					sub_i = -1;
+					line_i = -1;
+					sub_lines = 0;
+					if (part_i < parts.GetCount())
+						part = &parts[part_i];
+					else
+						part = &parts.Add();
+					//ParseTextPartType(part_name, part->text_type, part->text_num);
+					//part->element = el;
+				}
+				else if (level == 1) {
+					sub_i++;
+					line_i = -1;
+					sub_lines = 0;
+					el1 = el;
+					if (sub_i < part->sub.GetCount())
+						sub = &part->sub[sub_i];
+					else
+						sub = &part->sub.Add();
+					//sub->element0 = el;
+				}
+				else if (level == 2) {
+					if (sub_lines > 0) {
+						sub_i++;
+						line_i = -1;
+						sub_lines = 0;
+						if (sub_i < part->sub.GetCount())
+							sub = &part->sub[sub_i];
+						else
+							sub = &part->sub.Add();
+						//sub->element0 = el1;
+					}
+					//sub->element1 = el;
+				}
+			}
+		}
+		else {
+			line_i++;
+			sub_lines++;
+			DynLine* dl;
+			if (line_i < sub->lines.GetCount())
+				dl = &sub->lines[line_i];
+			else
+				dl = &sub->lines.Add();
+			dl->alt_text = l;
+		}
+	}
+}
+
 int StaticPart::GetExpectedLineCount(Script& song) const {
 	#if 0
 	int len = 2;

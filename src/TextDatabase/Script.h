@@ -29,10 +29,12 @@ struct LineScore : Moveable<LineScore> {
 
 struct DynLine : Moveable<DynLine> {
 	String			text;
+	String			alt_text;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("text", text)
+			("alt_text", alt_text)
 			;
 	}
 };
@@ -63,7 +65,7 @@ struct DynPart {
 		json
 			("voice_type", (int&)voice_type)
 			("text_type", (int&)text_type)
-			("text_num", (int&)text_type)
+			("text_num", text_num)
 			("person", person)
 			("element", element)
 			("sub", sub)
@@ -459,6 +461,7 @@ struct Script : DataFile {
 	String GetText() const;
 	String GetTextStructure(bool coarse) const;
 	void LoadStructuredText(const String& s);
+	void LoadStructuredTextExt(const String& s);
 	
 	//Script() {post_analysis.SetCount(POSTSCRIPT_COUNT);}
 	Script() {post_analysis.SetCount(SCORE_COUNT);}

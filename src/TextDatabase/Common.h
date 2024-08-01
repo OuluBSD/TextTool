@@ -9,11 +9,11 @@ String GetAppModeKeySnapshots();
 String GetAppModeKeyComponents();
 
 typedef enum : int {
-	TXT_NULL,
 	TXT_NORMAL,
 	TXT_PRE_REPEAT,
 	TXT_REPEAT,
 	TXT_TWIST,
+	TXT_NULL,
 	
 	TXT_COUNT
 } TextPartType;

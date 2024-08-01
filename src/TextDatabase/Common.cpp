@@ -27,7 +27,7 @@ void ParseTextPartType(String part_name, TextPartType& text_type, int& text_num)
 			else {
 				String tail = TrimLeft(part_name.Mid(cmp.GetCount()));
 				if (tail.GetCount() && IsDigit(tail[0]))
-					text_num = ScanInt(tail);
+					text_num = ScanInt(tail)-1;
 			}
 			return;
 		}
