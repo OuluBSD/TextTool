@@ -37,6 +37,12 @@ int ScriptGenerator::GetBatchCount(int phase) const {
 		case PHASE_COLOR:	return script->parts.GetCount();
 		case PHASE_ATTR:	return (script->simple_attrs.GetCount() + per_attr_batch - 1) / per_attr_batch;
 		case PHASE_ACTION:	return 1;
+		case PHASE_MAKE_SOURCE_POOL:	return 1;
+		case PHASE_TRANSLATE:			return ContentType::PART_COUNT;
+		case PHASE_MAKE_PHRASE_PAIRS:	return ContentType::PART_COUNT;
+		case PHASE_MAKE_RHYMES:			return ContentType::PART_COUNT;
+		case PHASE_GET_AI_SCORES:		return ContentType::PART_COUNT;
+		case PHASE_COLLECT:				return 1;
 		default: return 1;
 	}
 }
@@ -46,11 +52,22 @@ int ScriptGenerator::GetSubBatchCount(int phase, int batch) const {
 		case PHASE_COLOR:	return 1;
 		case PHASE_ATTR:	return 1;
 		case PHASE_ACTION:	return 1;
+		case PHASE_MAKE_SOURCE_POOL:	return 1;
+		case PHASE_TRANSLATE:			return estimated_sub_batches;
+		case PHASE_MAKE_PHRASE_PAIRS:	return pair_limit;
+		case PHASE_MAKE_RHYMES:			return phrase_limit;
+		case PHASE_GET_AI_SCORES:		return estimated_sub_batches;
+		case PHASE_COLLECT:				return 1;
 		default: return 1;
 	}
 }
 
 void ScriptGenerator::DoPhase() {
+	if (script->parts.IsEmpty()) {
+		SetNotRunning();
+		return;
+	}
+	
 	EnterAppMode(appmode);
 	
 	if (phase == PHASE_COLOR) {
@@ -145,6 +162,8 @@ void ScriptGenerator::OnProcessColor(String result) {
 	
 	result = "- RGB(" + result;
 	
+	song.clr_list.Clear();
+	
 	Index<int> no_clr_list;
 	RemoveEmptyLines3(result);
 	Vector<String> lines = Split(result, "\n");
@@ -164,14 +183,20 @@ void ScriptGenerator::OnProcessColor(String result) {
 		Color clr(R,G,B);
 		
 		int clr_group = GetColorGroup(clr);
+		
+		#if 1
+		song.clr_list << clr_group;
+		#else
 		no_clr_list.FindAdd(clr_group);
+		#endif
 	}
 	
-	song.clr_list.Clear();
+	#if 0
 	int c = GetColorGroupCount();
 	for(int i = 0; i < c; i++)
 		if (no_clr_list.Find(i) < 0)
 			song.clr_list.Add(i);
+	#endif
 	
 	NextPhase();
 	SetWaiting(0);
@@ -535,13 +560,14 @@ void ScriptGenerator::ProcessTranslate() {
 		return;
 	}
 	
+	estimated_sub_batches = phrases[batch].GetCount() / per_translate_batch + 1;
+	
 	ScriptSolverArgs args; // 11
 	args.fn = 11;
 	args.lng_i = song.lng_i;
 	
-	per_sub_batch =  20;
-	int begin = sub_batch * per_sub_batch;
-	int end = min(begin + per_sub_batch, phrases[batch].GetCount());
+	int begin = sub_batch * per_translate_batch;
+	int end = min(begin + per_translate_batch, phrases[batch].GetCount());
 	if (end <= begin) {
 		NextBatch();
 		return;
@@ -580,7 +606,7 @@ void ScriptGenerator::OnProcessTranslate(String res) {
 	auto& translations = da.phrase_translations[song.lng_i];
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
-	int begin = sub_batch * per_sub_batch;
+	int begin = sub_batch * per_translate_batch;
 	ASSERT(begin >= 0);
 	
 	res = TrimBoth(res);
@@ -666,9 +692,9 @@ void ScriptGenerator::ProcessPairPhrases() {
 	
 	MakeBelief(song, args, 0);
 	
-	per_sub_batch =  50;
-	int begin = sub_batch * per_sub_batch;
-	int end = min(begin + per_sub_batch, phrases[batch].GetCount());
+	
+	int begin = sub_batch * per_pair_phrases_batch;
+	int end = min(begin + per_pair_phrases_batch, phrases[batch].GetCount());
 	if (end <= begin) {
 		NextBatch();
 		return;
@@ -719,7 +745,7 @@ void ScriptGenerator::OnProcessPairPhrases(String res) {
 	
 	res = "3. " + res;
 	
-	int begin = sub_batch * per_sub_batch;
+	int begin = sub_batch * per_pair_phrases_batch;
 	ASSERT(begin >= 0);
 	MapFile<hash_t,PhraseComb>& p = sa.phrase_combs[batch];
 	
@@ -746,7 +772,7 @@ void ScriptGenerator::OnProcessPairPhrases(String res) {
 				if (part.IsEmpty() || !IsDigit(part[0]))
 					break;
 				int j = ScanInt(part) - 1;
-				if (j <= 0 || j >= per_sub_batch) {fail = true; break;}
+				if (j <= 0 || j >= per_pair_phrases_batch) {fail = true; break;}
 				ASSERT(j >= 0);
 				int k = begin + j;
 				if (k >= this->phrases[batch].GetCount()) {fail = true; break;}
@@ -807,9 +833,9 @@ void ScriptGenerator::ProcessRhymes() {
 	
 	MakeBelief(song, args, 0);
 	
-	per_sub_batch =  15;
-	int begin = sub_batch * per_sub_batch;
-	int end = min(begin + per_sub_batch, sa.phrase_combs[batch].GetCount());
+	
+	int begin = sub_batch * per_rhymes_batch;
+	int end = min(begin + per_rhymes_batch, sa.phrase_combs[batch].GetCount());
 	if (end <= begin) {
 		NextBatch();
 		return;
@@ -870,7 +896,7 @@ void ScriptGenerator::OnProcessRhymes(String res) {
 	if (res.Left(2) != "3.")
 		res = "3. '','': \"" + res;
 	
-	int begin = sub_batch * per_sub_batch;
+	int begin = sub_batch * per_rhymes_batch;
 	ASSERT(begin >= 0);
 	MapFile<hash_t,PhraseComb>& p = sa.phrase_combs[batch];
 	RemoveEmptyLines2(res);
@@ -996,12 +1022,13 @@ void ScriptGenerator::ProcessScores() {
 	
 	MakeBelief(song, args, 0);
 	
-	per_sub_batch =  15;
+	
 	
 	bool collect_token_texts = song.lng_i == LNG_NATIVE;
 	if (collect_token_texts) {
 		const auto& v = sa.phrase_parts[batch];
 		pp_is.Clear();
+		estimated_sub_batches = v.GetCount() / per_scores_batch;
 		while(iter < v.GetCount()) {
 			int pp_i = iter++;
 			const PhrasePart& pp = v[pp_i];
@@ -1018,7 +1045,7 @@ void ScriptGenerator::ProcessScores() {
 			phrase = phrase.Left(360);
 			args.phrases << phrase;
 			pp_is.Add(phrase, pp_i);
-			if (args.phrases.GetCount() >= per_sub_batch)
+			if (args.phrases.GetCount() >= per_scores_batch)
 				break;
 		}
 		
@@ -1033,6 +1060,7 @@ void ScriptGenerator::ProcessScores() {
 		// TODO optimize: cache
 		ASSERT(song.lng_i > 0);
 		const auto& v = sa.trans_phrase_combs[song.lng_i][batch];
+		estimated_sub_batches = v.GetCount() / per_scores_batch;
 		pp_is.Clear();
 		while(iter < v.GetCount()) {
 			int tpp_i = iter++;
@@ -1048,7 +1076,7 @@ void ScriptGenerator::ProcessScores() {
 			// Fetch scores for the phrase
 			args.phrases << tpp.phrase;
 			pp_is.Add(tpp.phrase, tpp_i);
-			if (args.phrases.GetCount() >= per_sub_batch)
+			if (args.phrases.GetCount() >= per_scores_batch)
 				break;
 		}
 		

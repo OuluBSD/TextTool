@@ -49,8 +49,11 @@ class ScriptGenerator : public SolverBase {
 	
 	// Params
 	int per_attr_batch = 50;
+	int per_translate_batch =  20;
+	int per_rhymes_batch = 15;
+	int per_scores_batch = 15;
 	int max_phrase_parts = 100;
-	int per_sub_batch =  50;
+	int per_pair_phrases_batch =  50;
 	int pair_limit = 300;
 	int phrase_limit = 150;
 	
@@ -59,6 +62,7 @@ class ScriptGenerator : public SolverBase {
 	Vector<int> tmp;
 	int iter = 0;
 	VectorMap<String, int> pp_is;
+	int estimated_sub_batches = 1;
 	
 	void ProcessSourcePool();
 	void ProcessTranslate();
@@ -76,9 +80,9 @@ class ScriptGenerator : public SolverBase {
 	void OnProcessScores(String result);
 	void OnProcessTranslate(String result);
 	
-	TextDatabase& GetDatabase() {return GetAppModeDatabase(appmode);}
-	int GetTypeclassCount() {return TextLib::GetTypeclassCount(appmode);}
-	int GetContentCount() {return TextLib::GetContentCount(appmode);}
+	TextDatabase& GetDatabase() const {return GetAppModeDatabase(appmode);}
+	int GetTypeclassCount() const {return TextLib::GetTypeclassCount(appmode);}
+	int GetContentCount() const {return TextLib::GetContentCount(appmode);}
 	
 public:
 	typedef ScriptGenerator CLASSNAME;

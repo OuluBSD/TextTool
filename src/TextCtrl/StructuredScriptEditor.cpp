@@ -14,8 +14,8 @@ StructuredScriptEditor::StructuredScriptEditor() {
 }
 
 void StructuredScriptEditor::Update() {
-	if (!owner) return;
-	if (!HasAnyEditor()) return;
+	if (!owner || !HasAnyEditor()) {Refresh(); return;}
+	
 	int total_h = 0;
 	Script& s = owner->GetScript();
 	for(int i = 0; i < s.parts.GetCount(); i++) {

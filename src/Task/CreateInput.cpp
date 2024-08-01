@@ -1685,10 +1685,16 @@ void AiTask::CreateInput_ScriptSolver() {
 			results.Title("List of metaphorical colors for the part '" + args.part + "', which does not match " + __entity + " nor " + __snap + " nor " + __comp2);
 			results.Add("RGB(");
 		}
-		#else
+		#elif 0
 		{
 			TaskTitledList& results = input.PreAnswer();
 			results.Title("List of metaphorical colors, which does not match " + __entity + " nor " + __snap + " nor " + __comp2);
+			results.Add("RGB(");
+		}
+		#else
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of metaphorical colors, which does match " + __entity + " and " + __snap + " and " + __comp2);
 			results.Add("RGB(");
 		}
 		#endif
