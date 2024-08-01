@@ -8,17 +8,28 @@ String GetAppModeKeyEntities();
 String GetAppModeKeySnapshots();
 String GetAppModeKeyComponents();
 
-enum {
+typedef enum : int {
+	TXT_NULL,
 	TXT_NORMAL,
 	TXT_PRE_REPEAT,
 	TXT_REPEAT,
 	TXT_TWIST,
 	
 	TXT_COUNT
-};
+} TextPartType;
 
-String GetTextModeString(int i);
+typedef enum : int {
+	VOICE_SINGING,
+	VOICE_RAPPING,
+	VOICE_POETRY,
+	VOICE_DIALOG,
+	VOICE_SKIP,
+	
+	VOICE_TYPE_COUNT
+} VoiceType;
 
+String GetTextTypeString(int i);
+void ParseTextPartType(String part_name, TextPartType& text_type, int& text_num);
 
 enum {
 	AM_ENTITY,

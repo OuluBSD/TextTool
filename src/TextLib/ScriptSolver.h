@@ -30,6 +30,7 @@ class ScriptSolver : public SolverBase {
 	bool start_post_solver = false;
 	
 	// temp
+	int per_batch = 0;
 	Vector<VectorMap<int,double>> phrase_parts;
 	Vector<String> phrases;
 	Vector<Tuple2<int,int>> matches;

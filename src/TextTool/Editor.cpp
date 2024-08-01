@@ -113,9 +113,9 @@ void ToolEditor::InitSimplified() {
 	AddItem("Component", t_("Video prompt maker"), video_prompt_maker);
 	
 	AddItem("Script", t_("Info"), script_info);
-	AddItem("Script", t_("Reference solver"), script_struct_solver);
+	AddItem("Script", t_("Reference finder"), script_struct_solver);
 	//AddItem("Script", t_("Range solver"), script_range_solver);
-	AddItem("Script", t_("Text solver"), script_text_solver);
+	AddItem("Script", t_("Text editor"), script_text_solver);
 	
 	// Deprecated
 	AddItem("Script", t_("_ Structure"), comp_struct);
@@ -186,6 +186,7 @@ void ToolEditor::LoadLast() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
 	p.Zero();
+	int appmode = GetAppMode();
 	for (Entity& a : db.entities) {
 		
 		if (a.file_title == app.last_entity) {
@@ -203,10 +204,10 @@ void ToolEditor::LoadLast() {
 				}
 			}
 			for (Script& s : a.scripts) {
-				if (s.file_title == app.last_component) {
+				if (s.file_title == app.last_script) {
 					p.script = &s;
-					for (StaticPart& part : s.__parts) {
-						if (part.name == app.last_part) {
+					for (DynPart& part : s.parts) {
+						if (part.GetName(appmode) == app.last_part) {
 							p.part = &part;
 							break;
 						}

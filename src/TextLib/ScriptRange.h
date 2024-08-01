@@ -12,7 +12,12 @@ public:
 		PHASE_COLOR,
 		PHASE_ATTR,
 		PHASE_ACTION,
-		LS_COLLECT,
+		PHASE_MAKE_SOURCE_POOL,
+		PHASE_TRANSLATE,
+		PHASE_MAKE_PHRASE_PAIRS,
+		PHASE_MAKE_RHYMES,
+		PHASE_GET_AI_SCORES,
+		
 		
 		PHASE_COUNT,
 	};
@@ -20,15 +25,19 @@ public:
 	void ProcessColor();
 	void ProcessAttr();
 	void ProcessAction();
-	void ProcessCollect();
+	void ProcessTranslate();
+	void ProcessPairPhrases();
+	void ProcessScores();
 	void OnProcessColor(String result);
 	void OnProcessAttr(String result);
-	
+	void OnProcessPairPhrases(String result);
+	void OnProcessRhymes(String result);
+	void OnProcessScores(String result);
+	void OnProcessTranslate(String result);
 	
 	Entity* artist = 0;
 	Script* script = 0;
 	
-	Vector<VectorMap<int,double>> phrase_parts;
 	
 	
 public:
@@ -36,8 +45,6 @@ public:
 	ScriptRangeProcess();
 	
 	int GetPhaseCount() const override;
-	int GetBatchCount(int phase) const override;
-	int GetSubBatchCount(int phase, int batch) const override;
 	void DoPhase() override;
 	
 	static ScriptRangeProcess& Get(int appmode, Entity& a, Script& l);

@@ -16,7 +16,7 @@ protected:
 	Mutex task_lock, data_lock;
 	
 	Time time_started, time_stopped;
-	int generation = 0, phase = 0, batch = 0, sub_batch = 0, batch_count = 0, per_batch = 0;
+	int generation = 0, phase = 0, batch = 0, sub_batch = 0, batch_count = 0;
 	int generation_count = 1;
 	Owner* owner = 0;
 	Profile* profile = 0;

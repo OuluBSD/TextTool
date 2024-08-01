@@ -209,6 +209,14 @@ EditorPtrs& GetAppModePointers(int appmode) {
 	return MetaPtrs::Single().db[appmode];
 }
 
+bool HasAnyEditor() {
+	for(int i = 0; i < DB_COUNT; i++) {
+		auto* p = MetaPtrs::Single().db[i].editor;
+		if (p) return true;
+	}
+	return false;
+}
+
 ToolEditor& GetAnyEditor() {
 	for(int i = 0; i < DB_COUNT; i++) {
 		auto* p = MetaPtrs::Single().db[i].editor;

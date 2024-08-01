@@ -189,6 +189,7 @@ struct StaticPart;
 struct Biography;
 struct BiographyAnalysis;
 struct BiographySnapshot;
+struct DynPart;
 class ToolEditor;
 class LeadsCtrl;
 
@@ -206,7 +207,7 @@ struct EditorPtrs {
 	//TextLib::Typeclass*		typecast = 0;
 	//TextLib::Content*		archetype = 0;
 	TextLib::Script*		script = 0;
-	TextLib::StaticPart*	part = 0;
+	TextLib::DynPart*	part = 0;
 	TextLib::ToolEditor*	editor = 0;
 	
 	void Zero() {memset(this, 0, sizeof(EditorPtrs));}

@@ -4,14 +4,35 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-String GetTextModeString(int i) {
+String GetTextTypeString(int i) {
 	switch (i) {
+		case TXT_NULL:			return "Null";
 		case TXT_NORMAL:		return "Normal";
 		case TXT_PRE_REPEAT:	return "Pre-Repeat";
 		case TXT_REPEAT:		return "Repeat";
 		case TXT_TWIST:			return "Twist";
 		default: TODO			return "";
 	}
+}
+
+void ParseTextPartType(String part_name, TextPartType& text_type, int& text_num) {
+	part_name = TrimBoth(ToLower(part_name));
+	for(int i = 0; i < TXT_COUNT; i++) {
+		String cmp = ToLower(GetTextTypeString(i));
+		if (part_name.Left(cmp.GetCount()) == cmp) {
+			text_type = (TextPartType)i;
+			if (part_name.GetCount() == cmp.GetCount()) {
+				text_num = 0;
+			}
+			else {
+				String tail = TrimLeft(part_name.Mid(cmp.GetCount()));
+				if (tail.GetCount() && IsDigit(tail[0]))
+					text_num = ScanInt(tail);
+			}
+			return;
+		}
+	}
+	text_type = TXT_NULL;
 }
 
 int& __global_appmode();

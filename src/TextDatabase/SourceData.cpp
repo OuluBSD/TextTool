@@ -322,6 +322,8 @@ ComponentAnalysis& DatasetAnalysis::GetComponentAnalysis(int appmode, const Stri
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	
+	EnterAppMode(appmode);
+	
 	String dir =
 		AppendFileName(MetaDatabase::Single().dir,
 		MetaDatabase::Single().share + DIR_SEPS +
@@ -485,7 +487,7 @@ String DatasetAnalysis::GetScriptDump(int i) const {
 	for(int i = 0; i < ss.parts.GetCount(); i++) {
 		const auto& part = ss.parts[i];
 		//if (s.GetCount()) s << "\n";
-		s << Format("[%d: %s]\n", i, GetTextModeString(part.type) + " " + IntStr(part.num+1));
+		s << Format("[%d: %s]\n", i, GetTextTypeString(part.type) + " " + IntStr(part.num+1));
 		
 		for(int j = 0; j < part.sub.GetCount(); j++) {
 			const auto& sub = part.sub[j];
@@ -519,7 +521,7 @@ String DatasetAnalysis::GetScriptDump(DatasetAnalysis& da, int i) const {
 		//if (s.GetCount()) s << "\n";
 		
 		extra = part.cls >= 0 ? da.element_keys[part.cls] : String();
-		s << Format("[%d: %s] (%s)\n", i, GetTextModeString(part.type) + " " + IntStr(part.num+1), extra);
+		s << Format("[%d: %s] (%s)\n", i, GetTextTypeString(part.type) + " " + IntStr(part.num+1), extra);
 		
 		for(int j = 0; j < part.sub.GetCount(); j++) {
 			const auto& sub = part.sub[j];

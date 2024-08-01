@@ -32,21 +32,24 @@ void MakeBelief(Script& song, T& args, int fn) {
 
 class ScriptGenerator : public SolverBase {
 	enum {
-		LG_COLOR,
-		LG_ATTR,
-		LG_ACTION,
-		LG_MAKE_SOURCE_POOL,
-		LG_TRANSLATE,
-		LG_MAKE_PHRASE_PAIRS,
-		LG_MAKE_RHYMES,
-		LG_GET_AI_SCORES,
+		PHASE_COLOR,
+		PHASE_ATTR,
+		PHASE_ACTION,
+		PHASE_MAKE_SOURCE_POOL,
+		PHASE_TRANSLATE,
+		PHASE_MAKE_PHRASE_PAIRS,
+		PHASE_MAKE_RHYMES,
+		PHASE_GET_AI_SCORES,
+		PHASE_COLLECT,
 		
-		LG_COUNT
+		PHASE_COUNT
 	};
 	Entity* artist = 0;
 	Script* script = 0;
 	
-	// params
+	// Params
+	int per_attr_batch = 50;
+	int max_phrase_parts = 100;
 	int per_sub_batch =  50;
 	int pair_limit = 300;
 	int phrase_limit = 150;
@@ -65,6 +68,7 @@ class ScriptGenerator : public SolverBase {
 	void ProcessAction();
 	void ProcessRhymes();
 	void ProcessScores();
+	void ProcessCollect();
 	void OnProcessColor(String result);
 	void OnProcessAttr(String result);
 	void OnProcessPairPhrases(String result);
@@ -81,6 +85,8 @@ public:
 	ScriptGenerator();
 	
 	int GetPhaseCount() const override;
+	int GetBatchCount(int phase) const override;
+	int GetSubBatchCount(int phase, int batch) const override;
 	void DoPhase() override;
 	static ScriptGenerator& Get(int appmode, Entity& a, Script& l);
 	

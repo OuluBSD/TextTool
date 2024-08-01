@@ -32,7 +32,7 @@ class TextTool : public TopWindow {
 protected:
 	friend class ToolEditor;
 	
-	String last_scripts, last_part;
+	String last_script, last_part;
 	String last_entity, last_snapshot, last_component;
 	String last_owner, last_profile;
 	
@@ -47,7 +47,7 @@ public:
 	void PostInit() {PostCallback(THISBACK(Init));}
 	void Data();
 	void SetView(int i);
-	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed % lead % last_entity % last_snapshot % last_component % last_scripts % last_part % last_owner % last_profile;}
+	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed % lead % last_entity % last_snapshot % last_component % last_script % last_part % last_owner % last_profile;}
 	void Layout() override {SaveWindowPos();}
 	void ShowOrphanedFiles();
 	void SaveWindowPos();

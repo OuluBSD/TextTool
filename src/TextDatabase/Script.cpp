@@ -4,6 +4,18 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+String DynPart::GetName(int appmode) const {
+	ASSERT(appmode == DB_SONG);
+	String s = GetTextTypeString(text_type);
+	if (text_num >= 0)
+		s += " " + IntStr(text_num+1);
+	return s;
+}
+
+
+
+
+
 String LineScore::Get(int i, int j) const {
 	ASSERT(line_n > 0);
 	ASSERT(j >= 0 && j < line_n);
@@ -223,6 +235,71 @@ StaticPart* Script::FindPartByName(const String& name) {
 		if (ToLower(sp.name) == lname)
 			return &sp;
 	return 0;
+}
+
+void Script::LoadStructuredText(const String& s) {
+	parts.Clear();
+	Vector<String> lines = Split(s, "\n");
+	int indent = 0;
+	DynPart* part = 0;
+	DynSub* sub = 0;
+	String el1;
+	for (String& l : lines) {
+		l = TrimBoth(l);
+		if (l.IsEmpty()) continue;
+		int diff = 0;;
+		if (l[0] == '[') {
+			int a = 1;
+			int b0 = l.Find("]");
+			int b1 = l.Find(":");
+			int b = -1;
+			String part_name;
+			if (b0 >= 0 && b1 >= 0) {
+				b = min(b0,b1);
+				b1++;
+				part_name = l.Mid(b1,b0-b1);
+			}
+			else if (b0 >= 0) b = b0;
+			else b = b1;
+			
+			if (b >= 0) {
+				indent = Split(l.Mid(a,b-a),".").GetCount();
+				
+				String el;
+				b = l.Find("]",b);
+				a = l.Find("(",b);
+				if (a >= 0) {
+					a++;
+					b = l.Find(")",a);
+					el = l.Mid(a,b-a);
+				}
+				
+				diff = -1;
+				int level = indent + diff;
+				if (level == 0) {
+					part = &parts.Add();
+					ParseTextPartType(part_name, part->text_type, part->text_num);
+					part->element = el;
+				}
+				else if (level == 1) {
+					el1 = el;
+					sub = &part->sub.Add();
+					sub->element0 = el;
+				}
+				else if (level == 2) {
+					if (sub->lines.GetCount()) {
+						sub = &part->sub.Add();
+						sub->element0 = el1;
+					}
+					sub->element1 = el;
+				}
+			}
+		}
+		else {
+			DynLine& dl = sub->lines.Add();
+			dl.text = l;
+		}
+	}
 }
 
 int StaticPart::GetExpectedLineCount(Script& song) const {

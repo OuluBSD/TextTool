@@ -27,6 +27,53 @@ struct LineScore : Moveable<LineScore> {
 	}
 };
 
+struct DynLine : Moveable<DynLine> {
+	String			text;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("text", text)
+			;
+	}
+};
+
+struct DynSub : Moveable<DynSub> {
+	Vector<DynLine>	lines;
+	String element0;
+	String element1;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("lines", lines)
+			("element0", element0)
+			("element1", element1)
+			;
+	}
+};
+
+struct DynPart {
+	VoiceType		voice_type = VOICE_SINGING;
+	TextPartType	text_type = TXT_NORMAL;
+	int				text_num = -1;
+	String			person;
+	String			element;
+	Vector<DynSub>	sub;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("voice_type", (int&)voice_type)
+			("text_type", (int&)text_type)
+			("text_num", (int&)text_type)
+			("person", person)
+			("element", element)
+			("sub", sub)
+			;
+	}
+	String GetName(int appmode) const;
+	
+};
+
+// Deprecated
 struct StaticPart {
 	// Part types
 	typedef enum : int {
@@ -46,33 +93,7 @@ struct StaticPart {
 	RhymeContainer text, coarse_text;
 	RhymeContainer reference;
 	RhymeContainer generated;
-	
 	Vector<LineScore>	conv;
-	
-	#if 0
-	Vector<String> active_source_wordsalad;
-	Vector<String> active_source_text;
-	Vector<Vector<String>> source_text_suggestions;
-	Vector<String> source; // lines
-	Vector<String> ai_source;
-	String rhyme_scheme;
-	String mockup;
-	VectorMap<String,String> data;
-	bool outdated_suggestions = true;
-	int content_cursor = -1;
-	int bar_length = 0;
-	Vector<Vector<Vector<Color>>> colors;
-	Vector<Vector<Color>> listener_colors;
-	Vector<Vector<Vector<String>>> vocabulary;
-	Vector<Vector<String>> wordsalads;
-	Vector<Vector<Color>> wordsalad_clrs;
-	Vector<double> wordgroup_factors;
-	Vector<Vector<int>> thrd_actions;
-	Vector<String> saved_scripts;
-	//Vector<int> clr_list;
-	//Index<int> picked_phrase_parts;
-	#endif
-	
 	Vector<bool> actions_enabled;
 	Vector<int> phrase_parts;
 	
@@ -93,29 +114,6 @@ struct StaticPart {
 			("reference", reference)
 			("generated", generated)
 			("conv", conv)
-			#if 0
-			("active_source_wordsalad", active_source_wordsalad)
-			("active_source_text", active_source_text)
-			("source_text_suggestions", source_text_suggestions)
-			("source", source)
-			("ai_source", ai_source)
-			("rhyme_scheme", rhyme_scheme)
-			("data", data)
-			("outdated_suggestions", outdated_suggestions)
-			("content_cursor", content_cursor)
-			("bar_length", bar_length)
-			("colors", colors)
-			("listener_colors", listener_colors)
-			("vocabulary", vocabulary)
-			("wordsalads", wordsalads)
-			("wordsalad_clrs", wordsalad_clrs)
-			("wordgroup_factors", wordgroup_factors)
-			("mockup", mockup)
-			("thrd_actions", thrd_actions)
-			("saved_" + __scripts, saved_scripts)
-			//("clr_list", clr_list)
-			//("picked_phrase_parts", picked_phrase_parts)
-			#endif
 			;
 		JsonCompressedStream(json, "actions_enabled", actions_enabled);
 		JsonCompressedStream(json, "phrase_parts", phrase_parts);
@@ -438,6 +436,10 @@ struct Script : DataFile {
 	Array<ScriptPostFix>		postfixes;
 	ScriptStruct				ref_struct;
 	
+	Array<DynPart>				parts;
+	Vector<bool>				actions_enabled;
+	Vector<int>					phrase_parts[ContentType::PART_COUNT];
+	
 	// Deprecated
 	ScriptStructure				__active_struct;
 	VectorMap<int, String>		__suggestions;
@@ -456,6 +458,7 @@ struct Script : DataFile {
 	String GetAnyTitle() const;
 	String GetText() const;
 	String GetTextStructure(bool coarse) const;
+	void LoadStructuredText(const String& s);
 	
 	//Script() {post_analysis.SetCount(POSTSCRIPT_COUNT);}
 	Script() {post_analysis.SetCount(SCORE_COUNT);}
@@ -480,39 +483,15 @@ struct Script : DataFile {
 			("postfixes", postfixes)
 			("parts", __parts)
 			("ref_struct", ref_struct)
+			("new_parts", parts)
 			("active_struct", __active_struct)
 			("suggestions", __suggestions)
 			("text", __text)
-			
-		#if 0
-			("user_structure", user_structure)
-			("required_parts", required_parts)
-			("avoid_parts", avoid_parts)
-			("structure_suggestion_description", structure_suggestion_description)
-			("parts_total", parts_total)
-			("bpm", bpm)
-			
-			("verse_length", verse_length)
-			("prechorus_length", prechorus_length)
-			("chorus_length", chorus_length)
-			("bridge_length", bridge_length)
-			
-			("structure_str", structure_str)
-			("struct_suggs", struct_suggs)
-			("picked_phrase_parts", picked_phrase_parts)
-			
-			
-			("singer0_name", singer0_name)
-			("singer1_name", singer1_name)
-			("singer2_name", singer2_name)
-			("singer0_parts", singer0_parts)
-			("singer1_parts", singer1_parts)
-			("singer2_parts", singer2_parts)
-			
-			("ideas", ideas)
-		#endif
 			;
 		
+		for(int i = 0; i < ContentType::PART_COUNT; i++)
+			JsonCompressedStream(json, "phrase_parts" + IntStr(i), phrase_parts[i]);
+		JsonCompressedStream(json, "actions_enabled", actions_enabled);
 		JsonCompressedStream(json, "simple_attrs", simple_attrs);
 		
 		if (json.IsLoading()) {

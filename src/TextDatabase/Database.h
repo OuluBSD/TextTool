@@ -163,6 +163,7 @@ EditorPtrs& GetAppModePointers();
 EditorPtrs& GetAppModePointers(int appmode);
 void EnterAppMode(int i);
 void LeaveAppMode();
+bool HasAnyEditor();
 ToolEditor& GetAnyEditor();
 LeadsCtrl& GetAnyLeads();
 int GetAppModeGlobal();

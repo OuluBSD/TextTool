@@ -60,8 +60,8 @@ void TextTool::StoreLast() {
 	last_profile = mp.profile ? mp.profile->name : String();
 	
 	EditorPtrs& p = ed.GetPointers();
-	last_scripts = p.script ? p.script->file_title : String();
-	last_part = p.part ? p.part->name : String();
+	last_script = p.script ? p.script->file_title : String();
+	last_part = p.part ? p.part->GetName(ed.GetAppMode()) : String();
 	last_entity = p.entity ? p.entity->file_title : String();
 	last_snapshot = p.release ? p.release->file_title : String();
 	last_component = p.component ? p.component->file_title : String();

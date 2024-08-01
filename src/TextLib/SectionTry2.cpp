@@ -363,7 +363,7 @@ String TryStrDistSectionSolverBase::GetResult() const {
 			if (sect.meta_section != prev_msect) {
 				const MetaSection& ms = meta_sections[sect.meta_section];
 				if (s.GetCount()) s << "\n";
-				s << Format("[meta-section %d: %s, count %d]\n", sect.meta_section, GetTextModeString(ms.type) + " " + IntStr(ms.num+1), ms.count);
+				s << Format("[meta-section %d: %s, count %d]\n", sect.meta_section, GetTextTypeString(ms.type) + " " + IntStr(ms.num+1), ms.count);
 				prev_msect = sect.meta_section;
 			}
 			else if (s.GetCount()) s << "\n";

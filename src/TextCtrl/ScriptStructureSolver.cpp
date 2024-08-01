@@ -52,6 +52,7 @@ void ScriptStructureSolverCtrl::ToolMenu(Bar& bar) {
 void ScriptStructureSolverCtrl::Do(int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
+	Script& s = GetScript();
 	
 	//DoT<ScriptStructureProcess>(fn);
 	if (fn == 2) {
@@ -82,6 +83,9 @@ void ScriptStructureSolverCtrl::Do(int fn) {
 			PromptOK("Morph text first");
 			return;
 		}
+		if (s.parts.GetCount() && !PromptYesNo("Are you sure you want to replace current text of this script?"))
+			return;
+		s.LoadStructuredText(input);
 		
 		ConceptualFrameworkArgs args;
 		args.fn = 7;

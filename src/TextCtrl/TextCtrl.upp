@@ -66,8 +66,6 @@ file
 	ScriptInfoCtrl.cpp,
 	ScriptStructureSolver.h,
 	ScriptStructureSolver.cpp,
-	ScriptRangeSolver.h,
-	ScriptRangeSolver.cpp,
 	ScriptTextSolver.h,
 	ScriptTextSolver.cpp,
 	StructuredScriptEditor.cpp,
