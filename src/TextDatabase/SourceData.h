@@ -598,7 +598,7 @@ struct ExportSimpleAttr : Moveable<ExportSimpleAttr> {
 	
 };
 
-struct ComponentCandidateCache {
+/*struct ComponentCandidateCache {
 	struct Part : Moveable<Part> {
 		void Serialize(Stream& s) {}
 		void Jsonize(JsonIO& json) {
@@ -616,7 +616,7 @@ struct ComponentCandidateCache {
 			("parts", parts)
 			;
 	}
-};
+};*/
 
 
 struct DatasetAnalysis;
@@ -702,7 +702,7 @@ struct DatasetAnalysis {
 	
 	// Cached data
 	VectorMap<PackedRhymeHeader, Vector<PackedRhymeContainer>> packed_rhymes;
-	ArrayMap<String, ComponentCandidateCache> cache;
+	//ArrayMap<String, ComponentCandidateCache> cache;
 	
 	DatasetAnalysis();
 	DatasetAnalysis(DatasetAnalysis&) {}
@@ -721,11 +721,11 @@ struct DatasetAnalysis {
 	void Jsonize(JsonIO& json) {
 		json
 			("packed_rhymes", packed_rhymes)
-			(GetAppModeKey(AM_COMPONENT) + "_cache", cache)
+			//(GetAppModeKey(AM_COMPONENT) + "_cache", cache)
 			;
 	}
 	void Serialize(Stream& s) {
-		s % packed_rhymes % cache;
+		s % packed_rhymes /*% cache*/;
 	}
 	
 	#if 0

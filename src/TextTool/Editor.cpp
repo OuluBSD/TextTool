@@ -205,7 +205,7 @@ void ToolEditor::LoadLast() {
 			for (Script& s : a.scripts) {
 				if (s.file_title == app.last_component) {
 					p.script = &s;
-					for (StaticPart& part : s.parts) {
+					for (StaticPart& part : s.__parts) {
 						if (part.name == app.last_part) {
 							p.part = &part;
 							break;
@@ -474,7 +474,7 @@ void ToolEditor::DataPart() {
 	int cursor = parts.GetCursor();
 	
 	db.ctx.active_wholesong = false;
-	p.part = &song.parts[cursor];
+	p.part = &song.__parts[cursor];
 	
 	int part_i = p.GetActivePartIndex();
 	if (part_i >= 0 && part_i < parts.GetCount() && !parts.IsCursor())

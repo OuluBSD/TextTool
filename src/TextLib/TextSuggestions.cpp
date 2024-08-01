@@ -13,7 +13,7 @@ int TextSuggestions::GetPhaseCount() const {
 }
 
 void TextSuggestions::DoPhase() {
-	StaticPart& sp = script->parts[part_i];
+	StaticPart& sp = script->__parts[part_i];
 	auto& gen = sp.generated.Get();
 	auto& ref = sp.reference.Get();
 	auto& txt = sp.text.Get();

@@ -24,7 +24,7 @@ ScriptGenerator& ScriptGenerator::Get(int appmode, Entity& a, Script& l) {
 	ScriptGenerator& ls = map.Add(h);
 	ls.appmode = appmode;
 	ls.artist = &a;
-	ls.scripts = &l;
+	ls.script = &l;
 	return ls;
 }
 
@@ -70,7 +70,7 @@ void ScriptGenerator::ProcessSourcePool() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
-	Script& song = *this->scripts;
+	Script& song = *this->script;
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
@@ -216,7 +216,7 @@ void ScriptGenerator::ProcessTranslate() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
-	Script& song = *this->scripts;
+	Script& song = *this->script;
 	
 	if (song.lng_i == 0) {
 		NextPhase();
@@ -303,7 +303,7 @@ void ScriptGenerator::OnProcessTranslate(String res) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
-	Script& song = *this->scripts;
+	Script& song = *this->script;
 	ASSERT(song.lng_i > 0 && song.lng_i < LNG_COUNT);
 	auto& translations = da.phrase_translations[song.lng_i];
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
@@ -344,7 +344,7 @@ void ScriptGenerator::ProcessPairPhrases() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
-	Script& song = *this->scripts;
+	Script& song = *this->script;
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
@@ -441,7 +441,7 @@ void ScriptGenerator::OnProcessPairPhrases(String res) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
-	Script& song = *this->scripts;
+	Script& song = *this->script;
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
@@ -506,7 +506,7 @@ void ScriptGenerator::ProcessRhymes() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
-	Script& song = *this->scripts;
+	Script& song = *this->script;
 	bool collect_token_texts = song.lng_i == LNG_NATIVE;
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
@@ -588,7 +588,7 @@ void ScriptGenerator::OnProcessRhymes(String res) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
-	Script& song = *this->scripts;
+	Script& song = *this->script;
 	bool collect_token_texts = song.lng_i == LNG_NATIVE;
 	
 	
@@ -706,7 +706,7 @@ void ScriptGenerator::ProcessScores() {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
-	Script& song = *this->scripts;
+	Script& song = *this->script;
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
@@ -798,7 +798,7 @@ void ScriptGenerator::OnProcessScores(String res) {
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
-	Script& song = *this->scripts;
+	Script& song = *this->script;
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	

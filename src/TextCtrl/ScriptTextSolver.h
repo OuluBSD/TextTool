@@ -5,8 +5,20 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-class ScriptTextSolverCtrl : public ToolAppCtrl {
+class StructuredScriptEditor : public Ctrl{
 	
+	
+public:
+	typedef StructuredScriptEditor CLASSNAME;
+	StructuredScriptEditor();
+	
+	void Paint(Draw& d) override;
+	
+};
+
+class ScriptTextSolverCtrl : public ToolAppCtrl {
+	Splitter hsplit, rsplit;
+	StructuredScriptEditor editor;
 	
 public:
 	typedef ScriptTextSolverCtrl CLASSNAME;

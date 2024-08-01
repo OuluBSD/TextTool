@@ -131,8 +131,8 @@ void ToolAppCtrl::GetAttrs(const VectorMap<String,String>& data, VectorMap<Strin
 void ToolAppCtrl::MakeComponentParts(ArrayCtrl& parts) {
 	/*Component& song = GetComponent();
 	
-	for(int i = 0; i < song.parts.GetCount(); i++) {
-		StaticPart& sp = song.parts[i];
+	for(int i = 0; i < song.__parts.GetCount(); i++) {
+		StaticPart& sp = song.__parts[i];
 		//parts.Set(i, 0, sp.name);
 		//parts.Set(i, 1, part.GetTypeString());
 		parts.Set(i, 0,
@@ -145,7 +145,7 @@ void ToolAppCtrl::MakeComponentParts(ArrayCtrl& parts) {
 		dl.WhenAction << [&dl,i,&sp]() {(int&)sp.part_type = dl.GetIndex();};
 	}
 	INHIBIT_CURSOR(parts);
-	parts.SetCount(song.parts.GetCount());
+	parts.SetCount(song.__parts.GetCount());
 	if (!parts.IsCursor() && parts.GetCount())
 		parts.SetCursor(0);*/
 }

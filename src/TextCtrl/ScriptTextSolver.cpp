@@ -5,6 +5,10 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 ScriptTextSolverCtrl::ScriptTextSolverCtrl() {
+	Add(hsplit.SizePos());
+	
+	hsplit.Horz() << editor << rsplit;
+	
 	
 }
 

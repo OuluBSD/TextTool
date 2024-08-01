@@ -70,8 +70,8 @@ void ScriptSolver::DoPhase() {
 }
 
 void ScriptSolver::ClearScript() {
-	for(int i = 0; i < script->parts.GetCount(); i++) {
-		StaticPart& sp = script->parts[i];
+	for(int i = 0; i < script->__parts.GetCount(); i++) {
+		StaticPart& sp = script->__parts[i];
 		auto& lines = sp.text.Get();
 		for(int j = 0; j < lines.GetCount(); j++) {
 			auto& line = lines[j];
@@ -84,18 +84,18 @@ void ScriptSolver::ClearScript() {
 }
 
 void ScriptGenerator::ProcessColor() {
-	if (batch >= scripts->parts.GetCount()) {
+	if (batch >= script->__parts.GetCount()) {
 		NextPhase();
 		return;
 	}
 	
-	Script& song = *this->scripts;
+	Script& song = *this->script;
 	if (skip_ready && song.clr_list.GetCount()) {
 		NextPhase();
 		return;
 	}
 	
-	/*StaticPart& sp = scripts->parts[batch];
+	/*StaticPart& sp = script->__parts[batch];
 	if (sp.part_type == StaticPart::SKIP ||
 		sp.name.IsEmpty() ||
 		(skip_ready && sp.clr_list.GetCount())) {
@@ -127,8 +127,8 @@ void ScriptGenerator::ProcessColor() {
 	args.song.Add(__content, GetContents(appmode)[song.content].key);
 	
 	// Parts
-	for(int i = 0; i < song.parts.GetCount(); i++)
-		args.parts << song.parts[i].name;
+	for(int i = 0; i < song.__parts.GetCount(); i++)
+		args.parts << song.__parts[i].name;
 	//args.part = sp.name; // active part
 	
 	SetWaiting(1);
@@ -140,7 +140,7 @@ void ScriptGenerator::ProcessColor() {
 
 void ScriptGenerator::OnProcessColor(String result) {
 	//LOG(result);
-	Script& song = *this->scripts;
+	Script& song = *this->script;
 	
 	result = "- RGB(" + result;
 	
@@ -199,15 +199,15 @@ void ScriptGenerator::ProcessAttr() {
 	args.release.Add("year of content", IntStr(release->year_of_content));*/
 	
 	// Song information
-	if (scripts->native_title.GetCount())
-		args.song.Add("title of " + __comp, scripts->native_title);
-	args.song.Add(__entity + "'s content vision", scripts->content_vision);
-	args.song.Add(__typeclass, GetTypeclasses(appmode)[scripts->typeclass]);
-	args.song.Add(__content, GetContents(appmode)[scripts->content].key);
+	if (script->native_title.GetCount())
+		args.song.Add("title of " + __comp, script->native_title);
+	args.song.Add(__entity + "'s content vision", script->content_vision);
+	args.song.Add(__typeclass, GetTypeclasses(appmode)[script->typeclass]);
+	args.song.Add(__content, GetContents(appmode)[script->content].key);
 	
 	// Parts
-	for(int i = 0; i < scripts->parts.GetCount(); i++)
-		args.parts << scripts->parts[i].name;
+	for(int i = 0; i < script->__parts.GetCount(); i++)
+		args.parts << script->__parts[i].name;
 	
 	
 	per_batch = 50;
@@ -215,11 +215,11 @@ void ScriptGenerator::ProcessAttr() {
 	int end = begin + per_batch;
 	end = min(end, da.simple_attrs.GetCount());
 	
-	if (skip_ready && end < scripts->simple_attrs.GetCount()) {
+	if (skip_ready && end < script->simple_attrs.GetCount()) {
 		NextBatch();
 		return;
 	}
-	if (skip_ready && end == scripts->simple_attrs.GetCount()) {
+	if (skip_ready && end == script->simple_attrs.GetCount()) {
 		NextPhase();
 		return;
 	}
@@ -256,8 +256,8 @@ void ScriptGenerator::OnProcessAttr(String result) {
 	int end = begin + per_batch;
 	end = min(end, da.simple_attrs.GetCount());
 	
-	if (end > scripts->simple_attrs.GetCount())
-		scripts->simple_attrs.SetCount(end, 0);
+	if (end > script->simple_attrs.GetCount())
+		script->simple_attrs.SetCount(end, 0);
 	
 	RemoveEmptyLines3(result);
 	Vector<String> lines = Split(result, "\n");
@@ -281,8 +281,8 @@ void ScriptGenerator::OnProcessAttr(String result) {
 			positive = false;
 		bool negative = !positive;
 		
-		if (pos < scripts->simple_attrs.GetCount())
-			scripts->simple_attrs[pos] = negative;
+		if (pos < script->simple_attrs.GetCount())
+			script->simple_attrs[pos] = negative;
 	}
 	
 	NextBatch();
@@ -295,12 +295,12 @@ void ScriptGenerator::ProcessAction() {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	
-	if (batch >= scripts->parts.GetCount()) {
+	if (batch >= script->__parts.GetCount()) {
 		NextPhase();
 		return;
 	}
 	
-	StaticPart& sp = scripts->parts[batch];
+	StaticPart& sp = script->__parts[batch];
 	if ((skip_ready && sp.actions_enabled.GetCount() == da.actions.GetCount()) ||
 		sp.part_type == StaticPart::SKIP) {
 		NextBatch();
@@ -323,10 +323,10 @@ void ScriptGenerator::ProcessAction() {
 			
 			if (eat->simple_attr >= 0) {
 				const ExportSimpleAttr& esa = da.simple_attrs[eat->simple_attr];
-				if (eat->simple_attr >= scripts->simple_attrs.GetCount()) {
-					scripts->simple_attrs.SetCount(eat->simple_attr+1,false);
+				if (eat->simple_attr >= script->simple_attrs.GetCount()) {
+					script->simple_attrs.SetCount(eat->simple_attr+1,false);
 				}
-				bool song_positive = scripts->simple_attrs[eat->simple_attr];
+				bool song_positive = script->simple_attrs[eat->simple_attr];
 				bool attr_positive = eat->positive;
 				enabled = song_positive == attr_positive;
 				continue;
@@ -335,7 +335,7 @@ void ScriptGenerator::ProcessAction() {
 		// Filter by color
 		if (ea.clr != no_clr) {
 			int clr_group = GetColorGroup(ea.clr);
-			enabled = VectorFind(scripts->clr_list, clr_group) >= 0;
+			enabled = VectorFind(script->clr_list, clr_group) >= 0;
 			continue;
 		}
 		
@@ -368,8 +368,8 @@ void ScriptSolver::ProcessFillLines() {
 	// Realize suggestion and minimum data
 	ScriptSuggestion& sugg = sa.script_suggs.GetAdd(batch);
 	{
-		for(int i = 0; i < song.parts.GetCount(); i++) {
-			StaticPart& sp = song.parts[i];
+		for(int i = 0; i < song.__parts.GetCount(); i++) {
+			StaticPart& sp = song.__parts[i];
 			String name = sp.name;
 			if (!sp.singer.IsEmpty())
 				name += " by the singer '" + sp.singer + "'";
@@ -416,7 +416,7 @@ void ScriptSolver::ProcessFillLines() {
 	
 	StaticPart* part = song.FindPartByName(active_part);
 	ASSERT(part);
-	if (!part) part = &song.parts[0];
+	if (!part) part = &song.__parts[0];
 	
 	int per_part = 20;
 	int min_per_part = 15;
@@ -668,8 +668,8 @@ void ScriptSolver::ProcessPrimary() {
 	TODO
 	#if 0
 	part_sizes.Clear();
-	for(int i = 0; i < song.parts.GetCount(); i++) {
-		const StaticPart& sp = song.parts[i];
+	for(int i = 0; i < song.__parts.GetCount(); i++) {
+		const StaticPart& sp = song.__parts[i];
 		args.parts << sp.name;
 		
 		int len = 2;
@@ -1201,11 +1201,11 @@ void ScriptSolver::ProcessScoreMatch() {
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->script;
 	
-	if (batch >= song.parts.GetCount()) {
+	if (batch >= song.__parts.GetCount()) {
 		NextPhase();
 		return;
 	}
-	StaticPart& sp = song.parts[batch];
+	StaticPart& sp = song.__parts[batch];
 	if (sub_batch >= sp.conv.GetCount()) {
 		NextBatch();
 		return;
@@ -1239,11 +1239,11 @@ void ScriptSolver::OnProcessScoreMatch(String res) {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->script;
-	if (batch >= song.parts.GetCount()) {
+	if (batch >= song.__parts.GetCount()) {
 		NextPhase();
 		return;
 	}
-	StaticPart& sp = song.parts[batch];
+	StaticPart& sp = song.__parts[batch];
 	if (sub_batch >= sp.conv.GetCount()) {
 		NextBatch();
 		return;
@@ -1310,15 +1310,15 @@ void ScriptSolver::ProcessFillReferenceMatch() {
 	
 	if (batch == 0 && sub_batch == 0) {
 		added_phrases.Clear();
-		for(int i = 0; i < song.parts.GetCount(); i++)
-			song.parts[i].coarse_text.Clear();
+		for(int i = 0; i < song.__parts.GetCount(); i++)
+			song.__parts[i].coarse_text.Clear();
 	}
 	
-	if (batch >= song.parts.GetCount()) {
+	if (batch >= song.__parts.GetCount()) {
 		NextPhase();
 		return;
 	}
-	StaticPart& sp = song.parts[batch];
+	StaticPart& sp = song.__parts[batch];
 	if (sub_batch >= sp.conv.GetCount()) {
 		NextBatch();
 		return;
@@ -1393,7 +1393,7 @@ void ScriptSolver::OnProcessFillReferenceMatch(String res) {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->script;
-	StaticPart& sp = song.parts[batch];
+	StaticPart& sp = song.__parts[batch];
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	

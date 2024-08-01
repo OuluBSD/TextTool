@@ -56,7 +56,7 @@ ScriptRangeProcess& ScriptRangeProcess::Get(int appmode, Entity& a, Script& l) {
 }
 
 void ScriptRangeProcess::ProcessColor() {
-	if (batch >= script->parts.GetCount()) {
+	if (batch >= script->__parts.GetCount()) {
 		NextPhase();
 		return;
 	}
@@ -67,7 +67,7 @@ void ScriptRangeProcess::ProcessColor() {
 		return;
 	}
 	
-	/*StaticPart& sp = script->parts[batch];
+	/*StaticPart& sp = script->__parts[batch];
 	if (sp.part_type == StaticPart::SKIP ||
 		sp.name.IsEmpty() ||
 		(skip_ready && sp.clr_list.GetCount())) {
@@ -99,8 +99,8 @@ void ScriptRangeProcess::ProcessColor() {
 	args.song.Add(__content, GetContents(appmode)[song.content].key);
 	
 	// Parts
-	for(int i = 0; i < song.parts.GetCount(); i++)
-		args.parts << song.parts[i].name;
+	for(int i = 0; i < song.__parts.GetCount(); i++)
+		args.parts << song.__parts[i].name;
 	//args.part = sp.name; // active part
 	
 	SetWaiting(1);
@@ -178,8 +178,8 @@ void ScriptRangeProcess::ProcessAttr() {
 	args.song.Add(__content, GetContents(appmode)[script->content].key);
 	
 	// Parts
-	for(int i = 0; i < script->parts.GetCount(); i++)
-		args.parts << script->parts[i].name;
+	for(int i = 0; i < script->__parts.GetCount(); i++)
+		args.parts << script->__parts[i].name;
 	
 	
 	per_batch = 50;
@@ -267,12 +267,12 @@ void ScriptRangeProcess::ProcessAction() {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	
-	if (batch >= script->parts.GetCount()) {
+	if (batch >= script->__parts.GetCount()) {
 		NextPhase();
 		return;
 	}
 	
-	StaticPart& sp = script->parts[batch];
+	StaticPart& sp = script->__parts[batch];
 	if ((skip_ready && sp.actions_enabled.GetCount() == da.actions.GetCount()) ||
 		sp.part_type == StaticPart::SKIP) {
 		NextBatch();

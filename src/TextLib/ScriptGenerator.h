@@ -44,7 +44,7 @@ class ScriptGenerator : public SolverBase {
 		LG_COUNT
 	};
 	Entity* artist = 0;
-	Script* scripts = 0;
+	Script* script = 0;
 	
 	// params
 	int per_sub_batch =  50;

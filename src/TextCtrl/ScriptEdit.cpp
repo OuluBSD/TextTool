@@ -48,7 +48,7 @@ void ScriptEditCtrl::LineMenu(Bar& bar) {
 		Script& song = GetScript();
 		int part_i = lines.Get("PART");
 		int line_i = lines.Get("LINE");
-		StaticPart& sp = song.parts[part_i];
+		StaticPart& sp = song.__parts[part_i];
 		auto& v1 = sp.text.Get();
 		if (line_i >= v1.GetCount())
 			v1.SetCount(line_i+1);
@@ -76,7 +76,7 @@ void ScriptEditCtrl::LineMenu(Bar& bar) {
 		Script& song = GetScript();
 		int part_i = lines.Get("PART");
 		int line_i = lines.Get("LINE");
-		StaticPart& sp = song.parts[part_i];
+		StaticPart& sp = song.__parts[part_i];
 		auto& v0 = sp.reference.Get();
 		auto& v1 = sp.text.Get();
 		if (line_i < v0.GetCount()) {
@@ -96,7 +96,7 @@ void ScriptEditCtrl::SuggMenu(Bar& bar) {
 		Script& song = GetScript();
 		int part_i = lines.Get("PART");
 		int line_i = lines.Get("LINE");
-		StaticPart& sp = song.parts[part_i];
+		StaticPart& sp = song.__parts[part_i];
 		auto& v1 = sp.text.Get();
 		if (line_i >= v1.GetCount())
 			v1.SetCount(line_i+1);
@@ -121,8 +121,8 @@ void ScriptEditCtrl::Data() {
 	
 	
 	int row = 0;
-	for(int i = 0; i < song.parts.GetCount(); i++) {
-		StaticPart& sp = song.parts[i];
+	for(int i = 0; i < song.__parts.GetCount(); i++) {
+		StaticPart& sp = song.__parts[i];
 		
 		const auto& gen_lines = sp.generated.Get();
 		const auto& ref_lines = sp.reference.Get();
@@ -173,7 +173,7 @@ void ScriptEditCtrl::DataLine() {
 	int appmode = GetAppMode();
 	int part_i = lines.Get("PART");
 	int line_i = lines.Get("LINE");
-	StaticPart& sp = song.parts[part_i];
+	StaticPart& sp = song.__parts[part_i];
 	
 	{
 		auto& v = sp.reference.Get();
@@ -260,7 +260,7 @@ void ScriptEditCtrl::GetSuggestions() {
 	int appmode = GetAppMode();
 	int part_i = lines.Get("PART");
 	int line_i = lines.Get("LINE");
-	StaticPart& sp = song.parts[part_i];
+	StaticPart& sp = song.__parts[part_i];
 	
 	auto& v = sp.generated.Get();
 	if (line_i >= v.GetCount()) {
@@ -323,7 +323,7 @@ void ScriptEditCtrl::Do(int fn) {
 	tmp_i = lines.GetCursor();
 	int part_i = lines.Get("PART");
 	int line_i = lines.Get("LINE");
-	StaticPart& sp = song.parts[part_i];
+	StaticPart& sp = song.__parts[part_i];
 	
 	auto& v = sp.generated.Get();
 	if (line_i >= v.GetCount()) {

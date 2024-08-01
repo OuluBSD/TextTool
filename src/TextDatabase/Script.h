@@ -420,34 +420,6 @@ struct ScriptPostFix {
 };
 
 struct Script : DataFile {
-	#if 0
-	String						native_title;
-	String						english_title;
-	String						singer0_name;
-	String						singer1_name;
-	String						singer2_name;
-	String						singer0_parts;
-	String						singer1_parts;
-	String						singer2_parts;
-	
-	String user_structure;
-	String required_parts;
-	String avoid_parts;
-	String structure_suggestion_description;
-	int parts_total = 0;
-	int bpm = 0;
-	
-	int verse_length = 8;
-	int prechorus_length = 2;
-	int chorus_length = 4;
-	int bridge_length = 4;
-	
-	String						structure_str;
-	Array<StructSuggestion>		struct_suggs;
-	Index<int>					picked_phrase_parts;
-	
-	#endif
-	
 	String						native_title;
 	String						copyright;
 	String						content_vision;
@@ -464,13 +436,13 @@ struct Script : DataFile {
 	Vector<int>					clr_list;
 	Vector<String>				post_analysis;
 	Array<ScriptPostFix>		postfixes;
-	Array<StaticPart>			parts;
 	ScriptStruct				ref_struct;
 	
 	// Deprecated
 	ScriptStructure				__active_struct;
 	VectorMap<int, String>		__suggestions;
 	String						__text;
+	Array<StaticPart>			__parts;
 	
 	
 	Vector<int> GetPartPositions(const StaticPart& part) const;
@@ -506,7 +478,7 @@ struct Script : DataFile {
 			("clr_list", clr_list)
 			("post_analysis", post_analysis)
 			("postfixes", postfixes)
-			("parts", parts)
+			("parts", __parts)
 			("ref_struct", ref_struct)
 			("active_struct", __active_struct)
 			("suggestions", __suggestions)

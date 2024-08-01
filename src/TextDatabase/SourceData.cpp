@@ -49,7 +49,7 @@ void SourceDataAnalysis::Store() {
 
 void SourceDataAnalysis::Load() {
 	LoadFromFile(*this, ConfigFile(__Comp + "Data_Analysis.bin"));
-	if (dataset.cache.IsEmpty() && dataset.packed_rhymes.IsEmpty())
+	if (/*dataset.cache.IsEmpty() &&*/ dataset.packed_rhymes.IsEmpty())
 		LoadJson();
 	
 	SourceData& sd = GetAppModeDatabase().src_data;
@@ -548,12 +548,12 @@ String DatasetAnalysis::GetScriptDump(DatasetAnalysis& da, int i) const {
 
 
 
-void ComponentCandidateCache::Realize(Script& l) {
+/*void ComponentCandidateCache::Realize(Script& l) {
 	if (l.parts.GetCount() != parts.GetCount()) {
 		parts.SetCount(l.parts.GetCount());
 		
 	}
-}
+}*/
 
 String ScriptSuggestion::GetText() const {
 	String content;

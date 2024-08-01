@@ -70,6 +70,7 @@ file
 	ScriptRangeSolver.cpp,
 	ScriptTextSolver.h,
 	ScriptTextSolver.cpp,
+	StructuredScriptEditor.cpp,
 	TRASH readonly separator,
 	SocialTimeline.h,
 	SocialTimeline.cpp,

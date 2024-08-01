@@ -169,8 +169,8 @@ Vector<StaticPart*> Script::GetNonSkippedStructureParts() {
 #endif
 
 int Script::FindPart(const StaticPart& part) const {
-	for(int i = 0; i < parts.GetCount(); i++) {
-		if (&parts[i] == &part)
+	for(int i = 0; i < __parts.GetCount(); i++) {
+		if (&__parts[i] == &part)
 			return i;
 	}
 	return -1;
@@ -210,7 +210,7 @@ Vector<int> Script::GetPreviousPartsNonSkipped(const StaticPart& part) const {
 #endif
 
 StaticPart* Script::FindPartByType(const String& type) {
-	for (StaticPart& sp : parts)
+	for (StaticPart& sp : __parts)
 		if (sp.type == type)
 			return &sp;
 	return 0;
@@ -219,7 +219,7 @@ StaticPart* Script::FindPartByType(const String& type) {
 StaticPart* Script::FindPartByName(const String& name) {
 	String lname = ToLower(name);
 	RemoveSinger(lname);
-	for (StaticPart& sp : parts)
+	for (StaticPart& sp : __parts)
 		if (ToLower(sp.name) == lname)
 			return &sp;
 	return 0;

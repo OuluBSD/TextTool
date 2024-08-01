@@ -952,8 +952,8 @@ void ScriptTextProcess::ProcessFillLines() {
 	// Realize suggestion and minimum data
 	ScriptSuggestion& sugg = sa.script_suggs.GetAdd(batch);
 	{
-		for(int i = 0; i < song.parts.GetCount(); i++) {
-			StaticPart& sp = song.parts[i];
+		for(int i = 0; i < song.__parts.GetCount(); i++) {
+			StaticPart& sp = song.__parts[i];
 			String name = sp.name;
 			if (!sp.singer.IsEmpty())
 				name += " by the singer '" + sp.singer + "'";
@@ -1000,7 +1000,7 @@ void ScriptTextProcess::ProcessFillLines() {
 	
 	StaticPart* part = song.FindPartByName(active_part);
 	ASSERT(part);
-	if (!part) part = &song.parts[0];
+	if (!part) part = &song.__parts[0];
 	
 	int per_part = 20;
 	int min_per_part = 15;
