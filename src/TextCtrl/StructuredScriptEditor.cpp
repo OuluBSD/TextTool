@@ -183,54 +183,6 @@ void StructuredScriptEditor::ScrollView(const Rect& r) {
 	}
 }
 
-const DynLine* StructuredScriptEditor::FindAltLine() const {
-	if (!owner || !selected_line) return 0;
-	Script& s = owner->GetScript();
-	for(int i = 0; i < s.parts.GetCount(); i++) {
-		const DynPart& dp = s.parts[i];
-		
-		int sel_line_i = -1;
-		int line_i = 0;
-		for(int j = 0; j < dp.sub.GetCount(); j++) {
-			const DynSub& ds = dp.sub[j];
-			
-			for(int k = 0; k < ds.lines.GetCount(); k++) {
-				const DynLine& dl = ds.lines[k];
-				
-				if (&dl == selected_line) {
-					sel_line_i = line_i;
-					break;
-				}
-				line_i++;
-			}
-			if (sel_line_i != -1)
-				break;
-		}
-		
-		if (sel_line_i == -1)
-			continue;
-		
-		int alt_line;
-		if (line_i % 2 == 0) alt_line = line_i+1;
-		else alt_line = line_i-1;
-		
-		line_i = 0;
-		for(int j = 0; j < dp.sub.GetCount(); j++) {
-			const DynSub& ds = dp.sub[j];
-			
-			for(int k = 0; k < ds.lines.GetCount(); k++) {
-				const DynLine& dl = ds.lines[k];
-				
-				if (line_i == alt_line)
-					return &dl;
-				line_i++;
-			}
-		}
-		break;
-	}
-	return 0;
-}
-
 void StructuredScriptEditor::Paint(Draw& d) {
 	Size sz = GetSize();
 	int cx_2 = sz.cx / 2;
@@ -250,7 +202,7 @@ void StructuredScriptEditor::Paint(Draw& d) {
 	bool is_sel_shadow = false;
 	int off = 3;
 	
-	const DynLine* selected_alt_line = FindAltLine();
+	const DynLine* selected_alt_line = owner->GetAltLine();
 	
 	areas.Clear();
 	vert_areas.Clear();
@@ -334,7 +286,15 @@ void StructuredScriptEditor::Paint(Draw& d) {
 				areas.Add().Set(line_header_rect, dl);
 				
 				
-				d.DrawText(off+cx_2,y,dl.alt_text,fnt,Black());
+				String txt;
+				if (txt_src == SRC_ALT)
+					txt = dl.alt_text;
+				else if (txt_src == SRC_EDIT)
+					txt = dl.edit_text;
+				else if (txt_src == SRC_USER)
+					txt = dl.user_text;
+				
+				d.DrawText(off+cx_2,y,txt,fnt,Black());
 				
 				y += line_h;
 				

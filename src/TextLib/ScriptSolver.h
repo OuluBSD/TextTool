@@ -9,6 +9,7 @@ class ScriptSolver : public SolverBase {
 	enum {
 		LS_FILL_LINES,
 		LS_COMPARISON,
+		LS_TITLE,
 		
 		LS_COUNT,
 		
@@ -16,7 +17,6 @@ class ScriptSolver : public SolverBase {
 		LS_SCORE_MATCH,
 		LS_FILL_REFERENCE_MATCH,
 		LS_SMOOTH_REFERENCE_MATCH,
-		LS_TITLE,
 		
 	};
 	Entity* artist = 0;
@@ -31,15 +31,19 @@ class ScriptSolver : public SolverBase {
 	
 	// temp
 	int per_batch = 0;
-	Vector<VectorMap<int,double>> phrase_parts;
+	//Vector<VectorMap<int,double>> phrase_parts;
 	Vector<String> phrases;
 	Vector<Tuple2<int,int>> matches;
 	Index<int> remaining;
 	VectorMap<String,int> part_sizes;
 	ComponentAnalysis* sa = 0;
 	Vector<int> phrase_src;
-	String active_part;
+	int active_part = -1;
 	Index<hash_t> visited;
+	Event<> WhenPartiallyReady;
+	DynPart* tmp_part = 0;
+	DynSub* tmp_sub = 0;
+	Vector<const DynLine*> tmp_lines;
 	
 	struct ConvTask : Moveable<ConvTask> {
 		Vector<String> from, ref;
@@ -80,6 +84,8 @@ public:
 	int GetPhaseCount() const override;
 	void DoPhase() override;
 	static ScriptSolver& Get(int appmode, Entity& a, Script& l);
+	
+	void GetSuggestions(const DynPart& part, const DynSub& sub, const Vector<const DynLine*>& lines, Event<> WhenPartiallyReady);
 	
 	void StartPostSolver(bool b=true) {start_post_solver = b;}
 	

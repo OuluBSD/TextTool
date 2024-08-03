@@ -559,14 +559,14 @@ String DatasetAnalysis::GetScriptDump(DatasetAnalysis& da, int i) const {
 
 String ScriptSuggestion::GetText() const {
 	String content;
-	for(int j = 0; j < lines.GetCount(); j++) {
-		String part = lines.GetKey(j);
-		const auto& v = lines[j];
-		if (part.IsEmpty() || v.IsEmpty()) continue;
+	for(int j = 0; j < parts.GetCount(); j++) {
+		const auto& v = parts[j];
+		String part = v.name;
+		if (part.IsEmpty() || v.lines.IsEmpty()) continue;
 		content << "[" << part << "]\n";
 		
-		for(int k = 0; k < v.GetCount(); k++) {
-			content << v[k] << "\n";
+		for(int k = 0; k < v.lines.GetCount(); k++) {
+			content << v.lines[k] << "\n";
 		}
 		content << "\n";
 	}

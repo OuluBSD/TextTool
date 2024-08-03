@@ -12,6 +12,71 @@ String DynPart::GetName(int appmode) const {
 	return s;
 }
 
+int DynPart::GetExpectedLineCount() const {
+	int line_count = 0;
+	for (const auto& p : sub) {
+		for (const auto& l : p.lines)
+			if (l.text.GetCount())
+				line_count++;
+	}
+	return line_count;
+}
+
+int DynPart::GetContrastIndex() const {
+	int idx = ContentType::PART_COUNT-1;
+	
+	if (text_type == TXT_NORMAL)
+		idx = 0;
+	
+	if (text_type == TXT_PRE_REPEAT)
+		idx = 1;
+	
+	if (text_type == TXT_REPEAT)
+		idx = 1;
+	
+	if (text_type == TXT_TWIST)
+		idx = 2;
+	
+	return idx;
+}
+
+String Script::GetUserText(int appmode) const {
+	String s;
+	int line_i = 0;
+	for (const DynPart& p: parts) {
+		s << "[" << p.GetName(appmode) << "]\n";
+		for(int i = 0; i < p.sub.GetCount(); i++) {
+			const DynSub& ds = p.sub[i];
+			for(int j = 0; j < ds.lines.GetCount(); j++) {
+				const DynLine& dl = ds.lines[j];
+				s << dl.user_text << "\n";
+			}
+		}
+		s << "\n";
+	}
+	return s;
+}
+
+String DynPart::GetLineElementString(int line) const {
+	String s;
+	int line_i = 0;
+	for(int i = 0; i < sub.GetCount(); i++) {
+		const DynSub& ds = sub[i];
+		for(int j = 0; j < ds.lines.GetCount(); j++) {
+			const DynLine& dl = ds.lines[j];
+			if (line == line_i) {
+				if (ds.element0.GetCount() && ds.element1.GetCount())
+					return ds.element0 + ", " + ds.element1;
+				if (ds.element0.GetCount())
+					return ds.element0;
+				return ds.element1;
+			}
+			line_i++;
+		}
+	}
+	return s;
+}
+
 
 
 
@@ -228,11 +293,11 @@ StaticPart* Script::FindPartByType(const String& type) {
 	return 0;
 }
 
-StaticPart* Script::FindPartByName(const String& name) {
+DynPart* Script::FindPartByName(int appmode, const String& name) {
 	String lname = ToLower(name);
 	RemoveSinger(lname);
-	for (StaticPart& sp : __parts)
-		if (ToLower(sp.name) == lname)
+	for (DynPart& sp : parts)
+		if (ToLower(sp.GetName(appmode)) == lname)
 			return &sp;
 	return 0;
 }
@@ -298,6 +363,36 @@ void Script::LoadStructuredText(const String& s) {
 		else {
 			DynLine& dl = sub->lines.Add();
 			dl.text = l;
+		}
+	}
+}
+
+void Script::SetEditText(const String& s) {
+	Vector<String> sparts = Split(s, "[");
+	int part_i = 0;
+	for (String& p : sparts) {
+		Vector<String> lines = Split(p, "\n");
+		lines.Remove(0);
+		int line_i = 0;
+		if (part_i >= parts.GetCount())
+			break;
+		auto& part = parts[part_i++];
+		for (auto& sub : part.sub) {
+			for (auto& line : sub.lines) {
+				if (line_i < lines.GetCount())
+					line.edit_text = lines[line_i];
+				else
+					line.edit_text = "";
+				line_i++;
+			}
+		}
+	}
+	while (part_i < parts.GetCount()) {
+		auto& part = parts[part_i];
+		for (auto& sub : part.sub) {
+			for (auto& line : sub.lines) {
+				line.edit_text = "";
+			}
 		}
 	}
 }

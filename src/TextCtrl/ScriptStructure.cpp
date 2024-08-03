@@ -207,7 +207,7 @@ void ComponentStructure::DataPart() {
 	int line_i = script_parts.GetCursor();
 	String part_name = script_parts.Get(0);
 	
-	StaticPart* sp = l.FindPartByName(part_name);
+	StaticPart* sp = 0; TODO//l.FindPartByName(part_name);
 	if (!sp)
 		return;
 	

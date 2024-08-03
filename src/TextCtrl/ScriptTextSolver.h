@@ -21,6 +21,14 @@ class StructuredScriptEditor : public Ctrl {
 	
 	int line_h = 20;
 	ScrollBar scroll_v;
+	int txt_src = 0;
+	
+	enum {
+		SRC_ALT,
+		SRC_EDIT,
+		SRC_USER,
+		SRC_COUNT
+	};
 	
 protected:
 	friend class ScriptTextSolverCtrl;
@@ -41,10 +49,12 @@ public:
 	void Update();
 	void CheckClearSelected();
 	void ClearSelected();
+	void SwitchTextSource() {txt_src = (txt_src + 1) % SRC_COUNT; Refresh();}
+	void ShowEditText(bool b=true) {txt_src = SRC_EDIT; Refresh();}
+	void ShowUserText(bool b=true) {txt_src = SRC_USER; Refresh();}
 	void ScrollView(const Rect& r);
 	bool IsAnySelected() const;
 	ScriptTextSolverCtrl* owner = 0;
-	const DynLine* FindAltLine() const;
 	
 	Event<> WhenCursor;
 	
@@ -57,6 +67,14 @@ class ScriptTextSolverCtrl : public ToolAppCtrl {
 	
 	// Wizard tab
 	ParentCtrl wizard_tab;
+	
+	// Suggestions tab
+	ParentCtrl sugg_tab;
+	Splitter sugg_split;
+	ArrayCtrl sugg_list;
+	ArrayCtrl sugg_lyrics;
+	SolverBaseIndicator sugg_prog;
+	Label sugg_remaining;
 	
 	// Whole song tab
 	ParentCtrl whole_tab;
@@ -79,7 +97,8 @@ class ScriptTextSolverCtrl : public ToolAppCtrl {
 	
 	// Line tab
 	ParentCtrl line_tab;
-	
+	Splitter line_split;
+	ArrayCtrl line_ref_lines, line_suggs;
 	
 public:
 	typedef ScriptTextSolverCtrl CLASSNAME;
@@ -87,13 +106,20 @@ public:
 	
 	void ToolMenu(Bar& bar) override;
 	void Data() override;
+	void DataSuggestions();
 	void DataWhole();
 	void DataPart();
 	void DataSub();
+	void DataLine();
+	void SwitchEditorText();
 	void Do(int fn);
+	void DoSuggestions(int fn);
 	void DoWhole(int fn);
+	void DoLine(int fn);
 	void OnEditorCursor();
 	void OnValueChange();
+	Vector<const DynLine*> GetLineGroup(const DynPart** part=0, const DynSub** sub=0);
+	const DynLine* GetAltLine();
 	
 };
 

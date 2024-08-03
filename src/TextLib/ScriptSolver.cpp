@@ -50,6 +50,7 @@ void ScriptSolver::DoPhase() {
 	else if (phase == LS_COMPARISON) {
 		ProcessComparison();
 	}
+	#if 0
 	else if (phase == LS_MATCH_REFERENCE) {
 		ProcessReference();
 	}
@@ -62,6 +63,7 @@ void ScriptSolver::DoPhase() {
 	else if (phase == LS_SMOOTH_REFERENCE_MATCH) {
 		ProcessSmoothReferenceMatch();
 	}
+	#endif
 	else if (phase == LS_TITLE) {
 		ProcessTitle();
 	}
@@ -70,17 +72,18 @@ void ScriptSolver::DoPhase() {
 }
 
 void ScriptSolver::ClearScript() {
-	for(int i = 0; i < script->__parts.GetCount(); i++) {
-		StaticPart& sp = script->__parts[i];
-		auto& lines = sp.text.Get();
-		for(int j = 0; j < lines.GetCount(); j++) {
-			auto& line = lines[j];
-			line.pp_i = -1;
-			line.end_pp_i = -1;
+	for(int i = 0; i < script->parts.GetCount(); i++) {
+		DynPart& sp = script->parts[i];
+		for(int j = 0; j < sp.sub.GetCount(); j++) {
+			DynSub& ds = sp.sub[j];
+			for(int k = 0; k < ds.lines.GetCount(); k++) {
+				DynLine& dl = ds.lines[k];
+				dl.pp_i = -1;
+				dl.end_pp_i = -1;
+			}
 		}
 		sp.phrase_parts.Clear();
 	}
-	//script->picked_phrase_parts.Clear();
 }
 
 void ScriptSolver::ProcessFillLines() {
@@ -106,13 +109,13 @@ void ScriptSolver::ProcessFillLines() {
 	// Realize suggestion and minimum data
 	ScriptSuggestion& sugg = sa.script_suggs.GetAdd(batch);
 	{
-		for(int i = 0; i < song.__parts.GetCount(); i++) {
-			StaticPart& sp = song.__parts[i];
-			String name = sp.name;
-			if (!sp.singer.IsEmpty())
-				name += " by the singer '" + sp.singer + "'";
-			if (name.GetCount())
-				sugg.lines.GetAdd(name);
+		sugg.parts.SetCount(song.parts.GetCount());
+		for(int i = 0; i < song.parts.GetCount(); i++) {
+			auto& line = sugg.parts[i];
+			DynPart& sp = song.parts[i];
+			line.name = sp.GetName(appmode);
+			if (!sp.person.IsEmpty())
+				line.name += " by the singer '" + sp.person + "'";
 		}
 	}
 	
@@ -127,34 +130,38 @@ void ScriptSolver::ProcessFillLines() {
 	MakeBelief(song, args, 1);
 	
 	// Add existing scripts
-	active_part.Clear();
-	for(int i = 0; i < sugg.lines.GetCount(); i++) {
-		String key = sugg.lines.GetKey(i);
-		if (key.IsEmpty())
-			continue;
-		const auto& lines = sugg.lines[i];
-		StaticPart* sp = song.FindPartByName(key);
-		if (!sp)
-			continue;
-		int len = sp->GetExpectedLineCount(song);
-		if (active_part.IsEmpty() && lines.GetCount() < len) {
-			active_part = key; // Set active part to get new lines for
+	active_part = -1;
+	for(int i = 0; i < sugg.parts.GetCount(); i++) {
+		auto& l = sugg.parts[i];
+		const auto& lines = l.lines;
+		DynPart& sp = song.parts[i];
+		args.elements.Add(sp.element);
+		int len = sp.GetExpectedLineCount();
+		if (active_part == -1 && lines.GetCount() < len) {
+			active_part = i; // Set active part to get new lines for
 		}
 		if (lines.IsEmpty()) continue;
 		
-		args.song.Add(key) = Join(lines, "\n");
+		String s = sugg.parts[i].name + " (" + sp.element + ")";
+		args.song.Add(s) = Join(lines, "\n");
 	}
-	args.part = active_part;
 	
-	if (active_part.IsEmpty()) {
+	if (active_part == -1) {
 		NextBatch();
 		return;
 	}
 	
 	
-	StaticPart* part = song.FindPartByName(active_part);
-	ASSERT(part);
-	if (!part) part = &song.__parts[0];
+	args.part = sugg.parts[active_part].name;
+	DynPart& part = song.parts[active_part];
+	
+	// Get elements of generated rhyme
+	{
+		auto& spart = sugg.parts[active_part];
+		int cur_len = spart.lines.GetCount();
+		int expected_len = part.GetExpectedLineCount();
+		args.rhyme_element = part.GetLineElementString(cur_len);
+	}
 	
 	int per_part = 20;
 	int min_per_part = 15;
@@ -162,7 +169,7 @@ void ScriptSolver::ProcessFillLines() {
 	int begin = batch * per_part;
 	int end = begin + per_part;
 	this->phrases.Clear();
-	int con_type = part->GetContrastIndex(song);
+	int con_type = part.GetContrastIndex();
 	
 	// Prefer con_type but use all if no phrases for some reason
 	for(int i = -1; i < ContentType::PART_COUNT; i++)
@@ -170,7 +177,7 @@ void ScriptSolver::ProcessFillLines() {
 		if (i == con_type) continue;
 		int idx = i < 0 ? con_type : i;
 		
-		const auto& map = this->phrase_parts[idx];
+		const auto& map = song.phrase_parts[idx];
 		
 		// Save offsets for reading
 		args.offsets << args.phrases.GetCount();
@@ -183,7 +190,7 @@ void ScriptSolver::ProcessFillLines() {
 			continue;
 		}*/
 		for(int j = begin; j < end0; j++) {
-			int pp_i = map.GetKey(j);
+			int pp_i = map[j];
 			if (collect_token_texts) {
 				const PhrasePart& pp = sa.phrase_parts[idx][pp_i];
 				String s = da.GetWordString(pp.words);
@@ -228,8 +235,8 @@ void ScriptSolver::OnProcessFillLines(String res) {
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
-	#if 1
-	StaticPart* sp = song.FindPartByName(active_part);
+	#if 0
+	DynPart* sp = song.FindPartByName(appmode, active_part);
 	ASSERT(sp);
 	ScriptSuggestion& sugg = sa.script_suggs.GetAdd(batch);
 	res = "line #" + res;
@@ -276,72 +283,96 @@ void ScriptSolver::OnProcessFillLines(String res) {
 	Vector<int> part_is;
 	
 	res = TrimBoth(res);
+	
+	/*if (res.Find("Normal 1") >= 0) {
+		LOG(res);
+	}*/
+	
 	int result_line = 0;
 	if (res.GetCount() && IsDigit(res[0])) {
 		int result_line = ScanInt(res);
 		
 		ScriptSuggestion& sugg = sa.script_suggs.GetAdd(batch);
 		
-		StaticPart* sp = song.FindPartByName(active_part);
-		if (sp) {
-			if (result_line >= 0 && result_line < this->phrases.GetCount()) {
-				String phrase = this->phrases[result_line];
-				sugg.lines.GetAdd(active_part).Add(phrase);
-			}
+		DynPart& sp = song.parts[active_part];
+		if (result_line >= 0 && result_line < this->phrases.GetCount()) {
+			String phrase = this->phrases[result_line];
+			sugg.parts[active_part].lines.Add(phrase);
 		}
 	}
 	else if (res.GetCount()) {
-		int a = res.Find("\"");
-		if (a >= 0)
+		int a = res.Find("):");
+		if (a >= 0) {
+			res = TrimBoth(res.Mid(a+2));
+		}
+		
+		a = res.Find("\"");
+		if (a > 0)
 			res = res.Left(a);
+		else
+			RemoveQuotes(res);
 		
 		ScriptSuggestion& sugg = sa.script_suggs.GetAdd(batch);
 		
-		StaticPart* sp = song.FindPartByName(active_part);
-		if (sp) {
-			Vector<String> lines = Split(res, "/");
-			if (lines.GetCount() == 1)
-				lines = Split(res, "\n");
-			if (lines.GetCount() == 1) {
-				lines.Clear();
-				int mid = res.GetCount() / 2;
-				int a = res.Find(",", max(0, mid-5));
+		DynPart& sp = song.parts[active_part];
+		Vector<String> lines = Split(res, "/");
+		if (lines.GetCount() == 1)
+			lines = Split(res, "\n");
+		#if 0
+		if (lines.GetCount() == 1) {
+			lines.Clear();
+			int mid = res.GetCount() / 2;
+			int a = res.Find(",", max(0, mid-5));
+			if (a >= 0)
+				mid = a+1;
+			else {
+				a = res.Find(" ", max(0, mid-5));
 				if (a >= 0)
-					mid = a+1;
-				else {
-					a = res.Find(" ", max(0, mid-5));
-					if (a >= 0)
-						mid = a;
-				}
-				lines.Add(TrimBoth(res.Left(mid)));
-				lines.Add(TrimBoth(res.Mid(mid)));
+					mid = a;
 			}
-			else if (lines.GetCount() == 3) {
-				int c0 = lines[0].GetCount();
-				int c1 = lines[1].GetCount();
-				int c2 = lines[2].GetCount();
-				double a_bal = fabs( (c0 + c1) / (double)c2 - 1 );
-				double b_bal = fabs( (c1 + c2) / (double)c0 - 1 );
-				if (a_bal <= b_bal) {
-					lines[0] += lines[1];
-					lines.Remove(1);
-				}
-				else {
-					lines[1] += lines[2];
-					lines.Remove(2);
-				}
-			}
-			auto& dst = sugg.lines.GetAdd(active_part);
-			for (String& line : lines)
-				dst.Add(TrimBoth(line));
+			lines.Add(TrimBoth(res.Left(mid)));
+			lines.Add(TrimBoth(res.Mid(mid)));
 		}
+		else if (lines.GetCount() == 3) {
+			int c0 = lines[0].GetCount();
+			int c1 = lines[1].GetCount();
+			int c2 = lines[2].GetCount();
+			double a_bal = fabs( (c0 + c1) / (double)c2 - 1 );
+			double b_bal = fabs( (c1 + c2) / (double)c0 - 1 );
+			if (a_bal <= b_bal) {
+				lines[0] += lines[1];
+				lines.Remove(1);
+			}
+			else {
+				lines[1] += lines[2];
+				lines.Remove(2);
+			}
+		}
+		#else
+		if (lines.GetCount() > 2)
+			lines.SetCount(2);
+		#endif
+		
+		for (auto& l : lines) {
+			if (l.Left(6) == "line #") {
+				int a = l.Find(":");
+				if (a >= 0)
+					l = TrimBoth(l.Mid(a+1));
+			}
+		}
+		auto& dst = sugg.parts[active_part].lines;
+		for (String& line : lines)
+			dst.Add(TrimBoth(line));
 	}
 	#endif
+	
 	
 	SetWaiting(0);
 	NextSubBatch();
 }
 
+
+#if 0
 void ScriptSolver::ProcessPrimary() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
@@ -367,7 +398,7 @@ void ScriptSolver::ProcessPrimary() {
 	int end = begin + per_part;
 	this->phrases.Clear();
 	for(int i = 0; i < ContentType::PART_COUNT; i++) {
-		const auto& map = this->phrase_parts[i];
+		const auto& map = song.phrase_parts[i];
 		
 		// Save offsets for reading
 		args.offsets << args.phrases.GetCount();
@@ -380,7 +411,7 @@ void ScriptSolver::ProcessPrimary() {
 			break;
 		}
 		for(int j = begin; j < end0; j++) {
-			int pp_i = map.GetKey(j);
+			int pp_i = map[j];
 			if (collect_token_texts) {
 				const PhrasePart& pp = sa.phrase_parts[i][pp_i];
 				String s = da.GetWordString(pp.words);
@@ -406,8 +437,8 @@ void ScriptSolver::ProcessPrimary() {
 	TODO
 	#if 0
 	part_sizes.Clear();
-	for(int i = 0; i < song.__parts.GetCount(); i++) {
-		const StaticPart& sp = song.__parts[i];
+	for(int i = 0; i < song.parts.GetCount(); i++) {
+		const DynPart& sp = song.parts[i];
 		args.parts << sp.name;
 		
 		int len = 2;
@@ -637,6 +668,8 @@ void ScriptSolver::OnProcessMakeHoles(String res) {
 	SetWaiting(0);
 }
 
+#endif
+
 void ScriptSolver::ProcessComparison() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
@@ -806,15 +839,15 @@ void ScriptSolver::OnProcessComparisonFail(int loser) {
 		
 		song.__text = content;
 		
-		for(int i = 0; i < ls.lines.GetCount(); i++) {
-			String key = ls.lines.GetKey(i);
-			StaticPart* sp = song.FindPartByName(key);
-			if (!sp)
-				continue;
+		for(int i = 0; i < ls.parts.GetCount(); i++) {
+			DynPart& sp = song.parts[i];
+			
+			/*
 			sp->generated.Get().Clear();
 			const auto& from = ls.lines[i];
 			for(int j = 0; j < from.GetCount(); j++)
 				sp->generated.Get().Add().text = from[j];
+			*/
 		}
 	}
 	
@@ -822,6 +855,7 @@ void ScriptSolver::OnProcessComparisonFail(int loser) {
 	NextBatch();
 }
 
+#if 0
 void ScriptSolver::ProcessReference() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
@@ -838,7 +872,7 @@ void ScriptSolver::ProcessReference() {
 		ScriptSuggestion& sugg = sa.script_suggs[0];
 		for(int i = 0; i < sugg.lines.GetCount(); i++) {
 			String part_name = sugg.lines.GetKey(i);
-			StaticPart* sp = song.FindPartByName(part_name);
+			DynPart* sp = song.FindPartByName(appmode, part_name);
 			ASSERT(sp);
 			sp->coarse_text.Clear();
 			sp->conv.Clear();
@@ -899,7 +933,7 @@ void ScriptSolver::OnProcessReference(String res) {
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->script;
 	ConvTask& task = conv_tasks[batch];
-	StaticPart& sp = *song.FindPartByName(task.part);
+	DynPart& sp = *song.FindPartByName(appmode, task.part);
 	
 	RemoveEmptyLines2(res);
 	Vector<String> lines = Split(res, "\n");
@@ -939,11 +973,11 @@ void ScriptSolver::ProcessScoreMatch() {
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->script;
 	
-	if (batch >= song.__parts.GetCount()) {
+	if (batch >= song.parts.GetCount()) {
 		NextPhase();
 		return;
 	}
-	StaticPart& sp = song.__parts[batch];
+	DynPart& sp = song.parts[batch];
 	if (sub_batch >= sp.conv.GetCount()) {
 		NextBatch();
 		return;
@@ -977,11 +1011,11 @@ void ScriptSolver::OnProcessScoreMatch(String res) {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->script;
-	if (batch >= song.__parts.GetCount()) {
+	if (batch >= song.parts.GetCount()) {
 		NextPhase();
 		return;
 	}
-	StaticPart& sp = song.__parts[batch];
+	DynPart& sp = song.parts[batch];
 	if (sub_batch >= sp.conv.GetCount()) {
 		NextBatch();
 		return;
@@ -1048,15 +1082,15 @@ void ScriptSolver::ProcessFillReferenceMatch() {
 	
 	if (batch == 0 && sub_batch == 0) {
 		added_phrases.Clear();
-		for(int i = 0; i < song.__parts.GetCount(); i++)
-			song.__parts[i].coarse_text.Clear();
+		for(int i = 0; i < song.parts.GetCount(); i++)
+			song.parts[i].coarse_text.Clear();
 	}
 	
-	if (batch >= song.__parts.GetCount()) {
+	if (batch >= song.parts.GetCount()) {
 		NextPhase();
 		return;
 	}
-	StaticPart& sp = song.__parts[batch];
+	DynPart& sp = song.parts[batch];
 	if (sub_batch >= sp.conv.GetCount()) {
 		NextBatch();
 		return;
@@ -1096,7 +1130,7 @@ void ScriptSolver::ProcessFillReferenceMatch() {
 	#if 0
 	for(int i = 0; i < song.active_struct.parts.GetCount(); i++) {
 		String part = song.active_struct.parts[i];
-		StaticPart* sp1 = song.FindPartByName(part);
+		DynPart* sp1 = song.FindPartByName(appmode, part);
 		if (!sp1) continue;
 		String& dst = args.song.Add(sp1->name);
 		for(int j = 0; j < sp1->coarse_text.Get().GetCount(); j++) {
@@ -1131,7 +1165,7 @@ void ScriptSolver::OnProcessFillReferenceMatch(String res) {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& song = *this->script;
-	StaticPart& sp = song.__parts[batch];
+	DynPart& sp = song.parts[batch];
 	
 	ComponentAnalysis& sa = da.GetComponentAnalysis(appmode, artist->file_title + " - " + song.file_title);
 	
@@ -1290,7 +1324,7 @@ void ScriptSolver::OnProcessSmoothReferenceMatch(String res) {
 				continue; // error
 			name = TrimBoth(header.Left(a));
 		}
-		StaticPart* sp = song.FindPartByName(name);
+		DynPart* sp = song.FindPartByName(appmode, name);
 		if (!sp)
 			continue;
 		sp->text.Clear();
@@ -1302,6 +1336,7 @@ void ScriptSolver::OnProcessSmoothReferenceMatch(String res) {
 	SetWaiting(0);
 	NextPhase();
 }
+#endif
 
 void ScriptSolver::ProcessTitle() {
 	Script& song = *this->script;
@@ -1341,6 +1376,79 @@ void ScriptSolver::ProcessTitle() {
 	});
 }
 
+void ScriptSolver::GetSuggestions(const DynPart& part, const DynSub& sub, const Vector<const DynLine*>& lines, Event<> WhenPartiallyReady) {
+	tmp_part = const_cast<DynPart*>(&part);
+	tmp_sub = const_cast<DynSub*>(&sub);
+	tmp_lines <<= lines;
+	this->WhenPartiallyReady = WhenPartiallyReady;
+	
+	Script& song = *this->script;
+	ScriptSolverArgs args; // 18
+	args.fn = 18;
+	
+	args.lng_i = song.lng_i;
+	
+	for(int i = 0; i < lines.GetCount(); i++) {
+		const DynLine& l = *lines[i];
+		if (l.text.IsEmpty())
+			break;
+		args.phrases << l.text;
+		args.phrases2 << l.edit_text;
+	}
+	
+	Index<String> elements;
+	if (part.element.GetCount()) elements.FindAdd(part.element);
+	if (sub.element0.GetCount()) elements.FindAdd(sub.element0);
+	if (sub.element1.GetCount()) elements.FindAdd(sub.element1);
+	args.elements <<= elements.GetKeys();
+	
+	TaskMgr& m = TaskMgr::Single();
+	m.GetScriptSolver(appmode, args, [this](String res) {
+		Vector<String> lines = Split(res, "\n");
+		
+		for(int i = 0; i < lines.GetCount(); i++) {
+			String& l = lines[i];
+			l = TrimBoth(l);
+			if (l.IsEmpty()) {
+				lines.Remove(i--);
+				continue;
+			}
+			if (!IsDigit(l[0]) && i > 0) {
+				lines[i-1] << " / " << l;
+				lines.Remove(i--);
+				continue;
+			}
+		}
+		
+		for (String& s : lines) {
+			if (IsDigit(s[0])) {
+				int a = s.Find(".");
+				if (a >= 0)
+					s = TrimLeft(s.Mid(a+1));
+			}
+		}
+		DUMPC(lines);
+		
+		for (const DynLine* l : tmp_lines) {
+			DynLine& dl = const_cast<DynLine&>(*l);
+			dl.suggs.Clear();
+		}
+		
+		for (String& s : lines) {
+			Vector<String> parts = Split(s, "/");
+			for(int i = 0; i < parts.GetCount() && i < tmp_lines.GetCount(); i++) {
+				DynLine& dl = const_cast<DynLine&>(*tmp_lines[i]);
+				dl.suggs << TrimBoth(parts[i]);
+			}
+			for(int i = parts.GetCount(); i < tmp_lines.GetCount(); i++) {
+				DynLine& dl = const_cast<DynLine&>(*tmp_lines[i]);
+				dl.suggs.Clear();
+			}
+		}
+		
+		this->WhenPartiallyReady();
+	});
+}
 
 
 END_TEXTLIB_NAMESPACE

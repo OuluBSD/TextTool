@@ -639,20 +639,31 @@ struct PhraseComb : Moveable<PhraseComb> {
 };
 
 struct ScriptSuggestion : Moveable<ScriptSuggestion> {
-	VectorMap<String,Vector<String>> lines;
+	struct Part : Moveable<Part> {
+		String name;
+		Vector<String> lines;
+		
+	};
+	Vector<Part> parts;
 	int rank = -1;
 	Vector<Vector<Vector<int>>> transfers;
 	int scores[2] = {0,0};
 	
 	String StoreToString() {
 		StringDumper d;
-		d % lines % rank;
+		int i = parts.GetCount();
+		d % i;
+		for (auto& l : parts) d % l.name % l.lines;
+		d % rank;
 		for(int i = 0; i < 2; i++) d % scores[i];
 		return d;
 	}
 	void LoadFromString(const String& s) {
 		StringParser p(s);
-		p % lines;
+		int i = 0;
+		p % i;
+		parts.SetCount(i);
+		for (auto& l : parts) p % l.name % l.lines;
 		p % rank;
 		for(int i = 0; i < 2; i++) p % scores[i];
 	}

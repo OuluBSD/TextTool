@@ -132,13 +132,15 @@ struct ScriptSolverArgs {
 	int sub_fn = -1;
 	int lng_i = -1;
 	VectorMap<String,String> artist, release, song;
-	Vector<String> parts, attrs, phrases, scores;
+	Vector<String> parts, attrs, phrases, scores, phrases2;
 	Vector<int> counts, offsets;
 	String part, vision, ref;
 	bool is_story = false;
 	bool is_unsafe = false;
 	bool is_self_centered = false;
 	double factor = 0;
+	Vector<String> elements;
+	String rhyme_element;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
@@ -150,6 +152,7 @@ struct ScriptSolverArgs {
 				("parts", parts)
 				("attrs", attrs)
 				("phrases", phrases)
+				("phrases2", phrases2)
 				("scores", scores)
 				("counts", counts)
 				("offsets", offsets)
@@ -160,6 +163,8 @@ struct ScriptSolverArgs {
 				("is_unsafe", is_unsafe)
 				("is_self_centered", is_self_centered)
 				("factor", factor)
+				("elements", elements)
+				("rhyme_element", rhyme_element)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

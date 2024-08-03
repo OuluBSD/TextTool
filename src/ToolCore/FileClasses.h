@@ -524,6 +524,12 @@ struct StringDumper {
 		Do(c.action);
 		Do(c.arg);
 	}
+	template <> void Do<Vector<String>>(const Vector<String>& v) {
+		int c = v.GetCount();
+		(*this) % c;
+		for(int j = 0; j < c; j++)
+			(*this) % v[j];
+	}
 	template <> void Do<VectorMap<String,Vector<String>>>(const VectorMap<String,Vector<String>>& lines) {
 		int c = lines.GetCount();
 		(*this) % c;
@@ -595,6 +601,12 @@ struct StringParser {
 	template <> void Do<ActionHeader>(ActionHeader& o) {
 		Do(o.action);
 		Do(o.arg);
+	}
+	template <> void Do<Vector<String>>(Vector<String>& v) {
+		int c = 0;
+		(*this) % c;
+		for(int j = 0; j < c; j++)
+			(*this) % v.Add();
 	}
 	template <> void Do<VectorMap<String,Vector<String>>>(VectorMap<String,Vector<String>>& lines) {
 		lines.Clear();

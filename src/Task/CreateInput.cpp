@@ -2067,6 +2067,17 @@ void AiTask::CreateInput_ScriptSolver() {
 			for (String& l : lines)
 				list.Add(l);
 		}
+		#if 1
+		if (args.elements.GetCount()) {
+			auto& list = input.AddSub().Title(__Comp2 + " \"A\" should fit the following elements of the " + __comp2);
+			for (String& l : args.elements)
+				list.Add(l);
+		}
+		#endif
+		{
+			auto& list = input.AddSub().Title(__Comp2 + " \"A\" next line should fit following element");
+			list.Add(args.rhyme_element);
+		}
 		{
 			auto& list = input.AddSub().Title(__Comp2 + " \"A\": properties of additional line/phrases for the best " + __comp2);
 			if (args.is_unsafe && args.is_story && args.is_self_centered) {
@@ -2119,11 +2130,11 @@ void AiTask::CreateInput_ScriptSolver() {
 			int lng_i = args.lng_i > 0 ? args.lng_i : MetaDatabase::Single().GetLanguageIndex();
 			String lang = Capitalize(GetLanguageKey(lng_i));
 			TaskTitledList& results = input.PreAnswer();
-			//results.Title(__Comp2 + " \"A\": Add " + lang + " line/phrase to the part '" + args.part + "' in a way, that the story of the " + __comp2 + " is best");
-			results.Title(__Comp2 + " \"A\": Pick " + lang + " line/phrase from the potential phrases to the part '" + args.part + "' in a way, that the story of the " + __comp2 + " is best");
+			results.Title(__Comp2 + " \"A\": Write " + lang + " line/phrase from the potential phrases to the part '" + args.part + "' in a way, that the story of the " + __comp2 + " is best");
+			//results.Title(__Comp2 + " \"A\": Pick " + lang + " line/phrase from the potential phrases to the part '" + args.part + "' in a way, that the story of the " + __comp2 + " is best");
 			results.NumberedLines();
-			//results.Add("phrase: \"");
-			results.Add("line #");
+			results.Add("phrase: \"");
+			//results.Add("line #");
 		}
 		input.response_length = 512;
 	}
@@ -2367,6 +2378,47 @@ void AiTask::CreateInput_ScriptSolver() {
 			}
 			else
 				results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 18) {
+		String first_word;
+		{
+			auto& list = input.AddSub().Title("Lyrics A");
+			list.NoListChar();
+			for (String& s : args.phrases) {
+				if (s.Left(2) == "' ")
+					s = "'" + s.Mid(2);
+				
+				if (first_word.IsEmpty()) {
+					int a = s.Find(" ");
+					if (a >= 0)
+						first_word = s.Left(a);
+				}
+				list.Add(s);
+			}
+		}
+		{
+			auto& list = input.AddSub().Title("Lyrics B");
+			list.NoListChar();
+			for (String& s : args.phrases2)
+				list.Add(s);
+		}
+		if (args.elements.GetCount()) {
+			auto& list = input.AddSub().Title("New lyrics should fit the following elements");
+			for (String& l : args.elements)
+				list.Add(l);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			String t = "Create a list of new lyrics that combines elements of two existing lyrics to convey a style of A but message of B"
+				". This lyrics should be " + IntStr(args.phrases.GetCount()) + " line inline & end rhyme and in slight dialect";
+			if (first_word.GetCount())
+				t += ". All lines should begin with '" + first_word + "'";
+			results.Title(t);
+			results.NumberedLines();
+			tmp_str = first_word;
+			results.Add(tmp_str);
 		}
 		input.response_length = 2048;
 	}

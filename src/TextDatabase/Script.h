@@ -30,11 +30,21 @@ struct LineScore : Moveable<LineScore> {
 struct DynLine : Moveable<DynLine> {
 	String			text;
 	String			alt_text;
+	String			edit_text;
+	String			user_text;
+	Vector<String>	suggs;
+	int				pp_i = -1;
+	int				end_pp_i = -1;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("text", text)
 			("alt_text", alt_text)
+			("edit_text", edit_text)
+			("user_text", user_text)
+			("suggs", suggs)
+			("pp_i", pp_i)
+			("end_pp_i", end_pp_i)
 			;
 	}
 };
@@ -60,6 +70,7 @@ struct DynPart {
 	String			person;
 	String			element;
 	Vector<DynSub>	sub;
+	Vector<int>		phrase_parts;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -69,9 +80,13 @@ struct DynPart {
 			("person", person)
 			("element", element)
 			("sub", sub)
+			("phrase_parts", phrase_parts)
 			;
 	}
 	String GetName(int appmode) const;
+	int GetExpectedLineCount() const;
+	int GetContrastIndex() const;
+	String GetLineElementString(int line) const;
 	
 };
 
@@ -455,13 +470,15 @@ struct Script : DataFile {
 	int FindPart(const StaticPart& part) const;
 	Vector<StaticPart*> GetNonSkippedStructureParts();
 	StaticPart* FindPartByType(const String& type);
-	StaticPart* FindPartByName(const String& name);
+	DynPart* FindPartByName(int appmode, const String& name);
 	int GetFirstPartPosition() const;
 	String GetAnyTitle() const;
 	String GetText() const;
+	String GetUserText(int appmode) const;
 	String GetTextStructure(bool coarse) const;
 	void LoadStructuredText(const String& s);
 	void LoadStructuredTextExt(const String& s);
+	void SetEditText(const String& s);
 	
 	//Script() {post_analysis.SetCount(POSTSCRIPT_COUNT);}
 	Script() {post_analysis.SetCount(SCORE_COUNT);}

@@ -58,6 +58,8 @@ public:
 	void SetSkipReady(bool b) {skip_ready = false;}
 	static void StopAll();
 	
+	bool IsRunning() const {return running;}
+	
 	virtual int GetPhaseCount() const = 0;
 	virtual int GetBatchCount(int phase) const {return max(1, batch);}
 	virtual int GetSubBatchCount(int phase, int batch) const {return max(1, sub_batch);}
