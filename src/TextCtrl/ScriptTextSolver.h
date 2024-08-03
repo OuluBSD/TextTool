@@ -44,7 +44,7 @@ public:
 	void ScrollView(const Rect& r);
 	bool IsAnySelected() const;
 	ScriptTextSolverCtrl* owner = 0;
-	
+	const DynLine* FindAltLine() const;
 	
 	Event<> WhenCursor;
 	
