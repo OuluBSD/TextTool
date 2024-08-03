@@ -2382,18 +2382,27 @@ void AiTask::CreateInput_ScriptSolver() {
 		input.response_length = 2048;
 	}
 	else if (args.fn == 18) {
-		String first_word;
+		String first_word, second_word;
 		{
 			auto& list = input.AddSub().Title("Lyrics A");
 			list.NoListChar();
-			for (String& s : args.phrases) {
-				if (s.Left(2) == "' ")
-					s = "'" + s.Mid(2);
-				
-				if (first_word.IsEmpty()) {
-					int a = s.Find(" ");
+			for(int i = 0; i < args.phrases.GetCount(); i++) {
+				String& s = args.phrases[i];
+				if (i == 0 && first_word.IsEmpty()) {
+					WString ws = s.ToWString();
+					int a = ws.Find(" ");
+					if (a <= 1)
+						a = ws.Find(" ", a+1);
 					if (a >= 0)
-						first_word = s.Left(a);
+						first_word = ws.Left(a).ToString();
+				}
+				if (i == 1 && second_word.IsEmpty()) {
+					WString ws = s.ToWString();
+					int a = ws.Find(" ");
+					if (a <= 1)
+						a = ws.Find(" ", a+1);
+					if (a >= 0)
+						second_word = ws.Left(a).ToString();
 				}
 				list.Add(s);
 			}
@@ -2410,15 +2419,38 @@ void AiTask::CreateInput_ScriptSolver() {
 				list.Add(l);
 		}
 		{
+			auto& list = input.AddSub().Title("New lyrics should use same pronouns than Lyrics A");
+			list.NoColon();
+		}
+		if (0) {
+			auto& list = input.AddSub().Title("New lyrics should use same allegories than Lyrics A, if there's any allegories in Lyrics A (there might not be)");
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub().Title("New lyrics should have the same number of syllables than Lyrics A");
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub().Title("New lyrics should have the same level of hopelessness, bitterness, cynicism and negativity than Lyrics A");
+			list.NoColon();
+		}
+		{
+			auto& list = input.AddSub().Title("New lyrics should have the same focus on negativity and negative outcome than lyrics A");
+			list.NoColon();
+		}
+		{
 			TaskTitledList& results = input.PreAnswer();
 			String t = "Create a list of new lyrics that combines elements of two existing lyrics to convey a style of A but message of B"
 				". This lyrics should be " + IntStr(args.phrases.GetCount()) + " line inline & end rhyme and in slight dialect";
-			if (first_word.GetCount())
+			if (first_word.GetCount()) {
 				t += ". All lines should begin with '" + first_word + "'";
+				if (second_word.GetCount())
+					t += " and have ''" + second_word + "' in the second line";
+			}
 			results.Title(t);
 			results.NumberedLines();
-			tmp_str = first_word;
-			results.Add(tmp_str);
+			tmp_str = first_word + " ";
+			results.Add(first_word);
 		}
 		input.response_length = 2048;
 	}

@@ -379,7 +379,10 @@ void ScriptTextSolverCtrl::DoLine(int fn) {
 		Vector<const DynLine*> g = GetLineGroup();
 		for (const DynLine* l : g) {
 			DynLine& dl = const_cast<DynLine&>(*l);
-			dl.user_text = dl.suggs[sugg_i];
+			if (sugg_i < dl.suggs.GetCount())
+				dl.user_text = dl.suggs[sugg_i];
+			else
+				dl.user_text = "";
 		}
 		editor.ShowUserText();
 		DataLine();
