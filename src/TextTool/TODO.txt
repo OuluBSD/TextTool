@@ -1,5 +1,6 @@
 
 v0.0.2
+- lyrics editor: follow through the lyrics and find out which doesn't make sense
 - song idea: import concept, but change elements (exposition) from list which shows all
 	- also add custom text edit to adjust elements with gpt
 - structure idea: browse anonymised structures and edit selected to liking
