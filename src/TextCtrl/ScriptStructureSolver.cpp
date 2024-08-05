@@ -7,6 +7,8 @@ BEGIN_TEXTLIB_NAMESPACE
 ScriptStructureSolverCtrl::ScriptStructureSolverCtrl() {
 	Add(hsplit.SizePos());
 	
+	concepts.LockForm();
+	
 	hsplit.Horz() << concepts << rsplit;
 	
 	rsplit.Vert() << rtsplit << rbsplit;;

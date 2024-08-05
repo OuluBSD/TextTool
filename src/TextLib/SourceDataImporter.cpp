@@ -43,6 +43,12 @@ void SourceDataImporter::Tokenize() {
 	
 	int well_filter_loss = 0, parse_loss = 0, foreign_loss = 0;
 	
+	{
+		int lng_i = MetaDatabase::Single().GetLanguageIndex();
+		if (lng_i != LNG_ENGLISH)
+			filter_foreign = false;
+	}
+	
 	int phase = this->phase, batch = this->batch, sub_batch = this->sub_batch;
 	if (parallel) {
 		WorkerData& w = Worker();

@@ -30,6 +30,7 @@ public:
 	void Do(int fn);
 	void MainLayout();
 	void SideLayout();
+	void LockForm();
 	void MoveSortColumn(int fn);
 	
 	void ToolMenu(Bar& bar) override;

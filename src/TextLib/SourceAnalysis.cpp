@@ -17,7 +17,7 @@ int SourceAnalysisProcess::GetBatchCount(int phase) const {
 		case PHASE_ANALYZE_ARTISTS:			return GetDatabase().src_data.entities.GetCount();
 		case PHASE_ANALYZE_ELEMENTS:		return GetDatabase().src_data.a.dataset.scripts.GetCount();
 		case PHASE_SUMMARIZE_CONTENT:		TODO;
-		default: TODO; return 1;
+		default: return 1;
 	}
 }
 
@@ -30,7 +30,7 @@ void SourceAnalysisProcess::DoPhase() {
 		case PHASE_ANALYZE_ARTISTS:			AnalyzeArtists(); return;
 		case PHASE_ANALYZE_ELEMENTS:		AnalyzeElements(); return;
 		case PHASE_SUMMARIZE_CONTENT:		SummarizeContent(); return;
-		default: TODO;
+		default: break;
 	}
 }
 

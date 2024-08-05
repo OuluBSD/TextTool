@@ -86,6 +86,12 @@ void ConceptualFrameworkNavigator::SideLayout() {
 	#endif
 }
 
+void ConceptualFrameworkNavigator::LockForm() {
+	cf.name.SetEditable(false);
+	cf.revision.SetEditable(false);
+	cf.belief.SetEditable(false);
+}
+
 void ConceptualFrameworkNavigator::Data() {
 	MetaPtrs& mp = MetaPtrs::Single();
 	MetaDatabase& mdb = MetaDatabase::Single();
