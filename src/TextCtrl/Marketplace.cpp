@@ -18,9 +18,10 @@ MarketplaceCtrl::MarketplaceCtrl() {
 	CtrlLayout(form);
 	
 	items.AddColumn(t_("Generic name"));
-	items.AddColumn(t_("Brand"));
-	items.AddColumn(t_("Model"));
+	//items.AddColumn(t_("Brand"));
+	//items.AddColumn(t_("Model"));
 	items.AddColumn(t_("Price"));
+	items.ColumnWidths("4 1");
 	items.AddIndex("IDX");
 	items.WhenBar << [this](Bar& bar) {
 		bar.Add(t_("Add item"), THISBACK1(Do, 0));
@@ -66,9 +67,9 @@ void MarketplaceCtrl::Data() {
 	for(int i = 0; i < p.owner->marketplace.items.GetCount(); i++) {
 		MarketplaceItem& mi = p.owner->marketplace.items[i];
 		items.Set(i, 0, mi.generic);
-		items.Set(i, 1, mi.brand);
-		items.Set(i, 2, mi.model);
-		items.Set(i, 3, mi.price);
+		//items.Set(i, 1, mi.brand);
+		//items.Set(i, 2, mi.model);
+		items.Set(i, 1, mi.price);
 		items.Set(i, "IDX", i);
 	}
 	INHIBIT_CURSOR(items);
@@ -83,6 +84,11 @@ void MarketplaceCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Add item"), AppImg::BlueRing(), THISBACK1(Do, 0)).Key(K_CTRL_T);
 	bar.Add(t_("Remove item"), AppImg::BlueRing(), THISBACK1(Do, 1)).Key(K_CTRL|K_W|K_SHIFT);
 	bar.Separator();
+	bar.Add(t_("Rotate image clockwise"), AppImg::BlueRing(), THISBACK1(Do, 9)).Key(K_CTRL_F);
+	bar.Add(t_("Rotate image counter-clockwise"), AppImg::BlueRing(), THISBACK1(Do, 10)).Key(K_CTRL_G);
+	bar.Separator();
+	bar.Add(t_("Set recursive image directory from clipboard"), AppImg::BlueRing(), THISBACK1(Do, 8)).Key(K_F3);
+	bar.Add(t_("Set image directory from clipboard"), AppImg::BlueRing(), THISBACK1(Do, 7)).Key(K_F4);
 	bar.Add(t_("Add image from clipboard"), AppImg::BlueRing(), THISBACK1(Do, 2)).Key(K_F5);
 	bar.Add(t_("Set image from clipboard"), AppImg::BlueRing(), THISBACK1(Do, 3)).Key(K_F6);
 	bar.Add(t_("Remove image"), AppImg::BlueRing(), THISBACK1(Do, 4)).Key(K_F7);
@@ -117,6 +123,10 @@ void MarketplaceCtrl::DataItem() {
 	
 	MetaPtrs& p = MetaPtrs::Single();
 	int item_i = items.Get("IDX");
+	if (item_i < 0 || item_i >= p.owner->marketplace.items.GetCount()) {
+		PostCallback(THISBACK(Data));
+		return;
+	}
 	MarketplaceItem& mi = p.owner->marketplace.items[item_i];
 	
 	form.added.SetData(mi.added);
@@ -152,6 +162,10 @@ void MarketplaceCtrl::DataImage() {
 	}
 	MetaPtrs& p = MetaPtrs::Single();
 	int item_i = items.Get("IDX");
+	if (item_i < 0 || item_i >= p.owner->marketplace.items.GetCount()) {
+		PostCallback(THISBACK(Data));
+		return;
+	}
 	MarketplaceItem& mi = p.owner->marketplace.items[item_i];
 	int img_i = images.GetCursor();
 	hash_t h = mi.images[img_i];
@@ -175,22 +189,35 @@ void MarketplaceCtrl::Do(int fn) {
 		MarketplaceItem& mi = p.owner->marketplace.items.Add();
 		mi.added = GetSysTime();
 		PostCallback(THISBACK(Data));
+		PostCallback([this]() {
+			if (items.GetCount())
+				items.SetCursor(items.GetCount()-1);
+		});
 	}
 	else if (fn == 1) {
 		if (!p.owner || !items.IsCursor()) return;
 		int item_i = items.Get("IDX");
+		if (item_i < 0 || item_i >= p.owner->marketplace.items.GetCount()) {
+			PostCallback(THISBACK(Data));
+			return;
+		}
 		p.owner->marketplace.items.Remove(item_i);
 		PostCallback(THISBACK(Data));
 	}
 	else if (fn == 2) {
 		if (!p.owner || !items.IsCursor()) return;
 		int item_i = items.Get("IDX");
+		if (item_i < 0 || item_i >= p.owner->marketplace.items.GetCount()) {
+			PostCallback(THISBACK(Data));
+			return;
+		}
 		MarketplaceItem& mi = p.owner->marketplace.items[item_i];
 		int img_i = mi.images.GetCount();
 		mi.images.Add(0);
 		images.Set(img_i,0,img_i);
 		images.SetCursor(img_i);
 		PasteImagePath();
+		PostCallback(THISBACK(DataItem));
 	}
 	else if (fn == 3) {
 		PasteImagePath();
@@ -198,13 +225,22 @@ void MarketplaceCtrl::Do(int fn) {
 	else if (fn == 4) {
 		if (!p.owner || !items.IsCursor() || !images.IsCursor()) return;
 		int item_i = items.Get("IDX");
+		if (item_i < 0 || item_i >= p.owner->marketplace.items.GetCount()) {
+			PostCallback(THISBACK(Data));
+			return;
+		}
 		int img_i = images.GetCursor();
 		MarketplaceItem& mi = p.owner->marketplace.items[item_i];
 		mi.images.Remove(img_i);
+		PostCallback(THISBACK(DataItem));
 	}
 	else if (fn == 5) {
 		if (!p.owner || !items.IsCursor() || !images.IsCursor()) return;
 		int item_i = items.Get("IDX");
+		if (item_i < 0 || item_i >= p.owner->marketplace.items.GetCount()) {
+			PostCallback(THISBACK(Data));
+			return;
+		}
 		MarketplaceItem& mi = p.owner->marketplace.items[item_i];
 		int img_i = images.GetCursor();
 		if (img_i == 0) return;
@@ -212,10 +248,15 @@ void MarketplaceCtrl::Do(int fn) {
 		mi.images.Remove(img_i);
 		mi.images.Insert(img_i-1, h);
 		images.SetCursor(img_i-1);
+		PostCallback(THISBACK(DataItem));
 	}
 	else if (fn == 6) {
 		if (!p.owner || !items.IsCursor() || !images.IsCursor()) return;
 		int item_i = items.Get("IDX");
+		if (item_i < 0 || item_i >= p.owner->marketplace.items.GetCount()) {
+			PostCallback(THISBACK(Data));
+			return;
+		}
 		MarketplaceItem& mi = p.owner->marketplace.items[item_i];
 		int img_i = images.GetCursor();
 		if (img_i == mi.images.GetCount()-1) return;
@@ -223,8 +264,121 @@ void MarketplaceCtrl::Do(int fn) {
 		mi.images.Remove(img_i);
 		mi.images.Insert(img_i+1, h);
 		images.SetCursor(img_i+1);
+		PostCallback(THISBACK(DataItem));
 	}
-	
+	else if (fn == 7) {
+		String dir = ReadClipboardText();
+		if (!DirectoryExists(dir)) return;
+		int item_i = items.Get("IDX");
+		if (item_i < 0 || item_i >= p.owner->marketplace.items.GetCount()) {
+			PostCallback(THISBACK(Data));
+			return;
+		}
+		String fname = GetFileName(dir);
+		MarketplaceItem& mi = p.owner->marketplace.items[item_i];
+		if (mi.generic.IsEmpty())
+			mi.generic = fname;
+		FindFile ff(AppendFileName(dir, "*.jpg"));
+		do {
+			String fname = ff.GetName();
+			if (fname == "." || fname == "..") continue;
+			int img_i = mi.images.GetCount();
+			mi.images.Add(0);
+			images.Set(img_i,0,img_i);
+			images.SetCursor(img_i);
+			LoadImagePath(ff.GetPath());
+		}
+		while (ff.Next());
+		PostCallback(THISBACK(DataItem));
+	}
+	else if (fn == 8) {
+		String dir = ReadClipboardText();
+		if (!DirectoryExists(dir)) return;
+		FindFile dirs(AppendFileName(dir, "*"));
+		do {
+			if (!dirs.IsDirectory()) continue;
+			String dir_name = dirs.GetName();
+			if (dir_name == "." || dir_name == "..") continue;
+			if (dir_name.Left(2) == "__") continue;
+			
+			bool found = false;
+			for (MarketplaceItem& mi : p.owner->marketplace.items) {
+				if (mi.generic == dir_name) {
+					found = true;
+					break;
+				}
+			}
+			if (found) continue;
+			
+			String dir = dirs.GetPath();
+			int item_i = p.owner->marketplace.items.GetCount();
+			INHIBIT_CURSOR(items);
+			items.Set(item_i,0,"");
+			items.Set(item_i,"IDX",item_i);
+			items.SetCursor(item_i);
+			MarketplaceItem& mi = p.owner->marketplace.items.Add();
+			if (mi.generic.IsEmpty())
+				mi.generic = dir_name;
+			FindFile ff(AppendFileName(dir, "*.jpg"));
+			do {
+				String fname = ff.GetName();
+				if (fname == "." || fname == "..") continue;
+				int img_i = mi.images.GetCount();
+				mi.images.Add(0);
+				images.Set(img_i,0,img_i);
+				INHIBIT_CURSOR(images);
+				images.SetCursor(img_i);
+				LoadImagePath(ff.GetPath());
+			}
+			while (ff.Next());
+		}
+		while (dirs.Next());
+		PostCallback(THISBACK(Data));
+	}
+	else if (fn == 9) {
+		if (!images.IsCursor())
+			return;
+		MetaPtrs& p = MetaPtrs::Single();
+		int item_i = items.Get("IDX");
+		if (item_i < 0 || item_i >= p.owner->marketplace.items.GetCount()) {
+			PostCallback(THISBACK(Data));
+			return;
+		}
+		MarketplaceItem& mi = p.owner->marketplace.items[item_i];
+		int img_i = images.GetCursor();
+		hash_t h = mi.images[img_i];
+		
+		if (h) {
+			String path = CacheImageFile(h);
+			Image i = StreamRaster::LoadFileAny(path);
+			i = RotateClockwise(i);
+			JPGEncoder enc(100);
+			enc.SaveFile(path, i);
+			this->img.SetImage(i);
+		}
+	}
+	else if (fn == 10) {
+		if (!images.IsCursor())
+			return;
+		MetaPtrs& p = MetaPtrs::Single();
+		int item_i = items.Get("IDX");
+		if (item_i < 0 || item_i >= p.owner->marketplace.items.GetCount()) {
+			PostCallback(THISBACK(Data));
+			return;
+		}
+		MarketplaceItem& mi = p.owner->marketplace.items[item_i];
+		int img_i = images.GetCursor();
+		hash_t h = mi.images[img_i];
+		
+		if (h) {
+			String path = CacheImageFile(h);
+			Image i = StreamRaster::LoadFileAny(path);
+			i = RotateAntiClockwise(i);
+			JPGEncoder enc(100);
+			enc.SaveFile(path, i);
+			this->img.SetImage(i);
+		}
+	}
 }
 
 void MarketplaceCtrl::OnValueChange(){
@@ -234,6 +388,10 @@ void MarketplaceCtrl::OnValueChange(){
 	
 	MetaPtrs& p = MetaPtrs::Single();
 	int item_i = items.Get("IDX");
+	if (item_i < 0 || item_i >= p.owner->marketplace.items.GetCount()) {
+		PostCallback(THISBACK(Data));
+		return;
+	}
 	MarketplaceItem& mi = p.owner->marketplace.items[item_i];
 	
 	mi.added = form.added.GetData();
@@ -251,9 +409,9 @@ void MarketplaceCtrl::OnValueChange(){
 	mi.good = form.good.GetData();
 	
 	items.Set(0, mi.generic);
-	items.Set(1, mi.brand);
-	items.Set(2, mi.model);
-	items.Set(3, mi.price);
+	//items.Set(1, mi.brand);
+	//items.Set(2, mi.model);
+	items.Set(1, mi.price);
 }
 
 void MarketplaceCtrl::PasteImagePath() {
@@ -272,6 +430,12 @@ void MarketplaceCtrl::PasteImagePath() {
 	}
 }
 
+void MarketplaceCtrl::LoadImagePath(String path) {
+	Image img = StreamRaster::LoadFileAny(path);
+	if (!img.IsEmpty())
+		SetCurrentImage(img);
+}
+
 void MarketplaceCtrl::SetCurrentImage(Image img) {
 	this->img.SetImage(img);
 	
@@ -280,6 +444,10 @@ void MarketplaceCtrl::SetCurrentImage(Image img) {
 	if (!mp.owner || !items.IsCursor() || !images.IsCursor())
 		return;
 	int item_i = items.Get("IDX");
+	if (item_i < 0 || item_i >= mp.owner->marketplace.items.GetCount()) {
+		PostCallback(THISBACK(Data));
+		return;
+	}
 	int img_i = images.GetCursor();
 	MarketplaceItem& mi = mp.owner->marketplace.items[item_i];
 	

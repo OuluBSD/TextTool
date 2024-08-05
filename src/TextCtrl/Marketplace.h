@@ -24,6 +24,7 @@ public:
 	void ClearForm();
 	void PasteImagePath();
 	void SetCurrentImage(Image img);
+	void LoadImagePath(String path);
 	
 };
 
