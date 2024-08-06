@@ -115,11 +115,23 @@ void Tasks::RetryItem(bool skip_prompt, bool skip_cache) {
 	this->output.Clear();
 }
 
+void Tasks::ReturnFail() {
+	TaskMgr& m = TaskMgr::Single();
+	
+	if (!list.IsCursor())
+		return;
+	int cursor = list.GetCursor();
+	AiTask& t = m.tasks[cursor];
+	t.ReturnFail();
+	this->output.SetData("fail");
+}
+
 
 void Tasks::OutputMenu(Bar& bar) {
 	bar.Add(t_("Process output"), THISBACK(ProcessItem));
 	bar.Add(t_("Retry"), THISBACK2(RetryItem, false, false));
 	bar.Add(t_("Retry cached prompt"), THISBACK2(RetryItem, true, false));
 	bar.Add(t_("Retry and skip cache"), THISBACK2(RetryItem, false, true));
+	bar.Add(t_("Return fail"), THISBACK(ReturnFail));
 	
 }

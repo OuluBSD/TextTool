@@ -65,7 +65,8 @@ void ScriptStructureSolverCtrl::Do(int fn) {
 		
 		ConceptualFrameworkArgs args;
 		args.fn = 6;
-		args.lyrics = sd.a.dataset.GetScriptDump(sd.a.dataset, idx);
+		//args.lyrics = sd.a.dataset.GetScriptDump(sd.a.dataset, idx);
+		args.lyrics = src_struct.GetData();
 		args.genre = genres.Get(0);
 		concepts.GetElements(args);
 		if (args.elements.IsEmpty()) {

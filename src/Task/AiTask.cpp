@@ -139,6 +139,24 @@ bool AiTask::ProcessInput() {
 }
 
 void AiTask::Process() {
+	
+	if (ret_fail) {
+		output = "fail";
+		try {
+			(this->*TaskRule::process)();
+		}
+		catch (NoPointerExc e) {
+			LOG("error: " << e);
+		}
+		ready = true;
+		fast_exit = false;
+		skip_load = false;
+		processing = false;
+		WhenDone();
+		return;
+	}
+	
+	
 	//LOG("AiTask::Process: begin of " << TaskRule::name);
 	processing = true;
 	
@@ -274,6 +292,7 @@ bool AiTask::RunOpenAI_Image() {
 		SetError(e.what());
 		Array<Image> res;
 		WhenResultImages(res);
+		if (auto_ret_fail) ReturnFail();
 		return false;
 	}
 	catch (std::string e) {
@@ -283,6 +302,7 @@ bool AiTask::RunOpenAI_Image() {
 		SetError(e.c_str());
 		Array<Image> res;
 		WhenResultImages(res);
+		if (auto_ret_fail) ReturnFail();
 		return false;
 	}
 	catch (NLOHMANN_JSON_NAMESPACE::detail::parse_error e) {
@@ -293,6 +313,7 @@ bool AiTask::RunOpenAI_Image() {
 		SetError(e.what());
 		Array<Image> res;
 		WhenResultImages(res);
+		if (auto_ret_fail) ReturnFail();
 		return false;
 	}
 	catch (std::exception e) {
@@ -302,6 +323,7 @@ bool AiTask::RunOpenAI_Image() {
 		fatal_error = true;
 		Array<Image> res;
 		WhenResultImages(res);
+		if (auto_ret_fail) ReturnFail();
 		return false;
 	}
     DalleResponse response;
@@ -441,6 +463,7 @@ bool AiTask::RunOpenAI_Completion() {
 			LOG(txt);
 			fatal_error = true;
 			SetError(e.what());
+			if (auto_ret_fail) ReturnFail();
 			return false;
 		}
 		catch (std::string e) {
@@ -449,6 +472,7 @@ bool AiTask::RunOpenAI_Completion() {
 			LOG(txt);
 			fatal_error = true;
 			SetError(e.c_str());
+			if (auto_ret_fail) ReturnFail();
 			return false;
 		}
 		catch (NLOHMANN_JSON_NAMESPACE::detail::parse_error e) {
@@ -458,6 +482,7 @@ bool AiTask::RunOpenAI_Completion() {
 			LOG(e.what());
 			fatal_error = true;
 			SetError(e.what());
+			if (auto_ret_fail) ReturnFail();
 			return false;
 		}
 		catch (std::exception e) {
@@ -466,6 +491,7 @@ bool AiTask::RunOpenAI_Completion() {
 			LOG(txt);
 			SetError(e.what());
 			fatal_error = true;
+			if (auto_ret_fail) ReturnFail();
 			return false;
 		}
 		/*catch (...) {
@@ -568,6 +594,7 @@ bool AiTask::RunOpenAI_Vision() {
 			LOG(txt);
 			fatal_error = true;
 			SetError(e.what());
+			if (auto_ret_fail) ReturnFail();
 			return false;
 		}
 		catch (std::string e) {
@@ -576,6 +603,7 @@ bool AiTask::RunOpenAI_Vision() {
 			LOG(txt);
 			fatal_error = true;
 			SetError(e.c_str());
+			if (auto_ret_fail) ReturnFail();
 			return false;
 		}
 		catch (NLOHMANN_JSON_NAMESPACE::detail::parse_error e) {
@@ -585,6 +613,7 @@ bool AiTask::RunOpenAI_Vision() {
 			LOG(e.what());
 			fatal_error = true;
 			SetError(e.what());
+			if (auto_ret_fail) ReturnFail();
 			return false;
 		}
 		catch (std::exception e) {
@@ -593,6 +622,7 @@ bool AiTask::RunOpenAI_Vision() {
 			LOG(txt);
 			SetError(e.what());
 			fatal_error = true;
+			if (auto_ret_fail) ReturnFail();
 			return false;
 		}
 		/*catch (...) {
@@ -623,6 +653,19 @@ void AiTask::Retry(bool skip_prompt, bool skip_cache) {
 	error.Clear();
 	changed = true;
 	tries = 0;
+}
+
+void AiTask::ReturnFail() {
+	output = "fail";
+	tmp_str = "";
+	
+	ret_fail = true;
+	failed = false;
+	fatal_error = false;
+	ready = false;
+	error.Clear();
+	changed = true;
+	tries = 1;
 }
 
 TaskMgr& AiTask::GetTaskMgr() {

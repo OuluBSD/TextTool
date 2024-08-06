@@ -3991,14 +3991,28 @@ void AiTask::CreateInput_ConceptualFrameworkProcess() {
 	ConceptualFrameworkArgs args;
 	args.Put(this->args[0]);
 	
-	bool fit_score = args.scores.GetCount();
+	bool fit_score = true; //args.scores.GetCount();
 	if (args.fn == 0 || args.fn == 1 || args.fn == 2) {
 		if (fit_score) {
 			EnterAppMode(appmode);
-			{
+			if (args.scores.GetCount()) {
 				auto& list = input.AddSub().Title(__Script2 + " heuristic score factors");
 				for(int i = 0; i < args.scores.GetCount(); i++)
 					list.Add(args.scores[i]);
+			}
+			else {
+				String audience = GetAppModeKey(appmode, AM_AUDIENCE);
+				auto& list = input.AddSub().Title(__Script2 + " heuristic score factors");
+				list.Add("S0: High like count from the " + audience + ". Low count means that the idea behind the phrase was bad.");
+				list.Add("S1: High comment count from the " + audience + ". Low count means that there was no emotion in the phrase.");
+				list.Add("S2: High listen count from the " + audience + ". Low count means that there was bad so called hook in the phrase.");
+				list.Add("S3: High share count from the " + audience + ". Low count means that the phrase was not relatable.");
+				list.Add("S4: High bookmark count from the " + audience + ". Low count means that the phrase had no value.");
+				list.Add("S5: High reference count towards comedy from the " + audience + ". Low count means that the phrase was not funny.");
+				list.Add("S6: High reference count towards sex from the " + audience + ". Low count means that the phrase was not sensual.");
+				list.Add("S7: High reference count towards politics from the " + audience + ". Low count means that the phrase was not thought-provoking.");
+				list.Add("S8: High reference count towards love from the " + audience + ". Low count means that the phrase was not romantic.");
+				list.Add("S9: High reference count towards social issues from the " + audience + ". Low count means that the phrase was not impactful.");
 			}
 			
 			if (args.fn == 0 || args.fn == 2) {

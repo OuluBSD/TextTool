@@ -662,6 +662,7 @@ struct ScriptSuggestion : Moveable<ScriptSuggestion> {
 		StringParser p(s);
 		int i = 0;
 		p % i;
+		if (i < 0 || i >= 100) return;
 		parts.SetCount(i);
 		for (auto& l : parts) p % l.name % l.lines;
 		p % rank;

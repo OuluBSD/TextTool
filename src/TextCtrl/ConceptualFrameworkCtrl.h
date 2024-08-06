@@ -24,6 +24,7 @@ public:
 	ConceptualFrameworkNavigator();
 	
 	void Data() override;
+	void DataAll(bool forced);
 	void DataFramework();
 	void DataStory();
 	void OnValueChange();

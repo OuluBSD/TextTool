@@ -138,6 +138,7 @@ struct ScriptSolverArgs {
 	bool is_story = false;
 	bool is_unsafe = false;
 	bool is_self_centered = false;
+	bool ret_fail = false;
 	double factor = 0;
 	Vector<String> elements;
 	String rhyme_element;
@@ -162,6 +163,7 @@ struct ScriptSolverArgs {
 				("is_story", is_story)
 				("is_unsafe", is_unsafe)
 				("is_self_centered", is_self_centered)
+				("ret_fail", ret_fail)
 				("factor", factor)
 				("elements", elements)
 				("rhyme_element", rhyme_element)

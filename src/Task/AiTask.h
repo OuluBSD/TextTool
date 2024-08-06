@@ -187,6 +187,8 @@ public:
 	bool allow_multi_spawn = false;
 	int tries = 0;
 	bool keep_going = false;
+	bool ret_fail = false;
+	bool auto_ret_fail = false;
 	int quality = 0;
 	
 	AiPrompt input;
@@ -228,6 +230,8 @@ public:
 	void SetWaiting() {wait_task = true;}
 	void SetFastExit() {fast_exit = true;}
 	void SetHighQuality() {quality = 1;}
+	void ReturnFail();
+	void SetAutoReturnFail() {auto_ret_fail = true;}
 	String GetInputHash() const;
 	String GetOutputHash() const;
 	

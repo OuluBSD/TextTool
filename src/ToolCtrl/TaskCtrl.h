@@ -21,6 +21,7 @@ public:
 	void ToolMenu(Bar& bar) {}
 	void ValueChange();
 	void ProcessItem();
+	void ReturnFail();
 	void RetryItem(bool skip_prompt, bool skip_cache);
 	void OutputMenu(Bar& bar);
 	

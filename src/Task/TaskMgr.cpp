@@ -367,6 +367,10 @@ void TaskMgr::GetScriptSolver(int appmode, const ScriptSolverArgs& args, Event<S
 	
 	t.args << s;
 	t.WhenResult << WhenResult;
+	
+	if (args.ret_fail)
+		t.SetAutoReturnFail();
+	
 	task_lock.Leave();
 }
 

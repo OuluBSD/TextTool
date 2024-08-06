@@ -40,7 +40,6 @@ ConceptualFrameworkNavigator::ConceptualFrameworkNavigator() {
 	stories.ColumnWidths("2 2 12 1 1 1 1 1 1 1 1 1 1 1");
 	stories.AddIndex("IDX");
 	stories.WhenCursor << THISBACK(DataStory);
-	stories <<= THISBACK(DataStory);
 	stories.WhenBar << [this](Bar& bar) {
 		bar.Add("Add item", THISBACK1(Do, 2));
 		bar.Add(cfs.IsCursor(), "Remove item", THISBACK1(Do, 3));
@@ -93,12 +92,16 @@ void ConceptualFrameworkNavigator::LockForm() {
 }
 
 void ConceptualFrameworkNavigator::Data() {
+	DataAll(false);
+}
+
+void ConceptualFrameworkNavigator::DataAll(bool forced) {
 	MetaPtrs& mp = MetaPtrs::Single();
 	MetaDatabase& mdb = MetaDatabase::Single();
 	if (!mp.snap)
 		return;
 	
-	if (cfs.GetCount())
+	if (!forced && cfs.GetCount() == mp.snap->concepts.GetCount())
 		return;
 	
 	for(int i = 0; i < mp.snap->concepts.GetCount(); i++) {
@@ -197,7 +200,7 @@ void ConceptualFrameworkNavigator::DataFramework() {
 	const auto& cons = GetContents();
 	for(int i = 0; i < con.stories.GetCount(); i++) {
 		const ConceptStory& st = con.stories[i];
-		stories.Set(row, 0, st.typeclass >= 0 ? tcs[st.typeclass] : String());
+		stories.Set(row, 0, st.typeclass >= 0 && st.typeclass < tcs.GetCount() ? tcs[st.typeclass] : String());
 		stories.Set(row, 1, st.content >= 0 ? cons[st.content].key : String());
 		//stories.Set(row, 2, st.desc);
 		SetColoredListValue(stories, row, 2, st.desc, st.GetAverageColor(), true);
@@ -336,7 +339,7 @@ void ConceptualFrameworkNavigator::OnValueChange() {
 }
 
 void ConceptualFrameworkNavigator::ToolMenu(Bar& bar) {
-	bar.Add(t_("Update"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
+	bar.Add(t_("Update"), AppImg::BlueRing(), THISBACK1(DataAll, true)).Key(K_CTRL_Q);
 	bar.Separator();
 	bar.Add(t_("Previous sort column"), AppImg::BlueRing(), THISBACK1(MoveSortColumn, -1)).Key(K_F1);
 	bar.Add(t_("Next sort column"), AppImg::BlueRing(), THISBACK1(MoveSortColumn, +1)).Key(K_F2);

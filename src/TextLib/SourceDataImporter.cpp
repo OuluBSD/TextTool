@@ -7,6 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 SourceDataImporter::SourceDataImporter() {
+	skip_ready = false;
 	SetParallel();
 }
 
@@ -80,6 +81,17 @@ void SourceDataImporter::Tokenize() {
 	
 	String str = script.text;
 	
+	{
+		Vector<String> lines = Split(str, "\n");
+		for(int i = 0; i < lines.GetCount(); i++) {
+			String& s = lines[i];
+			s = TrimBoth(s);
+			if (s.Left(1) == "[")
+				lines.Remove(i--);
+		}
+		str = Join(lines, "\n");
+	}
+	
 	// Ignore files with hard ambiguities
 	if (str.Find(" well ") >= 0) {
 		// well or we'll... too expensive to figure out
@@ -124,6 +136,7 @@ void SourceDataImporter::Tokenize() {
 	
 	data_lock.Enter();
 	ScriptStruct& ss = da.scripts.GetAdd(ss_hash, ss_i);
+	ss.parts.Clear();
 	
 	int prev_msect = -1, prev_sect = -1, prev_ssect = -1;
 	ScriptStruct::Part* part = 0;
@@ -152,6 +165,9 @@ void SourceDataImporter::Tokenize() {
 		}
 		else if (ssub_line_i > 0 && ssub_line_i % 4 == 0)
 			ssubpart = &subpart->sub.Add();
+		
+		if (line.txt.Left(1) == "[")
+			continue;
 		
 		if (!tk.Parse(line.txt))
 			continue;

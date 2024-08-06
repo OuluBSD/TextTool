@@ -370,13 +370,18 @@ void Script::LoadStructuredText(const String& s) {
 void Script::SetEditText(const String& s) {
 	Vector<String> sparts = Split(s, "[");
 	int part_i = 0;
-	for (String& p : sparts) {
+	for(int i = 0; i < sparts.GetCount(); i++) {
+		String& p = sparts[i];
 		Vector<String> lines = Split(p, "\n");
 		lines.Remove(0);
 		int line_i = 0;
 		if (part_i >= parts.GetCount())
 			break;
 		auto& part = parts[part_i++];
+		if (part.sub.IsEmpty() || (part.sub.GetCount() == 1 && part.sub[0].lines.IsEmpty())) {
+			i--;
+			continue;
+		}
 		for (auto& sub : part.sub) {
 			for (auto& line : sub.lines) {
 				if (line_i < lines.GetCount())
@@ -394,6 +399,7 @@ void Script::SetEditText(const String& s) {
 				line.edit_text = "";
 			}
 		}
+		part_i++;
 	}
 }
 

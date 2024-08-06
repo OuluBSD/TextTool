@@ -217,7 +217,7 @@ void ScriptSolver::ProcessFillLines() {
 	
 	
 	args.vision = song.content_vision;
-	
+	args.ret_fail = true;
 	
 	 
 	SetWaiting(1);
@@ -729,6 +729,12 @@ void ScriptSolver::ProcessComparison() {
 			OnProcessComparisonFail(i);
 			return;
 		}
+		
+		WString ws = content.ToWString();
+		int chr_limit = 3000;
+		if (ws.GetCount() > chr_limit)
+			ws = ws.Left(chr_limit);
+		content = ws.ToString();
 		
 		args.phrases << content;
 	}
