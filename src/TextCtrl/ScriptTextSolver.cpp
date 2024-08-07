@@ -142,7 +142,7 @@ void ScriptTextSolverCtrl::DoSuggestions(int fn) {
 	sdi.WhenRemaining << [this](String s) {
 		PostCallback([this,s](){sugg_remaining.SetLabel(s); Refresh();});
 	};
-	sdi.WhenReady << THISBACK(Data);
+	sdi.WhenReady << [this](){PostCallback(THISBACK(Data));};
 	
 	if (fn == 0)
 		sdi.Start();
