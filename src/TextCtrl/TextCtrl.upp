@@ -16,6 +16,8 @@ file
 	Profile.h,
 	Profile.cpp,
 	"Social Media" readonly separator,
+	BiographyGenerator.h,
+	BiographyGenerator.cpp,
 	Biography.h,
 	Biography.cpp,
 	BiographySummary.h,

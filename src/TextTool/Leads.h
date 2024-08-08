@@ -37,7 +37,7 @@ protected:
 	BiographyElementsCtrl		biography_elements;
 	MarketplaceCtrl				marketplace;
 	ConceptualFrameworkCtrl		conceptual;
-	
+	BiographyGeneratorCtrl		biography_gen;
 	
 public:
 	typedef LeadsCtrl CLASSNAME;

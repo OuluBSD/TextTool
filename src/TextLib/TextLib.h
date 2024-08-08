@@ -20,6 +20,7 @@
 #include "ScriptRange.h"
 #include "ScriptText.h"
 #include "SourceAnalysis.h"
+#include "BiographyGeneratorProcess.h"
 #include "BiographyProcess.h"
 #include "BiographySummaryProcess.h"
 #include "ImageBiographyProcess.h"

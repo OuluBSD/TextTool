@@ -9,6 +9,8 @@ file
 	SolverBase.h options(BUILDER_OPTION) PCH,
 	SolverBase.cpp,
 	"Social Media pipeline" readonly separator,
+	BiographyGeneratorProcess.h,
+	BiographyGeneratorProcess.cpp,
 	BiographyProcess.h,
 	BiographyProcess.cpp,
 	BiographySummaryProcess.h,

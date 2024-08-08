@@ -24,6 +24,7 @@ void LeadsCtrl::InitSimplified() {
 	AddItem(t_("Profile"), t_("Owner Info"), owner_info);
 	AddItem(t_("Profile"), t_("Profile Info"), profile_info);
 	AddItem(t_("Social Media"), t_("Beliefs"), social_beliefs);
+	AddItem(t_("Social Media"), t_("Biography Generator"), biography_gen);
 	AddItem(t_("Social Media"), t_("Biography"), biography);
 	AddItem(t_("Social Media"), t_("Biography Elements"), biography_elements);
 	AddItem(t_("Social Media"), t_("Biography Concepts"), conceptual);

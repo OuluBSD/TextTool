@@ -49,6 +49,7 @@
 #include "ScriptStructureSolver.h"
 #include "ScriptTextSolver.h"
 #include "BiographyElements.h"
+#include "BiographyGenerator.h"
 
 #include "Marketplace.h"
 
