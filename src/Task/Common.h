@@ -30,6 +30,7 @@ typedef enum : int {
 	AITASK_BIOGRAPHY_PROCESS,
 	AITASK_BIOGRAPHY_SUMMARY_PROCESS,
 	AITASK_CONCECPTUAL_FRAMEWORK_PROCESS,
+	AITASK_BIOGRAPHY_GENERATOR,
 	
 	AITASK_COUNT
 } AiTaskType;
@@ -461,6 +462,24 @@ struct ConceptualFrameworkArgs {
 				("scores", scores)
 				("lyrics", lyrics)
 				("genre", genre)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+};
+
+struct BiographyGeneratorArgs {
+	int fn = 0;
+	String name, biography, preferred_genres;
+	int birth_year, category;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("name", name)
+				("biography", biography)
+				("preferred_genres", preferred_genres)
+				("birth_year", birth_year)
+				("category", category)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

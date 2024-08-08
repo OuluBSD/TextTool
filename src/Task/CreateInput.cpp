@@ -4153,5 +4153,35 @@ void AiTask::CreateInput_ConceptualFrameworkProcess() {
 	}
 }
 
+void AiTask::CreateInput_BiographyGenerator() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	BiographyGeneratorArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == 0) {
+		Time now = GetSysTime();
+		{
+			auto& list = input.AddSub().Title("Description of the person");
+			list.Add("Name", args.name);
+			list.Add("Born in year", args.birth_year);
+			list.Add("Preferred genres in the year " + IntStr(now.year), args.preferred_genres);
+			list.Add("Biography", args.biography);
+		}
+		{
+			
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Describe person's '" + GetBiographyCategoryKey(args.category) + "' in short between the years " + IntStr(args.birth_year) + "-" + IntStr(now.year) + ". One single year per line");
+			tmp_str = IntStr(args.birth_year) + " (age 0):";
+			results.Add(tmp_str);
+		}
+		input.response_length = 2048;
+	}
+	
+}
+
 END_TEXTLIB_NAMESPACE
 

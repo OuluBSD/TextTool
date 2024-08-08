@@ -14,25 +14,20 @@ int BiographyGeneratorProcess::GetPhaseCount() const {
 
 int BiographyGeneratorProcess::GetBatchCount(int phase) const {
 	switch (phase) {
-		/*case PHASE_ELEMENTS_SINGLE_YEAR:	return snap->data.AllCategories().GetCount();
-		case PHASE_ELEMENT_SCORES:			return snap->data.AllCategories().GetCount();*/
+		case PHASE_GENERATE:			return tasks.GetCount();
 		default: return 1;
 	}
 }
 
 int BiographyGeneratorProcess::GetSubBatchCount(int phase, int batch) const {
 	switch (phase) {
-		/*case PHASE_ELEMENTS_SINGLE_YEAR:	return snap->data.AllCategories()[batch].summaries.GetCount();
-		case PHASE_ELEMENT_SCORES:			return snap->data.AllCategories()[batch].summaries.GetCount();*/
 		default: return 1;
 	}
 }
 
 void BiographyGeneratorProcess::DoPhase() {
 	switch (phase) {
-		/*case PHASE_ELEMENTS_USING_EXISTING:			GetElementsUsingExisting(); return;
-		case PHASE_ELEMENTS_SINGLE_YEAR:			ElementsForSingleYears(); return;
-		case PHASE_ELEMENT_SCORES:					GetElementScores(); return;*/
+		case PHASE_GENERATE:			Generate(); return;
 		default: return;
 	}
 }
@@ -46,6 +41,68 @@ BiographyGeneratorProcess& BiographyGeneratorProcess::Get(Profile& p, BiographyS
 	ts.owner = p.owner;
 	ts.snap = &snap;
 	return ts;
+}
+
+void BiographyGeneratorProcess::Generate() {
+	
+	if (batch == 0 && sub_batch == 0) {
+		tasks.Clear();
+		Time now = GetSysTime();
+		for(int i = 0; i < BIOCATEGORY_COUNT; i++) {
+			Task& t = tasks.Add();
+			t.category = i;
+		}
+	}
+	
+	if (batch >= tasks.GetCount()) {
+		NextPhase();
+		return;
+	}
+	
+	Task& t = tasks[batch];
+	
+	BiographyGeneratorArgs args;
+	args.fn = 0;
+	args.name = profile->name;
+	args.birth_year = owner->year_of_birth;
+	args.biography = profile->biography;
+	args.preferred_genres = profile->preferred_genres;
+	args.category = t.category;
+	
+	
+	
+	SetWaiting(1);
+	TaskMgr& m = TaskMgr::Single();
+	m.GetBiographyGenerator(args, [this](String result) {
+		Biography& data = snap->data;
+		Task& t = tasks[batch];
+		BiographyCategory& bcat = data.GetAdd(*owner, t.category);
+		
+		RemoveEmptyLines3(result);
+		Vector<String> lines = Split(result, "\n");
+		
+		Time now = GetSysTime();
+		snap->last_modified = now;
+		
+		for (String& line : lines) {
+			int a = line.Find("(");
+			if (a < 0) continue;
+			int year = ScanInt(ToLower(TrimBoth(line.Left(a))));
+			a = line.Find(":");
+			if (a < 0) continue;
+			String value = TrimBoth(line.Mid(a+1));
+			
+			if (year < owner->year_of_birth || year > now.year)
+				continue;
+			
+			BioYear& by = bcat.GetAdd(year);
+			
+			by.text = value;
+		}
+		
+		NextBatch();
+		SetWaiting(0);
+	});
 }
 
 

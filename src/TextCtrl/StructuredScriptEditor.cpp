@@ -190,7 +190,9 @@ void StructuredScriptEditor::Paint(Draw& d) {
 	d.DrawRect(sz, White());
 	
 	Font fnt = SansSerif(line_h-3); // Monospace(line_h-3);
-	Script& s = owner->GetScript();
+	EditorPtrs& p = owner->GetPointers();
+	if (!p.script) return;
+	Script& s = *p.script;
 	int y = -scroll_v;
 	int indent_cx = 30;
 	Color part_bg = Color(233, 235, 255);
