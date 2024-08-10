@@ -201,7 +201,7 @@ void ConceptualFrameworkNavigator::DataFramework() {
 	for(int i = 0; i < con.stories.GetCount(); i++) {
 		const ConceptStory& st = con.stories[i];
 		stories.Set(row, 0, st.typeclass >= 0 && st.typeclass < tcs.GetCount() ? tcs[st.typeclass] : String());
-		stories.Set(row, 1, st.content >= 0 ? cons[st.content].key : String());
+		stories.Set(row, 1, st.content >= 0 && st.content < cons.GetCount() ? cons[st.content].key : String());
 		//stories.Set(row, 2, st.desc);
 		SetColoredListValue(stories, row, 2, st.desc, st.GetAverageColor(), true);
 		double sum = 0;

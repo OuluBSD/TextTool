@@ -47,14 +47,17 @@ void ScriptStructureSolverCtrl::ToolMenu(Bar& bar) {
 	/*bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	bar.Separator();*/
-	bar.Add(t_("Morph lyrics"), AppImg::RedRing(), THISBACK1(Do, 2)).Key(K_F5);
-	bar.Add(t_("Convert to content idea"), AppImg::RedRing(), THISBACK1(Do, 3)).Key(K_F6);
+	bar.Add(t_("Morph lyrics"), AppImg::RedRing(), THISBACK1(Do, 2)).Key(K_F7);
+	bar.Add(t_("Convert to content idea"), AppImg::RedRing(), THISBACK1(Do, 3)).Key(K_F8);
 }
 
 void ScriptStructureSolverCtrl::Do(int fn) {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
-	Script& s = GetScript();
+	EditorPtrs& p = GetPointers();
+	if(!p.script)
+		return;
+	Script& s = *p.script;
 	
 	//DoT<ScriptStructureProcess>(fn);
 	if (fn == 2) {
