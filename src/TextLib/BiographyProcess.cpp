@@ -16,7 +16,7 @@ int BiographyProcess::GetBatchCount(int phase) const {
 	switch (phase) {
 		case PHASE_ELEMENTS_SINGLE_YEAR:	return snap->data.AllCategories().GetCount();
 		case PHASE_ELEMENT_SCORES:			return snap->data.AllCategories().GetCount();
-		default: TODO; return 1;
+		default: return 1;
 	}
 }
 
@@ -24,7 +24,7 @@ int BiographyProcess::GetSubBatchCount(int phase, int batch) const {
 	switch (phase) {
 		case PHASE_ELEMENTS_SINGLE_YEAR:	return snap->data.AllCategories()[batch].summaries.GetCount();
 		case PHASE_ELEMENT_SCORES:			return snap->data.AllCategories()[batch].summaries.GetCount();
-		default: TODO; return 1;
+		default: return 1;
 	}
 }
 
@@ -33,7 +33,7 @@ void BiographyProcess::DoPhase() {
 		case PHASE_ELEMENTS_USING_EXISTING:			GetElementsUsingExisting(); return;
 		case PHASE_ELEMENTS_SINGLE_YEAR:			ElementsForSingleYears(); return;
 		case PHASE_ELEMENT_SCORES:					GetElementScores(); return;
-		default: TODO; return;
+		default: return;
 	}
 }
 

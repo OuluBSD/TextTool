@@ -461,6 +461,23 @@ void TaskMgr::GetMarketplace(const MarketplaceArgs& args, Event<String> WhenResu
 	task_lock.Leave();
 }
 
+void TaskMgr::GetBiographyGenerator(const BiographyGeneratorArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
+	t.SetRule(AITASK_BIOGRAPHY_GENERATOR, MakeName(args, -1, "biography generator"))
+		.Input(&AiTask::CreateInput_BiographyGenerator)
+		.Process(&AiTask::Process_Default);
+	
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
 void TaskMgr::GetLeadSolver(int appmode, const LeadSolverArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	TaskMgr& p = *this;

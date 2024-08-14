@@ -9,7 +9,7 @@ class BiographyGeneratorProcess : public SolverBase {
 	
 public:
 	enum {
-		PHASE_,
+		PHASE_GENERATE,
 		
 		PHASE_COUNT,
 	};
@@ -17,6 +17,10 @@ public:
 	Profile* p = 0;
 	BiographySnapshot* snap = 0;
 	
+	struct Task : Moveable<Task> {
+		int year, category;
+	};
+	Vector<Task> tasks;
 	
 public:
 	typedef BiographyGeneratorProcess CLASSNAME;
@@ -30,7 +34,7 @@ public:
 	static BiographyGeneratorProcess& Get(Profile& p, BiographySnapshot& snap);
 	
 private:
-	
+	void Generate();
 	
 };
 
