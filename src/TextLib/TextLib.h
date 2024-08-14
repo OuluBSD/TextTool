@@ -33,6 +33,7 @@
 #include "SocialNeeds.h"
 #include "SocialBeliefs.h"
 #include "ConceptualFramework.h"
+#include "MarketplaceProcess.h"
 
 #if 1
 #include "ScriptGenerator.h"

@@ -8,14 +8,18 @@ MarketplaceCtrl::MarketplaceCtrl() {
 	Add(prog.BottomPos(0,20).HSizePos(300));
 	Add(remaining.BottomPos(0,20).LeftPos(0,300));
 	
-	hsplit.Horz() << items << form << imgsplit;
+	hsplit.Horz() << items << tabs << imgsplit;
 	hsplit.SetPos(1500, 0);
 	hsplit.SetPos(1500+4000, 1);
 	
 	imgsplit.Vert() << images << img;
 	imgsplit.SetPos(2500);
 	
+	tabs.Add(form.SizePos(), "Form");
+	tabs.Add(viewer.SizePos(), "Viewer");
+	tabs.WhenSet << THISBACK(DataItem);
 	CtrlLayout(form);
+	CtrlLayout(viewer);
 	
 	items.AddColumn(t_("Generic name"));
 	//items.AddColumn(t_("Brand"));
@@ -51,6 +55,9 @@ MarketplaceCtrl::MarketplaceCtrl() {
 	form.works		<<= THISBACK(OnValueChange);
 	form.broken		<<= THISBACK(OnValueChange);
 	form.good		<<= THISBACK(OnValueChange);
+	
+	viewer.make_images <<= THISBACK(MakeTempImages);
+	
 }
 
 void MarketplaceCtrl::Data() {
@@ -78,6 +85,7 @@ void MarketplaceCtrl::Data() {
 		items.SetCursor(0);
 	
 	DataItem();
+	
 }
 
 void MarketplaceCtrl::ToolMenu(Bar& bar) {
@@ -94,6 +102,9 @@ void MarketplaceCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Remove image"), AppImg::BlueRing(), THISBACK1(Do, 4)).Key(K_F7);
 	bar.Add(t_("Move up"), AppImg::BlueRing(), THISBACK1(Do, 5)).Key(K_F8);
 	bar.Add(t_("Move down"), AppImg::BlueRing(), THISBACK1(Do, 6)).Key(K_F9);
+	bar.Separator();
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 11));
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 12));
 	
 }
 
@@ -129,30 +140,41 @@ void MarketplaceCtrl::DataItem() {
 	}
 	MarketplaceItem& mi = p.owner->marketplace.items[item_i];
 	
-	form.added.SetData(mi.added);
-	form.generic.SetData(mi.generic);
-	form.brand.SetData(mi.brand);
-	form.model.SetData(mi.model);
-	form.price.SetData(mi.price);
-	form.width.SetData(mi.cx);
-	form.height.SetData(mi.cy);
-	form.depth.SetData(mi.cz);
-	form.weight.SetData(mi.weight);
-	form.faults.SetData(mi.faults);
-	form.works.SetData(mi.works);
-	form.broken.SetData(mi.broken);
-	form.good.SetData(mi.good);
-	
-	for(int i = 0; i < mi.images.GetCount(); i++) {
-		hash_t h = mi.images[i];
-		images.Set(i, 0, i);
+	int tab = tabs.Get();
+	if (tab == 0) {
+		form.added.SetData(mi.added);
+		form.generic.SetData(mi.generic);
+		form.brand.SetData(mi.brand);
+		form.model.SetData(mi.model);
+		form.price.SetData(mi.price);
+		form.width.SetData(mi.cx);
+		form.height.SetData(mi.cy);
+		form.depth.SetData(mi.cz);
+		form.weight.SetData(mi.weight);
+		form.faults.SetData(mi.faults);
+		form.works.SetData(mi.works);
+		form.broken.SetData(mi.broken);
+		form.good.SetData(mi.good);
+		
+		for(int i = 0; i < mi.images.GetCount(); i++) {
+			hash_t h = mi.images[i];
+			images.Set(i, 0, i);
+		}
+		images.SetCount(mi.images.GetCount());
+		INHIBIT_CURSOR(images);
+		if (images.GetCount() && !images.IsCursor())
+			images.SetCursor(0);
+		
+		DataImage();
 	}
-	images.SetCount(mi.images.GetCount());
-	INHIBIT_CURSOR(images);
-	if (images.GetCount() && !images.IsCursor())
-		images.SetCursor(0);
-	
-	DataImage();
+	else if (tab == 1) {
+		viewer.title.SetData(mi.title);
+		viewer.category.SetData(mi.category);
+		viewer.subcategory.SetData(mi.subcategory);
+		viewer.condition.SetData(mi.broken ? "Broken" : (mi.good ? "Good" : "Fair"));
+		viewer.description.SetData(mi.description);
+		viewer.price.SetData(Format("%.2!n€", mi.price));
+	}
 }
 
 void MarketplaceCtrl::DataImage() {
@@ -338,7 +360,6 @@ void MarketplaceCtrl::Do(int fn) {
 	else if (fn == 9) {
 		if (!images.IsCursor())
 			return;
-		MetaPtrs& p = MetaPtrs::Single();
 		int item_i = items.Get("IDX");
 		if (item_i < 0 || item_i >= p.owner->marketplace.items.GetCount()) {
 			PostCallback(THISBACK(Data));
@@ -360,7 +381,6 @@ void MarketplaceCtrl::Do(int fn) {
 	else if (fn == 10) {
 		if (!images.IsCursor())
 			return;
-		MetaPtrs& p = MetaPtrs::Single();
 		int item_i = items.Get("IDX");
 		if (item_i < 0 || item_i >= p.owner->marketplace.items.GetCount()) {
 			PostCallback(THISBACK(Data));
@@ -378,6 +398,13 @@ void MarketplaceCtrl::Do(int fn) {
 			enc.SaveFile(path, i);
 			this->img.SetImage(i);
 		}
+	}
+	else if (fn == 11 || fn == 12) {
+		MarketplaceProcess& ss = MarketplaceProcess::Get(*p.owner);
+		if (fn == 11)
+			ss.Start();
+		else if (fn == 12)
+			ss.Stop();
 	}
 }
 
@@ -466,6 +493,12 @@ void MarketplaceCtrl::SetCurrentImage(Image img) {
 	mi.images[img_i] = h;
 	
 	PostCallback(THISBACK(DataImage));
+}
+
+void MarketplaceCtrl::MakeTempImages() {
+	
+	
+	
 }
 
 

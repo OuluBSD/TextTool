@@ -30,6 +30,7 @@ typedef enum : int {
 	AITASK_BIOGRAPHY_PROCESS,
 	AITASK_BIOGRAPHY_SUMMARY_PROCESS,
 	AITASK_CONCECPTUAL_FRAMEWORK_PROCESS,
+	AITASK_MARKETPLACE,
 	
 	AITASK_COUNT
 } AiTaskType;
@@ -461,6 +462,19 @@ struct ConceptualFrameworkArgs {
 				("scores", scores)
 				("lyrics", lyrics)
 				("genre", genre)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+};
+
+struct MarketplaceArgs {
+	int fn = 0;
+	VectorMap<String,String> map;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("map", map)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

@@ -192,5 +192,158 @@ BiographySnapshot* Profile::FindSnapshotRevision(int i) {
 }
 
 
+const VectorMap<String, Vector<String>>& GetMarketplaceSections() {
+	static VectorMap<String, Vector<String>> m;
+	if (!m.IsEmpty()) return m;
+	{
+		auto& v = m.Add("Antiikki ja taide");
+		v.Add("Antiikkihuonekalut");
+		v.Add("Aterimet ja pöytähopeat");
+		v.Add("Keramiikka, posliini ja lasi");
+		v.Add("Taide");
+		v.Add("Muu antiikki");
+	}
+	{
+		auto& v = m.Add("Auto-, vene- ja moottoripyörätarvikkeet");
+		v.Add("Asuntoauto- ja matkailuautotarvikkeet");
+		v.Add("Auton osat");
+		v.Add("Mototarvikkeet ja varaosat");
+		v.Add("Mönkijän varaosat");
+		v.Add("Trailerit");
+		v.Add("Veneen varaosat");
+		v.Add("Muut autotarvikkeet");
+	}
+	{
+		auto& v = m.Add("Elektroniikka ja kodinkoneet");
+		v.Add("Kodin pienkoneet");
+		v.Add("Kodinkoneet");
+		v.Add("Puhelimet ja tarvikkeet");
+		v.Add("Tietotekniikka");
+		v.Add("Valokuvaus ja video");
+		v.Add("Videopelit ja konsolit");
+		v.Add("Ääni ja kuva");
+		v.Add("Muu elektroniikka ja kodinkoneet");
+	}
+	{
+		auto& v = m.Add("Eläimet ja eläintarvikkeet");
+		v.Add("Akvaariot");
+		v.Add("Eläinten ruokinta, hoito, jalostus ja tallipaikat");
+		v.Add("Hevoset");
+		v.Add("Hevostarvikkeet ja ratsastustarvikkeet");
+		v.Add("Hyönteiset ja hämähäkit");
+		v.Add("Häkit");
+		v.Add("Jyrsijät ja kanit");
+		v.Add("Kalat");
+		v.Add("Kissat");
+		v.Add("Kissatarvikkeet");
+		v.Add("Koirat");
+		v.Add("Koiratarvikkeet");
+		v.Add("Linnut");
+		v.Add("Matelijat");
+		v.Add("Muut eläimet");
+		v.Add("Muut eläintarvikkeet");
+	}
+	{
+		auto& v = m.Add("Huonekalut ja sisustus");
+		v.Add("Hyllyt ja lipastot");
+		v.Add("Kaapit");
+		v.Add("Keittiötarvikkeet ja astiat");
+		v.Add("Koriste- ja sisustusesineet");
+		v.Add("Makuuhuone");
+		v.Add("Matot ja tekstiilit");
+		v.Add("Pöydät ja tuolit");
+		v.Add("Sohvat ja lepotuolit");
+		v.Add("Valaisimet");
+		v.Add("Muut huonekalut ja sisustus");
+	}
+	{
+		auto& v = m.Add("Koti, puutarha ja rakentaminen");
+		v.Add("Autotallin ovet ja kalusteet");
+		v.Add("Hälyttimet ja turvallisuus");
+		v.Add("Keittiöt");
+		v.Add("Kylpyhuone ja sauna");
+		v.Add("Lämmitys ja ilmanvaihto");
+		v.Add("Mökkitarvikkeet");
+		v.Add("Piha ja puutarha");
+		v.Add("Rakennustarvikkeet ja remotointi");
+		v.Add("Työkalut");
+		v.Add("Muu koti, puutarha ja rakentaminen");
+	}
+	{
+		auto& v = m.Add("Lapset ja vanhemmat");
+		v.Add("Lasten kalusteet");
+		v.Add("Lasten kengät");
+		v.Add("Lasten kirjat");
+		v.Add("Lasten vaatteet");
+		v.Add("Lastentarvikkeet ja turvallisuus");
+		v.Add("Lastenvaunut ja rattaat");
+		v.Add("Lelut");
+		v.Add("Turvaistuimet");
+		v.Add("Äitiysvaatteet");
+		v.Add("Muut");
+	}
+	{
+		auto& v = m.Add("Liiketoiminta ja palvelut");
+		v.Add("Esitystekniikka");
+		v.Add("Kauppa ja jälleenmyynti");
+		v.Add("Konetekniikka ja varaosat");
+		v.Add("Kontit ja työmaakopit");
+		v.Add("Maatalous");
+		v.Add("Rahti ja tavarankuljetus");
+		v.Add("Rakentaminen ja remontointi");
+		v.Add("Suurtalouskeittiö ja ravintola-ala");
+		v.Add("Terveys ja ensiapu");
+		v.Add("Toimistotarvikkeet ja toimistokalusteet");
+		v.Add("Web-domainit ja puhelinnumerot");
+		v.Add("Muu liiketoiminta ja palvelut");
+	}
+	{
+		auto& v = m.Add("Urheilu ja ulkoilu");
+		v.Add("Extreme-urheilu");
+		v.Add("Fanituotteet");
+		v.Add("Golf");
+		v.Add("Hiihto ja laskettelu");
+		v.Add("Jääkiekko ja luistelu");
+		v.Add("Kuntosalilaitteet");
+		v.Add("Metsästys, kalastus ja ulkoilu");
+		v.Add("Osallistujaliput");
+		v.Add("Pallopelit");
+		v.Add("Pyöräily");
+		v.Add("Ravintolisät");
+		v.Add("Urheilukellot ja aktiivisuusrannekkeet");
+		v.Add("Vesiurheilu");
+		v.Add("Muu urheilu");
+	}
+	{
+		auto& v = m.Add("Vaatteet, kosmetiikka ja asusteet");
+		v.Add("Ihonhoito ja hiustenhoito");
+		v.Add("Kellot ja rannekellot");
+		v.Add("Kengät");
+		v.Add("Korut ja korurasiat");
+		v.Add("Kosmetiikka");
+		v.Add("Laukut ja lompakot");
+		v.Add("Miesten vaatteet");
+		v.Add("Naamiaisasut");
+		v.Add("Naisten vaatteet");
+		v.Add("Silmälasit ja linssit");
+		v.Add("Muut vaatteet, kosmetiikka ja asusteet");
+	}
+	{
+		auto& v = m.Add("Viihde ja harrastukset");
+		v.Add("Elintarvikkeet");
+		v.Add("Keräily");
+		v.Add("Kirjat ja lehdet");
+		v.Add("Käsityöt");
+		v.Add("Matkat ja matkaliput");
+		v.Add("Musiikki ja elokuvat");
+		v.Add("Pienoismallit ja rakennussarjat");
+		v.Add("Radio-ohjattavat");
+		v.Add("Seurapelit");
+		v.Add("Soittimet");
+		v.Add("Muu viihde ja harrastukset");
+	}
+	return m;
+}
+
 END_TEXTLIB_NAMESPACE
 

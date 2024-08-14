@@ -33,6 +33,8 @@ file
 	SocialNeeds.cpp,
 	SocialBeliefs.h,
 	SocialBeliefs.cpp,
+	MarketplaceProcess.h,
+	MarketplaceProcess.cpp,
 	"Database pipeline" readonly separator,
 	SourceDataImporter.h,
 	SourceDataImporter.cpp,

@@ -444,6 +444,23 @@ void TaskMgr::GetConceptualFramework(int appmode, const ConceptualFrameworkArgs&
 	task_lock.Leave();
 }
 
+void TaskMgr::GetMarketplace(const MarketplaceArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
+	t.SetRule(AITASK_MARKETPLACE, MakeName(args, -1, "marketplace"))
+		.Input(&AiTask::CreateInput_Marketplace)
+		.Process(&AiTask::Process_Default);
+	
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
 void TaskMgr::GetLeadSolver(int appmode, const LeadSolverArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	TaskMgr& p = *this;

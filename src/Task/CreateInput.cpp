@@ -4153,5 +4153,39 @@ void AiTask::CreateInput_ConceptualFrameworkProcess() {
 	}
 }
 
+void AiTask::CreateInput_Marketplace() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	MarketplaceArgs args;
+	args.Put(this->args[0]);
+	
+	{
+		auto& list = input.AddSub().Title("Information about the marketplace item");
+		for(int i = 0; i < args.map.GetCount(); i++)
+			if (args.map[i].GetCount())
+				list.Add(args.map.GetKey(i), args.map[i]);
+	}
+	
+	const VectorMap<String, Vector<String>>& sects = GetMarketplaceSections();
+	
+	if (args.fn == 0) {
+		{
+			auto& list = input.AddSub().Title("List of product categories");
+			for(int i = 0; i < sects.GetCount(); i++)
+				list.Add("category #" + IntStr(i) + ": " + sects.GetKey(i));
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Pick the category, which best fits the marketplace item");
+			results.Add("category #");
+		}
+		input.response_length = 2048;
+	}
+}
+
+
 END_TEXTLIB_NAMESPACE
 

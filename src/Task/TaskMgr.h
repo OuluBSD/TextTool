@@ -61,6 +61,7 @@ struct TaskMgr {
 	void GetBiography(const BiographyProcessArgs& args, Event<String> WhenResult);
 	void GetBiographySummary(const BiographySummaryProcessArgs& args, Event<String> WhenResult);
 	void GetConceptualFramework(int appmode, const ConceptualFrameworkArgs& args, Event<String> WhenResult);
+	void GetMarketplace(const MarketplaceArgs& args, Event<String> WhenResult);
 	
 	static TaskMgr& Single() {static TaskMgr tm; return tm;}
 	

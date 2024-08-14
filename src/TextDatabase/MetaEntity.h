@@ -137,6 +137,8 @@ struct Role {
 	
 };
 
+const VectorMap<String, Vector<String>>& GetMarketplaceSections();
+
 struct MarketplaceItem : Moveable<MarketplaceItem> {
 	Time added;
 	String generic, brand, model;
@@ -144,6 +146,7 @@ struct MarketplaceItem : Moveable<MarketplaceItem> {
 	String faults, works;
 	bool broken = false, good = false;
 	Vector<int64> images;
+	String title, category, subcategory, description;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -161,6 +164,10 @@ struct MarketplaceItem : Moveable<MarketplaceItem> {
 			("broken",broken)
 			("good",good)
 			("images",images)
+			("title",title)
+			("category",category)
+			("subcategory",subcategory)
+			("description",description)
 			;
 	}
 };

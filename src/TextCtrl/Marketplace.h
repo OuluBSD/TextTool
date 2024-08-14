@@ -8,7 +8,9 @@ BEGIN_TEXTLIB_NAMESPACE
 class MarketplaceCtrl : public ToolAppCtrl {
 	Splitter hsplit, imgsplit;
 	ArrayCtrl items, images;
+	TabCtrl tabs;
 	WithMarketplace<Ctrl> form;
+	WithMarketplaceViewer<Ctrl> viewer;
 	ImageViewerCtrl img;
 	
 public:
@@ -23,6 +25,7 @@ public:
 	void OnValueChange();
 	void ClearForm();
 	void PasteImagePath();
+	void MakeTempImages();
 	void SetCurrentImage(Image img);
 	void LoadImagePath(String path);
 	
