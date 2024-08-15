@@ -30,6 +30,10 @@ MarketplaceCtrl::MarketplaceCtrl() {
 	items.WhenBar << [this](Bar& bar) {
 		bar.Add(t_("Add item"), THISBACK1(Do, 0));
 		bar.Add(t_("Remove item"), THISBACK1(Do, 1));
+		bar.Separator();
+		bar.Add(t_("Show all"), THISBACK1(ShowItems, -1));
+		for(int i = 0; i < MARKETPRIORITY_COUNT; i++)
+			bar.Add(t_("Show ") + GetMarketPriorityKey(i), THISBACK1(ShowItems, i));
 	};
 	items.WhenCursor << THISBACK(DataItem);
 	
@@ -42,6 +46,10 @@ MarketplaceCtrl::MarketplaceCtrl() {
 		bar.Add(t_("Move up"), THISBACK1(Do, 5));
 		bar.Add(t_("Move down"), THISBACK1(Do, 6));
 	};
+	for(int i = 0; i < MARKETPRIORITY_COUNT; i++)
+		form.priority.Add(GetMarketPriorityKey(i));
+	
+	form.priority	<<= THISBACK(OnValueChange);
 	form.added		<<= THISBACK(OnValueChange);
 	form.generic	<<= THISBACK(OnValueChange);
 	form.brand		<<= THISBACK(OnValueChange);
@@ -55,6 +63,13 @@ MarketplaceCtrl::MarketplaceCtrl() {
 	form.works		<<= THISBACK(OnValueChange);
 	form.broken		<<= THISBACK(OnValueChange);
 	form.good		<<= THISBACK(OnValueChange);
+	form.year		<<= THISBACK(OnValueChange);
+	form.other		<<= THISBACK(OnValueChange);
+	viewer.title		<<= THISBACK(OnValueChange);
+	viewer.description	<<= THISBACK(OnValueChange);
+	form.category		<<= THISBACK(OnCategory);
+	form.subcategory	<<= THISBACK(OnSubCategory);
+	form.set_book		<<= THISBACK1(SetCategoryShorcut, 1);
 	
 	viewer.make_images <<= THISBACK(MakeTempImages);
 	
@@ -71,16 +86,29 @@ void MarketplaceCtrl::Data() {
 		return;
 	}
 	
+	if (form.category.GetCount() == 0) {
+		const auto& map = GetMarketplaceSections();
+		for(int i = 0; i < map.GetCount(); i++) {
+			String key = map.GetKey(i);
+			form.category.Add(key);
+		}
+		form.category.SetIndex(0);
+	}
+	
+	int row = 0;
 	for(int i = 0; i < p.owner->marketplace.items.GetCount(); i++) {
 		MarketplaceItem& mi = p.owner->marketplace.items[i];
-		items.Set(i, 0, mi.generic);
-		//items.Set(i, 1, mi.brand);
-		//items.Set(i, 2, mi.model);
-		items.Set(i, 1, mi.price);
-		items.Set(i, "IDX", i);
+		if (filter_priority >= 0 && mi.priority != filter_priority)
+			continue;
+		items.Set(row, 0, mi.generic);
+		//items.Set(row, 1, mi.brand);
+		//items.Set(row, 2, mi.model);
+		items.Set(row, 1, mi.price);
+		items.Set(row, "IDX", i);
+		row++;
 	}
 	INHIBIT_CURSOR(items);
-	items.SetCount(p.owner->marketplace.items.GetCount());
+	items.SetCount(row);
 	if (!items.IsCursor() && items.GetCount())
 		items.SetCursor(0);
 	
@@ -140,21 +168,29 @@ void MarketplaceCtrl::DataItem() {
 	}
 	MarketplaceItem& mi = p.owner->marketplace.items[item_i];
 	
+	form.priority.SetIndex(mi.priority);
+	form.added.SetData(mi.added);
+	form.generic.SetData(mi.generic);
+	form.brand.SetData(mi.brand);
+	form.model.SetData(mi.model);
+	form.price.SetData(mi.price);
+	form.width.SetData(mi.cx);
+	form.height.SetData(mi.cy);
+	form.depth.SetData(mi.cz);
+	form.weight.SetData(mi.weight);
+	form.faults.SetData(mi.faults);
+	form.works.SetData(mi.works);
+	form.broken.SetData(mi.broken);
+	form.good.SetData(mi.good);
+	form.year.SetData(mi.year_of_manufacturing);
+	form.other.SetData(mi.other);
+	
+	viewer.title.SetData(mi.title);
+	viewer.description.SetData(mi.description);
+	
 	int tab = tabs.Get();
 	if (tab == 0) {
-		form.added.SetData(mi.added);
-		form.generic.SetData(mi.generic);
-		form.brand.SetData(mi.brand);
-		form.model.SetData(mi.model);
-		form.price.SetData(mi.price);
-		form.width.SetData(mi.cx);
-		form.height.SetData(mi.cy);
-		form.depth.SetData(mi.cz);
-		form.weight.SetData(mi.weight);
-		form.faults.SetData(mi.faults);
-		form.works.SetData(mi.works);
-		form.broken.SetData(mi.broken);
-		form.good.SetData(mi.good);
+		DataCategory();
 		
 		for(int i = 0; i < mi.images.GetCount(); i++) {
 			hash_t h = mi.images[i];
@@ -164,17 +200,54 @@ void MarketplaceCtrl::DataItem() {
 		INHIBIT_CURSOR(images);
 		if (images.GetCount() && !images.IsCursor())
 			images.SetCursor(0);
-		
-		DataImage();
 	}
 	else if (tab == 1) {
-		viewer.title.SetData(mi.title);
-		viewer.category.SetData(mi.category);
-		viewer.subcategory.SetData(mi.subcategory);
+		const auto& sects = GetMarketplaceSections();
+		viewer.category.SetData(sects.GetKey(mi.category));
+		viewer.subcategory.SetData(sects[mi.category][mi.subcategory]);
 		viewer.condition.SetData(mi.broken ? "Broken" : (mi.good ? "Good" : "Fair"));
-		viewer.description.SetData(mi.description);
 		viewer.price.SetData(Format("%.2!n€", mi.price));
 	}
+	
+	DataImage();
+}
+
+void MarketplaceCtrl::DataCategory() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.owner || !items.IsCursor())
+		return;
+	int item_i = items.Get("IDX");
+	MarketplaceItem& mi = mp.owner->marketplace.items[item_i];
+	
+	// Normalize values (ugly, cos in gui)
+	const auto& sects = GetMarketplaceSections();
+	if (mi.category < 0 || mi.category >= sects.GetCount())
+		mi.category = 0;
+	
+	// Update droplist values based on category
+	form.category.SetIndex(mi.category);
+	
+	DataSubCategory();
+}
+
+void MarketplaceCtrl::DataSubCategory() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.owner || !items.IsCursor())
+		return;
+	int item_i = items.Get("IDX");
+	MarketplaceItem& mi = mp.owner->marketplace.items[item_i];
+	
+	const auto& sects = GetMarketplaceSections();
+	const auto& sub_sects = sects[mi.category];
+	if (mi.subcategory < 0 || mi.subcategory >= sub_sects.GetCount())
+		mi.subcategory = 0;
+	
+	form.subcategory.Clear();
+	for(int i = 0; i < sub_sects.GetCount(); i++)
+		form.subcategory.Add(sub_sects[i]);
+	form.subcategory.SetIndex(mi.subcategory);
 }
 
 void MarketplaceCtrl::DataImage() {
@@ -421,6 +494,7 @@ void MarketplaceCtrl::OnValueChange(){
 	}
 	MarketplaceItem& mi = p.owner->marketplace.items[item_i];
 	
+	mi.priority = form.priority.GetIndex();
 	mi.added = form.added.GetData();
 	mi.generic = form.generic.GetData();
 	mi.brand = form.brand.GetData();
@@ -434,6 +508,11 @@ void MarketplaceCtrl::OnValueChange(){
 	mi.works = form.works.GetData();
 	mi.broken = form.broken.GetData();
 	mi.good = form.good.GetData();
+	mi.year_of_manufacturing = form.year.GetData();
+	mi.other = form.other.GetData();
+	
+	mi.description = viewer.description.GetData();
+	mi.title = viewer.title.GetData();
 	
 	items.Set(0, mi.generic);
 	//items.Set(1, mi.brand);
@@ -499,6 +578,42 @@ void MarketplaceCtrl::MakeTempImages() {
 	
 	
 	
+}
+
+void MarketplaceCtrl::OnCategory() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.owner || !items.IsCursor())
+		return;
+	int item_i = items.Get("IDX");
+	MarketplaceItem& mi = mp.owner->marketplace.items[item_i];
+	
+	mi.category = form.category.GetIndex();
+	mi.subcategory = 0;
+	DataSubCategory();
+}
+
+void MarketplaceCtrl::OnSubCategory() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.owner || !items.IsCursor())
+		return;
+	int item_i = items.Get("IDX");
+	MarketplaceItem& mi = mp.owner->marketplace.items[item_i];
+	
+	mi.subcategory = form.subcategory.GetIndex();
+}
+
+void MarketplaceCtrl::SetCategoryShorcut(int i) {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.owner || !items.IsCursor())
+		return;
+	int item_i = items.Get("IDX");
+	MarketplaceItem& mi = mp.owner->marketplace.items[item_i];
+	mi.category = 10;
+	mi.subcategory = 2;
+	DataCategory();
 }
 
 

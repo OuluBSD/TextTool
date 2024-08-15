@@ -4172,14 +4172,19 @@ void AiTask::CreateInput_Marketplace() {
 	
 	if (args.fn == 0) {
 		{
-			auto& list = input.AddSub().Title("List of product categories");
-			for(int i = 0; i < sects.GetCount(); i++)
-				list.Add("category #" + IntStr(i) + ": " + sects.GetKey(i));
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Write the description for the marketplace item in Finnish. This is for a drift store, so don't oversell it. Don't include the price nor category");
+			results.NoListChar();
+			results.Add("");
 		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 1) {
 		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Pick the category, which best fits the marketplace item");
-			results.Add("category #");
+			results.Title("Write the short title for the marketplace item in Finnish. This is for a drift store, so don't oversell it. Don't include the price nor category");
+			results.NoListChar();
+			results.Add("");
 		}
 		input.response_length = 2048;
 	}
