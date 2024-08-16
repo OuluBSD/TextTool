@@ -140,7 +140,8 @@ struct Role {
 const VectorMap<String, Vector<String>>& GetMarketplaceSections();
 
 enum {
-	MARKETPRIORITY_SELL,
+	MARKETPRIORITY_IN_SALE,
+	MARKETPRIORITY_SELL_UPCOMING,
 	MARKETPRIORITY_SOLD,
 	MARKETPRIORITY_POSTPONE_SELL,
 	MARKETPRIORITY_WONT_SELL,
@@ -150,7 +151,8 @@ enum {
 
 inline String GetMarketPriorityKey(int i) {
 	switch (i) {
-		case MARKETPRIORITY_SELL:			return "Sell";
+		case MARKETPRIORITY_IN_SALE:		return "In sale";
+		case MARKETPRIORITY_SELL_UPCOMING:	return "Upcoming sell";
 		case MARKETPRIORITY_SOLD:			return "Sold";
 		case MARKETPRIORITY_POSTPONE_SELL:	return "Postpone sell";
 		case MARKETPRIORITY_WONT_SELL:		return "Won't sell";
@@ -197,6 +199,14 @@ struct MarketplaceItem : Moveable<MarketplaceItem> {
 			("year_of_manufacturing",year_of_manufacturing)
 			("other",other)
 			;
+	}
+	
+	String GetTitle() const {
+		String s;
+		s << generic;
+		if (brand.GetCount()) {if (!s.IsEmpty()) s << " "; s << brand;}
+		if (model.GetCount()) {if (!s.IsEmpty()) s << " "; s << model;}
+		return s;
 	}
 };
 

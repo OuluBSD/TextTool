@@ -4179,15 +4179,6 @@ void AiTask::CreateInput_Marketplace() {
 		}
 		input.response_length = 2048;
 	}
-	else if (args.fn == 1) {
-		{
-			TaskTitledList& results = input.PreAnswer();
-			results.Title("Write the short title for the marketplace item in Finnish. This is for a drift store, so don't oversell it. Don't include the price nor category");
-			results.NoListChar();
-			results.Add("");
-		}
-		input.response_length = 2048;
-	}
 }
 
 

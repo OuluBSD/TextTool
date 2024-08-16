@@ -16,7 +16,6 @@ int MarketplaceProcess::GetBatchCount(int phase) const {
 	const auto& s = GetMarketplaceSections();
 	switch (phase) {
 		case PHASE_DESCRIPTION:	return owner->marketplace.items.GetCount();
-		case PHASE_TITLE:		return owner->marketplace.items.GetCount();
 		default: return 1;
 	}
 }
@@ -24,7 +23,6 @@ int MarketplaceProcess::GetBatchCount(int phase) const {
 int MarketplaceProcess::GetSubBatchCount(int phase, int batch) const {
 	switch (phase) {
 		case PHASE_DESCRIPTION:	return 1;
-		case PHASE_TITLE:		return 1;
 		default: return 1;
 	}
 }
@@ -32,7 +30,6 @@ int MarketplaceProcess::GetSubBatchCount(int phase, int batch) const {
 void MarketplaceProcess::DoPhase() {
 	switch (phase) {
 		case PHASE_DESCRIPTION:	ProcessDescription(); return;
-		case PHASE_TITLE:		ProcessTitle(); return;
 		default: NextPhase(); break;
 	}
 }
@@ -97,37 +94,6 @@ void MarketplaceProcess::ProcessDescription() {
 		it.description = res;
 		it.input_hash = hash;
 		it.title.Clear();
-		
-		SetWaiting(0);
-		NextBatch();
-	});
-}
-
-void MarketplaceProcess::ProcessTitle() {
-	if (batch >= owner->marketplace.items.GetCount()) {
-		NextPhase();
-		return;
-	}
-	
-	MarketplaceArgs args;
-	args.fn = 1;
-	MakeArgs(args);
-	args.map.RemoveKey("title");
-	
-	MarketplaceItem& it = owner->marketplace.items[batch];
-	int64 hash = args.map.GetHashValue();
-	if (it.title.GetCount()) {
-		NextBatch();
-		return;
-	}
-	
-	SetWaiting(1);
-	TaskMgr& m = TaskMgr::Single();
-	m.GetMarketplace(args, [this,hash](String res) {
-		MarketplaceItem& it = owner->marketplace.items[batch];
-		res = TrimBoth(res);
-		RemoveQuotes(res);
-		it.title = res;
 		
 		SetWaiting(0);
 		NextBatch();

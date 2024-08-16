@@ -21,11 +21,9 @@ MarketplaceCtrl::MarketplaceCtrl() {
 	CtrlLayout(form);
 	CtrlLayout(viewer);
 	
-	items.AddColumn(t_("Generic name"));
-	//items.AddColumn(t_("Brand"));
-	//items.AddColumn(t_("Model"));
-	items.AddColumn(t_("Price"));
-	items.ColumnWidths("4 1");
+	items.AddColumn(t_("Category"));
+	items.AddColumn(t_("Title"));
+	items.ColumnWidths("2 4");
 	items.AddIndex("IDX");
 	items.WhenBar << [this](Bar& bar) {
 		bar.Add(t_("Add item"), THISBACK1(Do, 0));
@@ -55,10 +53,10 @@ MarketplaceCtrl::MarketplaceCtrl() {
 	form.brand		<<= THISBACK(OnValueChange);
 	form.model		<<= THISBACK(OnValueChange);
 	form.price		<<= THISBACK(OnValueChange);
-	form.width		<<= THISBACK(OnValueChange);
-	form.height		<<= THISBACK(OnValueChange);
-	form.depth		<<= THISBACK(OnValueChange);
-	form.weight		<<= THISBACK(OnValueChange);
+	form.width		<<= THISBACK(OnDimensionChange);
+	form.height		<<= THISBACK(OnDimensionChange);
+	form.depth		<<= THISBACK(OnDimensionChange);
+	form.weight		<<= THISBACK(OnDimensionChange);
 	form.faults		<<= THISBACK(OnValueChange);
 	form.works		<<= THISBACK(OnValueChange);
 	form.broken		<<= THISBACK(OnValueChange);
@@ -98,17 +96,22 @@ void MarketplaceCtrl::Data() {
 	int row = 0;
 	for(int i = 0; i < p.owner->marketplace.items.GetCount(); i++) {
 		MarketplaceItem& mi = p.owner->marketplace.items[i];
+		
 		if (filter_priority >= 0 && mi.priority != filter_priority)
 			continue;
-		items.Set(row, 0, mi.generic);
-		//items.Set(row, 1, mi.brand);
-		//items.Set(row, 2, mi.model);
-		items.Set(row, 1, mi.price);
+		
+		const auto& sects = GetMarketplaceSections();
+		
+		String cat = sects.GetKey(mi.category) + ": " + sects[mi.category][mi.subcategory];
+		items.Set(row, 0, cat);
+		items.Set(row, 1, mi.GetTitle());
 		items.Set(row, "IDX", i);
 		row++;
 	}
 	INHIBIT_CURSOR(items);
 	items.SetCount(row);
+	items.SetSortColumn(1);
+	items.SetSortColumn(0);
 	if (!items.IsCursor() && items.GetCount())
 		items.SetCursor(0);
 	
@@ -184,22 +187,25 @@ void MarketplaceCtrl::DataItem() {
 	form.good.SetData(mi.good);
 	form.year.SetData(mi.year_of_manufacturing);
 	form.other.SetData(mi.other);
+	String pkg_str = GetPackageString(mi.cx, mi.cy, mi.cz, mi.weight);
+	form.package.SetData(pkg_str);
+	viewer.package.SetData(pkg_str);
 	
 	viewer.title.SetData(mi.title);
 	viewer.description.SetData(mi.description);
 	
+	for(int i = 0; i < mi.images.GetCount(); i++) {
+		hash_t h = mi.images[i];
+		images.Set(i, 0, i);
+	}
+	images.SetCount(mi.images.GetCount());
+	INHIBIT_CURSOR(images);
+	if (images.GetCount() && !images.IsCursor())
+		images.SetCursor(0);
+	
 	int tab = tabs.Get();
 	if (tab == 0) {
 		DataCategory();
-		
-		for(int i = 0; i < mi.images.GetCount(); i++) {
-			hash_t h = mi.images[i];
-			images.Set(i, 0, i);
-		}
-		images.SetCount(mi.images.GetCount());
-		INHIBIT_CURSOR(images);
-		if (images.GetCount() && !images.IsCursor())
-			images.SetCursor(0);
 	}
 	else if (tab == 1) {
 		const auto& sects = GetMarketplaceSections();
@@ -408,7 +414,6 @@ void MarketplaceCtrl::Do(int fn) {
 			String dir = dirs.GetPath();
 			int item_i = p.owner->marketplace.items.GetCount();
 			INHIBIT_CURSOR(items);
-			items.Set(item_i,0,"");
 			items.Set(item_i,"IDX",item_i);
 			items.SetCursor(item_i);
 			MarketplaceItem& mi = p.owner->marketplace.items.Add();
@@ -481,7 +486,17 @@ void MarketplaceCtrl::Do(int fn) {
 	}
 }
 
-void MarketplaceCtrl::OnValueChange(){
+void MarketplaceCtrl::OnDimensionChange() {
+	MetaPtrs& p = MetaPtrs::Single();
+	int item_i = items.Get("IDX");
+	MarketplaceItem& mi = p.owner->marketplace.items[item_i];
+	OnValueChange();
+	String pkg_str = GetPackageString(mi.cx, mi.cy, mi.cz, mi.weight);
+	form.package.SetData(pkg_str);
+	viewer.package.SetData(pkg_str);
+}
+
+void MarketplaceCtrl::OnValueChange() {
 	if (!items.IsCursor()) {
 		return;
 	}
@@ -514,10 +529,10 @@ void MarketplaceCtrl::OnValueChange(){
 	mi.description = viewer.description.GetData();
 	mi.title = viewer.title.GetData();
 	
-	items.Set(0, mi.generic);
-	//items.Set(1, mi.brand);
-	//items.Set(2, mi.model);
-	items.Set(1, mi.price);
+	const auto& sects = GetMarketplaceSections();
+	String cat = sects.GetKey(mi.category) + ": " + sects[mi.category][mi.subcategory];
+	items.Set(0, cat);
+	items.Set(1, mi.GetTitle());
 }
 
 void MarketplaceCtrl::PasteImagePath() {
@@ -575,13 +590,35 @@ void MarketplaceCtrl::SetCurrentImage(Image img) {
 }
 
 void MarketplaceCtrl::MakeTempImages() {
+	#ifdef flagPOSIX
+	String dir = GetHomeDirFile(".tmp_images");
+	#else
+	String dir = GetHomeDirFile("Temp Images");
+	#endif
+	RealizeDirectory(dir);
 	
+	MetaPtrs& mp = MetaPtrs::Single();
+	if (!mp.owner || !items.IsCursor())
+		return;
+	int item_i = items.Get("IDX");
+	MarketplaceItem& mi = mp.owner->marketplace.items[item_i];
 	
+	FindFile ff(AppendFileName(dir, "*.jpg"));
+	do {
+		DeleteFile(ff.GetPath());
+	}
+	while (ff.Next());
 	
+	for(int i = 0; i < mi.images.GetCount(); i++) {
+		String src = CacheImageFile(mi.images[i]);
+		String dst = AppendFileName(dir, IntStr(i) + ".jpg");
+		FileIn in(src);
+		FileOut out(dst);
+		CopyStream(out, in);
+	}
 }
 
 void MarketplaceCtrl::OnCategory() {
-	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.owner || !items.IsCursor())
 		return;
@@ -594,7 +631,6 @@ void MarketplaceCtrl::OnCategory() {
 }
 
 void MarketplaceCtrl::OnSubCategory() {
-	MetaDatabase& mdb = MetaDatabase::Single();
 	MetaPtrs& mp = MetaPtrs::Single();
 	if (!mp.owner || !items.IsCursor())
 		return;
@@ -616,6 +652,43 @@ void MarketplaceCtrl::SetCategoryShorcut(int i) {
 	DataCategory();
 }
 
+String MarketplaceCtrl::GetPackageString(int w, int h, int d, double weight) {
+	if (!w || !h || !d) return String();
+	
+	Vector<int> lengths;
+	lengths << w << h << d;
+	Sort(lengths, StdLess<int>());
+	
+	static const int PKG_TYPE_COUNT = 4;
+	int limits[PKG_TYPE_COUNT][4] = {
+		{3,25,35,2},
+		{15,32,40,4},
+		{26,32,40,25},
+		{60,60,160,25}
+	};
+	
+	for(int i = 0; i < PKG_TYPE_COUNT; i++) {
+		bool fits = true;
+		for(int j = 0; j < 3; j++)
+			if (limits[i][j] < lengths[j])
+				fits = false;
+		if (weight != 0.0 && weight > limits[i][3])
+			fits = false;
+		if (fits) {
+			String s;
+			switch (i) {
+				case 0: s << "Pikkupaketti"; break;
+				case 1: s << "Peruspaketti"; break;
+				case 2: s << "Iso paketti"; break;
+				case 3: s << "Jättipaketti"; break;
+				default: break;
+			}
+			s << Format(", %d cm x %d cm x %d cm, Max %d kg", limits[i][0], limits[i][1], limits[i][2], limits[i][3]);
+			return s;
+		}
+	}
+	return "";
+}
 
 END_TEXTLIB_NAMESPACE
 

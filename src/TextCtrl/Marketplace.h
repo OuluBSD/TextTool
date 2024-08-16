@@ -12,7 +12,7 @@ class MarketplaceCtrl : public ToolAppCtrl {
 	WithMarketplace<Ctrl> form;
 	WithMarketplaceViewer<Ctrl> viewer;
 	ImageViewerCtrl img;
-	int filter_priority = -1;
+	int filter_priority = MARKETPRIORITY_SELL_UPCOMING;
 	
 public:
 	typedef MarketplaceCtrl CLASSNAME;
@@ -26,6 +26,7 @@ public:
 	void DataCategory();
 	void DataSubCategory();
 	void OnValueChange();
+	void OnDimensionChange();
 	void ClearForm();
 	void PasteImagePath();
 	void MakeTempImages();
@@ -35,6 +36,8 @@ public:
 	void SetCurrentImage(Image img);
 	void LoadImagePath(String path);
 	void ShowItems(int priority) {filter_priority = priority; PostCallback(THISBACK(Data));}
+	
+	String GetPackageString(int w, int h, int d, double weight);
 	
 };
 
