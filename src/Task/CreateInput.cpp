@@ -4205,7 +4205,6 @@ void AiTask::CreateInput_BiographyGenerator() {
 			list.Add("Biography", args.biography);
 		}
 		{
-			
 			TaskTitledList& results = input.PreAnswer();
 			results.Title("Describe person's '" + GetBiographyCategoryKey(args.category) + "' in short between the years " + IntStr(args.birth_year) + "-" + IntStr(now.year) + ". One single year per line");
 			tmp_str = IntStr(args.birth_year) + " (age 0):";
@@ -4213,7 +4212,29 @@ void AiTask::CreateInput_BiographyGenerator() {
 		}
 		input.response_length = 2048;
 	}
-	
+	if (args.fn == 1) {
+		Time now = GetSysTime();
+		{
+			auto& list = input.AddSub().Title("Description of the person");
+			list.Add("Name", args.name);
+			list.Add("Born in year", args.birth_year);
+			list.Add("Preferred genres in the year " + IntStr(now.year), args.preferred_genres);
+			list.Add("Biography", args.biography);
+			list.Add("Biography", args.year);
+		}
+		{
+			int age = args.year - args.birth_year;
+			auto& list = input.AddSub().Title(Format("Short summary of the story A. This happened in the year %d when the person was %d years old", args.year, age));
+			list.Add(args.text);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(Format("Expand the short summary of the story A. Write a short imaginary story based on it. Don't include anything after the year %d", args.year));
+			results.NoListChar();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
 }
 
 

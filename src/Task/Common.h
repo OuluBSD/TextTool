@@ -484,16 +484,18 @@ struct MarketplaceArgs {
 
 struct BiographyGeneratorArgs {
 	int fn = 0;
-	String name, biography, preferred_genres;
-	int birth_year, category;
+	String name, biography, preferred_genres, text;
+	int birth_year, category, year;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
 				("name", name)
 				("biography", biography)
 				("preferred_genres", preferred_genres)
+				("text", text)
 				("birth_year", birth_year)
 				("category", category)
+				("year", year)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

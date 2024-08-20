@@ -21,6 +21,7 @@ int BiographyProcess::GetBatchCount(int phase) const {
 }
 
 int BiographyProcess::GetSubBatchCount(int phase, int batch) const {
+	if (batch >= snap->data.AllCategories().GetCount()) return 1;
 	switch (phase) {
 		case PHASE_ELEMENTS_SINGLE_YEAR:	return snap->data.AllCategories()[batch].summaries.GetCount();
 		case PHASE_ELEMENT_SCORES:			return snap->data.AllCategories()[batch].summaries.GetCount();

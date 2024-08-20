@@ -229,7 +229,7 @@ void ToolEditorBase::DataProfile() {
 	int owner_i = owners.Get("IDX");
 	Owner& owner = mdb.owners[owner_i];
 	int prof_i = profiles.Get("IDX");
-	p.profile = profiles.IsCursor() ? &owner.profiles[prof_i] : 0;
+	p.profile = &owner.profiles[prof_i];
 	
 	for(int i = 0; i < p.profile->snapshots.GetCount(); i++) {
 		const auto& snap = p.profile->snapshots[i];
