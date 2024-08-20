@@ -1,0 +1,10 @@
+uses
+	Core;
+
+file
+	DataDumpReader.h,
+	DataDumpReader.cpp;
+
+mainconfig
+	"" = "";
+

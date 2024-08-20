@@ -9,10 +9,7 @@ class MarketplaceProcess : public SolverBase {
 	
 public:
 	enum {
-		PHASE_CATEGORY,
-		PHASE_SUBCATEGORY,
 		PHASE_DESCRIPTION,
-		PHASE_TITLE,
 		
 		PHASE_COUNT
 	};
@@ -30,10 +27,7 @@ public:
 	
 	static MarketplaceProcess& Get(Owner& o);
 	
-	void ProcessCategory();
-	void ProcessSubCategory();
 	void ProcessDescription();
-	void ProcessTitle();
 	void MakeArgs(MarketplaceArgs& args);
 	
 };

@@ -2418,6 +2418,7 @@ void AiTask::CreateInput_ScriptSolver() {
 			for (String& l : args.elements)
 				list.Add(l);
 		}
+		#if 0
 		{
 			auto& list = input.AddSub().Title("New lyrics should use same pronouns than Lyrics A");
 			list.NoColon();
@@ -2438,10 +2439,13 @@ void AiTask::CreateInput_ScriptSolver() {
 			auto& list = input.AddSub().Title("New lyrics should have the same focus on negativity and negative outcome than lyrics A");
 			list.NoColon();
 		}
+		#endif
 		{
 			TaskTitledList& results = input.PreAnswer();
-			String t = "Create a list of new lyrics that combines elements of two existing lyrics to convey a style of A but message of B"
-				". This lyrics should be " + IntStr(args.phrases.GetCount()) + " line inline & end rhyme and in slight dialect";
+			//String t = "Create a list of new lyrics that combines elements of two existing lyrics to convey a style of A but message of B"
+			//	". This lyrics should be " + IntStr(args.phrases.GetCount()) + " line inline & end rhyme and in slight dialect";
+			String t = "Create a list of new lyrics that combines elements of two existing lyrics. New lyrics should morph lyrics A to have the context of lyrics B"
+				". This lyrics should be " + IntStr(args.phrases.GetCount()) + " line inline & end rhyme";
 			if (first_word.GetCount()) {
 				t += ". All lines should begin with '" + first_word + "'";
 				if (second_word.GetCount())
@@ -4172,14 +4176,10 @@ void AiTask::CreateInput_Marketplace() {
 	
 	if (args.fn == 0) {
 		{
-			auto& list = input.AddSub().Title("List of product categories");
-			for(int i = 0; i < sects.GetCount(); i++)
-				list.Add("category #" + IntStr(i) + ": " + sects.GetKey(i));
-		}
-		{
 			TaskTitledList& results = input.PreAnswer();
-			results.Title("Pick the category, which best fits the marketplace item");
-			results.Add("category #");
+			results.Title("Write the description for the marketplace item in Finnish. This is for a drift store, so don't oversell it. Don't include the price nor category");
+			results.NoListChar();
+			results.Add("");
 		}
 		input.response_length = 2048;
 	}

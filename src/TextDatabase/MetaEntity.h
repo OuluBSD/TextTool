@@ -139,17 +139,44 @@ struct Role {
 
 const VectorMap<String, Vector<String>>& GetMarketplaceSections();
 
+enum {
+	MARKETPRIORITY_IN_SALE,
+	MARKETPRIORITY_SELL_UPCOMING,
+	MARKETPRIORITY_SOLD,
+	MARKETPRIORITY_POSTPONE_SELL,
+	MARKETPRIORITY_WONT_SELL,
+	
+	MARKETPRIORITY_COUNT
+};
+
+inline String GetMarketPriorityKey(int i) {
+	switch (i) {
+		case MARKETPRIORITY_IN_SALE:		return "In sale";
+		case MARKETPRIORITY_SELL_UPCOMING:	return "Upcoming sell";
+		case MARKETPRIORITY_SOLD:			return "Sold";
+		case MARKETPRIORITY_POSTPONE_SELL:	return "Postpone sell";
+		case MARKETPRIORITY_WONT_SELL:		return "Won't sell";
+		default: return "";
+	}
+}
+
 struct MarketplaceItem : Moveable<MarketplaceItem> {
+	int priority = 0;
 	Time added;
 	String generic, brand, model;
 	double price = 0., cx = 0., cy = 0., cz = 0., weight = 0.;
 	String faults, works;
 	bool broken = false, good = false;
 	Vector<int64> images;
-	String title, category, subcategory, description;
+	int64 input_hash = 0;
+	String other;
+	String title, description;
+	int category = 0, subcategory = 0;
+	int year_of_manufacturing = 0;
 	
 	void Jsonize(JsonIO& json) {
 		json
+			("priority",priority)
 			("added",added)
 			("generic",generic)
 			("brand",brand)
@@ -168,7 +195,18 @@ struct MarketplaceItem : Moveable<MarketplaceItem> {
 			("category",category)
 			("subcategory",subcategory)
 			("description",description)
+			("input_hash",input_hash)
+			("year_of_manufacturing",year_of_manufacturing)
+			("other",other)
 			;
+	}
+	
+	String GetTitle() const {
+		String s;
+		s << generic;
+		if (brand.GetCount()) {if (!s.IsEmpty()) s << " "; s << brand;}
+		if (model.GetCount()) {if (!s.IsEmpty()) s << " "; s << model;}
+		return s;
 	}
 };
 

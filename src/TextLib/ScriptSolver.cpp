@@ -1399,7 +1399,12 @@ void ScriptSolver::GetSuggestions(const DynPart& part, const DynSub& sub, const 
 		if (l.text.IsEmpty())
 			break;
 		args.phrases << l.text;
-		args.phrases2 << l.edit_text;
+		if (!l.edit_text.IsEmpty())
+			args.phrases2 << l.edit_text;
+		else if (!l.alt_text.IsEmpty())
+			args.phrases2 << l.alt_text;
+		else
+			args.phrases2 << l.user_text;
 	}
 	
 	Index<String> elements;

@@ -192,6 +192,7 @@ BiographySnapshot* Profile::FindSnapshotRevision(int i) {
 }
 
 
+// TODO: in English
 const VectorMap<String, Vector<String>>& GetMarketplaceSections() {
 	static VectorMap<String, Vector<String>> m;
 	if (!m.IsEmpty()) return m;
