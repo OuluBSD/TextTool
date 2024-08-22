@@ -45,7 +45,7 @@ void SnapInfoCtrl::OnValueChange() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
 	
-	if (p.release && editor->snaps.IsCursor()) {
+	if (p.release && p.editor && p.editor->snaps.IsCursor()) {
 		Snapshot& r = *p.release;
 		
 		r.native_title = native_album_title.GetData();
@@ -53,8 +53,8 @@ void SnapInfoCtrl::OnValueChange() {
 		r.date = album_date.GetData();
 		r.year_of_content = year_of_content.GetData();
 		
-		int c = editor->snaps.GetCursor();
-		editor->snaps.Set(c, 0, r.native_title);
+		int c = p.editor->snaps.GetCursor();
+		p.editor->snaps.Set(c, 0, r.native_title);
 	}
 	
 }

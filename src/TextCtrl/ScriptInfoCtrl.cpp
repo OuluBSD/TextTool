@@ -24,6 +24,7 @@ ScriptInfoCtrl::ScriptInfoCtrl() {
 	is_self_centered <<= THISBACK(OnValueChange);
 	language <<= THISBACK(OnValueChange);
 	belief <<= THISBACK(OnValueChange);
+	lyrics_override <<= THISBACK(OnValueChange);
 	
 }
 
@@ -37,6 +38,7 @@ void ScriptInfoCtrl::Clear() {
 	this->is_self_centered	.SetIndex(0);
 	this->language			.SetIndex(0);
 	if (this->belief.GetCount()) this->belief.SetIndex(0);
+	this->lyrics_override	.Clear();
 }
 
 void ScriptInfoCtrl::Data() {
@@ -87,6 +89,7 @@ void ScriptInfoCtrl::Data() {
 		int belief_i = mdb.FindBelief(l.belief_uniq) + 1;
 		if (belief_i >= 0 && belief_i < belief.GetCount())
 			belief.SetIndex(belief_i);
+		lyrics_override.SetData(l.__text);
 	}
 }
 
@@ -108,6 +111,7 @@ void ScriptInfoCtrl::OnValueChange() {
 		l.lng_i = language.GetIndex();
 		int belief_i = belief.GetCount() ? belief.GetIndex() - 1 : -1;
 		l.belief_uniq = belief_i >= 0 ? mdb.beliefs[belief_i].uniq : 0;
+		l.__text = lyrics_override.GetData();
 		
 		int c = p.editor->scripts.GetCursor();
 		p.editor->scripts.Set(c, 0, l.GetAnyTitle());
