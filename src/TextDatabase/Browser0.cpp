@@ -14,7 +14,7 @@ void DatabaseBrowser::SetAttr0(int i) {
 		attrs.SetCount(1 + da.attrs.GetCount());
 		Attr& a0 = attrs[0];
 		a0.group = "All";
-		a0.count = 0;
+		a0.count = da.phrase_parts.GetCount();
 		a0.attr_i = -1;
 		for(int i = 0; i < da.attrs.GetCount(); i++) {
 			const AttrHeader& ah = da.attrs.GetKey(i);
@@ -24,7 +24,14 @@ void DatabaseBrowser::SetAttr0(int i) {
 			a.value = ah.value;
 			a.count = ea.count;
 			a.attr_i = i;
-			a0.count += a.count;
+			//a0.count += a.count;
+		}
+		for (int pp_i = 0; pp_i < da.phrase_parts.GetCount(); pp_i++) {
+			const PhrasePart& pp = da.phrase_parts[pp_i];
+			if (pp.attr < 0) continue;
+			int a = pp.attr + 1;
+			if (a >= 0 && a < attrs.GetCount())
+				attrs[a].count++;
 		}
 		Sort(attrs, Attr());
 	}

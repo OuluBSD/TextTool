@@ -1484,5 +1484,59 @@ String GetGlobalProxy() {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+const Vector<String>& GetElements() {
+	static Vector<String> v;
+	ONCELOCK {
+		v.Add("allegory");
+		v.Add("bittersweet ending");
+		v.Add("call to action");
+		v.Add("character development");
+		v.Add("climax");
+		v.Add("conclusion");
+		v.Add("conflict");
+		v.Add("crisis");
+		v.Add("emotional impact");
+		v.Add("exposition");
+		v.Add("falling action");
+		v.Add("foils");
+		v.Add("fourth wall");
+		v.Add("happy ending");
+		v.Add("high stakes obstacle");
+		v.Add("intensity");
+		v.Add("irony");
+		v.Add("iteration");
+		v.Add("journey/quest");
+		v.Add("metaphor");
+		v.Add("moral dilemma");
+		v.Add("notion of self");
+		v.Add("pacing");
+		v.Add("plot twist");
+		v.Add("repetition");
+		v.Add("resolution");
+		v.Add("rising action");
+		v.Add("rock bottom");
+		v.Add("setting");
+		v.Add("structure");
+		v.Add("suspense");
+		v.Add("symbolism");
+		v.Add("tension");
+		v.Add("theme");
+		v.Add("tone");
+		v.Add("tragedy");
+	}
+	return v;
+}
+
+
 END_TEXTLIB_NAMESPACE
 

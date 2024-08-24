@@ -15,6 +15,12 @@ void DatabaseBrowser::SetMode(int i) {
 	Init();
 }
 
+int DatabaseBrowser::GetCursorValue(int cursor_i) const {
+	if (cursor_i >= 0 && cursor_i < 4)
+		return cursor[cursor_i];
+	return -1;
+}
+
 int DatabaseBrowser::GetCur(int cursor_i) const {
 	int order[4] = {-1,-1,-1,-1};
 	if (mode == 0) {
@@ -260,8 +266,7 @@ bool DatabaseBrowser::FilterPronounciation(DatasetAnalysis& da, const PhrasePart
 }
 
 TextDatabase& DatabaseBrowser::GetDatabase() {
-	TODO
-	return UPP::Single<TextDatabase>();
+	return ctrl->GetDatabase();
 }
 
 DatabaseBrowser& DatabaseBrowser::Single(int appmode) {

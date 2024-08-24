@@ -32,6 +32,7 @@ protected:
 	ScriptStructureSolverCtrl		script_struct_solver;
 	//ScriptRangeSolverCtrl			script_range_solver;
 	ScriptTextSolverCtrl			script_text_solver;
+	ScriptReferenceMakerCtrl		script_ref_maker;
 	
 	// Deprecated
 	ComponentStructure				comp_struct;

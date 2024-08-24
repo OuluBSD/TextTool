@@ -1077,6 +1077,8 @@ String GetDefaultScriptStructureString(int appmode);
 void SetGlobalProxy(String uri);
 String GetGlobalProxy();
 
+const Vector<String>& GetElements();
+
 
 END_TEXTLIB_NAMESPACE
 

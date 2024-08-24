@@ -50,6 +50,7 @@
 #include "ScriptTextSolver.h"
 #include "BiographyElements.h"
 #include "BiographyGenerator.h"
+#include "ScriptReferenceMaker.h"
 
 #include "Marketplace.h"
 

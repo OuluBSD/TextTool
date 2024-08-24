@@ -67,6 +67,7 @@ struct DynPart {
 	VoiceType		voice_type = VOICE_SINGING;
 	TextPartType	text_type = TXT_NORMAL;
 	int				text_num = -1;
+	int				text_lines = 0;
 	String			person;
 	String			element;
 	Vector<DynSub>	sub;
@@ -77,6 +78,7 @@ struct DynPart {
 			("voice_type", (int&)voice_type)
 			("text_type", (int&)text_type)
 			("text_num", text_num)
+			("text_lines", text_lines)
 			("person", person)
 			("element", element)
 			("sub", sub)

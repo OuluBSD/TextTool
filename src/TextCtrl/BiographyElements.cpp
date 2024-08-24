@@ -86,6 +86,23 @@ void BiographyElementsCtrl::DataCategory() {
 	int cat_i = categories.Get("IDX");
 	int row = 0;
 	
+	// Dump elements
+	if (0) {
+		LOG("BEGIN");
+		Index<String> elements;
+		for (const auto& a : biography.AllCategories()) {
+			for (const auto& by : a.years) {
+				for (const auto& el : by.elements) {
+					elements.FindAdd(el.key);
+				}
+			}
+		}
+		SortIndex(elements, StdLess<String>());
+		for(int i = 0; i < elements.GetCount(); i++) {
+			LOG("v.Add(\"" + elements[i] + "\");");
+		}
+	}
+	
 	for (int cat_iter = 0; cat_iter < BIOCATEGORY_COUNT; cat_iter++) {
 		if (cat_i >= 0 && cat_iter != cat_i)
 			continue;

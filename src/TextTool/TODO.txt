@@ -1,5 +1,6 @@
 
 v0.0.2
+- reference editor: make structure of the song with elements. then pick existing suitable parts. use ai to combine them and fine tune
 - lyrics editor: follow through the lyrics and find out which doesn't make sense
 - song idea: import concept, but change elements (exposition) from list which shows all
 	- also add custom text edit to adjust elements with gpt

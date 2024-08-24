@@ -54,9 +54,12 @@ public:
 	
 	bool FilterPronounciation(DatasetAnalysis& da, const PhrasePart& pp);
 	
+	ToolAppCtrl* ctrl = 0;
+	
 public:
 	
 	DatabaseBrowser();
+	void SetCtrl(ToolAppCtrl& c) {ctrl = &c;}
 	void Init();
 	void Update();
 	void SetMode(int i);
@@ -72,6 +75,7 @@ public:
 	void DataColor();
 	void DataGroup();
 	void DataValue();
+	int GetCursorValue(int cursor_i) const;
 	int GetCur(int cursor_i) const;
 	bool IsSub(int cur, int cursor_i) const;
 	double GetMidRhymingLimit() const {return mid_rhyme_distance_limit;}
