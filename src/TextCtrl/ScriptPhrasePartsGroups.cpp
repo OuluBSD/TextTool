@@ -6,10 +6,8 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
-	Add(hsplit.VSizePos(0,30).HSizePos());
-	Add(prog.BottomPos(0,30).HSizePos(300));
-	Add(remaining.BottomPos(0,30).LeftPos(0,300));
-
+	Add(hsplit.SizePos());
+	
 	hsplit.Horz() << vsplit << parts;
 	hsplit.SetPos(3000);
 
@@ -22,11 +20,14 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 	attrs.ColumnWidths("1 1");
 	attrs.WhenCursor << [this]() {
 		if (!attrs.IsCursor()) return;
-		DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
+		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 		b.SetAttr(attrs.Get("IDX"));
 		PostCallback(THISBACK(Data));
 	};
 	attrs.WhenBar << [this](Bar& b) {
+		b.Add("Jump to next group value", THISBACK1(JumpToGroupValue, +1));
+		b.Add("Jump to previous group value", THISBACK1(JumpToGroupValue, -1));
+		b.Separator();
 		b.Add("Sort by group", [this]{INHIBIT_CURSOR(attrs); attrs.SetSortColumn(0,false); sort[0] = 0;});
 		b.Add("Sort by value", [this]{INHIBIT_CURSOR(attrs); attrs.SetSortColumn(1,false); sort[0] = 1;});
 		b.Add("Sort by count", [this]{INHIBIT_CURSOR(attrs); attrs.SetSortColumn(2,true); sort[0] = 2;});
@@ -37,7 +38,7 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 	colors.AddIndex("IDX");
 	colors.WhenCursor << [this]() {
 		if (!colors.IsCursor()) return;
-		DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
+		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 		b.SetColor(colors.Get("IDX"));
 		PostCallback(THISBACK(Data));
 	};
@@ -52,7 +53,7 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 	actions.ColumnWidths("3 1");
 	actions.WhenCursor << [this]() {
 		if (!actions.IsCursor()) return;
-		DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
+		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 		b.SetGroup(actions.Get("IDX"));
 		PostCallback(THISBACK(Data));
 	};
@@ -67,7 +68,7 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 	action_args.ColumnWidths("3 1");
 	action_args.WhenCursor << [this]() {
 		if (!action_args.IsCursor()) return;
-		DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
+		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 		b.SetValue(action_args.Get("IDX"));
 		PostCallback(THISBACK(Data));
 	};
@@ -95,26 +96,23 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 
 }
 
-void ScriptPhrasePartsGroups::ToolMenu(Bar& bar) {
-	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
-	bar.Separator();
-	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
-	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
-	#if 0
-	bar.Add(t_("Get typecasts"), AppImg::RedRing(), THISBACK1(DoPhrases, 4)).Key(K_F5);
-	bar.Add(t_("Get contrasts"), AppImg::RedRing(), THISBACK1(DoPhrases, 5)).Key(K_F6);
-	bar.Separator();
-	bar.Add(t_("Update action counts"), AppImg::RedRing(), THISBACK(UpdateCounts)).Key(K_F9);
-	#ifdef flagDEBUG
-	bar.Separator();
-	bar.Add(t_("Clear all"), AppImg::BlackRing(), THISBACK(ClearAll));
-	#endif
-	#endif
+void ScriptPhrasePartsGroups::JumpToGroupValue(int diff) {
+	if (!attrs.IsCursor()) return;
+	int cur = attrs.GetCursor();
+	String key = attrs.Get(0);
+	int c = attrs.GetCount();
+	for(int i = 1; i < c; i++) {
+		int row = (c + cur + i*diff) % c; // first c keeps negative diff as positive sum
+		if (attrs.Get(row, 0) == key) {
+			attrs.SetCursor(row);
+			break;
+		}
+	}
 }
 
 
 void ScriptPhrasePartsGroups::Data() {
-	DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
+	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 	b.SetCtrl(o);
 	b.SetMode(0);
 	
@@ -195,11 +193,11 @@ void ScriptPhrasePartsGroups::Data() {
 }
 
 void ScriptPhrasePartsGroups::DataList() {
-	TextDatabase& db = GetDatabase();
+	TextDatabase& db = this->o.GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
-	DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
+	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 	
 	int row = 0, max_rows = 10000;
 	for(int i = 0; i < b.data.GetCount(); i++) {
@@ -251,17 +249,13 @@ void ScriptPhrasePartsGroups::DataList() {
 	parts.SetSortColumn(5, true);
 }
 
-void ScriptPhrasePartsGroups::Do(int fn) {
-	DoT<PhrasePartAnalysisProcess>(fn);
-}
-
 /*void ScriptPhrasePartsGroups::DoPhrases(int fn) {
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoPhrases(fn);
 }*/
 
 void ScriptPhrasePartsGroups::UpdateCounts() {
-	TextDatabase& db = GetDatabase();
+	TextDatabase& db = this->o.GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;

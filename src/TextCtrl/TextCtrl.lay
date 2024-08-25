@@ -383,15 +383,19 @@ END_LAYOUT
 
 LAYOUT(PartInfo, 236, 320)
 	ITEM(Ctrl, content, HSizePosZ(0, 0).VSizePosZ(172, 0))
-	ITEM(Upp::Label, dv___1, SetLabel(t_("Type:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(0, 92).TopPosZ(4, 19))
+	ITEM(Splitter, split, HSizePosZ(0, 0).TopPosZ(0, 172))
+END_LAYOUT
+
+LAYOUT(PartInfoForm, 236, 172)
+	ITEM(Upp::Label, dv___0, SetLabel(t_("Type:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(0, 92).TopPosZ(4, 19))
 	ITEM(Upp::DropList, type, HSizePosZ(96, 68).TopPosZ(4, 19))
 	ITEM(Upp::EditIntSpin, num, RightPosZ(4, 60).TopPosZ(4, 19))
-	ITEM(Upp::Label, dv___4, SetLabel(t_("Lines:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(0, 92).TopPosZ(28, 19))
+	ITEM(Upp::Label, dv___3, SetLabel(t_("Lines:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(0, 92).TopPosZ(28, 19))
 	ITEM(Upp::EditIntSpin, lines, HSizePosZ(96, 4).TopPosZ(28, 19))
-	ITEM(Upp::Label, dv___6, SetLabel(t_("Lines per sub:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(0, 92).TopPosZ(52, 19))
+	ITEM(Upp::Label, dv___5, SetLabel(t_("Lines per sub:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(0, 92).TopPosZ(52, 19))
 	ITEM(Upp::EditIntSpin, lines_per_sub, HSizePosZ(96, 4).TopPosZ(52, 19))
-	ITEM(Upp::Button, make_lines, SetLabel(t_("Make lines")).RightPosZ(36, 104).TopPosZ(76, 19))
-	ITEM(Upp::Label, dv___9, SetLabel(t_("Available AI tasks:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(0, 92).TopPosZ(100, 19))
+	ITEM(Upp::Button, make_lines, SetLabel(t_("Make lines")).LeftPosZ(96, 104).TopPosZ(76, 19))
+	ITEM(Upp::Label, dv___8, SetLabel(t_("Available AI tasks:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(0, 92).TopPosZ(100, 19))
 	ITEM(Upp::ArrayCtrl, ai_tasks, HSizePosZ(96, 4).TopPosZ(100, 68))
 END_LAYOUT
 

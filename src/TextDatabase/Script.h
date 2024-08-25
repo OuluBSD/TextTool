@@ -27,14 +27,38 @@ struct LineScore : Moveable<LineScore> {
 	}
 };
 
+struct LineElement {
+	int element_i = -1;
+	int group_i = -1;
+	int clr_i = -1;
+	int action_i = -1;
+	int action_arg_i = -1;
+	int typeclass_i = -1;
+	int content_i = -1;
+	
+	void Jsonize(JsonIO& json) {
+		json
+			("e", element_i)
+			("g", group_i)
+			("clr", clr_i)
+			("a", action_i)
+			("ag", action_arg_i)
+			("t", typeclass_i)
+			("c", content_i)
+			;
+	}
+};
+
 struct DynLine : Moveable<DynLine> {
 	String			text;
 	String			alt_text;
 	String			edit_text;
 	String			user_text;
+	String			element; // Deprecated
 	Vector<String>	suggs;
 	int				pp_i = -1;
 	int				end_pp_i = -1;
+	LineElement		el;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -42,6 +66,8 @@ struct DynLine : Moveable<DynLine> {
 			("alt_text", alt_text)
 			("edit_text", edit_text)
 			("user_text", user_text)
+			("element", element)
+			("el", el)
 			("suggs", suggs)
 			("pp_i", pp_i)
 			("end_pp_i", end_pp_i)
@@ -50,13 +76,15 @@ struct DynLine : Moveable<DynLine> {
 };
 
 struct DynSub : Moveable<DynSub> {
+	LineElement		el;
 	Vector<DynLine>	lines;
-	String element0;
-	String element1;
+	String element0; // Deprecated
+	String element1; // Deprecated
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("lines", lines)
+			("el", el)
 			("element0", element0)
 			("element1", element1)
 			;
@@ -68,8 +96,10 @@ struct DynPart {
 	TextPartType	text_type = TXT_NORMAL;
 	int				text_num = -1;
 	int				text_lines = 0;
+	int				text_lines_per_sub = 0;
 	String			person;
-	String			element;
+	String			element; // Deprecated
+	LineElement		el;
 	Vector<DynSub>	sub;
 	Vector<int>		phrase_parts;
 	
@@ -79,8 +109,10 @@ struct DynPart {
 			("text_type", (int&)text_type)
 			("text_num", text_num)
 			("text_lines", text_lines)
+			("text_lines_per_sub", text_lines_per_sub)
 			("person", person)
 			("element", element)
+			("el", el)
 			("sub", sub)
 			("phrase_parts", phrase_parts)
 			;
