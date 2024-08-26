@@ -68,6 +68,42 @@ void DatabaseBrowser::Init() {
 	if (mode == 3) SetColor3(0);
 }
 
+void DatabaseBrowser::SetAll(const AttrHeader& attr, int clr, const ActionHeader& act) {
+	if (mode == 0) {
+		int& attr_tgt = history.GetAdd(GetHash(0,0,0,0), 0);
+		for(int i = 0; i < attrs.GetCount(); i++) {
+			const auto& at = attrs[i];
+			if (at.group == attr.group && at.value == attr.value) {
+				attr_tgt = i;
+				break;
+			}
+		}
+		SetAttr(attr_tgt);
+		int& clr_tgt = history.GetAdd(GetHash(1,0,0,0), 0);
+		for(int i = 0; i < colors.GetCount(); i++) {
+			if (colors[i].clr_i == clr) {
+				clr_tgt = i;
+				break;
+			}
+		}
+		int& group_tgt = history.GetAdd(GetHash(1,1,0,0), 0);
+		for(int i = 0; i < actions.GetCount(); i++) {
+			if (actions[i].action == act.action) {
+				group_tgt = i;
+				break;
+			}
+		}
+		int& value_tgt = history.GetAdd(GetHash(1,1,1,0), 0);
+		for(int i = 0; i < args.GetCount(); i++) {
+			if (args[i].arg == act.arg) {
+				value_tgt = i;
+				break;
+			}
+		}
+		DataAttr0();
+	}
+	else TODO
+}
 
 void DatabaseBrowser::Update() {
 	if (mode == 0) DataValue0();
@@ -274,6 +310,23 @@ DatabaseBrowser& DatabaseBrowser::Single(int appmode) {
 	ASSERT(appmode >= 0 && appmode < DB_COUNT);
 	return db[appmode];
 }
+
+int DatabaseBrowser::FindAction(const String& s) {
+	for(int i = 0; i < actions.GetCount(); i++) {
+		if (actions[i].action == s)
+			return i;
+	}
+	return 0; // return "All", which is first
+}
+
+int DatabaseBrowser::FindArg(const String& s) {
+	for(int i = 0; i < args.GetCount(); i++) {
+		if (args[i].arg == s)
+			return i;
+	}
+	return 0; // return "All", which is first
+}
+
 
 
 END_TEXTLIB_NAMESPACE

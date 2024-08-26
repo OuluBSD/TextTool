@@ -915,6 +915,7 @@ struct AttrHeader : Moveable<AttrHeader> {
 	String group, value;
 	
 	AttrHeader() {}
+	AttrHeader(String g, String v) : group(g), value(v) {}
 	AttrHeader(AttrHeader&& a) : group(std::move(a.group)), value(std::move(a.value)) {}
 	AttrHeader(const AttrHeader& a) {group = a.group; value = a.value;}
 	void operator=(const AttrHeader& a) {group = a.group; value = a.value;}

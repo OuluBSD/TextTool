@@ -54,13 +54,13 @@ void DatabaseBrowser::SetColor0(int i) {
 	{
 		colors.SetCount(1 + GetColorGroupCount());
 		ColorGroup& a = colors[0];
-		a.group = "All";
+		a.name = "All";
 		a.clr = White();
 		for(int i = 0; i < GetColorGroupCount(); i++) {
 			const AttrHeader& ah = da.attrs.GetKey(i);
 			const ExportAttr& ea = da.attrs[i];
 			ColorGroup& a = colors[1+i];
-			a.group = "#" + IntStr(i);
+			a.name = "#" + IntStr(i);
 			a.clr = GetGroupColor(i);
 			a.clr_i = i;
 		}
@@ -149,23 +149,23 @@ void DatabaseBrowser::SetGroup0(int i) {
 	
 	
 	{
-	    groups.SetCount(1+group_counts.GetCount());
-		ActionGroup& a0 = groups[0];
-		a0.group = "All";
+	    actions.SetCount(1+group_counts.GetCount());
+		ActionGroup& a0 = actions[0];
+		a0.action = "All";
 		a0.count = 0;
 		for(int i = 0; i < group_counts.GetCount(); i++) {
 			int c = group_counts[i];
 			if (!c)
 				break;
-			ActionGroup& a = groups[1+i];
-			a.group = group_counts.GetKey(i);
+			ActionGroup& a = actions[1+i];
+			a.action = group_counts.GetKey(i);
 			a.count = c;
 			a0.count += c;
 		}
 	}
 	
 	
-	if (i >= 0 && i < groups.GetCount()) {
+	if (i >= 0 && i < actions.GetCount()) {
 		history.GetAdd(GetHash(1,1,0,0)) = i;
 		cursor[2] = i;
 		DataGroup0();
@@ -180,37 +180,37 @@ void DatabaseBrowser::SetValue0(int i) {
 	
 	Attr& a = attrs[cursor[0]];
 	ColorGroup& cg = colors[cursor[1]];
-	ActionGroup& ag = groups[cursor[2]];
+	ActionGroup& ag = actions[cursor[2]];
 	bool all_attr = cursor[0] == 0;
 	bool all_clr = cursor[1] == 0;
 	bool all_ag = cursor[2] == 0;
 	
 	if (all_ag) {
-		values.SetCount(1);
-		ActionValue& av = values[0];
-		av.value = "All";
+		args.SetCount(1);
+		ActionArg& av = args[0];
+		av.arg = "All";
 		av.count = 0;
 		for(int i = 0; i < uniq_acts.GetCount(); i++)
 			for (int c : uniq_acts[i].GetValues())
 				av.count += c;
 	}
 	else {
-		VectorMap<String,int>& v = uniq_acts.Get(ag.group);
-		values.SetCount(1+v.GetCount());
-		ActionValue& av0 = values[0];
-		av0.value = "All";
+		VectorMap<String,int>& v = uniq_acts.Get(ag.action);
+		args.SetCount(1+v.GetCount());
+		ActionArg& av0 = args[0];
+		av0.arg = "All";
 		av0.count = 0;
 		for (int c : v.GetValues())
 			av0.count += c;
 		for(int i = 0; i < v.GetCount(); i++) {
-			ActionValue& av = values[1+i];
-			av.value = v.GetKey(i);
+			ActionArg& av = args[1+i];
+			av.arg = v.GetKey(i);
 			av.count = v[i];
 			av0.count += av.count;
 		}
 	}
 	
-	if (i >= 0 && i < values.GetCount()) {
+	if (i >= 0 && i < args.GetCount()) {
 		history.GetAdd(GetHash(1,1,1,0)) = i;
 		cursor[3] = i;
 		DataValue0();
@@ -243,8 +243,8 @@ void DatabaseBrowser::DataValue0() {
 	
 	Attr& a = attrs[cursor[0]];
 	ColorGroup& cg = colors[cursor[1]];
-	ActionGroup& ag = groups[cursor[2]];
-	ActionValue& av = values[cursor[3]];
+	ActionGroup& ag = actions[cursor[2]];
+	ActionArg& av = args[cursor[3]];
 	bool all_attr = cursor[0] == 0;
 	bool all_clr = cursor[1] == 0;
 	bool all_ag = cursor[2] == 0;
@@ -253,8 +253,8 @@ void DatabaseBrowser::DataValue0() {
 	int action_i = -1;
 	if (!all_ag && !all_av) {
 		ActionHeader ah;
-		ah.action = ag.group;
-		ah.arg = av.value;
+		ah.action = ag.action;
+		ah.arg = av.arg;
 		action_i = da.actions.Find(ah);
 		ASSERT(action_i >= 0);
 	}
@@ -283,7 +283,7 @@ void DatabaseBrowser::DataValue0() {
 			bool found = false;
 			for (int ah_i : pp.actions) {
 				const ActionHeader& ah = da.actions.GetKey(ah_i);
-				if (ah.action == ag.group) {
+				if (ah.action == ag.action) {
 					found = true;
 					break;
 				}

@@ -19,10 +19,11 @@ public:
 		int count;
 		int attr_i;
 		
+		AttrHeader GetAttrHeader() const {return AttrHeader(group, value);}
 		bool operator()(const Attr& a, const Attr& b) const {return a.count > b.count;}
 	};
 	struct ColorGroup : Moveable<ColorGroup> {
-		String group;
+		String name;
 		int clr_i;
 		Color clr;
 		int count;
@@ -30,20 +31,20 @@ public:
 		bool operator()(const ColorGroup& a, const ColorGroup& b) const {return a.count > b.count;}
 	};
 	struct ActionGroup : Moveable<ActionGroup> {
-		String group;
+		String action;
 		int count;
 		bool operator()(const ActionGroup& a, const ActionGroup& b) const {return a.count > b.count;}
 	};
-	struct ActionValue : Moveable<ActionValue> {
-		String value;
+	struct ActionArg : Moveable<ActionArg> {
+		String arg;
 		int count;
-		bool operator()(const ActionValue& a, const ActionValue& b) const {return a.count > b.count;}
+		bool operator()(const ActionArg& a, const ActionArg& b) const {return a.count > b.count;}
 	};
 	
 	Vector<Attr>		attrs;
 	Vector<ColorGroup>	colors;
-	Vector<ActionGroup> groups;
-	Vector<ActionValue> values;
+	Vector<ActionGroup> actions;
+	Vector<ActionArg> args;
 	int mode = -1;
 	Vector<int> data;
 	int sorting = 0;
@@ -80,6 +81,9 @@ public:
 	bool IsSub(int cur, int cursor_i) const;
 	double GetMidRhymingLimit() const {return mid_rhyme_distance_limit;}
 	double GetEndRhymingLimit() const {return end_rhyme_distance_limit;}
+	void SetAll(const AttrHeader& attr, int clr, const ActionHeader& act);
+	int FindAction(const String& s);
+	int FindArg(const String& s);
 	
 	// Mode 0: Attribute - Color - Action
 	void SetAttr0(int i);

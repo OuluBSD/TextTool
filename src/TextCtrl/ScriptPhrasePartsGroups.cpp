@@ -159,13 +159,13 @@ void ScriptPhrasePartsGroups::Data() {
 	
 	// Actions
 	INHIBIT_CURSOR_(actions, a);
-	for(int i = 0; i < b.groups.GetCount(); i++) {
-		const auto& a = b.groups[i];
+	for(int i = 0; i < b.actions.GetCount(); i++) {
+		const auto& a = b.actions[i];
 		actions.Set(i, "IDX", i);
-		actions.Set(i, 0, a.group);
+		actions.Set(i, 0, a.action);
 		actions.Set(i, 1, a.count);
 	}
-	actions.SetCount(b.groups.GetCount());
+	actions.SetCount(b.actions.GetCount());
 	if (sort[1] == 0) actions.SetSortColumn(0, false);
 	if (sort[1] == 1) actions.SetSortColumn(1, true);
 	/*cur = b.GetCursorValue(2);
@@ -175,13 +175,13 @@ void ScriptPhrasePartsGroups::Data() {
 	
 	// Action args
 	INHIBIT_CURSOR_(action_args, ag);
-	for(int i = 0; i < b.values.GetCount(); i++) {
-		const auto& a = b.values[i];
+	for(int i = 0; i < b.args.GetCount(); i++) {
+		const auto& a = b.args[i];
 		action_args.Set(i, "IDX", i);
-		action_args.Set(i, 0, a.value);
+		action_args.Set(i, 0, a.arg);
 		action_args.Set(i, 1, a.count);
 	}
-	action_args.SetCount(b.values.GetCount());
+	action_args.SetCount(b.args.GetCount());
 	if (sort[1] == 0) action_args.SetSortColumn(0, false);
 	if (sort[1] == 1) action_args.SetSortColumn(1, true);
 	/*cur = b.GetCursorValue(3);
@@ -193,12 +193,13 @@ void ScriptPhrasePartsGroups::Data() {
 }
 
 void ScriptPhrasePartsGroups::DataList() {
-	TextDatabase& db = this->o.GetDatabase();
+	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
+	
+	TextDatabase& db = o.GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
-	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
-	
+
 	int row = 0, max_rows = 10000;
 	for(int i = 0; i < b.data.GetCount(); i++) {
 		int pp_i = b.data[i];
@@ -255,10 +256,6 @@ void ScriptPhrasePartsGroups::DataList() {
 }*/
 
 void ScriptPhrasePartsGroups::UpdateCounts() {
-	TextDatabase& db = this->o.GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.dataset;
 	
 	/*int count = da.phrase_parts.GetCount();
 	int row = 0;

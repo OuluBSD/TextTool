@@ -33,7 +33,7 @@ public:
 	PartLineHeader header;
 	Splitter split;
 	DropList element;
-	DropList group;
+	DropList attr;
 	DropList clr;
 	DropList action, action_arg;
 	DropList typeclass;
@@ -52,12 +52,15 @@ public:
 
 class PartContentCtrl : public Ctrl {
 	ScriptReferenceMakerCtrl& o;
+	
+protected:
+	friend class ScriptReferenceMakerCtrl;
 	Vector<String> element_keys;
 	ScrollBar scroll;
 	Array<PartLineCtrl> lines;
 	int lh = 20;
-	VectorMap<String, VectorMap<String, int>> uniq_acts;
-	VectorMap<String, int> group_counts;
+	//VectorMap<String, VectorMap<String, int>> uniq_acts;
+	//VectorMap<String, int> group_counts;
 	
 public:
 	typedef PartContentCtrl CLASSNAME;
@@ -66,7 +69,7 @@ public:
 	void Paint(Draw& d) override;
 	void Layout() override;
 	void Data();
-	void RealizeUniqueActions();
+	//void RealizeUniqueActions();
 	void MoveFocus(int i);
 	void InitDefault(PartLineCtrl& l);
 	void AddElements(DropList& dl);

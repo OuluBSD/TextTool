@@ -28,23 +28,23 @@ struct LineScore : Moveable<LineScore> {
 };
 
 struct LineElement {
-	int element_i = -1;
-	int group_i = -1;
+	String element;
+	AttrHeader attr;
+	ActionHeader act;
 	int clr_i = -1;
-	int action_i = -1;
-	int action_arg_i = -1;
 	int typeclass_i = -1;
 	int content_i = -1;
+	int content_mod_i = -1;
 	
 	void Jsonize(JsonIO& json) {
 		json
-			("e", element_i)
-			("g", group_i)
+			("e", element)
+			("at", attr)
 			("clr", clr_i)
-			("a", action_i)
-			("ag", action_arg_i)
+			("a", act)
 			("t", typeclass_i)
 			("c", content_i)
+			("cm", content_mod_i)
 			;
 	}
 };

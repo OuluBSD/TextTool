@@ -75,7 +75,7 @@ PartLineCtrl::PartLineCtrl(PartContentCtrl& o) : o(o), header(*this) {
 	int part = 10000 / 8;
 	split.Horz()
 		<< element
-		<< group
+		<< attr
 		<< clr
 		<< action << action_arg
 		<< typeclass
@@ -88,7 +88,7 @@ PartLineCtrl::PartLineCtrl(PartContentCtrl& o) : o(o), header(*this) {
 	
 	#define HIDE_BUTTON(x) x.GetButton(0).Show(false)
 	HIDE_BUTTON(element);
-	HIDE_BUTTON(group);
+	HIDE_BUTTON(attr);
 	HIDE_BUTTON(clr);
 	HIDE_BUTTON(action);
 	HIDE_BUTTON(action_arg);
@@ -186,36 +186,29 @@ void PartContentCtrl::MoveFocus(int diff) {
 void PartContentCtrl::InitDefault(PartLineCtrl& l) {
 	AddElements(l.element);
 	
-	TextDatabase& db = o.GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.dataset;
 	int appmode = o.GetAppMode();
+	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 	
-	if (l.group.GetCount() == 0) {
-		l.group.Add("");
-		for(int i = 0; i < da.attrs.GetCount(); i++) {
-			const AttrHeader& ah = da.attrs.GetKey(i);
-			l.group.Add(Capitalize(ah.group) + " / " + Capitalize(ah.value));
+	if (l.attr.GetCount() == 0) {
+		for(int i = 0; i < b.attrs.GetCount(); i++) {
+			const auto& ah = b.attrs[i];
+			l.attr.Add(Capitalize(ah.group) + " / " + Capitalize(ah.value));
 		}
 	}
 	
 	if (l.clr.GetCount() == 0) {
-		l.clr.Add("");
-		for(int i = 0; i < GetColorGroupCount(); i++) {
-			Color clr = GetGroupColor(i);
-			AttrText at("#" + IntStr(i));
-			at	.NormalPaper(clr).NormalInk(Black())
+		for(int i = 0; i < b.colors.GetCount(); i++) {
+			const auto& c = b.colors[i];
+			AttrText at(c.name);
+			at	.NormalPaper(c.clr).NormalInk(Black())
 				.Paper(Blend(GrayColor(), GetGroupColor(i))).Ink(White());
 			l.clr.Add(at);
 		}
 	}
 	
-	RealizeUniqueActions();
 	if (l.action.GetCount() == 0) {
-		l.action.Add("");
-		for(int i = 0; i < group_counts.GetCount(); i++) {
-			l.action.Add(group_counts.GetKey(i));
+		for(int i = 0; i < b.actions.GetCount(); i++) {
+			l.action.Add(b.actions[i].action);
 		}
 		PartLineCtrl* p = &l;
 		l.action.WhenAction = [this,p]{
@@ -241,7 +234,7 @@ void PartContentCtrl::InitDefault(PartLineCtrl& l) {
 		}
 	}
 	
-	l.group			<<= THISBACK1(OnLineValueChange, &l);
+	l.attr			<<= THISBACK1(OnLineValueChange, &l);
 	l.clr			<<= THISBACK1(OnLineValueChange, &l);
 	//NO l.action		<<= THISBACK1(OnLineValueChange, &l);
 	l.action_arg	<<= THISBACK1(OnLineValueChange, &l);
@@ -254,6 +247,7 @@ void PartContentCtrl::DataLine(PartLineCtrl& pl) {
 	const EditorPtrs& p = o.GetPointers();
 	if (!p.script || !o.parts.IsCursor())
 		return;
+	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 	
 	Script& s = *p.script;
 	int part_i = o.parts.GetCursor();
@@ -276,13 +270,27 @@ void PartContentCtrl::DataLine(PartLineCtrl& pl) {
 	if (!el)
 		return;
 	
+	// Set attr
+	int attr_i = pl.attr.GetIndex();
+	if (attr_i <= 0) {
+		el->attr.group = "";
+		el->attr.value = "";
+	}
+	else {
+		el->attr = b.attrs[attr_i].GetAttrHeader();
+	}
 	
 	#define SET_INDEX(IDX, VAL) if (VAL+1 >= 0 && VAL+1 < IDX.GetCount()) IDX.SetIndex(VAL+1)
-	SET_INDEX(pl.group, el->group_i);
+
+	// Set color
 	SET_INDEX(pl.clr, el->clr_i);
-	SET_INDEX(pl.action, el->action_i);
+	
+	// Set action group
+	int action_i = b.FindAction(el->act.action);
+	SET_INDEX(pl.action, action_i);
 	DataSelAction(&pl);
-	SET_INDEX(pl.action_arg, el->action_arg_i);
+	int arg_i = b.FindArg(el->act.arg);
+	SET_INDEX(pl.action_arg, arg_i);
 	SET_INDEX(pl.typeclass, el->typeclass_i);
 	SET_INDEX(pl.content, el->content_i);
 	#undef SET_INDEX
@@ -290,6 +298,7 @@ void PartContentCtrl::DataLine(PartLineCtrl& pl) {
 
 void PartContentCtrl::OnLineValueChange(PartLineCtrl* l_) {
 	PartLineCtrl& pl = *l_;
+	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 	
 	const EditorPtrs& p = o.GetPointers();
 	if (!p.script || !o.parts.IsCursor())
@@ -316,68 +325,46 @@ void PartContentCtrl::OnLineValueChange(PartLineCtrl* l_) {
 	if (!el)
 		return;
 	
+	// set attr
+	int attr_i = pl.attr.GetIndex();
+	if (attr_i <= 0)
+		el->attr = AttrHeader();
+	else
+		el->attr = b.attrs[attr_i].GetAttrHeader();
+	
+	// Set action
+	int act_i = pl.action.GetIndex();
+	if (act_i <= 0)
+		el->act.action = "";
+	else
+		el->act.action = b.actions[act_i].action;
+	
+	// Set action arg
+	int arg_i = pl.action_arg.GetIndex();
+	if (arg_i <= 0)
+		el->act.arg = "";
+	else
+		el->act.arg = b.args[arg_i].arg;
+	
 	#define SET_INDEX(IDX, VAL) VAL = IDX.GetIndex()-1;
-	SET_INDEX(pl.group, el->group_i);
 	SET_INDEX(pl.clr, el->clr_i);
-	SET_INDEX(pl.action, el->action_i);
-	SET_INDEX(pl.action_arg, el->action_arg_i);
 	SET_INDEX(pl.typeclass, el->typeclass_i);
 	SET_INDEX(pl.content, el->content_i);
 	#undef SET_INDEX
 }
 
 void PartContentCtrl::DataSelAction(PartLineCtrl* l_) {
+	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 	PartLineCtrl& l = *l_;
 	
-	int act_i = l.action.GetIndex();
-	if (act_i < 0 || act_i >= group_counts.GetCount())
-		return;
-	String group = group_counts.GetKey(act_i);
-	int j = uniq_acts.Find(group);
-	if (j < 0)
-		return;
-	
-	const auto& acts = uniq_acts[j];
+	b.SetGroup(l.action.GetIndex());
 	
 	l.action_arg.Clear();
 	l.action_arg.Add("");
-	for(int i = 0; i < acts.GetCount(); i++) {
-		l.action_arg.Add(acts.GetKey(i));
+	for(int i = 0; i < b.actions.GetCount(); i++) {
+		l.action_arg.Add(b.actions[i].action);
 	}
 	
-}
-
-void PartContentCtrl::RealizeUniqueActions() {
-	if (!uniq_acts.IsEmpty())
-		return;
-	
-	TextDatabase& db = o.GetDatabase();
-	SourceData& sd = db.src_data;
-	SourceDataAnalysis& sda = db.src_data.a;
-	DatasetAnalysis& da = sda.dataset;
-	
-	uniq_acts.Clear();
-	group_counts.Clear();
-	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
-		PhrasePart& pp = da.phrase_parts[i];
-		
-		for (int ah_i : pp.actions) {
-			const ActionHeader& ah = da.actions.GetKey(ah_i);
-			uniq_acts.GetAdd(ah.action).GetAdd(ah.arg, 0)++;
-		}
-	}
-	
-	for(int i = 0; i < uniq_acts.GetCount(); i++) {
-		SortByValue(uniq_acts[i], StdGreater<int>());
-	}
-	for(int i = 0; i < uniq_acts.GetCount(); i++) {
-		String group = uniq_acts.GetKey(i);
-		int total_count = 0;
-		for (int c : uniq_acts[i].GetValues())
-			total_count += c;
-		group_counts.GetAdd(group) = total_count;
-	}
-	SortByValue(group_counts, StdGreater<int>());
 }
 
 void PartContentCtrl::Data() {
@@ -453,6 +440,7 @@ void PartContentCtrl::AddElements(DropList& dl) {
 		SourceData& sd = db.src_data;
 		SourceDataAnalysis& sda = db.src_data.a;
 		DatasetAnalysis& da = sda.dataset;
+		
 		const auto& el = da.element_keys.GetKeys();
 		element_keys <<= el;
 		Sort(element_keys, StdLess<String>());

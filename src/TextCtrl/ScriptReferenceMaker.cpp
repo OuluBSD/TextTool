@@ -158,6 +158,11 @@ void ScriptReferenceMakerCtrl::DataLine() {
 	
 	line_conf.SetCount(i);
 	
+	DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
+	b.SetAll(el->attr, el->clr_i, el->act);
+			
+	int tab = tabs.Get();
+	if (tab == 0) db0.Data();
 }
 
 void ScriptReferenceMakerCtrl::DataTab() {

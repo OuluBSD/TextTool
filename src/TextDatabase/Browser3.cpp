@@ -26,11 +26,11 @@ void DatabaseBrowser::SetColor3(int i) {
 	{
 		colors.SetCount(1 + GetColorGroupCount());
 		ColorGroup& a = colors[0];
-		a.group = "All";
+		a.name = "All";
 		a.clr = White();
 		for(int i = 0; i < GetColorGroupCount(); i++) {
 			ColorGroup& a = colors[1+i];
-			a.group = "#" + IntStr(i);
+			a.name = "#" + IntStr(i);
 			a.clr = GetGroupColor(i);
 			a.clr_i = i;
 		}
@@ -59,7 +59,7 @@ void DatabaseBrowser::SetGroup3(int i) {
 	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
 		PhrasePart& pp = da.phrase_parts[i];
 		
-		// Filter by color group
+		// Filter by color action
 		if (!all_clr) {
 			int clr_i = GetColorGroup(pp.clr);
 			if (clr_i != cg.clr_i)
@@ -76,35 +76,35 @@ void DatabaseBrowser::SetGroup3(int i) {
 		SortByValue(uniq_acts[i], StdGreater<int>());
 	}
 	
-	VectorMap<String, int> group_counts;
+	VectorMap<String, int> action_counts;
 	for(int i = 0; i < uniq_acts.GetCount(); i++) {
-		String group = uniq_acts.GetKey(i);
+		String action = uniq_acts.GetKey(i);
 		int total_count = 0;
 		for (int c : uniq_acts[i].GetValues())
 			total_count += c;
-		group_counts.GetAdd(group) = total_count;
+		action_counts.GetAdd(action) = total_count;
 	}
-	SortByValue(group_counts, StdGreater<int>());
+	SortByValue(action_counts, StdGreater<int>());
 	
 	
 	{
-	    groups.SetCount(1+group_counts.GetCount());
-		ActionGroup& a0 = groups[0];
-		a0.group = "All";
+	    actions.SetCount(1+action_counts.GetCount());
+		ActionGroup& a0 = actions[0];
+		a0.action = "All";
 		a0.count = 0;
-		for(int i = 0; i < group_counts.GetCount(); i++) {
-			int c = group_counts[i];
+		for(int i = 0; i < action_counts.GetCount(); i++) {
+			int c = action_counts[i];
 			if (!c)
 				break;
-			ActionGroup& a = groups[1+i];
-			a.group = group_counts.GetKey(i);
+			ActionGroup& a = actions[1+i];
+			a.action = action_counts.GetKey(i);
 			a.count = c;
 			a0.count += c;
 		}
 	}
 	
 	
-	if (i >= 0 && i < groups.GetCount()) {
+	if (i >= 0 && i < actions.GetCount()) {
 		history.GetAdd(GetHash(0,1,0,0)) = i;
 		cursor[2] = i;
 		DataGroup3();
@@ -118,7 +118,7 @@ void DatabaseBrowser::SetAttr3(int i) {
 	DatasetAnalysis& da = sda.dataset;
 	
 	ColorGroup& cg = colors[cursor[1]];
-	ActionGroup& ag = groups[cursor[2]];
+	ActionGroup& ag = actions[cursor[2]];
 	bool all_attr = cursor[0] == 0;
 	bool all_clr = cursor[1] == 0;
 	bool all_ag = cursor[2] == 0;
@@ -127,19 +127,19 @@ void DatabaseBrowser::SetAttr3(int i) {
 	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
 		PhrasePart& pp = da.phrase_parts[i];
 		
-		// Filter by color group
+		// Filter by color action
 		if (!all_clr) {
 			int clr_i = GetColorGroup(pp.clr);
 			if (clr_i != cg.clr_i)
 				continue;
 		}
 		
-		// Filter by action group (and all values)
+		// Filter by action action (and all args)
 		if (!all_ag) {
 			bool found = false;
 			for (int ah_i : pp.actions) {
 				const ActionHeader& ah = da.actions.GetKey(ah_i);
-				if (ah.action == ag.group) {
+				if (ah.action == ag.action) {
 					found = true;
 					break;
 				}
@@ -188,12 +188,12 @@ void DatabaseBrowser::SetValue3(int i) {
 	
 	Attr& a = attrs[cursor[0]];
 	ColorGroup& cg = colors[cursor[1]];
-	ActionGroup& ag = groups[cursor[2]];
+	ActionGroup& ag = actions[cursor[2]];
 	bool all_attr = cursor[0] == 0;
 	bool all_clr = cursor[1] == 0;
 	bool all_ag = cursor[2] == 0;
 	
-	VectorMap<String, int> group_acts;
+	VectorMap<String, int> action_acts;
 	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
 		PhrasePart& pp = da.phrase_parts[i];
 		
@@ -206,40 +206,40 @@ void DatabaseBrowser::SetValue3(int i) {
 			else continue;
 		}
 		
-		// Filter by color group
+		// Filter by color action
 		if (!all_clr) {
 			int clr_i = GetColorGroup(pp.clr);
 			if (clr_i != cg.clr_i)
 				continue;
 		}
 		
-		// Filter by action group (and all values)
+		// Filter by action action (and all args)
 		for (int ah_i : pp.actions) {
 			const ActionHeader& ah = da.actions.GetKey(ah_i);
-			if (all_ag || ah.action == ag.group) {
+			if (all_ag || ah.action == ag.action) {
 				
-				// Also collect values here
-				group_acts.GetAdd(ah.arg, 0)++;
+				// Also collect args here
+				action_acts.GetAdd(ah.arg, 0)++;
 			}
 		}
 	}
 	{
-		values.SetCount(1+group_acts.GetCount());
-		ActionValue& av0 = values[0];
-		av0.value = "All";
+		args.SetCount(1+action_acts.GetCount());
+		ActionArg& av0 = args[0];
+		av0.arg = "All";
 		av0.count = 0;
-		for (int c : group_acts.GetValues())
+		for (int c : action_acts.GetValues())
 			av0.count += c;
-		for(int i = 0; i < group_acts.GetCount(); i++) {
-			ActionValue& av = values[1+i];
-			av.value = group_acts.GetKey(i);
-			av.count = group_acts[i];
+		for(int i = 0; i < action_acts.GetCount(); i++) {
+			ActionArg& av = args[1+i];
+			av.arg = action_acts.GetKey(i);
+			av.count = action_acts[i];
 			av0.count += av.count;
 		}
-		Sort(values, ActionValue());
+		Sort(args, ActionArg());
 	}
 	
-	if (i >= 0 && i < values.GetCount()) {
+	if (i >= 0 && i < args.GetCount()) {
 		history.GetAdd(GetHash(0,1,1,0)) = i;
 		cursor[3] = i;
 		DataValue3();
@@ -272,8 +272,8 @@ void DatabaseBrowser::DataValue3() {
 	
 	Attr& a = attrs[cursor[0]];
 	ColorGroup& cg = colors[cursor[1]];
-	ActionGroup& ag = groups[cursor[2]];
-	ActionValue& av = values[cursor[3]];
+	ActionGroup& ag = actions[cursor[2]];
+	ActionArg& av = args[cursor[3]];
 	bool all_attr = cursor[0] == 0;
 	bool all_clr = cursor[1] == 0;
 	bool all_ag = cursor[2] == 0;
@@ -282,8 +282,8 @@ void DatabaseBrowser::DataValue3() {
 	int action_i = -1;
 	if (!all_ag && !all_av) {
 		ActionHeader ah;
-		ah.action = ag.group;
-		ah.arg = av.value;
+		ah.action = ag.action;
+		ah.arg = av.arg;
 		action_i = da.actions.Find(ah);
 		ASSERT(action_i >= 0);
 	}
@@ -300,19 +300,19 @@ void DatabaseBrowser::DataValue3() {
 			else continue;
 		}
 		
-		// Filter by color group
+		// Filter by color action
 		if (!all_clr) {
 			int clr_i = GetColorGroup(pp.clr);
 			if (clr_i != cg.clr_i)
 				continue;
 		}
 		
-		// Filter by action group (and all values)
+		// Filter by action action (and all args)
 		if (only_ag) {
 			bool found = false;
 			for (int ah_i : pp.actions) {
 				const ActionHeader& ah = da.actions.GetKey(ah_i);
-				if (ah.action == ag.group) {
+				if (ah.action == ag.action) {
 					found = true;
 					break;
 				}
@@ -320,7 +320,7 @@ void DatabaseBrowser::DataValue3() {
 			if (!found)
 				continue;
 		}
-		// Filter by action group and specific value
+		// Filter by action action and specific value
 		else if (!all_ag) {
 			bool found = false;
 			for (int ah_i : pp.actions) {
