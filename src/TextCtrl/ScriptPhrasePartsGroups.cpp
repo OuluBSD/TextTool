@@ -23,6 +23,7 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 		b.SetAttr(attrs.Get("IDX"));
 		PostCallback(THISBACK(Data));
+		WhenBrowserCursor();
 	};
 	attrs.WhenBar << [this](Bar& b) {
 		b.Add("Jump to next group value", THISBACK1(JumpToGroupValue, +1));
@@ -41,6 +42,7 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 		b.SetColor(colors.Get("IDX"));
 		PostCallback(THISBACK(Data));
+		WhenBrowserCursor();
 	};
 	colors.WhenBar << [this](Bar& b) {
 		b.Add("Sort by color", [this]{INHIBIT_CURSOR(colors); colors.SetSortColumn(0,false); sort[1] = 0;});
@@ -56,6 +58,7 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 		b.SetGroup(actions.Get("IDX"));
 		PostCallback(THISBACK(Data));
+		WhenBrowserCursor();
 	};
 	actions.WhenBar << [this](Bar& b) {
 		b.Add("Sort by name", [this]{INHIBIT_CURSOR(actions); actions.SetSortColumn(0,false); sort[2] = 0;});
@@ -71,6 +74,7 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 		b.SetValue(action_args.Get("IDX"));
 		PostCallback(THISBACK(Data));
+		WhenBrowserCursor();
 	};
 	action_args.WhenBar << [this](Bar& b) {
 		b.Add("Sort by name", [this]{INHIBIT_CURSOR(action_args); action_args.SetSortColumn(0,false); sort[3] = 0;});
@@ -116,6 +120,7 @@ void ScriptPhrasePartsGroups::Data() {
 	b.SetCtrl(o);
 	b.SetMode(0);
 	
+	bool set_cursor = true;
 	
 	// Set attributes
 	INHIBIT_CURSOR_(attrs, at);
@@ -133,9 +138,11 @@ void ScriptPhrasePartsGroups::Data() {
 	if (sort[0] == 0) attrs.SetSortColumn(0, false);
 	if (sort[0] == 1) attrs.SetSortColumn(1, false);
 	if (sort[0] == 2) attrs.SetSortColumn(2, true);
-	/*int cur = b.GetCursorValue(0);
-	if (cur >= 0 && cur < attrs.GetCount())
-		attrs.SetCursor(cur);*/
+	if (set_cursor) {
+		int cur = b.GetCursorValue(0);
+		if (cur >= 0 && cur < attrs.GetCount())
+			attrs.SetCursor(cur);
+	}
 	
 	
 	// Colors
@@ -152,9 +159,11 @@ void ScriptPhrasePartsGroups::Data() {
 	colors.SetCount(b.colors.GetCount());
 	if (sort[1] == 0) colors.SetSortColumn(0, false);
 	if (sort[1] == 1) colors.SetSortColumn(1, true);
-	/*cur = b.GetCursorValue(1);
-	if (cur >= 0 && cur < colors.GetCount())
-		colors.SetCursor(cur);*/
+	if (set_cursor) {
+		int cur = b.GetCursorValue(1);
+		if (cur >= 0 && cur < colors.GetCount())
+			colors.SetCursor(cur);
+	}
 	
 	
 	// Actions
@@ -168,9 +177,11 @@ void ScriptPhrasePartsGroups::Data() {
 	actions.SetCount(b.actions.GetCount());
 	if (sort[1] == 0) actions.SetSortColumn(0, false);
 	if (sort[1] == 1) actions.SetSortColumn(1, true);
-	/*cur = b.GetCursorValue(2);
-	if (cur >= 0 && cur < actions.GetCount())
-		actions.SetCursor(cur);*/
+	if (set_cursor) {
+		int cur = b.GetCursorValue(2);
+		if (cur >= 0 && cur < actions.GetCount())
+			actions.SetCursor(cur);
+	}
 	
 	
 	// Action args
@@ -184,9 +195,11 @@ void ScriptPhrasePartsGroups::Data() {
 	action_args.SetCount(b.args.GetCount());
 	if (sort[1] == 0) action_args.SetSortColumn(0, false);
 	if (sort[1] == 1) action_args.SetSortColumn(1, true);
-	/*cur = b.GetCursorValue(3);
-	if (cur >= 0 && cur < action_args.GetCount())
-		action_args.SetCursor(cur);*/
+	if (set_cursor) {
+		int cur = b.GetCursorValue(3);
+		if (cur >= 0 && cur < action_args.GetCount())
+			action_args.SetCursor(cur);
+	}
 	
 	
 	DataList();

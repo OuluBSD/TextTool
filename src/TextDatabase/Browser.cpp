@@ -71,35 +71,47 @@ void DatabaseBrowser::Init() {
 void DatabaseBrowser::SetAll(const AttrHeader& attr, int clr, const ActionHeader& act) {
 	if (mode == 0) {
 		int& attr_tgt = history.GetAdd(GetHash(0,0,0,0), 0);
+		attr_tgt = 0;
+		String attr_group = attr.IsEmpty() ? "All" : attr.group;
 		for(int i = 0; i < attrs.GetCount(); i++) {
 			const auto& at = attrs[i];
-			if (at.group == attr.group && at.value == attr.value) {
+			if (at.group == attr_group && (at.value == attr.value || attr.value.IsEmpty())) {
 				attr_tgt = i;
 				break;
 			}
 		}
+		
 		SetAttr(attr_tgt);
+		
 		int& clr_tgt = history.GetAdd(GetHash(1,0,0,0), 0);
+		clr_tgt = 0;
 		for(int i = 0; i < colors.GetCount(); i++) {
 			if (colors[i].clr_i == clr) {
 				clr_tgt = i;
 				break;
 			}
 		}
-		int& group_tgt = history.GetAdd(GetHash(1,1,0,0), 0);
+		int& action_tgt = history.GetAdd(GetHash(1,1,0,0), 0);
+		String action = act.IsEmpty() ? "All" : act.action;
+		action_tgt = 0;
 		for(int i = 0; i < actions.GetCount(); i++) {
-			if (actions[i].action == act.action) {
-				group_tgt = i;
+			if (actions[i].action == action) {
+				action_tgt = i;
 				break;
 			}
 		}
+		
+		DataGroup0();
+		
 		int& value_tgt = history.GetAdd(GetHash(1,1,1,0), 0);
+		value_tgt = 0;
 		for(int i = 0; i < args.GetCount(); i++) {
 			if (args[i].arg == act.arg) {
 				value_tgt = i;
 				break;
 			}
 		}
+		
 		DataAttr0();
 	}
 	else TODO

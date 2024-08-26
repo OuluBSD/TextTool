@@ -3,38 +3,91 @@
 
 BEGIN_TEXTLIB_NAMESPACE
 
-const int PartLineHeader::indent = 30;
+const int PartLineCtrl::indent = 30;
 
-void PartLineHeader::Paint(Draw& d) {
+
+void PartLineCtrl::Paint(Draw& d) {
 	Size sz = GetSize();
 	int fnt_h = 15;
-	Font fnt = Monospace(fnt_h);
+	Font mono = Monospace(fnt_h);
+	Font sans = SansSerif(fnt_h);
+	bool focused = IsSelected();
+	int off = 2;
 	
+	// Header
 	Color part_bg_clr = White();
 	Color sub_bg_clr = Color(225, 227, 255);
 	Color line_bg_clr = Color(228, 255, 227);
+	Color rest_bg_clr = GrayColor(256-16);
+	if (focused) {
+		int alpha = 128+64+32;
+		part_bg_clr = Blend(part_bg_clr, LtRed(), alpha);
+		sub_bg_clr = Blend(sub_bg_clr, LtRed(), alpha);
+		line_bg_clr = Blend(line_bg_clr, LtRed(), alpha);
+		rest_bg_clr = Blend(rest_bg_clr, LtRed(), alpha);
+	}
 	
-	Rect part_bg_r = RectC(0,0,PartLineHeader::indent,sz.cy);
-	Rect sub_bg_r = RectC(PartLineHeader::indent,0,PartLineHeader::indent,sz.cy);
-	Rect line_bg_r = RectC(PartLineHeader::indent*2,0,PartLineHeader::indent,sz.cy);
+	Rect part_bg_r = RectC(0,0,indent,sz.cy);
+	Rect sub_bg_r = RectC(indent,0,indent,sz.cy);
+	Rect line_bg_r = RectC(indent*2,0,indent,sz.cy);
+	Rect rest_bg_r = RectC(indent*3,0,sz.cx-3*indent,sz.cy);
 	d.DrawRect(part_bg_r, part_bg_clr);
-	d.DrawRect(sub_bg_r, sub_bg_clr);
-	d.DrawRect(line_bg_r, line_bg_clr);
+	if (sub_i >= 0) d.DrawRect(sub_bg_r, sub_bg_clr);
+	if (line_i >= 0) d.DrawRect(line_bg_r, line_bg_clr);
 	
-	if (o.sub_i < 0 && o.line_i < 0) {
+	d.DrawRect(rest_bg_r, rest_bg_clr);
+	
+	
+	// Line texts
+	const EditorPtrs& p = o.o.GetPointers();
+	Script& s = *p.script;
+	int part_i = o.o.parts.GetCursor();
+	DynPart& dp = s.parts[part_i];
+	LineElement* el = 0;
+	int left = 0;
+	if (sub_i < 0 && line_i < 0) {
 		String text = "P";
-		d.DrawText(2,2,text,fnt,Black());
+		d.DrawText(off,off,text,mono,Black());
+		left = indent*1;
+		el = &dp.el;
 	}
-	else if (o.sub_i >= 0 && o.line_i < 0) {
-		String text = IntStr(o.sub_i);
-		d.DrawText(PartLineHeader::indent+2,2,text,fnt,Black());
+	else if (sub_i >= 0 && line_i < 0) {
+		String text = IntStr(sub_i);
+		d.DrawText(indent+off,off,text,mono,Black());
+		left = indent*2;
+		DynSub& ds = dp.sub[sub_i];
+		el = &ds.el;
 	}
-	else if (o.sub_i >= 0 && o.line_i >= 0) {
-		String text = IntStr(o.line_i);
-		d.DrawText(PartLineHeader::indent*2+2,2,text,fnt,Black());
+	else if (sub_i >= 0 && line_i >= 0) {
+		String text = IntStr(line_i);
+		d.DrawText(indent*2+off,off,text,mono,Black());
+		left = indent*3;
+		DynSub& ds = dp.sub[sub_i];
+		DynLine& dl = ds.lines[line_i];
+		el = &dl.el;
+		
+		int y_2 = sz.cy / 2;
+		d.DrawText(left+off, y_2+off, dl.text, sans, Black());
 	}
 	
-	if (HasFocus() || o.HasFocusDeep()) {
+	
+	
+	if (el) {
+		int x = left;
+		#define RAND_CLR Blend(White(), Color(Random(256),Random(256),Random(256)),128+64)
+		Rect r;
+		PaintTextBlock(d, x, off, r, RAND_CLR, el->element, sans);
+		PaintTextBlock(d, x, off, r, RAND_CLR, el->attr.group, sans);
+		PaintTextBlock(d, x, off, r, RAND_CLR, el->attr.value, sans);
+		PaintTextBlock(d, x, off, r, RAND_CLR, IntStr(el->clr_i), sans);
+		PaintTextBlock(d, x, off, r, RAND_CLR, el->act.action, sans);
+		PaintTextBlock(d, x, off, r, RAND_CLR, el->act.arg, sans);
+	}
+	
+	
+	
+	// Focus highlight
+	if (focused) {
 		Color c = LtRed();
 		int y = sz.cy-1;
 		d.DrawLine(0,0,sz.cx-1,0,1,c);
@@ -42,98 +95,93 @@ void PartLineHeader::Paint(Draw& d) {
 	}
 }
 
-void PartLineHeader::LeftDown(Point p, dword keyflags) {
-	SetFocus();
+void PartLineCtrl::PaintTextBlock(Draw& d, int& x, int off, Rect& out, Color bg, const String& txt, const Font& fnt) {
+	Size sz = GetTextSize(txt, fnt);
+	sz.cx += off * 2;
+	sz.cx = max(sz.cx, 30);
+	Rect r = RectC(x,0,sz.cx,sz.cy);
+	d.DrawRect(r, bg);
+	d.DrawText(x+off,0, txt, fnt, Black());
+	x += sz.cx;
+}
+
+void PartLineCtrl::LeftDown(Point p, dword keyflags) {
+	Select();
+	//Refresh();
+}
+
+void PartLineCtrl::Select() {
+	o.Select(this);
+	Refresh();
+	o.WhenCursor();
+}
+
+void PartLineCtrl::GotFocus() {
+	Select();
+}
+
+void PartLineCtrl::LostFocus() {
 	Refresh();
 }
 
-void PartLineHeader::LostFocus() {
-	Refresh();
-}
-
-bool PartLineHeader::Key(dword key, int count) {
+bool PartLineCtrl::Key(dword key, int count) {
 	
 	if (key == K_UP) {
-		o.o.MoveFocus(-1);
+		o.MoveSelection(-1);
 		return true;
 	}
 	if (key == K_DOWN) {
-		o.o.MoveFocus(+1);
+		o.MoveSelection(+1);
 		return true;
 	}
 	
 	return false;
 }
 
+bool PartLineCtrl::IsSelected() const {
+	return o.GetCursor() == o.Find(this);
+}
 
+LineElement* PartLineCtrl::GetLineEl() const {
+	const EditorPtrs& p = o.o.GetPointers();
+	Script& s = *p.script;
+	int part_i = o.o.parts.GetCursor();
+	DynPart& dp = s.parts[part_i];
+	LineElement* el = 0;
+	if (sub_i < 0 && line_i < 0) {
+		String text = "P";
+		el = &dp.el;
+	}
+	else if (sub_i >= 0 && line_i < 0) {
+		DynSub& ds = dp.sub[sub_i];
+		el = &ds.el;
+	}
+	else if (sub_i >= 0 && line_i >= 0) {
+		DynSub& ds = dp.sub[sub_i];
+		DynLine& dl = ds.lines[line_i];
+		el = &dl.el;
+	}
+	return el;
+}
 
-PartLineCtrl::PartLineCtrl(PartContentCtrl& o) : o(o), header(*this) {
+DynLine* PartLineCtrl::GetDynLine() const {
+	const EditorPtrs& p = o.o.GetPointers();
+	Script& s = *p.script;
+	int part_i = o.o.parts.GetCursor();
+	DynPart& dp = s.parts[part_i];
+	if (sub_i >= 0 && line_i >= 0) {
+		DynSub& ds = dp.sub[sub_i];
+		DynLine& dl = ds.lines[line_i];
+		return &dl;
+	}
+	return 0;
+}
+
+PartLineCtrl::PartLineCtrl(PartContentCtrl& o) : o(o) {
 	NoWantFocus();
 	
-	header.WantFocus();
-	
-	int part = 10000 / 8;
-	split.Horz()
-		<< element
-		<< attr
-		<< clr
-		<< action << action_arg
-		<< typeclass
-		<< content;
-	for(int i = 0; i <= 1; i++)
-		split.SetPos((1+i)*part, i);
-	for(int i = 2; i < 1; i++)
-		split.SetPos((2+i)*part, i);
-	
-	
-	#define HIDE_BUTTON(x) x.GetButton(0).Show(false)
-	HIDE_BUTTON(element);
-	HIDE_BUTTON(attr);
-	HIDE_BUTTON(clr);
-	HIDE_BUTTON(action);
-	HIDE_BUTTON(action_arg);
-	HIDE_BUTTON(typeclass);
-	HIDE_BUTTON(content);
-	#undef HIDE_BUTTON
-	
-	Add(header);
-	Add(split);
 }
 
-void PartLineCtrl::ChildGotFocus() {
-	header.Refresh();
-	o.WhenCursor();
-}
-
-void PartLineCtrl::ChildLostFocus() {
-	header.Refresh();
-}
-
-void PartLineCtrl::Layout() {
-	Size sz = GetSize();
-	
-	int left_off = 0;
-	if (sub_i < 0) {
-		left_off = PartLineHeader::indent;
-	}
-	else {
-		if (line_i < 0)
-			left_off = PartLineHeader::indent * 2;
-		else
-			left_off = PartLineHeader::indent * 3;
-	}
-	
-	int w = sz.cx - left_off;
-	
-	header.LeftPos(0, left_off).VSizePos();
-	
-	if (line_i < 0)
-		split.HSizePos(left_off,0);
-	else {
-		int cy_2 = sz.cy / 2;
-		split.HSizePos(left_off,0).TopPos(0,cy_2);
-	}
-}
 
 
 
@@ -153,8 +201,12 @@ void PartContentCtrl::Paint(Draw& d) {
 }
 
 int PartContentCtrl::GetCursor() const {
+	return selected_line;
+}
+
+int PartContentCtrl::Find(const PartLineCtrl* line) const {
 	for(int i = 0; i < lines.GetCount(); i++)
-		if (lines[i].HasFocusDeep())
+		if (&lines[i] == line)
 			return i;
 	return -1;
 }
@@ -171,20 +223,35 @@ void PartContentCtrl::Layout() {
 		y += h;
 	}
 }
-
-void PartContentCtrl::MoveFocus(int diff) {
-	for(int i = 0; i < lines.GetCount(); i++) {
-		if (lines[i].HasFocusDeep()) {
-			int new_i = i + diff;
-			if (new_i >= 0 && new_i < lines.GetCount())
-				lines[new_i].header.SetFocus();
+void PartContentCtrl::Select(PartLineCtrl* line) {
+	int prev_sel = selected_line;
+	if (line) for(int i = 0; i < lines.GetCount(); i++) {
+		if (line == &lines[i]) {
+			selected_line = i;
 			break;
 		}
 	}
+	else selected_line = -1;
+	
+	if (prev_sel >= 0 && prev_sel < lines.GetCount())
+		lines[prev_sel].Refresh();
+	if (selected_line >= 0 && selected_line < lines.GetCount())
+		lines[selected_line].Refresh();
+}
+
+
+void PartContentCtrl::MoveSelection(int diff) {
+	int prev_sel = selected_line;
+	selected_line += diff;
+	selected_line = max(0, min(lines.GetCount()-1, selected_line));
+	if (prev_sel >= 0 && prev_sel < lines.GetCount())
+		lines[prev_sel].Refresh();
+	if (selected_line >= 0 && selected_line < lines.GetCount())
+		lines[selected_line].Refresh();
 }
 
 void PartContentCtrl::InitDefault(PartLineCtrl& l) {
-	AddElements(l.element);
+	/*AddElements(l.element);
 	
 	int appmode = o.GetAppMode();
 	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
@@ -240,7 +307,7 @@ void PartContentCtrl::InitDefault(PartLineCtrl& l) {
 	l.action_arg	<<= THISBACK1(OnLineValueChange, &l);
 	l.typeclass		<<= THISBACK1(OnLineValueChange, &l);
 	l.content		<<= THISBACK1(OnLineValueChange, &l);
-	
+	*/
 }
 
 void PartContentCtrl::DataLine(PartLineCtrl& pl) {
@@ -271,7 +338,7 @@ void PartContentCtrl::DataLine(PartLineCtrl& pl) {
 		return;
 	
 	// Set attr
-	int attr_i = pl.attr.GetIndex();
+	/*int attr_i = pl.attr.GetIndex();
 	if (attr_i <= 0) {
 		el->attr.group = "";
 		el->attr.value = "";
@@ -293,7 +360,7 @@ void PartContentCtrl::DataLine(PartLineCtrl& pl) {
 	SET_INDEX(pl.action_arg, arg_i);
 	SET_INDEX(pl.typeclass, el->typeclass_i);
 	SET_INDEX(pl.content, el->content_i);
-	#undef SET_INDEX
+	#undef SET_INDEX*/
 }
 
 void PartContentCtrl::OnLineValueChange(PartLineCtrl* l_) {
@@ -326,7 +393,7 @@ void PartContentCtrl::OnLineValueChange(PartLineCtrl* l_) {
 		return;
 	
 	// set attr
-	int attr_i = pl.attr.GetIndex();
+	/*int attr_i = pl.attr.GetIndex();
 	if (attr_i <= 0)
 		el->attr = AttrHeader();
 	else
@@ -350,21 +417,22 @@ void PartContentCtrl::OnLineValueChange(PartLineCtrl* l_) {
 	SET_INDEX(pl.clr, el->clr_i);
 	SET_INDEX(pl.typeclass, el->typeclass_i);
 	SET_INDEX(pl.content, el->content_i);
-	#undef SET_INDEX
+	#undef SET_INDEX*/
 }
 
 void PartContentCtrl::DataSelAction(PartLineCtrl* l_) {
 	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 	PartLineCtrl& l = *l_;
 	
-	b.SetGroup(l.action.GetIndex());
+	
+	/*b.SetGroup(l.action.GetIndex());
 	
 	l.action_arg.Clear();
 	l.action_arg.Add("");
 	for(int i = 0; i < b.actions.GetCount(); i++) {
 		l.action_arg.Add(b.actions[i].action);
 	}
-	
+	*/
 }
 
 void PartContentCtrl::Data() {
@@ -381,14 +449,15 @@ void PartContentCtrl::Data() {
 	lines.Clear();
 	
 	int h = 0;
+	
 	{
 		PartLineCtrl& line = lines.Add(new PartLineCtrl(*this));
 		Add(line);
 		line.sub_i = -1;
 		
 		InitDefault(line);
-		line.element.SetIndex(FindElement(dp.element)+1);
-		line.element <<= THISBACK3(OnElementChange, -1, -1, &line.element);
+		//line.element.SetIndex(FindElement(dp.element)+1);
+		//line.element <<= THISBACK3(OnElementChange, -1, -1, &line.element);
 		
 		h += lh;
 	}
@@ -401,8 +470,8 @@ void PartContentCtrl::Data() {
 			line.sub_i = i;
 			
 			InitDefault(line);
-			line.element.SetIndex(FindElement(ds.element0)+1);
-			line.element <<= THISBACK3(OnElementChange, i, -1, &line.element);
+			//line.element.SetIndex(FindElement(ds.element0)+1);
+			//line.element <<= THISBACK3(OnElementChange, i, -1, &line.element);
 			
 			h += lh;
 		}
@@ -415,8 +484,8 @@ void PartContentCtrl::Data() {
 			line.line_i = j;
 			
 			InitDefault(line);
-			line.element.SetIndex(FindElement(dl.element)+1);
-			line.element <<= THISBACK3(OnElementChange, i, j, &line.element);
+			//line.element.SetIndex(FindElement(dl.element)+1);
+			//line.element <<= THISBACK3(OnElementChange, i, j, &line.element);
 			h += lh*2;
 		}
 	}

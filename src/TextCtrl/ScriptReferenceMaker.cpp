@@ -25,7 +25,7 @@ ScriptReferenceMakerCtrl::ScriptReferenceMakerCtrl() : db0(*this), content(*this
 	};
 	parts.WhenCursor << THISBACK(DataPart);
 	
-	part.split.Horz() << form << line_conf;
+	part.split.Horz() << form;
 	part.content.Add(content.SizePos());
 	
 	form.lines <<= THISBACK(OnValueChange);
@@ -34,13 +34,11 @@ ScriptReferenceMakerCtrl::ScriptReferenceMakerCtrl() : db0(*this), content(*this
 	form.type <<= THISBACK(OnValueChange);
 	form.make_lines << THISBACK(MakeLines);
 	
-	line_conf.AddColumn("Key");
-	line_conf.AddColumn("Value");
-	line_conf.ColumnWidths("1 4");
-	
 	tabs.Add(db0.SizePos(), "Groups/Values");
 	
 	content.WhenCursor << THISBACK(DataLine);
+	
+	db0.WhenBrowserCursor << THISBACK(OnBrowserCursor);
 	
 }
 
@@ -97,7 +95,6 @@ void ScriptReferenceMakerCtrl::DataLine() {
 	int part_i = parts.GetCursor();
 	int line_i = content.GetCursor();
 	if (line_i < 0) {
-		line_conf.Clear();
 		return;
 	}
 	const DynPart& dp = s.parts[part_i];
@@ -119,44 +116,9 @@ void ScriptReferenceMakerCtrl::DataLine() {
 	}
 	
 	if (!el) {
-		line_conf.Clear();
 		return;
 	}
 	
-	int i = 0;
-	line_conf.Set(i, 0, "Element");
-	line_conf.Set(i, 1, "");
-	i++;
-	
-	line_conf.Set(i, 0, "Group");
-	line_conf.Set(i, 1, "");
-	i++;
-	
-	line_conf.Set(i, 0, "Value");
-	line_conf.Set(i, 1, "");
-	i++;
-	
-	line_conf.Set(i, 0, "Color");
-	line_conf.Set(i, 1, "");
-	i++;
-	
-	line_conf.Set(i, 0, "Action");
-	line_conf.Set(i, 1, "");
-	i++;
-	
-	line_conf.Set(i, 0, "Action-arg");
-	line_conf.Set(i, 1, "");
-	i++;
-	
-	line_conf.Set(i, 0, "Typeclass");
-	line_conf.Set(i, 1, "");
-	i++;
-	
-	line_conf.Set(i, 0, "Content");
-	line_conf.Set(i, 1, "");
-	i++;
-	
-	line_conf.SetCount(i);
 	
 	DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
 	b.SetAll(el->attr, el->clr_i, el->act);
@@ -193,6 +155,64 @@ void ScriptReferenceMakerCtrl::MakeLines() {
 	PostCallback(THISBACK(DataPart));
 }
 
+void ScriptReferenceMakerCtrl::OnBrowserCursor() {
+	DatabaseBrowser& b = DatabaseBrowser::Single(this->GetAppMode());
+	
+	const EditorPtrs& p = GetPointers();
+	if (!p.script || !parts.IsCursor())
+		return;
+	
+	Script& s = *p.script;
+	int part_i = parts.GetCursor();
+	DynPart& dp = s.parts[part_i];
+	
+	LineElement* el = 0;
+	PartLineCtrl* plp = 0;
+	for(int i = 0; i < content.lines.GetCount(); i++) {
+		PartLineCtrl& pl = content.lines[i];
+		
+		if (pl.IsSelected()) {
+			plp = &pl;
+			if (pl.sub_i < 0 && pl.line_i < 0) {
+				el = &dp.el;
+			}
+			else if (pl.sub_i >= 0) {
+				DynSub& ds = dp.sub[pl.sub_i];
+				if (pl.line_i < 0) {
+					el = &ds.el;
+				}
+				else {
+					DynLine& dl = ds.lines[pl.line_i];
+					el = &dl.el;
+				}
+			}
+		}
+	}
+	if (!el || !plp)
+		return;
+	
+	/*int attr_i = b.GetCur(0);
+	int clr_i = b.GetCur(1);
+	int action_i = b.GetCur(2);
+	int arg_i = b.GetCur(3);*/
+	if (!db0.attrs.IsCursor() ||
+		!db0.colors.IsCursor() ||
+		!db0.actions.IsCursor() ||
+		!db0.action_args.IsCursor()) return;
+	
+	int attr_i = db0.attrs.Get("IDX");
+	int clr_i = db0.colors.Get("IDX");
+	int action_i = db0.actions.Get("IDX");
+	int arg_i = db0.action_args.Get("IDX");
+	el->attr.group = b.attrs[attr_i].group;
+	el->attr.value = b.attrs[attr_i].value;
+	el->clr_i = b.colors[clr_i].clr_i;
+	el->act.action = b.actions[action_i].action;
+	el->act.arg = arg_i < b.args.GetCount() ? b.args[arg_i].arg : "";
+	
+	plp->Refresh();
+}
+
 void ScriptReferenceMakerCtrl::OnValueChange() {
 	const EditorPtrs& p = GetPointers();
 	if (!p.script || !parts.IsCursor())
@@ -222,6 +242,32 @@ void ScriptReferenceMakerCtrl::ToolMenu(Bar& bar) {
 		int tab = tabs.Get();
 		if (tab == 0) db0.JumpToGroupValue(+1);
 	}).Key(K_CTRL_E);
+	bar.Separator();
+	bar.Add(t_("Set as line text"), AppImg::BlueRing(), THISBACK(SetLineText)).Key(K_F4);
+	
+}
+
+void ScriptReferenceMakerCtrl::SetLineText() {
+	DatabaseBrowser& b = DatabaseBrowser::Single(this->GetAppMode());
+	int tab = tabs.Get();
+	if (tab == 0) {
+		if (!db0.parts.IsCursor())
+			return;
+		int line_i = content.GetCursor();
+		if (line_i < 0 || line_i >= content.lines.GetCount())
+			return;
+		auto& line = content.Get(line_i);
+		/*LineElement* el = line.GetLineEl();
+		if (!el)
+			return;*/
+		DynLine* dl = line.GetDynLine();
+		if (!dl)
+			return;
+		AttrText at = db0.parts.Get(0);
+		dl->text = at.text.ToString();
+		line.Refresh();
+	}
+	else TODO
 	
 }
 
