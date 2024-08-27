@@ -10,27 +10,11 @@ class ScriptReferenceMakerCtrl;
 class PartContentCtrl;
 class PartLineCtrl;
 
-/*class PartLineHeader : public Ctrl {
-	PartLineCtrl& o;
-	
-public:
-	PartLineHeader(PartLineCtrl& o) : o(o) {}
-	void Paint(Draw& d) override;
-	
-	static const int indent;
-	
-	void LeftDown(Point p, dword keyflags) override;
-	void LostFocus() override;
-	bool Key(dword key, int count) override;
-	
-};*/
 
 class PartLineCtrl : public Ctrl {
 	
 public:
 	PartContentCtrl& o;
-	
-	//PartLineHeader header;
 	int sub_i = -1, line_i = -1;
 	
 	
@@ -65,8 +49,6 @@ protected:
 	Array<PartLineCtrl> lines;
 	int lh = 20;
 	int selected_line = -1;
-	//VectorMap<String, VectorMap<String, int>> uniq_acts;
-	//VectorMap<String, int> group_counts;
 	
 public:
 	typedef PartContentCtrl CLASSNAME;
@@ -75,7 +57,6 @@ public:
 	void Paint(Draw& d) override;
 	void Layout() override;
 	void Data();
-	//void RealizeUniqueActions();
 	void MoveSelection(int i);
 	void InitDefault(PartLineCtrl& l);
 	void AddElements(DropList& dl);
@@ -97,13 +78,15 @@ public:
 class ScriptPhrasePartsGroups : public Ctrl {
 	ToolAppCtrl& o;
 	Splitter vsplit, hsplit;
+	bool set_cursor = true;
 	
 protected:
 	friend class ScriptReferenceMakerCtrl;
-	ArrayCtrl attrs, colors, actions, action_args, parts;
+	ArrayCtrl attr_groups, attr_values, colors, actions, action_args, parts;
+	ArrayCtrl elements, typeclasses, contrasts;
 	
 	VectorMap<String, VectorMap<String, int>> uniq_acts;
-	int sort[4] = {-1,-1,-1,-1};
+	int sort[DatabaseBrowser::TYPE_COUNT] = {-1,-1,-1,-1,-1,-1,-1,-1};
 public:
 	typedef ScriptPhrasePartsGroups CLASSNAME;
 	ScriptPhrasePartsGroups(ToolAppCtrl& o);
@@ -111,7 +94,10 @@ public:
 	void Data();
 	void DataList();
 	void UpdateCounts();
-	void JumpToGroupValue(int diff);
+	void SetIndexCursor(int idx, ArrayCtrl& arr);
+	void InitArray(ArrayCtrl& arr, String title, DatabaseBrowser::ColumnType t);
+	void FillArrayCtrlColor(DatabaseBrowser::ColumnType t, ArrayCtrl& arr);
+	void FillArrayCtrl(DatabaseBrowser::ColumnType t, ArrayCtrl& arr);
 	
 	Event<> WhenBrowserCursor;
 	

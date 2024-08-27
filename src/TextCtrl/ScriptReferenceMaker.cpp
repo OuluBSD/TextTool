@@ -195,20 +195,22 @@ void ScriptReferenceMakerCtrl::OnBrowserCursor() {
 	int clr_i = b.GetCur(1);
 	int action_i = b.GetCur(2);
 	int arg_i = b.GetCur(3);*/
-	if (!db0.attrs.IsCursor() ||
+	if (!db0.attr_groups.IsCursor() ||
+		!db0.attr_values.IsCursor() ||
 		!db0.colors.IsCursor() ||
 		!db0.actions.IsCursor() ||
 		!db0.action_args.IsCursor()) return;
 	
-	int attr_i = db0.attrs.Get("IDX");
+	int attr_group_i = db0.attr_groups.Get("IDX");
+	int attr_value_i = db0.attr_values.Get("IDX");
 	int clr_i = db0.colors.Get("IDX");
 	int action_i = db0.actions.Get("IDX");
 	int arg_i = db0.action_args.Get("IDX");
-	el->attr.group = b.attrs[attr_i].group;
-	el->attr.value = b.attrs[attr_i].value;
-	el->clr_i = b.colors[clr_i].clr_i;
-	el->act.action = b.actions[action_i].action;
-	el->act.arg = arg_i < b.args.GetCount() ? b.args[arg_i].arg : "";
+	el->attr.group	= b.Get(DatabaseBrowser::ATTR_GROUP)[attr_group_i].str;
+	el->attr.value	= b.Get(DatabaseBrowser::ATTR_VALUE)[attr_value_i].str;
+	el->clr_i		= b.Get(DatabaseBrowser::COLOR)[clr_i].idx;
+	el->act.action	= b.Get(DatabaseBrowser::ACTION)[action_i].str;
+	el->act.arg		= b.Get(DatabaseBrowser::ACTION_ARG)[arg_i].str;
 	
 	plp->Refresh();
 }
@@ -234,7 +236,7 @@ void ScriptReferenceMakerCtrl::OnValueChange() {
 }
 
 void ScriptReferenceMakerCtrl::ToolMenu(Bar& bar) {
-	bar.Add(t_("Jump to previous group value"), AppImg::BlueRing(), [this](){
+	/*bar.Add(t_("Jump to previous group value"), AppImg::BlueRing(), [this](){
 		int tab = tabs.Get();
 		if (tab == 0) db0.JumpToGroupValue(-1);
 	}).Key(K_CTRL_W);
@@ -242,7 +244,7 @@ void ScriptReferenceMakerCtrl::ToolMenu(Bar& bar) {
 		int tab = tabs.Get();
 		if (tab == 0) db0.JumpToGroupValue(+1);
 	}).Key(K_CTRL_E);
-	bar.Separator();
+	bar.Separator();*/
 	bar.Add(t_("Set as line text"), AppImg::BlueRing(), THISBACK(SetLineText)).Key(K_F4);
 	
 }

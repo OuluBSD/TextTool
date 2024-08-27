@@ -11,75 +11,17 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 	hsplit.Horz() << vsplit << parts;
 	hsplit.SetPos(3000);
 
-	vsplit.Vert() << attrs << colors << actions << action_args;
+	vsplit.Vert() << attr_groups << attr_values << colors << actions << action_args
+		<< elements << typeclasses << contrasts;
 
-	attrs.AddColumn(t_("Group"));
-	attrs.AddColumn(t_("Value"));
-	attrs.AddColumn(t_("Count"));
-	attrs.AddIndex("IDX");
-	attrs.ColumnWidths("1 1");
-	attrs.WhenCursor << [this]() {
-		if (!attrs.IsCursor()) return;
-		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
-		b.SetAttr(attrs.Get("IDX"));
-		PostCallback(THISBACK(Data));
-		WhenBrowserCursor();
-	};
-	attrs.WhenBar << [this](Bar& b) {
-		b.Add("Jump to next group value", THISBACK1(JumpToGroupValue, +1));
-		b.Add("Jump to previous group value", THISBACK1(JumpToGroupValue, -1));
-		b.Separator();
-		b.Add("Sort by group", [this]{INHIBIT_CURSOR(attrs); attrs.SetSortColumn(0,false); sort[0] = 0;});
-		b.Add("Sort by value", [this]{INHIBIT_CURSOR(attrs); attrs.SetSortColumn(1,false); sort[0] = 1;});
-		b.Add("Sort by count", [this]{INHIBIT_CURSOR(attrs); attrs.SetSortColumn(2,true); sort[0] = 2;});
-	};
-	
-	colors.AddColumn(t_("Colors"));
-	colors.AddColumn(t_("Count"));
-	colors.AddIndex("IDX");
-	colors.WhenCursor << [this]() {
-		if (!colors.IsCursor()) return;
-		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
-		b.SetColor(colors.Get("IDX"));
-		PostCallback(THISBACK(Data));
-		WhenBrowserCursor();
-	};
-	colors.WhenBar << [this](Bar& b) {
-		b.Add("Sort by color", [this]{INHIBIT_CURSOR(colors); colors.SetSortColumn(0,false); sort[1] = 0;});
-		b.Add("Sort by count", [this]{INHIBIT_CURSOR(colors); colors.SetSortColumn(1,true); sort[1] = 1;});
-	};
-	
-	actions.AddColumn(t_("Action"));
-	actions.AddColumn(t_("Count"));
-	actions.AddIndex("IDX");
-	actions.ColumnWidths("3 1");
-	actions.WhenCursor << [this]() {
-		if (!actions.IsCursor()) return;
-		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
-		b.SetGroup(actions.Get("IDX"));
-		PostCallback(THISBACK(Data));
-		WhenBrowserCursor();
-	};
-	actions.WhenBar << [this](Bar& b) {
-		b.Add("Sort by name", [this]{INHIBIT_CURSOR(actions); actions.SetSortColumn(0,false); sort[2] = 0;});
-		b.Add("Sort by count", [this]{INHIBIT_CURSOR(actions); actions.SetSortColumn(1,true); sort[2] = 1;});
-	};
-	
-	action_args.AddColumn(t_("Action args"));
-	action_args.AddColumn(t_("Count"));
-	action_args.AddIndex("IDX");
-	action_args.ColumnWidths("3 1");
-	action_args.WhenCursor << [this]() {
-		if (!action_args.IsCursor()) return;
-		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
-		b.SetValue(action_args.Get("IDX"));
-		PostCallback(THISBACK(Data));
-		WhenBrowserCursor();
-	};
-	action_args.WhenBar << [this](Bar& b) {
-		b.Add("Sort by name", [this]{INHIBIT_CURSOR(action_args); action_args.SetSortColumn(0,false); sort[3] = 0;});
-		b.Add("Sort by count", [this]{INHIBIT_CURSOR(action_args); action_args.SetSortColumn(1,true); sort[3] = 1;});
-	};
+	InitArray(attr_groups, "Attr Group", DatabaseBrowser::ATTR_GROUP);
+	InitArray(attr_values, "Attr Value", DatabaseBrowser::ATTR_VALUE);
+	InitArray(colors, "Color", DatabaseBrowser::COLOR);
+	InitArray(actions, "Action", DatabaseBrowser::ACTION);
+	InitArray(action_args, "Arg", DatabaseBrowser::ACTION_ARG);
+	InitArray(elements, "Element", DatabaseBrowser::ELEMENT);
+	InitArray(typeclasses, "Typeclass", DatabaseBrowser::TYPECLASS);
+	InitArray(contrasts, "Contrast", DatabaseBrowser::CONTRAST);
 	
 	parts.AddColumn(t_("Phrase"));
 	parts.AddColumn(t_("Actions"));
@@ -100,109 +42,84 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 
 }
 
-void ScriptPhrasePartsGroups::JumpToGroupValue(int diff) {
-	if (!attrs.IsCursor()) return;
-	int cur = attrs.GetCursor();
-	String key = attrs.Get(0);
-	int c = attrs.GetCount();
-	for(int i = 1; i < c; i++) {
-		int row = (c + cur + i*diff) % c; // first c keeps negative diff as positive sum
-		if (attrs.Get(row, 0) == key) {
-			attrs.SetCursor(row);
-			break;
-		}
-	}
+void ScriptPhrasePartsGroups::InitArray(ArrayCtrl& arr, String title, DatabaseBrowser::ColumnType t) {
+	arr.AddColumn(title);
+	arr.AddColumn(t_("Count"));
+	arr.AddIndex("IDX");
+	arr.ColumnWidths("1 1");
+	arr.WhenCursor << [this,&arr]() {
+		if (!arr.IsCursor()) return;
+		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
+		b.SetAttrGroup(arr.Get("IDX"));
+		PostCallback(THISBACK(Data));
+		WhenBrowserCursor();
+	};
+	arr.WhenBar << [this,&arr,title](Bar& b) {
+		b.Add("Sort by " + ToLower(title), [this,&arr]{INHIBIT_CURSOR(arr); arr.SetSortColumn(0,false); sort[0] = 0;});
+		b.Add("Sort by count", [this,&arr]{INHIBIT_CURSOR(arr); arr.SetSortColumn(1,true); sort[0] = 1;});
+	};
 }
-
 
 void ScriptPhrasePartsGroups::Data() {
 	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 	b.SetCtrl(o);
 	b.SetMode(0);
 	
-	bool set_cursor = true;
-	
-	// Set attributes
-	INHIBIT_CURSOR_(attrs, at);
-	int row = 0;
-	for(int i = 0; i < b.attrs.GetCount(); i++) {
-		const auto& ah = b.attrs[i];
-		if (!ah.count) break;
-		attrs.Set(row, "IDX", i);
-		attrs.Set(row, 0, ah.group);
-		attrs.Set(row, 1, ah.value);
-		attrs.Set(row, 2, ah.count);
-		row++;
-	}
-	attrs.SetCount(row);
-	if (sort[0] == 0) attrs.SetSortColumn(0, false);
-	if (sort[0] == 1) attrs.SetSortColumn(1, false);
-	if (sort[0] == 2) attrs.SetSortColumn(2, true);
-	if (set_cursor) {
-		int cur = b.GetCursorValue(0);
-		if (cur >= 0 && cur < attrs.GetCount())
-			attrs.SetCursor(cur);
-	}
-	
-	
-	// Colors
-	INHIBIT_CURSOR_(colors, c);
-	for(int i = 0; i < b.colors.GetCount(); i++) {
-		const auto& clr = b.colors[i];
-		colors.Set(i, "IDX", i);
-		colors.Set(i, 0,
-			AttrText("#" + IntStr(clr.clr_i))
-				.NormalPaper(clr.clr).NormalInk(Black())
-				.Paper(Blend(GrayColor(), GetGroupColor(i))).Ink(White()));
-		colors.Set(i, 1, clr.count);
-	}
-	colors.SetCount(b.colors.GetCount());
-	if (sort[1] == 0) colors.SetSortColumn(0, false);
-	if (sort[1] == 1) colors.SetSortColumn(1, true);
-	if (set_cursor) {
-		int cur = b.GetCursorValue(1);
-		if (cur >= 0 && cur < colors.GetCount())
-			colors.SetCursor(cur);
-	}
-	
-	
-	// Actions
-	INHIBIT_CURSOR_(actions, a);
-	for(int i = 0; i < b.actions.GetCount(); i++) {
-		const auto& a = b.actions[i];
-		actions.Set(i, "IDX", i);
-		actions.Set(i, 0, a.action);
-		actions.Set(i, 1, a.count);
-	}
-	actions.SetCount(b.actions.GetCount());
-	if (sort[1] == 0) actions.SetSortColumn(0, false);
-	if (sort[1] == 1) actions.SetSortColumn(1, true);
-	if (set_cursor) {
-		int cur = b.GetCursorValue(2);
-		if (cur >= 0 && cur < actions.GetCount())
-			actions.SetCursor(cur);
-	}
-	
-	
-	// Action args
-	INHIBIT_CURSOR_(action_args, ag);
-	for(int i = 0; i < b.args.GetCount(); i++) {
-		const auto& a = b.args[i];
-		action_args.Set(i, "IDX", i);
-		action_args.Set(i, 0, a.arg);
-		action_args.Set(i, 1, a.count);
-	}
-	action_args.SetCount(b.args.GetCount());
-	if (sort[1] == 0) action_args.SetSortColumn(0, false);
-	if (sort[1] == 1) action_args.SetSortColumn(1, true);
-	if (set_cursor) {
-		int cur = b.GetCursorValue(3);
-		if (cur >= 0 && cur < action_args.GetCount())
-			action_args.SetCursor(cur);
-	}
+	FillArrayCtrl(DatabaseBrowser::ATTR_GROUP, attr_groups);
+	FillArrayCtrl(DatabaseBrowser::ATTR_VALUE, attr_values);
+	FillArrayCtrlColor(DatabaseBrowser::COLOR, colors);
+	FillArrayCtrl(DatabaseBrowser::ACTION, actions);
+	FillArrayCtrl(DatabaseBrowser::ACTION_ARG, action_args);
+	FillArrayCtrl(DatabaseBrowser::ELEMENT, elements);
+	FillArrayCtrl(DatabaseBrowser::TYPECLASS, typeclasses);
+	FillArrayCtrl(DatabaseBrowser::CONTRAST, contrasts);
 	
 	
 	DataList();
+}
+
+void ScriptPhrasePartsGroups::FillArrayCtrlColor(DatabaseBrowser::ColumnType t, ArrayCtrl& arr) {
+	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
+	const auto& v = b.Get(t);
+	INHIBIT_CURSOR_(arr, c);
+	for(int i = 0; i < v.GetCount(); i++) {
+		const auto& clr = v[i];
+		Color c = GetGroupColor(clr.idx);
+		arr.Set(i, "IDX", i);
+		arr.Set(i, 0,
+			AttrText("#" + IntStr(clr.idx))
+				.NormalPaper(c).NormalInk(Black())
+				.Paper(Blend(GrayColor(), GetGroupColor(i))).Ink(White()));
+		arr.Set(i, 1, clr.count);
+	}
+	arr.SetCount(v.GetCount());
+	if (sort[1] == 0) arr.SetSortColumn(0, false);
+	if (sort[1] == 1) arr.SetSortColumn(1, true);
+	if (set_cursor) {
+		int cur = b.GetColumnCursor(t);
+		if (cur >= 0 && cur < arr.GetCount())
+			SetIndexCursor(cur, arr);
+	}
+}
+
+void ScriptPhrasePartsGroups::FillArrayCtrl(DatabaseBrowser::ColumnType t, ArrayCtrl& arr) {
+	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
+	const auto& v = b.Get(t);
+	INHIBIT_CURSOR_(arr, ag);
+	for(int i = 0; i < v.GetCount(); i++) {
+		const auto& a = v[i];
+		arr.Set(i, "IDX", i);
+		arr.Set(i, 0, a.str);
+		arr.Set(i, 1, a.count);
+	}
+	arr.SetCount(v.GetCount());
+	if (sort[1] == 0) arr.SetSortColumn(0, false);
+	if (sort[1] == 1) arr.SetSortColumn(1, true);
+	if (set_cursor) {
+		int cur = b.GetColumnCursor(t);
+		if (cur >= 0 && cur < arr.GetCount())
+			SetIndexCursor(cur, arr);
+	}
 }
 
 void ScriptPhrasePartsGroups::DataList() {
@@ -214,8 +131,8 @@ void ScriptPhrasePartsGroups::DataList() {
 	DatasetAnalysis& da = sda.dataset;
 
 	int row = 0, max_rows = 10000;
-	for(int i = 0; i < b.data.GetCount(); i++) {
-		int pp_i = b.data[i];
+	for(int i = 0; i < b.phrase_parts.GetCount(); i++) {
+		int pp_i = b.phrase_parts[i];
 		PhrasePart& pp = da.phrase_parts[pp_i];
 
 		parts.Set(row, "IDX", pp_i);
@@ -267,6 +184,16 @@ void ScriptPhrasePartsGroups::DataList() {
 	TextLib::TaskManager& tm = GetTaskManager();
 	tm.DoPhrases(fn);
 }*/
+
+void ScriptPhrasePartsGroups::SetIndexCursor(int idx, ArrayCtrl& arr) {
+	INHIBIT_CURSOR(arr);
+	for(int i = 0; i < arr.GetCount(); i++) {
+		if (arr.Get(i, "IDX") == idx) {
+			arr.SetCursor(i);
+			break;
+		}
+	}
+}
 
 void ScriptPhrasePartsGroups::UpdateCounts() {
 	

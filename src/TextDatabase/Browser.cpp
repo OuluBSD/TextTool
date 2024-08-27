@@ -12,42 +12,21 @@ void DatabaseBrowser::SetMode(int i) {
 	if (i == mode)
 		return;
 	mode = i;
+	for(int i = 0; i < TYPE_COUNT; i++)
+		items[i].Clear();
+	phrase_parts.Clear();
+	if (mode == 0) {
+		for(int i = 0; i < TYPE_COUNT; i++)
+			order[i] = (ColumnType)i;
+	}
+	else {
+		TODO // set order
+	}
 	Init();
 }
 
-int DatabaseBrowser::GetCursorValue(int cursor_i) const {
-	if (cursor_i >= 0 && cursor_i < 4)
-		return cursor[cursor_i];
-	return -1;
-}
-
-int DatabaseBrowser::GetCur(int cursor_i) const {
-	int order[4] = {-1,-1,-1,-1};
-	if (mode == 0) {
-		order[0] = 0;
-		order[1] = 1;
-		order[2] = 2;
-		order[3] = 3;
-	}
-	if (mode == 1) {
-		order[0] = 3;
-		order[1] = 2;
-		order[2] = 0;
-		order[3] = 1;
-	}
-	if (mode == 2) {
-		order[0] = 3;
-		order[1] = 0;
-		order[2] = 1;
-		order[3] = 2;
-	}
-	if (mode == 3) {
-		order[0] = 2;
-		order[1] = 0;
-		order[2] = 1;
-		order[3] = 3;
-	}
-	ASSERT(cursor_i >= 0 && cursor_i < 4);
+DatabaseBrowser::ColumnType DatabaseBrowser::GetCur(int cursor_i) const {
+	ASSERT(cursor_i >= 0 && cursor_i < TYPE_COUNT);
 	return order[cursor_i];
 }
 
@@ -57,31 +36,42 @@ bool DatabaseBrowser::IsSub(int cur, int cursor_i) const {
 
 void DatabaseBrowser::Init() {
 	uniq_acts.Clear();
-	uniq_attrs.Clear();
 	color_counts.Clear();
-	for(int i = 0; i < 4; i++)
+	for(int i = 0; i < TYPE_COUNT; i++)
 		cursor[i] = -1;
 	
-	if (mode == 0) SetAttr0(0);
-	if (mode == 1) SetGroup1(0);
+	if (mode == 0) SetAttrGroup(0);
+	else TODO
+	/*if (mode == 1) SetGroup1(0);
 	if (mode == 2) SetColor2(0);
-	if (mode == 3) SetColor3(0);
+	if (mode == 3) SetColor3(0);*/
 }
 
 void DatabaseBrowser::SetAll(const AttrHeader& attr, int clr, const ActionHeader& act) {
 	if (mode == 0) {
-		int& attr_tgt = history.GetAdd(GetHash(0,0,0,0), 0);
-		attr_tgt = 0;
+		TODO
+		/*int& attr_group_tgt = history.GetAdd(GetHash(0,0,0,0), 0);
+		attr_group_tgt = 0;
 		String attr_group = attr.IsEmpty() ? "All" : attr.group;
-		for(int i = 0; i < attrs.GetCount(); i++) {
-			const auto& at = attrs[i];
-			if (at.group == attr_group && (at.value == attr.value || attr.value.IsEmpty())) {
-				attr_tgt = i;
+		for(int i = 0; i < attr_groups.GetCount(); i++) {
+			const auto& at = attr_groups[i];
+			if (at.group == attr_group) {
+				attr_group_tgt = i;
 				break;
 			}
 		}
 		
-		SetAttr(attr_tgt);
+		SetAttrGroup(attr_group_tgt);
+		
+		int& attr_value_tgt = history.GetAdd(GetHash(0,0,0,0), 0);
+		attr_value_tgt = 0;
+		for(int i = 0; i < attr_values.GetCount(); i++) {
+			const auto& at = attr_values[i];
+			if (at.value == attr.value || attr.value.IsEmpty()) {
+				attr_value_tgt = i;
+				break;
+			}
+		}
 		
 		int& clr_tgt = history.GetAdd(GetHash(1,0,0,0), 0);
 		clr_tgt = 0;
@@ -112,81 +102,24 @@ void DatabaseBrowser::SetAll(const AttrHeader& attr, int clr, const ActionHeader
 			}
 		}
 		
-		DataAttr0();
+		DataAttr0();*/
 	}
 	else TODO
 }
 
 void DatabaseBrowser::Update() {
-	if (mode == 0) DataValue0();
-	if (mode == 1) DataAttr1();
+	TODO
+	//if (mode == 0) DataAttrGroup();
+	/*if (mode == 1) DataAttr1();
 	if (mode == 2) DataAttr2();
-	if (mode == 3) DataValue3();
+	if (mode == 3) DataValue3();*/
 }
 
-void DatabaseBrowser::SetAttr(int i) {
-	if (mode == 0) SetAttr0(i);
-	if (mode == 1) SetAttr1(i);
-	if (mode == 2) SetAttr2(i);
-	if (mode == 3) SetAttr3(i);
-}
-
-void DatabaseBrowser::SetColor(int i) {
-	if (mode == 0) SetColor0(i);
-	if (mode == 1) SetColor1(i);
-	if (mode == 2) SetColor2(i);
-	if (mode == 3) SetColor3(i);
-}
-
-void DatabaseBrowser::SetGroup(int i) {
-	if (mode == 0) SetGroup0(i);
-	if (mode == 1) SetGroup1(i);
-	if (mode == 2) SetGroup2(i);
-	if (mode == 3) SetGroup3(i);
-}
-
-void DatabaseBrowser::SetValue(int i) {
-	if (mode == 0) SetValue0(i);
-	if (mode == 1) SetValue1(i);
-	if (mode == 2) SetValue2(i);
-	if (mode == 3) SetValue3(i);
-}
-
-void DatabaseBrowser::DataAttr() {
-	if (mode == 0) DataAttr0();
-	if (mode == 1) DataAttr1();
-	if (mode == 2) DataAttr2();
-	if (mode == 3) DataAttr3();
-}
-
-void DatabaseBrowser::DataColor() {
-	if (mode == 0) DataColor0();
-	if (mode == 1) DataColor1();
-	if (mode == 2) DataColor2();
-	if (mode == 3) DataColor3();
-}
-
-void DatabaseBrowser::DataGroup() {
-	if (mode == 0) DataGroup0();
-	if (mode == 1) DataGroup1();
-	if (mode == 2) DataGroup2();
-	if (mode == 3) DataGroup3();
-}
-
-void DatabaseBrowser::DataValue() {
-	if (mode == 0) DataValue0();
-	if (mode == 1) DataValue1();
-	if (mode == 2) DataValue2();
-	if (mode == 3) DataValue3();
-}
-
-hash_t DatabaseBrowser::GetHash(bool attr, bool clr, bool group, bool value) const {
+hash_t DatabaseBrowser::GetHash(int columns) const {
 	CombineHash ch;
 	ch.Do(mode);
-	ch.Do(attr  ? cursor[0] : -1);
-	ch.Do(clr   ? cursor[1] : -1);
-	ch.Do(group ? cursor[2] : -1);
-	ch.Do(value ? cursor[3] : -1);
+	for(int i = 0; i < TYPE_COUNT; i++)
+		ch.Do(i < columns ? cursor[i] : -1);
 	return ch;
 }
 
@@ -221,7 +154,7 @@ void DatabaseBrowser::SortBy(int i) {
 			}
 		} s;
 		s.phrase_parts = &da.phrase_parts;
-		Sort(data, s);
+		Sort(phrase_parts, s);
 	}
 	else if (i >= 1 && i < SCORE_COUNT+1) {
 		i--;
@@ -234,7 +167,7 @@ void DatabaseBrowser::SortBy(int i) {
 		} s;
 		s.i = i;
 		s.phrase_parts = &da.phrase_parts;
-		Sort(data, s);
+		Sort(phrase_parts, s);
 	}
 	
 	sorting = i;
@@ -324,21 +257,60 @@ DatabaseBrowser& DatabaseBrowser::Single(int appmode) {
 }
 
 int DatabaseBrowser::FindAction(const String& s) {
+	const auto& actions = Get(ACTION);
 	for(int i = 0; i < actions.GetCount(); i++) {
-		if (actions[i].action == s)
+		if (actions[i].str == s)
 			return i;
 	}
 	return 0; // return "All", which is first
 }
 
 int DatabaseBrowser::FindArg(const String& s) {
+	const auto& args = Get(ACTION_ARG);
 	for(int i = 0; i < args.GetCount(); i++) {
-		if (args[i].arg == s)
+		if (args[i].str == s)
 			return i;
 	}
 	return 0; // return "All", which is first
 }
 
+Vector<DatabaseBrowser::Item>& DatabaseBrowser::Get(ColumnType t) {
+	for(int i = 0; i < TYPE_COUNT; i++) {
+		if (order[i] == t)
+			return items[i];
+	}
+	ASSERT_(0, "Invalid ColumnType");
+	return items[0];
+}
+
+const Vector<DatabaseBrowser::Item>& DatabaseBrowser::Get(ColumnType t) const {
+	for(int i = 0; i < TYPE_COUNT; i++) {
+		if (order[i] == t)
+			return items[i];
+	}
+	ASSERT_(0, "Invalid ColumnType");
+	return items[0];
+}
+
+bool DatabaseBrowser::IsFirstInOrder(ColumnType t) const {
+	return order[0] == t;
+}
+
+int DatabaseBrowser::GetColumnCursor(ColumnType t) const {
+	for(int i = 0; i < TYPE_COUNT; i++) {
+		if (order[i] == t)
+			return cursor[i];
+	}
+	ASSERT_(0, "Invalid ColumnType");
+	return cursor[0];
+}
+
+int DatabaseBrowser::GetColumnOrder(ColumnType t) const {
+	for(int i = 0; i < TYPE_COUNT; i++)
+		if (order[i] == t)
+			return i;
+	return -1;
+}
 
 
 END_TEXTLIB_NAMESPACE

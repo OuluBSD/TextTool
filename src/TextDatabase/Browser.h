@@ -4,49 +4,56 @@
 
 BEGIN_TEXTLIB_NAMESPACE
 
+struct VMapSumSorter {
+	bool operator()(const VectorMap<String, int>& a, const VectorMap<String, int>& b) const {
+		int asum = 0; for (int i : a.GetValues()) asum += i;
+		int bsum = 0; for (int i : b.GetValues()) bsum += i;
+		return asum > bsum;
+	}
+};
 
 class DatabaseBrowser {
+	
+public:
+	typedef enum : int {
+		ATTR_GROUP,
+		ATTR_VALUE,
+		COLOR,
+		ACTION,
+		ACTION_ARG,
+		ELEMENT,
+		TYPECLASS,
+		CONTRAST,
+		
+		TYPE_COUNT
+	} ColumnType;
+	using T = ColumnType;
+	
+private:
 	VectorMap<String, VectorMap<String, int>> uniq_acts;
-	int cursor[4] = {0,0,0,0};
-	VectorMap<int,int> uniq_attrs;
-	Vector<int> color_counts;
+	VectorMap<String, VectorMap<String, int>> uniq_attr;
+	VectorMap<String, int> uniq_attr_values, uniq_act_args;
+	Vector<int> color_counts, rm_list;
+	
+	int cursor[TYPE_COUNT] = {0,0,0,0,0,0,0,0};
+	ColumnType order[TYPE_COUNT] = {(T)0,(T)1,(T)2,(T)3,(T)4,(T)5,(T)6,(T)7};
+	//VectorMap<int,int> uniq_attrs;
+	//Vector<int> color_counts;
 	VectorMap<hash_t,int> history;
 	
 	
 public:
-	struct Attr : Moveable<Attr> {
-		String group, value;
+	struct Item : Moveable<Item> {
+		String str;
 		int count;
-		int attr_i;
-		
-		AttrHeader GetAttrHeader() const {return AttrHeader(group, value);}
-		bool operator()(const Attr& a, const Attr& b) const {return a.count > b.count;}
-	};
-	struct ColorGroup : Moveable<ColorGroup> {
-		String name;
-		int clr_i;
-		Color clr;
-		int count;
-		
-		bool operator()(const ColorGroup& a, const ColorGroup& b) const {return a.count > b.count;}
-	};
-	struct ActionGroup : Moveable<ActionGroup> {
-		String action;
-		int count;
-		bool operator()(const ActionGroup& a, const ActionGroup& b) const {return a.count > b.count;}
-	};
-	struct ActionArg : Moveable<ActionArg> {
-		String arg;
-		int count;
-		bool operator()(const ActionArg& a, const ActionArg& b) const {return a.count > b.count;}
+		int idx = -1;
+		bool operator()(const Item& a, const Item& b) const {return a.count > b.count;}
 	};
 	
-	Vector<Attr>		attrs;
-	Vector<ColorGroup>	colors;
-	Vector<ActionGroup> actions;
-	Vector<ActionArg> args;
+	Vector<Item> items[TYPE_COUNT];
 	int mode = -1;
-	Vector<int> data;
+	int appmode = DB_SONG;
+	Vector<int> phrase_parts;
 	int sorting = 0;
 	bool filter_mid_rhyme = false, filter_end_rhyme = false;
 	WString mid_rhyme, end_rhyme;
@@ -60,6 +67,13 @@ public:
 public:
 	
 	DatabaseBrowser();
+	Vector<Item>& Get(ColumnType t);
+	bool IsFirstInOrder(ColumnType t) const;
+	const Vector<Item>& Get(ColumnType t) const;
+	int GetColumnCursor(ColumnType t) const;
+	int GetColumnOrder(ColumnType t) const;
+	void SetTail(ColumnType t, int i);
+	void FillItems(ColumnType t);
 	void SetCtrl(ToolAppCtrl& c) {ctrl = &c;}
 	void Init();
 	void Update();
@@ -68,69 +82,40 @@ public:
 	void SetEndRhymeFilter(WString wrd, bool up=true);
 	void SetMidRhymingLimit(double d, bool up=true);
 	void SetEndRhymingLimit(double d, bool up=true);
-	void SetAttr(int i);
+	void SetInitialData();
+	void SetAttrGroup(int i);
+	void SetAttrValue(int i);
 	void SetColor(int i);
-	void SetGroup(int i);
-	void SetValue(int i);
-	void DataAttr();
-	void DataColor();
-	void DataGroup();
-	void DataValue();
-	int GetCursorValue(int cursor_i) const;
-	int GetCur(int cursor_i) const;
+	void SetAction(int i);
+	void SetActionArg(int i);
+	void SetElement(int i);
+	void SetTypeclass(int i);
+	void SetContrast(int i);
+	void DataCursor(int cursor);
+	ColumnType GetCur(int cursor_i) const;
 	bool IsSub(int cur, int cursor_i) const;
 	double GetMidRhymingLimit() const {return mid_rhyme_distance_limit;}
 	double GetEndRhymingLimit() const {return end_rhyme_distance_limit;}
 	void SetAll(const AttrHeader& attr, int clr, const ActionHeader& act);
 	int FindAction(const String& s);
 	int FindArg(const String& s);
+	void RealizeUniqueAttrs();
+	void RealizeUniqueActions();
+	void FilterData(ColumnType t);
+	void FilterAll();
+	void FilterNextFrom(ColumnType t);
 	
 	// Mode 0: Attribute - Color - Action
-	void SetAttr0(int i);
-	void SetColor0(int i);
-	void SetGroup0(int i);
-	void SetValue0(int i);
-	void DataAttr0();
-	void DataColor0();
-	void DataGroup0();
-	void DataValue0();
-	
 	// Mode 1: Action - Color - Attribute
-	void SetAttr1(int i);
-	void SetColor1(int i);
-	void SetGroup1(int i);
-	void SetValue1(int i);
-	void DataAttr1();
-	void DataColor1();
-	void DataGroup1();
-	void DataValue1();
-	
 	// Mode 2: Color - Action - Attribute
-	void SetAttr2(int i);
-	void SetColor2(int i);
-	void SetGroup2(int i);
-	void SetValue2(int i);
-	void DataAttr2();
-	void DataColor2();
-	void DataGroup2();
-	void DataValue2();
-	
 	// Mode 3: Color - Action group - Attribute - Action value
-	void SetAttr3(int i);
-	void SetColor3(int i);
-	void SetGroup3(int i);
-	void SetValue3(int i);
-	void DataAttr3();
-	void DataColor3();
-	void DataGroup3();
-	void DataValue3();
 	
 	void SortBy(int i);
 	void Serialize(Stream& s) {s % history;}
 	void Store();
 	void Load();
 	
-	hash_t GetHash(bool attr, bool clr, bool group, bool value) const;
+	hash_t GetHash(int columns) const;
 	TextDatabase& GetDatabase();
 	
 	static DatabaseBrowser& Single(int appmode);
