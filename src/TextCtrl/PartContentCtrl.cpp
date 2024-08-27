@@ -20,7 +20,7 @@ void PartLineCtrl::Paint(Draw& d) {
 	Color line_bg_clr = Color(228, 255, 227);
 	Color rest_bg_clr = GrayColor(256-16);
 	if (focused) {
-		int alpha = 128+64+32;
+		int alpha = 128-64-32;
 		part_bg_clr = Blend(part_bg_clr, LtRed(), alpha);
 		sub_bg_clr = Blend(sub_bg_clr, LtRed(), alpha);
 		line_bg_clr = Blend(line_bg_clr, LtRed(), alpha);
@@ -35,7 +35,6 @@ void PartLineCtrl::Paint(Draw& d) {
 	if (sub_i >= 0) d.DrawRect(sub_bg_r, sub_bg_clr);
 	if (line_i >= 0) d.DrawRect(line_bg_r, line_bg_clr);
 	
-	d.DrawRect(rest_bg_r, rest_bg_clr);
 	
 	
 	// Line texts
@@ -50,6 +49,7 @@ void PartLineCtrl::Paint(Draw& d) {
 		d.DrawText(off,off,text,mono,Black());
 		left = indent*1;
 		el = &dp.el;
+		d.DrawRect(rest_bg_r, rest_bg_clr);
 	}
 	else if (sub_i >= 0 && line_i < 0) {
 		String text = IntStr(sub_i);
@@ -57,6 +57,7 @@ void PartLineCtrl::Paint(Draw& d) {
 		left = indent*2;
 		DynSub& ds = dp.sub[sub_i];
 		el = &ds.el;
+		d.DrawRect(rest_bg_r, rest_bg_clr);
 	}
 	else if (sub_i >= 0 && line_i >= 0) {
 		String text = IntStr(line_i);
@@ -66,6 +67,12 @@ void PartLineCtrl::Paint(Draw& d) {
 		DynLine& dl = ds.lines[line_i];
 		el = &dl.el;
 		
+		rest_bg_clr = Blend(
+			el->clr_i >= 0 && el->clr_i < GetColorGroupCount() ? GetGroupColor(el->clr_i) : rest_bg_clr,
+			rest_bg_clr,
+			256-64);
+		d.DrawRect(rest_bg_r, rest_bg_clr);
+		
 		int y_2 = sz.cy / 2;
 		d.DrawText(left+off, y_2+off, dl.text, sans, Black());
 	}
@@ -73,15 +80,23 @@ void PartLineCtrl::Paint(Draw& d) {
 	
 	
 	if (el) {
+		off = 5;
 		int x = left;
 		#define RAND_CLR Blend(White(), Color(Random(256),Random(256),Random(256)),128+64)
 		Rect r;
-		PaintTextBlock(d, x, off, r, RAND_CLR, el->element, sans);
-		PaintTextBlock(d, x, off, r, RAND_CLR, el->attr.group, sans);
-		PaintTextBlock(d, x, off, r, RAND_CLR, el->attr.value, sans);
-		PaintTextBlock(d, x, off, r, RAND_CLR, IntStr(el->clr_i), sans);
-		PaintTextBlock(d, x, off, r, RAND_CLR, el->act.action, sans);
-		PaintTextBlock(d, x, off, r, RAND_CLR, el->act.arg, sans);
+		Color element_clr, attr_group_clr, attr_value_clr, clr_clr, act_action_clr, act_arg_clr;
+		element_clr = Color(255, 205, 175);
+		attr_group_clr = Color(206, 229, 201);
+		attr_value_clr = Color(217, 241, 211);
+		clr_clr = el->clr_i >= 0 && el->clr_i < GetColorGroupCount() ? GetGroupColor(el->clr_i) : Color(231, 221, 231);
+		act_action_clr = Color(204, 227, 235);
+		act_arg_clr = Color(222, 242, 249);
+		PaintTextBlock(d, x, off, r, element_clr, el->element, sans);
+		PaintTextBlock(d, x, off, r, attr_group_clr, el->attr.group, sans);
+		PaintTextBlock(d, x, off, r, attr_value_clr, el->attr.value, sans);
+		PaintTextBlock(d, x, off, r, clr_clr, IntStr(el->clr_i), sans);
+		PaintTextBlock(d, x, off, r, act_action_clr, el->act.action, sans);
+		PaintTextBlock(d, x, off, r, act_arg_clr, el->act.arg, sans);
 	}
 	
 	
@@ -101,8 +116,15 @@ void PartLineCtrl::PaintTextBlock(Draw& d, int& x, int off, Rect& out, Color bg,
 	sz.cx = max(sz.cx, 30);
 	Rect r = RectC(x,0,sz.cx,sz.cy);
 	d.DrawRect(r, bg);
+	
+	Color border = Blend(bg, Black());
+	d.DrawLine(x,0, x+sz.cx-1,0, 1, border);
+	d.DrawLine(x,sz.cy-1, x+sz.cx-1,sz.cy-1, 1, border);
+	d.DrawLine(x,0, x,sz.cy-1, 1, border);
+	d.DrawLine(x+sz.cx-1,0, x+sz.cx-1,sz.cy-1, 1, border);
+	
 	d.DrawText(x+off,0, txt, fnt, Black());
-	x += sz.cx;
+	x += sz.cx + 5;
 }
 
 void PartLineCtrl::LeftDown(Point p, dword keyflags) {

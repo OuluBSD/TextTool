@@ -257,9 +257,7 @@ void ScriptReferenceMakerCtrl::SetLineText() {
 		if (line_i < 0 || line_i >= content.lines.GetCount())
 			return;
 		auto& line = content.Get(line_i);
-		/*LineElement* el = line.GetLineEl();
-		if (!el)
-			return;*/
+		
 		DynLine* dl = line.GetDynLine();
 		if (!dl)
 			return;
