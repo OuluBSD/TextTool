@@ -7,7 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 ScriptReferenceMakerCtrl::ScriptReferenceMakerCtrl() : db0(*this), content(*this) {
 	Add(hsplit.SizePos());
 	
-	hsplit.Horz() << lsplit << tabs;
+	hsplit.Horz() << lsplit << db0;
 	
 	lsplit.Vert() << parts << part;
 	lsplit.SetPos(3333);
@@ -33,8 +33,6 @@ ScriptReferenceMakerCtrl::ScriptReferenceMakerCtrl() : db0(*this), content(*this
 	form.num <<= THISBACK(OnValueChange);
 	form.type <<= THISBACK(OnValueChange);
 	form.make_lines << THISBACK(MakeLines);
-	
-	tabs.Add(db0.SizePos(), "Groups/Values");
 	
 	content.WhenCursor << THISBACK(DataLine);
 	
@@ -82,7 +80,7 @@ void ScriptReferenceMakerCtrl::DataPart() {
 	form.lines_per_sub.SetData(dp.text_lines_per_sub);
 	
 	content.Data();
-	DataTab();
+	db0.Data();
 	DataLine();
 }
 
@@ -123,14 +121,7 @@ void ScriptReferenceMakerCtrl::DataLine() {
 	DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
 	b.SetAll(el->attr, el->clr_i, el->act);
 			
-	int tab = tabs.Get();
-	if (tab == 0) db0.Data();
-}
-
-void ScriptReferenceMakerCtrl::DataTab() {
-	int tab = tabs.Get();
-	if (tab == 0)
-		db0.Data();
+	db0.Data();
 }
 
 void ScriptReferenceMakerCtrl::MakeLines() {
@@ -251,24 +242,20 @@ void ScriptReferenceMakerCtrl::ToolMenu(Bar& bar) {
 
 void ScriptReferenceMakerCtrl::SetLineText() {
 	DatabaseBrowser& b = DatabaseBrowser::Single(this->GetAppMode());
-	int tab = tabs.Get();
-	if (tab == 0) {
-		if (!db0.parts.IsCursor())
-			return;
-		int line_i = content.GetCursor();
-		if (line_i < 0 || line_i >= content.lines.GetCount())
-			return;
-		auto& line = content.Get(line_i);
-		
-		DynLine* dl = line.GetDynLine();
-		if (!dl)
-			return;
-		AttrText at = db0.parts.Get(0);
-		dl->text = at.text.ToString();
-		line.Refresh();
-	}
-	else TODO
 	
+	if (!db0.parts.IsCursor())
+		return;
+	int line_i = content.GetCursor();
+	if (line_i < 0 || line_i >= content.lines.GetCount())
+		return;
+	auto& line = content.Get(line_i);
+	
+	DynLine* dl = line.GetDynLine();
+	if (!dl)
+		return;
+	AttrText at = db0.parts.Get(0);
+	dl->text = at.text.ToString();
+	line.Refresh();
 }
 
 void ScriptReferenceMakerCtrl::Do(int fn) {

@@ -82,6 +82,7 @@ class ScriptPhrasePartsGroups : public Ctrl {
 	
 protected:
 	friend class ScriptReferenceMakerCtrl;
+	DropList mode;
 	ArrayCtrl attr_groups, attr_values, colors, actions, action_args, parts;
 	ArrayCtrl elements, typeclasses, contrasts;
 	
@@ -91,6 +92,8 @@ public:
 	typedef ScriptPhrasePartsGroups CLASSNAME;
 	ScriptPhrasePartsGroups(ToolAppCtrl& o);
 	
+	void UpdateMode();
+	void UpdateNavigator();
 	void Data();
 	void DataList();
 	void UpdateCounts();
@@ -110,7 +113,6 @@ protected:
 	friend class PartLineCtrl;
 	
 	Splitter hsplit, lsplit;
-	TabCtrl tabs;
 	ArrayCtrl parts;
 	WithPartInfo<Ctrl> part;
 	WithPartInfoForm<Ctrl> form;
@@ -123,7 +125,6 @@ public:
 	
 	void Data() override;
 	void DataPart();
-	void DataTab();
 	void DataLine();
 	void ToolMenu(Bar& bar) override;
 	void Do(int fn);

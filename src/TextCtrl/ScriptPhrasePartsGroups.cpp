@@ -6,13 +6,19 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
-	Add(hsplit.SizePos());
+	Add(mode.TopPos(0,30).HSizePos());
+	Add(hsplit.VSizePos(30,0).HSizePos());
+	
+	for(int i = 0; i < DatabaseBrowser::MODE_COUNT; i++) {
+		mode.Add(DatabaseBrowser::GetModeString(i));
+	}
+	mode.SetIndex(0);
+	mode.WhenAction << THISBACK(UpdateMode);
 	
 	hsplit.Horz() << vsplit << parts;
 	hsplit.SetPos(3000);
 
-	vsplit.Vert() << attr_groups << attr_values << colors << actions << action_args
-		<< elements << typeclasses << contrasts;
+	vsplit.Vert();
 
 	InitArray(attr_groups, "Attr Group", DatabaseBrowser::ATTR_GROUP);
 	InitArray(attr_values, "Attr Value", DatabaseBrowser::ATTR_VALUE);
@@ -39,7 +45,58 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 			WriteClipboardText(s);
 		});
 	};
+	
+	PostCallback([this]{
+		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
+		b.Init();
+		UpdateNavigator();
+		Data();
+	});
+}
 
+void ScriptPhrasePartsGroups::UpdateNavigator() {
+	vsplit.Clear();
+	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
+	int mode = b.GetMode();
+	for(int i = 0; i < DatabaseBrowser::TYPE_COUNT; i++) {
+		DatabaseBrowser::ColumnType t = b.GetOrder(i);
+		switch (t) {
+			case DatabaseBrowser::ELEMENT:
+				vsplit << elements;
+				break;
+			case DatabaseBrowser::ATTR_GROUP:
+				vsplit << attr_groups;
+				break;
+			case DatabaseBrowser::ATTR_VALUE:
+				vsplit << attr_values;
+				break;
+			case DatabaseBrowser::COLOR:
+				vsplit << colors;
+				break;
+			case DatabaseBrowser::ACTION:
+				vsplit << actions;
+				break;
+			case DatabaseBrowser::ACTION_ARG:
+				vsplit << action_args;
+				break;
+			case DatabaseBrowser::TYPECLASS:
+				vsplit << typeclasses;
+				break;
+			case DatabaseBrowser::CONTRAST:
+				vsplit << contrasts;
+				break;
+			default:
+				break;
+		}
+	}
+}
+
+void ScriptPhrasePartsGroups::UpdateMode() {
+	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
+	b.SetMode(mode.GetIndex());
+	b.ResetCursor();
+	UpdateNavigator();
+	Data();
 }
 
 void ScriptPhrasePartsGroups::InitArray(ArrayCtrl& arr, String title, DatabaseBrowser::ColumnType t) {
@@ -63,7 +120,8 @@ void ScriptPhrasePartsGroups::InitArray(ArrayCtrl& arr, String title, DatabaseBr
 void ScriptPhrasePartsGroups::Data() {
 	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 	b.SetCtrl(o);
-	b.SetMode(0);
+	
+	mode.SetIndex(b.GetMode());
 	
 	FillArrayCtrl(DatabaseBrowser::ATTR_GROUP, attr_groups);
 	FillArrayCtrl(DatabaseBrowser::ATTR_VALUE, attr_values);

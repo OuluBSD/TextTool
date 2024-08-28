@@ -7,7 +7,36 @@ BEGIN_TEXTLIB_NAMESPACE
 DatabaseBrowser::DatabaseBrowser() {
 	Load();
 }
+	
+#define ITEM(x) case x: return KeyToName(#x);
+String DatabaseBrowser::GetTypeString(ColumnType t) {
+	switch (t) {
+		ITEM(ATTR_GROUP)
+		ITEM(ATTR_VALUE)
+		ITEM(COLOR)
+		ITEM(ACTION)
+		ITEM(ACTION_ARG)
+		ITEM(ELEMENT)
+		ITEM(TYPECLASS)
+		ITEM(CONTRAST)
+		default: return "ERROR";
+	}
+}
 
+String DatabaseBrowser::GetModeString(int i) {
+	switch (i) {
+		ITEM(ATTR_COLOR_ACTION)
+		ITEM(ATTR_ACTION_COLOR)
+		ITEM(COLOR_ACTION_ATTR)
+		ITEM(COLOR_ATTR_ACTION)
+		ITEM(ACTION_COLOR_ATTR)
+		ITEM(ACTION_ATTR_COLOR)
+		default: return "ERROR";
+	}
+}
+
+#undef ITEM
+	
 void DatabaseBrowser::SetMode(int i) {
 	if (i == mode)
 		return;
@@ -15,19 +44,55 @@ void DatabaseBrowser::SetMode(int i) {
 	for(int i = 0; i < TYPE_COUNT; i++)
 		items[i].Clear();
 	phrase_parts.Clear();
-	if (mode == 0) {
-		for(int i = 0; i < ELEMENT; i++)
-			order[i] = (ColumnType)i;
-		for(int i = ELEMENT; i < TYPE_COUNT; i++)
-			order[i] = INVALID;
+	for(int i = 0; i < TYPE_COUNT; i++)
+		order[i] = INVALID;
+	int o = 0;
+	switch (mode) {
+	case ATTR_COLOR_ACTION:
+		order[o++] = ATTR_GROUP;
+		order[o++] = ATTR_VALUE;
+		order[o++] = COLOR;
+		order[o++] = ACTION;
+		order[o++] = ACTION_ARG;
+		break;
+	case ATTR_ACTION_COLOR:
+		order[o++] = ATTR_GROUP;
+		order[o++] = ATTR_VALUE;
+		order[o++] = ACTION;
+		order[o++] = ACTION_ARG;
+		order[o++] = COLOR;
+		break;
+	case COLOR_ACTION_ATTR:
+		order[o++] = COLOR;
+		order[o++] = ACTION;
+		order[o++] = ACTION_ARG;
+		order[o++] = ATTR_GROUP;
+		order[o++] = ATTR_VALUE;
+		break;
+	case COLOR_ATTR_ACTION:
+		order[o++] = COLOR;
+		order[o++] = ATTR_GROUP;
+		order[o++] = ATTR_VALUE;
+		order[o++] = ACTION;
+		order[o++] = ACTION_ARG;
+		break;
+	case ACTION_COLOR_ATTR:
+		order[o++] = ACTION;
+		order[o++] = ACTION_ARG;
+		order[o++] = COLOR;
+		order[o++] = ATTR_GROUP;
+		order[o++] = ATTR_VALUE;
+		break;
+	case ACTION_ATTR_COLOR:
+		order[o++] = ACTION;
+		order[o++] = ACTION_ARG;
+		order[o++] = ATTR_GROUP;
+		order[o++] = ATTR_VALUE;
+		order[o++] = COLOR;
+		break;
+	default: TODO; break;
 	}
-	else if (mode == 1) {
-		for(int i = 0; i < TYPE_COUNT; i++)
-			order[i] = (ColumnType)i;
-	}
-	else {
-		TODO // set order
-	}
+	
 	Init();
 }
 
@@ -46,6 +111,10 @@ void DatabaseBrowser::Init() {
 	for(int i = 0; i < TYPE_COUNT; i++)
 		cursor[i] = 0;
 	
+	ResetCursor();
+}
+
+void DatabaseBrowser::ResetCursor() {
 	ResetCursor(-1, INVALID);
 }
 

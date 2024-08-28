@@ -31,6 +31,20 @@ public:
 	} ColumnType;
 	using T = ColumnType;
 	
+	static String GetTypeString(ColumnType t);
+	
+	enum {
+		ATTR_COLOR_ACTION,
+		ATTR_ACTION_COLOR,
+		COLOR_ACTION_ATTR,
+		COLOR_ATTR_ACTION,
+		ACTION_COLOR_ATTR,
+		ACTION_ATTR_COLOR,
+		
+		MODE_COUNT
+	};
+	static String GetModeString(int i);
+	
 private:
 	VectorMap<String, VectorMap<String, int>> uniq_acts;
 	VectorMap<String, VectorMap<String, int>> uniq_attr;
@@ -53,7 +67,7 @@ public:
 	};
 	
 	Vector<Item> items[TYPE_COUNT];
-	int mode = -1;
+	int mode = ATTR_COLOR_ACTION;
 	int appmode = DB_SONG;
 	Vector<int> phrase_parts;
 	int sorting = 0;
@@ -74,6 +88,7 @@ public:
 	const Vector<Item>& Get(ColumnType t) const;
 	int GetColumnCursor(ColumnType t) const;
 	int GetColumnOrder(ColumnType t) const;
+	int GetMode() const {return mode;}
 	void SetColumnCursor(ColumnType t, int i);
 	void FillItems(ColumnType t);
 	void SetCtrl(ToolAppCtrl& c) {ctrl = &c;}
@@ -93,6 +108,7 @@ public:
 	void SetElement(int i);
 	void SetTypeclass(int i);
 	void SetContrast(int i);
+	void ResetCursor();
 	void ResetCursor(int c, ColumnType type);
 	void SetCursor(int i, ColumnType t);
 	void DataCursor(int cursor);
@@ -109,6 +125,7 @@ public:
 	void FilterData(ColumnType t);
 	void FilterAll();
 	void FilterNextFrom(ColumnType t);
+	ColumnType GetOrder(int i) {ASSERT(i >= 0 && i < (int)TYPE_COUNT); return order[i];}
 	
 	// Mode 0: Attribute - Color - Action
 	// Mode 1: Action - Color - Attribute
