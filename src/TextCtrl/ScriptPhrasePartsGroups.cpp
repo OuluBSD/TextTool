@@ -47,10 +47,10 @@ void ScriptPhrasePartsGroups::InitArray(ArrayCtrl& arr, String title, DatabaseBr
 	arr.AddColumn(t_("Count"));
 	arr.AddIndex("IDX");
 	arr.ColumnWidths("1 1");
-	arr.WhenCursor << [this,&arr]() {
+	arr.WhenCursor << [this,&arr,t]() {
 		if (!arr.IsCursor()) return;
 		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
-		b.SetAttrGroup(arr.Get("IDX"));
+		b.ResetCursor(arr.Get("IDX"), t);
 		PostCallback(THISBACK(Data));
 		WhenBrowserCursor();
 	};
@@ -89,7 +89,7 @@ void ScriptPhrasePartsGroups::FillArrayCtrlColor(DatabaseBrowser::ColumnType t, 
 		arr.Set(i, 0,
 			AttrText("#" + IntStr(clr.idx))
 				.NormalPaper(c).NormalInk(Black())
-				.Paper(Blend(GrayColor(), GetGroupColor(i))).Ink(White()));
+				.Paper(Blend(GrayColor(), c)).Ink(White()));
 		arr.Set(i, 1, clr.count);
 	}
 	arr.SetCount(v.GetCount());

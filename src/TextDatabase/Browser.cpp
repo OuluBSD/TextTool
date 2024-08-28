@@ -16,6 +16,12 @@ void DatabaseBrowser::SetMode(int i) {
 		items[i].Clear();
 	phrase_parts.Clear();
 	if (mode == 0) {
+		for(int i = 0; i < ELEMENT; i++)
+			order[i] = (ColumnType)i;
+		for(int i = ELEMENT; i < TYPE_COUNT; i++)
+			order[i] = INVALID;
+	}
+	else if (mode == 1) {
 		for(int i = 0; i < TYPE_COUNT; i++)
 			order[i] = (ColumnType)i;
 	}
@@ -38,73 +44,98 @@ void DatabaseBrowser::Init() {
 	uniq_acts.Clear();
 	color_counts.Clear();
 	for(int i = 0; i < TYPE_COUNT; i++)
-		cursor[i] = -1;
+		cursor[i] = 0;
 	
-	if (mode == 0) SetAttrGroup(0);
-	else TODO
-	/*if (mode == 1) SetGroup1(0);
-	if (mode == 2) SetColor2(0);
-	if (mode == 3) SetColor3(0);*/
+	ResetCursor(-1, INVALID);
 }
 
 void DatabaseBrowser::SetAll(const AttrHeader& attr, int clr, const ActionHeader& act) {
-	if (mode == 0) {
-		TODO
-		/*int& attr_group_tgt = history.GetAdd(GetHash(0,0,0,0), 0);
-		attr_group_tgt = 0;
-		String attr_group = attr.IsEmpty() ? "All" : attr.group;
-		for(int i = 0; i < attr_groups.GetCount(); i++) {
-			const auto& at = attr_groups[i];
-			if (at.group == attr_group) {
-				attr_group_tgt = i;
+	SetInitialData();
+	
+	for(int i = 0; i < TYPE_COUNT; i++) {
+		auto t = order[i];
+		if (t == INVALID)
+			break;
+		
+		FillItems(t);
+		
+		int& tgt = history.GetAdd(GetHash(i), 0);
+		tgt = 0;
+		
+		switch (t) {
+			case ATTR_GROUP: {
+				const auto& attr_groups = Get(ATTR_GROUP);
+				String attr_group = attr.IsEmpty() ? "All" : attr.group;
+				for(int i = 0; i < attr_groups.GetCount(); i++) {
+					const auto& at = attr_groups[i];
+					if (at.str == attr_group) {
+						tgt = i;
+						break;
+					}
+				}
 				break;
 			}
-		}
-		
-		SetAttrGroup(attr_group_tgt);
-		
-		int& attr_value_tgt = history.GetAdd(GetHash(0,0,0,0), 0);
-		attr_value_tgt = 0;
-		for(int i = 0; i < attr_values.GetCount(); i++) {
-			const auto& at = attr_values[i];
-			if (at.value == attr.value || attr.value.IsEmpty()) {
-				attr_value_tgt = i;
+			case ATTR_VALUE: {
+				const auto& attr_values = Get(ATTR_VALUE);
+				for(int i = 0; i < attr_values.GetCount(); i++) {
+					const auto& at = attr_values[i];
+					if (at.str == attr.value || attr.value.IsEmpty()) {
+						tgt = i;
+						break;
+					}
+				}
 				break;
 			}
-		}
-		
-		int& clr_tgt = history.GetAdd(GetHash(1,0,0,0), 0);
-		clr_tgt = 0;
-		for(int i = 0; i < colors.GetCount(); i++) {
-			if (colors[i].clr_i == clr) {
-				clr_tgt = i;
+			case COLOR: {
+				const auto& colors = Get(COLOR);
+				for(int i = 0; i < colors.GetCount(); i++) {
+					if (colors[i].idx == clr) {
+						tgt = i;
+						break;
+					}
+				}
 				break;
 			}
-		}
-		int& action_tgt = history.GetAdd(GetHash(1,1,0,0), 0);
-		String action = act.IsEmpty() ? "All" : act.action;
-		action_tgt = 0;
-		for(int i = 0; i < actions.GetCount(); i++) {
-			if (actions[i].action == action) {
-				action_tgt = i;
+			case ACTION: {
+				const auto& actions = Get(ACTION);
+				String action = act.IsEmpty() ? "All" : act.action;
+				for(int i = 0; i < actions.GetCount(); i++) {
+					if (actions[i].str == action) {
+						tgt = i;
+						break;
+					}
+				}
 				break;
 			}
-		}
-		
-		DataGroup0();
-		
-		int& value_tgt = history.GetAdd(GetHash(1,1,1,0), 0);
-		value_tgt = 0;
-		for(int i = 0; i < args.GetCount(); i++) {
-			if (args[i].arg == act.arg) {
-				value_tgt = i;
+			case ACTION_ARG: {
+				const auto& args = Get(ACTION_ARG);
+				for(int i = 0; i < args.GetCount(); i++) {
+					if (args[i].str == act.arg) {
+						tgt = i;
+						break;
+					}
+				}
 				break;
 			}
+			case ELEMENT: {
+				TODO
+				break;
+			}
+			case TYPECLASS: {
+				TODO
+				break;
+			}
+			case CONTRAST: {
+				TODO
+				break;
+			}
+			default: break;
 		}
 		
-		DataAttr0();*/
+		cursor[i] = tgt;
+		
+		FilterData(t);
 	}
-	else TODO
 }
 
 void DatabaseBrowser::Update() {
@@ -279,8 +310,8 @@ Vector<DatabaseBrowser::Item>& DatabaseBrowser::Get(ColumnType t) {
 		if (order[i] == t)
 			return items[i];
 	}
-	ASSERT_(0, "Invalid ColumnType");
-	return items[0];
+	static Vector<DatabaseBrowser::Item> empty;
+	return empty;
 }
 
 const Vector<DatabaseBrowser::Item>& DatabaseBrowser::Get(ColumnType t) const {
@@ -301,8 +332,7 @@ int DatabaseBrowser::GetColumnCursor(ColumnType t) const {
 		if (order[i] == t)
 			return cursor[i];
 	}
-	ASSERT_(0, "Invalid ColumnType");
-	return cursor[0];
+	return -1;
 }
 
 int DatabaseBrowser::GetColumnOrder(ColumnType t) const {

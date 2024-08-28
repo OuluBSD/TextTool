@@ -16,6 +16,8 @@ class DatabaseBrowser {
 	
 public:
 	typedef enum : int {
+		INVALID = -1,
+		
 		ATTR_GROUP,
 		ATTR_VALUE,
 		COLOR,
@@ -36,7 +38,7 @@ private:
 	Vector<int> color_counts, rm_list;
 	
 	int cursor[TYPE_COUNT] = {0,0,0,0,0,0,0,0};
-	ColumnType order[TYPE_COUNT] = {(T)0,(T)1,(T)2,(T)3,(T)4,(T)5,(T)6,(T)7};
+	ColumnType order[TYPE_COUNT] = {(T)0,(T)1,(T)2,(T)3,(T)4,(T)-1,(T)-1,(T)-1};
 	//VectorMap<int,int> uniq_attrs;
 	//Vector<int> color_counts;
 	VectorMap<hash_t,int> history;
@@ -72,7 +74,7 @@ public:
 	const Vector<Item>& Get(ColumnType t) const;
 	int GetColumnCursor(ColumnType t) const;
 	int GetColumnOrder(ColumnType t) const;
-	void SetTail(ColumnType t, int i);
+	void SetColumnCursor(ColumnType t, int i);
 	void FillItems(ColumnType t);
 	void SetCtrl(ToolAppCtrl& c) {ctrl = &c;}
 	void Init();
@@ -91,7 +93,10 @@ public:
 	void SetElement(int i);
 	void SetTypeclass(int i);
 	void SetContrast(int i);
+	void ResetCursor(int c, ColumnType type);
+	void SetCursor(int i, ColumnType t);
 	void DataCursor(int cursor);
+	void DataCursorTail(int cursor);
 	ColumnType GetCur(int cursor_i) const;
 	bool IsSub(int cur, int cursor_i) const;
 	double GetMidRhymingLimit() const {return mid_rhyme_distance_limit;}

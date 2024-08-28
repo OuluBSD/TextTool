@@ -70,14 +70,12 @@ void DatabaseBrowser::FilterAll() {
 		FilterData(order[i]);
 }
 
-void DatabaseBrowser::SetTail(ColumnType t, int i) {
+void DatabaseBrowser::SetColumnCursor(ColumnType t, int i) {
 	int c = GetColumnOrder(t);
-	cursor[c] = i;
-	history.GetAdd(GetHash(c)) = i;
-	
-	FilterData(t);
-	
-	DataCursor(c+1);
+	if (i >= 0 && i < items[c].GetCount()) {
+		cursor[c] = i;
+		history.GetAdd(GetHash(c)) = i;
+	}
 }
 
 void DatabaseBrowser::FillItems(ColumnType t) {
@@ -154,8 +152,10 @@ void DatabaseBrowser::FillItems(ColumnType t) {
 			VectorMap<String,int> vmap;
 			for (int pp_i : phrase_parts) {
 				const PhrasePart& pp = da.phrase_parts[pp_i];
-				const ActionHeader& ah = da.actions.GetKey(pp.attr);
-				vmap.GetAdd(ah.action,0)++;
+				for (int act_i : pp.actions) {
+					const ActionHeader& ah = da.actions.GetKey(act_i);
+					vmap.GetAdd(ah.action,0)++;
+				}
 			}
 			SortByValue(vmap, StdGreater<int>());
 			type_items.SetCount(1+vmap.GetCount());
@@ -171,8 +171,10 @@ void DatabaseBrowser::FillItems(ColumnType t) {
 			VectorMap<String,int> vmap;
 			for (int pp_i : phrase_parts) {
 				const PhrasePart& pp = da.phrase_parts[pp_i];
-				const ActionHeader& ah = da.actions.GetKey(pp.attr);
-				vmap.GetAdd(ah.arg,0)++;
+				for (int act_i : pp.actions) {
+					const ActionHeader& ah = da.actions.GetKey(act_i);
+					vmap.GetAdd(ah.arg,0)++;
+				}
 			}
 			SortByValue(vmap, StdGreater<int>());
 			type_items.SetCount(1+vmap.GetCount());
@@ -263,9 +265,7 @@ void DatabaseBrowser::SetAttrGroup(int i) {
 	else {
 		FillItems(ATTR_GROUP);
 	}
-	if (i < 0 || i >= attr_groups.GetCount())
-		return;
-	SetTail(ATTR_GROUP, i);
+	SetColumnCursor(ATTR_GROUP, i);
 }
 
 void DatabaseBrowser::SetAttrValue(int i) {
@@ -297,9 +297,7 @@ void DatabaseBrowser::SetAttrValue(int i) {
 	else {
 		FillItems(ATTR_VALUE);
 	}
-	if (i < 0 || i >= attr_values.GetCount())
-		return;
-	SetTail(ATTR_VALUE, i);
+	SetColumnCursor(ATTR_VALUE, i);
 }
 
 void DatabaseBrowser::SetColor(int i) {
@@ -335,9 +333,7 @@ void DatabaseBrowser::SetColor(int i) {
 	else {
 		FillItems(COLOR);
 	}
-	if (i < 0 || i >= colors.GetCount())
-		return;
-	SetTail(COLOR, i);
+	SetColumnCursor(COLOR, i);
 }
 
 void DatabaseBrowser::SetAction(int i) {
@@ -373,9 +369,7 @@ void DatabaseBrowser::SetAction(int i) {
 	else {
 		FillItems(ACTION);
 	}
-	if (i < 0 || i >= actions.GetCount())
-		return;
-	SetTail(ACTION, i);
+	SetColumnCursor(ACTION, i);
 }
 
 void DatabaseBrowser::SetActionArg(int i) {
@@ -409,9 +403,7 @@ void DatabaseBrowser::SetActionArg(int i) {
 	else {
 		FillItems(ACTION_ARG);
 	}
-	if (i < 0 || i >= args.GetCount())
-		return;
-	SetTail(ACTION_ARG, i);
+	SetColumnCursor(ACTION_ARG, i);
 }
 
 void DatabaseBrowser::SetElement(int i) {
@@ -446,9 +438,7 @@ void DatabaseBrowser::SetElement(int i) {
 	else {
 		FillItems(ELEMENT);
 	}
-	if (i < 0 || i >= elements.GetCount())
-		return;
-	SetTail(ELEMENT, i);
+	SetColumnCursor(ELEMENT, i);
 }
 
 void DatabaseBrowser::SetTypeclass(int i) {
@@ -483,9 +473,7 @@ void DatabaseBrowser::SetTypeclass(int i) {
 	else {
 		FillItems(TYPECLASS);
 	}
-	if (i < 0 || i >= tcs.GetCount())
-		return;
-	SetTail(TYPECLASS, i);
+	SetColumnCursor(TYPECLASS, i);
 }
 
 void DatabaseBrowser::SetContrast(int i) {
@@ -520,28 +508,66 @@ void DatabaseBrowser::SetContrast(int i) {
 	else {
 		FillItems(CONTRAST);
 	}
-	if (i < 0 || i >= cons.GetCount())
-		return;
-	SetTail(CONTRAST, i);
+	SetColumnCursor(CONTRAST, i);
 }
 
-void DatabaseBrowser::DataCursor(int cursor) {
+void DatabaseBrowser::DataCursorTail(int cursor) {
 	for(int i = cursor; i < TYPE_COUNT; i++) {
-		int c = history.GetAdd(GetHash(cursor), 0);
-		ColumnType type = order[i];
-		switch (type) {
-			case ELEMENT:		SetElement(c); break;
-			case ATTR_GROUP:	SetAttrGroup(c); break;
-			case ATTR_VALUE:	SetAttrValue(c); break;
-			case COLOR:			SetColor(c); break;
-			case ACTION:		SetAction(c); break;
-			case ACTION_ARG:	SetActionArg(c); break;
-			case TYPECLASS:		SetTypeclass(c); break;
-			case CONTRAST:		SetContrast(c); break;
-			default:			TODO break;
-		}
+		if (order[i] == INVALID)
+			break;
+		DataCursor(i);
 	}
-	
+}
+
+void DatabaseBrowser::SetCursor(int c, ColumnType type) {
+	switch (type) {
+		case INVALID:		break;
+		case ELEMENT:		SetElement(c); break;
+		case ATTR_GROUP:	SetAttrGroup(c); break;
+		case ATTR_VALUE:	SetAttrValue(c); break;
+		case COLOR:			SetColor(c); break;
+		case ACTION:		SetAction(c); break;
+		case ACTION_ARG:	SetActionArg(c); break;
+		case TYPECLASS:		SetTypeclass(c); break;
+		case CONTRAST:		SetContrast(c); break;
+		default:			TODO break;
+	}
+}
+
+void DatabaseBrowser::ResetCursor(int c, ColumnType type) {
+	SetInitialData();
+	for(int i = 0; i < TYPE_COUNT; i++) {
+		ColumnType t = order[i];
+		if (t == INVALID)
+			break;
+		
+		int& tgt = history.GetAdd(GetHash(i), 0);
+		
+		if (type != INVALID && t == type) {
+			const auto& items = this->items[i];
+			if (c >= 0 && c < items.GetCount()) {
+				tgt = c;
+				SetCursor(c, type);
+			}
+			else break;
+		}
+		else {
+			FillItems(t);
+			int& c = cursor[i];
+			if (c < 0 || c >= items[i].GetCount()) {
+				c = 0;
+				tgt = 0;
+			}
+		}
+		
+		FilterData(t);
+	}
+}
+
+void DatabaseBrowser::DataCursor(int i) {
+	int c = history.GetAdd(GetHash(i), 0);
+	ColumnType type = order[i];
+	SetCursor(c, type);
 }
 
 #if 0
@@ -647,7 +673,7 @@ void DatabaseBrowser::FilterData(ColumnType t) {
 	
 	int* iter = phrase_parts.Begin();
 	for(int i = 0; i < phrase_parts.GetCount(); i++) {
-		int pp_i = *iter++;
+		int pp_i = phrase_parts[i];
 		const PhrasePart& pp = da.phrase_parts[pp_i];
 		bool rem = false;
 		
