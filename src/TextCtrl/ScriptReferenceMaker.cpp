@@ -119,8 +119,8 @@ void ScriptReferenceMakerCtrl::DataLine() {
 	
 	
 	DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
-	b.SetAll(el->attr, el->clr_i, el->act);
-			
+	b.SetAll(el->element, el->attr, el->clr_i, el->act, el->typeclass_i, el->con_i);
+		
 	db0.Data();
 }
 
@@ -186,22 +186,32 @@ void ScriptReferenceMakerCtrl::OnBrowserCursor() {
 	int clr_i = b.GetCur(1);
 	int action_i = b.GetCur(2);
 	int arg_i = b.GetCur(3);*/
-	if (!db0.attr_groups.IsCursor() ||
-		!db0.attr_values.IsCursor() ||
-		!db0.colors.IsCursor() ||
-		!db0.actions.IsCursor() ||
-		!db0.action_args.IsCursor()) return;
 	
-	int attr_group_i = db0.attr_groups.Get("IDX");
-	int attr_value_i = db0.attr_values.Get("IDX");
-	int clr_i = db0.colors.Get("IDX");
-	int action_i = db0.actions.Get("IDX");
-	int arg_i = db0.action_args.Get("IDX");
-	el->attr.group	= b.Get(DatabaseBrowser::ATTR_GROUP)[attr_group_i].str;
-	el->attr.value	= b.Get(DatabaseBrowser::ATTR_VALUE)[attr_value_i].str;
-	el->clr_i		= b.Get(DatabaseBrowser::COLOR)[clr_i].idx;
-	el->act.action	= b.Get(DatabaseBrowser::ACTION)[action_i].str;
-	el->act.arg		= b.Get(DatabaseBrowser::ACTION_ARG)[arg_i].str;
+	if (db0.elements.IsCursor()) {
+		el->element		= db0.elements.Get("STR");
+	}
+	if (db0.attr_groups.IsCursor()) {
+		el->attr.group	= db0.attr_groups.Get("STR");
+	}
+	if (db0.attr_values.IsCursor()) {
+		el->attr.value	= db0.attr_values.Get("STR");
+	}
+	if (db0.colors.IsCursor()) {
+		el->clr_i		= db0.colors.Get("INT");
+	}
+	if (db0.actions.IsCursor()) {
+		el->act.action	= db0.actions.Get("STR");
+	}
+	if (db0.action_args.IsCursor()) {
+		el->act.arg		= db0.action_args.Get("STR");
+	}
+	if (db0.typeclasses.IsCursor()) {
+		el->typeclass_i	= db0.typeclasses.Get("INT");
+	}
+	if (db0.contrasts.IsCursor()) {
+		el->con_i		= db0.contrasts.Get("INT");
+	}
+	
 	
 	plp->Refresh();
 }

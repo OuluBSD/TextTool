@@ -33,10 +33,11 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 	parts.AddColumn(t_("Actions"));
 	parts.AddColumn(t_("Group"));
 	parts.AddColumn(t_("Value"));
-	parts.AddColumn(t_("Scores")).SetDisplay(Single<ScoreDisplay>());
+	parts.AddColumn(t_("Element"));
+	//parts.AddColumn(t_("Scores")).SetDisplay(Single<ScoreDisplay>());
 	parts.AddColumn(t_("Score-sum"));
 	parts.AddIndex("IDX");
-	parts.ColumnWidths("16 8 6 6 3 3");
+	parts.ColumnWidths("16 8 6 6 6 3");
 	parts.WhenBar << [this](Bar& bar){
 		bar.Add("Copy", [this]() {
 			int i = parts.GetCursor();
@@ -48,7 +49,7 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 	
 	PostCallback([this]{
 		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
-		b.Init();
+		b.SetMode(0);
 		UpdateNavigator();
 		Data();
 	});
@@ -103,6 +104,8 @@ void ScriptPhrasePartsGroups::InitArray(ArrayCtrl& arr, String title, DatabaseBr
 	arr.AddColumn(title);
 	arr.AddColumn(t_("Count"));
 	arr.AddIndex("IDX");
+	arr.AddIndex("STR");
+	arr.AddIndex("INT");
 	arr.ColumnWidths("1 1");
 	arr.WhenCursor << [this,&arr,t]() {
 		if (!arr.IsCursor()) return;
@@ -144,6 +147,7 @@ void ScriptPhrasePartsGroups::FillArrayCtrlColor(DatabaseBrowser::ColumnType t, 
 		const auto& clr = v[i];
 		Color c = GetGroupColor(clr.idx);
 		arr.Set(i, "IDX", i);
+		arr.Set(i, "INT", clr.idx);
 		arr.Set(i, 0,
 			AttrText("#" + IntStr(clr.idx))
 				.NormalPaper(c).NormalInk(Black())
@@ -167,6 +171,8 @@ void ScriptPhrasePartsGroups::FillArrayCtrl(DatabaseBrowser::ColumnType t, Array
 	for(int i = 0; i < v.GetCount(); i++) {
 		const auto& a = v[i];
 		arr.Set(i, "IDX", i);
+		arr.Set(i, "INT", a.idx);
+		arr.Set(i, "STR", a.str);
 		arr.Set(i, 0, a.str);
 		arr.Set(i, 1, a.count);
 	}
@@ -210,6 +216,9 @@ void ScriptPhrasePartsGroups::DataList() {
 		parts.Set(row, 3, ah.value);
 		
 		
+		parts.Set(row, 4, pp.el_i >= 0 ? da.element_keys[pp.el_i] : String());
+		
+		#if 0
 		ValueArray va;
 		int sum = 0;
 		for(int i = 0; i < SCORE_COUNT; i++) {
@@ -217,6 +226,11 @@ void ScriptPhrasePartsGroups::DataList() {
 			sum += pp.scores[i];
 		}
 		parts.Set(row, 4, va);
+		#else
+		int sum = 0;
+		for(int i = 0; i < SCORE_COUNT; i++)
+			sum += pp.scores[i];
+		#endif
 		parts.Set(row, 5, sum);
 
 		/*parts.Set(row, 2,

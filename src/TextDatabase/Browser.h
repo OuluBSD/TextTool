@@ -34,6 +34,10 @@ public:
 	static String GetTypeString(ColumnType t);
 	
 	enum {
+		ELEMENT_ATTR_COLOR_ACTION,
+		ELEMENT_COLOR_ATTR_ACTION,
+		ELEMENT_COLOR_CONTENT_TYPECLASS,
+		ELEMENT_COLOR_TYPECLASS_CONTENT,
 		ATTR_COLOR_ACTION,
 		ATTR_ACTION_COLOR,
 		COLOR_ACTION_ATTR,
@@ -73,7 +77,7 @@ public:
 	};
 	
 	Vector<Item> items[TYPE_COUNT];
-	int mode = ATTR_COLOR_ACTION;
+	int mode = -1;
 	int appmode = DB_SONG;
 	Vector<int> phrase_parts;
 	int sorting = 0;
@@ -123,7 +127,7 @@ public:
 	bool IsSub(int cur, int cursor_i) const;
 	double GetMidRhymingLimit() const {return mid_rhyme_distance_limit;}
 	double GetEndRhymingLimit() const {return end_rhyme_distance_limit;}
-	void SetAll(const AttrHeader& attr, int clr, const ActionHeader& act);
+	void SetAll(const String& element, const AttrHeader& attr, int clr, const ActionHeader& act, int tc_i, int con_i);
 	int FindAction(const String& s);
 	int FindArg(const String& s);
 	void RealizeUniqueAttrs();

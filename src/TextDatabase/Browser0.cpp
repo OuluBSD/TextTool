@@ -94,8 +94,24 @@ void DatabaseBrowser::FillItems(ColumnType t) {
 	it.idx = -1;
 	
 	switch (t) {
-		case ELEMENT:
+		case ELEMENT: {
+			VectorMap<int,int> vmap;
+			for (int pp_i : phrase_parts) {
+				const PhrasePart& pp = da.phrase_parts[pp_i];
+				if (pp.el_i >= 0)
+					vmap.GetAdd(pp.el_i,0)++;
+			}
+			SortByValue(vmap, StdGreater<int>());
+			type_items.SetCount(1+vmap.GetCount());
+			for(int i = 0; i < vmap.GetCount(); i++) {
+				int el_id = vmap.GetKey(i);
+				Item& it = type_items[1+i];
+				it.str = da.element_keys[el_id];
+				it.count = vmap[i];
+				it.idx = el_id;
+			}
 			break;
+		}
 		case ATTR_GROUP: {
 			VectorMap<String,int> vmap;
 			for (int pp_i : phrase_parts) {
@@ -244,22 +260,6 @@ void DatabaseBrowser::SetAttrGroup(int i) {
 	
 	auto& attr_groups = Get(ATTR_GROUP);
 	if (IsFirstInOrder(ATTR_GROUP)) {
-		if (attr_groups.IsEmpty()) {
-			attr_groups.SetCount(1 + uniq_attr.GetCount());
-			Item& a0 = attr_groups[0];
-			a0.str = "All";
-			a0.count = da.phrase_parts.GetCount();
-			for(int i = 0; i < uniq_attr.GetCount(); i++) {
-				const String& key = uniq_attr.GetKey(i);
-				const auto& vmap = uniq_attr[i];
-				int sum = 0;
-				for (int i : vmap.GetValues()) sum += i;
-				Item& a = attr_groups[1+i];
-				a.str = key;
-				a.count = sum;
-				a.idx = i;
-			}
-		}
 		SetInitialData();
 	}
 	else {
@@ -278,20 +278,6 @@ void DatabaseBrowser::SetAttrValue(int i) {
 	
 	auto& attr_values = Get(ATTR_VALUE);
 	if (IsFirstInOrder(ATTR_VALUE)) {
-		if (attr_values.IsEmpty()) {
-			attr_values.SetCount(1 + uniq_attr_values.GetCount());
-			Item& a0 = attr_values[0];
-			a0.str = "All";
-			a0.count = da.phrase_parts.GetCount();
-			for(int i = 0; i < uniq_attr_values.GetCount(); i++) {
-				const String& key = uniq_attr_values.GetKey(i);
-				int sum = uniq_attr_values[i];
-				Item& a = attr_values[1+i];
-				a.str = key;
-				a.count = sum;
-				a.idx = i;
-			}
-		}
 		SetInitialData();
 	}
 	else {
@@ -309,15 +295,7 @@ void DatabaseBrowser::SetColor(int i) {
 	auto& colors = Get(COLOR);
 	
 	if (IsFirstInOrder(COLOR)) {
-		if (color_counts.IsEmpty()) {
-			color_counts.SetCount(GetColorGroupCount(), 0);
-			for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
-				PhrasePart& pp = da.phrase_parts[i];
-				int clr_i = GetColorGroup(pp.clr);
-				color_counts[clr_i]++;
-			}
-		}
-		colors.SetCount(1 + GetColorGroupCount());
+		/*colors.SetCount(1 + GetColorGroupCount());
 		Item& a = colors[0];
 		a.str = "All";
 		a.idx = -1;
@@ -327,7 +305,7 @@ void DatabaseBrowser::SetColor(int i) {
 			a.str = "#" + IntStr(i);
 			a.idx = i;
 			a.count = color_counts[i];
-		}
+		}*/
 		SetInitialData();
 	}
 	else {
@@ -348,22 +326,6 @@ void DatabaseBrowser::SetAction(int i) {
 	RealizeUniqueActions();
 	
 	if (IsFirstInOrder(ACTION)) {
-		if (actions.IsEmpty()) {
-			actions.SetCount(1 + uniq_acts.GetCount());
-			Item& a0 = actions[0];
-			a0.str = "All";
-			a0.count = da.phrase_parts.GetCount();
-			for(int i = 0; i < uniq_acts.GetCount(); i++) {
-				const String& key = uniq_acts.GetKey(i);
-				const auto& vmap = uniq_acts[i];
-				int sum = 0;
-				for (int i : vmap.GetValues()) sum += i;
-				Item& a = actions[1+i];
-				a.str = key;
-				a.count = sum;
-				a.idx = i;
-			}
-		}
 		SetInitialData();
 	}
 	else {
@@ -384,20 +346,6 @@ void DatabaseBrowser::SetActionArg(int i) {
 	RealizeUniqueActions();
 	
 	if (IsFirstInOrder(ACTION_ARG)) {
-		if (args.IsEmpty()) {
-			args.SetCount(1 + uniq_act_args.GetCount());
-			Item& a0 = args[0];
-			a0.str = "All";
-			a0.count = da.phrase_parts.GetCount();
-			for(int i = 0; i < uniq_act_args.GetCount(); i++) {
-				const String& key = uniq_act_args.GetKey(i);
-				int sum = uniq_act_args[i];
-				Item& a = args[1+i];
-				a.str = key;
-				a.count = sum;
-				a.idx = i;
-			}
-		}
 		SetInitialData();
 	}
 	else {
@@ -418,21 +366,6 @@ void DatabaseBrowser::SetElement(int i) {
 	RealizeUniqueActions();
 	
 	if (IsFirstInOrder(ELEMENT)) {
-		if (elements.IsEmpty()) {
-			TODO
-			/*args.SetCount(1 + uniq_act_args.GetCount());
-			Item& a0 = args[0];
-			a0.str = "All";
-			a0.count = da.phrase_parts.GetCount();
-			for(int i = 0; i < uniq_act_args.GetCount(); i++) {
-				const String& key = uniq_act_args.GetKey(i);
-				int sum = uniq_act_args[i];
-				Item& a = args[1+i];
-				a.str = key;
-				a.count = sum;
-				a.idx = i;
-			}*/
-		}
 		SetInitialData();
 	}
 	else {
@@ -453,21 +386,6 @@ void DatabaseBrowser::SetTypeclass(int i) {
 	RealizeUniqueActions();
 	
 	if (IsFirstInOrder(TYPECLASS)) {
-		if (tcs.IsEmpty()) {
-			TODO
-			/*args.SetCount(1 + uniq_act_args.GetCount());
-			Item& a0 = args[0];
-			a0.str = "All";
-			a0.count = da.phrase_parts.GetCount();
-			for(int i = 0; i < uniq_act_args.GetCount(); i++) {
-				const String& key = uniq_act_args.GetKey(i);
-				int sum = uniq_act_args[i];
-				Item& a = args[1+i];
-				a.str = key;
-				a.count = sum;
-				a.idx = i;
-			}*/
-		}
 		SetInitialData();
 	}
 	else {
@@ -488,21 +406,6 @@ void DatabaseBrowser::SetContrast(int i) {
 	RealizeUniqueActions();
 	
 	if (IsFirstInOrder(CONTRAST)) {
-		if (cons.IsEmpty()) {
-			TODO
-			/*args.SetCount(1 + uniq_act_args.GetCount());
-			Item& a0 = args[0];
-			a0.str = "All";
-			a0.count = da.phrase_parts.GetCount();
-			for(int i = 0; i < uniq_act_args.GetCount(); i++) {
-				const String& key = uniq_act_args.GetKey(i);
-				int sum = uniq_act_args[i];
-				Item& a = args[1+i];
-				a.str = key;
-				a.count = sum;
-				a.idx = i;
-			}*/
-		}
 		SetInitialData();
 	}
 	else {
@@ -679,6 +582,7 @@ void DatabaseBrowser::FilterData(ColumnType t) {
 		
 		switch (t) {
 			case ELEMENT:
+				rem = pp.el_i != filter_idx;
 				break;
 			case ATTR_GROUP:
 				rem = da.attrs.GetKey(pp.attr).group != filter_str;

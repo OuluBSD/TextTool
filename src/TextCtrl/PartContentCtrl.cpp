@@ -111,6 +111,9 @@ void PartLineCtrl::Paint(Draw& d) {
 }
 
 void PartLineCtrl::PaintTextBlock(Draw& d, int& x, int off, Rect& out, Color bg, const String& txt, const Font& fnt) {
+	if (txt == "All" || txt == "-1" || txt.IsEmpty())
+		return;
+	
 	Size sz = GetTextSize(txt, fnt);
 	sz.cx += off * 2;
 	sz.cx = max(sz.cx, 30);

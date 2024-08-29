@@ -25,6 +25,10 @@ String DatabaseBrowser::GetTypeString(ColumnType t) {
 
 String DatabaseBrowser::GetModeString(int i) {
 	switch (i) {
+		ITEM(ELEMENT_ATTR_COLOR_ACTION)
+		ITEM(ELEMENT_COLOR_ATTR_ACTION)
+		ITEM(ELEMENT_COLOR_CONTENT_TYPECLASS)
+		ITEM(ELEMENT_COLOR_TYPECLASS_CONTENT)
 		ITEM(ATTR_COLOR_ACTION)
 		ITEM(ATTR_ACTION_COLOR)
 		ITEM(COLOR_ACTION_ATTR)
@@ -54,6 +58,34 @@ void DatabaseBrowser::SetMode(int i) {
 		order[i] = INVALID;
 	int o = 0;
 	switch (mode) {
+	case ELEMENT_ATTR_COLOR_ACTION:
+		order[o++] = ELEMENT;
+		order[o++] = ATTR_GROUP;
+		order[o++] = ATTR_VALUE;
+		order[o++] = COLOR;
+		order[o++] = ACTION;
+		order[o++] = ACTION_ARG;
+		break;
+	case ELEMENT_COLOR_ATTR_ACTION:
+		order[o++] = ELEMENT;
+		order[o++] = COLOR;
+		order[o++] = ATTR_GROUP;
+		order[o++] = ATTR_VALUE;
+		order[o++] = ACTION;
+		order[o++] = ACTION_ARG;
+		break;
+	case ELEMENT_COLOR_CONTENT_TYPECLASS:
+		order[o++] = ELEMENT;
+		order[o++] = COLOR;
+		order[o++] = CONTRAST;
+		order[o++] = TYPECLASS;
+		break;
+	case ELEMENT_COLOR_TYPECLASS_CONTENT:
+		order[o++] = ELEMENT;
+		order[o++] = COLOR;
+		order[o++] = TYPECLASS;
+		order[o++] = CONTRAST;
+		break;
 	case ATTR_COLOR_ACTION:
 		order[o++] = ATTR_GROUP;
 		order[o++] = ATTR_VALUE;
@@ -154,7 +186,7 @@ void DatabaseBrowser::ResetCursor() {
 	ResetCursor(-1, INVALID);
 }
 
-void DatabaseBrowser::SetAll(const AttrHeader& attr, int clr, const ActionHeader& act) {
+void DatabaseBrowser::SetAll(const String& element, const AttrHeader& attr, int clr, const ActionHeader& act, int tc_i, int con_i) {
 	SetInitialData();
 	
 	for(int i = 0; i < TYPE_COUNT; i++) {
@@ -182,9 +214,10 @@ void DatabaseBrowser::SetAll(const AttrHeader& attr, int clr, const ActionHeader
 			}
 			case ATTR_VALUE: {
 				const auto& attr_values = Get(ATTR_VALUE);
+				String attr_value = attr.IsEmpty() ? "All" : attr.value;
 				for(int i = 0; i < attr_values.GetCount(); i++) {
 					const auto& at = attr_values[i];
-					if (at.str == attr.value || attr.value.IsEmpty()) {
+					if (at.str == attr_value) {
 						tgt = i;
 						break;
 					}
@@ -214,8 +247,9 @@ void DatabaseBrowser::SetAll(const AttrHeader& attr, int clr, const ActionHeader
 			}
 			case ACTION_ARG: {
 				const auto& args = Get(ACTION_ARG);
+				String arg = act.IsEmpty() ? "All" : act.arg;
 				for(int i = 0; i < args.GetCount(); i++) {
-					if (args[i].str == act.arg) {
+					if (args[i].str == arg) {
 						tgt = i;
 						break;
 					}
@@ -223,15 +257,34 @@ void DatabaseBrowser::SetAll(const AttrHeader& attr, int clr, const ActionHeader
 				break;
 			}
 			case ELEMENT: {
-				TODO
+				const auto& args = Get(ELEMENT);
+				String str = element.IsEmpty() ? "All" : element;
+				for(int i = 0; i < args.GetCount(); i++) {
+					if (args[i].str == str) {
+						tgt = i;
+						break;
+					}
+				}
 				break;
 			}
 			case TYPECLASS: {
-				TODO
+				const auto& args = Get(TYPECLASS);
+				for(int i = 0; i < args.GetCount(); i++) {
+					if (args[i].idx == tc_i) {
+						tgt = i;
+						break;
+					}
+				}
 				break;
 			}
 			case CONTRAST: {
-				TODO
+				const auto& args = Get(CONTRAST);
+				for(int i = 0; i < args.GetCount(); i++) {
+					if (args[i].idx == con_i) {
+						tgt = i;
+						break;
+					}
+				}
 				break;
 			}
 			default: break;

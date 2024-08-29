@@ -33,8 +33,7 @@ struct LineElement {
 	ActionHeader act;
 	int clr_i = -1;
 	int typeclass_i = -1;
-	int content_i = -1;
-	int content_mod_i = -1;
+	int con_i = -1;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -43,8 +42,7 @@ struct LineElement {
 			("clr", clr_i)
 			("a", act)
 			("t", typeclass_i)
-			("c", content_i)
-			("cm", content_mod_i)
+			("c", con_i)
 			;
 	}
 };
