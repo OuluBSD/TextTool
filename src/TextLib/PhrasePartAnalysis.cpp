@@ -69,7 +69,8 @@ void PhrasePartAnalysisProcess::Do(int fn) {
 	
 	if (batch == 0) {
 		tmp_iters.SetCount(0);
-		int trimmed_by[6] = {0,0,0,0,0,0};
+		int trimmed_by[PHASE_COUNT];
+		memset(trimmed_by, 0, sizeof(trimmed_by));
 		
 		if (fn == PHASE_ELEMENT && vmap.IsEmpty())
 			vmap = da.GetSortedElements();
