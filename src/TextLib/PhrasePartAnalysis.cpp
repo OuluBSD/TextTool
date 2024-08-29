@@ -32,8 +32,10 @@ int PhrasePartAnalysisProcess::BatchCount(int phase) const {
 }
 
 void PhrasePartAnalysisProcess::DoPhase() {
-	ASSERT(phase >= 0 && phase < 6);
-	Do(phase);
+	if (phase >= 0 && phase < PHASE_COUNT)
+		Do(phase);
+	else
+		SetNotRunning();
 }
 
 PhrasePartAnalysisProcess& PhrasePartAnalysisProcess::Get(int appmode) {
@@ -658,7 +660,6 @@ void PhrasePartAnalysisProcess::OnPhraseElement(String result) {
 	
 	for(int line_i = 0; line_i < lines.GetCount(); line_i++) {
 		String& line = lines[line_i];
-		line_i++;
 		line = TrimBoth(line);
 		
 		// Get line number
