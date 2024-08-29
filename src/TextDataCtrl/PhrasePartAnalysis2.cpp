@@ -12,8 +12,15 @@ PhrasePartAnalysis2::PhrasePartAnalysis2() {
 	hsplit.Horz() << vsplit << parts;
 	hsplit.SetPos(2000);
 	
-	vsplit.Vert() << typecasts << contrasts << colors;
-	vsplit.SetPos(4500,0);
+	vsplit.Vert() << elements << typecasts << contrasts << colors;
+	
+	elements.AddColumn(t_("Element"));
+	elements.AddColumn(t_("Count"));
+	elements.AddIndex("IDX");
+	elements.ColumnWidths("3 1");
+	elements.WhenCursor << [this]() {
+		DataElement();
+	};
 	
 	typecasts.AddColumn(t_("Typeclass"));
 	typecasts.AddColumn(t_("Count"));
@@ -97,7 +104,35 @@ void PhrasePartAnalysis2::Data() {
 void PhrasePartAnalysis2::DataMain() {
 	DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
 	
-	// Set attributes
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	DatasetAnalysis& da = sda.dataset;
+	
+	// Set elements
+	VectorMap<int,int> el_map = da.GetSortedElementsOfPhraseParts();
+	
+	elements.Set(0, 0, "All");
+	elements.Set(0, "IDX", -1);
+	for(int i = 0; i < el_map.GetCount(); i++) {
+		int el_i = el_map.GetKey(i);
+		elements.Set(1+i, 0, da.element_keys[el_i]);
+		elements.Set(1+i, 1, el_map[i]);
+		elements.Set(1+i, "IDX", el_map.GetKey(i));
+	}
+	INHIBIT_CURSOR(elements);
+	elements.SetCount(1+el_map.GetCount());
+	if (!elements.IsCursor() && elements.GetCount())
+		elements.SetCursor(0);
+	
+	DataElement();
+}
+
+void PhrasePartAnalysis2::DataElement() {
+	if (!elements.IsCursor())
+		return;
+	
+	// Set typeclasses
 	const auto& tc = GetTypeclasses();
 	typecasts.Set(0, 0, "All");
 	for(int i = 0; i < tc.GetCount(); i++) {
@@ -109,7 +144,6 @@ void PhrasePartAnalysis2::DataMain() {
 	//typecasts.SetSortColumn(2, true);
 	if (!typecasts.IsCursor() && typecasts.GetCount())
 		typecasts.SetCursor(0);
-	
 	
 	DataTypeclass();
 }
@@ -164,6 +198,7 @@ void PhrasePartAnalysis2::DataColor() {
 	DatasetAnalysis& da = sda.dataset;
 
 	//DatabaseBrowser& b = DatabaseBrowser::Single();
+	int el_i = elements.Get("IDX");
 	int tc_i = typecasts.GetCursor() - 1;
 	int con_i = contrasts.GetCursor() - 1;
 	int clr_i = colors.GetCursor() - 1;
@@ -182,6 +217,10 @@ void PhrasePartAnalysis2::DataColor() {
 		int pp_i = i;
 		PhrasePart& pp = da.phrase_parts[i];
 		
+		if (el_i >= 0) {
+			bool found = pp.el_i == el_i;
+			if (!found) continue;
+		}
 		if (tc_i >= 0) {
 			bool found = false;
 			for (int j : pp.typecasts)

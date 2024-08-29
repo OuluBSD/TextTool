@@ -1181,7 +1181,19 @@ void AiTask::CreateInput_GetPhraseData() {
 	PhraseArgs args;
 	args.Put(this->args[0]);
 	
-	if (args.fn == 0) {
+	enum {
+		PHASE_ELEMENT,
+		PHASE_COLOR,
+		PHASE_ATTR,
+		PHASE_ACTIONS,
+		PHASE_SCORES,
+		PHASE_TYPECLASS,
+		PHASE_CONTENT,
+		
+		PHASE_COUNT
+	};
+	
+	if (args.fn == PHASE_COLOR) {
 		{
 			auto& list = input.AddSub().Title("List \"A\" of sentences");
 			list.NumberedLines();
@@ -1201,7 +1213,7 @@ void AiTask::CreateInput_GetPhraseData() {
 		}
 		input.response_length = 2*1024;
 	}
-	else if (args.fn == 1) {
+	else if (args.fn == PHASE_ATTR) {
 		{
 			TaskTitledList& list = input.AddSub().Title("List of attribute groups and their opposite polarised attribute values");
 			list.NumberedLines();
@@ -1228,7 +1240,7 @@ void AiTask::CreateInput_GetPhraseData() {
 		}
 		input.response_length = 1024*3/2;
 	}
-	else if (args.fn == 2) {
+	else if (args.fn == PHASE_ACTIONS) {
 		{
 			// NOTE duplicate
 			auto& list = input.AddSub().Title("List \"B\": Action planner action states for narrator person");
@@ -1431,7 +1443,7 @@ void AiTask::CreateInput_GetPhraseData() {
 		}
 		input.response_length = 2048;
 	}
-	else if (args.fn == 3) {
+	else if (args.fn == PHASE_SCORES) {
 		String audience = GetAppModeKey(appmode, AM_AUDIENCE);
 		{
 			auto& list = input.AddSub().Title("Action planner heuristic score factors");
@@ -1472,7 +1484,7 @@ void AiTask::CreateInput_GetPhraseData() {
 		}
 		input.response_length = 2048;
 	}
-	else if (args.fn == 4) {
+	else if (args.fn == PHASE_TYPECLASS) {
 		{
 			auto& list = input.AddSub().Title(__Typeclasses + " of " + __entity + " profiles in relation to the " + __script2);
 			list.NumberedLines();
@@ -1497,7 +1509,7 @@ void AiTask::CreateInput_GetPhraseData() {
 		}
 		input.response_length = 2048;
 	}
-	else if (args.fn == 5) {
+	else if (args.fn == PHASE_CONTENT) {
 		{
 			auto& list = input.AddSub().Title("List of names for archetypical parts of storyline of a modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps2 + ", which contrasts each other");
 			list.NumberedLines();
@@ -1522,6 +1534,33 @@ void AiTask::CreateInput_GetPhraseData() {
 			results.Title(pc + " archetypical part number-alpha sequences for list \"A\" of phrases. Description: phrases would fit to following storyline parts");
 			results.Add("33A 15C 9B 31B 32A 34B 36C 27C 40C");
 			results.Add("");
+		}
+		input.response_length = 1024*3/2;
+	}
+	else if (args.fn == PHASE_ELEMENT) {
+		{
+			auto& list = input.AddSub().Title("List of conceptual elements of storyline of a modern " + GetAppModeKey(appmode, AM_GENRES) + " " + __comps2);
+			list.NumberedLines();
+			for (const auto& e : args.elements) {
+				list.Add(e);
+			}
+		}
+		String pc = IntStr(1 + args.phrases.GetCount());
+		{
+			auto& list = input.AddSub().Title("List \"A\" of " + pc + " phrases");
+			list.NumberedLines();
+			list.Add("bleeding after you");
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.NumberedLines();
+			results.NoListChar();
+			results.Title(pc + " conceptual elements for list \"A\" of phrases. Description: some element of the list that would be closest fit to following storyline parts");
+			results.Add("exposition");
+			results.Add("");
+			tmp_str = "2. ";
 		}
 		input.response_length = 1024*3/2;
 	}

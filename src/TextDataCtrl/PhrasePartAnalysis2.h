@@ -7,7 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class PhrasePartAnalysis2 : public ToolAppCtrl {
 	Splitter vsplit, hsplit;
-	ArrayCtrl typecasts, contrasts, parts,  colors;
+	ArrayCtrl elements, typecasts, contrasts, parts,  colors;
 	
 public:
 	typedef PhrasePartAnalysis2 CLASSNAME;
@@ -15,6 +15,7 @@ public:
 	
 	void Data() override;
 	void DataMain();
+	void DataElement();
 	void DataTypeclass();
 	void DataContrast();
 	void DataColor();

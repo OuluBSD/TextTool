@@ -548,6 +548,37 @@ String DatasetAnalysis::GetScriptDump(DatasetAnalysis& da, int i) const {
 	return s;
 }
 
+VectorMap<int,int> DatasetAnalysis::GetSortedElements() {
+	VectorMap<int,int> vmap;
+	for(const ScriptStruct& ss : scripts.GetValues()) {
+		for(const auto& part : ss.parts) {
+			if (part.cls >= 0)
+				vmap.GetAdd(part.cls,0)++;
+			for(const auto& sub : part.sub) {
+				if (sub.cls >= 0)
+					vmap.GetAdd(sub.cls,0)++;
+				for(const auto& ssub : sub.sub) {
+					if (sub.cls >= 0)
+						vmap.GetAdd(sub.cls,0)++;
+				}
+			}
+		}
+	}
+	SortByValue(vmap, StdGreater<int>());
+	return vmap;
+}
+
+VectorMap<int,int> DatasetAnalysis::GetSortedElementsOfPhraseParts() {
+	VectorMap<int,int> vmap;
+	for (const auto& pp : phrase_parts.GetValues()) {
+		if (pp.el_i >= 0)
+			vmap.GetAdd(pp.el_i,0)++;
+	}
+	SortByValue(vmap, StdGreater<int>());
+	return vmap;
+}
+
+
 
 
 /*void ComponentCandidateCache::Realize(Script& l) {

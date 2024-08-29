@@ -336,6 +336,7 @@ struct PhrasePart : Moveable<PhrasePart> {
 	int tt_i = -1;
 	int virtual_phrase_part = -1;
 	int attr = -1;
+	int el_i = -1;
 	Color clr = Black();
 	Vector<int> actions;
 	Vector<int> typecasts;
@@ -365,6 +366,7 @@ struct PhrasePart : Moveable<PhrasePart> {
 		d % contrasts.GetCount();
 		for (int i : contrasts)
 			d % i;
+		d % el_i;
 		return d;
 	}
 	void LoadFromString(const String& s) {
@@ -393,6 +395,7 @@ struct PhrasePart : Moveable<PhrasePart> {
 		contrasts.SetCount(tc);
 		for (int& tc_i : contrasts)
 			p % tc_i;
+		p % el_i;
 	}
 	
 	hash_t GetHashValue() const {
@@ -729,6 +732,8 @@ struct DatasetAnalysis {
 	ComponentAnalysis& GetComponentAnalysis(int appmode, const String& name);
 	String GetScriptDump(int i) const;
 	String GetScriptDump(DatasetAnalysis& da, int i) const;
+	VectorMap<int,int> GetSortedElements();
+	VectorMap<int,int> GetSortedElementsOfPhraseParts();
 	
 	void Jsonize(JsonIO& json) {
 		json

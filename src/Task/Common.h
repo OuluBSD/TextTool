@@ -98,10 +98,12 @@ struct TokenArgs {
 struct PhraseArgs {
 	int fn;
 	Vector<String> phrases;
+	Vector<String> elements;
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
 				("phrases", phrases)
+				("elements", elements)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

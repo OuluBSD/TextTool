@@ -10,9 +10,11 @@ class PhrasePartAnalysisProcess : public SolverBase {
 	TokenArgs token_args;
 	Vector<void*> tmp_ptrs;
 	Vector<int> tmp, tmp_iters;
+	VectorMap<int,int> vmap;
 	
 public:
 	enum {
+		PHASE_ELEMENT,
 		PHASE_COLOR,
 		PHASE_ATTR,
 		PHASE_ACTIONS,
@@ -24,12 +26,14 @@ public:
 	};
 	
 	void Do(int fn);
+	void OnPhraseElements(String result);
 	void OnPhraseColors(String result);
 	void OnPhraseAttrs(String result);
 	void OnPhraseActions(String result);
 	void OnPhraseScores(String result);
 	void OnPhraseTypeclasses(String result);
 	void OnPhraseContrast(String result);
+	void OnPhraseElement(String result);
 	
 	int BatchCount(int phase) const;
 	

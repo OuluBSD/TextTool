@@ -54,6 +54,7 @@ void PhrasePartAnalysisProcess::Do(int fn) {
 	PhraseArgs& args = phrase_args;
 	args.fn = fn;
 	args.phrases.Clear();
+	args.elements.Clear();
 	
 	int per_action_task = BatchCount(fn);
 	
@@ -68,38 +69,46 @@ void PhrasePartAnalysisProcess::Do(int fn) {
 		tmp_iters.SetCount(0);
 		int trimmed_by[6] = {0,0,0,0,0,0};
 		
+		if (fn == PHASE_ELEMENT && vmap.IsEmpty())
+			vmap = da.GetSortedElements();
+		
 		int iter = 0;
 		int idx = -1;
 		for (const PhrasePart& pp : da.phrase_parts.GetValues()) {
 			idx++;
 			
-			if ((fn == 0 && pp.clr != no_clr) || (fn > 0 && pp.clr == no_clr)) {
-				trimmed_by[0]++;
+			if ((fn == PHASE_COLOR && pp.clr != no_clr) || (fn > PHASE_COLOR && pp.clr == no_clr)) {
+				trimmed_by[fn]++;
 				continue;
 			}
 			
-			if ((fn == 1 && pp.attr >= 0) || (fn > 1 && pp.attr < 0)){
-				trimmed_by[1]++;
+			if ((fn == PHASE_ATTR && pp.attr >= 0) || (fn > PHASE_ATTR && pp.attr < 0)){
+				trimmed_by[fn]++;
 				continue;
 			}
 			
-			if ((fn == 2 && !pp.actions.IsEmpty()) || (fn > 2 && pp.actions.IsEmpty())){
-				trimmed_by[2]++;
+			if ((fn == PHASE_ACTIONS && !pp.actions.IsEmpty()) || (fn > PHASE_ACTIONS && pp.actions.IsEmpty())){
+				trimmed_by[fn]++;
 				continue;
 			}
 			
-			if ((fn == 3 && pp.HasScores()) || (fn > 3 && !pp.HasScores())){
-				trimmed_by[3]++;
+			if ((fn == PHASE_SCORES && pp.HasScores()) || (fn > PHASE_SCORES && !pp.HasScores())){
+				trimmed_by[fn]++;
 				continue;
 			}
 			
-			if ((fn == 4 && !pp.typecasts.IsEmpty()) || (fn > 4 && pp.typecasts.IsEmpty())){
-				trimmed_by[4]++;
+			if ((fn == PHASE_TYPECLASS && !pp.typecasts.IsEmpty()) || (fn > PHASE_TYPECLASS && pp.typecasts.IsEmpty())){
+				trimmed_by[fn]++;
 				continue;
 			}
 			
-			if ((fn == 5 && !pp.contrasts.IsEmpty()) || (fn > 5 && pp.contrasts.IsEmpty())){
-				trimmed_by[5]++;
+			if ((fn == PHASE_CONTENT && !pp.contrasts.IsEmpty()) || (fn > PHASE_CONTENT && pp.contrasts.IsEmpty())){
+				trimmed_by[fn]++;
+				continue;
+			}
+			
+			if ((fn == PHASE_ELEMENT && pp.el_i >= 0) || (fn > PHASE_ELEMENT && pp.el_i < 0)) {
+				trimmed_by[fn]++;
 				continue;
 			}
 			
@@ -122,21 +131,38 @@ void PhrasePartAnalysisProcess::Do(int fn) {
 		return;
 	}
 	
+	if (fn == PHASE_ELEMENT) {
+		ASSERT(vmap.GetCount());
+		int max_elements = 30;
+		for(int i = 0; i < vmap.GetCount(); i++) {
+			int el_i = vmap.GetKey(i);
+			String element = da.element_keys[el_i];
+			if (element == "n/a" ||
+				element == "none" ||
+				element.Left(1) == "(")
+				continue;
+			args.elements << element;
+			if (args.elements.GetCount() >= max_elements)
+				break;
+		}
+	}
 	
 	SetWaiting(true);
 	TaskMgr& m = TaskMgr::Single();
-	if (args.fn == 0)
+	if (args.fn == PHASE_COLOR)
 		m.GetPhraseData(appmode, args, THISBACK(OnPhraseColors));
-	else if (args.fn == 1)
+	else if (args.fn == PHASE_ATTR)
 		m.GetPhraseData(appmode, args, THISBACK(OnPhraseAttrs));
-	else if (args.fn == 2)
+	else if (args.fn == PHASE_ACTIONS)
 		m.GetPhraseData(appmode, args, THISBACK(OnPhraseActions));
-	else if (args.fn == 3)
+	else if (args.fn == PHASE_SCORES)
 		m.GetPhraseData(appmode, args, THISBACK(OnPhraseScores));
-	else if (args.fn == 4)
+	else if (args.fn == PHASE_TYPECLASS)
 		m.GetPhraseData(appmode, args, THISBACK(OnPhraseTypeclasses));
-	else if (args.fn == 5)
+	else if (args.fn == PHASE_CONTENT)
 		m.GetPhraseData(appmode, args, THISBACK(OnPhraseContrast));
+	else if (args.fn == PHASE_ELEMENT)
+		m.GetPhraseData(appmode, args, THISBACK(OnPhraseElement));
 	else
 		TODO;
 }
@@ -614,6 +640,49 @@ void PhrasePartAnalysisProcess::OnPhraseContrast(String res) {
 	da.diagnostics.GetAdd(__content + ": actual") = IntStr(a);
 	da.diagnostics.GetAdd(__content + ": percentage") =  DblStr((double)a / (double)da.phrase_parts.GetCount() * 100);
 	LeaveAppMode();
+	
+	NextBatch();
+	SetWaiting(false);
+}
+
+void PhrasePartAnalysisProcess::OnPhraseElement(String result) {
+	TokenArgs& args = token_args;
+	TextDatabase& db = GetDatabase();
+	SourceData& sd = db.src_data;
+	SourceDataAnalysis& sda = db.src_data.a;
+	DatasetAnalysis& da = sda.dataset;
+	
+	Vector<String> lines = Split(result, "\n");
+	bool line_match = tmp_ptrs.GetCount() == lines.GetCount();
+	int offset = 1+1;
+	
+	for(int line_i = 0; line_i < lines.GetCount(); line_i++) {
+		String& line = lines[line_i];
+		line_i++;
+		line = TrimBoth(line);
+		
+		// Get line number
+		if (line.IsEmpty() ||!IsDigit(line[0]))
+			continue;
+		int a = line.Find(".");
+		if (a < 0) continue;
+		
+		PhrasePart* pp_p;
+		if (line_match)
+			pp_p = (PhrasePart*)tmp_ptrs[line_i];
+		else {
+			int line_i = ScanInt(line.Left(a));
+			line_i -= offset;
+			if (line_i < 0 || line_i >= tmp.GetCount())
+				continue;
+			int pp_i = tmp[line_i];
+			pp_p = &da.phrase_parts[pp_i];
+		}
+		PhrasePart& pp = *pp_p;
+		line = TrimBoth(line.Mid(a+1));
+		
+		pp.el_i = da.element_keys.FindAdd(line);
+	}
 	
 	NextBatch();
 	SetWaiting(false);
