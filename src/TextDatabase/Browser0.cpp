@@ -15,6 +15,8 @@ void DatabaseBrowser::RealizeUniqueAttrs() {
 	uniq_attr_values.Clear();
 	for(int i = 0; i < da.phrase_parts.GetCount(); i++) {
 		const PhrasePart& pp = da.phrase_parts[i];
+		if (pp.attr < 0)
+			continue;
 		const auto& ah = da.attrs.GetKey(pp.attr);
 		uniq_attr.GetAdd(ah.group).GetAdd(ah.value, 0)++;
 		uniq_attr_values.GetAdd(ah.value,0)++;
@@ -116,6 +118,8 @@ void DatabaseBrowser::FillItems(ColumnType t) {
 			VectorMap<String,int> vmap;
 			for (int pp_i : phrase_parts) {
 				const PhrasePart& pp = da.phrase_parts[pp_i];
+				if (pp.attr < 0)
+					continue;
 				const AttrHeader& ah = da.attrs.GetKey(pp.attr);
 				vmap.GetAdd(ah.group,0)++;
 			}
@@ -133,6 +137,8 @@ void DatabaseBrowser::FillItems(ColumnType t) {
 			VectorMap<String,int> vmap;
 			for (int pp_i : phrase_parts) {
 				const PhrasePart& pp = da.phrase_parts[pp_i];
+				if (pp.attr < 0)
+					continue;
 				const AttrHeader& ah = da.attrs.GetKey(pp.attr);
 				vmap.GetAdd(ah.value,0)++;
 			}
@@ -582,13 +588,13 @@ void DatabaseBrowser::FilterData(ColumnType t) {
 		
 		switch (t) {
 			case ELEMENT:
-				rem = pp.el_i != filter_idx;
+				rem = pp.el_i < 0 || pp.el_i != filter_idx;
 				break;
 			case ATTR_GROUP:
-				rem = da.attrs.GetKey(pp.attr).group != filter_str;
+				rem = pp.attr < 0 || da.attrs.GetKey(pp.attr).group != filter_str;
 				break;
 			case ATTR_VALUE:
-				rem = da.attrs.GetKey(pp.attr).value != filter_str;
+				rem = pp.attr < 0 || da.attrs.GetKey(pp.attr).value != filter_str;
 				break;
 			case COLOR: {
 				int clr_i = GetColorGroup(pp.clr);

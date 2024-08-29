@@ -210,10 +210,16 @@ void ScriptPhrasePartsGroups::DataList() {
 
 		parts.Set(row, 1, da.GetActionString(pp.actions));
 
-
-		const AttrHeader& ah = da.attrs.GetKey(pp.attr);
-		parts.Set(row, 2, ah.group);
-		parts.Set(row, 3, ah.value);
+		
+		if (pp.attr >= 0) {
+			const AttrHeader& ah = da.attrs.GetKey(pp.attr);
+			parts.Set(row, 2, ah.group);
+			parts.Set(row, 3, ah.value);
+		}
+		else {
+			parts.Set(row, 2, Value());
+			parts.Set(row, 3, Value());
+		}
 		
 		
 		parts.Set(row, 4, pp.el_i >= 0 ? da.element_keys[pp.el_i] : String());
