@@ -130,6 +130,7 @@ void PartLineCtrl::PaintTextBlock(Draw& d, int& x, int off, Rect& out, Color bg,
 void PartLineCtrl::LeftDown(Point p, dword keyflags) {
 	Select();
 	//Refresh();
+	SetFocus();
 }
 
 void PartLineCtrl::Select() {
@@ -268,8 +269,10 @@ void PartContentCtrl::MoveSelection(int diff) {
 	selected_line = max(0, min(lines.GetCount()-1, selected_line));
 	if (prev_sel >= 0 && prev_sel < lines.GetCount())
 		lines[prev_sel].Refresh();
-	if (selected_line >= 0 && selected_line < lines.GetCount())
+	if (selected_line >= 0 && selected_line < lines.GetCount()) {
 		lines[selected_line].Refresh();
+	}
+	WhenCursor();
 }
 
 void PartContentCtrl::InitDefault(PartLineCtrl& l) {

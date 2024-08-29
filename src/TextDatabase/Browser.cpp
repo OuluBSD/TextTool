@@ -31,6 +31,12 @@ String DatabaseBrowser::GetModeString(int i) {
 		ITEM(COLOR_ATTR_ACTION)
 		ITEM(ACTION_COLOR_ATTR)
 		ITEM(ACTION_ATTR_COLOR)
+		ITEM(TYPECLASS_CONTENT_COLOR)
+		ITEM(TYPECLASS_COLOR_CONTENT)
+		ITEM(CONTENT_TYPECLASS_COLOR)
+		ITEM(CONTENT_COLOR_TYPECLASS)
+		ITEM(COLOR_CONTENT_TYPECLASS)
+		ITEM(COLOR_TYPECLASS_CONTENT)
 		default: return "ERROR";
 	}
 }
@@ -89,6 +95,36 @@ void DatabaseBrowser::SetMode(int i) {
 		order[o++] = ATTR_GROUP;
 		order[o++] = ATTR_VALUE;
 		order[o++] = COLOR;
+		break;
+	case TYPECLASS_CONTENT_COLOR:
+		order[o++] = TYPECLASS;
+		order[o++] = CONTRAST;
+		order[o++] = COLOR;
+		break;
+	case TYPECLASS_COLOR_CONTENT:
+		order[o++] = TYPECLASS;
+		order[o++] = COLOR;
+		order[o++] = CONTRAST;
+		break;
+	case CONTENT_TYPECLASS_COLOR:
+		order[o++] = CONTRAST;
+		order[o++] = TYPECLASS;
+		order[o++] = COLOR;
+		break;
+	case CONTENT_COLOR_TYPECLASS:
+		order[o++] = CONTRAST;
+		order[o++] = COLOR;
+		order[o++] = TYPECLASS;
+		break;
+	case COLOR_CONTENT_TYPECLASS:
+		order[o++] = COLOR;
+		order[o++] = CONTRAST;
+		order[o++] = TYPECLASS;
+		break;
+	case COLOR_TYPECLASS_CONTENT:
+		order[o++] = COLOR;
+		order[o++] = TYPECLASS;
+		order[o++] = CONTRAST;
 		break;
 	default: TODO; break;
 	}
@@ -208,11 +244,7 @@ void DatabaseBrowser::SetAll(const AttrHeader& attr, int clr, const ActionHeader
 }
 
 void DatabaseBrowser::Update() {
-	TODO
-	//if (mode == 0) DataAttrGroup();
-	/*if (mode == 1) DataAttr1();
-	if (mode == 2) DataAttr2();
-	if (mode == 3) DataValue3();*/
+	
 }
 
 hash_t DatabaseBrowser::GetHash(int columns) const {
