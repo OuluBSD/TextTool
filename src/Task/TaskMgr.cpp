@@ -63,8 +63,10 @@ void TaskMgr::Process() {
 	
 	for(int i = 0; i < tasks.GetCount() && mgr.running && !Thread::IsShutdownThreads(); i++) {
 		AiTask& t = tasks[i];
+		
 		if (!t.ready) {
 			ProcessSingle(i);
+			
 			if (t.ready) {
 				actual++;
 				ready++;

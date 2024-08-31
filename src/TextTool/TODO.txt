@@ -1,5 +1,7 @@
 
 v0.0.2
+- check between lines, which is the closest joiner: "and then", "therefore", "but"
+	- give huge minus score for "and then" joiner!
 - reference editor: make structure of the song with elements. then pick existing suitable parts. use ai to combine them and fine tune
 - lyrics editor: follow through the lyrics and find out which doesn't make sense
 - song idea: import concept, but change elements (exposition) from list which shows all
