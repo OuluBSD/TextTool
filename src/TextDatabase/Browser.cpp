@@ -31,6 +31,7 @@ String DatabaseBrowser::GetModeString(int i) {
 		ITEM(ELEMENT_COLOR_TYPECLASS_CONTENT)
 		ITEM(ATTR_COLOR_ACTION)
 		ITEM(ATTR_ACTION_COLOR)
+		ITEM(COLOR_ELEMENT_ATTR_ACTION)
 		ITEM(COLOR_ACTION_ATTR)
 		ITEM(COLOR_ATTR_ACTION)
 		ITEM(ACTION_COLOR_ATTR)
@@ -99,6 +100,14 @@ void DatabaseBrowser::SetMode(int i) {
 		order[o++] = ACTION;
 		order[o++] = ACTION_ARG;
 		order[o++] = COLOR;
+		break;
+	case COLOR_ELEMENT_ATTR_ACTION:
+		order[o++] = COLOR;
+		order[o++] = ELEMENT;
+		order[o++] = ATTR_GROUP;
+		order[o++] = ATTR_VALUE;
+		order[o++] = ACTION;
+		order[o++] = ACTION_ARG;
 		break;
 	case COLOR_ACTION_ATTR:
 		order[o++] = COLOR;

@@ -41,6 +41,9 @@ void PartLineCtrl::Paint(Draw& d) {
 	const EditorPtrs& p = o.o.GetPointers();
 	Script& s = *p.script;
 	int part_i = o.o.parts.GetCursor();
+	if (part_i < 0)
+		return;
+	
 	DynPart& dp = s.parts[part_i];
 	LineElement* el = 0;
 	int left = 0;

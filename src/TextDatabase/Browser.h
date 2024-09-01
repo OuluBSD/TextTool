@@ -40,6 +40,7 @@ public:
 		ELEMENT_COLOR_TYPECLASS_CONTENT,
 		ATTR_COLOR_ACTION,
 		ATTR_ACTION_COLOR,
+		COLOR_ELEMENT_ATTR_ACTION,
 		COLOR_ACTION_ATTR,
 		COLOR_ATTR_ACTION,
 		ACTION_COLOR_ATTR,
@@ -67,6 +68,7 @@ private:
 	//Vector<int> color_counts;
 	VectorMap<hash_t,int> history;
 	
+	void RemoveExcessData(int order_i);
 	
 public:
 	struct Item : Moveable<Item> {
@@ -85,6 +87,7 @@ public:
 	WString mid_rhyme, end_rhyme;
 	double mid_rhyme_distance_limit = 0.005;
 	double end_rhyme_distance_limit = 0.005;
+	int secondary_category_limit = 10000;
 	
 	bool FilterPronounciation(DatasetAnalysis& da, const PhrasePart& pp);
 	
@@ -121,6 +124,7 @@ public:
 	void ResetCursor();
 	void ResetCursor(int c, ColumnType type);
 	void SetCursor(int i, ColumnType t);
+	void SetSecondaryCategoryLimit(int i) {secondary_category_limit = i;}
 	void DataCursor(int cursor);
 	void DataCursorTail(int cursor);
 	ColumnType GetCur(int cursor_i) const;

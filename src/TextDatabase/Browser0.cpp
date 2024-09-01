@@ -87,6 +87,9 @@ void DatabaseBrowser::FillItems(ColumnType t) {
 	DatasetAnalysis& da = sda.dataset;
 	
 	int c = GetColumnOrder(t);
+	if (c > 0)
+		RemoveExcessData(c);
+	
 	auto& type_items = items[c];
 	type_items.SetCount(1);
 	
@@ -480,11 +483,15 @@ void DatabaseBrowser::DataCursor(int i) {
 }
 
 void DatabaseBrowser::FilterData(ColumnType t) {
+	int order_i = GetColumnOrder(t);
 	auto& items = Get(t);
 	
 	int cur = GetColumnCursor(t);
-	if (!cur)
+	if (!cur) {
+		if (order_i > 0)
+			RemoveExcessData(order_i);
 		return;
+	}
 	
 	Item& filter = items[cur];
 	int filter_idx = filter.idx;
@@ -561,6 +568,24 @@ void DatabaseBrowser::FilterData(ColumnType t) {
 			rm_list << i;
 	}
 	phrase_parts.Remove(rm_list);
+	
+	if (order_i > 0)
+		RemoveExcessData(order_i);
+}
+
+void DatabaseBrowser::RemoveExcessData(int order_i) {
+	// Don't remove with the first category
+	if (order_i <= 0)
+		return;
+	
+	// Don't remove, if already category-limited
+	int prev_cur = cursor[order_i-1];
+	if (prev_cur != 0)
+		return;
+	
+	// Remove excess data
+	if (secondary_category_limit > 0 && phrase_parts.GetCount() > secondary_category_limit)
+		phrase_parts.SetCount(secondary_category_limit);
 	
 }
 
