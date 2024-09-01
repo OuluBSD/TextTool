@@ -211,8 +211,8 @@ void ToolEditorBase::DataOwner() {
 	}
 	INHIBIT_CURSOR(profiles);
 	profiles.SetCount(row);
-	int profile_i = p.GetProfileIndex();
-	if (profile_i >= 0 && profile_i < owners.GetCount())
+	int profile_i = FindArrayIndex(profiles, p.GetProfileIndex());
+	if (profile_i >= 0 && profile_i < profiles.GetCount())
 		profiles.SetCursor(profile_i);
 	else if (!profiles.IsCursor() && profiles.GetCount())
 		profiles.SetCursor(0);

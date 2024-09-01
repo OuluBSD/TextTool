@@ -112,3 +112,12 @@ void SetCountWithDefaultCursor(ArrayCtrl& arr, int count, int sort_row, bool des
 	if (!arr.IsCursor() && arr.GetCount())
 		arr.SetCursor(0);
 }
+
+int FindArrayIndex(ArrayCtrl& arr, int idx) {
+	for(int i = 0; i < arr.GetCount(); i++) {
+		int idx1 = arr.Get(i, "IDX");
+		if (idx1 == idx)
+			return i;
+	}
+	return -1;
+}
