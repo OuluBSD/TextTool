@@ -50,7 +50,6 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 	PostCallback([this]{
 		DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 		b.SetMode(0);
-		UpdateNavigator();
 		Data();
 	});
 }
@@ -103,7 +102,6 @@ void ScriptReferenceMakerCtrl::UpdateMode() {
 	DatabaseBrowser& b = DatabaseBrowser::Single(this->GetAppMode());
 	b.SetMode(GetActiveMode());
 	b.ResetCursor();
-	db0.UpdateNavigator();
 	db0.Data();
 	db0.WhenBrowserCursor(); // OnBrowserCursor
 }
@@ -173,8 +171,11 @@ void ScriptPhrasePartsGroups::SetModeCursor(int i) {
 }
 
 void ScriptPhrasePartsGroups::Data() {
+	UpdateNavigator();
+	
 	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 	b.SetCtrl(o);
+	
 	
 	//INHIBIT_ACTION(mode);
 	//auto* line = o.content.GetActiveLine();

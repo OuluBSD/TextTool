@@ -85,7 +85,25 @@ void ScriptReferenceMakerCtrl::DataPart() {
 	DataLine();
 }
 
-void ScriptReferenceMakerCtrl::DataLine() {
+void NavigatorState::Clear() {
+	line = 0;
+	depth = -1;
+	el = 0;
+	sorter = 0;
+	element.Clear();
+	attr.group.Clear();
+	attr.value.Clear();
+	clr_i = -1;
+	act.action.Clear();
+	act.arg.Clear();
+	ActionHeader act;
+	typeclass_i = -1;
+	con_i = -1;
+}
+
+void ScriptReferenceMakerCtrl::ReadNavigatorState(NavigatorState& state, int depth_limit) {
+	state.Clear();
+	
 	const EditorPtrs& p = GetPointers();
 	if (!p.script || !parts.IsCursor())
 		return;
@@ -96,33 +114,67 @@ void ScriptReferenceMakerCtrl::DataLine() {
 	if (line_i < 0) {
 		return;
 	}
-	const DynPart& dp = s.parts[part_i];
-	const PartLineCtrl& pl = content.Get(line_i);
+	DynPart& dp = s.parts[part_i];
+	PartLineCtrl& pl = content.Get(line_i);
+	state.line = &pl;
 	
-	const LineElement* el = 0;
-	if (pl.sub_i < 0 && pl.line_i < 0) {
-		el = &dp.el;
+	#define COPY(v)   if (state.v.IsEmpty()) state.v = el . v;
+	#define COPY_I(v) if (state.v < 0) state.v = el . v;
+	#define COPY_S(v) if (state.v == 0) state.v = el . v;
+	LineElement* elp = 0;
+	if (pl.sub_i >= 0 && pl.line_i >= 0 && depth_limit >= 2) {
+		DynSub& ds = dp.sub[pl.sub_i];
+		DynLine& dl = ds.lines[pl.line_i];
+		auto& el = dl.el;
+		COPY(element)
+		COPY(attr.group)
+		COPY(attr.value)
+		COPY_I(clr_i)
+		COPY(act.action)
+		COPY(act.arg)
+		COPY_I(typeclass_i)
+		COPY_I(con_i)
+		COPY_S(sorter)
+		if (state.el == 0) {state.depth = 2; state.el = &el;}
 	}
-	else if (pl.sub_i >= 0) {
-		const DynSub& ds = dp.sub[pl.sub_i];
-		if (pl.line_i < 0) {
-			el = &ds.el;
-		}
-		else {
-			const DynLine& dl = ds.lines[pl.line_i];
-			el = &dl.el;
-		}
+	if (pl.sub_i >= 0 && depth_limit >= 1) {
+		DynSub& ds = dp.sub[pl.sub_i];
+		auto& el = ds.el;
+		COPY(element)
+		COPY(attr.group)
+		COPY(attr.value)
+		COPY_I(clr_i)
+		COPY(act.action)
+		COPY(act.arg)
+		COPY_I(typeclass_i)
+		COPY_I(con_i)
+		COPY_S(sorter)
+		if (state.el == 0) {state.depth = 1; state.el = &el;}
 	}
+	if (depth_limit >= 0) {
+		auto& el = dp.el;
+		COPY(element)
+		COPY(attr.group)
+		COPY(attr.value)
+		COPY_I(clr_i)
+		COPY(act.action)
+		COPY(act.arg)
+		COPY_I(typeclass_i)
+		COPY_I(con_i)
+		COPY_S(sorter)
+		if (state.el == 0) {state.depth = 0; state.el = &el;}
+	}
+}
+
+void ScriptReferenceMakerCtrl::DataLine() {
+	NavigatorState s;
+	ReadNavigatorState(s);
 	
-	if (!el) {
-		return;
-	}
-	
-	int mode_cursor = 1 + DatabaseBrowser::FindMode(el->sorter);
+	int mode_cursor = 1 + DatabaseBrowser::FindMode(s.el ? s.el->sorter : 0);
 	db0.SetModeCursor(mode_cursor);
 	
 	DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
-	b.SetAll(el->sorter, el->element, el->attr, el->clr_i, el->act, el->typeclass_i, el->con_i);
+	b.SetAll(s.sorter, s.element, s.attr, s.clr_i, s.act, s.typeclass_i, s.con_i);
 		
 	db0.Data();
 }
@@ -150,74 +202,53 @@ void ScriptReferenceMakerCtrl::MakeLines() {
 }
 
 void ScriptReferenceMakerCtrl::OnBrowserCursor() {
-	DatabaseBrowser& b = DatabaseBrowser::Single(this->GetAppMode());
+	NavigatorState s;
+	ReadNavigatorState(s); // Get current state
 	
-	const EditorPtrs& p = GetPointers();
-	if (!p.script || !parts.IsCursor())
+	if (!s.el || !s.line)
 		return;
+	auto& el = *s.el;
+	auto& line = *s.line;
 	
-	Script& s = *p.script;
-	int part_i = parts.GetCursor();
-	DynPart& dp = s.parts[part_i];
+	ReadNavigatorState(s, s.depth-1); // Get inherited state only
 	
-	LineElement* el = 0;
-	PartLineCtrl* plp = 0;
-	for(int i = 0; i < content.lines.GetCount(); i++) {
-		PartLineCtrl& pl = content.lines[i];
-		
-		if (pl.IsSelected()) {
-			plp = &pl;
-			if (pl.sub_i < 0 && pl.line_i < 0) {
-				el = &dp.el;
-			}
-			else if (pl.sub_i >= 0) {
-				DynSub& ds = dp.sub[pl.sub_i];
-				if (pl.line_i < 0) {
-					el = &ds.el;
-				}
-				else {
-					DynLine& dl = ds.lines[pl.line_i];
-					el = &dl.el;
-				}
-			}
-		}
+	
+	// Compare to inherited state, and clear value, if same as inherited
+	#define ITEM_STR(x, arr) {String str = db0.arr.Get("STR"); el.x = str == s.x ? String() : str;}
+	#define ITEM_INT(x, arr) {int i = db0.arr.Get("INT"); el.x = i == s.x ? -1 : i;}
+	
+	{
+		hash_t sorter = db0.GetModeHash();
+		el.sorter = sorter == s.sorter ? 0 : sorter;
 	}
-	if (!el || !plp)
-		return;
 	
-	/*int attr_i = b.GetCur(0);
-	int clr_i = b.GetCur(1);
-	int action_i = b.GetCur(2);
-	int arg_i = b.GetCur(3);*/
-	
-	el->sorter = db0.GetModeHash();
 	if (db0.elements.IsCursor()) {
-		el->element		= db0.elements.Get("STR");
+		ITEM_STR(element, elements)
 	}
 	if (db0.attr_groups.IsCursor()) {
-		el->attr.group	= db0.attr_groups.Get("STR");
+		ITEM_STR(attr.group, attr_groups)
 	}
 	if (db0.attr_values.IsCursor()) {
-		el->attr.value	= db0.attr_values.Get("STR");
+		ITEM_STR(attr.value, attr_values)
 	}
 	if (db0.colors.IsCursor()) {
-		el->clr_i		= db0.colors.Get("INT");
+		ITEM_INT(clr_i, colors);
 	}
 	if (db0.actions.IsCursor()) {
-		el->act.action	= db0.actions.Get("STR");
+		ITEM_STR(act.action, actions)
 	}
 	if (db0.action_args.IsCursor()) {
-		el->act.arg		= db0.action_args.Get("STR");
+		ITEM_STR(act.arg, action_args)
 	}
 	if (db0.typeclasses.IsCursor()) {
-		el->typeclass_i	= db0.typeclasses.Get("INT");
+		ITEM_INT(typeclass_i, typeclasses);
 	}
 	if (db0.contents.IsCursor()) {
-		el->con_i		= db0.contents.Get("INT");
+		ITEM_INT(con_i, contents);
 	}
 	
 	
-	plp->Refresh();
+	line.Refresh();
 }
 
 void ScriptReferenceMakerCtrl::OnValueChange() {

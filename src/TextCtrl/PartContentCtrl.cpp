@@ -163,7 +163,7 @@ void PartLineCtrl::PaintTextBlock(Draw& d, int& x, int off, Rect& out, Color bg,
 	d.DrawLine(x,0, x+sz.cx-1,0, 1, border);
 	d.DrawLine(x,sz.cy-1, x+sz.cx-1,sz.cy-1, 1, border);
 	d.DrawLine(x,0, x,sz.cy-1, 1, border);
-	d.DrawLine(x+sz.cx-1,0, x+sz.cx-1,sz.cy-1, 1, border);
+	d.DrawLine(x+sz.cx-1,0, x+sz.cx-1,sz.cy, 1, border);
 	
 	d.DrawText(x+off,0, txt, fnt, Black());
 	x += sz.cx + 5;

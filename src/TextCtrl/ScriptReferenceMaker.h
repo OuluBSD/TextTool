@@ -108,6 +108,20 @@ public:
 	
 };
 
+struct NavigatorState {
+	PartLineCtrl* line = 0;
+	int depth = -1;
+	LineElement* el = 0;
+	hash_t sorter = 0;
+	String element;
+	AttrHeader attr;
+	int clr_i = -1;
+	ActionHeader act;
+	int typeclass_i = -1;
+	int con_i = -1;
+	void Clear();
+};
+
 class ScriptReferenceMakerCtrl : public ToolAppCtrl {
 	
 protected:
@@ -137,6 +151,7 @@ public:
 	void UpdateMode();
 	int GetActiveMode();
 	int GetInheritedMode();
+	void ReadNavigatorState(NavigatorState& state, int depth_limit=INT_MAX);
 	
 };
 
