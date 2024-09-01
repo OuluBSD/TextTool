@@ -65,11 +65,7 @@ String DynPart::GetLineElementString(int line) const {
 		for(int j = 0; j < ds.lines.GetCount(); j++) {
 			const DynLine& dl = ds.lines[j];
 			if (line == line_i) {
-				if (ds.element0.GetCount() && ds.element1.GetCount())
-					return ds.element0 + ", " + ds.element1;
-				if (ds.element0.GetCount())
-					return ds.element0;
-				return ds.element1;
+				return ds.el.element;
 			}
 			line_i++;
 		}
@@ -343,19 +339,19 @@ void Script::LoadStructuredText(const String& s) {
 				if (level == 0) {
 					part = &parts.Add();
 					ParseTextPartType(part_name, part->text_type, part->text_num);
-					part->element = el;
+					part->el.element = el;
 				}
 				else if (level == 1) {
 					el1 = el;
 					sub = &part->sub.Add();
-					sub->element0 = el;
+					sub->el.element = el;
 				}
 				else if (level == 2) {
 					if (sub->lines.GetCount()) {
 						sub = &part->sub.Add();
-						sub->element0 = el1;
+						sub->el.element = el1;
 					}
-					sub->element1 = el;
+					sub->el.element = el;
 				}
 			}
 		}

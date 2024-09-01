@@ -35,8 +35,6 @@ void PartLineCtrl::Paint(Draw& d) {
 	if (sub_i >= 0) d.DrawRect(sub_bg_r, sub_bg_clr);
 	if (line_i >= 0) d.DrawRect(line_bg_r, line_bg_clr);
 	
-	
-	
 	// Line texts
 	const EditorPtrs& p = o.o.GetPointers();
 	Script& s = *p.script;
@@ -79,8 +77,6 @@ void PartLineCtrl::Paint(Draw& d) {
 		int y_2 = sz.cy / 2;
 		d.DrawText(left+off, y_2+off, dl.text, sans, Black());
 	}
-	
-	
 	
 	if (el) {
 		off = 5;
@@ -140,12 +136,18 @@ void PartLineCtrl::Paint(Draw& d) {
 	}
 	
 	
+	
 	// Focus highlight
 	if (focused) {
 		Color c = LtRed();
 		int y = sz.cy-1;
-		d.DrawLine(0,0,sz.cx-1,0,1,c);
+		d.DrawLine(0,0,sz.cx-1,0,1,Blend(c,White()));
 		d.DrawLine(0,y,sz.cx-1,y,1,c);
+	}
+	else {
+		// Top border
+		d.DrawLine(0,0,sz.cx,0,1,White());
+		d.DrawLine(0,sz.cy-1,sz.cx,sz.cy-1,1,GrayColor(128+64));
 	}
 }
 
@@ -156,17 +158,21 @@ void PartLineCtrl::PaintTextBlock(Draw& d, int& x, int off, Rect& out, Color bg,
 	Size sz = GetTextSize(txt, fnt);
 	sz.cx += off * 2;
 	sz.cx = max(sz.cx, 30);
-	Rect r = RectC(x,0,sz.cx,sz.cy);
+	Rect r = RectC(x,1,sz.cx,sz.cy-1);
 	d.DrawRect(r, bg);
 	
 	Color border = Blend(bg, Black());
-	d.DrawLine(x,0, x+sz.cx-1,0, 1, border);
-	d.DrawLine(x,sz.cy-1, x+sz.cx-1,sz.cy-1, 1, border);
-	d.DrawLine(x,0, x,sz.cy-1, 1, border);
-	d.DrawLine(x+sz.cx-1,0, x+sz.cx-1,sz.cy, 1, border);
+	d.DrawLine(x,1, x+sz.cx-1,1, 1, border);
+	d.DrawLine(x,sz.cy, x+sz.cx-1,sz.cy, 1, border);
+	d.DrawLine(x,1, x,sz.cy-1, 1, border);
+	d.DrawLine(x+sz.cx-1,1, x+sz.cx-1,sz.cy, 1, border);
 	
-	d.DrawText(x+off,0, txt, fnt, Black());
+	d.DrawText(x+off,1, txt, fnt, Black());
 	x += sz.cx + 5;
+}
+
+void PartLineCtrl::MouseWheel(Point p, int zdelta, dword keyflags) {
+	o.scroll.Wheel(zdelta);
 }
 
 void PartLineCtrl::LeftDown(Point p, dword keyflags) {
@@ -608,14 +614,14 @@ void PartContentCtrl::OnElementChange(int sub_i, int line_i, DropList* dl) {
 	DynPart& dp = s.parts[part_i];
 	
 	if (sub_i < 0) {
-		dp.element = ToLower((String)dl->GetKey(dl->GetIndex()));
+		dp.el.element = ToLower((String)dl->GetKey(dl->GetIndex()));
 	}
 	else {
 		DynSub& ds = dp.sub[sub_i];
 		if (line_i < 0)
-			ds.element0 = ToLower((String)dl->GetKey(dl->GetIndex()));
+			ds.el.element = ToLower((String)dl->GetKey(dl->GetIndex()));
 		else
-			ds.lines[line_i].element = ToLower((String)dl->GetKey(dl->GetIndex()));
+			ds.lines[line_i].el.element = ToLower((String)dl->GetKey(dl->GetIndex()));
 	}
 }
 

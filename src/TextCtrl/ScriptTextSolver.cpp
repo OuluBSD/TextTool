@@ -91,8 +91,7 @@ ScriptTextSolverCtrl::ScriptTextSolverCtrl() {
 	sub_tab.Add(sub_split.SizePos());
 	sub_split.Vert() << sub_form << sub_suggs;
 	sub_split.SetPos(2000);
-	sub_form.element0 <<= THISBACK(OnValueChange);
-	sub_form.element1 <<= THISBACK(OnValueChange);
+	sub_form.element <<= THISBACK(OnValueChange);
 	
 	
 	
@@ -321,7 +320,7 @@ void ScriptTextSolverCtrl::DataPart() {
 	
 	if (editor.selected_part) {
 		const DynPart& part = *editor.selected_part;
-		int el_i = da.element_keys.Find(part.element) + 1;
+		int el_i = da.element_keys.Find(part.el.element) + 1;
 		part_form.element.SetIndex(el_i);
 		part_form.text_num.SetData(part.text_num+1);
 		part_form.text_type.SetIndex((int)part.text_type);
@@ -336,21 +335,17 @@ void ScriptTextSolverCtrl::DataSub() {
 	DatasetAnalysis& da = sda.dataset;
 	Script& s = GetScript();
 	
-	if (sub_form.element0.GetCount() == 0) {
-		sub_form.element0.Add("");
-		sub_form.element1.Add("");
+	if (sub_form.element.GetCount() == 0) {
+		sub_form.element.Add("");
 		for(int i = 0; i < da.element_keys.GetCount(); i++) {
-			sub_form.element0.Add(da.element_keys[i]);
-			sub_form.element1.Add(da.element_keys[i]);
+			sub_form.element.Add(da.element_keys[i]);
 		}
 	}
 	
 	if (editor.selected_sub) {
 		const DynSub& sub = *editor.selected_sub;
-		int el0_i = da.element_keys.Find(sub.element0) + 1;
-		int el1_i = da.element_keys.Find(sub.element1) + 1;
-		sub_form.element0.SetIndex(el0_i);
-		sub_form.element1.SetIndex(el1_i);
+		int el_i = da.element_keys.Find(sub.el.element) + 1;
+		sub_form.element.SetIndex(el_i);
 	}
 	
 }
@@ -448,7 +443,7 @@ void ScriptTextSolverCtrl::OnValueChange() {
 	if (editor.selected_part) {
 		DynPart& part = *const_cast<DynPart*>(editor.selected_part);
 		int el_i = part_form.element.GetIndex();
-		part.element = el_i >= 0 ? da.element_keys[el_i] : String();
+		part.el.element = el_i >= 0 ? da.element_keys[el_i] : String();
 		part.text_num = (int)part_form.text_num.GetData() - 1;
 		part.text_type = (TextPartType)part_form.text_type.GetIndex();
 		
@@ -457,10 +452,8 @@ void ScriptTextSolverCtrl::OnValueChange() {
 	
 	if (editor.selected_sub) {
 		DynSub& sub = *const_cast<DynSub*>(editor.selected_sub);
-		int el0_i = sub_form.element0.GetIndex() - 1;
-		int el1_i = sub_form.element1.GetIndex() - 1;
-		sub.element0 = el0_i >= 0 ? da.element_keys[el0_i] : String();
-		sub.element1 = el1_i >= 0 ? da.element_keys[el1_i] : String();
+		int el_i = sub_form.element.GetIndex() - 1;
+		sub.el.element = el_i >= 0 ? da.element_keys[el_i] : String();
 		
 		editor.Refresh();
 	}

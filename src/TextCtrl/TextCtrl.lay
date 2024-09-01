@@ -376,9 +376,7 @@ END_LAYOUT
 
 LAYOUT(EditorSub, 400, 76)
 	ITEM(Upp::Label, dv___0, SetLabel(t_("Element 1:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(4, 100).TopPosZ(4, 19))
-	ITEM(Upp::DropList, element0, HSizePosZ(108, 4).TopPosZ(4, 19))
-	ITEM(Upp::Label, dv___2, SetLabel(t_("Element 2:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(4, 100).TopPosZ(28, 19))
-	ITEM(Upp::DropList, element1, HSizePosZ(108, 4).TopPosZ(28, 19))
+	ITEM(Upp::DropList, element, HSizePosZ(108, 4).TopPosZ(4, 19))
 END_LAYOUT
 
 LAYOUT(PartInfo, 236, 320)

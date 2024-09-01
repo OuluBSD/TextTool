@@ -54,7 +54,6 @@ struct DynLine : Moveable<DynLine> {
 	String			alt_text;
 	String			edit_text;
 	String			user_text;
-	String			element; // Deprecated
 	Vector<String>	suggs;
 	int				pp_i = -1;
 	int				end_pp_i = -1;
@@ -66,28 +65,38 @@ struct DynLine : Moveable<DynLine> {
 			("alt_text", alt_text)
 			("edit_text", edit_text)
 			("user_text", user_text)
-			("element", element)
 			("el", el)
 			("suggs", suggs)
 			("pp_i", pp_i)
 			("end_pp_i", end_pp_i)
 			;
+		if (json.IsLoading()) {
+			String element;
+			json("element", element);
+			if (!element.IsEmpty() && el.element.IsEmpty())
+				el.element = element;
+		}
 	}
 };
 
 struct DynSub : Moveable<DynSub> {
 	LineElement		el;
 	Vector<DynLine>	lines;
-	String element0; // Deprecated
-	String element1; // Deprecated
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("lines", lines)
 			("el", el)
-			("element0", element0)
-			("element1", element1)
 			;
+		if (json.IsLoading()) {
+			String e0, e1;
+			json("element0", e0);
+			json("element1", e1);
+			if (!e0.IsEmpty() && el.element.IsEmpty())
+				el.element = e0;
+			if (!e1.IsEmpty() && el.element.IsEmpty())
+				el.element = e1;
+		}
 	}
 };
 
@@ -98,7 +107,6 @@ struct DynPart {
 	int				text_lines = 0;
 	int				text_lines_per_sub = 0;
 	String			person;
-	String			element; // Deprecated
 	LineElement		el;
 	Vector<DynSub>	sub;
 	Vector<int>		phrase_parts;
@@ -111,11 +119,16 @@ struct DynPart {
 			("text_lines", text_lines)
 			("text_lines_per_sub", text_lines_per_sub)
 			("person", person)
-			("element", element)
 			("el", el)
 			("sub", sub)
 			("phrase_parts", phrase_parts)
 			;
+		if (json.IsLoading()) {
+			String element;
+			json("element", element);
+			if (!element.IsEmpty() && el.element.IsEmpty())
+				el.element = element;
+		}
 	}
 	String GetName(int appmode) const;
 	int GetExpectedLineCount() const;

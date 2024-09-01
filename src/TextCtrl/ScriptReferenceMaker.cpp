@@ -49,7 +49,7 @@ void ScriptReferenceMakerCtrl::Data() {
 		const DynPart& p = s.parts[i];
 		String name = p.GetName(appmode);
 		parts.Set(i, 0, name);
-		parts.Set(i, 1, Capitalize(p.element));
+		parts.Set(i, 1, Capitalize(p.el.element));
 	}
 	parts.SetCount(s.parts.GetCount());
 	INHIBIT_CURSOR(parts);
@@ -115,6 +115,8 @@ void ScriptReferenceMakerCtrl::ReadNavigatorState(NavigatorState& state, int dep
 		return;
 	}
 	DynPart& dp = s.parts[part_i];
+	if (line_i >= content.GetLineCount())
+		return;
 	PartLineCtrl& pl = content.Get(line_i);
 	state.line = &pl;
 	
@@ -268,7 +270,7 @@ void ScriptReferenceMakerCtrl::OnValueChange() {
 	
 	String name = dp.GetName(GetAppMode());
 	parts.Set(0, name);
-	parts.Set(1, Capitalize(dp.element));
+	parts.Set(1, Capitalize(dp.el.element));
 }
 
 void ScriptReferenceMakerCtrl::ToolMenu(Bar& bar) {

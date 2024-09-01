@@ -212,7 +212,7 @@ void StructuredScriptEditor::Paint(Draw& d) {
 		const DynPart& dp = s.parts[i];
 		
 		String txt = GetTextTypeString(dp.text_type) + " " + IntStr(dp.text_num+1);
-		if (dp.element.GetCount()) txt << ": " << dp.element;
+		if (dp.el.element.GetCount()) txt << ": " << dp.el.element;
 		
 		bool sel = &dp == selected_part;
 		Color part_clr = sel ? Blend(part_bg, sel_clr) : part_bg;
@@ -231,8 +231,7 @@ void StructuredScriptEditor::Paint(Draw& d) {
 			const DynSub& ds = dp.sub[j];
 			
 			txt.Clear();
-			if (ds.element0.GetCount()) txt << ds.element0;
-			if (ds.element1.GetCount()) {if (txt.GetCount()) txt << ", "; txt << ds.element1;}
+			if (ds.el.element.GetCount()) txt << ds.el.element;
 			
 			bool sel = &ds == selected_sub;
 			Color sub_clr = sel ? Blend(sub_bg, sel_clr) : sub_bg;

@@ -29,6 +29,7 @@ public:
 	void GotFocus() override;
 	void LostFocus() override;
 	bool Key(dword key, int count) override;
+	void MouseWheel(Point p, int zdelta, dword keyflags) override;
 	
 	void Select();
 	bool IsSelected() const;
@@ -71,6 +72,7 @@ public:
 	void Select(PartLineCtrl* line);
 	int Find(const PartLineCtrl* line) const;
 	PartLineCtrl* GetActiveLine();
+	int GetLineCount() const {return lines.GetCount();}
 	
 	Event<> WhenCursor;
 	

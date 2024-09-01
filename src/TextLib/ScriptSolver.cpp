@@ -135,14 +135,14 @@ void ScriptSolver::ProcessFillLines() {
 		auto& l = sugg.parts[i];
 		const auto& lines = l.lines;
 		DynPart& sp = song.parts[i];
-		args.elements.Add(sp.element);
+		args.elements.Add(sp.el.element);
 		int len = sp.GetExpectedLineCount();
 		if (active_part == -1 && lines.GetCount() < len) {
 			active_part = i; // Set active part to get new lines for
 		}
 		if (lines.IsEmpty()) continue;
 		
-		String s = sugg.parts[i].name + " (" + sp.element + ")";
+		String s = sugg.parts[i].name + " (" + sp.el.element + ")";
 		args.song.Add(s) = Join(lines, "\n");
 	}
 	
@@ -1408,9 +1408,8 @@ void ScriptSolver::GetSuggestions(const DynPart& part, const DynSub& sub, const 
 	}
 	
 	Index<String> elements;
-	if (part.element.GetCount()) elements.FindAdd(part.element);
-	if (sub.element0.GetCount()) elements.FindAdd(sub.element0);
-	if (sub.element1.GetCount()) elements.FindAdd(sub.element1);
+	if (part.el.element.GetCount()) elements.FindAdd(part.el.element);
+	if (sub.el.element.GetCount()) elements.FindAdd(sub.el.element);
 	args.elements <<= elements.GetKeys();
 	
 	TaskMgr& m = TaskMgr::Single();
