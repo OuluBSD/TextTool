@@ -12,6 +12,25 @@ struct VMapSumSorter {
 	}
 };
 
+#define DBROWSER_MODE_LIST \
+	MODE(ELEMENT_ATTR_COLOR_ACTION) \
+	MODE(ELEMENT_COLOR_ATTR_ACTION) \
+	MODE(ELEMENT_COLOR_CONTENT_TYPECLASS) \
+	MODE(vELEMENT_COLOR_TYPECLASS_CONTENT) \
+	MODE(ATTR_COLOR_ACTION) \
+	MODE(ATTR_ACTION_COLOR) \
+	MODE(COLOR_ELEMENT_ATTR_ACTION) \
+	MODE(COLOR_ACTION_ATTR) \
+	MODE(COLOR_ATTR_ACTION) \
+	MODE(ACTION_COLOR_ATTR) \
+	MODE(ACTION_ATTR_COLOR) \
+	MODE(TYPECLASS_CONTENT_COLOR) \
+	MODE(TYPECLASS_COLOR_CONTENT) \
+	MODE(CONTENT_TYPECLASS_COLOR) \
+	MODE(CONTENT_COLOR_TYPECLASS) \
+	MODE(COLOR_CONTENT_TYPECLASS) \
+	
+
 class DatabaseBrowser {
 	
 public:
@@ -25,7 +44,7 @@ public:
 		ACTION_ARG,
 		ELEMENT,
 		TYPECLASS,
-		CONTRAST,
+		CONTENT,
 		
 		TYPE_COUNT
 	} ColumnType;
@@ -34,26 +53,13 @@ public:
 	static String GetTypeString(ColumnType t);
 	
 	enum {
-		ELEMENT_ATTR_COLOR_ACTION,
-		ELEMENT_COLOR_ATTR_ACTION,
-		ELEMENT_COLOR_CONTENT_TYPECLASS,
-		ELEMENT_COLOR_TYPECLASS_CONTENT,
-		ATTR_COLOR_ACTION,
-		ATTR_ACTION_COLOR,
-		COLOR_ELEMENT_ATTR_ACTION,
-		COLOR_ACTION_ATTR,
-		COLOR_ATTR_ACTION,
-		ACTION_COLOR_ATTR,
-		ACTION_ATTR_COLOR,
-		TYPECLASS_CONTENT_COLOR,
-		TYPECLASS_COLOR_CONTENT,
-		CONTENT_TYPECLASS_COLOR,
-		CONTENT_COLOR_TYPECLASS,
-		COLOR_CONTENT_TYPECLASS,
-		COLOR_TYPECLASS_CONTENT,
+		#define MODE(x) x,
+		DBROWSER_MODE_LIST
+		#undef MODE
 		
 		MODE_COUNT
 	};
+	static String GetModeKey(int i);
 	static String GetModeString(int i);
 	
 private:
@@ -108,6 +114,8 @@ public:
 	void Init();
 	void Update();
 	void SetMode(int i);
+	static int FindMode(hash_t h);
+	static hash_t GetModeHash(int mode);
 	void SetMidRhymeFilter(WString wrd, bool up=true);
 	void SetEndRhymeFilter(WString wrd, bool up=true);
 	void SetMidRhymingLimit(double d, bool up=true);
@@ -131,7 +139,7 @@ public:
 	bool IsSub(int cur, int cursor_i) const;
 	double GetMidRhymingLimit() const {return mid_rhyme_distance_limit;}
 	double GetEndRhymingLimit() const {return end_rhyme_distance_limit;}
-	void SetAll(const String& element, const AttrHeader& attr, int clr, const ActionHeader& act, int tc_i, int con_i);
+	void SetAll(hash_t sorter, const String& element, const AttrHeader& attr, int clr, const ActionHeader& act, int tc_i, int con_i);
 	int FindAction(const String& s);
 	int FindArg(const String& s);
 	void RealizeUniqueAttrs();

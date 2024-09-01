@@ -18,36 +18,45 @@ String DatabaseBrowser::GetTypeString(ColumnType t) {
 		ITEM(ACTION_ARG)
 		ITEM(ELEMENT)
 		ITEM(TYPECLASS)
-		ITEM(CONTRAST)
+		ITEM(CONTENT)
 		default: return "ERROR";
+	}
+}
+#undef ITEM
+
+String DatabaseBrowser::GetModeKey(int i) {
+	switch (i) {
+		#define MODE(x) case x: return #x;
+		DBROWSER_MODE_LIST
+		#undef MODE
+		default: return "";
 	}
 }
 
 String DatabaseBrowser::GetModeString(int i) {
 	switch (i) {
-		ITEM(ELEMENT_ATTR_COLOR_ACTION)
-		ITEM(ELEMENT_COLOR_ATTR_ACTION)
-		ITEM(ELEMENT_COLOR_CONTENT_TYPECLASS)
-		ITEM(ELEMENT_COLOR_TYPECLASS_CONTENT)
-		ITEM(ATTR_COLOR_ACTION)
-		ITEM(ATTR_ACTION_COLOR)
-		ITEM(COLOR_ELEMENT_ATTR_ACTION)
-		ITEM(COLOR_ACTION_ATTR)
-		ITEM(COLOR_ATTR_ACTION)
-		ITEM(ACTION_COLOR_ATTR)
-		ITEM(ACTION_ATTR_COLOR)
-		ITEM(TYPECLASS_CONTENT_COLOR)
-		ITEM(TYPECLASS_COLOR_CONTENT)
-		ITEM(CONTENT_TYPECLASS_COLOR)
-		ITEM(CONTENT_COLOR_TYPECLASS)
-		ITEM(COLOR_CONTENT_TYPECLASS)
-		ITEM(COLOR_TYPECLASS_CONTENT)
+		#define MODE(x) case x: return KeyToName(#x);
+		DBROWSER_MODE_LIST
+		#undef MODE
 		default: return "ERROR";
 	}
 }
 
-#undef ITEM
-	
+
+
+int DatabaseBrowser::FindMode(hash_t h) {
+	for(int i = 0; i < MODE_COUNT; i++) {
+		if (GetModeHash(i) == h)
+			return i;
+	}
+	return -1;
+}
+
+hash_t DatabaseBrowser::GetModeHash(int mode) {
+	if (mode < 0 || mode >= MODE_COUNT) return 0;
+	return GetModeString(mode).GetHashValue();
+}
+
 void DatabaseBrowser::SetMode(int i) {
 	if (i == mode)
 		return;
@@ -58,116 +67,15 @@ void DatabaseBrowser::SetMode(int i) {
 	for(int i = 0; i < TYPE_COUNT; i++)
 		order[i] = INVALID;
 	int o = 0;
-	switch (mode) {
-	case ELEMENT_ATTR_COLOR_ACTION:
-		order[o++] = ELEMENT;
-		order[o++] = ATTR_GROUP;
-		order[o++] = ATTR_VALUE;
-		order[o++] = COLOR;
-		order[o++] = ACTION;
-		order[o++] = ACTION_ARG;
-		break;
-	case ELEMENT_COLOR_ATTR_ACTION:
-		order[o++] = ELEMENT;
-		order[o++] = COLOR;
-		order[o++] = ATTR_GROUP;
-		order[o++] = ATTR_VALUE;
-		order[o++] = ACTION;
-		order[o++] = ACTION_ARG;
-		break;
-	case ELEMENT_COLOR_CONTENT_TYPECLASS:
-		order[o++] = ELEMENT;
-		order[o++] = COLOR;
-		order[o++] = CONTRAST;
-		order[o++] = TYPECLASS;
-		break;
-	case ELEMENT_COLOR_TYPECLASS_CONTENT:
-		order[o++] = ELEMENT;
-		order[o++] = COLOR;
-		order[o++] = TYPECLASS;
-		order[o++] = CONTRAST;
-		break;
-	case ATTR_COLOR_ACTION:
-		order[o++] = ATTR_GROUP;
-		order[o++] = ATTR_VALUE;
-		order[o++] = COLOR;
-		order[o++] = ACTION;
-		order[o++] = ACTION_ARG;
-		break;
-	case ATTR_ACTION_COLOR:
-		order[o++] = ATTR_GROUP;
-		order[o++] = ATTR_VALUE;
-		order[o++] = ACTION;
-		order[o++] = ACTION_ARG;
-		order[o++] = COLOR;
-		break;
-	case COLOR_ELEMENT_ATTR_ACTION:
-		order[o++] = COLOR;
-		order[o++] = ELEMENT;
-		order[o++] = ATTR_GROUP;
-		order[o++] = ATTR_VALUE;
-		order[o++] = ACTION;
-		order[o++] = ACTION_ARG;
-		break;
-	case COLOR_ACTION_ATTR:
-		order[o++] = COLOR;
-		order[o++] = ACTION;
-		order[o++] = ACTION_ARG;
-		order[o++] = ATTR_GROUP;
-		order[o++] = ATTR_VALUE;
-		break;
-	case COLOR_ATTR_ACTION:
-		order[o++] = COLOR;
-		order[o++] = ATTR_GROUP;
-		order[o++] = ATTR_VALUE;
-		order[o++] = ACTION;
-		order[o++] = ACTION_ARG;
-		break;
-	case ACTION_COLOR_ATTR:
-		order[o++] = ACTION;
-		order[o++] = ACTION_ARG;
-		order[o++] = COLOR;
-		order[o++] = ATTR_GROUP;
-		order[o++] = ATTR_VALUE;
-		break;
-	case ACTION_ATTR_COLOR:
-		order[o++] = ACTION;
-		order[o++] = ACTION_ARG;
-		order[o++] = ATTR_GROUP;
-		order[o++] = ATTR_VALUE;
-		order[o++] = COLOR;
-		break;
-	case TYPECLASS_CONTENT_COLOR:
-		order[o++] = TYPECLASS;
-		order[o++] = CONTRAST;
-		order[o++] = COLOR;
-		break;
-	case TYPECLASS_COLOR_CONTENT:
-		order[o++] = TYPECLASS;
-		order[o++] = COLOR;
-		order[o++] = CONTRAST;
-		break;
-	case CONTENT_TYPECLASS_COLOR:
-		order[o++] = CONTRAST;
-		order[o++] = TYPECLASS;
-		order[o++] = COLOR;
-		break;
-	case CONTENT_COLOR_TYPECLASS:
-		order[o++] = CONTRAST;
-		order[o++] = COLOR;
-		order[o++] = TYPECLASS;
-		break;
-	case COLOR_CONTENT_TYPECLASS:
-		order[o++] = COLOR;
-		order[o++] = CONTRAST;
-		order[o++] = TYPECLASS;
-		break;
-	case COLOR_TYPECLASS_CONTENT:
-		order[o++] = COLOR;
-		order[o++] = TYPECLASS;
-		order[o++] = CONTRAST;
-		break;
-	default: TODO; break;
+	Vector<String> parts = Split(GetModeKey(mode), "_");
+	for (String& part : parts) {
+		if      (part == "ELEMENT")		{order[o++] = ELEMENT;}
+		else if (part == "ATTR")		{order[o++] = ATTR_GROUP; order[o++] = ATTR_VALUE;}
+		else if (part == "COLOR")		{order[o++] = COLOR;}
+		else if (part == "ACTION")		{order[o++] = ACTION; order[o++] = ACTION_ARG;}
+		else if (part == "CONTENT")		{order[o++] = CONTENT;}
+		else if (part == "TYPECLASS")	{order[o++] = TYPECLASS;}
+		else TODO;
 	}
 	
 	Init();
@@ -195,8 +103,14 @@ void DatabaseBrowser::ResetCursor() {
 	ResetCursor(-1, INVALID);
 }
 
-void DatabaseBrowser::SetAll(const String& element, const AttrHeader& attr, int clr, const ActionHeader& act, int tc_i, int con_i) {
+void DatabaseBrowser::SetAll(hash_t sorter, const String& element, const AttrHeader& attr, int clr, const ActionHeader& act, int tc_i, int con_i) {
 	SetInitialData();
+	
+	if (sorter) {
+		int m = FindMode(sorter);
+		if (m >= 0)
+			SetMode(m);
+	}
 	
 	for(int i = 0; i < TYPE_COUNT; i++) {
 		auto t = order[i];
@@ -286,8 +200,8 @@ void DatabaseBrowser::SetAll(const String& element, const AttrHeader& attr, int 
 				}
 				break;
 			}
-			case CONTRAST: {
-				const auto& args = Get(CONTRAST);
+			case CONTENT: {
+				const auto& args = Get(CONTENT);
 				for(int i = 0; i < args.GetCount(); i++) {
 					if (args[i].idx == con_i) {
 						tgt = i;

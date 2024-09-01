@@ -229,7 +229,7 @@ void DatabaseBrowser::FillItems(ColumnType t) {
 			}
 			break;
 		}
-		case CONTRAST: {
+		case CONTENT: {
 			VectorMap<int,int> vmap;
 			for (int pp_i : phrase_parts) {
 				const PhrasePart& pp = da.phrase_parts[pp_i];
@@ -409,18 +409,18 @@ void DatabaseBrowser::SetContrast(int i) {
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	
-	auto& cons = Get(CONTRAST);
-	int cur = GetColumnCursor(CONTRAST);
+	auto& cons = Get(CONTENT);
+	int cur = GetColumnCursor(CONTENT);
 	
 	RealizeUniqueActions();
 	
-	if (IsFirstInOrder(CONTRAST)) {
+	if (IsFirstInOrder(CONTENT)) {
 		SetInitialData();
 	}
 	else {
-		FillItems(CONTRAST);
+		FillItems(CONTENT);
 	}
-	SetColumnCursor(CONTRAST, i);
+	SetColumnCursor(CONTENT, i);
 }
 
 void DatabaseBrowser::DataCursorTail(int cursor) {
@@ -441,7 +441,7 @@ void DatabaseBrowser::SetCursor(int c, ColumnType type) {
 		case ACTION:		SetAction(c); break;
 		case ACTION_ARG:	SetActionArg(c); break;
 		case TYPECLASS:		SetTypeclass(c); break;
-		case CONTRAST:		SetContrast(c); break;
+		case CONTENT:		SetContrast(c); break;
 		default:			TODO break;
 	}
 }
@@ -550,7 +550,7 @@ void DatabaseBrowser::FilterData(ColumnType t) {
 					}
 				}
 				break;}
-			case CONTRAST:{
+			case CONTENT:{
 				rem = true;
 				for (int tt : pp.contrasts) {
 					if (tt == filter_idx) {

@@ -34,6 +34,7 @@ struct LineElement {
 	int clr_i = -1;
 	int typeclass_i = -1;
 	int con_i = -1;
+	hash_t sorter = 0;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -43,6 +44,7 @@ struct LineElement {
 			("a", act)
 			("t", typeclass_i)
 			("c", con_i)
+			("s", (int64&)sorter)
 			;
 	}
 };

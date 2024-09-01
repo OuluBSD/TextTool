@@ -9,11 +9,11 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 	Add(mode.TopPos(0,30).HSizePos());
 	Add(hsplit.VSizePos(30,0).HSizePos());
 	
+	mode.Add("Any");
 	for(int i = 0; i < DatabaseBrowser::MODE_COUNT; i++) {
 		mode.Add(DatabaseBrowser::GetModeString(i));
 	}
 	mode.SetIndex(0);
-	mode.WhenAction << THISBACK(UpdateMode);
 	
 	hsplit.Horz() << vsplit << parts;
 	hsplit.SetPos(3000);
@@ -27,7 +27,7 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 	InitArray(action_args, "Arg", DatabaseBrowser::ACTION_ARG);
 	InitArray(elements, "Element", DatabaseBrowser::ELEMENT);
 	InitArray(typeclasses, "Typeclass", DatabaseBrowser::TYPECLASS);
-	InitArray(contrasts, "Contrast", DatabaseBrowser::CONTRAST);
+	InitArray(contents, "Content", DatabaseBrowser::CONTENT);
 	
 	parts.AddColumn(t_("Phrase"));
 	parts.AddColumn(t_("Actions"));
@@ -53,6 +53,13 @@ ScriptPhrasePartsGroups::ScriptPhrasePartsGroups(ToolAppCtrl& o) : o(o) {
 		UpdateNavigator();
 		Data();
 	});
+}
+
+hash_t ScriptPhrasePartsGroups::GetModeHash() const {
+	if (mode.GetCount() == 0)
+		return 0;
+	int idx = mode.GetIndex()-1;
+	return DatabaseBrowser::GetModeHash(idx);
 }
 
 void ScriptPhrasePartsGroups::UpdateNavigator() {
@@ -83,8 +90,8 @@ void ScriptPhrasePartsGroups::UpdateNavigator() {
 			case DatabaseBrowser::TYPECLASS:
 				vsplit << typeclasses;
 				break;
-			case DatabaseBrowser::CONTRAST:
-				vsplit << contrasts;
+			case DatabaseBrowser::CONTENT:
+				vsplit << contents;
 				break;
 			default:
 				break;
@@ -92,12 +99,52 @@ void ScriptPhrasePartsGroups::UpdateNavigator() {
 	}
 }
 
-void ScriptPhrasePartsGroups::UpdateMode() {
-	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
-	b.SetMode(mode.GetIndex());
+void ScriptReferenceMakerCtrl::UpdateMode() {
+	DatabaseBrowser& b = DatabaseBrowser::Single(this->GetAppMode());
+	b.SetMode(GetActiveMode());
 	b.ResetCursor();
-	UpdateNavigator();
-	Data();
+	db0.UpdateNavigator();
+	db0.Data();
+	db0.WhenBrowserCursor(); // OnBrowserCursor
+}
+
+int ScriptReferenceMakerCtrl::GetActiveMode() {
+	int idx = db0.mode.GetIndex()-1;
+	if (idx >= 0)
+		return idx;
+	else
+		return GetInheritedMode();
+}
+
+int ScriptReferenceMakerCtrl::GetInheritedMode() {
+	PartLineCtrl* l = content.GetActiveLine();
+	if (!l)
+		return -1;
+	const EditorPtrs& p = GetPointers();
+	Script& s = *p.script;
+	int part_i = parts.GetCursor();
+	DynPart& dp = s.parts[part_i];
+	LineElement* el = 0;
+	if (l->sub_i >= 0 && l->line_i >= 0) {
+		DynSub& ds = dp.sub[l->sub_i];
+		DynLine& dl = ds.lines[l->line_i];
+		if (dl.el.sorter != 0)
+			el = &dl.el;
+	}
+	if (!el && l->sub_i >= 0) {
+		DynSub& ds = dp.sub[l->sub_i];
+		if (ds.el.sorter != 0)
+			el = &ds.el;
+	}
+	if (!el) {
+		
+		if (dp.el.sorter != 0)
+			el = &dp.el;
+	}
+	if (!el)
+		return -1;
+	int mode =  DatabaseBrowser::FindMode(el->sorter);
+	return mode;
 }
 
 void ScriptPhrasePartsGroups::InitArray(ArrayCtrl& arr, String title, DatabaseBrowser::ColumnType t) {
@@ -120,11 +167,18 @@ void ScriptPhrasePartsGroups::InitArray(ArrayCtrl& arr, String title, DatabaseBr
 	};
 }
 
+void ScriptPhrasePartsGroups::SetModeCursor(int i) {
+	INHIBIT_ACTION(mode);
+	mode.SetIndex(i);
+}
+
 void ScriptPhrasePartsGroups::Data() {
 	DatabaseBrowser& b = DatabaseBrowser::Single(this->o.GetAppMode());
 	b.SetCtrl(o);
 	
-	mode.SetIndex(b.GetMode());
+	//INHIBIT_ACTION(mode);
+	//auto* line = o.content.GetActiveLine();
+	//mode.SetIndex(1 + b.GetMode());
 	
 	FillArrayCtrl(DatabaseBrowser::ATTR_GROUP, attr_groups);
 	FillArrayCtrl(DatabaseBrowser::ATTR_VALUE, attr_values);
@@ -133,7 +187,7 @@ void ScriptPhrasePartsGroups::Data() {
 	FillArrayCtrl(DatabaseBrowser::ACTION_ARG, action_args);
 	FillArrayCtrl(DatabaseBrowser::ELEMENT, elements);
 	FillArrayCtrl(DatabaseBrowser::TYPECLASS, typeclasses);
-	FillArrayCtrl(DatabaseBrowser::CONTRAST, contrasts);
+	FillArrayCtrl(DatabaseBrowser::CONTENT, contents);
 	
 	
 	DataList();

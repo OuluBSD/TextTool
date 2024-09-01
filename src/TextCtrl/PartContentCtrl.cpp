@@ -87,21 +87,57 @@ void PartLineCtrl::Paint(Draw& d) {
 		int x = left;
 		#define RAND_CLR Blend(White(), Color(Random(256),Random(256),Random(256)),128+64)
 		Rect r;
-		Color element_clr, attr_group_clr, attr_value_clr, clr_clr, act_action_clr, act_arg_clr;
+		Color element_clr, attr_group_clr, attr_value_clr, clr_clr, act_action_clr, act_arg_clr, typeclass_clr, content_clr;
 		element_clr = Color(255, 205, 175);
 		attr_group_clr = Color(206, 229, 201);
 		attr_value_clr = Color(217, 241, 211);
 		clr_clr = el->clr_i >= 0 && el->clr_i < GetColorGroupCount() ? GetGroupColor(el->clr_i) : Color(231, 221, 231);
 		act_action_clr = Color(204, 227, 235);
 		act_arg_clr = Color(222, 242, 249);
-		PaintTextBlock(d, x, off, r, element_clr, el->element, sans);
-		PaintTextBlock(d, x, off, r, attr_group_clr, el->attr.group, sans);
-		PaintTextBlock(d, x, off, r, attr_value_clr, el->attr.value, sans);
-		PaintTextBlock(d, x, off, r, clr_clr, IntStr(el->clr_i), sans);
-		PaintTextBlock(d, x, off, r, act_action_clr, el->act.action, sans);
-		PaintTextBlock(d, x, off, r, act_arg_clr, el->act.arg, sans);
+		typeclass_clr = Color(28, 212, 150);
+		content_clr = Color(198, 85, 150);
+		int mode = DatabaseBrowser::FindMode(el->sorter);
+		String tc  = el->typeclass_i >= 0 ? o.o.GetTypeclasses()[el->typeclass_i] : String();
+		int con_i = el->con_i / 3;
+		int con_mod = el->con_i % 3;
+		String con = el->con_i >= 0 ?
+			o.o.GetContents()[con_i].key + ": " + o.o.GetContents()[con_i].parts[con_mod] : String();
+		if (mode < 0) {
+			PaintTextBlock(d, x, off, r, element_clr, el->element, sans);
+			PaintTextBlock(d, x, off, r, attr_group_clr, el->attr.group, sans);
+			PaintTextBlock(d, x, off, r, attr_value_clr, el->attr.value, sans);
+			PaintTextBlock(d, x, off, r, clr_clr, IntStr(el->clr_i), sans);
+			PaintTextBlock(d, x, off, r, act_action_clr, el->act.action, sans);
+			PaintTextBlock(d, x, off, r, act_arg_clr, el->act.arg, sans);
+			PaintTextBlock(d, x, off, r, typeclass_clr, tc, sans);
+			PaintTextBlock(d, x, off, r, content_clr, con, sans);
+		}
+		else {
+			Vector<String> parts = Split(DatabaseBrowser::GetModeKey(mode), "_");
+			for (const String& p : parts) {
+				if (p == "ELEMENT")
+					PaintTextBlock(d, x, off, r, element_clr, el->element, sans);
+				else if (p == "ATTR") {
+					PaintTextBlock(d, x, off, r, attr_group_clr, el->attr.group, sans);
+					PaintTextBlock(d, x, off, r, attr_value_clr, el->attr.value, sans);
+				}
+				else if (p == "COLOR") {
+					PaintTextBlock(d, x, off, r, clr_clr, IntStr(el->clr_i), sans);
+				}
+				else if (p == "ACTION") {
+					PaintTextBlock(d, x, off, r, act_action_clr, el->act.action, sans);
+					PaintTextBlock(d, x, off, r, act_arg_clr, el->act.arg, sans);
+				}
+				else if (p == "TYPECLASS") {
+					PaintTextBlock(d, x, off, r, typeclass_clr, tc, sans);
+				}
+				else if (p == "CONTENT") {
+					PaintTextBlock(d, x, off, r, content_clr, con, sans);
+				}
+				else TODO
+			}
+		}
 	}
-	
 	
 	
 	// Focus highlight
@@ -581,6 +617,12 @@ void PartContentCtrl::OnElementChange(int sub_i, int line_i, DropList* dl) {
 		else
 			ds.lines[line_i].element = ToLower((String)dl->GetKey(dl->GetIndex()));
 	}
+}
+
+PartLineCtrl* PartContentCtrl::GetActiveLine() {
+	if (selected_line >= 0 && selected_line < lines.GetCount())
+		return &lines[selected_line];
+	return 0;
 }
 
 

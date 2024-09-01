@@ -37,6 +37,7 @@ ScriptReferenceMakerCtrl::ScriptReferenceMakerCtrl() : db0(*this), content(*this
 	content.WhenCursor << THISBACK(DataLine);
 	
 	db0.WhenBrowserCursor << THISBACK(OnBrowserCursor);
+	db0.mode.WhenAction << THISBACK(UpdateMode);
 	
 }
 
@@ -117,9 +118,11 @@ void ScriptReferenceMakerCtrl::DataLine() {
 		return;
 	}
 	
+	int mode_cursor = 1 + DatabaseBrowser::FindMode(el->sorter);
+	db0.SetModeCursor(mode_cursor);
 	
 	DatabaseBrowser& b = DatabaseBrowser::Single(GetAppMode());
-	b.SetAll(el->element, el->attr, el->clr_i, el->act, el->typeclass_i, el->con_i);
+	b.SetAll(el->sorter, el->element, el->attr, el->clr_i, el->act, el->typeclass_i, el->con_i);
 		
 	db0.Data();
 }
@@ -187,6 +190,7 @@ void ScriptReferenceMakerCtrl::OnBrowserCursor() {
 	int action_i = b.GetCur(2);
 	int arg_i = b.GetCur(3);*/
 	
+	el->sorter = db0.GetModeHash();
 	if (db0.elements.IsCursor()) {
 		el->element		= db0.elements.Get("STR");
 	}
@@ -208,8 +212,8 @@ void ScriptReferenceMakerCtrl::OnBrowserCursor() {
 	if (db0.typeclasses.IsCursor()) {
 		el->typeclass_i	= db0.typeclasses.Get("INT");
 	}
-	if (db0.contrasts.IsCursor()) {
-		el->con_i		= db0.contrasts.Get("INT");
+	if (db0.contents.IsCursor()) {
+		el->con_i		= db0.contents.Get("INT");
 	}
 	
 	

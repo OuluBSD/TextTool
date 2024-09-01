@@ -70,6 +70,7 @@ public:
 	void DataLine(PartLineCtrl& l);
 	void Select(PartLineCtrl* line);
 	int Find(const PartLineCtrl* line) const;
+	PartLineCtrl* GetActiveLine();
 	
 	Event<> WhenCursor;
 	
@@ -84,7 +85,7 @@ protected:
 	friend class ScriptReferenceMakerCtrl;
 	DropList mode;
 	ArrayCtrl attr_groups, attr_values, colors, actions, action_args, parts;
-	ArrayCtrl elements, typeclasses, contrasts;
+	ArrayCtrl elements, typeclasses, contents;
 	
 	VectorMap<String, VectorMap<String, int>> uniq_acts;
 	int sort[DatabaseBrowser::TYPE_COUNT] = {-1,-1,-1,-1,-1,-1,-1,-1};
@@ -92,7 +93,6 @@ public:
 	typedef ScriptPhrasePartsGroups CLASSNAME;
 	ScriptPhrasePartsGroups(ToolAppCtrl& o);
 	
-	void UpdateMode();
 	void UpdateNavigator();
 	void Data();
 	void DataList();
@@ -101,6 +101,8 @@ public:
 	void InitArray(ArrayCtrl& arr, String title, DatabaseBrowser::ColumnType t);
 	void FillArrayCtrlColor(DatabaseBrowser::ColumnType t, ArrayCtrl& arr);
 	void FillArrayCtrl(DatabaseBrowser::ColumnType t, ArrayCtrl& arr);
+	hash_t GetModeHash() const;
+	void SetModeCursor(int mode);
 	
 	Event<> WhenBrowserCursor;
 	
@@ -132,6 +134,9 @@ public:
 	void MakeLines();
 	void OnBrowserCursor();
 	void SetLineText();
+	void UpdateMode();
+	int GetActiveMode();
+	int GetInheritedMode();
 	
 };
 
