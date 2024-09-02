@@ -1495,8 +1495,17 @@ void ScriptSolver::GetExpanded(int part_i, int sub_i, int line_i, Event<> WhenPa
 	for(int i = 0; i < part.sub.GetCount(); i++) {
 		const auto& s = part.sub[i];
 		for(int j = 0; j < s.lines.GetCount(); j++) {
-			const auto& l = s.lines[j];
-			args.phrases << l.text;
+			const auto& dl = s.lines[j];
+			args.phrases << dl.text;
+			
+			auto& state = args.line_states.Add();
+			state.content = dl.text;
+			
+			const auto& ents = GetTypeclassEntities(appmode, dl.safety, artist->is_female);
+			state.style_type = ents.GetKey(dl.style_type);
+			state.style_entity = ents[dl.style_type][dl.style_entity];
+			state.safety = dl.safety;
+			state.connector = dl.connector;
 		}
 	}
 	args.ref = line.text;
@@ -1507,6 +1516,8 @@ void ScriptSolver::GetExpanded(int part_i, int sub_i, int line_i, Event<> WhenPa
 		res.Replace("\r", "");
 		res.Replace("\n\n", "\n");
 		RemoveQuotes(res);
+		if (res.Left(2) == "- ") res = TrimBoth(res.Mid(2));
+		
 		tmp_line->expanded = res;
 		
 		this->WhenPartiallyReady();
@@ -1526,16 +1537,26 @@ void ScriptSolver::GetSuggestions2(int part_i, int sub_i, const Vector<const Dyn
 	args.fn = 22;
 	args.lng_i = song.lng_i;
 	
+	
 	NavigatorState line_state;
 	for(int i = 0; i < lines.GetCount(); i++) {
-		const DynLine& l = *lines[i];
-		if (l.text.IsEmpty())
+		const DynLine& dl = *lines[i];
+		if (dl.text.IsEmpty())
 			break;
-		args.phrases << l.text;
-		args.phrases2 << l.expanded;
+		args.phrases << dl.text;
+		args.phrases2 << dl.expanded;
 		
+		auto& state = args.line_states.Add();
 		ReadNavigatorState(song, part_i, sub_i, i, line_state,  2);
-		CopyState(args.line_states.Add(), line_state);
+		CopyState(state, line_state);
+		
+		const auto& ents = GetTypeclassEntities(appmode, dl.safety, artist->is_female);
+		state.style_type = ents.GetKey(dl.style_type);
+		state.style_entity = ents[dl.style_type][dl.style_entity];
+		state.safety = dl.safety;
+		state.line_len = dl.line_len;
+		state.connector = dl.connector;
+		state.line_begin = dl.line_begin;
 	}
 	
 	TaskMgr& m = TaskMgr::Single();

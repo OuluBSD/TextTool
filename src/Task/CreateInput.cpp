@@ -2499,6 +2499,8 @@ void AiTask::CreateInput_ScriptSolver() {
 	}
 	else if (args.fn == 19) {
 		if (args.previously.GetCount()){
+			if (args.previously.GetCount() > 10000)
+				args.previously = args.previously.Left(10000) + "...(too long)";
 			auto& list = input.AddSub().Title("Happened previously in the story so far");
 			list.NoListChar();
 			for (const auto& str : Split(args.previously, "\n"))
@@ -2570,10 +2572,14 @@ void AiTask::CreateInput_ScriptSolver() {
 			results.NoListChar();
 			results.Add("");
 		}
-		input.response_length = 2048;
+		input.response_length = 1024;
 	}
 	else if (args.fn == 20) {
+		int limit = 10000 / (1 + args.line_states.GetCount());
+		
 		if (args.previously.GetCount()){
+			if (args.previously.GetCount() > limit)
+				args.previously = args.previously.Left(limit) + "...(too long)";
 			auto& list = input.AddSub().Title("Happened previously in the story so far");
 			list.NoListChar();
 			for (const auto& str : Split(args.previously, "\n"))
@@ -2596,7 +2602,10 @@ void AiTask::CreateInput_ScriptSolver() {
 			if (state.typeclass.GetCount()) list.Add("typeclass", state.typeclass);
 			if (state.content.GetCount()) list.Add("content", state.content);
 			if (state.content_mod.GetCount()) list.Add("content-mod", state.content_mod);
-			list.Add("story (multiline)", args.phrases[i]);
+			String s = args.phrases[i];
+			if (s.GetCount() > limit)
+				s = s.Left(limit) + "...(too long story to continue)";
+			list.Add("story (multiline)", s);
 		}
 		
 		if (args.peek.GetCount()){
@@ -2621,6 +2630,16 @@ void AiTask::CreateInput_ScriptSolver() {
 		input.response_length = 1024;
 	}
 	else if (args.fn == 21) {
+		const char* conn_str[3] = {
+			"And then (2 events happen consecutively)",
+			"Therefore (an event happens because something happened)",
+			"But (something happens, but then something surprising happens)",
+		};
+		{
+			auto& list = input.AddSub().Title("3 types of contextual connectors (which word connects the 2 line together the best)");
+			for(int i = 0; i < 3; i++)
+				list.Add(conn_str[i]);
+		}
 		{
 			auto& list = input.AddSub().Title("Context of the lyrics");
 			list.NumberedLines();
@@ -2635,6 +2654,17 @@ void AiTask::CreateInput_ScriptSolver() {
 			for(int i = 0; i < args.phrases.GetCount(); i++)
 				list.Add(args.phrases[i]);
 		}
+		for(int i = 0; i < args.line_states.GetCount(); i++) {
+			auto& state = i == -1 ? args.state : args.line_states[i];
+			String title = Format("Information about the line #%d", i+1);
+			auto& list = input.AddSub().Title(title);
+			if (state.content.GetCount()) list.Add("text", state.content);
+			if (state.style_type.GetCount()) list.Add("style-type", state.style_type);
+			if (state.style_entity.GetCount()) list.Add("style-entity", state.style_entity);
+			list.Add("safety", state.safety ? "unsafe (cursing, sexual acts, dirty words, genital words, contempt, etc. are allowed)" : "safe");
+			if (state.connector >= 0 && state.connector < 3)
+				list.Add("the line should connect to the previous line with", conn_str[state.connector]);
+		}
 		{
 			TaskTitledList& results = input.PreAnswer();
 			String t = "Expand \"" + args.ref + "\" using the given context to be more understable";
@@ -2642,12 +2672,33 @@ void AiTask::CreateInput_ScriptSolver() {
 			results.NoListChar();
 			results.Add("");
 		}
-		input.response_length = 2048;
+		input.response_length = 1024;
 	}
 	else if (args.fn == 22) {
+		const char* len_str[4] = {
+			"Long (10 words)",
+			"Medium (7 word)",
+			"Short (4 words)",
+			"Very short (2 words)"
+		};
+		const char* conn_str[3] = {
+			"And then (2 events happen consecutively)",
+			"Therefore (an event happens because something happened)",
+			"But (something happens, but then something surprising happens)",
+		};
 		{
 			auto& list = input.AddSub().Title("Example of a 2 line lyrics");
 			list.Add("\"On a Friday night, we be wildin' out / Everybody wants something, no doubt\"");
+		}
+		{
+			auto& list = input.AddSub().Title("3 types of contextual connectors (which word connects the 2 line together the best)");
+			for(int i = 0; i < 3; i++)
+				list.Add(conn_str[i]);
+		}
+		{
+			auto& list = input.AddSub().Title("4 types of lengths of lines");
+			for(int i = 0; i < 4; i++)
+				list.Add(len_str[i]);
 		}
 		for(int i = 0; i < args.line_states.GetCount(); i++) {
 			auto& state = i == -1 ? args.state : args.line_states[i];
@@ -2668,9 +2719,22 @@ void AiTask::CreateInput_ScriptSolver() {
 			if (state.content.GetCount()) list.Add("content", state.content);
 			if (state.content_mod.GetCount()) list.Add("content-mod", state.content_mod);
 		}
+		for(int i = 0; i < args.line_states.GetCount(); i++) {
+			auto& state = i == -1 ? args.state : args.line_states[i];
+			String title = Format("Writing instructions for the new line #%d", i+1);
+			auto& list = input.AddSub().Title(title);
+			if (state.style_type.GetCount()) list.Add("style-type", state.style_type);
+			if (state.style_entity.GetCount()) list.Add("style-entity", state.style_entity);
+			list.Add("safety", state.safety ? "unsafe (cursing, sexual acts, dirty words, genital words, contempt, etc. are allowed)" : "safe");
+			if (state.line_len >= 0 && state.line_len < 4)
+				list.Add("the length should be", len_str[state.line_len]);
+			if (state.connector >= 0 && state.connector < 3)
+				list.Add("the line should connect to the previous line with", conn_str[state.connector]);
+			if (state.line_begin.GetCount()) list.Add("the line should begin with the word", state.line_begin);
+		}
 		{
 			TaskTitledList& results = input.PreAnswer();
-			String t = "Create a list of new lyrics that combines elements of two existing lines #1 and #2"
+			String t = "Create a list of different propositions that combines elements of two existing lines #1 and #2.  Propositions are not consecutive sentences"
 				". This lyrics should be " + IntStr(args.phrases.GetCount()) + " line inline & end rhyme";
 			t += ". The style should match the style of Nicki Minaj";
 			t += ". The lyrics should be explicit and in dialect";

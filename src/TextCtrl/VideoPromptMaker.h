@@ -23,7 +23,6 @@ public:
 	void ToolMenu(Bar& bar) override;
 	void Do(int fn);
 	
-	ToolEditor* editor = 0;
 	
 };
 

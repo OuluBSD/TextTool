@@ -111,9 +111,9 @@ void ScriptReferenceMakerCtrl::ReadNavigatorState(NavigatorState& state, int dep
 	Script& s = *p.script;
 	int part_i = parts.GetCursor();
 	int line_i = content.GetCursor();
-	if (line_i < 0) {
+	if (line_i < 0 || line_i >= content.lines.GetCount())
 		return;
-	}
+	
 	PartLineCtrl& pl = content.Get(line_i);
 	
 	DynPart& dp = s.parts[part_i];

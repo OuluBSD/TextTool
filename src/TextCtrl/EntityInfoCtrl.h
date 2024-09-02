@@ -19,7 +19,6 @@ public:
 	void Clear();
 	void OnValueChange();
 	
-	ToolEditor* editor = 0;
 	
 };
 

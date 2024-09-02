@@ -60,6 +60,8 @@ struct DynLine : Moveable<DynLine> {
 	int				pp_i = -1;
 	int				end_pp_i = -1;
 	LineElement		el;
+	
+	// Suggestion variables
 	int				style_type = 0;
 	int				style_entity = 0;
 	int				safety = 0;
@@ -91,6 +93,14 @@ struct DynLine : Moveable<DynLine> {
 			if (!element.IsEmpty() && el.element.IsEmpty())
 				el.element = element;
 		}
+	}
+	void CopySuggestionVars(const DynLine& dl) {
+		style_type = dl.style_type;
+		style_entity = dl.style_entity;
+		safety = dl.safety;
+		line_len = dl.line_len;
+		connector = dl.connector;
+		line_begin = dl.line_begin;
 	}
 };
 

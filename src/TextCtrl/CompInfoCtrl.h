@@ -21,7 +21,6 @@ public:
 	void SetScript();
 	void ToolMenu(Bar& bar) override;
 	
-	ToolEditor* editor = 0;
 	
 };
 

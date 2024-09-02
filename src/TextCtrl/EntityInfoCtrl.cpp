@@ -84,7 +84,7 @@ void EntityInfoCtrl::OnValueChange() {
 	EditorPtrs& p = GetPointers();
 	MetaPtrs& mp = MetaPtrs::Single();
 	
-	if (p.entity && editor->profiles.IsCursor()) {
+	if (p.entity && p.editor->profiles.IsCursor()) {
 		Entity& o = *p.entity;
 		ASSERT(o.profile == mp.profile);
 		o.native_name				= this->native_name.GetData();

@@ -264,8 +264,8 @@ PartLineCtrl::PartLineCtrl(PartContentCtrl& o) : o(o) {
 PartContentCtrl::PartContentCtrl(ScriptReferenceMakerCtrl& o) : o(o) {
 	AddFrame(scroll);
 	
+	scroll.SetLine(lh);
 	scroll.WhenScroll << THISBACK(Layout);
-	scroll.SetPage(lh);
 }
 
 void PartContentCtrl::Paint(Draw& d) {
@@ -284,8 +284,9 @@ int PartContentCtrl::Find(const PartLineCtrl* line) const {
 }
 
 void PartContentCtrl::Layout() {
+	Size sz = GetSize();
 	int y = -scroll;
-	int w = GetSize().cx;
+	int w = sz.cx;
 	for(int i = 0; i < lines.GetCount(); i++) {
 		PartLineCtrl& line = lines[i];
 		int h = line.line_i < 0 ? lh : lh * 2;
@@ -294,6 +295,7 @@ void PartContentCtrl::Layout() {
 		
 		y += h;
 	}
+	scroll.SetPage(sz.cy);
 }
 void PartContentCtrl::Select(PartLineCtrl* line) {
 	int prev_sel = selected_line;

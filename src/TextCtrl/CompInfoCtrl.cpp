@@ -171,7 +171,7 @@ void CompInfoCtrl::OnValueChange() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
 	
-	if (p.component && editor->components.IsCursor()) {
+	if (p.component && p.editor->components.IsCursor()) {
 		Component& s = *p.component;
 		
 		s.entity = comp_entity.GetData();
@@ -180,9 +180,9 @@ void CompInfoCtrl::OnValueChange() {
 		s.origins = origins.GetData();
 		s.style = music_style.GetData();
 		
-		int c = editor->components.GetCursor();
-		editor->components.Set(c, 0, s.entity);
-		editor->components.Set(c, 1, s.prj_name);
+		int c = p.editor->components.GetCursor();
+		p.editor->components.Set(c, 0, s.entity);
+		p.editor->components.Set(c, 1, s.prj_name);
 	}
 }
 

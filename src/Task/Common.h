@@ -149,7 +149,8 @@ struct ScriptSolverArgs {
 	String rhyme_element;
 	String previously;
 	String peek;
-		
+	
+	
 	struct State {
 		String element;
 		AttrHeader attr;
@@ -157,6 +158,12 @@ struct ScriptSolverArgs {
 		ActionHeader act;
 		String typeclass;
 		String content, content_mod;
+		String			style_type;
+		String			style_entity;
+		int				safety = 0;
+		int				line_len = 0;
+		int				connector = 0;
+		String			line_begin;
 		
 		void Jsonize(JsonIO& json) {
 			json	("element", element)
@@ -166,6 +173,12 @@ struct ScriptSolverArgs {
 					("typeclass", typeclass)
 					("content", content)
 					("content_mod", content_mod)
+					("style_type", style_type)
+					("style_entity", style_entity)
+					("safety", safety)
+					("line_len", line_len)
+					("connector", connector)
+					("line_begin", line_begin)
 					;
 		}
 	};

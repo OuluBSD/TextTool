@@ -107,7 +107,22 @@ ScriptTextSolverCtrl::ScriptTextSolverCtrl() {
 	line_form.do_suggs << THISBACK1(DoLine, 3);
 	line_form.safety.Add("Safe");
 	line_form.safety.Add("Unsafe");
-	line_form.safety.WhenAction << THISBACK(DataLine);
+	line_form.safety.WhenAction << THISBACK(OnValueChange);
+	line_form.style_type.WhenAction << THISBACK(OnValueChange);
+	line_form.style_entity.WhenAction << THISBACK(OnValueChange);
+	line_form.length.Add("Long");
+	line_form.length.Add("Medium");
+	line_form.length.Add("Short");
+	line_form.length.Add("Very short");
+	line_form.length.WhenAction << THISBACK(OnValueChange);
+	line_form.connector.Add("And then");
+	line_form.connector.Add("therefore");
+	line_form.connector.Add("but");
+	line_form.connector.WhenAction << THISBACK(OnValueChange);
+	line_form.begin.WhenAction << THISBACK(OnValueChange);
+	line_form.copy_prev << THISBACK1(DoLine, 10);
+	line_form.copy_clip << THISBACK1(DoLine, 11);
+	line_form.paste_clip << THISBACK1(DoLine, 12);
 	
 	line_ref_lines.AddColumn("Selected");
 	line_ref_lines.AddColumn("Reference line");
@@ -124,12 +139,17 @@ ScriptTextSolverCtrl::ScriptTextSolverCtrl() {
 void ScriptTextSolverCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Update Data"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
 	bar.Add(t_("Switch editor text"), AppImg::BlueRing(), THISBACK(SwitchEditorText)).Key(K_CTRL_W);
+	bar.Add(t_("Copy from previous"), AppImg::BlueRing(), THISBACK1(Do, 10)).Key(K_CTRL_R);
+	bar.Add(t_("Copy to clipboard"), AppImg::BlueRing(), THISBACK1(Do, 11)).Key(K_CTRL_T);
+	bar.Add(t_("Copy from clipboard"), AppImg::BlueRing(), THISBACK1(Do, 12)).Key(K_CTRL_Y);
 	bar.Separator();
 	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	bar.Separator();
-	bar.Add(t_("Fn"), AppImg::RedRing(), THISBACK1(Do, 2)).Key(K_F7);
-	bar.Add(t_("Fn"), AppImg::RedRing(), THISBACK1(Do, 3)).Key(K_F8);
+	bar.Add(t_("Fn 1"), AppImg::RedRing(), THISBACK1(Do, 2)).Key(K_F7);
+	bar.Add(t_("Fn 2"), AppImg::RedRing(), THISBACK1(Do, 3)).Key(K_F8);
+	bar.Add(t_("Fn 3"), AppImg::RedRing(), THISBACK1(Do, 4)).Key(K_F9);
+	bar.Add(t_("Fn 4"), AppImg::RedRing(), THISBACK1(Do, 5)).Key(K_F10);
 }
 
 void ScriptTextSolverCtrl::SwitchEditorText() {
@@ -410,12 +430,14 @@ void ScriptTextSolverCtrl::DoSub(int fn) {
 }
 
 void ScriptTextSolverCtrl::DoLine(int fn) {
-	if (fn == 2 || fn == 3 || fn == 4) {
-		const DynPart* part = 0;
-		const DynSub* sub = 0;
-		const DynLine* line = 0;
-		int part_i = -1, sub_i = -1, line_i = -1;
-		Vector<const DynLine*> g = GetLineGroup(&part, &sub, &line, &part_i, &sub_i, &line_i);
+	const DynPart* part = 0;
+	const DynSub* sub = 0;
+	const DynLine* line = 0;
+	int part_i = -1, sub_i = -1, line_i = -1;
+	Vector<const DynLine*> g = GetLineGroup(&part, &sub, &line, &part_i, &sub_i, &line_i);
+	Script& s = GetScript();
+	
+	if (fn == 2 || fn == 3 || fn == 5) {
 		if (g.IsEmpty()) return;
 		
 		ScriptSolver& sdi = ScriptSolver::Get(GetAppMode(), GetEntity(), GetScript());
@@ -440,7 +462,7 @@ void ScriptTextSolverCtrl::DoLine(int fn) {
 				});
 			});
 		}
-		else if (fn == 4) {
+		else if (fn == 5) {
 			sdi.GetSuggestions(*part, *sub, g, [this](){
 				PostCallback([this]() {
 					editor.Refresh();
@@ -449,7 +471,7 @@ void ScriptTextSolverCtrl::DoLine(int fn) {
 			});
 		}
 	}
-	else if (fn == 5) {
+	else if (fn == 4) {
 		if (!line_suggs.IsCursor()) return;
 		int sugg_i = line_suggs.GetCursor();
 		Vector<const DynLine*> g = GetLineGroup();
@@ -463,26 +485,58 @@ void ScriptTextSolverCtrl::DoLine(int fn) {
 		editor.ShowUserText();
 		DataLine();
 	}
+	// Copy prev
+	else if (fn == 10) {
+		if (line_i == 0) {
+			if (sub_i == 0) {
+				if (part_i == 0)
+					return;
+				else part_i--;
+				sub_i = s.parts[part_i].sub.GetCount()-1;
+			}
+			else sub_i--;
+			line_i = s.parts[part_i].sub[sub_i].lines.GetCount()-1;
+		}
+		else line_i--;
+		const DynLine& prev = s.parts[part_i].sub[sub_i].lines[line_i];
+		DynLine& dl = const_cast<DynLine&>(*line);
+		dl.CopySuggestionVars(prev);
+		DataLine();
+	}
+	// Copy clipboard
+	else if (fn == 11) {
+		WriteClipboardText(StoreAsJson(*line, true));
+	}
+	// Paste clipboard
+	else if (fn == 12) {
+		DynLine temp;
+		String s = ReadClipboardText();
+		if (s.IsEmpty()) return;
+		LoadFromJson(temp, s);
+		DynLine& dl = const_cast<DynLine&>(*line);
+		dl.CopySuggestionVars(temp);
+		DataLine();
+	}
 }
 
 void ScriptTextSolverCtrl::UpdateEntities(DynLine& dl, bool unsafe, bool gender) {
 	const auto& types = GetTypeclassEntities(GetAppMode(), unsafe, gender);
-	line_form.type.Clear();
-	line_form.style.Clear();
+	line_form.style_type.Clear();
+	line_form.style_entity.Clear();
 	
 	for(int i = 0; i < types.GetCount(); i++) {
-		line_form.type.Add(types.GetKey(i));
+		line_form.style_type.Add(types.GetKey(i));
 	}
 	dl.style_type = max(0, min(dl.style_type, types.GetCount()-1));
-	line_form.type.SetIndex(dl.style_type);
+	line_form.style_type.SetIndex(dl.style_type);
 	
 	
 	const auto& ents = types[dl.style_type];
 	for(int i = 0; i < ents.GetCount(); i++) {
-		line_form.style.Add(ents[i]);
+		line_form.style_entity.Add(ents[i]);
 	}
 	dl.style_entity = max(0, min(dl.style_entity, ents.GetCount()-1));
-	line_form.style.SetIndex(dl.style_entity);
+	line_form.style_entity.SetIndex(dl.style_entity);
 }
 
 void ScriptTextSolverCtrl::DataLine() {
@@ -504,8 +558,7 @@ void ScriptTextSolverCtrl::DataLine() {
 		DynLine& dl = const_cast<DynLine&>(*active);
 		
 		if (p.entity) {
-			bool unsafe = line_form.safety.GetIndex();
-			UpdateEntities(dl, unsafe, p.entity->is_female);
+			UpdateEntities(dl, dl.safety, p.entity->is_female);
 		}
 		for(int i = 0; i < g.GetCount(); i++) {
 			const DynLine* dl = g[i];
@@ -545,6 +598,10 @@ void ScriptTextSolverCtrl::DataLine() {
 		else {
 			line_form.expanded.Clear();
 		}
+		line_form.safety.SetIndex(dl.safety);
+		line_form.length.SetIndex(dl.line_len);
+		line_form.connector.SetIndex(dl.connector);
+		line_form.begin.SetData(dl.line_begin);
 	}
 	
 }
@@ -557,7 +614,7 @@ void ScriptTextSolverCtrl::OnValueChange() {
 	Script& s = GetScript();
 	
 	int tab = tabs.Get();
-	if (tab == 4) {
+	if (tab == 3) {
 		if (editor.selected_part) {
 			DynPart& part = *const_cast<DynPart*>(editor.selected_part);
 			int el_i = part_form.element.GetIndex();
@@ -567,7 +624,8 @@ void ScriptTextSolverCtrl::OnValueChange() {
 			
 			editor.Refresh();
 		}
-		
+	}
+	if (tab == 4) {
 		if (editor.selected_sub) {
 			DynSub& sub = *const_cast<DynSub*>(editor.selected_sub);
 			int el_i = sub_form.element.GetIndex() - 1;
@@ -576,6 +634,20 @@ void ScriptTextSolverCtrl::OnValueChange() {
 			
 			editor.Refresh();
 		}
+	}
+	if (tab == 5) {
+		
+		if (editor.selected_line) {
+			DynLine& line = *const_cast<DynLine*>(editor.selected_line);
+			line.style_type = line_form.style_type.GetIndex();
+			line.style_entity = line_form.style_entity.GetIndex();
+			line.safety = line_form.safety.GetIndex();
+			line.line_len = line_form.length.GetIndex();
+			line.connector = line_form.connector.GetIndex();
+			line.line_begin = line_form.begin.GetData();
+		}
+		
+		DataLine();
 	}
 }
 
