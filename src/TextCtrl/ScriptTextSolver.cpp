@@ -105,6 +105,9 @@ ScriptTextSolverCtrl::ScriptTextSolverCtrl() {
 	line_form.split.Vert() << line_ref_lines << line_suggs;
 	line_form.do_story << THISBACK1(DoLine, 2);
 	line_form.do_suggs << THISBACK1(DoLine, 3);
+	line_form.safety.Add("Safe");
+	line_form.safety.Add("Unsafe");
+	line_form.safety.WhenAction << THISBACK(DataLine);
 	
 	line_ref_lines.AddColumn("Selected");
 	line_ref_lines.AddColumn("Reference line");
@@ -462,12 +465,34 @@ void ScriptTextSolverCtrl::DoLine(int fn) {
 	}
 }
 
+void ScriptTextSolverCtrl::UpdateEntities(DynLine& dl, bool unsafe, bool gender) {
+	const auto& types = GetTypeclassEntities(GetAppMode(), unsafe, gender);
+	line_form.type.Clear();
+	line_form.style.Clear();
+	
+	for(int i = 0; i < types.GetCount(); i++) {
+		line_form.type.Add(types.GetKey(i));
+	}
+	dl.style_type = max(0, min(dl.style_type, types.GetCount()-1));
+	line_form.type.SetIndex(dl.style_type);
+	
+	
+	const auto& ents = types[dl.style_type];
+	for(int i = 0; i < ents.GetCount(); i++) {
+		line_form.style.Add(ents[i]);
+	}
+	dl.style_entity = max(0, min(dl.style_entity, ents.GetCount()-1));
+	line_form.style.SetIndex(dl.style_entity);
+}
+
 void ScriptTextSolverCtrl::DataLine() {
 	TextDatabase& db = GetDatabase();
 	SourceData& sd = db.src_data;
 	SourceDataAnalysis& sda = db.src_data.a;
 	DatasetAnalysis& da = sda.dataset;
 	Script& s = GetScript();
+	MetaPtrs& mp = MetaPtrs::Single();
+	auto& p = GetPointers();
 	
 	
 	
@@ -475,6 +500,13 @@ void ScriptTextSolverCtrl::DataLine() {
 		const DynLine* active = 0;
 		Vector<const DynLine*> g = GetLineGroup(0, 0, &active, 0, 0, 0);
 		
+		if (!active) return;
+		DynLine& dl = const_cast<DynLine&>(*active);
+		
+		if (p.entity) {
+			bool unsafe = line_form.safety.GetIndex();
+			UpdateEntities(dl, unsafe, p.entity->is_female);
+		}
 		for(int i = 0; i < g.GetCount(); i++) {
 			const DynLine* dl = g[i];
 			

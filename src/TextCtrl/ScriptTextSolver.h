@@ -124,6 +124,7 @@ public:
 	void GetPart(const DynPart** part, int* part_iptr);
 	void GetSub(const DynPart** part=0, const DynSub** sub=0, int* part_iptr=0, int* sub_iptr=0);
 	const DynLine* GetAltLine();
+	void UpdateEntities(DynLine& dl, bool unsafe, bool gender);
 	
 };
 

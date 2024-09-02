@@ -49,6 +49,7 @@ struct LineElement {
 	}
 };
 
+
 struct DynLine : Moveable<DynLine> {
 	String			text;
 	String			alt_text;
@@ -59,6 +60,12 @@ struct DynLine : Moveable<DynLine> {
 	int				pp_i = -1;
 	int				end_pp_i = -1;
 	LineElement		el;
+	int				style_type = 0;
+	int				style_entity = 0;
+	int				safety = 0;
+	int				line_len = 0;
+	int				connector = 0;
+	String			line_begin;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -71,6 +78,12 @@ struct DynLine : Moveable<DynLine> {
 			("suggs", suggs)
 			("pp_i", pp_i)
 			("end_pp_i", end_pp_i)
+			("style_type", style_type)
+			("style_entity", style_entity)
+			("safety", safety)
+			("line_len", line_len)
+			("connector", connector)
+			("line_begin", line_begin)
 			;
 		if (json.IsLoading()) {
 			String element;
