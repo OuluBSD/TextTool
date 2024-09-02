@@ -265,6 +265,7 @@ PartContentCtrl::PartContentCtrl(ScriptReferenceMakerCtrl& o) : o(o) {
 	AddFrame(scroll);
 	
 	scroll.WhenScroll << THISBACK(Layout);
+	scroll.SetPage(lh);
 }
 
 void PartContentCtrl::Paint(Draw& d) {

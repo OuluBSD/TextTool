@@ -131,6 +131,7 @@ struct AttrArgs {
 	
 };
 
+
 struct ScriptSolverArgs {
 	int fn;
 	int sub_fn = -1;
@@ -146,6 +147,32 @@ struct ScriptSolverArgs {
 	double factor = 0;
 	Vector<String> elements;
 	String rhyme_element;
+	String previously;
+	String peek;
+		
+	struct State {
+		String element;
+		AttrHeader attr;
+		int clr_i = -1;
+		ActionHeader act;
+		String typeclass;
+		String content, content_mod;
+		
+		void Jsonize(JsonIO& json) {
+			json	("element", element)
+					("attr", attr)
+					("clr_i", clr_i)
+					("act", act)
+					("typeclass", typeclass)
+					("content", content)
+					("content_mod", content_mod)
+					;
+		}
+	};
+	
+	State state;
+	Array<State> line_states;
+
 	
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
@@ -171,6 +198,10 @@ struct ScriptSolverArgs {
 				("factor", factor)
 				("elements", elements)
 				("rhyme_element", rhyme_element)
+				("state", state)
+				("line_states", line_states)
+				("previously", previously)
+				("peek", peek)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

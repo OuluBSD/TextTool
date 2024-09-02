@@ -97,7 +97,7 @@ class ScriptTextSolverCtrl : public ToolAppCtrl {
 	
 	// Line tab
 	ParentCtrl line_tab;
-	Splitter line_split;
+	WithEditorLine<Ctrl> line_form;
 	ArrayCtrl line_ref_lines, line_suggs;
 	
 public:
@@ -115,10 +115,14 @@ public:
 	void Do(int fn);
 	void DoSuggestions(int fn);
 	void DoWhole(int fn);
+	void DoPart(int fn);
+	void DoSub(int fn);
 	void DoLine(int fn);
 	void OnEditorCursor();
 	void OnValueChange();
-	Vector<const DynLine*> GetLineGroup(const DynPart** part=0, const DynSub** sub=0);
+	Vector<const DynLine*> GetLineGroup(const DynPart** part=0, const DynSub** sub=0, const DynLine** line=0, int* part_iptr=0, int* sub_iptr=0, int* line_iptr=0);
+	void GetPart(const DynPart** part, int* part_iptr);
+	void GetSub(const DynPart** part=0, const DynSub** sub=0, int* part_iptr=0, int* sub_iptr=0);
 	const DynLine* GetAltLine();
 	
 };

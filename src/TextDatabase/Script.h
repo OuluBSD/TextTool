@@ -54,6 +54,7 @@ struct DynLine : Moveable<DynLine> {
 	String			alt_text;
 	String			edit_text;
 	String			user_text;
+	String			expanded;
 	Vector<String>	suggs;
 	int				pp_i = -1;
 	int				end_pp_i = -1;
@@ -65,6 +66,7 @@ struct DynLine : Moveable<DynLine> {
 			("alt_text", alt_text)
 			("edit_text", edit_text)
 			("user_text", user_text)
+			("ex", expanded)
 			("el", el)
 			("suggs", suggs)
 			("pp_i", pp_i)
@@ -82,11 +84,13 @@ struct DynLine : Moveable<DynLine> {
 struct DynSub : Moveable<DynSub> {
 	LineElement		el;
 	Vector<DynLine>	lines;
+	String			story;
 	
 	void Jsonize(JsonIO& json) {
 		json
 			("lines", lines)
 			("el", el)
+			("story", story)
 			;
 		if (json.IsLoading()) {
 			String e0, e1;
@@ -110,6 +114,7 @@ struct DynPart {
 	LineElement		el;
 	Vector<DynSub>	sub;
 	Vector<int>		phrase_parts;
+	String			story;
 	
 	void Jsonize(JsonIO& json) {
 		json
@@ -122,6 +127,7 @@ struct DynPart {
 			("el", el)
 			("sub", sub)
 			("phrase_parts", phrase_parts)
+			("story", story)
 			;
 		if (json.IsLoading()) {
 			String element;

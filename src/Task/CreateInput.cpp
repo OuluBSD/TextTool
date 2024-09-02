@@ -2497,6 +2497,190 @@ void AiTask::CreateInput_ScriptSolver() {
 		}
 		input.response_length = 2048;
 	}
+	else if (args.fn == 19) {
+		if (args.previously.GetCount()){
+			auto& list = input.AddSub().Title("Happened previously in the story so far");
+			list.NoListChar();
+			for (const auto& str : Split(args.previously, "\n"))
+				list.Add(str);
+		}
+		
+		for(int i = -1; i < args.line_states.GetCount(); i++) {
+			auto& state = i == -1 ? args.state : args.line_states[i];
+			String title =
+				i == -1 ?
+					String("Properties for all lines (unless specified)") :
+					Format("Line #%d", i+1);
+			auto& list = input.AddSub().Title(title);
+			if (state.element.GetCount()) list.Add("conceptual element", state.element);
+			if (state.attr.group.GetCount()) list.Add("attribute-group", state.attr.group);
+			if (state.attr.value.GetCount()) list.Add("attribute-value", state.attr.value);
+			if (state.clr_i >= 0) {
+				Color c = GetGroupColor(state.clr_i);
+				list.Add("metaphorical color", Format("RGB(%d,%d,%d)", (int)c.GetR(), (int)c.GetG(), (int)c.GetB()));
+			}
+			if (state.act.action.GetCount()) list.Add("action", state.act.action + "(" + args.state.act.arg + ")");
+			else if (state.act.arg.GetCount()) list.Add("action-argument", args.state.act.arg);
+			if (state.typeclass.GetCount()) list.Add("typeclass", state.typeclass);
+			if (state.content.GetCount()) list.Add("content", state.content);
+			if (state.content_mod.GetCount()) list.Add("content-mod", state.content_mod);
+		}
+		
+		String first_word, second_word;
+		{
+			auto& list = input.AddSub().Title("Lyrics");
+			list.NoListChar();
+			for(int i = 0; i < args.phrases.GetCount(); i++) {
+				String& s = args.phrases[i];
+				if (i == 0 && first_word.IsEmpty()) {
+					WString ws = s.ToWString();
+					int a = ws.Find(" ");
+					if (a <= 1)
+						a = ws.Find(" ", a+1);
+					if (a >= 0)
+						first_word = ws.Left(a).ToString();
+				}
+				if (i == 1 && second_word.IsEmpty()) {
+					WString ws = s.ToWString();
+					int a = ws.Find(" ");
+					if (a <= 1)
+						a = ws.Find(" ", a+1);
+					if (a >= 0)
+						second_word = ws.Left(a).ToString();
+				}
+				list.Add(s);
+			}
+		}
+		if (args.peek.GetCount()){
+			auto& list = input.AddSub().Title("Peeking the upcoming lyrics");
+			list.NoListChar();
+			for (const auto& str : Split(args.peek, "\n"))
+				list.Add(str);
+		}
+		
+		{
+			TaskTitledList& results = input.PreAnswer();
+			String t = "Write a part of a story, which matches lyrics";
+			if (args.previously.GetCount())
+				t += " and continues the previously happened story";
+			if (args.peek.GetCount())
+				t += " and prepares for the upcoming lyrics (but don't write about them yet)";
+			t +=". The story should be for adults and it is allowed to contain NSFW, dirty, sexually explicit, unsafe and explicit language. The story should be written in dialect";
+			results.Title(t);
+			results.NoListChar();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 20) {
+		if (args.previously.GetCount()){
+			auto& list = input.AddSub().Title("Happened previously in the story so far");
+			list.NoListChar();
+			for (const auto& str : Split(args.previously, "\n"))
+				list.Add(str);
+		}
+		
+		for(int i = 0; i < args.line_states.GetCount(); i++) {
+			auto& state = i == -1 ? args.state : args.line_states[i];
+			String title = Format("Sub-part #%d", i+1);
+			auto& list = input.AddSub().Title(title);
+			if (state.element.GetCount()) list.Add("conceptual element", state.element);
+			if (state.attr.group.GetCount()) list.Add("attribute-group", state.attr.group);
+			if (state.attr.value.GetCount()) list.Add("attribute-value", state.attr.value);
+			if (state.clr_i >= 0) {
+				Color c = GetGroupColor(state.clr_i);
+				list.Add("metaphorical color", Format("RGB(%d,%d,%d)", (int)c.GetR(), (int)c.GetG(), (int)c.GetB()));
+			}
+			if (state.act.action.GetCount()) list.Add("action", state.act.action + "(" + args.state.act.arg + ")");
+			else if (state.act.arg.GetCount()) list.Add("action-argument", args.state.act.arg);
+			if (state.typeclass.GetCount()) list.Add("typeclass", state.typeclass);
+			if (state.content.GetCount()) list.Add("content", state.content);
+			if (state.content_mod.GetCount()) list.Add("content-mod", state.content_mod);
+			list.Add("story (multiline)", args.phrases[i]);
+		}
+		
+		if (args.peek.GetCount()){
+			auto& list = input.AddSub().Title("Peeking the upcoming lyrics");
+			list.NoListChar();
+			for (const auto& str : Split(args.peek, "\n"))
+				list.Add(str);
+		}
+		
+		{
+			TaskTitledList& results = input.PreAnswer();
+			String t = "Combine sub-parts of the story to a single short part of the story";
+			if (args.previously.GetCount())
+				t += ", which continues the previously happened story";
+			if (args.peek.GetCount())
+				t += ", which prepares for the upcoming lyrics (but don't write about them yet)";
+			t +=". The story should be for adults and it is allowed to contain NSFW, dirty, sexually explicit, unsafe and explicit language. The story should be written in dialect";
+			results.Title(t);
+			results.NoListChar();
+			results.Add("");
+		}
+		input.response_length = 1024;
+	}
+	else if (args.fn == 21) {
+		{
+			auto& list = input.AddSub().Title("Context of the lyrics");
+			list.NumberedLines();
+			for(int i = 0; i < args.phrases2.GetCount(); i++) {
+				String& s = args.phrases2[i];
+				s.Replace("\n", " ");
+				list.Add(s);
+			}
+		}
+		{
+			auto& list = input.AddSub().Title("Draft of lyrics");
+			for(int i = 0; i < args.phrases.GetCount(); i++)
+				list.Add(args.phrases[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			String t = "Expand \"" + args.ref + "\" using the given context to be more understable";
+			results.Title(t);
+			results.NoListChar();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 22) {
+		{
+			auto& list = input.AddSub().Title("Example of a 2 line lyrics");
+			list.Add("\"On a Friday night, we be wildin' out / Everybody wants something, no doubt\"");
+		}
+		for(int i = 0; i < args.line_states.GetCount(); i++) {
+			auto& state = i == -1 ? args.state : args.line_states[i];
+			String title = Format("Line #%d", i+1);
+			auto& list = input.AddSub().Title(title);
+			list.Add("draft text", args.phrases[i]);
+			list.Add("expanded draft text", args.phrases2[i]);
+			if (state.element.GetCount()) list.Add("conceptual element", state.element);
+			if (state.attr.group.GetCount()) list.Add("attribute-group", state.attr.group);
+			if (state.attr.value.GetCount()) list.Add("attribute-value", state.attr.value);
+			if (state.clr_i >= 0) {
+				Color c = GetGroupColor(state.clr_i);
+				list.Add("metaphorical color", Format("RGB(%d,%d,%d)", (int)c.GetR(), (int)c.GetG(), (int)c.GetB()));
+			}
+			if (state.act.action.GetCount()) list.Add("action", state.act.action + "(" + args.state.act.arg + ")");
+			else if (state.act.arg.GetCount()) list.Add("action-argument", args.state.act.arg);
+			if (state.typeclass.GetCount()) list.Add("typeclass", state.typeclass);
+			if (state.content.GetCount()) list.Add("content", state.content);
+			if (state.content_mod.GetCount()) list.Add("content-mod", state.content_mod);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			String t = "Create a list of new lyrics that combines elements of two existing lines #1 and #2"
+				". This lyrics should be " + IntStr(args.phrases.GetCount()) + " line inline & end rhyme";
+			t += ". The style should match the style of Nicki Minaj";
+			t += ". The lyrics should be explicit and in dialect";
+			results.Title(t);
+			results.NumberedLines();
+			tmp_str = "\"";
+			results.Add(tmp_str);
+		}
+		input.response_length = 2048;
+	}
 }
 
 void AiTask::CreateInput_LeadSolver() {

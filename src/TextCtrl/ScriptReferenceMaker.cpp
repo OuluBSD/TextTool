@@ -114,58 +114,15 @@ void ScriptReferenceMakerCtrl::ReadNavigatorState(NavigatorState& state, int dep
 	if (line_i < 0) {
 		return;
 	}
+	PartLineCtrl& pl = content.Get(line_i);
+	
 	DynPart& dp = s.parts[part_i];
 	if (line_i >= content.GetLineCount())
 		return;
-	PartLineCtrl& pl = content.Get(line_i);
-	state.line = &pl;
 	
-	#define COPY(v)   if (state.v.IsEmpty()) state.v = el . v;
-	#define COPY_I(v) if (state.v < 0) state.v = el . v;
-	#define COPY_S(v) if (state.v == 0) state.v = el . v;
-	LineElement* elp = 0;
-	if (pl.sub_i >= 0 && pl.line_i >= 0 && depth_limit >= 2) {
-		DynSub& ds = dp.sub[pl.sub_i];
-		DynLine& dl = ds.lines[pl.line_i];
-		auto& el = dl.el;
-		COPY(element)
-		COPY(attr.group)
-		COPY(attr.value)
-		COPY_I(clr_i)
-		COPY(act.action)
-		COPY(act.arg)
-		COPY_I(typeclass_i)
-		COPY_I(con_i)
-		COPY_S(sorter)
-		if (state.el == 0) {state.depth = 2; state.el = &el;}
-	}
-	if (pl.sub_i >= 0 && depth_limit >= 1) {
-		DynSub& ds = dp.sub[pl.sub_i];
-		auto& el = ds.el;
-		COPY(element)
-		COPY(attr.group)
-		COPY(attr.value)
-		COPY_I(clr_i)
-		COPY(act.action)
-		COPY(act.arg)
-		COPY_I(typeclass_i)
-		COPY_I(con_i)
-		COPY_S(sorter)
-		if (state.el == 0) {state.depth = 1; state.el = &el;}
-	}
-	if (depth_limit >= 0) {
-		auto& el = dp.el;
-		COPY(element)
-		COPY(attr.group)
-		COPY(attr.value)
-		COPY_I(clr_i)
-		COPY(act.action)
-		COPY(act.arg)
-		COPY_I(typeclass_i)
-		COPY_I(con_i)
-		COPY_S(sorter)
-		if (state.el == 0) {state.depth = 0; state.el = &el;}
-	}
+	::ReadNavigatorState(s, part_i, pl.sub_i, pl.line_i, state, depth_limit);
+	
+	state.line = &pl;
 }
 
 void ScriptReferenceMakerCtrl::DataLine() {

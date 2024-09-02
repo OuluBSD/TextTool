@@ -83,6 +83,7 @@ ScriptTextSolverCtrl::ScriptTextSolverCtrl() {
 	part_form.element <<= THISBACK(OnValueChange);
 	part_form.text_type <<= THISBACK(OnValueChange);
 	part_form.text_num <<= THISBACK(OnValueChange);
+	part_form.do_story << THISBACK1(DoPart, 2);
 	
 	
 	// Sub -tab
@@ -91,15 +92,19 @@ ScriptTextSolverCtrl::ScriptTextSolverCtrl() {
 	sub_tab.Add(sub_split.SizePos());
 	sub_split.Vert() << sub_form << sub_suggs;
 	sub_split.SetPos(2000);
+	sub_form.do_story << THISBACK1(DoSub, 2);
 	sub_form.element <<= THISBACK(OnValueChange);
-	
+	sub_form.story <<= THISBACK(OnValueChange);
 	
 	
 	// Line -tab
 	tabs.Add(line_tab.SizePos(), "Line");
 	
-	line_tab.Add(line_split.SizePos());
-	line_split.Vert() << line_ref_lines << line_suggs;
+	CtrlLayout(line_form);
+	line_tab.Add(line_form.SizePos());
+	line_form.split.Vert() << line_ref_lines << line_suggs;
+	line_form.do_story << THISBACK1(DoLine, 2);
+	line_form.do_suggs << THISBACK1(DoLine, 3);
 	
 	line_ref_lines.AddColumn("Selected");
 	line_ref_lines.AddColumn("Reference line");
@@ -132,6 +137,8 @@ void ScriptTextSolverCtrl::Do(int fn) {
 	int tab = tabs.Get();
 	if (tab == 1) DoSuggestions(fn);
 	if (tab == 2) DoWhole(fn);
+	if (tab == 3) DoPart(fn);
+	if (tab == 4) DoSub(fn);
 	if (tab == 5) DoLine(fn);
 }
 
@@ -324,6 +331,7 @@ void ScriptTextSolverCtrl::DataPart() {
 		part_form.element.SetIndex(el_i);
 		part_form.text_num.SetData(part.text_num+1);
 		part_form.text_type.SetIndex((int)part.text_type);
+		part_form.story.SetData(part.story);
 	}
 	
 }
@@ -346,30 +354,99 @@ void ScriptTextSolverCtrl::DataSub() {
 		const DynSub& sub = *editor.selected_sub;
 		int el_i = da.element_keys.Find(sub.el.element) + 1;
 		sub_form.element.SetIndex(el_i);
+		sub_form.story.SetData(sub.story);
 	}
 	
 }
 
-void ScriptTextSolverCtrl::DoLine(int fn) {
+void ScriptTextSolverCtrl::DoPart(int fn) {
+	const DynPart* part = 0;
+	int part_i = -1;
+	GetPart(&part, &part_i);
 	
 	if (fn == 2) {
-		const DynPart* part = 0;
-		const DynSub* sub = 0;
-		Vector<const DynLine*> g = GetLineGroup(&part, &sub);
-		if (g.IsEmpty()) return;
+		if (part == 0) return;
+		
 		ScriptSolver& sdi = ScriptSolver::Get(GetAppMode(), GetEntity(), GetScript());
 		if (sdi.IsRunning()) {
 			PromptOK("Wait until ScriptSolver has ended");
 			return;
 		}
-		sdi.GetSuggestions(*part, *sub, g, [this](){
+		sdi.GetPartStory(part_i, [this](){
 			PostCallback([this]() {
 				editor.Refresh();
-				DataLine();
+				DataPart();
 			});
 		});
 	}
-	else if (fn == 3) {
+	
+}
+
+void ScriptTextSolverCtrl::DoSub(int fn) {
+	const DynPart* part = 0;
+	const DynSub* sub = 0;
+	int part_i = -1, sub_i = -1;
+	GetSub(&part, &sub, &part_i, &sub_i);
+	
+	if (fn == 2) {
+		if (sub == 0) return;
+		
+		ScriptSolver& sdi = ScriptSolver::Get(GetAppMode(), GetEntity(), GetScript());
+		if (sdi.IsRunning()) {
+			PromptOK("Wait until ScriptSolver has ended");
+			return;
+		}
+		sdi.GetSubStory(part_i, sub_i, [this](){
+			PostCallback([this]() {
+				editor.Refresh();
+				DataSub();
+			});
+		});
+	}
+	
+}
+
+void ScriptTextSolverCtrl::DoLine(int fn) {
+	if (fn == 2 || fn == 3 || fn == 4) {
+		const DynPart* part = 0;
+		const DynSub* sub = 0;
+		const DynLine* line = 0;
+		int part_i = -1, sub_i = -1, line_i = -1;
+		Vector<const DynLine*> g = GetLineGroup(&part, &sub, &line, &part_i, &sub_i, &line_i);
+		if (g.IsEmpty()) return;
+		
+		ScriptSolver& sdi = ScriptSolver::Get(GetAppMode(), GetEntity(), GetScript());
+		if (sdi.IsRunning()) {
+			PromptOK("Wait until ScriptSolver has ended");
+			return;
+		}
+		
+		if (fn == 2) {
+			sdi.GetExpanded(part_i, sub_i, line_i, [this](){
+				PostCallback([this]() {
+					editor.Refresh();
+					DataLine();
+				});
+			});
+		}
+		else if (fn == 3) {
+			sdi.GetSuggestions2(part_i, sub_i, g, [this](){
+				PostCallback([this]() {
+					editor.Refresh();
+					DataLine();
+				});
+			});
+		}
+		else if (fn == 4) {
+			sdi.GetSuggestions(*part, *sub, g, [this](){
+				PostCallback([this]() {
+					editor.Refresh();
+					DataLine();
+				});
+			});
+		}
+	}
+	else if (fn == 5) {
 		if (!line_suggs.IsCursor()) return;
 		int sugg_i = line_suggs.GetCursor();
 		Vector<const DynLine*> g = GetLineGroup();
@@ -395,7 +472,8 @@ void ScriptTextSolverCtrl::DataLine() {
 	
 	
 	if (editor.selected_line) {
-		Vector<const DynLine*> g = GetLineGroup();
+		const DynLine* active = 0;
+		Vector<const DynLine*> g = GetLineGroup(0, 0, &active, 0, 0, 0);
 		
 		for(int i = 0; i < g.GetCount(); i++) {
 			const DynLine* dl = g[i];
@@ -429,6 +507,12 @@ void ScriptTextSolverCtrl::DataLine() {
 		}
 		line_suggs.SetCount(sugg_i);
 		line_suggs.ArrayCtrl::SetLineCy(g.GetCount() * 20);
+		if (active) {
+			line_form.expanded.SetData(active->expanded);
+		}
+		else {
+			line_form.expanded.Clear();
+		}
 	}
 	
 }
@@ -440,26 +524,60 @@ void ScriptTextSolverCtrl::OnValueChange() {
 	DatasetAnalysis& da = sda.dataset;
 	Script& s = GetScript();
 	
-	if (editor.selected_part) {
-		DynPart& part = *const_cast<DynPart*>(editor.selected_part);
-		int el_i = part_form.element.GetIndex();
-		part.el.element = el_i >= 0 ? da.element_keys[el_i] : String();
-		part.text_num = (int)part_form.text_num.GetData() - 1;
-		part.text_type = (TextPartType)part_form.text_type.GetIndex();
+	int tab = tabs.Get();
+	if (tab == 4) {
+		if (editor.selected_part) {
+			DynPart& part = *const_cast<DynPart*>(editor.selected_part);
+			int el_i = part_form.element.GetIndex();
+			part.el.element = el_i >= 0 ? da.element_keys[el_i] : String();
+			part.text_num = (int)part_form.text_num.GetData() - 1;
+			part.text_type = (TextPartType)part_form.text_type.GetIndex();
+			
+			editor.Refresh();
+		}
 		
-		editor.Refresh();
-	}
-	
-	if (editor.selected_sub) {
-		DynSub& sub = *const_cast<DynSub*>(editor.selected_sub);
-		int el_i = sub_form.element.GetIndex() - 1;
-		sub.el.element = el_i >= 0 ? da.element_keys[el_i] : String();
-		
-		editor.Refresh();
+		if (editor.selected_sub) {
+			DynSub& sub = *const_cast<DynSub*>(editor.selected_sub);
+			int el_i = sub_form.element.GetIndex() - 1;
+			sub.el.element = el_i >= 0 ? da.element_keys[el_i] : String();
+			sub.story = sub_form.story.GetData();
+			
+			editor.Refresh();
+		}
 	}
 }
 
-Vector<const DynLine*> ScriptTextSolverCtrl::GetLineGroup(const DynPart** part, const DynSub** sub) {
+void ScriptTextSolverCtrl::GetPart(const DynPart** part, int* part_iptr) {
+	auto selected_part = editor.selected_part;
+	if (!selected_part) return;
+	Script& s = GetScript();
+	for(int i = 0; i < s.parts.GetCount(); i++) {
+		const DynPart& dp = s.parts[i];
+		if (&dp == selected_part) {
+			if (part && !*part) {*part = &dp; if (part_iptr) *part_iptr = i;}
+			return;
+		}
+	}
+}
+
+void ScriptTextSolverCtrl::GetSub(const DynPart** part, const DynSub** sub, int* part_iptr, int* sub_iptr) {
+	auto selected_sub = editor.selected_sub;
+	if (!selected_sub) return;
+	Script& s = GetScript();
+	for(int i = 0; i < s.parts.GetCount(); i++) {
+		const DynPart& dp = s.parts[i];
+		for(int j = 0; j < dp.sub.GetCount(); j++) {
+			const DynSub& ds = dp.sub[j];
+			if (&ds == selected_sub) {
+				if (part && !*part) {*part = &dp; if (part_iptr) *part_iptr = i;}
+				if (sub && !*sub) {*sub = &ds; if (sub_iptr) *sub_iptr = j;}
+				return;
+			}
+		}
+	}
+}
+
+Vector<const DynLine*> ScriptTextSolverCtrl::GetLineGroup(const DynPart** part, const DynSub** sub, const DynLine** line, int* part_iptr, int* sub_iptr, int* line_iptr) {
 	Vector<const DynLine*> ret;
 	auto selected_line = editor.selected_line;
 	if (!selected_line) return ret;
@@ -476,8 +594,9 @@ Vector<const DynLine*> ScriptTextSolverCtrl::GetLineGroup(const DynPart** part, 
 				const DynLine& dl = ds.lines[k];
 				
 				if (&dl == selected_line) {
-					if (part && !*part) *part = &dp;
-					if (sub && !*sub) *sub = &ds;
+					if (part && !*part) {*part = &dp; if (part_iptr) *part_iptr = i;}
+					if (sub && !*sub) {*sub = &ds; if (sub_iptr) *sub_iptr = j;}
+					if (line && !*line) {*line = &dl; if (line_iptr) *line_iptr = k;}
 					ret << &dl;
 					sel_line_i = line_i;
 					break;
@@ -504,8 +623,8 @@ Vector<const DynLine*> ScriptTextSolverCtrl::GetLineGroup(const DynPart** part, 
 				const DynLine& dl = ds.lines[k];
 				
 				if (line_i == alt_line) {
-					if (part && !*part) *part = &dp;
-					if (sub && !*sub) *sub = &ds;
+					if (part && !*part) {*part = &dp; if (part_iptr) *part_iptr = i;}
+					if (sub && !*sub) {*sub = &ds; if (sub_iptr) *sub_iptr = j;}
 					if (is_even)
 						ret.Add(&dl);
 					else

@@ -5,6 +5,27 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+class PartLineCtrl;
+
+struct NavigatorState {
+	PartLineCtrl* line = 0;
+	int depth = -1;
+	LineElement* el = 0;
+	hash_t sorter = 0;
+	String element;
+	AttrHeader attr;
+	int clr_i = -1;
+	ActionHeader act;
+	int typeclass_i = -1;
+	int con_i = -1;
+	void Clear();
+	void RemoveDuplicate(const NavigatorState& s);
+};
+
+void ReadNavigatorState(Script& s, int part_i, int sub_i, int line_i, NavigatorState& state, int depth_limit);
+
+
+
 class ScriptSolver : public SolverBase {
 	enum {
 		LS_FILL_LINES,
@@ -43,6 +64,7 @@ class ScriptSolver : public SolverBase {
 	Event<> WhenPartiallyReady;
 	DynPart* tmp_part = 0;
 	DynSub* tmp_sub = 0;
+	DynLine* tmp_line = 0;
 	Vector<const DynLine*> tmp_lines;
 	
 	struct ConvTask : Moveable<ConvTask> {
@@ -63,6 +85,7 @@ class ScriptSolver : public SolverBase {
 	void ProcessTitle();
 	void ProcessFillReferenceMatch();
 	void ProcessSmoothReferenceMatch();
+	
 	void OnProcessPrimary(String res);
 	void OnProcessFillLines(String res);
 	void OnProcessMakeHoles(String res);
@@ -76,7 +99,7 @@ class ScriptSolver : public SolverBase {
 	TextDatabase& GetDatabase() {return GetAppModeDatabase(appmode);}
 	int GetTypeclassCount() {return TextLib::GetTypeclassCount(appmode);}
 	int GetContentCount() {return TextLib::GetContentCount(appmode);}
-	
+	void CopyState(ScriptSolverArgs::State& to, const NavigatorState& from);
 public:
 	typedef ScriptSolver CLASSNAME;
 	ScriptSolver();
@@ -85,7 +108,12 @@ public:
 	void DoPhase() override;
 	static ScriptSolver& Get(int appmode, Entity& a, Script& l);
 	
+	void GetExpanded(int part_i, int sub_i, int line_i, Event<> WhenPartiallyReady);
+	void GetSuggestions2(int part_i, int sub_i, const Vector<const DynLine*>& lines, Event<> WhenPartiallyReady);
 	void GetSuggestions(const DynPart& part, const DynSub& sub, const Vector<const DynLine*>& lines, Event<> WhenPartiallyReady);
+	void GetSubStory(int part_i, int sub_i, Event<> WhenPartiallyReady);
+	void GetPartStory(int part_i, Event<> WhenPartiallyReady);
+	
 	
 	void StartPostSolver(bool b=true) {start_post_solver = b;}
 	
