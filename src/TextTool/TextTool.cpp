@@ -46,6 +46,7 @@ GUI_APP_MAIN {
 	{
 		TextTool t;
 		
+		t.GetOrganization().InitAppModes(appmodes);
 		t.GetEditor().InitAppModes(appmodes);
 		t.GetEditor().InitSimplified();
 		t.GetLeads().InitSimplified();

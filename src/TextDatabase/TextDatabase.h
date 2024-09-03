@@ -17,6 +17,7 @@
 #include "LeadDataTemplate.h"
 #include "Entry.h"
 #include "Platform.h"
+#include "Package.h"
 #include "Database.h"
 #include "Pronounciation.h"
 #include "Browser.h"

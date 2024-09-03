@@ -64,6 +64,7 @@ public:
 	void StoreLast();
 	
 	ToolEditor& GetEditor() {return ed;}
+	OrganizationCtrl& GetOrganization() {return org;}
 	LeadsCtrl& GetLeads() {return lead;}
 	
 };

@@ -1,0 +1,7 @@
+LAYOUT(UppExporter, 472, 200)
+	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Upp project")).HSizePosZ(4, 4).VSizePosZ(4, 4))
+	ITEM(Upp::EditString, dir, HSizePosZ(116, 8).TopPosZ(24, 19))
+	ITEM(Upp::Button, update, SetLabel(t_("Update")).LeftPosZ(116, 124).TopPosZ(48, 19))
+	ITEM(Upp::Label, dv___3, SetLabel(t_("Project path:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 100).TopPosZ(24, 19))
+END_LAYOUT
+

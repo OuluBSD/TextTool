@@ -5,11 +5,20 @@ uses
 
 file
 	OrgCtrl.h,
+	OrgCtrl.lay,
+	OrgCtrl.icpp,
+	OrgLibImages.iml,
 	Common.h,
+	Node.h,
+	Node.cpp,
 	Organization.h,
 	Organization.cpp,
 	Services.h,
 	Services.cpp,
 	Manager.h,
-	Manager.cpp;
+	Manager.cpp,
+	Nodes readonly separator,
+	UppExporter.h,
+	UppExporter.cpp,
+	_ readonly separator;
 

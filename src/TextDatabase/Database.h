@@ -67,6 +67,7 @@ struct TextDatabase {
 	Array<Entity>	entities;
 	VectorMap<String, Translation> translation;
 	Vector<StructuredScript> structured_scripts;
+	Array<Package>				pkgs;
 	
 	// Source
 	SourceData		src_data;
@@ -74,6 +75,7 @@ struct TextDatabase {
 	// Temp
 	RWMutex			lock;
 	bool			loaded = false;
+	int				appmode = -1;
 	
 	TextDatabase();
 	Array<Entity>& GetSub() {return entities;}
@@ -92,6 +94,7 @@ struct TextDatabase {
 	String GetEntitiesDir() const;
 	String GetSnapshotsDir() const;
 	String GetComponentsDir() const;
+	String GetPackageDir() const;
 	
 	String Translate(const String& s);
 	//static int trans_i; // active language translation index
@@ -136,6 +139,7 @@ private:
 	
 public:
 	
+	MetaDatabase();
 	void Store();
 	void Load();
 	void Jsonize(JsonIO& json);

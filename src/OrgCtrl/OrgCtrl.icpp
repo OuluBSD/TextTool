@@ -1,0 +1,15 @@
+#include "OrgCtrl.h"
+
+#define IMAGECLASS OrgLibImgs
+#define IMAGEFILE <OrgCtrl/OrgLibImages.iml>
+#include <Draw/iml_source.h>
+
+
+INITBLOCK {
+	using namespace TextLib;
+	
+	// NOTE: this order can't be changed or data breaks!
+	
+	NodeFactory::Register<UppExporterCtrl,UppExporterView>("U++ project", NODE_EXPORTER);
+	
+}

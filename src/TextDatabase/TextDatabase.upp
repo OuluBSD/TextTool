@@ -47,5 +47,8 @@ file
 	Biography.cpp,
 	BiographyAnalysis.h,
 	BiographyAnalysis.cpp,
+	Organization readonly separator,
+	Package.h,
+	Package.cpp,
 	_ readonly separator;
 

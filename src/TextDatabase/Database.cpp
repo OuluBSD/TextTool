@@ -63,6 +63,9 @@ void TextDatabase::Store() {
 	
 	for (Entity& a : entities)
 		a.Store();
+	
+	for (Package& p : pkgs)
+		p.StoreToFile();
 }
 
 void TextDatabase::Load() {
@@ -91,7 +94,29 @@ void TextDatabase::Load() {
 	LoadFromJsonFileStandard(*this, dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir() + DIR_SEPS + "src.json");
 	lock.LeaveWrite();
 	
+	{
+		String pkg_dir = GetPackageDir();
+		FindFile ff;
+		if (ff.Search(AppendFileName(pkg_dir, "*"))) do {
+			String name = ff.GetName();
+			if (!ff.IsDirectory() || name == "." || name == "..") continue;
+			String pkg_file = AppendFileName(ff.GetPath(), "pkg.json");
+			if (FileExists(pkg_file)) {
+				pkgs.Add().LoadFromFile(pkg_file);
+			}
+		}
+		while (ff.Next());
+		
+	}
+	
 	loaded = true;
+}
+
+String TextDatabase::GetPackageDir() const {
+	String& dir = MetaDatabase::Single().dir;
+	String& share = MetaDatabase::Single().share;
+	String s = dir + DIR_SEPS + share + DIR_SEPS + GetAppModeDir(appmode) + DIR_SEPS + "pkgs";
+	return s;
 }
 
 void TextDatabase::FindOrphaned() {
@@ -246,6 +271,10 @@ String GetAppModeDir(int appmode) {
 
 
 
+MetaDatabase::MetaDatabase() {
+	for(int i = 0; i < DB_COUNT; i++)
+		db[i].appmode = i;
+}
 
 MetaDatabase& MetaDatabase::Single() {
 	static MetaDatabase db;

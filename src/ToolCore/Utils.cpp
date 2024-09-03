@@ -197,4 +197,17 @@ String FixStructIndent(const String& s) {
 	return Join(lines, "\n");
 }
 
+void GetDirectoryFiles(String dir, Index<String>& files) {
+	files.Clear();
+	FindFile ff;
+	if (ff.Search(AppendFileName(dir, "*"))) {
+		do {
+			String name = ff.GetName();
+			if (name == "." || name == "..") continue;
+			files.Add(name);
+		}
+		while (ff.Next());
+	}
+}
+
 END_TEXTLIB_NAMESPACE
