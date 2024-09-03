@@ -15,14 +15,23 @@ public:
 };
 
 class FileListCtrl : public NodeCtrlBase {
-	WithFeatures<Ctrl> form;
+	Splitter hsplit;
+	ArrayCtrl files;
+	WithFileList<Ctrl> form;
 	
+	enum {
+		ADD_FILE,
+		REM_FILE,
+		SET_FILES,
+	};
 public:
 	typedef FileListCtrl CLASSNAME;
 	FileListCtrl();
 	
 	void Data() override;
 	void OnValueChange();
+	void Do(int fn);
+	void ToolMenu(Bar& bar) override;
 	
 };
 

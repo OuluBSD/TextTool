@@ -16,14 +16,22 @@ public:
 };
 
 class FeaturesCtrl : public NodeCtrlBase {
+	Splitter hsplit;
+	ArrayCtrl features;
 	WithFeatures<Ctrl> form;
 	
+	enum {
+		ADD_FEATURE,
+		REM_FEATURE
+	};
+		
 public:
 	typedef FeaturesCtrl CLASSNAME;
 	FeaturesCtrl();
 	
 	void Data() override;
 	void OnValueChange();
+	void Do(int fn);
 	
 };
 

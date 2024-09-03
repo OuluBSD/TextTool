@@ -30,6 +30,11 @@ class UppExporterCtrl : public NodeCtrlBase {
 	CodeEditor edit;
 	Index<String> pkg_list;
 	
+	enum {
+		EXPORT_CODE,
+		REM_FILE,
+	};
+	
 public:
 	typedef UppExporterCtrl CLASSNAME;
 	UppExporterCtrl();
@@ -37,8 +42,9 @@ public:
 	void Data() override;
 	void DataPkg();
 	void DataFile();
-	void ToolMenu(Bar& bar);
+	void ToolMenu(Bar& bar) override;
 	void OnValueChange();
+	void Do(int fn);
 	
 	
 };

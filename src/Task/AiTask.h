@@ -263,6 +263,7 @@ public:
 	void CreateInput_ConceptualFrameworkProcess();
 	void CreateInput_Marketplace();
 	void CreateInput_BiographyGenerator();
+	void CreateInput_Code();
 	
 	void Process_GetSuggestionAttributes();
 	void Process_StoryArc();

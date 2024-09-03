@@ -58,6 +58,9 @@ UppExporterCtrl::UppExporterCtrl() {
 	
 	files.AddColumn("File");
 	files <<= THISBACK(DataFile);
+	files.WhenBar << [this](Bar& bar) {
+		bar.Add("Remove file", THISBACK1(Do, REM_FILE));
+	};
 	
 	form.dir <<= THISBACK(OnValueChange);
 	form.update.WhenAction << [this]{view->Data(); Data();};
@@ -138,6 +141,49 @@ void UppExporterCtrl::DataFile() {
 }
 
 void UppExporterCtrl::ToolMenu(Bar& bar) {
+	bar.Add(t_("Export code"), AppImg::RedRing(), THISBACK1(Do, EXPORT_CODE)).Key(K_F5);
+	
+}
+
+void UppExporterCtrl::Do(int fn) {
+	UppExporterView& view = dynamic_cast<UppExporterView&>(*this->view);
+	
+	if (fn == EXPORT_CODE) {
+		if (!pkgs.IsCursor())
+			return;
+		String pkg_name = pkgs.Get(0);
+		UppProject& prj = view.data.GetProject(pkg_name);
+		
+		Vector<Node*> files;
+		view.node->owner->FindChildDeep(files, NODE_FILE);
+		
+		for(Node* file : files) {
+			int i = prj.FindAddFile(file->name);
+			String path = prj.GetFilePath(i);
+			LOG(path);
+			FileOut fout(path);
+			String content = file->data.GetAdd("content");
+			fout << content;
+		}
+		prj.Store();
+		PostCallback(THISBACK(DataPkg));
+	}
+	
+	if (fn == REM_FILE) {
+		if (!files.IsCursor())
+			return;
+		int file_i = files.GetCursor();
+		
+		String pkg_name = pkgs.Get(0);
+		UppProject& prj = view.data.GetProject(pkg_name);
+		if (file_i >= 0 && file_i < prj.GetFileCount()) {
+			String path = prj.GetFilePath(file_i);
+			prj.RemoveFile(file_i);
+			::remove(path);
+			prj.Store();
+			PostCallback(THISBACK(DataPkg));
+		}
+	}
 	
 }
 

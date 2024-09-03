@@ -31,7 +31,7 @@ class UppProject {
 	String name, path, dir;
 	
 	Index<String> uses;
-	Vector<String> files;
+	Index<String> files;
 	VectorMap<String, String> configs;
 	
 public:
@@ -41,6 +41,7 @@ public:
 	int GetUseCount() const {return uses.GetCount();}
 	
 	String GetFile(int i) const {return files[i];}
+	int FindAddFile(String file) {return files.FindAdd(file);}
 	int GetFileCount() const {return files.GetCount();}
 	
 	String GetConfigKey(int i) const {return configs.GetKey(i);}

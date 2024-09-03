@@ -4524,6 +4524,39 @@ void AiTask::CreateInput_BiographyGenerator() {
 	}
 }
 
+void AiTask::CreateInput_Code() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	CodeArgs args;
+	args.Put(this->args[0]);
+	
+	if (args.fn == CodeArgs::MAKE_CODE) {
+		{
+			auto& list = input.AddSub().Title("Environment");
+			list.Add("platform", args.platform);
+			list.Add("operating system", args.os);
+			list.Add("programming language", args.lang);
+			list.Add("ide", args.ide);
+		}
+		{
+			auto& list = input.AddSub().Title("File \"" + args.file + "\"");
+			for(int i = 0; i <  args.features.GetCount(); i++) {
+				list.Add("feature", args.features[i]);
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Write code of the file \"" + args.file + "\" (and nothing else)");
+			results.NoListChar();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	
+}
 
 END_TEXTLIB_NAMESPACE
 

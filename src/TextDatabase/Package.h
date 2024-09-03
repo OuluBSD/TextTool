@@ -21,6 +21,7 @@ typedef enum : int {
 	NODE_SYSTEM,
 	NODE_FEATURES,
 	NODE_FILE_LIST,
+	NODE_FILE,
 	
 	NODE_GEN_USER_ENTRY_POINT,
 	NODE_GEN_FEATURES,
@@ -46,6 +47,45 @@ struct Node {
 	Array<Node>		sub;
 	ValueMap		data;
 	
+	void FindParentDeep(Vector<Node*>& nodes, const String& name, NodeType type) {
+		Node* n = this;
+		while (n) {
+			Node* found = FindNode(name, type);
+			if (found)
+				nodes << found;
+			n = n->owner;
+		}
+	}
+	void FindParentDeep(Vector<Node*>& nodes, NodeType type) {
+		Node* n = this;
+		while (n) {
+			for (Node& n : n->sub)
+				if (n.type == type)
+					nodes << &n;
+			n = n->owner;
+		}
+	}
+	void FindChildDeep(Vector<Node*>& nodes, NodeType type) {
+		if (this->type == type) nodes << this;
+		for (Node& n : sub)
+			n.FindChildDeep(nodes, type);
+	}
+	Node* FindNode(const String& name, NodeType type){
+		for (Node& n : sub)
+			if (n.name == name && n.type == type)
+				return &n;
+		return 0;
+	}
+	Node& GetAddNode(const String& name, NodeType type) {
+		for (Node& n : sub)
+			if (n.name == name && n.type == type)
+				return n;
+		Node& n = sub.Add();
+		n.owner = this;
+		n.name = name;
+		n.type = type;
+		return n;
+	}
 	void Remove(Node& n) {
 		for(int i = 0; i < sub.GetCount(); i++)
 			if (&sub[i] == &n)
@@ -62,6 +102,19 @@ struct Node {
 		if (json.IsLoading())
 			for (auto& s : sub)
 				s.owner = this;
+	}
+	
+	ValueArray GetArray(const String& key) {
+		Value& v = data.GetAdd(key);
+		if (!v.Is<ValueArray>())
+			v = ValueArray();
+		return v;
+	}
+	ValueMap GetMap(const String& key) {
+		Value& v = data.GetAdd(key);
+		if (!v.Is<ValueMap>())
+			v = ValueMap();
+		return v;
 	}
 };
 

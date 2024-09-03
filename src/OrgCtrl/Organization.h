@@ -47,6 +47,7 @@ public:
 	EditorPtrs& GetPointers();
 	int GetAppMode() const;
 	
+	Event<> WhenToolMenuUpdate;
 	
 };
 

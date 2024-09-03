@@ -19,9 +19,15 @@ END_LAYOUT
 
 LAYOUT(Features, 400, 200)
 	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Features")).HSizePosZ(4, 4).VSizePosZ(4, 4))
-	ITEM(Upp::DropList, platform, HSizePosZ(116, 8).TopPosZ(24, 19))
-	ITEM(Upp::Label, dv___2, SetLabel(t_("Platform:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 100).TopPosZ(24, 19))
-	ITEM(Upp::DropList, os, HSizePosZ(116, 8).TopPosZ(48, 19))
-	ITEM(Upp::Label, dv___4, SetLabel(t_("Operating system:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 100).TopPosZ(48, 19))
+END_LAYOUT
+
+LAYOUT(FileList, 400, 200)
+	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("File list")).HSizePosZ(4, 4).VSizePosZ(4, 4))
+END_LAYOUT
+
+LAYOUT(File, 400, 200)
+	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("File")).HSizePosZ(4, 4).VSizePosZ(4, 4))
+	ITEM(Upp::DocEdit, description, HSizePosZ(92, 8).TopPosZ(20, 160))
+	ITEM(Upp::Label, dv___2, SetLabel(t_("Description:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(8, 80).TopPosZ(20, 24))
 END_LAYOUT
 

@@ -14,5 +14,6 @@ INITBLOCK {
 	NodeFactory::Register<SystemCtrl,SystemView>("System", NODE_SYSTEM);
 	NodeFactory::Register<FeaturesCtrl,FeaturesView>("Features", NODE_FEATURES);
 	NodeFactory::Register<FileListCtrl,FileListView>("File list", NODE_FILE_LIST);
+	NodeFactory::Register<FileCtrl,FileView>("File", NODE_FILE);
 	
 }

@@ -21,6 +21,7 @@
 #include "SystemNode.h"
 #include "FeaturesNode.h"
 #include "FileListNode.h"
+#include "FileNode.h"
 
 
 #endif

@@ -9,6 +9,7 @@ file
 	OrgCtrl.icpp,
 	OrgLibImages.iml,
 	Common.h,
+	Common.cpp,
 	Node.h,
 	Node.cpp,
 	Organization.h,
@@ -26,5 +27,7 @@ file
 	FeaturesNode.cpp,
 	FileListNode.h,
 	FileListNode.cpp,
+	FileNode.h,
+	FileNode.cpp,
 	_ readonly separator;
 

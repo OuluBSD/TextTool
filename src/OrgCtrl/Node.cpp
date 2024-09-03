@@ -19,6 +19,7 @@ Image GetNodeImage(NodeType n) {
 		case NODE_SYSTEM: return OrgLibImgs::system();
 		case NODE_FEATURES: return OrgLibImgs::features();
 		case NODE_FILE_LIST: return OrgLibImgs::filelist();
+		case NODE_FILE: return OrgLibImgs::file();
 		
 		case NODE_GEN_USER_ENTRY_POINT: return OrgLibImgs::entrypoint();
 		case NODE_GEN_FEATURES: return OrgLibImgs::features();

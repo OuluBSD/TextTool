@@ -32,6 +32,7 @@ typedef enum : int {
 	AITASK_CONCECPTUAL_FRAMEWORK_PROCESS,
 	AITASK_MARKETPLACE,
 	AITASK_BIOGRAPHY_GENERATOR,
+	AITASK_CODE,
 	
 	AITASK_COUNT
 } AiTaskType;
@@ -542,6 +543,28 @@ struct BiographyGeneratorArgs {
 				("birth_year", birth_year)
 				("category", category)
 				("year", year)
+				;
+	}
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+};
+
+struct CodeArgs {
+	int fn = 0;
+	String file;
+	Vector<String> features;
+	String platform, os, ide, lang;
+	
+	enum {
+		MAKE_CODE,
+	};
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("file", file)
+				("platform", platform)
+				("os", os)
+				("ide", ide)
+				("lang", lang)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

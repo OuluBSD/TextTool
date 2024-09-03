@@ -23,6 +23,8 @@ SystemCtrl::SystemCtrl() {
 	
 	form.platform <<= THISBACK(OnValueChange);
 	form.os <<= THISBACK(OnValueChange);
+	form.lang <<= THISBACK(OnValueChange);
+	form.ide <<= THISBACK(OnValueChange);
 	
 	form.platform.Add("Any");
 	form.platform.Add("Desktop");
@@ -53,6 +55,23 @@ SystemCtrl::SystemCtrl() {
 	form.ide.Add("AndroidStudio");
 	form.ide.Add("U++");
 	
+	/*
+	platform: desktop
+	system: any
+	language: c++
+	
+	list of windows gui frameworks:
+	
+	1. Qt
+	2. wxWidgets
+	3. MFC (Microsoft Foundation Classes)
+	4. WinForms
+	5. GTK+
+	6. Electron
+	7. JavaFX
+	8. FLTK (Fast Light Toolkit)
+	9. C++/WinRT
+	10. XAML (Extensible Application Markup Language)*/
 }
 
 void SystemCtrl::OnValueChange() {

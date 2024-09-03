@@ -161,7 +161,7 @@ void OrganizationCtrl::DataNode() {
 	}
 	Node& n = *node_ptrs[i];
 	if (n.ff_i < 0) {
-		RemoveCtrl();
+		n.ff_i = 0;
 		return;
 	}
 	if (cur_view == n.type && cur_ff == n.ff_i) {
@@ -171,16 +171,21 @@ void OrganizationCtrl::DataNode() {
 	
 	RemoveCtrl();
 	
+	
 	const auto& f = NodeFactory::GetFactories();
 	i = f.Find(n.type);
 	if (i < 0)
 		return;
 	const auto& v = f[i];
-	if (n.ff_i < 0 || n.ff_i >= v.GetCount())
+	if (n.ff_i >= v.GetCount()) {
+		RemoveCtrl();
 		return;
+	}
 	const auto& ff = v[n.ff_i];
 	ctrl = ff.ctrl();
 	view = ff.view();
+	ctrl->org = this;
+	view->org = this;
 	ctrl->view = &*view;
 	main.Add(ctrl->SizePos());
 	
@@ -197,13 +202,15 @@ void OrganizationCtrl::DataView() {
 		view->SetNode(i >= 0 ? node_ptrs[i] : 0);
 		view->Data();
 	}
-	if (ctrl)
+	if (ctrl) {
 		ctrl->Data();
+		WhenToolMenuUpdate();
+	}
 }
 
 void OrganizationCtrl::ToolMenu(Bar& bar) {
-	
-	
+	if (ctrl)
+		ctrl->ToolMenu(bar);
 }
 
 TextDatabase& OrganizationCtrl::GetDatabase() {

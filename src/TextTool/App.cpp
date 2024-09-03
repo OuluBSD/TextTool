@@ -39,6 +39,8 @@ TextTool::TextTool() : ed(this), lead(this) {
 	if (0) AddFrame(statusbar);
 	menu.Set(THISBACK(MainMenu));
 	
+	org.WhenToolMenuUpdate << THISBACK(SetBar);
+	
 	PostInit();
 }
 
