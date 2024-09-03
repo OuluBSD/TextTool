@@ -40,6 +40,9 @@ void TextDataLoader::Process() {
 		else if (appmode == DB_MARKETING) {
 			LoadHuggingMarketing();
 		}
+		else if (appmode == DB_CODE) {
+			LOG("TODO: TextDataLoader::Process");
+		}
 	}
 	else if (share == "share-fi") {
 		if (appmode == DB_SONG) {

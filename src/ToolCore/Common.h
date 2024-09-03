@@ -232,6 +232,7 @@ enum {
 	DB_BLOG,
 	DB_DIALOG,
 	DB_STORYBOARD,
+	DB_CODE,
 	
 	DB_COUNT,
 	
@@ -252,6 +253,7 @@ inline String GetAppModeString(int appmode) {
 		case DB_DIALOG:			return "Dialog";
 		case DB_STORYBOARD:		return "Storyboard";
 		case DB_MARKETING:		return "Marketing";
+		case DB_CODE:			return "Code";
 		
 		case DB_POLITICS:		return "Politics";
 		case DB_LIFE:			return "Life";

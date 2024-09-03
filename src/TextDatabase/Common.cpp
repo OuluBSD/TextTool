@@ -95,6 +95,17 @@ const char* AppModeKeys[DB_COUNT][AM_COUNT+1] = {
 		0
 	},
 	
+	// DB_CODE
+	{
+		"programmer",		"release",		"help",			"help",
+		"cause",			"approach",		"text",			"text",
+		"code_db",			"progressive",	"user",
+		"user of program",
+		"game/app/driver",
+		"body", "preconclusion", "conclusion", "call to action","storyteller","narcissistic",
+		0
+	},
+	
 	
 	
 	#if 0
@@ -326,6 +337,38 @@ const char* AppModeLabels[DB_COUNT][AML_COUNT] = {
 		"coherent parts of contextually same storyboard images",
 		"Not a folktale",
 		"This is a folktale",
+		
+		"Not narcissistic",
+		"This is narcissistic",
+	},
+	
+	// DB_CODE
+	{
+		"Programming style:",
+		"Assembly",
+		"Dynamic languages",
+		"Programmer",
+		"Coding conventions",
+		"Release",
+		"Programmer (if different):",
+		"Reference program:",
+		"Origins of the program:",
+		"Active program structure",
+		"Speed (?)",
+		"Not a experiemental program",
+		"This is a standard program",
+		
+		"assembly_code",
+		"dynamic_language",
+		"programmer_image",
+		"coding_conventions",
+		"programming_style",
+		
+		"",
+		"",
+		"",
+		"",
+		"",
 		
 		"Not narcissistic",
 		"This is narcissistic",

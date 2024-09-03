@@ -104,6 +104,9 @@ const VectorMap<String, String>& GetAppModeParts(int appmode) {
 			v.Add("MC", "Marketing closing");
 			v.Add("DO", "Deadline Offer");
 		}
+		else if (appmode == DB_CODE) {
+			TODO
+		}
 		else TODO
 	}
 	return v;
@@ -204,6 +207,9 @@ const VectorMap<String, Color>& GetAppModePartColors(int appmode) {
 			v.Add("MC", Color(255, 226, 188));
 			v.Add("DO", Color(255, 226, 188));
 		}
+		else if (appmode == DB_CODE) {
+			TODO
+		}
 		else TODO
 	}
 	return v;
@@ -296,6 +302,9 @@ const Vector<String>& GetAppModeDefCompStructure(int appmode) {
 			v.Add("CD");
 			v.Add("CS");
 		}
+		else if (appmode == DB_CODE) {
+			TODO
+		}
 		else TODO
 	}
 	return v;
@@ -376,6 +385,9 @@ const VectorMap<String, String>& GetAppModeStructure(int appmode) {
 			v.Add("CD", "call to action");
 			v.Add("CS", "closing");
 		}
+		else if (appmode == DB_CODE) {
+			TODO
+		}
 		else TODO
 	}
 	return v;
@@ -421,6 +433,9 @@ const Vector<String>& GetAppModeDefCompStructureAttrs(int appmode) {
 			v.Add("speaks authoritatively to influence reader opinion");
 			v.Add("hook calls to the reader's nostalgia & imagination");
 			v.Add("expresses the innovative idea from 2nd writer piece");
+		}
+		else if (appmode == DB_CODE) {
+			TODO
 		}
 		else TODO
 	}
@@ -469,6 +484,9 @@ const Vector<String>& GetAppModeStructureAttrs(int appmode) {
 			v.Add("adds infomation that informs the reader and helps them make a more informed decision");
 			v.Add("includes a sense of urgency and clear call to action for the reader");
 			v.Add("has a distinct closing that effectively summarizes the main points and drives the reader to take action");
+		}
+		else if (appmode == DB_CODE) {
+			TODO
 		}
 		else TODO
 	}
@@ -567,6 +585,10 @@ void MakeAppMode_UnsafeServers(int appmode, String& title, Vector<String>& list)
 			list.Add("Sue Carpenter");
 			list.Add("Jonas Marcy");
 			list.Add("Helencie Crabtree");
+			break;
+		
+		case DB_CODE:
+			TODO
 			break;
 		
 		default: Panic("TODO");
@@ -714,6 +736,9 @@ const Vector<String>& GetAppModeResultPhraseExamples(int appmode, int lng_i) {
 				v.Add("'lahjoita', 'lasten syöpä': \"Lahjoita yhteisen hyvän keksejä ja lasten syöpä rahastoon.\"");
 			}
 			else TODO
+		}
+		else if (appmode == DB_CODE) {
+			TODO
 		}
 		else TODO
 	}

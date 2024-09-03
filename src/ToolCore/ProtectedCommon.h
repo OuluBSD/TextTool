@@ -91,6 +91,10 @@ VectorMap<String,Vector<String>>& GetPersuasiveTriggers(bool unsafe, bool gender
 
 
 
+const Index<String>& GetProgramGenres();
+const Vector<ContentType>& GetProgrammingApproaches();
+
+
 END_TEXTLIB_NAMESPACE
 
 
