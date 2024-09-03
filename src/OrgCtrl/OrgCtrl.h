@@ -18,6 +18,9 @@
 #include "Manager.h"
 #include "UppExporter.h"
 #include "Node.h"
+#include "SystemNode.h"
+#include "FeaturesNode.h"
+#include "FileListNode.h"
 
 
 #endif

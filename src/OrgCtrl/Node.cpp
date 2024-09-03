@@ -16,6 +16,10 @@ Image GetNodeImage(NodeType n) {
 		case NODE_LINKED_PROJECT: return OrgLibImgs::linkedproject();
 		case NODE_BUILD_TARGET: return OrgLibImgs::buildtarget();
 		
+		case NODE_SYSTEM: return OrgLibImgs::system();
+		case NODE_FEATURES: return OrgLibImgs::features();
+		case NODE_FILE_LIST: return OrgLibImgs::filelist();
+		
 		case NODE_GEN_USER_ENTRY_POINT: return OrgLibImgs::entrypoint();
 		case NODE_GEN_FEATURES: return OrgLibImgs::features();
 		case NODE_GEN_SOFTWARE_ARCHITECTURE: return OrgLibImgs::architecture();

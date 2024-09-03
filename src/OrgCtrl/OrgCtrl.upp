@@ -18,7 +18,13 @@ file
 	Manager.h,
 	Manager.cpp,
 	Nodes readonly separator,
+	SystemNode.h,
+	SystemNode.cpp,
 	UppExporter.h,
 	UppExporter.cpp,
+	FeaturesNode.h,
+	FeaturesNode.cpp,
+	FileListNode.h,
+	FileListNode.cpp,
 	_ readonly separator;
 

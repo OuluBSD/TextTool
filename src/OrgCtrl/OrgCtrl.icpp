@@ -11,5 +11,8 @@ INITBLOCK {
 	// NOTE: this order can't be changed or data breaks!
 	
 	NodeFactory::Register<UppExporterCtrl,UppExporterView>("U++ project", NODE_EXPORTER);
+	NodeFactory::Register<SystemCtrl,SystemView>("System", NODE_SYSTEM);
+	NodeFactory::Register<FeaturesCtrl,FeaturesView>("Features", NODE_FEATURES);
+	NodeFactory::Register<FileListCtrl,FileListView>("File list", NODE_FILE_LIST);
 	
 }

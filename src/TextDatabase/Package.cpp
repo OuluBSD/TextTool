@@ -16,6 +16,10 @@ String GetNodeName(NodeType n) {
 		case NODE_LINKED_PROJECT: return "Linked Project";
 		case NODE_BUILD_TARGET: return "Build Target";
 		
+		case NODE_SYSTEM: return "System";
+		case NODE_FEATURES: return "Features";
+		case NODE_FILE_LIST: return "File list";
+		
 		case NODE_GEN_USER_ENTRY_POINT: return "User entry point";
 		case NODE_GEN_FEATURES: return "Features";
 		case NODE_GEN_SOFTWARE_ARCHITECTURE: return "Software architecture";

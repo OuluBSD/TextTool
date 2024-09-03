@@ -5,3 +5,23 @@ LAYOUT(UppExporter, 472, 200)
 	ITEM(Upp::Label, dv___3, SetLabel(t_("Project path:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 100).TopPosZ(24, 19))
 END_LAYOUT
 
+LAYOUT(System, 400, 200)
+	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("System")).HSizePosZ(4, 4).VSizePosZ(4, 4))
+	ITEM(Upp::DropList, platform, HSizePosZ(116, 8).TopPosZ(24, 19))
+	ITEM(Upp::Label, dv___2, SetLabel(t_("Platform:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 100).TopPosZ(24, 19))
+	ITEM(Upp::DropList, os, HSizePosZ(116, 8).TopPosZ(48, 19))
+	ITEM(Upp::Label, dv___4, SetLabel(t_("Operating system:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 100).TopPosZ(48, 19))
+	ITEM(Upp::DropList, lang, HSizePosZ(116, 8).TopPosZ(72, 19))
+	ITEM(Upp::Label, dv___6, SetLabel(t_("Language:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 100).TopPosZ(72, 19))
+	ITEM(Upp::DropList, ide, HSizePosZ(116, 8).TopPosZ(96, 19))
+	ITEM(Upp::Label, dv___8, SetLabel(t_("IDE:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 100).TopPosZ(96, 19))
+END_LAYOUT
+
+LAYOUT(Features, 400, 200)
+	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Features")).HSizePosZ(4, 4).VSizePosZ(4, 4))
+	ITEM(Upp::DropList, platform, HSizePosZ(116, 8).TopPosZ(24, 19))
+	ITEM(Upp::Label, dv___2, SetLabel(t_("Platform:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 100).TopPosZ(24, 19))
+	ITEM(Upp::DropList, os, HSizePosZ(116, 8).TopPosZ(48, 19))
+	ITEM(Upp::Label, dv___4, SetLabel(t_("Operating system:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 100).TopPosZ(48, 19))
+END_LAYOUT
+
