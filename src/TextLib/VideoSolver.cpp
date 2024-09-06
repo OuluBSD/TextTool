@@ -1,4 +1,5 @@
 #include "TextLib.h"
+#include <ToolCtrl/ToolCtrl.h>
 
 
 BEGIN_TEXTLIB_NAMESPACE
@@ -15,8 +16,9 @@ int VideoSolver::GetPhaseCount() const {
 void VideoSolver::DoPhase() {
 	ASSERT(snap);
 	
-	TODO
-	#if 0
+	if (phase >= PHASE_COUNT)
+		return;
+	
 	if (phase == PHASE_MAKE_STORYBOARD) {
 		int script_i = snap->entity->FindScript(comp->scripts_file_title);
 		if (script_i < 0) {
@@ -35,7 +37,7 @@ void VideoSolver::DoPhase() {
 		
 		VideoSolverArgs args;
 		args.fn = 0;
-		args.text = script.GetText();
+		args.text = script.GetText(appmode);
 		
 		SetWaiting(1);
 		TaskMgr& m = TaskMgr::Single();
@@ -81,7 +83,7 @@ void VideoSolver::DoPhase() {
 		
 		VideoSolverArgs args;
 		args.fn = 1;
-		args.text = script.GetText();
+		args.text = script.GetText(appmode);
 		args.parts.Add(key);
 		
 		SetWaiting(1);
@@ -118,7 +120,7 @@ void VideoSolver::DoPhase() {
 		args.fn = 2;
 		args.parts <<= comp->storyboard_parts;
 		
-		String txt = script.GetText();
+		String txt = script.GetText(appmode);
 		txt.Replace("\r", "");
 		tmp_lines = Split(txt, "\n");
 		for(int i = 0; i < tmp_lines.GetCount(); i++) {
@@ -156,6 +158,56 @@ void VideoSolver::DoPhase() {
 			
 			SetWaiting(0);
 			NextPhase();
+		});
+	}
+	else if (phase == PHASE_IMAGE_SEARCH_PROMPT) {
+		if (batch == 0) comp->text_storyboard_searches.Clear();
+		
+		if (batch >= comp->text_storyboard_parts.GetCount()) {
+			NextPhase();
+			return;
+		}
+		if (skip_ready && comp->text_storyboard_searches.GetCount() > batch) {
+			NextBatch();
+			return;
+		}
+		
+		comp->text_storyboard_searches.SetCount(batch);
+		
+		String prompts_so_far = Join(comp->text_storyboard_searches, "\n");
+		
+		const String& line = comp->text_storyboard_parts.GetKey(batch);
+		int part_i = comp->text_storyboard_parts[batch];
+		String key = comp->storyboard_parts.GetKey(part_i);
+		const auto& prompts = comp->storyboard_prompts.GetAdd(key);
+		if (prompts.IsEmpty()) {
+			NextBatch();
+			return;
+		}
+		
+		VideoSolverArgs args;
+		args.fn = 6;
+		args.text = prompts_so_far;
+		args.line = line;
+		args.prompts <<= prompts;
+		
+		
+		SetWaiting(1);
+		TaskMgr& m = TaskMgr::Single();
+		m.GetVideoSolver(args, [this](String res) {
+			res = TrimBoth(res);
+			RemoveEmptyLines3(res);
+			
+			res.Replace("\"", "");
+			res.Replace("- ", "");
+			
+			Vector<String> items = Split(res, "\n");
+			String line = Join(items, ", ");
+			
+			comp->text_storyboard_searches.Add(line);
+			
+			SetWaiting(0);
+			NextBatch();
 		});
 	}
 	else if (phase == PHASE_FILL_STORY_PROMPTS) {
@@ -200,8 +252,154 @@ void VideoSolver::DoPhase() {
 			NextBatch();
 		});
 	}
+	else if (phase == PHASE_GET_IMAGES ||
+			 phase == PHASE_GET_SAFE_IMAGES) {
+		int c = comp->text_storyboard_prompts.GetCount();
+		comp->text_storyboard_prompts_safe.SetCount(c);
+		comp->text_storyboard_prompts_runway.SetCount(c);
+		
+		if (batch >= c) {
+			NextPhase();
+			return;
+		}
+		
+		auto& hashes = comp->text_storyboard_hashes;
+		if (skip_ready &&
+			batch < hashes.GetCount() &&
+			hashes[batch].GetCount() >= arg_image_count) {
+			NextBatch();
+			return;
+		}
+		
+		if (batch >= hashes.GetCount())
+			hashes.SetCount(batch+1);
+		
+		Vector<int64>& prompt_hashes = hashes[batch];
+		
+		prompt_hashes.SetCount(0);
+		
+		String prompt;
+		
+		if (comp->text_storyboard_prompts_safe[batch].GetCount() ||
+			phase == PHASE_GET_SAFE_IMAGES)
+			prompt = comp->text_storyboard_prompts_safe[batch];
+		else
+			prompt = comp->text_storyboard_prompts[batch];
+		
+		if (prompt.GetCount() > 1000)
+			prompt = prompt.Left(1000);
+		
+		
+		SetWaiting(1);
+		TaskMgr& m = TaskMgr::Single();
+		m.CreateImage(prompt, arg_image_count, [this](Array<Image>& imgs) {
+			auto& hashes = comp->text_storyboard_hashes;
+			Vector<int64>& prompt_hashes = hashes[batch];
+			
+			prompt_hashes.SetCount(imgs.GetCount(), 0);
+			
+			for(int i = 0; i < imgs.GetCount(); i++) {
+				Image& img = imgs[i];
+				hash_t h = img.GetHashValue();
+				
+				String cache_path = CacheImageFile(h);
+				String thumb_path = ThumbnailImageFile(h);
+				String full_path = FullImageFile(h);
+				RealizeDirectory(GetFileDirectory(cache_path));
+				RealizeDirectory(GetFileDirectory(thumb_path));
+				RealizeDirectory(GetFileDirectory(full_path));
+				
+				if (!FileExists(cache_path)) {
+					Image small_img = RescaleToFit(img, 1024);
+					JPGEncoder enc(98);
+					enc.SaveFile(cache_path, small_img);
+				}
+				
+				if (!FileExists(thumb_path)) {
+					Image thumb_img = RescaleToFit(img, 128);
+					JPGEncoder enc(98);
+					enc.SaveFile(thumb_path, thumb_img);
+				}
+				
+				if (!FileExists(full_path)) {
+					JPGEncoder enc(100);
+					enc.SaveFile(full_path, img);
+				}
+				
+				prompt_hashes[i] = h;
+			}
+			
+			
+			SetWaiting(0);
+			NextBatch();
+		});
+	}
+	else if (phase == PHASE_SAFE_PROMPTS) {
+		
+		if (batch >= comp->text_storyboard_prompts.GetCount()) {
+			NextPhase();
+			return;
+		}
+		
+		auto& hashes = comp->text_storyboard_hashes;
+		if (skip_ready &&
+			batch < hashes.GetCount() &&
+			hashes[batch].GetCount() >= arg_image_count) {
+			NextBatch();
+			return;
+		}
+		
+		String prompt = comp->text_storyboard_prompts[batch];
+		
+		VideoSolverArgs args;
+		args.fn = 4;
+		args.text = comp->text_storyboard_prompts[batch];
+		
+		
+		SetWaiting(1);
+		TaskMgr& m = TaskMgr::Single();
+		m.GetVideoSolver(args, [this](String res) {
+			res = TrimBoth(res);
+			RemoveQuotes(res);
+			
+			comp->text_storyboard_prompts_safe[batch] = res;
+			
+			SetWaiting(0);
+			NextBatch();
+		});
+	}
+	else if (phase == PHASE_GET_RUNWAY_STORYBOARD) {
+		
+		if (batch >= comp->text_storyboard_prompts_runway.GetCount()) {
+			NextPhase();
+			return;
+		}
+		
+		if (skip_ready && comp->text_storyboard_prompts_runway[batch].GetCount()) {
+			NextBatch();
+			return;
+		}
+		
+		String prompt = comp->text_storyboard_prompts[batch];
+		
+		VideoSolverArgs args;
+		args.fn = 5;
+		args.text = comp->text_storyboard_prompts[batch];
+		
+		
+		SetWaiting(1);
+		TaskMgr& m = TaskMgr::Single();
+		m.GetVideoSolver(args, [this](String res) {
+			res = TrimBoth(res);
+			RemoveQuotes(res);
+			
+			comp->text_storyboard_prompts_runway[batch] = res;
+			
+			SetWaiting(0);
+			NextBatch();
+		});
+	}
 	else TODO
-	#endif
 }
 
 ArrayMap<hash_t, VideoSolver>& __VideoSolvers() {
@@ -209,11 +407,11 @@ ArrayMap<hash_t, VideoSolver>& __VideoSolvers() {
 	return map;
 }
 
-VideoSolver& VideoSolver::Get(Component& c) {
+VideoSolver& VideoSolver::Get(Component& c, int appmode) {
 	Entity& e = *c.snapshot->entity;
 	Profile& p = *e.profile;
 	Snapshot& n = *c.snapshot;
-	String t = p.owner->name + ": " + e.file_title + ": " + n.file_title + ": " + c.file_title;
+	String t = p.owner->name + ": " + e.file_title + ": " + n.file_title + ": " + c.file_title + " (" + IntStr(appmode) + ")";
 	hash_t h = t.GetHashValue();
 	ArrayMap<hash_t, VideoSolver>& map = __VideoSolvers();
 	int i = map.Find(h);
@@ -226,6 +424,7 @@ VideoSolver& VideoSolver::Get(Component& c) {
 	ls.comp = &c;
 	ls.snap = c.snapshot;
 	ls.entity = c.snapshot->entity;
+	ls.appmode = appmode;
 	return ls;
 }
 

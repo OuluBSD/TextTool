@@ -63,6 +63,8 @@ file
 	CompInfoCtrl.cpp,
 	VideoPromptMaker.h,
 	VideoPromptMaker.cpp,
+	VideoStoryboardCtrl.h,
+	VideoStoryboardCtrl.cpp,
 	Script readonly separator,
 	ScriptInfoCtrl.h,
 	ScriptInfoCtrl.cpp,

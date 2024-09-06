@@ -116,11 +116,12 @@ void ScriptSolverCtrl::Data() {
 		if (!result_list.IsCursor() && result_list.GetCount())
 			result_list.SetCursor(0);
 		
-		script.SetData(l.GetText());
+		int appmode = GetAppMode();
+		script.SetData(l.GetText(appmode));
 		
-		String ref = l.GetTextStructure(0);
+		String ref = l.GetTextStructure(appmode, 0);
 		if (ref.IsEmpty())
-			ref = l.GetTextStructure(1);
+			ref = l.GetTextStructure(appmode, 1);
 		ref_script.SetData(ref);
 		
 		DataSuggestion();

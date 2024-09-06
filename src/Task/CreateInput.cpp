@@ -3713,6 +3713,123 @@ void AiTask::CreateInput_VideoSolver() {
 		}
 		SetHighQuality();
 	}
+	if (args.fn == 4) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Input A: a prompt for image generator, which violates content policy for some reason");
+			list.Add(args.text);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("The prompt replacement, which is safe and doesn't violate content policy, but makes the same image almost");
+			results.Add("\"");
+		}
+	}
+	if (args.fn == 5) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Format of the prompt is \"[camera movement]: [establishing scene]. [additional details].\". This is a list of examples or presets in that format");
+			list.Add("Low angle static shot: The camera is angled up at a woman wearing all orange as she stands in a tropical rainforest with colorful flora. The dramatic sky is overcast and gray.");
+			list.Add("Cinematic view of [a human subject with detailed descriptions of their appearance] walking through a blurry crowd. [Describe their action]. 30x speed, hyperspeed, fast motion. In the style of [describe style; ex. Moody colors, cinematic feel, dynamic motion, depth of field].");
+			list.Add("First person view shot of a [subject]. hyper-speed fly, dynamic motion, dynamic blur, timelapse, 30x speed. In the style of [describe style; ex. cinematic, muted color palette].");
+			list.Add("Telephoto close up: [subject].");
+			list.Add("Dynamic motion, dynamic blur, 30x speed, unsharp edges.");
+			list.Add("Extreme wide angle establishing shot: [subject] in vast [scene].");
+			list.Add("High speed, motion blur, chaotic, kinetic, hyperkinetic.");
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("List of camera styles");
+			list.Add("Low angle");
+			list.Add("High angle");
+			list.Add("Overhead");
+			list.Add("FPV");
+			list.Add("Hand held");
+			list.Add("Wide angle");
+			list.Add("Close up");
+			list.Add("Macro cinematography");
+			list.Add("Over the shoulder");
+			list.Add("Tracking");
+			list.Add("Establishing wide");
+			list.Add("50mm lens");
+			list.Add("SnorriCam");
+			list.Add("Realistic documentary");
+			list.Add("Camcorder");
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("List of lightning styles");
+			list.Add("Diffused lighting");
+			list.Add("Silhouette");
+			list.Add("Lens flare");
+			list.Add("Back lit");
+			list.Add("Side lit");
+			list.Add("[color] gel lighting");
+			list.Add("Venetian lighting");
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("List of Movement Speeds");
+			list.Add("Grows");
+			list.Add("Emerges");
+			list.Add("Explodes");
+			list.Add("Ascends");
+			list.Add("Undulates");
+			list.Add("Warps");
+			list.Add("Transforms");
+			list.Add("Ripples");
+			list.Add("Shatters");
+			list.Add("Unfolds");
+			list.Add("Vortex");
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("List of Style and Aesthetics");
+			list.Add("Moody");
+			list.Add("Cinematic");
+			list.Add("Iridescent");
+			list.Add("Home video VHS");
+			list.Add("Glitchcore");
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Input A: a prompt for image generator, which should be converted to a prompt for video generator");
+			list.Add(args.text);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("The prompt for video generator, which uses the given prompt format");
+			results.Add("\"");
+		}
+	}
+	if (args.fn == 6) {
+		{
+			auto& list = input.AddSub();
+			list.Title("Input A: keywords of the storyboard so far");
+			args.text.Replace("\r", "");
+			Vector<String> lines = Split(args.text, "\n");
+			for(int i = 0; i < lines.GetCount(); i++)
+				list.Add(lines[i]);
+			list.NumberedLines();
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Input B: current source text line in focus");
+			list.Add(args.line);
+		}
+		{
+			auto& list = input.AddSub();
+			list.Title("Input C: list of image generator prompts");
+			for(int i = 0; i < args.prompts.GetCount(); i++)
+				list.Add(args.prompts[i]);
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("Read the Input A and write down a 1-10 keywords from the Input C (or modified), which matches the Input B best. Those 1-10 keywords should be the most relevant words which depicts e.g. place, environment, entities, attributes or objects");
+			results.Add("\"");
+		}
+	}
+	
 }
 
 void AiTask::CreateInput_DemandSolver() {

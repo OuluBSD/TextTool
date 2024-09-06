@@ -153,40 +153,32 @@ String Script::GetAnyTitle() const {
 	return file_title;
 }
 
-String Script::GetText() const {
+String Script::GetText(int appmode) const {
 	if (__text.GetCount())
 		return __text;
-	return GetTextStructure(0);
+	return GetUserText(appmode);
 }
 
-String Script::GetTextStructure(bool coarse) const {
-	#if 0
+String Script::GetTextStructure(int appmode, bool coarse) const {
 	String out;
-	for(int i = 0; i < active_struct.parts.GetCount(); i++) {
-		String type = active_struct.parts[i];
-		for(const StaticPart& sp : parts) {
-			if (sp.part_type == StaticPart::SKIP)
-				continue;
-			if (sp.type != type && sp.name != type)
-				continue;
-			
-			out << "[" << sp.name;
-			if (!sp.singer.IsEmpty())
-				out << ": " << sp.singer;
-			out << "]\n";
-			
-			if (coarse)
-				out << sp.coarse_text.AsText();
-			else
-				out << sp.text.AsText();
-			out << "\n\n";
-			
-			break;
+	for(const DynPart& dp : parts) {
+		if (dp.text_type == TextPartType::TXT_NULL)
+			continue;
+		out << "[" << dp.GetName(appmode);
+		if (!dp.person.IsEmpty())
+			out << ": " << dp.person;
+		out << "]\n";
+		for (const DynSub& ds : dp.sub) {
+			out.Cat('\t',1);
+			out << "[" << ds.el.element << "]\n";
+			for (const DynLine& dl : ds.lines) {
+				out.Cat('\t',2);
+				out << dl.user_text << "\n";
+			}
 		}
+		out << "\n\n";
 	}
 	return out;
-	#endif
-	return String();
 }
 
 int Script::GetFirstPartPosition() const {

@@ -168,7 +168,7 @@ void ImageGenTool::Generate() {
 void ImageGenTool::GenerateArgs(String prompt_str, int n) {
 	{
 		TaskMgr& m = TaskMgr::Single();
-		m.CreateImage(prompt_str, n, THISBACK2(OnImageReady, prompt_str, n), THISBACK(EnableAll));
+		m.CreateImage(prompt_str, n, THISBACK2(OnImageReady, prompt_str, n), 0, THISBACK(EnableAll));
 	}
 	
 	list.Disable();

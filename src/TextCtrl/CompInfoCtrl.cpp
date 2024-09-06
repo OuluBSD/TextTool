@@ -160,7 +160,7 @@ void CompInfoCtrl::DataScript() {
 	Entity& a = *p.entity;
 	Script& lyr = a.scripts[scripts.Get("IDX")];
 	
-	String text = lyr.GetText();
+	String text = lyr.GetText(GetAppMode());
 	if (text.GetCount())
 		scripts_text.SetData(text);
 	else

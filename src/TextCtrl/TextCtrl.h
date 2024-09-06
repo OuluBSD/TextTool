@@ -51,6 +51,7 @@
 #include "BiographyElements.h"
 #include "BiographyGenerator.h"
 #include "ScriptReferenceMaker.h"
+#include "VideoStoryboardCtrl.h"
 
 #include "Marketplace.h"
 

@@ -549,9 +549,9 @@ struct Script : DataFile {
 	DynPart* FindPartByName(int appmode, const String& name);
 	int GetFirstPartPosition() const;
 	String GetAnyTitle() const;
-	String GetText() const;
+	String GetText(int appmode) const;
 	String GetUserText(int appmode) const;
-	String GetTextStructure(bool coarse) const;
+	String GetTextStructure(int appmode, bool coarse) const;
 	void LoadStructuredText(const String& s);
 	void LoadStructuredTextExt(const String& s);
 	void SetEditText(const String& s);

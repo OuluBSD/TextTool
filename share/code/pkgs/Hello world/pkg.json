@@ -1,0 +1,199 @@
+{
+	"name": "Hello world",
+	"root": {
+		"type": -1,
+		"ff_i": 0,
+		"name": "",
+		"sub": [
+			{
+				"type": 3,
+				"ff_i": 0,
+				"name": "U++ project",
+				"sub": [
+
+				],
+				"data": [
+					{
+						"key": {
+							"type": "String",
+							"value": "dir"
+						},
+						"value": {
+							"type": "String",
+							"value": "C:\\Users\\sblo\\Dev\\upp\\MyApps\\StdTest"
+						}
+					}
+				]
+			},
+			{
+				"type": 7,
+				"ff_i": 0,
+				"name": "System",
+				"sub": [
+
+				],
+				"data": [
+					{
+						"key": {
+							"type": "String",
+							"value": "platform"
+						},
+						"value": {
+							"type": "String",
+							"value": "Desktop"
+						}
+					},
+					{
+						"key": {
+							"type": "String",
+							"value": "os"
+						},
+						"value": {
+							"type": "String",
+							"value": "Any"
+						}
+					},
+					{
+						"key": {
+							"type": "String",
+							"value": "lang"
+						},
+						"value": {
+							"type": "String",
+							"value": "Python"
+						}
+					},
+					{
+						"key": {
+							"type": "String",
+							"value": "ide"
+						},
+						"value": {
+							"type": "String",
+							"value": "Any"
+						}
+					}
+				]
+			},
+			{
+				"type": 8,
+				"ff_i": 0,
+				"name": "Features",
+				"sub": [
+
+				],
+				"data": [
+					{
+						"key": {
+							"type": "String",
+							"value": "features"
+						},
+						"value": {
+							"type": "ValueArray",
+							"value": [
+								{
+									"type": "WString",
+									"value": "Prints \"Hello world!\""
+								}
+							]
+						}
+					}
+				]
+			},
+			{
+				"type": 9,
+				"ff_i": 0,
+				"name": "File list",
+				"sub": [
+
+				],
+				"data": [
+					{
+						"key": {
+							"type": "String",
+							"value": "files"
+						},
+						"value": {
+							"type": "ValueArray",
+							"value": [
+								{
+									"type": "ValueMap",
+									"value": [
+										{
+											"key": {
+												"type": "String",
+												"value": "name"
+											},
+											"value": {
+												"type": "WString",
+												"value": "HelloWorld.cpp"
+											}
+										}
+									]
+								},
+								{
+									"type": "ValueMap",
+									"value": [
+										{
+											"key": {
+												"type": "String",
+												"value": "name"
+											},
+											"value": {
+												"type": "WString",
+												"value": "HelloWorld.py"
+											}
+										}
+									]
+								}
+							]
+						}
+					}
+				]
+			},
+			{
+				"type": 10,
+				"ff_i": 0,
+				"name": "HelloWorld.cpp",
+				"sub": [
+
+				],
+				"data": [
+					{
+						"key": {
+							"type": "String",
+							"value": "content"
+						},
+						"value": {
+							"type": "String",
+							"value": "#include <iostream>\n\nint main() {\n    std::cout << \"Hello, world!\" << std::endl;\n    return 0;\n}"
+						}
+					}
+				]
+			},
+			{
+				"type": 10,
+				"ff_i": 0,
+				"name": "HelloWorld.py",
+				"sub": [
+
+				],
+				"data": [
+					{
+						"key": {
+							"type": "String",
+							"value": "content"
+						},
+						"value": {
+							"type": "String",
+							"value": "print(\"Hello, world!\")"
+						}
+					}
+				]
+			}
+		],
+		"data": [
+
+		]
+	}
+}

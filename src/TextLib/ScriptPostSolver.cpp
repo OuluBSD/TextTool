@@ -62,7 +62,7 @@ void ScriptPostSolver::DoPhase() {
 			
 			String s;
 			if (generation == 0) {
-				s = script->GetText();
+				s = script->GetText(appmode);
 			}
 			else {
 				ScriptPostFix& prev_spf = script->postfixes[generation-1];

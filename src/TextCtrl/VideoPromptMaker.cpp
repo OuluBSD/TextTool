@@ -22,8 +22,9 @@ VideoPromptMakerCtrl::VideoPromptMakerCtrl() {
 	
 	text_storyboard_parts.AddColumn(t_(""));
 	text_storyboard_parts.AddColumn(t_(""));
+	text_storyboard_parts.AddColumn(t_("Search"));
 	text_storyboard_parts.AddColumn(t_("Prompt"));
-	text_storyboard_parts.ColumnWidths("2 1 4");
+	text_storyboard_parts.ColumnWidths("2 1 2 4");
 	
 	
 	
@@ -34,7 +35,6 @@ void VideoPromptMakerCtrl::Data() {
 	if (!p.component)
 		return;
 	
-	#if 0
 	// Storyboard parts
 	for(int i = 0; i < p.component->storyboard_parts.GetCount(); i++) {
 		String key = p.component->storyboard_parts.GetKey(i);
@@ -60,15 +60,20 @@ void VideoPromptMakerCtrl::Data() {
 		const String& part = p.component->storyboard_parts.GetKey(part_i);
 		text_storyboard_parts.Set(i, 0, p.component->text_storyboard_parts.GetKey(i));
 		text_storyboard_parts.Set(i, 1, part);
-		if (i < p.component->text_storyboard_prompts.GetCount())
-			text_storyboard_parts.Set(i, 2, p.component->text_storyboard_prompts[i]);
+		
+		if (i < p.component->text_storyboard_searches.GetCount())
+			text_storyboard_parts.Set(i, 2, p.component->text_storyboard_searches[i]);
 		else
 			text_storyboard_parts.Set(i, 2, "");
+		
+		if (i < p.component->text_storyboard_prompts.GetCount())
+			text_storyboard_parts.Set(i, 3, p.component->text_storyboard_prompts[i]);
+		else
+			text_storyboard_parts.Set(i, 3, "");
 	}
 	INHIBIT_CURSOR_(text_storyboard_parts, c);
 	text_storyboard_parts.SetCount(p.component->text_storyboard_parts.GetCount());
 	
-	#endif
 	
 	DataPrompt();
 }
@@ -80,7 +85,6 @@ void VideoPromptMakerCtrl::DataPrompt() {
 		return;
 	}
 	
-	#if 0
 	int cur = storyboard_prompt_keys.GetCursor();
 	const auto& values = p.component->storyboard_prompts[cur];
 	for(int j = 0; j < values.GetCount(); j++) {
@@ -88,7 +92,6 @@ void VideoPromptMakerCtrl::DataPrompt() {
 	}
 	INHIBIT_CURSOR(storyboard_prompt_values);
 	storyboard_prompt_values.SetCount(values.GetCount());
-	#endif
 }
 
 void VideoPromptMakerCtrl::OnValueChange() {
@@ -96,6 +99,9 @@ void VideoPromptMakerCtrl::OnValueChange() {
 }
 
 void VideoPromptMakerCtrl::ToolMenu(Bar& bar) {
+	bar.Add(t_("Update"), AppImg::BlueRing(), THISBACK(Data)).Key(K_CTRL_Q);
+	bar.Add(t_("Copy prompt"), AppImg::BlueRing(), THISBACK1(Do, 1)).Key(K_CTRL_C);
+	bar.Separator();
 	bar.Add(t_("Make video prompts"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 }
 
@@ -104,8 +110,14 @@ void VideoPromptMakerCtrl::Do(int fn) {
 	if (!p.component) return;
 	
 	if (fn == 0) {
-		VideoSolver& tm = VideoSolver::Get(*p.component);
+		VideoSolver& tm = VideoSolver::Get(*p.component, GetAppMode());
 		tm.Start();
+	}
+	if (fn == 1) {
+		if (!text_storyboard_parts.IsCursor())
+			return;
+		String text = text_storyboard_parts.Get(2);
+		WriteClipboardText(text);
 	}
 }
 

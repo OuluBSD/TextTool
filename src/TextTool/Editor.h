@@ -57,6 +57,8 @@ protected:
 	ActionAttrsPage					action_attrs;
 	Attributes						db_attrs;
 	TextDataDiagnostics				db_diagnostics;
+	VideoStoryboardCtrl				video_storyboard;
+	
 	/*
 	StructuredScriptCtrl			structured_script;
 	TextDataPage					src_data;
