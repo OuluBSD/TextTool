@@ -23,6 +23,8 @@ public:
 	
 	void Data() override;
 	void OnValueChange();
+	void ToolMenu(Bar& bar) override;
+	void Do(int fn);
 	
 };
 

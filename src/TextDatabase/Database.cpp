@@ -112,6 +112,111 @@ void TextDatabase::Load() {
 	loaded = true;
 }
 
+SoftPlatform& TextDatabase::GetAddOS(const String& name, int* idx) {
+	if (idx) *idx = -1;
+	int i = 0;
+	String lname = ToLower(name);
+	for (SoftPlatform& l : os) {
+		if (ToLower(l.name) == lname) {
+			if (idx) *idx = i;
+			return l;
+		}
+		i++;
+	}
+	if (idx) *idx = os.GetCount();
+	SoftPlatform& l = os.Add();
+	l.name = name;
+	return l;
+}
+
+SoftLanguage& TextDatabase::GetAddLanguage(const String& name, int* idx) {
+	if (idx) *idx = -1;
+	int i = 0;
+	String lname = ToLower(name);
+	for (SoftLanguage& l : langs) {
+		if (ToLower(l.name) == lname) {
+			if (idx) *idx = i;
+			return l;
+		}
+		i++;
+	}
+	if (idx) *idx = langs.GetCount();
+	SoftLanguage& l = langs.Add();
+	l.name = name;
+	return l;
+}
+
+SoftParadigm& TextDatabase::GetAddParadigm(const String& name, int* idx) {
+	if (idx) *idx = -1;
+	String lname = ToLower(name);
+	int i = 0;
+	for (SoftParadigm& l : paradigms) {
+		if (ToLower(l.name) == lname) {
+			if (idx) *idx = i;
+			return l;
+		}
+		i++;
+	}
+	if (idx) *idx = paradigms.GetCount();
+	SoftParadigm& l = paradigms.Add();
+	l.name = name;
+	return l;
+}
+
+PropertyIDE& TextDatabase::GetAddIDE(const String& name, int* idx) {
+	if (idx) *idx = -1;
+	String lname = ToLower(name);
+	int i = 0;
+	for (PropertyIDE& l : ides) {
+		if (ToLower(l.name) == lname) {
+			if (idx) *idx = i;
+			return l;
+		}
+		i++;
+	}
+	
+	if (idx) *idx = ides.GetCount();
+	PropertyIDE& l = ides.Add();
+	l.name = name;
+	return l;
+}
+
+SoftLibrary& TextDatabase::GetAddLibrary(const String& name, int* idx) {
+	if (idx) *idx = -1;
+	String lname = ToLower(name);
+	int i = 0;
+	for (SoftLibrary& l : libs) {
+		if (ToLower(l.name) == lname) {
+			if (idx) *idx = i;
+			return l;
+		}
+		i++;
+	}
+	
+	if (idx) *idx = libs.GetCount();
+	SoftLibrary& l = libs.Add();
+	l.name = name;
+	return l;
+}
+
+SoftProjectType& TextDatabase::GetAddProjectType(const String& name, int* idx) {
+	if (idx) *idx = -1;
+	String lname = ToLower(name);
+	int i = 0;
+	for (auto& l : project_types) {
+		if (ToLower(l.name) == lname) {
+			if (idx) *idx = i;
+			return l;
+		}
+		i++;
+	}
+	
+	if (idx) *idx = libs.GetCount();
+	auto& l = project_types.Add();
+	l.name = name;
+	return l;
+}
+
 String TextDatabase::GetPackageDir() const {
 	String& dir = MetaDatabase::Single().dir;
 	String& share = MetaDatabase::Single().share;

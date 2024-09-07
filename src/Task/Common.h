@@ -557,6 +557,13 @@ struct CodeArgs {
 	
 	enum {
 		MAKE_CODE,
+		GET_PLATFORMS,
+		GET_OPERATING_SYSTEMS,
+		GET_SW_LANGUAGES,
+		GET_SW_PARADIGMS,
+		GET_IDE,
+		GET_LIBRARIES,
+		GET_PROJECT_TYPES,
 	};
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)

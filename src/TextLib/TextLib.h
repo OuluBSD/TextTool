@@ -34,6 +34,7 @@
 #include "SocialBeliefs.h"
 #include "ConceptualFramework.h"
 #include "MarketplaceProcess.h"
+#include "CodeSolver.h"
 
 #if 1
 #include "ScriptGenerator.h"

@@ -87,6 +87,23 @@ void SystemCtrl::OnValueChange() {
 	
 }
 
+void SystemCtrl::ToolMenu(Bar& bar) {
+	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F5);
+	
+}
+
+void SystemCtrl::Do(int fn) {
+	
+	if (fn == 0) {
+		CodeSolver::Get(DB_CODE).Start();
+	}
+	else if (fn == 0) {
+		CodeSolver::Get(DB_CODE).Stop();
+	}
+	
+}
+
 void SystemCtrl::Data() {
 	Value& platform = view->node->data.GetAdd("platform");
 	if (platform.IsNull()) platform = "Any";

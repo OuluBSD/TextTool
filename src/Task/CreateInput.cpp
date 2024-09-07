@@ -4672,6 +4672,116 @@ void AiTask::CreateInput_Code() {
 		}
 		input.response_length = 2048;
 	}
+	else if (args.fn == CodeArgs::GET_PLATFORMS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of programming project hardware platforms (which has distinct libraries, languages, frameworks, etc. , NO different linux distros like Gentoo, CentOS, Ubuntu, etc.)");
+			results.NumberedLines();
+			Vector<String> presets;
+			presets.Add("Internet browsers: Web 1.0 (static website web browsers)");
+			presets.Add("Internet browsers: Web 2.0 (dynamic website web browsers)");
+			presets.Add("Internet browsers: Web 3.0 (distributed website web browsers)");
+			presets.Add("Mobile: Google");
+			presets.Add("Mobile: Nokia");
+			presets.Add("Mobile: Apple");
+			presets.Add("Mobile: Open source");
+			presets.Add("Desktop: Windows PC compatible");
+			presets.Add("Desktop: Apple Computer");
+			presets.Add("Desktop: IBM PC compatible");
+			presets.Add("Desktop: Amiga");
+			presets.Add("Desktop: Atari");
+			presets.Add("Desktop: Google");
+			presets.Add("Desktop: Open source");
+			presets.Add("Gaming Console: Sony");
+			presets.Add("Gaming Console: Microsoft");
+			presets.Add("Gaming Console: Nintendo");
+			presets.Add("Gaming Console: Sega");
+			presets.Add("Gaming Console: Open source");
+			presets.Add("Handheld: Nintendo");
+			presets.Add("Handheld: Sony");
+			presets.Add("Handheld: Google");
+			presets.Add("Handheld: Open source");
+			presets.Add("SmartTV: Kodi (Open source)");
+			presets.Add("SmartTV: LG");
+			presets.Add("SmartTV: Samsung");
+			presets.Add("Home Automation: Amazon Echo");
+			presets.Add("Home Automation: Google Home");
+			presets.Add("Home Automation: Apple Homekit");
+			presets.Add("Wearable: Fitbit");
+			presets.Add("Wearable: Android Wear");
+			presets.Add("Wearable: Apple Watch");
+			presets.Add("IoT: Arduino");
+			presets.Add("IoT: Raspberry Pi");
+			presets.Add("Virtual Reality: Apple VR");
+			presets.Add("Virtual Reality: Steam VR");
+			presets.Add("Virtual Reality: Windows Mixed Reality");
+			presets.Add("Virtual Reality: Google Cardboard");
+			presets.Add("Cloud Computing: Amazon Web Services (AWS)");
+			presets.Add("Cloud Computing: Microsoft Azure");
+			presets.Add("Cloud Computing: Google Cloud Platform");
+			
+			int l = 1;
+			for (String& s : presets) {
+				results.Add(s);
+				tmp_str << l++ << ". " << s << "\n";
+			}
+			results.Add("");
+			tmp_str << presets.GetCount()+1 << ". ";
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_OPERATING_SYSTEMS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of software platforms or operating systems for the platform \"" + args.platform + "\" (without description)");
+			//results.NumberedLines();
+			results.Add("");
+			tmp_str = "- ";
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_SW_LANGUAGES) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of programming languages for the platform \"" + args.platform + "\" (without description)");
+			//results.NumberedLines();
+			results.Add("");
+			tmp_str = "- ";
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_SW_PARADIGMS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of programming paradigms for the platform \"" + args.platform + "\" (without description)");
+			//results.NumberedLines();
+			results.Add("");
+			tmp_str = "- ";
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_IDE) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of Ingtegrated Development Environments (IDEs) or programming text editors for the platform \"" + args.platform + "\" and language \"" + args.lang + "\" (without description)");			//results.NumberedLines();
+			results.Add("");
+			tmp_str = "- ";
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_LIBRARIES) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of all libraries (50 best or less if not available) for the platform \"" + args.platform + "\" and language \"" + args.lang + "\" (without description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_PROJECT_TYPES) {
+		/*List of project type (e.g. web application, mobile app, desktop application) for the software platform "Linux" and language "C++" (without description):*/
+		
+	}
 	
 }
 
