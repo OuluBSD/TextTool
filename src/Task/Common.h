@@ -554,6 +554,8 @@ struct CodeArgs {
 	String file;
 	Vector<String> features;
 	String platform, os, ide, lang;
+	String market_target;
+	String market_trend;
 	
 	enum {
 		MAKE_CODE,
@@ -564,6 +566,28 @@ struct CodeArgs {
 		GET_IDE,
 		GET_LIBRARIES,
 		GET_PROJECT_TYPES,
+		GET_BUILD_TOOLS,
+		GET_TESTING_FRAMEWORKS,
+		GET_DATABASE,
+		GET_USER_INTERFACE,
+		GET_SECURITY_FRAMEWORKS,
+		GET_DATA_FORMATS,
+		GET_ALGORITHMS,
+		GET_DATA_PROCESSING,
+		GET_DEPLOYMENT_ENVS,
+		GET_INTEGRATION_APIS,
+		GET_COLLABORATION_TOOLS,
+		GET_PROJECT_MANAGEMENTS,
+	//	GET_MARKET_TARGETS,
+		GET_MARKET_TRENDS,
+		GET_GENRES,
+		GET_USER_NEEDS,
+		GET_PRODUCTS,
+		GET_USER_FEEDBACKS,
+		GET_MARKETING_STRATEGIES,
+		GET_COLLABORATORS,
+		GET_REQUIREMENTS,
+		GET_PRICING,
 	};
 	void Jsonize(JsonIO& json) {
 		json	("fn", fn)
@@ -572,6 +596,8 @@ struct CodeArgs {
 				("os", os)
 				("ide", ide)
 				("lang", lang)
+				("market_target", market_target)
+				("market_trend", market_trend)
 				;
 	}
 	String Get() const {return StoreAsJson(*this);}

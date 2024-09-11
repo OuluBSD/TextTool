@@ -112,110 +112,51 @@ void TextDatabase::Load() {
 	loaded = true;
 }
 
-SoftPlatform& TextDatabase::GetAddOS(const String& name, int* idx) {
-	if (idx) *idx = -1;
-	int i = 0;
-	String lname = ToLower(name);
-	for (SoftPlatform& l : os) {
-		if (ToLower(l.name) == lname) {
-			if (idx) *idx = i;
-			return l;
-		}
-		i++;
-	}
-	if (idx) *idx = os.GetCount();
-	SoftPlatform& l = os.Add();
-	l.name = name;
-	return l;
+#define GETADD_FN(fn, type, vars) \
+type& TextDatabase::fn(const String& name, int* idx) { \
+	if (idx) *idx = -1; \
+	int i = 0; \
+	String lname = ToLower(name); \
+	for (type& l : vars) { \
+		if (ToLower(l.name) == lname) { \
+			if (idx) *idx = i; \
+			return l; \
+		} \
+		i++; \
+	} \
+	if (idx) *idx = vars.GetCount(); \
+	type& l = vars.Add(); \
+	l.name = name; \
+	return l; \
 }
 
-SoftLanguage& TextDatabase::GetAddLanguage(const String& name, int* idx) {
-	if (idx) *idx = -1;
-	int i = 0;
-	String lname = ToLower(name);
-	for (SoftLanguage& l : langs) {
-		if (ToLower(l.name) == lname) {
-			if (idx) *idx = i;
-			return l;
-		}
-		i++;
-	}
-	if (idx) *idx = langs.GetCount();
-	SoftLanguage& l = langs.Add();
-	l.name = name;
-	return l;
-}
+GETADD_FN(GetAddOS, SoftPlatform, os)
+GETADD_FN(GetAddLanguage, SoftLanguage, langs)
+GETADD_FN(GetAddParadigm, SoftParadigm, paradigms)
+GETADD_FN(GetAddIDE, SoftIDE, ides)
+GETADD_FN(GetAddLibrary, SoftLibrary, libs)
+GETADD_FN(GetAddProjectType, SoftProjectType, project_types)
+GETADD_FN(GetAddBuildTool, SoftBuildTool, build_tools)
+GETADD_FN(GetAddTestingFramework, SoftTestingFramework, tests)
+GETADD_FN(GetAddDatabase, SoftDatabase, dbs)
+GETADD_FN(GetAddUserInterface, SoftUserInterface, uis)
+GETADD_FN(GetAddSecurityFramework, SoftSecurityFramework, secs)
+GETADD_FN(GetAddDataFormat, SoftDataFormat, formats)
+GETADD_FN(GetAddAlgorithm, SoftAlgorithm, algos)
+GETADD_FN(GetAddDataProcessing, SoftDataProcessing, data_procs)
+GETADD_FN(GetAddDeployment, SoftDeployment, deployments)
+GETADD_FN(GetAddMarketTarget, SoftMarketTarget, market_targets)
+GETADD_FN(GetAddMarketTrend, SoftMarketTrend, market_trends)
+GETADD_FN(GetAddGenre, SoftGenre, genres)
+GETADD_FN(GetAddProduct, SoftProduct, products)
+GETADD_FN(GetAddUserNeed, SoftUserNeed, user_needs)
+GETADD_FN(GetAddMarketingStrategy, SoftMarketingStrategy, marketing_strategies)
+GETADD_FN(GetAddFeedback, SoftFeedback, feedbacks)
+GETADD_FN(GetAddCollaborator, SoftCollaborator, collaborators)
+GETADD_FN(GetAddRequirement, SoftRequirement, requirements)
 
-SoftParadigm& TextDatabase::GetAddParadigm(const String& name, int* idx) {
-	if (idx) *idx = -1;
-	String lname = ToLower(name);
-	int i = 0;
-	for (SoftParadigm& l : paradigms) {
-		if (ToLower(l.name) == lname) {
-			if (idx) *idx = i;
-			return l;
-		}
-		i++;
-	}
-	if (idx) *idx = paradigms.GetCount();
-	SoftParadigm& l = paradigms.Add();
-	l.name = name;
-	return l;
-}
+#undef GETADD_FN
 
-PropertyIDE& TextDatabase::GetAddIDE(const String& name, int* idx) {
-	if (idx) *idx = -1;
-	String lname = ToLower(name);
-	int i = 0;
-	for (PropertyIDE& l : ides) {
-		if (ToLower(l.name) == lname) {
-			if (idx) *idx = i;
-			return l;
-		}
-		i++;
-	}
-	
-	if (idx) *idx = ides.GetCount();
-	PropertyIDE& l = ides.Add();
-	l.name = name;
-	return l;
-}
-
-SoftLibrary& TextDatabase::GetAddLibrary(const String& name, int* idx) {
-	if (idx) *idx = -1;
-	String lname = ToLower(name);
-	int i = 0;
-	for (SoftLibrary& l : libs) {
-		if (ToLower(l.name) == lname) {
-			if (idx) *idx = i;
-			return l;
-		}
-		i++;
-	}
-	
-	if (idx) *idx = libs.GetCount();
-	SoftLibrary& l = libs.Add();
-	l.name = name;
-	return l;
-}
-
-SoftProjectType& TextDatabase::GetAddProjectType(const String& name, int* idx) {
-	if (idx) *idx = -1;
-	String lname = ToLower(name);
-	int i = 0;
-	for (auto& l : project_types) {
-		if (ToLower(l.name) == lname) {
-			if (idx) *idx = i;
-			return l;
-		}
-		i++;
-	}
-	
-	if (idx) *idx = libs.GetCount();
-	auto& l = project_types.Add();
-	l.name = name;
-	return l;
-}
 
 String TextDatabase::GetPackageDir() const {
 	String& dir = MetaDatabase::Single().dir;

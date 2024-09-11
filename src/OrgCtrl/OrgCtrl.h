@@ -22,6 +22,7 @@
 #include "FeaturesNode.h"
 #include "FileListNode.h"
 #include "FileNode.h"
+#include "DebugNode.h"
 
 
 #endif

@@ -20,6 +20,7 @@ String GetNodeName(NodeType n) {
 		case NODE_FEATURES: return "Features";
 		case NODE_FILE_LIST: return "File list";
 		case NODE_FILE: return "File";
+		case NODE_DEBUG: return "Debug";
 		
 		case NODE_GEN_USER_ENTRY_POINT: return "User entry point";
 		case NODE_GEN_FEATURES: return "Features";

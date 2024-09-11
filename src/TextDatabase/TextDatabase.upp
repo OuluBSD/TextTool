@@ -48,6 +48,8 @@ file
 	BiographyAnalysis.h,
 	BiographyAnalysis.cpp,
 	Organization readonly separator,
+	OrgCommon.h,
+	OrgCommon.cpp,
 	Package.h,
 	Package.cpp,
 	_ readonly separator;

@@ -2575,7 +2575,7 @@ void AiTask::CreateInput_ScriptSolver() {
 		input.response_length = 1024;
 	}
 	else if (args.fn == 20) {
-		int limit = 10000 / (1 + args.line_states.GetCount());
+		int limit = 9000 / (1 + args.line_states.GetCount());
 		
 		if (args.previously.GetCount()){
 			if (args.previously.GetCount() > limit)
@@ -2643,9 +2643,13 @@ void AiTask::CreateInput_ScriptSolver() {
 		{
 			auto& list = input.AddSub().Title("Context of the lyrics");
 			list.NumberedLines();
+			int limit = 4000;
+			int per_phrase_limit = limit / args.phrases2.GetCount();
 			for(int i = 0; i < args.phrases2.GetCount(); i++) {
 				String& s = args.phrases2[i];
 				s.Replace("\n", " ");
+				if (s.GetCount() > per_phrase_limit)
+					s = s.Left(per_phrase_limit);
 				list.Add(s);
 			}
 		}
@@ -4779,10 +4783,203 @@ void AiTask::CreateInput_Code() {
 		input.response_length = 2048;
 	}
 	else if (args.fn == CodeArgs::GET_PROJECT_TYPES) {
-		/*List of project type (e.g. web application, mobile app, desktop application) for the software platform "Linux" and language "C++" (without description):*/
-		
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of project type (e.g. web application, mobile app, desktop application) for the platform \"" + args.platform + "\" and language \"" + args.lang + "\" (without description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
 	}
-	
+	else if (args.fn == CodeArgs::GET_BUILD_TOOLS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of build tools for the platform \"" + args.platform + "\" and language \"" + args.lang + "\" (without description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_TESTING_FRAMEWORKS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of testing frameworks for the platform \"" + args.platform + "\" and language \"" + args.lang + "\" (without description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_DATABASE) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of database libraries or servers for the platform \"" + args.platform + "\" and language \"" + args.lang + "\" (without description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_USER_INTERFACE) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of user interface libraries/frameworks/sdks/etc. for the platform \"" + args.platform + "\" and language \"" + args.lang + "\" (without description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_SECURITY_FRAMEWORKS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of security framewoks for the platform \"" + args.platform + "\" and language \"" + args.lang + "\" (without description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_DATA_FORMATS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of data format or serialization format for the programming language \"" + args.lang + "\" (without description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_ALGORITHMS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of algorithm(s) or method(s) used for the programming language \"" + args.lang + "\" (without description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_DATA_PROCESSING) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of data processing or analysis mechanisms for the programming language \"" + args.lang + "\" (without description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_DEPLOYMENT_ENVS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of deployment environment or hosting platform for the platform \"" + args.platform + "\" (without description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_INTEGRATION_APIS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of 100 integration with external systems or APIs (without description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_COLLABORATION_TOOLS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of 100 collaboration tools or communication channels for programming projects (without description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_PROJECT_MANAGEMENTS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of 100 project management methodology or framework for programming projects (without description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_MARKET_TRENDS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of examples of market trends and demands in the market target \"" + args.market_target + "\" (name: description)");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_GENRES) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of example genres for the market target \"" + args.market_target + "\" in the market trend \"" + args.market_trend + "\"");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_USER_NEEDS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of specific needs for the market target \"" + args.market_target + "\" in the market trend \"" + args.market_trend + "\"");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_PRODUCTS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List products for the market target \"" + args.market_target + "\" in the market trend \"" + args.market_trend + "\"");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_USER_FEEDBACKS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of feedback from potential users or investors for the market target \"" + args.market_target + "\" in the market trend \"" + args.market_trend + "\"");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_MARKETING_STRATEGIES) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of marketing strategies for the market target \"" + args.market_target + "\" in the market trend \"" + args.market_trend + "\"");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_COLLABORATORS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of potential collaborators or partners for the market target \"" + args.market_target + "\" in the market trend \"" + args.market_trend + "\"");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_REQUIREMENTS) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of the technical requirements and compatibility with different devices/platforms for the market target \"" + args.market_target + "\" in the market trend \"" + args.market_trend + "\"");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == CodeArgs::GET_PRICING) {
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title("List of the target pricing for the software product for the market target \"" + args.market_target + "\" in the market trend \"" + args.market_trend + "\"");
+			results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
 }
 
 END_TEXTLIB_NAMESPACE
