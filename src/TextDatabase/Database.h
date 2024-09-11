@@ -62,85 +62,212 @@ struct StructuredScript : Moveable<StructuredScript> {
 };
 
 /*
-List of programming project attributes in dependency order:
-1. platform
-2. software platform or operating system
-3. programming language(s)
-4. programming paradigm(s)
-5. development environment or IDE
-6. version control system
-7. libraries or frameworks
-8. project type (e.g. web application, mobile app, desktop application)
-9. build tools or automation tools
-10. testing framework(s)
-11. database or data storage
-12. user interface design or framework
-13. security framework or tools
-14. data format or serialization format
-15. algorithm(s) or method(s) used
-16. data processing or analysis mechanisms
-17. deployment environment or hosting platform
-18. integration with external systems or APIs
-19. collaboration tools or communication channels
-20. project management methodology or framework
 
-List of steps in dependency order that are needed to be taken before choosing which software project to invest (games, apps, virtual instruments, etc.):
-1. Determine the overall budget available for the investment.
-2. Identify the target market for the software project.
-3. Research the current market trends and demands.
-4. Evaluate the potential profitability and return on investment.
-5. Assess the competition in the market.
-6.x Analyze the feasibility of the project in terms of resources, technology, and expertise.
-7.x Consider the development timeline and costs.
-8.x Investigate the legal and intellectual property aspects of the project.
-9.x Consider the scalability and potential for future updates or expansions.
-10.x Evaluate the risks associated with the project.
-11. Gather feedback from potential users or investors.
-12. Develop a marketing strategy for the project.
-13. Identify potential collaborators or partners.
-14.x Consider the technical requirements and compatibility with different devices/platforms.
-15.x Create a cost-benefit analysis for various options.
-16.x Develop a detailed project plan and timeline.
-17. Consider the target pricing for the software product.
-18.x Evaluate the potential impact of the project on the company's overall goals and objectives.
-19.x Identify potential funding sources or sources of investment.
-20.x Make a final decision based on all the above factors and prioritize the most promising project.
-
-List of steps in dependency order that are needed to be taken in a new software project before writing the source code file:
-1. Define project requirements
+List of things to consider in program:
+1. Define project requirements and scope
 2. Create a project plan and timeline
-3. Define project scope and deliverables
-4. Identify tools and technologies needed
-5. Set up a development environment
-6. Choose a programming language
-7. Determine project structure and organization
-8. Set up version control system
-9. Create a project repository
-10. Install and configure necessary dependencies and libraries.-
+3. Identify necessary tools and technologies
+4. Set up a development environment
+5. Choose a programming language
+6. Determine project structure and organization 
+7. Set up version control system
+8. Create a project repository 
+9. Install and configure necessary dependencies and libraries
+10. Consider data structures, classes, and functions needed 
+11. Consider program architecture and design patterns 
+12. Consider performance and efficiency 
+13. Consider user interface design and user experience 
+14. Consider data security and privacy 
+15. Consider integration with other systems or platforms 
+16. Consider maintenance and future updates 
+17. Consider error handling and debugging strategies 
+18. Create source code file(s).
 
-List of things to consider in program's architecture before writing the source code file:
-1. Project requirements and functionality
-2. Scalability and flexibility
-3. Performance and efficiency
-4. User interface design and user experience
-5. Security and data protection
-6. Integration with other systems or platforms
-7. Maintenance and future updates
-8. Data structures and algorithms
-9. Design patterns and coding conventions		<<<< ECS
-10. Error handling and debugging strategies.
 
-List of things to consider in program's architecture before deciding data structures, classes and functions:
-1. Project requirements and functionality
-2. Type of data being used and data sources
-3. Complexity and size of data
-4. Performance and efficiency
-5. Data manipulation and processing needs
-6. Relationship between different data elements
-7. Potential future data needs
-8. Data access and storage requirements
-9. Data security and privacy considerations
-10. Integration with other systems or platforms
+
+List of sub-steps in "Define project requirements and scope":
+1. Identify key stakeholders and project goals
+2. Gather and analyze user requirements
+3. Prioritize and document project features and functionalities
+4. Define project scope and constraints 
+5. Determine project deliverables and timeline 
+6. Validate and finalize project requirements and scope.
+
+Example answers for "What are the stakeholders' specific needs and goals for this project?": 
+1. Increase efficiency in data processing 
+2. Improve user experience 
+3. Ensure data security and privacy 
+4. Integrate with existing software systems 
+5. Provide a user-friendly interface 
+6. Reduce manual tasks and improve automation 
+7. Increase productivity 
+8. Stay within budget and timeline 
+9. Scalability for future growth 
+10. Improve collaboration and communication.
+
+List of sub-sub-steps in "Gather and analyze user requirements":
+1. Conduct user interviews 
+2. Create user personas 
+3. Gather feedback from potential users 
+4. Analyze existing systems or processes 
+5. Identify pain points and improvement opportunities 
+6. Consider scalability and future needs 
+7. Prioritize user requirements.
+
+Example answers for "Prioritize and document project features and functionalities?": 
+1. Managing and importing large datasets 
+2. User authentication and access control 
+3. Data analysis and visualization 
+4. Data filtering and manipulation 
+5. Integration with external APIs 
+6. Error handling and debugging 
+7. Exporting data in different formats 
+8. Responsive design for multiple devices 
+9. Automated backups and data recovery 
+10. Secure storage of sensitive information. 
+11. Real-time updates and notifications.
+12. Customizable user preferences.
+13. Integration with social media platforms.
+14. Support for multiple languages. 
+15. User feedback and customer support.
+16. Integration with payment processing system.
+17. Data encryption and secure transmission.
+18. Integration with third-party plugins or extensions. 
+19. Generation of reports and statistics. 
+20. Collaboration and sharing capabilities.
+
+Example answers for "Define project scope and constraints?": 
+1. Development will focus on the desktop application only.
+2. The application will only support specific operating systems. 
+3. Features and functionalities will be limited to the agreed upon list. 
+4. The project budget is fixed and should not exceed a certain amount. 
+5. The project must be completed within a specified timeline. 
+6. The application will be accessible and usable for people with disabilities. 
+7. The project will not involve any third-party vendors or contractors. 
+8. The application will not have advertising features. 
+9. The project scope does not include multilingual support. 
+10. The application will only support a specific number of users.
+
+Example answers for "Determine project deliverables and timeline ?": 
+1. A fully functional desktop application with all the agreed upon features and functionalities to be delivered within 6 months.
+2. User documentation and training materials to be provided upon completion of the project.
+3. A final report detailing the project development process and any challenges faced.
+4. Regular progress updates to key stakeholders every 2 weeks.
+5. Project budget review at the end of every month.
+6. A beta version of the application for user testing to be delivered in 4 months. 
+7. Final delivery and implementation of the application in 6 months.
+
+
+
+
+
+List of sub-steps in "Create a project plan and timeline": 
+1. Break down project deliverables into smaller tasks 
+2. Assign resources and team roles to each task 
+3. Estimate time and effort requirements for each task 
+4. Create a project timeline or schedule 
+5. Identify dependencies between tasks 
+6. Determine milestones and checkpoints for measuring progress 
+7. Consider potential risks and contingency plans 
+8. Share and review project plan with key stakeholders 
+9. Make any necessary adjustments or revisions 
+10. Obtain final approval from stakeholders. 
+
+Examples of sub-sub-steps in "Break down project deliverables into smaller tasks": 
+1. Identify the main components or modules of the project 
+2. List out specific tasks for each component 
+3. Determine the order and dependencies of tasks 
+4. Break down large tasks into smaller manageable tasks 
+5. Consider any potential sub-tasks or sub-components.
+
+Examples of sub-sub-steps in "Identify dependencies between tasks ":
+1. Determine which tasks are dependent on each other 
+2. Identify any tasks that can be worked on simultaneously 
+3. Consider any external dependencies, such as third party tools or APIs 
+4. Determine any potential delays or bottlenecks caused by dependencies 
+5. Explore ways to mitigate the impact of dependencies on the project timeline.
+
+
+
+
+
+
+
+
+
+
+
+
+List of sub-steps in "Identify necessary tools and technologies": 
+1. Consider the project requirements and objectives 
+2. Research and evaluate different tools and technologies 
+3. Determine which tools and technologies best fit the project requirements 
+4. Consider compatibility and integration with other systems 
+5. Consider budget and cost of tools and technologies 
+6. Obtain necessary licenses or permissions for using certain tools and technologies.
+
+Examples of sub-sub-steps in "Consider the project requirements and objectives": 
+1. Identify the type of software being developed (e.g. web application, mobile app, desktop application)
+2. Determine the programming languages and frameworks needed 
+3. Consider data storage and manipulation needs 
+4. Evaluate user interface design and user experience requirements 
+5. Determine if any specific hardware or operating system is needed 
+6. Consider scalability and future growth needs 
+7. Identify any specific security or privacy requirements.
+
+Examples of sub-sub-steps in "Research and evaluate different tools and technologies": 
+1. Look for reviews and comparisons of popular tools and technologies 
+2. Ask for recommendations from other developers or experts in the field 
+3. Attend conferences or workshops related to the project topic 
+4. Explore online communities and forums to gather insights and feedback.
+
+List of sub-steps in "Consider version control system":
+1. Evaluate different version control systems (e.g. Git, SVN) 
+2. Determine if the project will require collaboration with multiple developers 
+3. Assess if the project will have frequent updates or changes 
+4. Consider the ease of use and learning curve for team members 
+5. Determine if the chosen version control system integrates with other necessary tools and technologies 
+6. Consider the cost and licensing options for the version control system.
+
+Examples of sub-steps in "Establish coding conventions and standards":
+1. Research industry standards and best practices 
+2. Determine coding conventions and standards that align with the chosen programming language 
+3. Document and communicate these coding conventions and standards to team members 
+4. Consider tools and frameworks that can help enforce coding conventions and standards 
+5. Continuously review and update coding conventions and standards as needed.
+
+Examples of sub-steps in "Choose a programming language":
+1. Consider the project requirements and objectives 
+2. Research popular and well-supported programming languages 
+3. Evaluate the learning curve and availability of resources for different languages 
+4. Consider compatibility with necessary tools and technologies 
+5. Determine if the chosen language has libraries or frameworks that can aid in development 
+6. Consider the long-term maintenance and support for the chosen language.
+
+Examples of sub-steps in "Determine project structure and organization":
+1. Consider the size and complexity of the project 
+2. Determine if the project will be split into different modules or components 
+3. Decide on a file and folder structure for the project 
+4. Document the project structure and organization for future reference 
+5. Determine how code will be organized and managed within the project structure.
+
+Examples of sub-steps in "Create a project repository":
+1. Choose a repository hosting service (e.g. GitHub, Bitbucket) 
+2. Create a repository and set up necessary access and permissions 
+3. Determine how code will be organized and managed within the repository 
+4. Continuously track and review changes made to the repository.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 List of design patterns in software development:
@@ -746,6 +873,7 @@ struct TextDatabase {
 	void FindOrphaned();
 	
 	#define GETADD_FN(fn, type, vars) type& fn(const String& name, int* idx=0);
+	GETADD_FN(GetAddPlatform, HardPlatform, platforms)
 	GETADD_FN(GetAddOS, SoftPlatform, os)
 	GETADD_FN(GetAddLanguage, SoftLanguage, langs)
 	GETADD_FN(GetAddParadigm, SoftParadigm, paradigms)
@@ -795,6 +923,9 @@ struct TextDatabase {
 			("algos", algos)
 			("data_procs", data_procs)
 			("deployments", deployments)
+			("apis", apis)
+			("collab_tools", collab_tools)
+			("prj_manags", prj_manags)
 			("market_targets", market_targets)
 			("market_trends", market_trends)
 			("genres", genres)

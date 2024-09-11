@@ -42,6 +42,7 @@ public:
 	void ToolMenu(Bar& bar) override;
 	void Do(int fn);
 	
+	template <class T> void SubItem0_Lang(T& o);
 	template <class T> void SubItem0(T& o);
 	template <> void SubItem0(HardPlatform& o);
 	template <class T> void SubItem1(T& o);

@@ -118,7 +118,7 @@ void DebugCtrl::DataItem() {
 	if (!types.IsCursor() || !items.IsCursor())
 		return;
 	
-	int idx = items.GetCursor();
+	int idx = items.Get("IDX");
 	subitem0_cbs.Clear();
 	if (idx < item_cbs.GetCount())
 		item_cbs[idx]();

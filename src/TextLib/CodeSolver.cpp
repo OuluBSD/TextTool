@@ -19,6 +19,22 @@ void CodeSolver::DoPhase() {
 		CodeArgs args;
 		args.fn = CodeArgs::GET_PLATFORMS;
 		
+		db.GetAddPlatform("Desktop: Intel 8088 DOS compatible");
+		db.GetAddPlatform("Desktop: Intel 386 DOS compatible");
+		db.GetAddPlatform("Desktop: Intel 486 Windows 3.11 compatible");
+		db.GetAddPlatform("Desktop: Amiga 500 m68k");
+		db.GetAddPlatform("Embedded: FPGA");
+		db.GetAddPlatform("Integrated circuit: Structured VLSI");
+		db.GetAddPlatform("Integrated circuit: Hardware description language");
+		db.GetAddPlatform("Low level abstraction: SDL");
+		db.GetAddPlatform("Low level abstraction: DirectX");
+		db.GetAddPlatform("Low level abstraction: Apple Metal");
+		db.GetAddPlatform("Low level abstraction: Android NDK");
+		db.GetAddPlatform("Low level abstraction: Unreal Engine");
+		db.GetAddPlatform("Low level abstraction: Godot Engine");
+		db.GetAddPlatform("Low level abstraction: Amazon Lumberyard");
+		db.GetAddPlatform("Low level abstraction: Open 3D Engine (O3DE)");
+		
 		if (skip_ready && db.platforms.GetCount()) {
 			NextPhase();
 			return;

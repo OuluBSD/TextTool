@@ -130,6 +130,7 @@ type& TextDatabase::fn(const String& name, int* idx) { \
 	return l; \
 }
 
+GETADD_FN(GetAddPlatform, HardPlatform, platforms)
 GETADD_FN(GetAddOS, SoftPlatform, os)
 GETADD_FN(GetAddLanguage, SoftLanguage, langs)
 GETADD_FN(GetAddParadigm, SoftParadigm, paradigms)
