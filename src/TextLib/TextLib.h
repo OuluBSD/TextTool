@@ -35,6 +35,7 @@
 #include "ConceptualFramework.h"
 #include "MarketplaceProcess.h"
 #include "CodeSolver.h"
+#include "AspectFixer.h"
 
 #if 1
 #include "ScriptGenerator.h"

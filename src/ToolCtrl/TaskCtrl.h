@@ -2,6 +2,9 @@
 #define _ToolCtrl_TaskCtrl_h_
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
 class Tasks : public Ctrl {
 	Splitter hsplit, vsplit;
 	ArrayCtrl list;
@@ -26,6 +29,9 @@ public:
 	void OutputMenu(Bar& bar);
 	
 };
+
+
+END_TEXTLIB_NAMESPACE
 
 
 #endif

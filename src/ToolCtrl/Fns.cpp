@@ -1,6 +1,9 @@
 #include "ToolCtrl.h"
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
 void GuiStartup() {
 	SetDefaultCharset(CHARSET_UTF8);
 	//SetLanguage(GetSystemLNG());
@@ -121,3 +124,6 @@ int FindArrayIndex(ArrayCtrl& arr, int idx) {
 	}
 	return -1;
 }
+
+
+END_TEXTLIB_NAMESPACE

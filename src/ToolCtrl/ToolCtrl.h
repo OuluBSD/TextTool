@@ -8,11 +8,13 @@
 #include <CtrlCore/lay.h>
 
 
+#include "ImageViewer.h"
 #include "FrontPage.h"
 #include "TaskCtrl.h"
 #include "Fns.h"
 #include "ImageGenTool.h"
 #include "ImageUtils.h"
+#include "ImageAspectFixerTool.h"
 
 
 #endif

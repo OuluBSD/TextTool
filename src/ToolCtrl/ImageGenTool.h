@@ -2,6 +2,9 @@
 #define _ToolCtrl_ImageGenTool_h_
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
 class ImageGenTool;
 
 
@@ -134,6 +137,9 @@ public:
 	void OnEditReady(Array<Image>& imgs, String prompt, int n);
 	
 };
+
+
+END_TEXTLIB_NAMESPACE
 
 
 #endif

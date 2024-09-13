@@ -78,6 +78,7 @@ void ToolEditor::SetSubMenu(int i) {
 
 void ToolEditor::InitSimplified() {
 	AddItem(t_("Tools"), t_("AI Image Generator"), image_gen);
+	AddItem(t_("Tools"), t_("AI Image aspect ratio fixer"), aspect_fixer);
 	
 	AddItem(t_("Database"), t_("Source"), src_data);
 	AddItem(t_("Database"), t_("Source Analysis"), src_anal);

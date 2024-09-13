@@ -8,8 +8,6 @@ file
 	TextCtrl.lay,
 	Fns.h,
 	Fns.cpp,
-	ImageViewer.h,
-	ImageViewer.cpp,
 	MetaEntity readonly separator,
 	Owner.h,
 	Owner.cpp,

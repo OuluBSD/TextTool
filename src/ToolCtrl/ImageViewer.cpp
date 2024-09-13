@@ -1,4 +1,4 @@
-#include "TextCtrl.h"
+#include "ToolCtrl.h"
 
 
 BEGIN_TEXTLIB_NAMESPACE

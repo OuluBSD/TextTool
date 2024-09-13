@@ -12,7 +12,6 @@
 #include <CtrlCore/lay.h>
 
 
-#include "ImageViewer.h"
 #include "ScriptStructure.h"
 #include "ScriptInfoCtrl.h"
 #include "ScriptSolverCtrl.h"

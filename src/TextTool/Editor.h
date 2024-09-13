@@ -21,6 +21,7 @@ protected:
 	bool				fast_exit = false;
 	
 	ImageGenTool					image_gen;
+	ImageAspectFixerTool			aspect_fixer;
 	EntityInfoCtrl					entity_info;
 	SnapInfoCtrl					snap_info;
 	SnapBriefing					snap_briefing;

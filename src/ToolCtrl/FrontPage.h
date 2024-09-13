@@ -2,6 +2,9 @@
 #define _ToolCtrl_FrontPage_h_
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
 class FrontPage : public WithFrontPage<Ctrl> {
 	
 	
@@ -13,5 +16,9 @@ public:
 	void ToolMenu(Bar& bar) {}
 	
 };
+
+
+END_TEXTLIB_NAMESPACE
+
 
 #endif

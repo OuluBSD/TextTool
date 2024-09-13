@@ -16,6 +16,7 @@ protected:
 	ArrayCtrl					componentlist;
 	
 	ImageGenTool				image_gen;
+	ImageAspectFixerTool		aspect_fixer;
 	
 	OwnerInfoCtrl				owner_info;
 	ProfileInfoCtrl				profile_info;

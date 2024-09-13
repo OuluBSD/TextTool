@@ -1,6 +1,7 @@
 #ifndef _ToolCtrl_ImageUtils_h_
 #define _ToolCtrl_ImageUtils_h_
 
+
 BEGIN_TEXTLIB_NAMESPACE
 
 
@@ -12,5 +13,6 @@ Image RescaleToFit(const Image& img, int smaller_side_length);
 
 
 END_TEXTLIB_NAMESPACE
+
 
 #endif

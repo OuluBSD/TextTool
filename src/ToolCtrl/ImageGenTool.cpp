@@ -1,6 +1,8 @@
 #include "ToolCtrl.h"
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
 
 ImageGenTool::ImageGenTool() {
 	images.tool = this;
@@ -729,3 +731,6 @@ void EditImage::RewriteMaskColor() {
 		mask = ib;
 	}
 }
+
+
+END_TEXTLIB_NAMESPACE

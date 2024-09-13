@@ -1,6 +1,9 @@
 #include "ToolCtrl.h"
 
 
+BEGIN_TEXTLIB_NAMESPACE
+
+
 Tasks::Tasks() {
 	Add(hsplit.SizePos());
 	#if 0
@@ -135,3 +138,6 @@ void Tasks::OutputMenu(Bar& bar) {
 	bar.Add(t_("Return fail"), THISBACK(ReturnFail));
 	
 }
+
+
+END_TEXTLIB_NAMESPACE
