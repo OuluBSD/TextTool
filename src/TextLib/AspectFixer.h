@@ -31,6 +31,7 @@ public:
 	hash_t hash = 0;
 	int w = 0, h = 0, w_extra = 0, h_extra = 0;
 	bool save_debug_images = false;
+	String prompt;
 	
 	Event<> WhenIntermediate;
 	
