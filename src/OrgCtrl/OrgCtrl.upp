@@ -22,6 +22,8 @@ file
 	DebugNode.h,
 	DebugNode.cpp,
 	DebugDatabaseBrowser.cpp,
+	ProjectWizard.h,
+	ProjectWizard.cpp,
 	SystemNode.h,
 	SystemNode.cpp,
 	UppExporter.h,

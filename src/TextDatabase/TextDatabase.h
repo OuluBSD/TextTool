@@ -22,6 +22,7 @@
 #include "Pronounciation.h"
 #include "Browser.h"
 #include "OrgCommon.h"
+#include "Wizard.h"
 
 
 

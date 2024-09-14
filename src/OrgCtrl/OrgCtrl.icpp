@@ -16,5 +16,6 @@ INITBLOCK {
 	NodeFactory::Register<FileListCtrl,FileListView>("File list", NODE_FILE_LIST);
 	NodeFactory::Register<FileCtrl,FileView>("File", NODE_FILE);
 	NodeFactory::Register<DebugCtrl,DebugView>("Debug", NODE_DEBUG);
+	NodeFactory::Register<ProjectWizardCtrl,ProjectWizardView>("Project Wizard", NODE_WIZARD);
 	
 }

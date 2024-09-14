@@ -24,16 +24,6 @@ List of steps in dependency order that are needed to be taken before choosing wh
 20.x Make a final decision based on all the above factors and prioritize the most promising project.
 
 
-List of steps in dependency order that are needed to be taken before choosing which software project to invest (games, apps, virtual instruments, etc.):
-1. Determine the overall budget available for the investment.
-2. Identify the target market for the software project.
-3. Research the current market trends and demands.
-4. Evaluate the potential profitability and return on investment.
-5. Assess the competition in the market.
-11. Gather feedback from potential users or investors.
-12. Develop a marketing strategy for the project.
-13. Identify potential collaborators or partners.
-17. Consider the target pricing for the software product.
 
 
 

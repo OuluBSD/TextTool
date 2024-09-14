@@ -16,14 +16,22 @@ class ImageAspectFixerTool : public ToolAppCtrl {
 	Image src_image;
 	AspectFixer* af_ptr = 0;
 	
+	Vector<String> queue;
+	
+	void OpenFile(String path);
+	
+	Event<> WhenReady;
+	
 public:
 	typedef ImageAspectFixerTool CLASSNAME;
 	ImageAspectFixerTool();
 	
 	void Data() override;
 	void ToolMenu(Bar& bar) override;
+	void OnQueueSelect();
 	void Do(int fn);
 	void PostDo(int fn) {PostCallback(THISBACK1(Do, fn));}
+	void QueueProcess(int cursor);
 	
 };
 

@@ -52,5 +52,7 @@ file
 	OrgCommon.cpp,
 	Package.h,
 	Package.cpp,
+	Wizard.h,
+	Wizard.cpp,
 	_ readonly separator;
 

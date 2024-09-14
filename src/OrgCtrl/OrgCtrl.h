@@ -23,6 +23,7 @@
 #include "FileListNode.h"
 #include "FileNode.h"
 #include "DebugNode.h"
+#include "ProjectWizard.h"
 
 
 #endif
