@@ -72,6 +72,7 @@ void ImageAspectFixerTool::Do(int fn) {
 	else if (fn == 2) {
 		if (!af_ptr) return;
 		to.SetImage(af_ptr->intermediate);
+		form.safe_prompt.SetData(af_ptr->safe_prompt);
 		form.prompt.SetData(af_ptr->prompt);
 	}
 }

@@ -10,18 +10,21 @@ class AspectFixer : public SolverBase {
 public:
 	enum {
 		PHASE_ANALYZE_PROMPT,
+		PHASE_GET_SAFE_PROMPT,
 		PHASE_GET_FILLERS,
 		
 		PHASE_COUNT
 	};
+	enum {
+		LEFT,
+		TOP,
+		RIGHT,
+		BOTTOM
+	};
 	
 	struct Task : Moveable<Task> {
-		Size src_resize;
-		Size dst_size;
-		Size new_size;
-		Point src_tl;
-		Rect dst_rect_intermediate;
-		Rect dst_rect_new;
+		double ratio_mul = 0;
+		int side = 0;
 	};
 	Vector<Task> tasks;
 	
@@ -31,7 +34,8 @@ public:
 	hash_t hash = 0;
 	int w = 0, h = 0, w_extra = 0, h_extra = 0;
 	bool save_debug_images = false;
-	String prompt;
+	String prompt, safe_prompt;
+	Rect src_rect, dst_rect;
 	
 	Event<> WhenIntermediate;
 	

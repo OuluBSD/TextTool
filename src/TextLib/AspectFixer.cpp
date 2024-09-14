@@ -15,6 +15,8 @@ void AspectFixer::DoPhase() {
 	PNGEncoder enc;
 	
 	if (phase == PHASE_ANALYZE_PROMPT) {
+		WhenIntermediate();
+		
 		Image img = src_image;
 		Size sz = img.GetSize();
 		int max_side = max(sz.cx, sz.cy);
@@ -41,6 +43,25 @@ void AspectFixer::DoPhase() {
 			
 			NextPhase();
 			SetWaiting(0);
+			
+			WhenIntermediate();
+		});
+	}
+	else if (phase == PHASE_GET_SAFE_PROMPT) {
+		String completion;
+		completion = "Original prompt, which may violate dalle-2 content policy (e.g. can't use word \"intimate\"):\n"
+			+ prompt + "\n\nImproved prompt, which doesn't violate the dalle-2 content policy:\n";
+		
+
+		SetWaiting(1);
+		TaskMgr& m = TaskMgr::Single();
+		m.RawCompletion(completion, [this](String res) {
+			safe_prompt = TrimBoth(res);
+			
+			NextPhase();
+			SetWaiting(0);
+			
+			WhenIntermediate();
 		});
 	}
 	else if (phase == PHASE_GET_FILLERS) {
@@ -66,149 +87,61 @@ void AspectFixer::DoPhase() {
 			
 			src_intermediate = intermediate;
 			
+			double new_aspect = (double)w / (double)h;
+			double cur_aspect = (double)sz.cx / (double)sz.cy;
+			
 			// Only to one side currently (left)
 			if (w_extra > 0) {
-				double w_fac = (100 + w_extra) * 0.01;
-				int new_cx = sz.cx * w_fac;
-				int new_px = new_cx - sz.cx;
-				double new_factor = (double)new_px / sz.cy;
-				double src_factor = 1 - new_factor;
-				int src_resize_cx = src_factor * 1024;
-				if (new_px > 0) {
-					Task& t = tasks.Add();
-					if (sz.cx >= sz.cy)
-						t.src_resize = Size(1024*sz.cx/sz.cy, 1024);
-					else
-						t.src_resize = Size(1024, 1024*sz.cy/sz.cx);
-					t.src_tl = Point(1024-src_resize_cx,0);
-					t.dst_size = Size(new_cx, sz.cy);
-					t.dst_rect_intermediate = RectC(new_px, 0, sz.cx, sz.cy);
-					int side = sz.cy;
-					t.new_size = Size(side, side);
-					t.dst_rect_new = RectC(0,0,side,side);
-					
-					sz = t.dst_size;
-				}
+				double aspect = new_aspect / cur_aspect;
+				Task& t = tasks.Add();
+				t.ratio_mul = w_extra * 0.01 + 1.0;
+				t.side = LEFT;
+				cur_aspect *= t.ratio_mul;
 			}
 			// Only to one side currently (top)
 			if (h_extra > 0) {
-				double h_fac = (100 + h_extra) * 0.01;
-				int new_cy = sz.cy * h_fac;
-				int new_px = new_cy - sz.cy;
-				double new_factor = (double)new_px / sz.cx;
-				double src_factor = 1 - new_factor;
-				int src_resize_cy = src_factor * 1024;
-				if (new_px > 0) {
-					Task& t = tasks.Add();
-					if (sz.cx <= sz.cy)
-						t.src_resize = Size(1024*sz.cx/sz.cy, 1024);
-					else
-						t.src_resize = Size(1024, 1024*sz.cy/sz.cx);
-					t.src_tl = Point(0,1024-src_resize_cy);
-					t.dst_size = Size(sz.cx, new_cy);
-					t.dst_rect_intermediate = RectC(0, new_px, sz.cx, sz.cy);
-					int side = sz.cx;
-					t.new_size = Size(side, side);
-					t.dst_rect_new = RectC(0,0,side,side);
-					
-					sz = t.dst_size;
-				}
+				double aspect = new_aspect / cur_aspect;
+				Task& t = tasks.Add();
+				t.ratio_mul = 1 / (h_extra * 0.01 + 1.0);
+				t.side = TOP;
+				cur_aspect *= t.ratio_mul;
 			}
 			
-			double old_aspect = (double)sz.cx / (double)sz.cy;
-			double new_aspect = (double)w / (double)h;
-			
 			// Wider
-			if (new_aspect > old_aspect) {
-				double w_fac = new_aspect / old_aspect;
+			if (new_aspect > cur_aspect) {
 				// Left half
-				if (0) {
-					double w_fac_2 = 1.0 + (w_fac - 1.0) / 2.0;
-					int new_cx = sz.cx * w_fac_2; /////
-					int new_px = new_cx - sz.cx;
-					double new_factor = (double)new_px / sz.cy;
-					double src_factor = 1 - new_factor;
-					int src_resize_cx = src_factor * 1024;
-					if (new_px > 0) {
-						Task& t = tasks.Add();
-						t.src_resize = Size(1024*sz.cx/sz.cy, 1024);
-						t.src_tl = Point(1024-src_resize_cx,0);
-						t.dst_size = Size(new_cx, sz.cy);
-						t.dst_rect_intermediate = RectC(new_px, 0, sz.cx, sz.cy);
-						int side = sz.cy;
-						t.new_size = Size(side, side);
-						t.dst_rect_new = RectC(0,0,side,side);
-						
-						sz = t.dst_size;
-					}
+				if (1) {
+					double aspect = new_aspect / cur_aspect;
+					Task& t = tasks.Add();
+					t.ratio_mul = (aspect - 1.0) / 2.0 + 1.0;
+					t.side = LEFT;
+					cur_aspect *= t.ratio_mul;
 				}
 				// Right half
 				if (1) {
-					old_aspect = (double)sz.cx / (double)sz.cy;
-					w_fac = new_aspect / old_aspect;
-					int new_cx = sz.cx * w_fac;
-					int new_px = new_cx - sz.cx;
-					double new_factor = (double)new_px / sz.cy;
-					double src_factor = 1 - new_factor;
-					int src_resize_cx = src_factor * 1024;
-					if (new_px > 0) {
-						Task& t = tasks.Add();
-						t.src_resize = Size(1024*sz.cx/sz.cy, 1024);
-						t.src_tl = Point(-(sz.cx-src_resize_cx),0); ////// (sz.cx-1024)+(1024-src_resize_cx)
-						t.dst_size = Size(new_cx, sz.cy);
-						t.dst_rect_intermediate = RectC(0, 0, sz.cx, sz.cy); //////
-						int side = sz.cy;
-						t.new_size = Size(side, side);
-						t.dst_rect_new = RectC(sz.cx-1024+new_px,0,side,side); //////
-						
-						sz = t.dst_size;
-					}
+					double aspect = new_aspect / cur_aspect;
+					Task& t = tasks.Add();
+					t.ratio_mul = aspect;
+					t.side = RIGHT;
+					cur_aspect *= t.ratio_mul;
 				}
 			}
-			else if (new_aspect < old_aspect) {
-				double h_fac = old_aspect / new_aspect;
+			else if (new_aspect < cur_aspect) {
 				// Top half
 				if (1) {
-					double h_fac_2 = 1.0 + (h_fac - 1.0) / 2.0;
-					int new_cy = sz.cy * h_fac_2;
-					int new_px = new_cy - sz.cy;
-					double new_factor = (double)new_px / sz.cx;
-					double src_factor = 1 - new_factor;
-					int src_resize_cy = src_factor * 1024;
-					if (new_px > 0) {
-						Task& t = tasks.Add();
-						t.src_resize = Size(1024, 1024*sz.cy/sz.cx);
-						t.src_tl = Point(0,1024-src_resize_cy);
-						t.dst_size = Size(sz.cx, new_cy);
-						t.dst_rect_intermediate = RectC(0, new_px, sz.cx, sz.cy);
-						int side = sz.cx;
-						t.new_size = Size(side, side);
-						t.dst_rect_new = RectC(0,0,side,side);
-						
-						sz = t.dst_size;
-					}
+					double aspect = new_aspect / cur_aspect;
+					Task& t = tasks.Add();
+					t.ratio_mul = (aspect - 1.0) / 2.0 + 1.0;
+					t.side = TOP;
+					cur_aspect *= t.ratio_mul;
 				}
 				// Bottom half
 				if (1) {
-					old_aspect = (double)sz.cx / (double)sz.cy;
-					h_fac = old_aspect / new_aspect;
-					int new_cy = sz.cy * h_fac;
-					int new_px = new_cy - sz.cy;
-					double new_factor = (double)new_px / sz.cx;
-					double src_factor = 1 - new_factor;
-					int src_resize_cy = src_factor * 1024;
-					if (new_px > 0) {
-						Task& t = tasks.Add();
-						t.src_resize = Size(1024, 1024*sz.cy/sz.cx);
-						t.src_tl = Point(0,-(sz.cy-src_resize_cy)); ////// BUGGY!!!! TODO
-						t.dst_size = Size(sz.cx, new_cy);
-						t.dst_rect_intermediate = RectC(0, 0, sz.cx, sz.cy); //////
-						int side = sz.cx;
-						t.new_size = Size(side, side);
-						t.dst_rect_new = RectC(0,sz.cy-1024+new_px,side,side); //////
-						
-						sz = t.dst_size;
-					}
+					double aspect = new_aspect / cur_aspect;
+					Task& t = tasks.Add();
+					t.ratio_mul = aspect;
+					t.side = BOTTOM;
+					cur_aspect *= t.ratio_mul;
 				}
 			}
 			
@@ -224,22 +157,50 @@ void AspectFixer::DoPhase() {
 		}
 		Task& t = tasks[batch];
 		
-		
-		// Rescale image
-		Image src_resized = Rescale(intermediate, t.src_resize);
-		Size src_sz = src_resized.GetSize();
-		
-		Rect src_rect = RectC(-t.src_tl.x, -t.src_tl.y, 1024, 1024);
-		src_rect.left = max(0, src_rect.left);
-		src_rect.top = max(0, src_rect.top);
-		src_rect.right = min(src_sz.cx, src_rect.right);
-		src_rect.bottom = min(src_sz.cy, src_rect.bottom);
-		
-		Rect dst_rect = RectC(t.src_tl.x, t.src_tl.y, src_sz.cx, src_sz.cy);
-		dst_rect.left = max(0, dst_rect.left);
-		dst_rect.top = max(0, dst_rect.top);
-		dst_rect.right = min(1024, dst_rect.right);
-		dst_rect.bottom = min(1024, dst_rect.bottom);
+		// Image and mask
+		Size sz = intermediate.GetSize();
+		src_rect = Rect(0,0,0,0);
+		dst_rect = Size(1024,1024);
+		Image src_resized;
+		if (t.side == LEFT || t.side == RIGHT) {
+			double ratio = (double)dst_rect.Height() / sz.cy;
+			sz *= ratio;
+			src_resized = Rescale(intermediate, sz);
+			src_rect = sz;
+			int w_diff = sz.cx * (t.ratio_mul - 1.0);
+			ASSERT(w_diff > 0);
+			int w_src_visible = dst_rect.Width() - w_diff;
+			int w_src_cut = max(0, w_src_visible - sz.cx);
+			int w_src_visible_after_cut = w_src_visible - w_src_cut;
+			if (t.side == LEFT) {
+				src_rect &= RectC(0,0,w_src_visible_after_cut,sz.cy);
+				dst_rect &= RectC(dst_rect.Width()-w_src_visible,0,w_src_visible_after_cut,sz.cy);
+			}
+			else {
+				src_rect &= RectC(sz.cx-w_src_visible,0,w_src_visible_after_cut,sz.cy);
+				dst_rect &= RectC(0,0,w_src_visible_after_cut,sz.cy);
+			}
+		}
+		else if (t.side == TOP || t.side == BOTTOM) {
+			double ratio = (double)dst_rect.Width() / sz.cx;
+			sz *= ratio;
+			src_resized = Rescale(intermediate, sz);
+			src_rect = sz;
+			double h_ratio = 1.0 / t.ratio_mul;
+			int h_diff = sz.cy * (h_ratio - 1.0);
+			ASSERT(h_diff > 0);
+			int h_src_visible = dst_rect.Height() - h_diff;
+			int h_src_cut = max(0, h_src_visible - sz.cy);
+			int h_src_visible_after_cut = h_src_visible - h_src_cut;
+			if (t.side == TOP) {
+				src_rect &= RectC(0,0,sz.cx,h_src_visible_after_cut);
+				dst_rect &= RectC(0,dst_rect.Height()-h_src_visible,sz.cx,h_src_visible_after_cut);
+			}
+			else {
+				src_rect &= RectC(0,sz.cx-h_src_visible,sz.cx,h_src_visible_after_cut);
+				dst_rect &= RectC(0,0,sz.cx,h_src_visible_after_cut);
+			}
+		}
 		
 		// Create standard dalle image
 		ImageDraw id(1024,1024);
@@ -261,22 +222,57 @@ void AspectFixer::DoPhase() {
 
 		SetWaiting(1);
 		TaskMgr& m = TaskMgr::Single();
-		m.GetEditImage(img, MakeMask(mask), prompt, 1, [this](Array<Image>& res) {
+		m.GetEditImage(img, MakeMask(mask), safe_prompt, 1, [this](Array<Image>& res) {
 			PNGEncoder enc;
 			
 			if (res.GetCount()) {
 				Image img = res[0];
+				Size src_sz = img.GetSize();
+				Size im_sz = intermediate.GetSize();
 				
 				if (save_debug_images)
 					enc.SaveFile(ConfigFile("debug-result-" +IntStr(batch) + ".png"), img);
 				
 				// Make the new image
 				const Task& t = tasks[batch];
-				img = Rescale(img, t.new_size);
-				ImageDraw id(t.dst_size);
-				id.DrawImage(t.dst_rect_new, img);
-				id.DrawImage(t.dst_rect_intermediate, intermediate);
-				intermediate = id;
+				if (t.side == LEFT || t.side == RIGHT) {
+					double ratio = (double)im_sz.cy / src_sz.cy;
+					src_sz *= ratio;
+					img = Rescale(img, src_sz);
+					Size new_sz = Size(im_sz.cx * t.ratio_mul, im_sz.cy);
+					int w_diff = new_sz.cx - im_sz.cx;
+					ASSERT(w_diff > 0);
+					ImageDraw id(new_sz);
+					if (t.side == LEFT) {
+						id.DrawImage(0, 0, img);
+						id.DrawImage(w_diff, 0, intermediate);
+					}
+					else {
+						id.DrawImage(new_sz.cx-src_sz.cx, 0, img);
+						id.DrawImage(0, 0, intermediate);
+					}
+					intermediate = id;
+				}
+				else if (t.side == TOP || t.side == BOTTOM) {
+					double ratio = (double)im_sz.cx / src_sz.cx;
+					src_sz *= ratio;
+					img = Rescale(img, src_sz);
+					double h_ratio = 1.0 / t.ratio_mul;
+					Size new_sz = Size(im_sz.cx, im_sz.cy * h_ratio);
+					int h_diff = new_sz.cy - im_sz.cy;
+					ASSERT(h_diff > 0);
+					ImageDraw id(new_sz);
+					if (t.side == TOP) {
+						id.DrawImage(0, 0, img);
+						id.DrawImage(0, h_diff, intermediate);
+					}
+					else {
+						id.DrawImage(0, new_sz.cy-src_sz.cy, img);
+						id.DrawImage(0, 0, intermediate);
+					}
+					intermediate = id;
+				}
+				
 				
 				if (save_debug_images)
 					enc.SaveFile(ConfigFile("debug-intermediate-" +IntStr(batch) + ".png"), intermediate);
@@ -335,7 +331,7 @@ Image AspectFixer::MakeMask(const Image& image) {
 AspectFixer& AspectFixer::Get(const Image& src_image, int w, int h, int w_extra, int h_extra) {
 	static ArrayMap<int64, AspectFixer> map;
 	hash_t hash = src_image.GetHashValue();
-	String name = IntStr64(h) + "-" + Format("%d-%d-%d-%d", w, h, w_extra, h_extra);
+	String name = IntStr64(hash) + "-" + Format("%d-%d-%d-%d", w, h, w_extra, h_extra);
 	hash_t name_hash = name.GetHashValue();
 	int i = map.Find(name_hash);
 	if (i >= 0)
