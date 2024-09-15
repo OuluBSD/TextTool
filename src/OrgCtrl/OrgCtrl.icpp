@@ -44,22 +44,43 @@ INITBLOCK {
 	
 	
 	// Which software project to invest (games, apps, virtual instruments, etc.):
-		
+	ProjectWizardView::Register("/Idea/Product", WizardArgs::INVALID, "Which software project to invest (games, apps, virtual instruments, etc.)");
+	
 	//// Determine the overall budget available for the investment.
 	//// Identify the target market for the software project.
+	ProjectWizardView::Register("/Idea/Product:Target marget", WizardArgs::INVALID, "Identify the target market for the software project");
+	
 	//// Research the current market trends and demands.
+	ProjectWizardView::Register("/Idea/Product:Market trend to follow", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Idea/Product:Market demand to fulfill", WizardArgs::INVALID, "");
+	
 	//// Evaluate the potential profitability and return on investment.
+	ProjectWizardView::Register("/Idea/Product:Profitability", WizardArgs::INVALID, "");
+	
 	//// Assess the competition in the market.
+	ProjectWizardView::Register("/Idea/Product:Relationship to competition", WizardArgs::INVALID, "");
+	
 	//// Gather feedback from potential users or investors.
+	ProjectWizardView::Register("/Idea/Product:Target feedback from potential users or investors", WizardArgs::INVALID, "");
+	
 	//// Develop a marketing strategy for the project.
+	ProjectWizardView::Register("/Idea/Product:Core marketing idea", WizardArgs::INVALID, "");
+	
 	//// Identify potential collaborators or partners.
+	ProjectWizardView::Register("/Idea/Product:Potential collaborators or partners", WizardArgs::INVALID, "");
+	
 	//// Consider the target pricing for the software product.
+	ProjectWizardView::Register("/Idea/Product:Target pricing", WizardArgs::INVALID, "");
+	
+	//// Consider the sales volume of the product
+	ProjectWizardView::Register("/Idea/Product:Sales volume target", WizardArgs::INVALID, "");
 	
 	
 	
 	
 	
 	// Define project requirements and scope
+	ProjectWizardView::Register("/Requirements", WizardArgs::INVALID, "Define project requirements and scope");
 	
 	//// Identify key stakeholders and project goals
 	
@@ -74,6 +95,7 @@ INITBLOCK {
 		//8. Stay within budget and timeline
 		//9. Scalability for future growth
 		//10. Improve collaboration and communication.
+	ProjectWizardView::Register("/Requirements/Specific needs:Stakeholders", WizardArgs::INVALID, "");
 	
 		//Feedback from potential users or investors for the market target "Musicians - for a virtual instrument or music production software." in the market trend "Focus on user experience - there is a growing emphasis on creating user-friendly and seamless experiences in software projects.":
 		//1. "The user interface is very intuitive and easy to navigate."
@@ -91,8 +113,13 @@ INITBLOCK {
 		//13. "It's reliable and I haven't experienced any technical issues so far."
 		//14. "The price is reasonable and affordable for the quality of the software."
 		//15. "I can easily connect my external controllers and hardware devices for a better user experience."
-		
+	ProjectWizardView::Register("/Requirements/Specific needs:Potential users or investors", WizardArgs::INVALID, "");
+			
 		//----> features, classes, data, assets
+	ProjectWizardView::Register("/Requirements/Specific needs:Features", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Specific needs:Assets", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Specific needs:Data", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Specific needs:User entry points", WizardArgs::INVALID, "");
 	
 	
 	//// Gather and analyze user requirements
@@ -105,7 +132,17 @@ INITBLOCK {
 		//5. Identify pain points and improvement opportunities
 		//6. Consider scalability and future needs
 		//7. Prioritize user requirements.
-
+	ProjectWizardView::Register("/Requirements/User experience:User interview target", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/User experience:User persona target", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/User experience:User feedback target", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/User experience:State-of-the-art user experience to have", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/User experience:The best UX features of competition to have", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/User experience:The most unique UX features of competition to have", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/User experience:The worst UX features of competition to avoid", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/User experience:In-game shopping", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/User experience:Future needs", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/User experience:Feature prioritization", WizardArgs::INVALID, "");
+	
 	//// Prioritize and document project features and functionalities
 	
 		// Example answers
@@ -129,6 +166,7 @@ INITBLOCK {
 		//18. Integration with third-party plugins or extensions.
 		//19. Generation of reports and statistics.
 		//20. Collaboration and sharing capabilities.
+	ProjectWizardView::Register("/Requirements/Features:Functionalities", WizardArgs::INVALID, "");
 
 	//// Define project scope and constraints
 	
@@ -143,7 +181,16 @@ INITBLOCK {
 		//8. The application will not have advertising features.
 		//9. The project scope does not include multilingual support.
 		//10. The application will only support a specific number of users.
-
+	ProjectWizardView::Register("/Requirements/Constraints:Supported hardware platform", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Constraints:Supported software platform", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Constraints:Maximum expected user skills", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Constraints:Average expected user skills", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Constraints:Minimum expected user skills", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Constraints:Advertisement providers", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Constraints:In-game purchasing providers", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Constraints:Server scalability", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Constraints:Treshold between free and premium features", WizardArgs::INVALID, "");
+	
 	//// Determine project deliverables and timeline
 	
 		// Example answers
@@ -154,6 +201,11 @@ INITBLOCK {
 		//5. Project budget review at the end of every month.
 		//6. A beta version of the application for user testing to be delivered in 4 months.
 		//7. Final delivery and implementation of the application in 6 months.
+	ProjectWizardView::Register("/Requirements/Deliverables:User documentation", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Deliverables:Developer documentation", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Deliverables:Marketing material", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Deliverables:Beta release packages", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Requirements/Deliverables:Final release packages", WizardArgs::INVALID, "");
 	
 	//// Validate and finalize project requirements and scope.
 
@@ -166,15 +218,39 @@ INITBLOCK {
 	
 		//Examples of steps
 		//1. Identify the main components or modules of the project
+	ProjectWizardView::Register("/Plan/Program:Main modules", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #1", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #2", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #3", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #4", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #5", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #6", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #7", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #8", WizardArgs::INVALID, "");
 		//2. List out specific tasks for each component
+	ProjectWizardView::Register("/Plan/Program:Tasks", WizardArgs::INVALID, "");
 		//3. Determine the order and dependencies of tasks
+	ProjectWizardView::Register("/Plan/Program:Order of tasks", WizardArgs::INVALID, "");
 		//4. Break down large tasks into smaller manageable tasks
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #1", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #2", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #3", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #4", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #5", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #6", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #7", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #8", WizardArgs::INVALID, "");
+	
 		//5. Consider any potential sub-tasks or sub-components
 	
 	//// Assign resources and team roles to each task
 	//// Estimate time and effort requirements for each task
 	//// Create a project timeline or schedule
 	//// Identify dependencies between tasks
+	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between modules", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between sub-modules", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between tasks", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between sub-tasks", WizardArgs::INVALID, "");
 	
 		//Examples of steps
 		//1. Determine which tasks are dependent on each other
@@ -184,6 +260,10 @@ INITBLOCK {
 		//5. Explore ways to mitigate the impact of dependencies on the project timeline
 	
 	//// Determine milestones and checkpoints for measuring progress
+	ProjectWizardView::Register("/Plan/Progress:Milestones", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Progress:Checkpoints", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Plan/Progress:Version targets", WizardArgs::INVALID, "");
+	
 	//// Consider potential risks and contingency plans
 	//// Share and review project plan with key stakeholders
 	//// Make any necessary adjustments or revisions
@@ -206,6 +286,7 @@ INITBLOCK {
 		//5. Determine if any specific hardware or operating system is needed
 		//6. Consider scalability and future growth needs
 		//7. Identify any specific security or privacy requirements
+	ProjectWizardView::Register("/Techologies/Requirements:Type of software", WizardArgs::INVALID, "");
 	
 	//// Research and evaluate different tools and technologies
 	
