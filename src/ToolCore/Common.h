@@ -1083,6 +1083,12 @@ String GetGlobalProxy();
 const Vector<String>& GetElements();
 
 
+String AppendUnixFileName(String a, String b);
+
+ValueMap& ValueToMap(Value& val);
+ValueArray& ValueToArray(Value& val);
+
+
 END_TEXTLIB_NAMESPACE
 
 

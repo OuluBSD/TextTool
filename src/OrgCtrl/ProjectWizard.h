@@ -4,8 +4,28 @@
 
 BEGIN_TEXTLIB_NAMESPACE
 
+struct ConfigurationOption {
+	typedef enum {
+		UNDEFINED,
+		FIXED,
+	} Type;
+	
+	Type type = UNDEFINED;
+	Value value;
+};
+
+struct ConfigurationNode {
+	WizardArgs::Enum code;
+	String title;
+	Array<ConfigurationOption> options;
+	
+	ConfigurationNode& OptionFixed(Value v);
+};
 
 class ProjectWizardView : public NodeViewBase {
+	
+	
+	
 	
 public:
 	typedef ProjectWizardView CLASSNAME;
@@ -13,11 +33,25 @@ public:
 	
 	void Data() override;
 	
+	static VectorMap<String,String>& GetCategories() {static VectorMap<String,String> m; return m;}
+	static void RegisterCategory(String key, String desc) {GetCategories().GetAdd(key) = desc;}
+	
+	static ArrayMap<String, ConfigurationNode>& GetConfs() {static ArrayMap<String, ConfigurationNode> m; return m;}
+	static ConfigurationNode& Register(String path, WizardArgs::Enum code, String title);
+	
 };
 
 class ProjectWizardCtrl : public NodeCtrlBase {
-	Splitter hsplit;
-	ArrayCtrl topics, main;
+	Splitter hsplit, vsplit;
+	ArrayCtrl dirs, files, items, options;
+	Ctrl main;
+	int main_type = MAIN_OPTION_LIST;
+	
+	enum {
+		MAIN_OPTION_LIST
+	};
+	
+	String cwd, file_dir, file_path, item_path;
 	
 	enum {
 		VIEW_REQUIREMENTS,
@@ -48,12 +82,21 @@ public:
 	ProjectWizardCtrl();
 	
 	void Data() override;
-	void DataTopic();
+	void DataDirectory();
+	void DataFile();
+	void DataItem();
+	void DataOption();
+	void OnOption();
 	void ToolMenu(Bar& bar) override;
 	void Do(int fn);
 	
-	void SetView(int i);
+	Index<String> GetDirectories(String dir);
+	Index<String> GetFiles(String dir);
+	Index<String> GetItems(String file);
 	
+	void SetView(int i);
+	int GetHistoryCursor(String path);
+	void SetHistoryCursor(String path, int i);
 };
 
 

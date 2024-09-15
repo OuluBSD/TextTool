@@ -605,6 +605,27 @@ struct CodeArgs {
 };
 
 
+struct WizardArgs {
+	
+	typedef enum : int {
+		INVALID = -1,
+		DUMMY_RETURN_0,
+		
+		FN_COUNT
+	} Enum;
+	
+	Enum fn = INVALID;
+	
+	void Jsonize(JsonIO& json) {
+		json	("fn", (int&)fn)
+				;
+	}
+	
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+};
+
+
 END_TEXTLIB_NAMESPACE
 
 

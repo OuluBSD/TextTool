@@ -1543,5 +1543,33 @@ const Vector<String>& GetElements() {
 }
 
 
+String AppendUnixFileName(String a, String b) {
+	if (a.GetCount() && a[a.GetCount()-1] == '/')
+		a = a.Left(a.GetCount()-1);
+	if (b.GetCount() && b[0] == '/')
+		b = b.Mid(1);
+	return a + "/" + b;
+}
+
+
+
+
+ValueMap& ValueToMap(Value& val) {
+	dword type = val.GetType();
+	if (type != VALUEMAP_V)
+		val = ValueMap();
+	return *(ValueMap*)&val; // Illegal, but works -> better than crash in release mode
+}
+
+ValueArray& ValueToArray(Value& val) {
+	dword type = val.GetType();
+	if (type != VALUEARRAY_V)
+		val = ValueArray();
+	return *(ValueArray*)&val; // Illegal, but works -> better than crash in release mode
+}
+
+
+
+
 END_TEXTLIB_NAMESPACE
 
