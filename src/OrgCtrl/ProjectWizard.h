@@ -37,7 +37,7 @@ public:
 	static void RegisterCategory(String key, String desc) {GetCategories().GetAdd(key) = desc;}
 	
 	static ArrayMap<String, ConfigurationNode>& GetConfs() {static ArrayMap<String, ConfigurationNode> m; return m;}
-	static ConfigurationNode& Register(String path, WizardArgs::Enum code, String title);
+	static ConfigurationNode& Register(String path, WizardArgs::Enum code=WizardArgs::INVALID, String title=String());
 	
 };
 

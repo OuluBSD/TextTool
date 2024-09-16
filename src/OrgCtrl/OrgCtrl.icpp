@@ -280,26 +280,39 @@ INITBLOCK {
 	
 		//Examples of steps
 		//1. Identify the type of software being developed (e.g. web application, mobile app, desktop application)
+	ProjectWizardView::Register("/Techologies/Requirements:Type of software", WizardArgs::INVALID, "");
 		//2. Determine the programming languages and frameworks needed
 		//3. Consider data storage and manipulation needs
+	ProjectWizardView::Register("/Techologies/Requirements:Type of persistent data", WizardArgs::INVALID, "");
 		//4. Evaluate user interface design and user experience requirements
+	ProjectWizardView::Register("/Techologies/Requirements:User interface library features", WizardArgs::INVALID, "");
 		//5. Determine if any specific hardware or operating system is needed
+	ProjectWizardView::Register("/Techologies/Requirements:Special hardware features", WizardArgs::INVALID, "");
 		//6. Consider scalability and future growth needs
+	ProjectWizardView::Register("/Techologies/Requirements:Cross-platform compatibility", WizardArgs::INVALID, "");
 		//7. Identify any specific security or privacy requirements
-	ProjectWizardView::Register("/Techologies/Requirements:Type of software", WizardArgs::INVALID, "");
+	ProjectWizardView::Register("/Techologies/Requirements:Security protection features", WizardArgs::INVALID, "");
 	
 	//// Research and evaluate different tools and technologies
 	
 		//Examples of steps
 		//1. Look for reviews and comparisons of popular tools and technologies
+	ProjectWizardView::Register("/Techologies/Providers:Compare programming languages");
+	ProjectWizardView::Register("/Techologies/Providers:Compare libraries and frameworks");
 		//2. Ask for recommendations from other developers or experts in the field
+	ProjectWizardView::Register("/Techologies/Providers:Expert opinions");
 		//3. Attend conferences or workshops related to the project topic
 		//4. Explore online communities and forums to gather insights and feedback
+	ProjectWizardView::Register("/Techologies/Providers:List of software made with similar technology stack");
 	
 	//// Determine which tools and technologies best fit the project requirements
+	ProjectWizardView::Register("/Techologies/Providers:Score of fit of programming language");
+	ProjectWizardView::Register("/Techologies/Providers:Score of fit of libraries and frameworks");
 	//// Consider compatibility and integration with other systems
+	ProjectWizardView::Register("/Techologies/Providers:Score of compatibility and integration");
 	//// Consider budget and cost of tools and technologies
 	//// Obtain necessary licenses or permissions for using certain tools and technologies
+	ProjectWizardView::Register("/Techologies/Providers:Score of license freedom");
 	
 	
 	// Set up a development environment
@@ -309,24 +322,32 @@ INITBLOCK {
 	//// Consider the project requirements and objectives
 	//// Research popular and well-supported programming languages
 	//// Evaluate the learning curve and availability of resources for different languages
+	ProjectWizardView::Register("/Technologies/Language:Programming language");
 	//// Consider compatibility with necessary tools and technologies
 	//// Determine if the chosen language has libraries or frameworks that can aid in development
+	ProjectWizardView::Register("/Technologies/Language:Supported features");
 	//// Consider the long-term maintenance and support for the chosen language
-	//// Establish coding conventions and standards
+	ProjectWizardView::Register("/Technologies/Language:Required self-made supporting libaries");
 	
+	//// Establish coding conventions and standards
 		//1. Research industry standards and best practices
 		//2. Determine coding conventions and standards that align with the chosen programming language
 		//3. Document and communicate these coding conventions and standards to team members
 		//4. Consider tools and frameworks that can help enforce coding conventions and standards
 		//5. Continuously review and update coding conventions and standards as needed.
+	ProjectWizardView::Register("/Technologies/Language:Coding conventions");
 
 
 	// Determine project structure and organization
 	
 	//// Consider the size and complexity of the project
+	ProjectWizardView::Register("/Project structure/Organization:Class structure estimation");
 	//// Determine if the project will be split into different modules or components
+	ProjectWizardView::Register("/Project structure/Organization:Runtime module structure estimation");
 	//// Decide on a file and folder structure for the project
+	ProjectWizardView::Register("/Project structure/Organization:File structure estimation");
 	//// Document the project structure and organization for future reference
+	ProjectWizardView::Register("/Project structure/Organization:Documentation index estimation");
 	//// Determine how code will be organized and managed within the project structure.
 
 
