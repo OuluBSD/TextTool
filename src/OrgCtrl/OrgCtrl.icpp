@@ -349,62 +349,96 @@ INITBLOCK {
 	//// Document the project structure and organization for future reference
 	ProjectWizardView::Register("/Project structure/Organization:Documentation index estimation");
 	//// Determine how code will be organized and managed within the project structure.
+	ProjectWizardView::Register("/Project structure/Organization:Code test index estimation");
 
 
 	// Declare dependencies and libraries
+	ProjectWizardView::Register("/Project structure/Organization:Code dependency estimation");
 	
 	// Consider program architecture and design patterns
 	
+		//What other design patterns are related to ECS?
+	ProjectWizardView::Register("/Project structure/Architecture:Entity-Component-System (ECS) usage");
+	ProjectWizardView::Register("/Project structure/Architecture:Entity-Component-System (ECS) integration with external library");
+		//1. Object-Oriented Design: ECS is often compared to object-oriented design, as both patterns use a composition-based approach to organizing and managing code.
+	ProjectWizardView::Register("/Project structure/Architecture:Object-Oriented design features");
+		//2. Composition pattern: ECS heavily relies on the composition pattern, which is a structural design pattern that allows objects to be composed of smaller, reusable components.
+	ProjectWizardView::Register("/Project structure/Architecture:Composition pattern design features");
+		//3. Factory pattern: ECS can be implemented with the factory pattern, where a factory class is responsible for creating and initializing entities and their associated components.
+	ProjectWizardView::Register("/Project structure/Architecture:Factory pattern design features");
+		//4. Observer pattern: ECS systems can be seen as observers, as they react to changes in entities and their components.
+	ProjectWizardView::Register("/Project structure/Architecture:Observer pattern design features");
+		//5. Command pattern: Changes or updates to components in the ECS can be seen as commands that are executed by the systems.
+	ProjectWizardView::Register("/Project structure/Architecture:Command pattern design features");
+		//6. Event-driven architecture: ECS can be seen as a form of an event-driven architecture, where changes in the state of entities and components trigger events that are handled by systems.
+	ProjectWizardView::Register("/Project structure/Architecture:Event-driven architecture design features");
+		//7. Dependency Injection: ECS can be implemented with the use of dependency injection, where the systems and components are injected into the entities at runtime.
+	ProjectWizardView::Register("/Project structure/Architecture:Dependency injection design features");
+	
 		//List of design patterns in software development:
 		//1. Creational Patterns: These patterns focus on creating objects in a flexible, scalable, and efficient manner. Examples include the Factory pattern, Singleton pattern, and Prototype pattern.
+	ProjectWizardView::Register("/Implementation/Design patterns:Creational patterns");
 		//2. Structural Patterns: These patterns provide ways to organize classes, objects, and interfaces to form larger structures while keeping the relationships between them flexible. Examples include the Adapter pattern, Facade pattern, and Decorator pattern.
+	ProjectWizardView::Register("/Implementation/Design patterns:Structural patterns");
 		//3. Behavioral Patterns: These patterns focus on the communication and interaction between objects and classes. Examples include the Observer pattern, Command pattern, and Mediator pattern.
+	ProjectWizardView::Register("/Implementation/Design patterns:Behavioral patterns");
 		//4. Concurrency Patterns: These patterns deal with managing and coordinating multiple tasks or threads in a distributed system. Examples include the Thread Pool pattern, Barrier pattern, and Monitor pattern.
+	ProjectWizardView::Register("/Implementation/Design patterns:Concurrency patterns");
 		//5. Architectural Patterns: These patterns provide high-level guidelines for designing and organizing large-scale software systems. Examples include the Model-View-Controller pattern, Layered Architecture pattern, and Microservices pattern.
+	ProjectWizardView::Register("/Implementation/Design patterns:Architectural patterns");
 		//6. Integration Patterns: These patterns deal with integrating multiple systems or components to work together seamlessly. Examples include the Adapter pattern, Bridge pattern, and Broker pattern.
+	ProjectWizardView::Register("/Implementation/Design patterns:Integration patterns");
 		//7. Big Data Patterns: These patterns focus on handling and processing large volumes of data efficiently. Examples include the MapReduce pattern, Bulk Synchronous Parallel pattern, and Pipes and Filters pattern.
+	ProjectWizardView::Register("/Implementation/Design patterns:Big data patterns");
 		//8. Domain-Specific Patterns: These patterns are specific to a particular domain or industry. Examples include the Blackboard pattern in artificial intelligence and the Model-View-ViewModel pattern in user interface design.
+	ProjectWizardView::Register("/Implementation/Design patterns:Domain-specific patterns");
 		//9. Anti-patterns: These are common mistakes or pitfalls in software design that should be avoided. Examples include the God Object anti-pattern and the Spaghetti Code anti-pattern.
+	ProjectWizardView::Register("/Implementation/Design patterns:Anti-patterns");
 		
 		//>>>>> classes, program structure, functions
-
-		//List of things to consider before deciding to use Entity-Component-System (ECS) or other:
-		//1. Project requirements and functionality
-		//2. Complexity and size of the project
-		//3. Scalability and modularity needs
-		//4. Type of game or application being developed
-		//5. Programming language and framework being used
-		//6. Developer familiarity and experience with ECS
-		//7. Ability to handle multiple game objects and behaviors
-		//8. Performance and optimization requirements
-		//9. Need for easy modification and addition of new features
-		//10. Availability of ECS libraries or tools for the chosen platform.
-		
-		//What other design patterns are related to ECS?
-		//1. Object-Oriented Design: ECS is often compared to object-oriented design, as both patterns use a composition-based approach to organizing and managing code.
-		//2. Composition pattern: ECS heavily relies on the composition pattern, which is a structural design pattern that allows objects to be composed of smaller, reusable components.
-		//3. Factory pattern: ECS can be implemented with the factory pattern, where a factory class is responsible for creating and initializing entities and their associated components.
-		//4. Observer pattern: ECS systems can be seen as observers, as they react to changes in entities and their components.
-		//5. Command pattern: Changes or updates to components in the ECS can be seen as commands that are executed by the systems.
-		//6. Event-driven architecture: ECS can be seen as a form of an event-driven architecture, where changes in the state of entities and components trigger events that are handled by systems.
-		//7. Dependency Injection: ECS can be implemented with the use of dependency injection, where the systems and components are injected into the entities at runtime.
-		
+	ProjectWizardView::Register("/Implementation/Static dependencies:Module dependencies");
+	ProjectWizardView::Register("/Implementation/Static dependencies:Class dependencies");
+	ProjectWizardView::Register("/Implementation/Static dependencies:Data dependencies");
+	ProjectWizardView::Register("/Implementation/Runtime dependencies:Program state dependencies");
+	ProjectWizardView::Register("/Implementation/Runtime dependencies:Object state dependencies");
+	ProjectWizardView::Register("/Implementation/Runtime dependencies:User interface state dependencies");
+	ProjectWizardView::Register("/Implementation/Interface dependencies:Interface visibility dependencies");
+	ProjectWizardView::Register("/Implementation/Interface dependencies:User action dependencies");
+	
 		//Hierarchy of the software using Entity-Component-System design pattern:
 		//1. Entity: An Entity is a basic representation of an object in the game that can have various components attached to it. It serves as a container for components and does not contain any logic or behavior of its own.
+	ProjectWizardView::Register("/Implementation/ECS:Entity");
 		//2. Component: A Component is a modular building block that represents a specific feature or behavior of an Entity. Examples of components could include Position, Sprite, Health, and Movement. Components only hold data and do not contain any logic.
+	ProjectWizardView::Register("/Implementation/ECS:Component");
 		//3. System: Systems are responsible for performing specific actions or logic on Entities that have certain components. For example, a Render System would update the position of entities with a Position component and display the corresponding sprite from the Sprite component.
+	ProjectWizardView::Register("/Implementation/ECS:System");
 		//4. Entity-Component Manager: The Entity-Component Manager is responsible for managing all entities, components, and systems in the game. It serves as the main interface for creating, deleting, and accessing entities and their components.
+	ProjectWizardView::Register("/Implementation/ECS:Entity-Component Manager");
 		//5. Input System: The Input System is responsible for handling player input and updating the corresponding components, such as" a Movement component. It takes user input and translates it into actions that affect the game entities.
+	ProjectWizardView::Register("/Implementation/ECS:Input System");
 		//6. Collision Detection System: The Collision Detection System is responsible for detecting collisions between entities and updating the appropriate components, such as Health or Movement, of the affected entities. It checks for collisions every frame and applies changes accordingly.
+	ProjectWizardView::Register("/Implementation/ECS:Collision Detection System");
 		//7. AI System: The AI System is responsible for controlling the behavior of non-player entities in the game. It uses data from components, such as Position and Movement, to determine the actions of these entities.
+	ProjectWizardView::Register("/Implementation/ECS:AI System");
 		//8. Audio System: The Audio System is responsible for playing sound effects and background music in the game. It communicates with the components, such as Audio, of entities that require audio playback.
+	ProjectWizardView::Register("/Implementation/ECS:Audio System");
 		//9. Game Interface System: The Game Interface System is responsible for displaying and managing the user interface elements of the game. It works with components, such as Text and Button, to update and display relevant information to the player.
+	ProjectWizardView::Register("/Implementation/ECS:Game Interface System");
 		//10. Save/Load System: The Save/Load System handles saving and loading game progress and data. It communicates with components, such as SaveData and LoadData, to store and retrieve information about the game state.
+	ProjectWizardView::Register("/Implementation/ECS:Save & Load System");
 		//11. Event System: The Event System handles events and notifications within the game. Components can subscribe to events and be notified when they occur. It allows for communication and interaction between different parts of the game without tight coupling.
+	ProjectWizardView::Register("/Implementation/ECS:Event System");
 		//12. Physics System: The Physics System is responsible for simulating physical interactions between objects in the game. It works with components, such as Rigidbody, to apply forces, calculate collisions, and update positions and velocities of entities.
+	ProjectWizardView::Register("/Implementation/ECS:Physics System");
 		//13. Animation System: The Animation System handles the animation of entities in the game. It updates the states of components, such as Animation, based on the game logic and input from other systems.
+	ProjectWizardView::Register("/Implementation/ECS:Animation System");
 		//14. Resource Manager: The Resource Manager is responsible for loading and managing game assets, such as graphics, sounds, and music. It works with components that require these resources and ensures they are loaded and available when needed.
+	ProjectWizardView::Register("/Implementation/ECS:Resource Manager");
 		//15. Debug System: The Debug System is responsible for displaying debug information while the game is running, such as the state of entities and components. It works with other systems to collect and display relevant data for debugging purposes.
+	ProjectWizardView::Register("/Implementation/ECS:Debug System");
+	
+	ProjectWizardView::Register("/Implementation/ECS:Graphics System");
+	ProjectWizardView::Register("/Implementation/ECS:Network System");
 		
 		//>>>>> classes, program structure, functions
 
@@ -415,19 +449,35 @@ INITBLOCK {
 	// Consider user interface design and user experience
 	
 	//// User requirements and expectations
+	ProjectWizardView::Register("/Implementation/User interface:Requirements");
+	ProjectWizardView::Register("/Implementation/User interface:Expectations");
 	//// Platform or device compatibility
+	ProjectWizardView::Register("/Implementation/User interface:Platform compatibility");
 	//// Design standards and guidelines
+	ProjectWizardView::Register("/Implementation/User interface:Design standards and guidelines");
 	//// User interaction and navigation needs
+	ProjectWizardView::Register("/Implementation/User interface:User interaction and navigation needs");
 	//// Visual aesthetics and branding
+	ProjectWizardView::Register("/Implementation/User interface:Visual aesthetics and branding");
 	//// Integration with other system components
+	ProjectWizardView::Register("/Implementation/User interface:Integration with other system components");
 	//// Accessibility and usability considerations
+	ProjectWizardView::Register("/Implementation/User interface:Accessibility and usability considerations");
 	//// Time and budget constraints
 	//// Potential for future updates and changes
 	//// Testing and feedback from user experience testing.
+	ProjectWizardView::Register("/Implementation/User interface:Testing and feedback from user experience testing");
 
 
 
 	// Consider data structures, classes, and functions needed
+	ProjectWizardView::Register("/Implementation/Code:Database structure");
+	ProjectWizardView::Register("/Implementation/Code:Class structure");
+	ProjectWizardView::Register("/Implementation/Code:Class fields");
+	ProjectWizardView::Register("/Implementation/Code:Class methods");
+	ProjectWizardView::Register("/Implementation/Code:Static functions");
+	ProjectWizardView::Register("/Implementation/Code:Static variables");
+	ProjectWizardView::Register("/Implementation/Code:Scope variables"); // functions, methods, etc.
 	
 		//List of things to consider before deciding game structures, classes and functions:
 		//1. Game genre and gameplay mechanics
@@ -437,6 +487,13 @@ INITBLOCK {
 		//5. Performance and optimization needs
 		//6. Integration with other game systems
 		//7. Resource management and asset loading
+	ProjectWizardView::Register("/Implementation/Resources:Images");
+	ProjectWizardView::Register("/Implementation/Resources:Textures");
+	ProjectWizardView::Register("/Implementation/Resources:2D Models");
+	ProjectWizardView::Register("/Implementation/Resources:3D Models");
+	ProjectWizardView::Register("/Implementation/Resources:Audio");
+	ProjectWizardView::Register("/Implementation/Resources:Text");
+	ProjectWizardView::Register("/Implementation/Resources:Script");
 		//8. User interface and user experience design
 		//9. Multiplayer or online capabilities
 		//10. Potential for future updates and expansions.
@@ -460,6 +517,7 @@ INITBLOCK {
 		//8. node_modules - folder that contains the project dependencies installed using Node Package Manager
 		//9. src folder - typically contains the source code files for the project
 		//10. .git folder - contains Git repository information.
+	ProjectWizardView::Register("/Implementation/Files:Project files");
 		
 		//Solution files of "Visual studio code":
 		//1. .sln file - contains solution-level information and references to project files
@@ -472,6 +530,7 @@ INITBLOCK {
 		//8. .nuget folder - contains information about project dependencies installed using NuGet package manager
 		//9. obj folder - contains temporary object files used during the build process
 		//10. bin folder - contains the final compiled output of the project.
+	ProjectWizardView::Register("/Implementation/Files:Solution files");
 		
 		//Compiled/product/export files of "Visual studio code" in platform "Desktop: Windows PC":
 		//1. .exe file - executable file that can be run on the Windows operating system
@@ -484,5 +543,6 @@ INITBLOCK {
 		//8. .manifest file - contains information about the program's dependencies and compatibility
 		//9. .appx file - application package file used for Windows apps
 		//10. .ico file - icon file used for the program's icon in the Windows operating system.
+	ProjectWizardView::Register("/Implementation/Files:Export files");
 	
 }
