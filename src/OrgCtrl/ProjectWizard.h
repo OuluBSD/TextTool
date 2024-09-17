@@ -15,9 +15,11 @@ struct ConfigurationOption {
 		FIXED,
 		BUTTON,
 		BUTTON_REFRESH,
+		USER_INPUT_TEXT,
 		VALUE_ARRAY,
 		PROMPT_INPUT,
-		PROMPT_INPUT_FIXED,
+		PROMPT_INPUT_OPTIONS_FIXED,
+		PROMPT_INPUT_OPTIONS,
 		PROMPT_RESPONSE,
 		PROMPT_INPUT_USER_TEXT,
 	} Type;
@@ -36,8 +38,10 @@ struct ConfigurationNode {
 	ConfigurationNode& OptionButton(Value v, void(ProjectWizardView::*fn)(const ConfigurationNode* n));
 	ConfigurationNode& OptionRefresh();
 	ConfigurationNode& OptionValueArray();
+	ConfigurationNode& OptionUserInputText();
 	ConfigurationNode& PromptInput(String path);
-	ConfigurationNode& PromptInputLocalFixed();
+	ConfigurationNode& PromptInputOptionsLocalFixed();
+	ConfigurationNode& PromptInputOptions(String path);
 	ConfigurationNode& PromptResponse(String title);
 	ConfigurationNode& PromptInputUserText(String title);
 };
@@ -63,6 +67,11 @@ public:
 	void DefaultDynamic(const ConfigurationNode* n);
 	bool MakeArgs(GenericPromptArgs& args, const ConfigurationNode& n);
 	
+	Value& GetItemValue(const String& path);
+	ValueMap& GetItem(const String& path);
+	ValueArray& GetItemOpts(const String& path);
+	
+	Event<> WhenFile;
 	Event<> WhenOptions;
 };
 

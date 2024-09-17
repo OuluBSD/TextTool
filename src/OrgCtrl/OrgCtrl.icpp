@@ -30,7 +30,8 @@ INITBLOCK {
 		.OptionFixed("x")
 		.OptionFixed("y")
 		.OptionFixed("z")
-		.PromptInputLocalFixed()
+		.PromptInputOptionsLocalFixed()
+		.PromptInputOptions("/dummy 0/example0:item 0")
 		.PromptInput("/dummy 0/example0:item 0")
 		.PromptInput("/dummy 0/example0:item 1")
 		.PromptInputUserText("Some random seed text")
@@ -51,34 +52,47 @@ INITBLOCK {
 	
 	//// Determine the overall budget available for the investment.
 	//// Identify the target market for the software project.
-	ProjectWizardView::Register("/Idea/Product:Target marget", "Identify the target market for the software project")
-		.PromptInputUserText("Initial idea for the project")
+	ProjectWizardView::Register("/Idea/Product:The initial idea", "The initial idea for the software project")
+		.OptionUserInputText();
+	
+	ProjectWizardView::Register("/Idea/Product:The target market", "The target market for the software project")
+		.PromptInput("/Idea/Product:The initial idea")
 		.PromptResponse("List of target markets for a software projects");
 	
 	//// Research the current market trends and demands.
-	ProjectWizardView::Register("/Idea/Product:Market trend to follow", "");
-	ProjectWizardView::Register("/Idea/Product:Market demand to fulfill", "");
+	ProjectWizardView::Register("/Idea/Product:The market trend to follow")
+		.PromptInput("/Idea/Product:The initial idea")
+		.PromptInput("/Idea/Product:The target market")
+		.PromptResponse("List of target trends for the software projects");
+	
+	ProjectWizardView::Register("/Idea/Product:The market demand to fulfill")
+		.PromptInput("/Idea/Product:The initial idea")
+		.PromptInput("/Idea/Product:The target market")
+		.PromptInput("/Idea/Product:The market trend to follow")
+		.PromptResponse("List of market demands to fulfill for the software project");
+	;
 	
 	//// Evaluate the potential profitability and return on investment.
-	ProjectWizardView::Register("/Idea/Product:Profitability", "");
+	ProjectWizardView::Register("/Idea/Product:Profitability")
+	;
 	
 	//// Assess the competition in the market.
-	ProjectWizardView::Register("/Idea/Product:Relationship to competition", "");
+	ProjectWizardView::Register("/Idea/Product:Relationship to competition");
 	
 	//// Gather feedback from potential users or investors.
-	ProjectWizardView::Register("/Idea/Product:Target feedback from potential users or investors", "");
+	ProjectWizardView::Register("/Idea/Product:Target feedback from potential users or investors");
 	
 	//// Develop a marketing strategy for the project.
-	ProjectWizardView::Register("/Idea/Product:Core marketing idea", "");
+	ProjectWizardView::Register("/Idea/Product:Core marketing idea");
 	
 	//// Identify potential collaborators or partners.
-	ProjectWizardView::Register("/Idea/Product:Potential collaborators or partners", "");
+	ProjectWizardView::Register("/Idea/Product:Potential collaborators or partners");
 	
 	//// Consider the target pricing for the software product.
-	ProjectWizardView::Register("/Idea/Product:Target pricing", "");
+	ProjectWizardView::Register("/Idea/Product:Target pricing");
 	
 	//// Consider the sales volume of the product
-	ProjectWizardView::Register("/Idea/Product:Sales volume target", "");
+	ProjectWizardView::Register("/Idea/Product:Sales volume target");
 	
 	
 	
@@ -100,7 +114,7 @@ INITBLOCK {
 		//8. Stay within budget and timeline
 		//9. Scalability for future growth
 		//10. Improve collaboration and communication.
-	ProjectWizardView::Register("/Requirements/Specific needs:Stakeholders", "");
+	ProjectWizardView::Register("/Requirements/Specific needs:Stakeholders");
 	
 		//Feedback from potential users or investors for the market target "Musicians - for a virtual instrument or music production software." in the market trend "Focus on user experience - there is a growing emphasis on creating user-friendly and seamless experiences in software projects.":
 		//1. "The user interface is very intuitive and easy to navigate."
@@ -118,13 +132,13 @@ INITBLOCK {
 		//13. "It's reliable and I haven't experienced any technical issues so far."
 		//14. "The price is reasonable and affordable for the quality of the software."
 		//15. "I can easily connect my external controllers and hardware devices for a better user experience."
-	ProjectWizardView::Register("/Requirements/Specific needs:Potential users or investors", "");
+	ProjectWizardView::Register("/Requirements/Specific needs:Potential users or investors");
 			
 		//----> features, classes, data, assets
-	ProjectWizardView::Register("/Requirements/Specific needs:Features", "");
-	ProjectWizardView::Register("/Requirements/Specific needs:Assets", "");
-	ProjectWizardView::Register("/Requirements/Specific needs:Data", "");
-	ProjectWizardView::Register("/Requirements/Specific needs:User entry points", "");
+	ProjectWizardView::Register("/Requirements/Specific needs:Features");
+	ProjectWizardView::Register("/Requirements/Specific needs:Assets");
+	ProjectWizardView::Register("/Requirements/Specific needs:Data");
+	ProjectWizardView::Register("/Requirements/Specific needs:User entry points");
 	
 	
 	//// Gather and analyze user requirements
@@ -137,16 +151,16 @@ INITBLOCK {
 		//5. Identify pain points and improvement opportunities
 		//6. Consider scalability and future needs
 		//7. Prioritize user requirements.
-	ProjectWizardView::Register("/Requirements/User experience:User interview target", "");
-	ProjectWizardView::Register("/Requirements/User experience:User persona target", "");
-	ProjectWizardView::Register("/Requirements/User experience:User feedback target", "");
-	ProjectWizardView::Register("/Requirements/User experience:State-of-the-art user experience to have", "");
-	ProjectWizardView::Register("/Requirements/User experience:The best UX features of competition to have", "");
-	ProjectWizardView::Register("/Requirements/User experience:The most unique UX features of competition to have", "");
-	ProjectWizardView::Register("/Requirements/User experience:The worst UX features of competition to avoid", "");
-	ProjectWizardView::Register("/Requirements/User experience:In-game shopping", "");
-	ProjectWizardView::Register("/Requirements/User experience:Future needs", "");
-	ProjectWizardView::Register("/Requirements/User experience:Feature prioritization", "");
+	ProjectWizardView::Register("/Requirements/User experience:User interview target");
+	ProjectWizardView::Register("/Requirements/User experience:User persona target");
+	ProjectWizardView::Register("/Requirements/User experience:User feedback target");
+	ProjectWizardView::Register("/Requirements/User experience:State-of-the-art user experience to have");
+	ProjectWizardView::Register("/Requirements/User experience:The best UX features of competition to have");
+	ProjectWizardView::Register("/Requirements/User experience:The most unique UX features of competition to have");
+	ProjectWizardView::Register("/Requirements/User experience:The worst UX features of competition to avoid");
+	ProjectWizardView::Register("/Requirements/User experience:In-game shopping");
+	ProjectWizardView::Register("/Requirements/User experience:Future needs");
+	ProjectWizardView::Register("/Requirements/User experience:Feature prioritization");
 	
 	//// Prioritize and document project features and functionalities
 	
@@ -171,7 +185,7 @@ INITBLOCK {
 		//18. Integration with third-party plugins or extensions.
 		//19. Generation of reports and statistics.
 		//20. Collaboration and sharing capabilities.
-	ProjectWizardView::Register("/Requirements/Features:Functionalities", "");
+	ProjectWizardView::Register("/Requirements/Features:Functionalities");
 
 	//// Define project scope and constraints
 	
@@ -186,15 +200,15 @@ INITBLOCK {
 		//8. The application will not have advertising features.
 		//9. The project scope does not include multilingual support.
 		//10. The application will only support a specific number of users.
-	ProjectWizardView::Register("/Requirements/Constraints:Supported hardware platform", "");
-	ProjectWizardView::Register("/Requirements/Constraints:Supported software platform", "");
-	ProjectWizardView::Register("/Requirements/Constraints:Maximum expected user skills", "");
-	ProjectWizardView::Register("/Requirements/Constraints:Average expected user skills", "");
-	ProjectWizardView::Register("/Requirements/Constraints:Minimum expected user skills", "");
-	ProjectWizardView::Register("/Requirements/Constraints:Advertisement providers", "");
-	ProjectWizardView::Register("/Requirements/Constraints:In-game purchasing providers", "");
-	ProjectWizardView::Register("/Requirements/Constraints:Server scalability", "");
-	ProjectWizardView::Register("/Requirements/Constraints:Treshold between free and premium features", "");
+	ProjectWizardView::Register("/Requirements/Constraints:Supported hardware platform");
+	ProjectWizardView::Register("/Requirements/Constraints:Supported software platform");
+	ProjectWizardView::Register("/Requirements/Constraints:Maximum expected user skills");
+	ProjectWizardView::Register("/Requirements/Constraints:Average expected user skills");
+	ProjectWizardView::Register("/Requirements/Constraints:Minimum expected user skills");
+	ProjectWizardView::Register("/Requirements/Constraints:Advertisement providers");
+	ProjectWizardView::Register("/Requirements/Constraints:In-game purchasing providers");
+	ProjectWizardView::Register("/Requirements/Constraints:Server scalability");
+	ProjectWizardView::Register("/Requirements/Constraints:Treshold between free and premium features");
 	
 	//// Determine project deliverables and timeline
 	
@@ -206,11 +220,11 @@ INITBLOCK {
 		//5. Project budget review at the end of every month.
 		//6. A beta version of the application for user testing to be delivered in 4 months.
 		//7. Final delivery and implementation of the application in 6 months.
-	ProjectWizardView::Register("/Requirements/Deliverables:User documentation", "");
-	ProjectWizardView::Register("/Requirements/Deliverables:Developer documentation", "");
-	ProjectWizardView::Register("/Requirements/Deliverables:Marketing material", "");
-	ProjectWizardView::Register("/Requirements/Deliverables:Beta release packages", "");
-	ProjectWizardView::Register("/Requirements/Deliverables:Final release packages", "");
+	ProjectWizardView::Register("/Requirements/Deliverables:User documentation");
+	ProjectWizardView::Register("/Requirements/Deliverables:Developer documentation");
+	ProjectWizardView::Register("/Requirements/Deliverables:Marketing material");
+	ProjectWizardView::Register("/Requirements/Deliverables:Beta release packages");
+	ProjectWizardView::Register("/Requirements/Deliverables:Final release packages");
 	
 	//// Validate and finalize project requirements and scope.
 
@@ -223,28 +237,28 @@ INITBLOCK {
 	
 		//Examples of steps
 		//1. Identify the main components or modules of the project
-	ProjectWizardView::Register("/Plan/Program:Main modules", "");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #1", "");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #2", "");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #3", "");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #4", "");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #5", "");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #6", "");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #7", "");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #8", "");
+	ProjectWizardView::Register("/Plan/Program:Main modules");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #1");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #2");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #3");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #4");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #5");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #6");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #7");
+	ProjectWizardView::Register("/Plan/Program:Sub modules #8");
 		//2. List out specific tasks for each component
-	ProjectWizardView::Register("/Plan/Program:Tasks", "");
+	ProjectWizardView::Register("/Plan/Program:Tasks");
 		//3. Determine the order and dependencies of tasks
-	ProjectWizardView::Register("/Plan/Program:Order of tasks", "");
+	ProjectWizardView::Register("/Plan/Program:Order of tasks");
 		//4. Break down large tasks into smaller manageable tasks
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #1", "");
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #2", "");
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #3", "");
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #4", "");
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #5", "");
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #6", "");
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #7", "");
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #8", "");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #1");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #2");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #3");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #4");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #5");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #6");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #7");
+	ProjectWizardView::Register("/Plan/Program:Sub-tasks #8");
 	
 		//5. Consider any potential sub-tasks or sub-components
 	
@@ -252,10 +266,10 @@ INITBLOCK {
 	//// Estimate time and effort requirements for each task
 	//// Create a project timeline or schedule
 	//// Identify dependencies between tasks
-	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between modules", "");
-	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between sub-modules", "");
-	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between tasks", "");
-	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between sub-tasks", "");
+	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between modules");
+	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between sub-modules");
+	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between tasks");
+	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between sub-tasks");
 	
 		//Examples of steps
 		//1. Determine which tasks are dependent on each other
@@ -265,9 +279,9 @@ INITBLOCK {
 		//5. Explore ways to mitigate the impact of dependencies on the project timeline
 	
 	//// Determine milestones and checkpoints for measuring progress
-	ProjectWizardView::Register("/Plan/Progress:Milestones", "");
-	ProjectWizardView::Register("/Plan/Progress:Checkpoints", "");
-	ProjectWizardView::Register("/Plan/Progress:Version targets", "");
+	ProjectWizardView::Register("/Plan/Progress:Milestones");
+	ProjectWizardView::Register("/Plan/Progress:Checkpoints");
+	ProjectWizardView::Register("/Plan/Progress:Version targets");
 	
 	//// Consider potential risks and contingency plans
 	//// Share and review project plan with key stakeholders
@@ -285,18 +299,18 @@ INITBLOCK {
 	
 		//Examples of steps
 		//1. Identify the type of software being developed (e.g. web application, mobile app, desktop application)
-	ProjectWizardView::Register("/Techologies/Requirements:Type of software", "");
+	ProjectWizardView::Register("/Techologies/Requirements:Type of software");
 		//2. Determine the programming languages and frameworks needed
 		//3. Consider data storage and manipulation needs
-	ProjectWizardView::Register("/Techologies/Requirements:Type of persistent data", "");
+	ProjectWizardView::Register("/Techologies/Requirements:Type of persistent data");
 		//4. Evaluate user interface design and user experience requirements
-	ProjectWizardView::Register("/Techologies/Requirements:User interface library features", "");
+	ProjectWizardView::Register("/Techologies/Requirements:User interface library features");
 		//5. Determine if any specific hardware or operating system is needed
-	ProjectWizardView::Register("/Techologies/Requirements:Special hardware features", "");
+	ProjectWizardView::Register("/Techologies/Requirements:Special hardware features");
 		//6. Consider scalability and future growth needs
-	ProjectWizardView::Register("/Techologies/Requirements:Cross-platform compatibility", "");
+	ProjectWizardView::Register("/Techologies/Requirements:Cross-platform compatibility");
 		//7. Identify any specific security or privacy requirements
-	ProjectWizardView::Register("/Techologies/Requirements:Security protection features", "");
+	ProjectWizardView::Register("/Techologies/Requirements:Security protection features");
 	
 	//// Research and evaluate different tools and technologies
 	
