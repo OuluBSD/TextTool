@@ -4982,5 +4982,34 @@ void AiTask::CreateInput_Code() {
 	}
 }
 
+void AiTask::CreateInput_GenericPrompt() {
+	if (args.IsEmpty()) {
+		SetFatalError("no args");
+		return;
+	}
+	
+	GenericPromptArgs args;
+	args.Put(this->args[0]);
+	
+	{
+		for(int i = 0; i < args.lists.GetCount(); i++) {
+			String s = args.lists.GetKey(i);
+			auto& list = input.AddSub().Title(s);
+			const auto& arr = args.lists[i];
+			for(int j = 0; j < arr.GetCount(); j++) {
+				list.Add(arr[j]);
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			results.Title(args.response_title);
+			if (args.is_numbered_lines)
+				results.NumberedLines();
+			results.Add("");
+		}
+		input.response_length = 2048;
+	}
+}
+
 END_TEXTLIB_NAMESPACE
 

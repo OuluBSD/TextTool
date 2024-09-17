@@ -497,6 +497,23 @@ void TaskMgr::GetCode(const CodeArgs& args, Event<String> WhenResult) {
 	task_lock.Leave();
 }
 
+void TaskMgr::GetGenericPrompt(const GenericPromptArgs& args, Event<String> WhenResult) {
+	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
+	TaskMgr& p = *this;
+	
+	String s = args.Get();
+	
+	task_lock.Enter();
+	AiTask& t = tasks.Add();
+	t.SetRule(AITASK_GENERIC_PROMPT, MakeName(args, -1, "generic prompt"))
+		.Input(&AiTask::CreateInput_GenericPrompt)
+		.Process(&AiTask::Process_Default);
+	
+	t.args << s;
+	t.WhenResult << WhenResult;
+	task_lock.Leave();
+}
+
 void TaskMgr::GetLeadSolver(int appmode, const LeadSolverArgs& args, Event<String> WhenResult) {
 	const TaskMgrConfig& mgr = TaskMgrConfig::Single();
 	TaskMgr& p = *this;

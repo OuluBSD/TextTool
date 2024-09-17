@@ -64,6 +64,7 @@ struct TaskMgr {
 	void GetMarketplace(const MarketplaceArgs& args, Event<String> WhenResult);
 	void GetBiographyGenerator(const BiographyGeneratorArgs& args, Event<String> WhenResult);
 	void GetCode(const CodeArgs& args, Event<String> WhenResult);
+	void GetGenericPrompt(const GenericPromptArgs& args, Event<String> WhenResult);
 	
 	static TaskMgr& Single() {static TaskMgr tm; return tm;}
 	

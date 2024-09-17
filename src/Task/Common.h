@@ -33,6 +33,7 @@ typedef enum : int {
 	AITASK_MARKETPLACE,
 	AITASK_BIOGRAPHY_GENERATOR,
 	AITASK_CODE,
+	AITASK_GENERIC_PROMPT,
 	
 	AITASK_COUNT
 } AiTaskType;
@@ -605,19 +606,17 @@ struct CodeArgs {
 };
 
 
-struct WizardArgs {
-	
-	typedef enum : int {
-		INVALID = -1,
-		DUMMY_RETURN_0,
-		
-		FN_COUNT
-	} Enum;
-	
-	Enum fn = INVALID;
+struct GenericPromptArgs {
+	int fn = 0;
+	VectorMap<String, Vector<String>> lists;
+	String response_title;
+	bool is_numbered_lines = false;
 	
 	void Jsonize(JsonIO& json) {
-		json	("fn", (int&)fn)
+		json	("fn", fn)
+				("lists", lists)
+				("t", response_title)
+				("nl", is_numbered_lines)
 				;
 	}
 	

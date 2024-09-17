@@ -14,7 +14,12 @@ struct ConfigurationOption {
 		UNDEFINED,
 		FIXED,
 		BUTTON,
+		BUTTON_REFRESH,
 		VALUE_ARRAY,
+		PROMPT_INPUT,
+		PROMPT_INPUT_FIXED,
+		PROMPT_RESPONSE,
+		PROMPT_INPUT_USER_TEXT,
 	} Type;
 	
 	Type type = UNDEFINED;
@@ -23,19 +28,23 @@ struct ConfigurationOption {
 };
 
 struct ConfigurationNode {
-	WizardArgs::Enum code;
 	String path;
 	String title;
 	Array<ConfigurationOption> options;
 	
 	ConfigurationNode& OptionFixed(Value v);
 	ConfigurationNode& OptionButton(Value v, void(ProjectWizardView::*fn)(const ConfigurationNode* n));
+	ConfigurationNode& OptionRefresh();
 	ConfigurationNode& OptionValueArray();
+	ConfigurationNode& PromptInput(String path);
+	ConfigurationNode& PromptInputLocalFixed();
+	ConfigurationNode& PromptResponse(String title);
+	ConfigurationNode& PromptInputUserText(String title);
 };
 
 class ProjectWizardView : public NodeViewBase {
 	
-	
+	String error;
 	
 	
 public:
@@ -48,11 +57,20 @@ public:
 	static void RegisterCategory(String key, String desc) {GetCategories().GetAdd(key) = desc;}
 	
 	static ArrayMap<String, ConfigurationNode>& GetConfs() {static ArrayMap<String, ConfigurationNode> m; return m;}
-	static ConfigurationNode& Register(String path, WizardArgs::Enum code=WizardArgs::INVALID, String title=String());
+	static ConfigurationNode& Register(String path, String title=String());
+	static const ConfigurationNode* FindConfigurationNode(const String& path);
 	
-	void DummyDynamic0(const ConfigurationNode* n);
+	void DefaultDynamic(const ConfigurationNode* n);
+	bool MakeArgs(GenericPromptArgs& args, const ConfigurationNode& n);
 	
 	Event<> WhenOptions;
+};
+
+
+struct LabeledEditString : public Ctrl {
+	Label lbl;
+	EditString edit;
+	LabeledEditString();
 };
 
 class ProjectWizardCtrl : public NodeCtrlBase {
@@ -111,6 +129,8 @@ public:
 	void SetView(int i);
 	int GetHistoryCursor(String path);
 	void SetHistoryCursor(String path, int i);
+	ProjectWizardView& GetView();
+	
 };
 
 

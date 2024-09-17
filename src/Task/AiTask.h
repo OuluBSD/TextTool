@@ -264,6 +264,7 @@ public:
 	void CreateInput_Marketplace();
 	void CreateInput_BiographyGenerator();
 	void CreateInput_Code();
+	void CreateInput_GenericPrompt();
 	
 	void Process_GetSuggestionAttributes();
 	void Process_StoryArc();
