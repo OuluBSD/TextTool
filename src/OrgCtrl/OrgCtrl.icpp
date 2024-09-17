@@ -23,10 +23,9 @@ INITBLOCK {
 		.OptionFixed("A")
 		.OptionFixed("B")
 		.OptionFixed("C");
-	ProjectWizardView::Register("/dummy 0/example0:item 1", WizardArgs::DUMMY_RETURN_0, "Select 1 from 3 fixed options")
-		.OptionFixed("1")
-		.OptionFixed("2")
-		.OptionFixed("3");
+	ProjectWizardView::Register("/dummy 0/example0:item 1", WizardArgs::DUMMY_RETURN_0, "Select 1 from 3 dynamic options")
+		.OptionButton("Refresh", &ProjectWizardView::DummyDynamic0)
+		.OptionValueArray();
 	ProjectWizardView::Register("/dummy 0/example1:item 1", WizardArgs::DUMMY_RETURN_0, "Select 1 from 3 fixed options")
 		.OptionFixed("x")
 		.OptionFixed("y")

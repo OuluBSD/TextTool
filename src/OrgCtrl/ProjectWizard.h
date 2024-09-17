@@ -4,22 +4,33 @@
 
 BEGIN_TEXTLIB_NAMESPACE
 
+
+class ProjectWizardView;
+struct ConfigurationNode;
+
+
 struct ConfigurationOption {
 	typedef enum {
 		UNDEFINED,
 		FIXED,
+		BUTTON,
+		VALUE_ARRAY,
 	} Type;
 	
 	Type type = UNDEFINED;
 	Value value;
+	void(ProjectWizardView::*fn)(const ConfigurationNode*) = 0;
 };
 
 struct ConfigurationNode {
 	WizardArgs::Enum code;
+	String path;
 	String title;
 	Array<ConfigurationOption> options;
 	
 	ConfigurationNode& OptionFixed(Value v);
+	ConfigurationNode& OptionButton(Value v, void(ProjectWizardView::*fn)(const ConfigurationNode* n));
+	ConfigurationNode& OptionValueArray();
 };
 
 class ProjectWizardView : public NodeViewBase {
@@ -39,6 +50,9 @@ public:
 	static ArrayMap<String, ConfigurationNode>& GetConfs() {static ArrayMap<String, ConfigurationNode> m; return m;}
 	static ConfigurationNode& Register(String path, WizardArgs::Enum code=WizardArgs::INVALID, String title=String());
 	
+	void DummyDynamic0(const ConfigurationNode* n);
+	
+	Event<> WhenOptions;
 };
 
 class ProjectWizardCtrl : public NodeCtrlBase {

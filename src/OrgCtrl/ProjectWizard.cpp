@@ -11,6 +11,21 @@ ConfigurationNode& ConfigurationNode::OptionFixed(Value v) {
 	return *this;
 }
 
+ConfigurationNode& ConfigurationNode::OptionButton(Value v, void(ProjectWizardView::*fn)(const ConfigurationNode* n)) {
+	ConfigurationOption& opt = options.Add();
+	opt.type = ConfigurationOption::BUTTON;
+	opt.value = v;
+	opt.fn = fn;
+	return *this;
+}
+
+ConfigurationNode& ConfigurationNode::OptionValueArray() {
+	ConfigurationOption& opt = options.Add();
+	opt.type = ConfigurationOption::VALUE_ARRAY;
+	return *this;
+}
+
+
 
 
 ProjectWizardView::ProjectWizardView() {
@@ -23,9 +38,22 @@ void ProjectWizardView::Data() {
 
 ConfigurationNode& ProjectWizardView::Register(String path, WizardArgs::Enum code, String title) {
 	ConfigurationNode& n = GetConfs().GetAdd(path);
+	n.path = path;
 	n.code = code;
 	n.title = title;
 	return n;
+}
+
+void ProjectWizardView::DummyDynamic0(const ConfigurationNode* n) {
+	LOG("ProjectWizardView::DummyDynamic0: \"" << n->path << "\"");
+	
+	ValueMap& map = ValueToMap(node->data.GetAdd(n->path));
+	ValueArray& opts = ValueToArray(map.GetAdd("opts"));
+	opts.Clear();
+	for(int i = 0; i < 10; i++)
+		opts.Add((int)Random(100) + 1);
+	
+	WhenOptions();
 }
 
 
@@ -55,6 +83,7 @@ ProjectWizardCtrl::ProjectWizardCtrl() {
 	
 	options.AddColumn("Option");
 	options.WhenCursor << THISBACK(OnOption);
+	options.SetLineCy(25);
 	
 	main.Add(options.SizePos());
 	
@@ -85,7 +114,8 @@ String ProjectWizardCtrl::GetViewName(int i) {
 
 void ProjectWizardCtrl::Data() {
 	
-	
+	ProjectWizardView& view = dynamic_cast<ProjectWizardView&>(*this->view);
+	view.WhenOptions = THISBACK(DataItem);
 	
 	Index<String> dir_list = GetDirectories(cwd);
 	
@@ -179,6 +209,7 @@ void ProjectWizardCtrl::DataItem() {
 	if (!dirs.IsCursor() || !files.IsCursor() || !items.IsCursor())
 		return;
 	
+	ProjectWizardView& view = dynamic_cast<ProjectWizardView&>(*this->view);
 	SetHistoryCursor(file_path, items.GetCursor());
 	
 	String sub_item = items.Get(0);
@@ -197,8 +228,10 @@ void ProjectWizardCtrl::DataItem() {
 		String value;
 		bool has_value = false;
 		
+		
 		// Data
-		Node& n = *view->node;
+		Node& n = *view.node;
+		Value& item = n.data.GetAdd(item_path);
 		Value& val = n.data.GetAdd(file_path);
 		if (val.Is<ValueMap>()) {
 			const ValueMap& map = ValueToMap(val);
@@ -210,16 +243,38 @@ void ProjectWizardCtrl::DataItem() {
 		}
 		
 		INHIBIT_CURSOR(options);
+		options.Clear();
 		int cursor = 0;
+		int row = 0;
 		for(int i = 0; i < cf.options.GetCount(); i++) {
 			const ConfigurationOption& opt = cf.options[i];
 			String s = opt.value.ToString();
-			options.Set(i, 0, s);
-			if (has_value && s == value)
-				cursor = i;
+			if (opt.type == ConfigurationOption::FIXED) {
+				options.Set(row++, 0, s);
+				if (has_value && s == value)
+					cursor = i;
+			}
+			else if (opt.type == ConfigurationOption::BUTTON) {
+				Button* btn = new Button();
+				btn->SetLabel(s);
+				btn->WhenAction = callback1(&view, opt.fn, &cf);
+				options.SetCtrl(row++, 0, btn);
+			}
+			else if (opt.type == ConfigurationOption::VALUE_ARRAY) {
+				if (item.Is<ValueMap>()) {
+					ValueMap& map = ValueToMap(item);
+					ValueArray& opts = ValueToArray(map.GetAdd("opts"));
+					for(int j = 0; j < opts.GetCount(); j++) {
+						String s = opts.Get(j).ToString();
+						if (has_value && s == value)
+							cursor = row;
+						options.Set(row++, 0, s);
+					}
+				}
+			}
 		}
-		options.SetCount(cf.options.GetCount());
-		if (cursor >= 0 && cursor < options.GetCount())
+		options.SetCount(row);
+		if (cursor >= 0 && cursor < row)
 			options.SetCursor(cursor);
 	}
 	
