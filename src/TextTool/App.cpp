@@ -49,12 +49,20 @@ TextTool::~TextTool() {
 	TaskMgrConfig::Single().running = false;
 	
 	SaveWindowPos();
-	Store();
+	//Store();
 	StoreLast();
 }
 
+void TextTool::PostStoreLast() {
+	if (posted_store_last)
+		return;
+	posted_store_last = true;
+	PostCallback(THISBACK(StoreLast));
+}
+
 void TextTool::StoreLast() {
-	if (!active) return;
+	posted_store_last = false;
+	if (skip_data) return;
 	MetaPtrs& mp = MetaPtrs::Single();
 	
 	TextDatabase& db = ed.GetDatabase();
@@ -67,6 +75,8 @@ void TextTool::StoreLast() {
 	last_entity = p.entity ? p.entity->file_title : String();
 	last_snapshot = p.release ? p.release->file_title : String();
 	last_component = p.component ? p.component->file_title : String();
+	last_pkg = p.pkg_cursor;
+	last_node = p.node_cursor;
 	
 	Store();
 }

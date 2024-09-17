@@ -137,7 +137,7 @@ void ToolEditor::Init() {
 void ToolEditor::DataPage() {
 	if (app.skip_data || !appmode_list.IsCursor()) return;
 	
-	app.StoreLast();
+	app.PostStoreLast();
 	
 	int appmode = appmode_list.Get("IDX");
 	EnterAppMode(appmode);
@@ -189,6 +189,10 @@ void ToolEditor::LoadLast() {
 	TextDatabase& db = GetDatabase();
 	EditorPtrs& p = GetPointers();
 	p.Zero();
+	
+	p.pkg_cursor = app.last_pkg;
+	p.node_cursor = app.last_node;
+	
 	int appmode = GetAppMode();
 	for (Entity& a : db.entities) {
 		
@@ -259,11 +263,9 @@ void ToolEditor::SwitchAppMode() {
 	else if (page_group_list.GetCount() && !page_group_list.IsCursor())
 		page_group_list.SetCursor(0);
 	
-	
-	//entities	.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_ENTITY));
+	EnterAppMode(GetAppMode());
 	snaps		.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_SNAPSHOT));
 	components	.ColumnAt(0).HeaderTab().SetText(GetAppModeKeyCapN(AM_COMPONENT));
-	
 	LeaveAppMode();
 	
 	ViewPageGroup();

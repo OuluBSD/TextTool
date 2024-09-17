@@ -1,4 +1,5 @@
 #include "OrgCtrl.h"
+#include <TextTool/TextTool.h>
 
 BEGIN_TEXTLIB_NAMESPACE
 
@@ -15,14 +16,13 @@ OrganizationCtrl::OrganizationCtrl() {
 	
 	pkgs.AddColumn("Package");
 	pkgs.AddIndex("IDX");
-	pkgs.WhenAction << THISBACK(DataPackage);
+	pkgs.WhenCursor << THISBACK(DataPackage);
 	pkgs.WhenBar << [this](Bar& bar) {
 		bar.Add(t_("Add package"), THISBACK1(Do, ADD_PKG));
 		bar.Add(t_("Remove package"), THISBACK1(Do, REM_PKG));
 		
 	};
 	
-	nodes.WhenAction << THISBACK(DataNode);
 	nodes.WhenBar << [this](Bar& bar) {
 		const auto& f = NodeFactory::GetFactories();
 		for(int i = 0; i < f.GetCount(); i++) {
@@ -88,14 +88,17 @@ void OrganizationCtrl::ViewNodeCtrl() {
 void OrganizationCtrl::Data() {
 	MetaDatabase& mdb = MetaDatabase::Single();
 	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	for(int i = 0; i < db.pkgs.GetCount(); i++) {
 		Package& pkg = db.pkgs[i];
 		pkgs.Set(i, "IDX", i);
 		pkgs.Set(i, 0, pkg.name);
 	}
+	INHIBIT_ACTION(pkgs);
 	INHIBIT_CURSOR(pkgs);
 	pkgs.SetCount(db.pkgs.GetCount());
+	int cursor = p.pkg_cursor;
 	if (!pkgs.IsCursor() && pkgs.GetCount())
 		pkgs.SetCursor(0);
 	
@@ -104,12 +107,14 @@ void OrganizationCtrl::Data() {
 
 void OrganizationCtrl::DataPackage() {
 	TextDatabase& db = GetDatabase();
+	EditorPtrs& p = GetPointers();
 	
 	nodes.Clear();
 	
 	if (!pkgs.IsCursor())
 		return;
 	int pkg_i = pkgs.Get("IDX");
+	p.pkg_cursor = pkg_i;
 	
 	auto& pkg = db.pkgs[pkg_i];
 	Node& root = pkg.root;
@@ -118,6 +123,10 @@ void OrganizationCtrl::DataPackage() {
 	AddNodeSubToList(0, root);
 	
 	nodes.OpenDeep(0);
+	
+	INHIBIT_ACTION(nodes);
+	INHIBIT_CURSOR(nodes);
+	nodes.SetCursor(p.node_cursor);
 	
 	DataNode();
 }
@@ -148,12 +157,17 @@ void OrganizationCtrl::RemoveCtrl() {
 }
 
 void OrganizationCtrl::DataNode() {
+	EditorPtrs& p = GetPointers();
+	
 	if (!nodes.IsCursor()) {
 		RemoveCtrl();
 		return;
 	}
 	
 	int cur = nodes.GetCursor();
+	p.node_cursor = cur;
+	if (p.editor) p.editor->app.PostStoreLast();
+	
 	int i = node_ptrs.Find(cur);
 	if (i < 0) {
 		RemoveCtrl();

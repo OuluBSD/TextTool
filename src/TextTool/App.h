@@ -20,6 +20,7 @@ class TextTool : public TopWindow {
 	TimeCallback		tc;
 	bool				skip_data = false;
 	ToolEditorBase*		active = 0;
+	bool				posted_store_last = false;
 	
 	int page = 0;
 	Rect last_window;
@@ -35,6 +36,7 @@ protected:
 	String last_script, last_part;
 	String last_entity, last_snapshot, last_component;
 	String last_owner, last_profile;
+	int last_pkg = 0, last_node = 0;
 	
 public:
 	typedef TextTool CLASSNAME;
@@ -47,7 +49,7 @@ public:
 	void PostInit() {PostCallback(THISBACK(Init));}
 	void Data();
 	void SetView(int i);
-	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed % lead % last_entity % last_snapshot % last_component % last_script % last_part % last_owner % last_profile;}
+	void Serialize(Stream& s) override {s % page % last_window % is_maximized % ed % lead % last_entity % last_snapshot % last_component % last_script % last_part % last_owner % last_profile % last_pkg % last_node;}
 	void Layout() override {SaveWindowPos();}
 	void ShowOrphanedFiles();
 	void SaveWindowPos();
@@ -62,6 +64,7 @@ public:
 	void FastExit();
 	void SaveDatabase();
 	void StoreLast();
+	void PostStoreLast();
 	
 	ToolEditor& GetEditor() {return ed;}
 	OrganizationCtrl& GetOrganization() {return org;}

@@ -19,7 +19,6 @@ protected:
 	VectorMap<String, Vector<ListItem>> items;
 	
 	
-	TextTool&			app;
 	ArrayCtrl			parts, page_group_list, page_list;
 	ArrayCtrl			owners;
 	ArrayCtrl			profiles;
@@ -31,6 +30,7 @@ protected:
 	void AddItem(String g, String i, ToolAppCtrl& c);
 	
 public:
+	TextTool&			app;
 	Ctrl				base;
 	Ctrl				subsplit;
 	bool				filter_profile_language = false;

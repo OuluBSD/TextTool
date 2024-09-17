@@ -209,6 +209,8 @@ struct EditorPtrs {
 	TextLib::Script*		script = 0;
 	TextLib::DynPart*	part = 0;
 	TextLib::ToolEditor*	editor = 0;
+	int pkg_cursor= 0;
+	int node_cursor= 0;
 	
 	void Zero() {memset(this, 0, sizeof(EditorPtrs));}
 	
@@ -882,9 +884,9 @@ struct CallbackInhibitor {
 	~CallbackInhibitor() {ref = cb;}
 };
 
-#define INHIBIT_CURSOR(x) CallbackInhibitor __(x.WhenCursor)
+#define INHIBIT_CURSOR(x) CallbackInhibitor __cur(x.WhenCursor)
 #define INHIBIT_CURSOR_(x, id) CallbackInhibitor __##id(x.WhenCursor)
-#define INHIBIT_ACTION(x) CallbackInhibitor __(x.WhenAction)
+#define INHIBIT_ACTION(x) CallbackInhibitor __act(x.WhenAction)
 #define INHIBIT_ACTION_(x, id) CallbackInhibitor __##id(x.WhenAction)
 
 

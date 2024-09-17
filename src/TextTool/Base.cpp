@@ -7,25 +7,25 @@ BEGIN_TEXTLIB_NAMESPACE
 
 ToolEditorBase::ToolEditorBase(const char* title, TextTool& app) : title(title), app(app) {
 	page_group_list.AddColumn(t_("Page group"));
-	page_group_list <<= THISBACK(ViewPageGroup);
+	page_group_list.WhenCursor = THISBACK(ViewPageGroup);
 	
 	page_list.AddColumn(t_("Page"));
-	page_list <<= THISBACK(ViewPage);
+	page_list.WhenCursor = THISBACK(ViewPage);
 	
 	owners.AddColumn(t_("Owner"));
 	owners.AddIndex("IDX");
-	owners <<= THISBACK(DataOwner);
+	owners.WhenCursor = THISBACK(DataOwner);
 	owners.WhenBar << THISBACK(OwnerMenu);
 	
 	profiles.AddColumn(t_("Profile"));
-	profiles <<= THISBACK(DataProfile);
+	profiles.WhenCursor = THISBACK(DataProfile);
 	profiles.WhenBar << THISBACK(ProfileMenu);
 	profiles.AddIndex("IDX");
 	
 	snapshots.AddColumn(t_("Snapshot revision"));
 	snapshots.AddColumn(t_("Last modified"));
 	snapshots.ColumnWidths("1 4");
-	snapshots <<= THISBACK(DataSnapshot);
+	snapshots.WhenCursor = THISBACK(DataSnapshot);
 	snapshots.WhenBar << THISBACK(SnapshotMenu);
 	
 }
@@ -260,7 +260,7 @@ void ToolEditorBase::DataSnapshot() {
 	mp.analysis = &snap.analysis;
 	mp.editable_biography = (snap_i == snapshots.GetCount()-1);
 	
-	app.StoreLast();
+	app.PostStoreLast();
 	
 	OnDataSnapshot();
 }
