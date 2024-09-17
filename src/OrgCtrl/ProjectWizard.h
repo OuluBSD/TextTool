@@ -33,13 +33,17 @@ struct ConfigurationNode {
 	String path;
 	String title;
 	Array<ConfigurationOption> options;
+	bool read_options = false;
 	
+	String GetFilePath() const;
+	ConfigurationNode& DefaultReadOptions();
 	ConfigurationNode& OptionFixed(Value v);
 	ConfigurationNode& OptionButton(Value v, void(ProjectWizardView::*fn)(const ConfigurationNode* n));
 	ConfigurationNode& OptionRefresh();
 	ConfigurationNode& OptionValueArray();
 	ConfigurationNode& OptionUserInputText();
 	ConfigurationNode& PromptInput(String path);
+	ConfigurationNode& PromptInputAllPrevious();
 	ConfigurationNode& PromptInputOptionsLocalFixed();
 	ConfigurationNode& PromptInputOptions(String path);
 	ConfigurationNode& PromptResponse(String title);
@@ -66,6 +70,7 @@ public:
 	
 	void DefaultDynamic(const ConfigurationNode* n);
 	bool MakeArgs(GenericPromptArgs& args, const ConfigurationNode& n);
+	bool MakeArgsOptions(GenericPromptArgs& args, const ConfigurationNode& n, const ConfigurationOption& o);
 	
 	Value& GetItemValue(const String& path);
 	ValueMap& GetItem(const String& path);
@@ -83,8 +88,9 @@ struct LabeledEditString : public Ctrl {
 };
 
 class ProjectWizardCtrl : public NodeCtrlBase {
-	Splitter hsplit, vsplit;
+	Splitter hsplit, vsplit, optsplit;
 	ArrayCtrl dirs, files, items, options;
+	DocEdit option;
 	Ctrl main;
 	int main_type = MAIN_OPTION_LIST;
 	

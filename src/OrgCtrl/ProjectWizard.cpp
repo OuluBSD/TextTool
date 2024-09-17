@@ -4,6 +4,18 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+String ConfigurationNode::GetFilePath() const {
+	int a = path.Find(":");
+	if (a >= 0)
+		return path.Left(a);
+	return path;
+}
+
+ConfigurationNode& ConfigurationNode::DefaultReadOptions() {
+	read_options = true;
+	return *this;
+}
+
 ConfigurationNode& ConfigurationNode::OptionFixed(Value v) {
 	ConfigurationOption& opt = options.Add();
 	opt.type = ConfigurationOption::FIXED;
@@ -47,6 +59,27 @@ ConfigurationNode& ConfigurationNode::PromptInput(String path) {
 	ConfigurationOption& opt = options.Add();
 	opt.type = ConfigurationOption::PROMPT_INPUT;
 	opt.value = path;
+	return *this;
+}
+
+ConfigurationNode& ConfigurationNode::PromptInputAllPrevious() {
+	int a = path.Find(":");
+	ASSERT(a >= 0);
+	String file = path.Left(a+1);
+	int c = file.GetCount();
+	auto& confs = ProjectWizardView::GetConfs();
+	int pos = confs.Find(this->path);
+	ASSERT(pos >= 0);
+	for(int i = 0; i < pos; i++) {
+		String conf_path = confs.GetKey(i);
+		if (conf_path.GetCount() < c)
+			continue;
+		if (strncmp(conf_path.Begin(), file.Begin(), c) == 0) {
+			ConfigurationOption& opt = options.Add();
+			opt.type = ConfigurationOption::PROMPT_INPUT;
+			opt.value = confs.GetKey(i);
+		}
+	}
 	return *this;
 }
 
@@ -172,58 +205,25 @@ bool ProjectWizardView::MakeArgs(GenericPromptArgs& args, const ConfigurationNod
 	for(const ConfigurationOption& o : n.options) {
 		if (o.type == ConfigurationOption::PROMPT_INPUT) {
 			String path = o.value;
-			Value& val = GetItemValue(path);
-			String s = val.ToString();
-			if (s.IsEmpty()) {
-				error = "Value is empty at " + path;
-				return false;
-			}
 			const ConfigurationNode* n0 = FindConfigurationNode(path);
-			auto& arr = args.lists.GetAdd(n0->title);
-			arr.Clear();
-			arr << s;
+			if (n0->read_options) {
+				MakeArgsOptions(args, n, o);
+			}
+			else {
+				Value& val = GetItemValue(path);
+				String s = val.ToString();
+				if (s.IsEmpty()) {
+					error = "Value is empty at " + path;
+					return false;
+				}
+				auto& arr = args.lists.GetAdd(n0->GetFilePath() + ": " + n0->title);
+				arr.Clear();
+				arr << s;
+			}
 		}
 		else if (o.type == ConfigurationOption::PROMPT_INPUT_OPTIONS ||
 				 o.type == ConfigurationOption::PROMPT_INPUT_OPTIONS_FIXED) {
-			bool skip_dynamic_values = o.type == ConfigurationOption::PROMPT_INPUT_OPTIONS_FIXED;
-			String path = o.value;
-			const ConfigurationNode* n0 = FindConfigurationNode(path);
-			auto& arr = args.lists.GetAdd(n0->title);
-			arr.Clear();
-			
-			for(const ConfigurationOption& o0 : n0->options) {
-				if (o0.type == ConfigurationOption::FIXED) {
-					String s = o0.value.ToString();
-					arr << s;
-				}
-				else if (o0.type == ConfigurationOption::USER_INPUT_TEXT) {
-					Value& val = GetItemValue(path);
-					String s = val.ToString();
-					arr << s;
-				}
-				else if (!skip_dynamic_values && (
-							o0.type == ConfigurationOption::VALUE_ARRAY ||
-							o0.type == ConfigurationOption::PROMPT_RESPONSE)) {
-					ValueArray& opts = GetItemOpts(path);
-					if (opts.IsEmpty()) {
-						error = ("Options array is empty");
-						return false;
-					}
-					
-					if (!n0) {
-						error = ("No configuration node found with the path: " + path);
-						return false;
-					}
-					if (n0->title.IsEmpty()) {
-						error = ("Configuration node title is empty for the path: " + path);
-						return false;
-					}
-					
-					for(int i = 0; i < opts.GetCount(); i++) {
-						arr.Add(opts[i].ToString());
-					}
-				}
-			}
+			MakeArgsOptions(args, n, o);
 		}
 		else if (o.type == ConfigurationOption::PROMPT_RESPONSE) {
 			args.response_title = o.value.ToString();
@@ -241,6 +241,49 @@ bool ProjectWizardView::MakeArgs(GenericPromptArgs& args, const ConfigurationNod
 		return false;
 	}
 	
+	return true;
+}
+
+bool ProjectWizardView::MakeArgsOptions(GenericPromptArgs& args, const ConfigurationNode& n, const ConfigurationOption& o) {
+	bool skip_dynamic_values = o.type == ConfigurationOption::PROMPT_INPUT_OPTIONS_FIXED;
+	String path = o.value;
+	const ConfigurationNode* n0 = FindConfigurationNode(path);
+	auto& arr = args.lists.GetAdd(n0->GetFilePath() + ": " + n0->title);
+	arr.Clear();
+	
+	for(const ConfigurationOption& o0 : n0->options) {
+		if (o0.type == ConfigurationOption::FIXED) {
+			String s = o0.value.ToString();
+			arr << s;
+		}
+		else if (o0.type == ConfigurationOption::USER_INPUT_TEXT) {
+			Value& val = GetItemValue(path);
+			String s = val.ToString();
+			arr << s;
+		}
+		else if (!skip_dynamic_values && (
+					o0.type == ConfigurationOption::VALUE_ARRAY ||
+					o0.type == ConfigurationOption::PROMPT_RESPONSE)) {
+			ValueArray& opts = GetItemOpts(path);
+			if (opts.IsEmpty()) {
+				error = ("Options array is empty");
+				return false;
+			}
+			
+			if (!n0) {
+				error = ("No configuration node found with the path: " + path);
+				return false;
+			}
+			if (n0->title.IsEmpty()) {
+				error = ("Configuration node title is empty for the path: " + path);
+				return false;
+			}
+			
+			for(int i = 0; i < opts.GetCount(); i++) {
+				arr.Add(opts[i].ToString());
+			}
+		}
+	}
 	return true;
 }
 
@@ -278,11 +321,15 @@ ProjectWizardCtrl::ProjectWizardCtrl() {
 	items.WhenCursor << THISBACK(DataItem);
 	items.SetLineCy(45);
 	
+	
+	optsplit.Vert() << options << option;
+	optsplit.SetPos(7500);
+	
 	options.AddColumn("Option");
 	options.WhenCursor << THISBACK(OnOption);
 	options.SetLineCy(25);
 	
-	main.Add(options.SizePos());
+	main.Add(optsplit.SizePos());
 	
 }
 
@@ -498,7 +545,12 @@ void ProjectWizardCtrl::DataItem() {
 }
 
 void ProjectWizardCtrl::DataOption() {
-	
+	if (!options.IsCursor()) {
+		option.SetData("");
+	}
+	else {
+		option.SetData(options.Get(0));
+	}
 }
 
 void ProjectWizardCtrl::OnOption() {

@@ -56,50 +56,71 @@ INITBLOCK {
 		.OptionUserInputText();
 	
 	ProjectWizardView::Register("/Idea/Product:The target market", "The target market for the software project")
-		.PromptInput("/Idea/Product:The initial idea")
+		.PromptInputAllPrevious()
 		.PromptResponse("List of target markets for a software projects");
 	
 	//// Research the current market trends and demands.
 	ProjectWizardView::Register("/Idea/Product:The market trend to follow")
-		.PromptInput("/Idea/Product:The initial idea")
-		.PromptInput("/Idea/Product:The target market")
+		.PromptInputAllPrevious()
 		.PromptResponse("List of target trends for the software projects");
 	
 	ProjectWizardView::Register("/Idea/Product:The market demand to fulfill")
-		.PromptInput("/Idea/Product:The initial idea")
-		.PromptInput("/Idea/Product:The target market")
-		.PromptInput("/Idea/Product:The market trend to follow")
+		.DefaultReadOptions()
+		.PromptInputAllPrevious()
 		.PromptResponse("List of market demands to fulfill for the software project");
-	;
 	
 	//// Evaluate the potential profitability and return on investment.
-	ProjectWizardView::Register("/Idea/Product:Profitability")
-	;
+	ProjectWizardView::Register("/Idea/Product:Profitability", "The expected or estimated profitability of this kind of software project")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of reasons for potential outcomes for the total profitability of the software project");
 	
 	//// Assess the competition in the market.
-	ProjectWizardView::Register("/Idea/Product:Relationship to competition");
+	ProjectWizardView::Register("/Idea/Product:Relationship to competition", "Assessment of the competition in the market")
+		.DefaultReadOptions()
+		.PromptInputAllPrevious()
+		.PromptResponse("List of competing products and assessment as competitor");
 	
 	//// Gather feedback from potential users or investors.
-	ProjectWizardView::Register("/Idea/Product:Target feedback from potential users or investors");
+	ProjectWizardView::Register("/Idea/Product:Target feedback from potential users or investors")
+		.DefaultReadOptions()
+		.PromptInputAllPrevious()
+		.PromptResponse("List feedback from potential users or investors");
 	
 	//// Develop a marketing strategy for the project.
-	ProjectWizardView::Register("/Idea/Product:Core marketing idea");
+	ProjectWizardView::Register("/Idea/Product:Core marketing idea")
+		.DefaultReadOptions()
+		.PromptInputAllPrevious()
+		.PromptResponse("Develop a marketing strategy for the project");
 	
 	//// Identify potential collaborators or partners.
-	ProjectWizardView::Register("/Idea/Product:Potential collaborators or partners");
+	ProjectWizardView::Register("/Idea/Product:Potential collaborators or partners")
+		.PromptInputAllPrevious()
+		.PromptResponse("Identify potential collaborators or partners");
 	
 	//// Consider the target pricing for the software product.
-	ProjectWizardView::Register("/Idea/Product:Target pricing");
+	ProjectWizardView::Register("/Idea/Product:Target pricing")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of potential pricing targets for the software product");
 	
 	//// Consider the sales volume of the product
-	ProjectWizardView::Register("/Idea/Product:Sales volume target");
+	ProjectWizardView::Register("/Idea/Product:Sales volume target")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of possible sale volumes from best to worst (based on the marketing and winning of the competition)");
+	
+	ProjectWizardView::Register("/Idea/Product:Project name")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of possible name for this software project");
+	
+	
+	ProjectWizardView::Register("/Idea/Product:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("Consider all previous informations and write a short statement, which combines all the information");
 	
 	
 	
 	
 	
 	// Define project requirements and scope
-	ProjectWizardView::Register("/Requirements", "Define project requirements and scope");
 	
 	//// Identify key stakeholders and project goals
 	
@@ -114,7 +135,10 @@ INITBLOCK {
 		//8. Stay within budget and timeline
 		//9. Scalability for future growth
 		//10. Improve collaboration and communication.
-	ProjectWizardView::Register("/Requirements/Specific needs:Stakeholders");
+	ProjectWizardView::Register("/Requirements/Specific needs:Stakeholders")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptResponse("List of possible stakeholders for the software project");
 	
 		//Feedback from potential users or investors for the market target "Musicians - for a virtual instrument or music production software." in the market trend "Focus on user experience - there is a growing emphasis on creating user-friendly and seamless experiences in software projects.":
 		//1. "The user interface is very intuitive and easy to navigate."
@@ -132,13 +156,41 @@ INITBLOCK {
 		//13. "It's reliable and I haven't experienced any technical issues so far."
 		//14. "The price is reasonable and affordable for the quality of the software."
 		//15. "I can easily connect my external controllers and hardware devices for a better user experience."
-	ProjectWizardView::Register("/Requirements/Specific needs:Potential users or investors");
+	ProjectWizardView::Register("/Requirements/Specific needs:Potential users or investors")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInputAllPrevious()
+		.DefaultReadOptions()
+		.PromptResponse("List of possible potential users and investors for the software project");
 			
 		//----> features, classes, data, assets
-	ProjectWizardView::Register("/Requirements/Specific needs:Features");
-	ProjectWizardView::Register("/Requirements/Specific needs:Assets");
-	ProjectWizardView::Register("/Requirements/Specific needs:Data");
-	ProjectWizardView::Register("/Requirements/Specific needs:User entry points");
+	ProjectWizardView::Register("/Requirements/Specific needs:Features")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of possible features for the software project");
+	
+	ProjectWizardView::Register("/Requirements/Specific needs:Assets")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of possible assets for the software project");
+	
+	ProjectWizardView::Register("/Requirements/Specific needs:Data")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of possible data for the software project");
+	
+	ProjectWizardView::Register("/Requirements/Specific needs:User entry points")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of possible technical user entry points for the software project");
+	
+	ProjectWizardView::Register("/Requirements/Specific needs:Statement")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("Consider all previous informations and write a short summary text of project goals and specific needs");
 	
 	
 	//// Gather and analyze user requirements
@@ -151,16 +203,80 @@ INITBLOCK {
 		//5. Identify pain points and improvement opportunities
 		//6. Consider scalability and future needs
 		//7. Prioritize user requirements.
-	ProjectWizardView::Register("/Requirements/User experience:User interview target");
-	ProjectWizardView::Register("/Requirements/User experience:User persona target");
-	ProjectWizardView::Register("/Requirements/User experience:User feedback target");
-	ProjectWizardView::Register("/Requirements/User experience:State-of-the-art user experience to have");
-	ProjectWizardView::Register("/Requirements/User experience:The best UX features of competition to have");
-	ProjectWizardView::Register("/Requirements/User experience:The most unique UX features of competition to have");
-	ProjectWizardView::Register("/Requirements/User experience:The worst UX features of competition to avoid");
-	ProjectWizardView::Register("/Requirements/User experience:In-game shopping");
-	ProjectWizardView::Register("/Requirements/User experience:Future needs");
-	ProjectWizardView::Register("/Requirements/User experience:Feature prioritization");
+	ProjectWizardView::Register("/Requirements/User experience:User interview target")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptResponse("Lisft of potential user interviews of the users of the software");
+	
+	ProjectWizardView::Register("/Requirements/User experience:User persona target")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("Lisft of potential user personas what the software could target");
+	
+	ProjectWizardView::Register("/Requirements/User experience:User feedback target")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of potential user feedbacks what the software could target");
+	
+	ProjectWizardView::Register("/Requirements/User experience:State-of-the-art user experience to have")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of features of the state-of-the-art user experience to have with similar software");
+	
+	ProjectWizardView::Register("/Requirements/User experience:The best UX features of competition to have")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of the best UX features of competition to have");
+	
+	ProjectWizardView::Register("/Requirements/User experience:The most unique UX features of competition to have")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of the most unique UX features of the competition");
+	
+	ProjectWizardView::Register("/Requirements/User experience:The worst UX features of competition to avoid")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of the worst unique UX features of the competition");
+	
+	ProjectWizardView::Register("/Requirements/User experience:In-game shopping")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of in-game products to sell, advertise and offer");
+	
+	ProjectWizardView::Register("/Requirements/User experience:Future needs")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of features what might be needed in the future");
+	
+	ProjectWizardView::Register("/Requirements/User experience:Feature prioritization")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of the 5 most important features");
+	
+	ProjectWizardView::Register("/Requirements/User experience:Statement")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("Consider all previous informations and write a full summary text about the user experience");
+	
 	
 	//// Prioritize and document project features and functionalities
 	
@@ -185,7 +301,41 @@ INITBLOCK {
 		//18. Integration with third-party plugins or extensions.
 		//19. Generation of reports and statistics.
 		//20. Collaboration and sharing capabilities.
-	ProjectWizardView::Register("/Requirements/Features:Functionalities");
+	ProjectWizardView::Register("/Requirements/Features:Functionalities of the client application")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of main functionalities of the client application");
+	
+	ProjectWizardView::Register("/Requirements/Features:Functionalities of the supporting server program")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of main functionalities of the supporting server program");
+	
+	ProjectWizardView::Register("/Requirements/Features:Classes and functions of the client program")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of main modules, classes and functions of the client program");
+	
+	ProjectWizardView::Register("/Requirements/Features:Classes and functions of the server program")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of main modules, classes and functions of the server program");
+	
+
+	//// Storyline
+	ProjectWizardView::Register("/Requirements/Storyline:Storyline in the experience");
 
 	//// Define project scope and constraints
 	
