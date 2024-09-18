@@ -11,6 +11,20 @@ String ConfigurationNode::GetFilePath() const {
 	return path;
 }
 
+String ConfigurationNode::GetAnyUserInputString() const {
+	for(const auto& o : options)
+		if (o.type == ConfigurationOption::USER_INPUT_TEXT)
+			return o.value;
+	return "";
+}
+
+String ConfigurationNode::GetAnyUserPromptInputString() const {
+	for(const auto& o : options)
+		if (o.type == ConfigurationOption::PROMPT_INPUT_USER_TEXT)
+			return o.value;
+	return "";
+}
+
 ConfigurationNode& ConfigurationNode::DefaultReadOptions() {
 	read_options = true;
 	return *this;
@@ -32,8 +46,8 @@ ConfigurationNode& ConfigurationNode::OptionButton(Value v, void(ProjectWizardVi
 }
 
 ConfigurationNode& ConfigurationNode::OptionRefresh() {
-	for(int i = 0; i < options.GetCount(); i++)
-		if (options[i].type == ConfigurationOption::BUTTON_REFRESH)
+	for(const auto& o : options)
+		if (o.type == ConfigurationOption::BUTTON_REFRESH)
 			return *this;
 	
 	ConfigurationOption& opt = options.Add();
@@ -180,6 +194,40 @@ void ProjectWizardView::DefaultDynamic(const ConfigurationNode* n) {
 		
 		WhenOptions();
 	});
+}
+
+void ProjectWizardView::SplitComponents(const ConfigurationNode* n) {
+	const auto& confs = ProjectWizardView::GetConfs();
+	String file_path = n->GetFilePath();
+	ValueArray& arr = GetItemOpts(n->path);
+	for(int i = 0; i < arr.GetCount() && i < 8; i++) {
+		String s =  arr[i].ToString();
+		s = TrimBoth(s);
+		String item_path = file_path + ":Components #" + IntStr(1+i);
+		const ConfigurationNode& n0 = confs.Get(item_path);
+		String lbl_str = n0.GetAnyUserPromptInputString();
+		ASSERT(lbl_str.GetCount());
+		ValueMap& map0 = GetItem(item_path);
+		Value& user_input = map0.GetAdd(lbl_str);
+		user_input = s;
+	}
+}
+
+void ProjectWizardView::SplitSubTasks(const ConfigurationNode* n) {
+	const auto& confs = ProjectWizardView::GetConfs();
+	String file_path = n->GetFilePath();
+	ValueArray& arr = GetItemOpts(n->path);
+	for(int i = 0; i < arr.GetCount() && i < 8; i++) {
+		String s =  arr[i].ToString();
+		s = TrimBoth(s);
+		String item_path = file_path + ":Sub-tasks #" + IntStr(1+i);
+		const ConfigurationNode& n0 = confs.Get(item_path);
+		String lbl_str = n0.GetAnyUserPromptInputString();
+		ASSERT(lbl_str.GetCount());
+		ValueMap& map0 = GetItem(item_path);
+		Value& user_input = map0.GetAdd(lbl_str);
+		user_input = s;
+	}
 }
 
 Value& ProjectWizardView::GetItemValue(const String& path) {
@@ -509,6 +557,7 @@ void ProjectWizardCtrl::DataItem() {
 				Button* btn = new Button();
 				btn->SetLabel(s);
 				btn->WhenAction = callback1(&view, opt.fn, &cf);
+				options.Set(row, 0, s);
 				options.SetCtrl(row++, 0, btn);
 			}
 			else if (opt.type == ConfigurationOption::VALUE_ARRAY ||

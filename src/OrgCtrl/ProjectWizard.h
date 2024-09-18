@@ -36,6 +36,8 @@ struct ConfigurationNode {
 	bool read_options = false;
 	
 	String GetFilePath() const;
+	String GetAnyUserInputString() const;
+	String GetAnyUserPromptInputString() const;
 	ConfigurationNode& DefaultReadOptions();
 	ConfigurationNode& OptionFixed(Value v);
 	ConfigurationNode& OptionButton(Value v, void(ProjectWizardView::*fn)(const ConfigurationNode* n));
@@ -69,6 +71,8 @@ public:
 	static const ConfigurationNode* FindConfigurationNode(const String& path);
 	
 	void DefaultDynamic(const ConfigurationNode* n);
+	void SplitComponents(const ConfigurationNode* n);
+	void SplitSubTasks(const ConfigurationNode* n);
 	bool MakeArgs(GenericPromptArgs& args, const ConfigurationNode& n);
 	bool MakeArgsOptions(GenericPromptArgs& args, const ConfigurationNode& n, const ConfigurationOption& o);
 	

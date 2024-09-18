@@ -335,7 +335,12 @@ INITBLOCK {
 	
 
 	//// Storyline
-	ProjectWizardView::Register("/Requirements/Storyline:Storyline in the experience");
+	ProjectWizardView::Register("/Requirements/Storyline:Storyline in the experience")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of 10 possible different storylines (and protagonist) to include in the content the software");
 
 	//// Define project scope and constraints
 	
@@ -350,15 +355,91 @@ INITBLOCK {
 		//8. The application will not have advertising features.
 		//9. The project scope does not include multilingual support.
 		//10. The application will only support a specific number of users.
-	ProjectWizardView::Register("/Requirements/Constraints:Supported hardware platform");
-	ProjectWizardView::Register("/Requirements/Constraints:Supported software platform");
-	ProjectWizardView::Register("/Requirements/Constraints:Maximum expected user skills");
-	ProjectWizardView::Register("/Requirements/Constraints:Average expected user skills");
-	ProjectWizardView::Register("/Requirements/Constraints:Minimum expected user skills");
-	ProjectWizardView::Register("/Requirements/Constraints:Advertisement providers");
-	ProjectWizardView::Register("/Requirements/Constraints:In-game purchasing providers");
-	ProjectWizardView::Register("/Requirements/Constraints:Server scalability");
-	ProjectWizardView::Register("/Requirements/Constraints:Treshold between free and premium features");
+	ProjectWizardView::Register("/Requirements/Constraints:The marketplace", "The marketplace where the software is sold or distributed")
+		.OptionUserInputText();
+	
+	ProjectWizardView::Register("/Requirements/Constraints:Supported hardware platform")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Classes and functions of the server program")
+		.PromptResponse("List of 10 possible different hardware platforms to target with the software project");
+		
+	ProjectWizardView::Register("/Requirements/Constraints:Supported software platform")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Classes and functions of the server program")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of 10 possible different software platforms to target with the software project");
+		
+	ProjectWizardView::Register("/Requirements/Constraints:Maximum expected user skills")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Storyline:Storyline in the experience")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of 10 possible different maximum expected user skills to target");
+		
+	ProjectWizardView::Register("/Requirements/Constraints:Average expected user skills")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Storyline:Storyline in the experience")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of 10 possible different average expected user skills to target");
+		
+	ProjectWizardView::Register("/Requirements/Constraints:Minimum expected user skills")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Storyline:Storyline in the experience")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of 10 possible different minimum expected user skills to target");
+		
+	ProjectWizardView::Register("/Requirements/Constraints:Advertisement providers")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Constraints:The marketplace")
+		.PromptInput("/Requirements/Constraints:Supported software platform")
+		.PromptInputAllPrevious()
+		.PromptInputUserText("Preferred advertisement service provider")
+		.PromptResponse("List of 10 possible advertisement software library api and service providers to target (and short descriptions and reasons)");
+		
+	ProjectWizardView::Register("/Requirements/Constraints:In-game purchasing providers")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Constraints:The marketplace")
+		.PromptInput("/Requirements/Constraints:Supported software platform")
+		.PromptInputUserText("Preferred in-game purchasing service provider")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of 10 possible in-game purchasing software library api and service providers to target (and short descriptions and reasons)");
+		
+	ProjectWizardView::Register("/Requirements/Constraints:Server scalability")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Classes and functions of the server program")
+		.PromptInputAllPrevious()
+		.PromptInput("/Requirements/Constraints:The marketplace")
+		.PromptResponse("List of 10 possible levels of scalability for the backend server infrastructure");
+		
+	ProjectWizardView::Register("/Requirements/Constraints:Treshold between free and premium features")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Constraints:The marketplace")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of 10 possible treshold levels between free and premium features (at what point you expect the user to pay)");
+		
 	
 	//// Determine project deliverables and timeline
 	
@@ -370,11 +451,59 @@ INITBLOCK {
 		//5. Project budget review at the end of every month.
 		//6. A beta version of the application for user testing to be delivered in 4 months.
 		//7. Final delivery and implementation of the application in 6 months.
-	ProjectWizardView::Register("/Requirements/Deliverables:User documentation");
-	ProjectWizardView::Register("/Requirements/Deliverables:Developer documentation");
-	ProjectWizardView::Register("/Requirements/Deliverables:Marketing material");
-	ProjectWizardView::Register("/Requirements/Deliverables:Beta release packages");
-	ProjectWizardView::Register("/Requirements/Deliverables:Final release packages");
+	ProjectWizardView::Register("/Requirements/Deliverables:User documentation")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Storyline:Storyline in the experience")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of 10 different possible completeness of user documentation (what text files or html pages to include for user manual)");
+		
+	ProjectWizardView::Register("/Requirements/Deliverables:Developer documentation")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Features:Classes and functions of the client program")
+		.PromptInput("/Requirements/Features:Classes and functions of the server program")
+		.PromptInput("/Requirements/Storyline:Storyline in the experience")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of 10 different possible completeness of developer documentation (what text files or html pages to include for developers)");
+		
+	ProjectWizardView::Register("/Requirements/Deliverables:Marketing material")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Storyline:Storyline in the experience")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of 10 possible styles or approaches for marketing material");
+		
+	ProjectWizardView::Register("/Requirements/Deliverables:Beta release packages")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Features:Classes and functions of the client program")
+		.PromptInput("/Requirements/Features:Classes and functions of the server program")
+		.PromptInput("/Requirements/Storyline:Storyline in the experience")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of 10 different possible completeness of beta release software to test with users (how incomplete the software can be)");
+		
+	ProjectWizardView::Register("/Requirements/Deliverables:Final release packages")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Features:Classes and functions of the client program")
+		.PromptInput("/Requirements/Features:Classes and functions of the server program")
+		.PromptInput("/Requirements/Storyline:Storyline in the experience")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of 10 different possible completeness of final release software to sell (how complete the software can be before any updates)");
+		
 	
 	//// Validate and finalize project requirements and scope.
 
@@ -387,28 +516,64 @@ INITBLOCK {
 	
 		//Examples of steps
 		//1. Identify the main components or modules of the project
-	ProjectWizardView::Register("/Plan/Program:Main modules");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #1");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #2");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #3");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #4");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #5");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #6");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #7");
-	ProjectWizardView::Register("/Plan/Program:Sub modules #8");
+	ProjectWizardView::Register("/Plan/Client program:Main modules")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Features:Classes and functions of the client program")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of main modules for the code of the client program")
+		.OptionButton("Split response to components", &ProjectWizardView::SplitComponents);
+	
+	for(int i = 0; i < 8; i++) {
+		ProjectWizardView::Register("/Plan/Client program:Components #" + IntStr(1+i))
+			.DefaultReadOptions()
+			.PromptInput("/Idea/Product:Statement")
+			.PromptInput("/Requirements/Specific needs:Statement")
+			.PromptInput("/Requirements/User experience:Statement")
+			.PromptInput("/Requirements/Features:Functionalities of the client application")
+			.PromptInput("/Requirements/Features:Classes and functions of the client program")
+			.PromptInputAllPrevious()
+			.PromptInputUserText("The main module in focus, which requires components to be defined")
+			.PromptResponse("List of components of the given main module");
+	}
+	
 		//2. List out specific tasks for each component
-	ProjectWizardView::Register("/Plan/Program:Tasks");
+	ProjectWizardView::Register("/Plan/Client program:Main tasks")
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Features:Classes and functions of the client program")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of 10 different combinations of main tasks of given main modules");
+	
 		//3. Determine the order and dependencies of tasks
-	ProjectWizardView::Register("/Plan/Program:Order of tasks");
+	ProjectWizardView::Register("/Plan/Client program:Dependencies between tasks")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Features:Classes and functions of the client program")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of runtime processing order dependencies between main tasks")
+		.OptionButton("Split response to sub-tasks", &ProjectWizardView::SplitSubTasks);
+	
 		//4. Break down large tasks into smaller manageable tasks
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #1");
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #2");
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #3");
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #4");
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #5");
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #6");
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #7");
-	ProjectWizardView::Register("/Plan/Program:Sub-tasks #8");
+	for(int i = 0; i < 8; i++) {
+		ProjectWizardView::Register("/Plan/Client program:Sub-tasks #" + IntStr(1+i))
+			.DefaultReadOptions()
+			.PromptInput("/Idea/Product:Statement")
+			.PromptInput("/Requirements/Specific needs:Statement")
+			.PromptInput("/Requirements/User experience:Statement")
+			.PromptInput("/Requirements/Features:Functionalities of the client application")
+			.PromptInput("/Requirements/Features:Classes and functions of the client program")
+			.PromptInputAllPrevious()
+			.PromptInputUserText("The task in focus, which requires smaller sub-tasks to be defined")
+			.PromptResponse("List of smaller sub-tasks of the given main task");
+	}
 	
 		//5. Consider any potential sub-tasks or sub-components
 	
