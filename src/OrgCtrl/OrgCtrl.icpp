@@ -517,6 +517,7 @@ INITBLOCK {
 		//Examples of steps
 		//1. Identify the main components or modules of the project
 	ProjectWizardView::Register("/Plan/Client program:Main modules")
+		.OptionButton("Clear tasks and classes", &ProjectWizardView::ClearAllDynamic)
 		.PromptInput("/Idea/Product:Statement")
 		.PromptInput("/Requirements/Specific needs:Statement")
 		.PromptInput("/Requirements/User experience:Statement")
@@ -524,7 +525,8 @@ INITBLOCK {
 		.PromptInput("/Requirements/Features:Classes and functions of the client program")
 		.PromptInputAllPrevious()
 		.PromptResponse("List of main modules for the code of the client program")
-		.OptionButton("Split response to components", &ProjectWizardView::SplitComponents);
+		.OptionButton("Split response to components", &ProjectWizardView::SplitComponents)
+		.OptionButton("Split components' responses to tasks and classes", &ProjectWizardView::SplitAllSubComponents);
 	
 	ProjectWizardView::RegisterDynamic("/Plan/Client program:Components")
 			.DefaultReadOptions()
@@ -536,7 +538,7 @@ INITBLOCK {
 			.PromptInputAllPrevious()
 			.PromptInputUserText("The main module in focus, which requires components to be defined")
 			.PromptResponse("List of components of the given main module")
-			.OptionButton("Split response to sub-tasks", &ProjectWizardView::SplitSubTasks);
+			.OptionButton("Split response to tasks and classes", &ProjectWizardView::SplitSubComponents);
 	
 	ProjectWizardView::RegisterDynamic("/Plan/Client program:Tasks")
 			.DefaultReadOptions()
@@ -549,57 +551,18 @@ INITBLOCK {
 			.PromptInputUserText("The main module in focus, which requires tasks to be defined")
 			.PromptResponse("List of tasks of the given main module");
 	
-	#if 0
-	for(int i = 0; i < 8; i++) {
-		ProjectWizardView::Register("/Plan/Client program:Components #" + IntStr(1+i))
+	ProjectWizardView::RegisterDynamic("/Plan/Client program:Classes")
 			.DefaultReadOptions()
 			.PromptInput("/Idea/Product:Statement")
 			.PromptInput("/Requirements/Specific needs:Statement")
 			.PromptInput("/Requirements/User experience:Statement")
 			.PromptInput("/Requirements/Features:Functionalities of the client application")
 			.PromptInput("/Requirements/Features:Classes and functions of the client program")
+			.PromptInput("/Plan/Client program:Components")
+			.PromptInput("/Plan/Client program:Tasks")
 			.PromptInputAllPrevious()
-			.PromptInputUserText("The main module in focus, which requires components to be defined")
-			.PromptResponse("List of components of the given main module");
-	}
-	
-		//2. List out specific tasks for each component
-	ProjectWizardView::Register("/Plan/Client program:Main tasks")
-		.PromptInput("/Idea/Product:Statement")
-		.PromptInput("/Requirements/Specific needs:Statement")
-		.PromptInput("/Requirements/User experience:Statement")
-		.PromptInput("/Requirements/Features:Functionalities of the client application")
-		.PromptInput("/Requirements/Features:Classes and functions of the client program")
-		.PromptInputAllPrevious()
-		.PromptResponse("List of 10 different combinations of main tasks of given main modules");
-	
-		//3. Determine the order and dependencies of tasks
-	ProjectWizardView::Register("/Plan/Client program:Dependencies between tasks")
-		.DefaultReadOptions()
-		.PromptInput("/Idea/Product:Statement")
-		.PromptInput("/Requirements/Specific needs:Statement")
-		.PromptInput("/Requirements/User experience:Statement")
-		.PromptInput("/Requirements/Features:Functionalities of the client application")
-		.PromptInput("/Requirements/Features:Classes and functions of the client program")
-		.PromptInputAllPrevious()
-		.PromptResponse("List of runtime processing order dependencies between main tasks")
-		.OptionButton("Split response to sub-tasks", &ProjectWizardView::SplitSubTasks)
-		;
-	
-		//4. Break down large tasks into smaller manageable tasks
-	for(int i = 0; i < 8; i++) {
-		ProjectWizardView::Register("/Plan/Client program:Sub-tasks #" + IntStr(1+i))
-			.DefaultReadOptions()
-			.PromptInput("/Idea/Product:Statement")
-			.PromptInput("/Requirements/Specific needs:Statement")
-			.PromptInput("/Requirements/User experience:Statement")
-			.PromptInput("/Requirements/Features:Functionalities of the client application")
-			.PromptInput("/Requirements/Features:Classes and functions of the client program")
-			.PromptInputAllPrevious()
-			.PromptInputUserText("The task in focus, which requires smaller sub-tasks to be defined")
-			.PromptResponse("List of smaller sub-tasks of the given main task");
-	}
-	#endif
+			.PromptInputUserText("The main component in focus, which requires classes to be defined")
+			.PromptResponse("List of classes of the given component module (name: description)");
 	
 		//5. Consider any potential sub-tasks or sub-components
 	
@@ -607,10 +570,35 @@ INITBLOCK {
 	//// Estimate time and effort requirements for each task
 	//// Create a project timeline or schedule
 	//// Identify dependencies between tasks
-	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between modules");
-	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between sub-modules");
-	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between tasks");
-	ProjectWizardView::Register("/Plan/Dependencies:Dependencies between sub-tasks");
+	ProjectWizardView::Register("/Plan/Hierarchy:Dependencies between modules")
+		.OptionButton("Clear tasks and classes", &ProjectWizardView::ClearAllDynamic)
+		.OptionButton("Make tasks and classes", &ProjectWizardView::SplitDependencies)
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Product:Statement")
+		.PromptInput("/Requirements/Specific needs:Statement")
+		.PromptInput("/Requirements/User experience:Statement")
+		.PromptInput("/Requirements/Features:Functionalities of the client application")
+		.PromptInput("/Requirements/Features:Classes and functions of the client program")
+		.PromptInput("/Plan/Client program:Main modules")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of hierarchical dependencies between main modules (a -> b: description)");
+	
+	ProjectWizardView::RegisterDynamic("/Plan/Hierarchy:Tasks")
+		.DefaultReadOptions()
+		.PromptInput("/Plan/Client program:Main modules")
+		.PromptInput("/Plan/Client program:Tasks")
+		//.PromptInputAllPrevious()
+		.PromptInputUserText("The module in focus, which requires order of processing dependencies to be defined")
+		.PromptResponse("List of every order-of-processing dependency between items in the given Tasks list (task a -> task b: description)");
+	
+	ProjectWizardView::RegisterDynamic("/Plan/Hierarchy:Classes")
+		.DefaultReadOptions()
+		//.PromptInput("/Plan/Client program:Main modules")
+		.PromptInput("/Plan/Client program:Classes")
+		.PromptInput("/Plan/Hierarchy:Tasks")
+		//.PromptInputAllPrevious()
+		.PromptInputUserText("The module in focus, which requires hierarchical dependencies to be defined")
+		.PromptResponse("List of every hierarchical dependency between items in the given Classes list (class a -> class b: description)");
 	
 		//Examples of steps
 		//1. Determine which tasks are dependent on each other

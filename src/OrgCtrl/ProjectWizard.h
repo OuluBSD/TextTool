@@ -59,6 +59,7 @@ struct FileNode {
 	FileNode(String path, String title, const ConfigurationNode& conf) : conf(conf), path(path), title(title) {}
 	bool IsDynamic() const {return conf.is_dynamic;}
 	String GetFilePath() const;
+	String GetItemPath() const;
 	String GetItemArg() const;
 	String GetAnyUserInputString() const;
 	String GetAnyUserPromptInputString() const;
@@ -88,22 +89,27 @@ public:
 	static const ConfigurationNode* FindConfigurationNode(const String& path);
 	static ConfigurationNode& RegisterDynamic(String path, String title=String());
 	
+	void DefaultDynamicPath(String path);
 	void DefaultDynamic(const FileNode* n);
+	void ClearAllDynamic(const FileNode* n);
 	void SplitComponents(const FileNode* n);
-	void SplitSubTasks(const FileNode* n);
+	void SplitAllSubComponents(const FileNode* n);
+	void SplitSubComponents(const FileNode* n);
+	void SplitDependencies(const FileNode* n);
 	bool MakeArgs(GenericPromptArgs& args, const FileNode& n);
 	bool MakeArgsOptions(GenericPromptArgs& args, const FileNode& n, const ConfigurationOption& o);
 	
 	ValueMap& GetFile(const String& path);
+	Value& GetFileValue(const String& path);
 	Value& GetItemValue(const String& path);
 	ValueMap& GetItem(const String& path);
 	ValueArray& GetItemOpts(const String& path);
 	FileNode& RealizeFileNode(const String& path, const ConfigurationNode* cf=0);
-	
-	const FileNode* FindFileNode(const String& path);
+	FileNode* FindFileNode(const String& path);
 	
 	Event<> WhenFile;
 	Event<> WhenOptions;
+	Event<> WhenCallbackReady;
 };
 
 
@@ -119,6 +125,7 @@ class ProjectWizardCtrl : public NodeCtrlBase {
 	DocEdit option;
 	Ctrl main;
 	int main_type = MAIN_OPTION_LIST;
+	Array<Event<>> cb_queue;
 	
 	enum {
 		MAIN_OPTION_LIST
@@ -160,6 +167,7 @@ public:
 	void DataItem();
 	void DataOption();
 	void OnOption();
+	void OnCallbackReady();
 	void ToolMenu(Bar& bar) override;
 	void Do(int fn);
 	

@@ -12,6 +12,10 @@ String FileNode::GetFilePath() const {
 	return path;
 }
 
+String FileNode::GetItemPath() const {
+	return path;
+}
+
 String FileNode::GetItemArg() const {
 	ASSERT(!path.IsEmpty());
 	int a = path.Find("[");
@@ -168,6 +172,11 @@ ConfigurationNode& ProjectWizardView::RegisterDynamic(String path, String title)
 	return n;
 }
 
+void ProjectWizardView::DefaultDynamicPath(String path) {
+	FileNode& n = RealizeFileNode(path);
+	DefaultDynamic(&n);
+}
+
 void ProjectWizardView::DefaultDynamic(const FileNode* n) {
 	LOG("ProjectWizardView::DefaultDynamic: \"" << n->path << "\"");
 	
@@ -180,9 +189,15 @@ void ProjectWizardView::DefaultDynamic(const FileNode* n) {
 		return;
 	}
 	
+	String path = n->path;
 	TaskMgr& m = TaskMgr::Single();
-	m.GetGenericPrompt(args, [this, &opts, n](String res) {
+	m.GetGenericPrompt(args, [this, &opts, path](String res) {
 		//LOG(res);
+		
+		res.Replace("\r", "");
+		int a = res.Find("\n\n");
+		if (a >= 0)
+			res = res.Left(a);
 		
 		if (res.Find("\n- 2.") >= 0) {
 			RemoveEmptyLines3(res);
@@ -202,26 +217,49 @@ void ProjectWizardView::DefaultDynamic(const FileNode* n) {
 		}
 		
 		if (lines.GetCount()) {
-			String path = n->path;
 			Value& val = GetItemValue(path);
 			String old_value = val.ToString();
 			if (old_value.IsEmpty()) {
 				val = lines[0];
+				WhenCallbackReady();
 				WhenFile();
 				return;
 			}
 		}
 		
+		WhenCallbackReady();
 		WhenOptions();
 	});
+}
+
+void ProjectWizardView::ClearAllDynamic(const FileNode* n) {
+	String file_path = n->GetFilePath();
+	const auto& file = GetFile(file_path);
+	ValueMap new_map;
+	for(int i = 0; i < file.GetCount(); i++) {
+		String key = file.GetKey(i);
+		if (key.GetCount()) {
+			if (key[key.GetCount()-1] == ']') {
+				int a = key.Find("[");
+				if (a >= 0)
+					continue;
+			}
+		}
+		const Value& v = file.GetValue(i);
+		new_map.Add(key, v);
+	}
+	Value& file_val = GetFileValue(file_path);
+	file_val = new_map;
+	WhenFile();
 }
 
 void ProjectWizardView::SplitComponents(const FileNode* n) {
 	const auto& confs = ProjectWizardView::GetConfs();
 	String file_path = n->GetFilePath();
 	ValueArray& arr = GetItemOpts(n->path);
-	for(int i = 0; i < arr.GetCount() && i < 8; i++) {
+	for(int i = 0; i < arr.GetCount(); i++) {
 		String s =  arr[i].ToString();
+		RemoveColonTrail(s);
 		s = TrimBoth(s);
 		String sub_item = "Components[" + s + "]";
 		String item_path = file_path + ":" + sub_item;
@@ -229,29 +267,108 @@ void ProjectWizardView::SplitComponents(const FileNode* n) {
 		String lbl_str = n0.GetAnyUserPromptInputString();
 		ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
 		ValueMap& map0 = GetItem(item_path);
-		map0.GetAdd("src-arg") = n->GetItemArg();
+		map0.GetAdd("src-path") = n->GetItemPath();
 		Value& user_input = map0.GetAdd(lbl_str);
 		user_input = s;
 	}
 	WhenFile();
 }
 
-void ProjectWizardView::SplitSubTasks(const FileNode* n) {
+void ProjectWizardView::SplitAllSubComponents(const FileNode* n) {
+	const auto& confs = ProjectWizardView::GetConfs();
+	String file_path = n->GetFilePath();
+	ValueArray& arr0 = GetItemOpts(n->path);
+	for(int i = 0; i < arr0.GetCount(); i++) {
+		String s0 =  arr0[i].ToString();
+		RemoveColonTrail(s0);
+		s0 = TrimBoth(s0);
+		for (int k = 0; k < 2; k++) {
+			String sub_item0 = "Components[" + s0 + "]";
+			String item_path0 = file_path + ":" + sub_item0;
+			ValueArray& arr1 = GetItemOpts(item_path0);
+			for(int j = 0; j < arr1.GetCount(); j++) {
+				String s1 = arr1[j];
+				RemoveColonTrail(s1);
+				s1 = TrimBoth(s1);
+				String key = k == 0 ? "Classes" : "Tasks";
+				String sub_item1 = key + "[" + s1 + "]";
+				String item_path1 = file_path + ":" + sub_item1;
+				const FileNode& n0 = RealizeFileNode(item_path1);
+				String lbl_str = n0.GetAnyUserPromptInputString();
+				ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
+				ValueMap& map0 = GetItem(item_path1);
+				map0.GetAdd("src-path") = item_path0;
+				Value& user_input = map0.GetAdd(lbl_str);
+				user_input = s1;
+			}
+		}
+	}
+	WhenFile();
+}
+
+void ProjectWizardView::SplitSubComponents(const FileNode* n) {
 	const auto& confs = ProjectWizardView::GetConfs();
 	String file_path = n->GetFilePath();
 	ValueArray& arr = GetItemOpts(n->path);
-	for(int i = 0; i < arr.GetCount() && i < 8; i++) {
+	for(int i = 0; i < arr.GetCount(); i++) {
 		String s =  arr[i].ToString();
+		RemoveColonTrail(s);
 		s = TrimBoth(s);
-		String sub_item = "Tasks[" + s + "]";
-		String item_path = file_path + ":" + sub_item;
-		const FileNode& n0 = RealizeFileNode(item_path);
-		String lbl_str = n0.GetAnyUserPromptInputString();
-		ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
-		ValueMap& map0 = GetItem(item_path);
-		map0.GetAdd("src-arg") = n->GetItemArg();
-		Value& user_input = map0.GetAdd(lbl_str);
-		user_input = s;
+		{
+			String sub_item = "Tasks[" + s + "]";
+			String item_path = file_path + ":" + sub_item;
+			const FileNode& n0 = RealizeFileNode(item_path);
+			String lbl_str = n0.GetAnyUserPromptInputString();
+			ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
+			ValueMap& map0 = GetItem(item_path);
+			map0.GetAdd("src-path") = n->GetItemPath();
+			Value& user_input = map0.GetAdd(lbl_str);
+			user_input = s;
+		}
+		{
+			String sub_item = "Classes[" + s + "]";
+			String item_path = file_path + ":" + sub_item;
+			const FileNode& n0 = RealizeFileNode(item_path);
+			String lbl_str = n0.GetAnyUserPromptInputString();
+			ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
+			ValueMap& map0 = GetItem(item_path);
+			map0.GetAdd("src-path") = n->GetItemPath();
+			Value& user_input = map0.GetAdd(lbl_str);
+			user_input = s;
+		}
+	}
+	WhenFile();
+}
+
+void ProjectWizardView::SplitDependencies(const FileNode* n) {
+	const auto& confs = ProjectWizardView::GetConfs();
+	String file_path = n->GetFilePath();
+	ValueArray& arr0 = GetItemOpts("/Plan/Client program:Main modules");
+	for(int i = 0; i < arr0.GetCount(); i++) {
+		String s0 =  arr0[i].ToString();
+		RemoveColonTrail(s0);
+		s0 = TrimBoth(s0);
+		for (int k = 0; k < 2; k++) {
+			String sub_item0 = "Components[" + s0 + "]";
+			String item_path0 = "/Plan/Client program:" + sub_item0;
+			ValueArray& arr1 = GetItemOpts(item_path0);
+			for(int j = 0; j < arr1.GetCount(); j++) {
+				String s1 = arr1[j];
+				RemoveColonTrail(s1);
+				s1 = TrimBoth(s1);
+				String key = k == 1 ? "Classes" : "Tasks";
+				String sub_item1 = key + "[" + s1 + "]";
+				String item_path1 = "/Plan/Client program:" + sub_item1;
+				String item_path2 = file_path + ":" + sub_item1;
+				const FileNode& n0 = RealizeFileNode(item_path2);
+				String lbl_str = n0.GetAnyUserPromptInputString();
+				ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
+				ValueMap& map0 = GetItem(item_path2);
+				map0.GetAdd("src-path") = item_path1;
+				Value& user_input = map0.GetAdd(lbl_str);
+				user_input = s1;
+			}
+		}
 	}
 	WhenFile();
 }
@@ -273,6 +390,11 @@ ValueMap& ProjectWizardView::GetItem(const String& path) {
 	ValueMap& map = ValueToMap(node->data.GetAdd(file_path));
 	ValueMap& item = ValueToMap(map.GetAdd(sub_item));
 	return item;
+}
+
+Value& ProjectWizardView::GetFileValue(const String& file_path) {
+	ASSERT(file_path.Find(":") < 0);
+	return node->data.GetAdd(file_path);
 }
 
 ValueMap& ProjectWizardView::GetFile(const String& file_path) {
@@ -333,18 +455,36 @@ bool ProjectWizardView::MakeArgsOptions(GenericPromptArgs& args, const FileNode&
 	bool skip_dynamic_values = o.type == ConfigurationOption::PROMPT_INPUT_OPTIONS_FIXED;
 	String path = o.value;
 	const FileNode* np = &RealizeFileNode(path);
-	if (np->conf.is_dynamic) {
+	if (np->conf.is_dynamic && path.Find("[") < 0) {
+		bool success = false;
 		ValueMap& item = GetItem(n.path);
-		String arg = item.GetAdd("src-arg");
-		if (arg.IsEmpty()) {
-			error = "No arg for dynamic file-node";
+		String src = item.GetAdd("src-path");
+		if (!src.IsEmpty()) {
+			int a = src.Find("[");
+			String static_item_path = a >= 0 ? src.Left(a) : src;
+			if (static_item_path == path) {
+				np = FindFileNode(src);
+				if (np) {
+					path = src;
+					success = true;
+				}
+			}
+		}
+		if (!success) {
+			String arg = n.GetItemArg();
+			if (arg.GetCount()) {
+				path += "[" + arg + "]";
+				np = FindFileNode(path);
+				if (np) success = true;
+			}
+		}
+		if (!success) {
+			error = "Cannot solve the dynamic path: " + path;
 			return false;
 		}
-		path += "[" + arg + "]";
-		np = &RealizeFileNode(path);
 	}
 	const FileNode& n0 = *np;
-	auto& arr = args.lists.GetAdd(n0.GetFilePath() + ": " + n0.title);
+	auto& arr = args.lists.GetAdd(path);
 	arr.Clear();
 	
 	for(const ConfigurationOption& o0 : n0.conf.options) {
@@ -390,11 +530,48 @@ const ConfigurationNode* ProjectWizardView::FindConfigurationNode(const String& 
 	return 0;
 }
 
-const FileNode* ProjectWizardView::FindFileNode(const String& path) {
-	int i = nodes.Find(path);
-	if (i >= 0)
-		return &nodes[i];
-	return 0;
+FileNode* ProjectWizardView::FindFileNode(const String& path) {
+	String title;
+	const ConfigurationNode* cf = 0;
+	const auto& confs = GetConfs();
+	
+	int a = path.Find(":");
+	if (a < 0)
+		return 0;
+	String file_path = path.Left(a);
+	String sub_item = path.Mid(a+1);
+	ValueMap& file = GetFile(file_path);
+	
+	// Check for dynamic path
+	a = path.Find("[");
+	if (a >= 0) {
+		int i = file.Find(sub_item);
+		if (i < 0)
+			return 0;
+		
+		String static_item_path = path.Left(a);
+		i = confs.Find(static_item_path);
+		if (i < 0)
+			return 0;
+		cf = &confs[i];
+		
+		ValueMap& dyn_item = GetItem(path);
+		title = dyn_item.GetAdd("title");
+		if (title.IsEmpty())
+			title = cf->title;
+	}
+	else {
+		int i = confs.Find(path);
+		if (i < 0)
+			return 0;
+		cf = &confs[i];
+		title = cf->title;
+	}
+	
+	ASSERT(path.Find("[") < 0 || cf->is_dynamic);
+	
+	FileNode& n = nodes.Add(path, new FileNode(path, title, *cf));
+	return &n;
 }
 
 FileNode& ProjectWizardView::RealizeFileNode(const String& path, const ConfigurationNode* cf) {
@@ -468,6 +645,7 @@ ProjectWizardCtrl::ProjectWizardCtrl() {
 	options.AddColumn("Option");
 	options.WhenCursor << THISBACK(OnOption);
 	options.SetLineCy(25);
+	options.NoWantFocus();
 	
 	main.Add(optsplit.SizePos());
 	
@@ -501,6 +679,7 @@ void ProjectWizardCtrl::Data() {
 	ProjectWizardView& view = GetView();
 	view.WhenFile = [this]{PostCallback(THISBACK(DataFile));};
 	view.WhenOptions = [this]{PostCallback(THISBACK(DataItem));};
+	view.WhenCallbackReady = THISBACK(OnCallbackReady);
 	
 	Index<String> dir_list = GetDirectories(cwd);
 	
@@ -590,6 +769,7 @@ void ProjectWizardCtrl::DataFile() {
 	
 	
 	DataItem();
+	PostCallback([this]{items.SetFocus();});
 }
 
 void ProjectWizardCtrl::DataItem() {
@@ -639,7 +819,7 @@ void ProjectWizardCtrl::DataItem() {
 				e->WhenAction = [this, e, &val]{
 					String s = e->GetData();
 					val = s;
-					PostCallback([this,s]{items.Set(1, s);});
+					items.Set(1, s);
 				};
 				options.Set(row, 0, s);
 				options.SetCtrl(row++, 0, e);
@@ -692,6 +872,7 @@ void ProjectWizardCtrl::DataOption() {
 	else {
 		option.SetData(options.Get(0));
 	}
+	PostCallback([this]{items.SetFocus();});
 }
 
 void ProjectWizardCtrl::OnOption() {
@@ -716,6 +897,14 @@ void ProjectWizardCtrl::OnOption() {
 	}
 	
 	DataOption();
+}
+
+void ProjectWizardCtrl::OnCallbackReady() {
+	if (cb_queue.IsEmpty())
+		return;
+	auto cb = cb_queue[0];
+	cb_queue.Remove(0);
+	PostCallback(cb);
 }
 
 Index<String> ProjectWizardCtrl::GetDirectories(String dir) {
@@ -830,7 +1019,8 @@ Index<String> ProjectWizardView::MakeItems(String file_path) {
 void ProjectWizardCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Refresh"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Add(t_("Additional button function"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
-	
+	bar.Separator();
+	bar.Add(t_("Press all 'Refresh' buttons in this file"), AppImg::RedRing(), THISBACK1(Do, 2)).Key(K_F9);
 }
 
 ProjectWizardView& ProjectWizardCtrl::GetView() {
@@ -867,6 +1057,27 @@ void ProjectWizardCtrl::Do(int fn) {
 			}
 		}
 	}
+	else if (fn == 2) {
+		auto& view = GetView();
+		cb_queue.Clear();
+		Index<String> item_list = view.MakeItems(file_path);
+		for(String sub_item : item_list) {
+			String item_path = file_path + ":" + sub_item;
+			FileNode& cf = view.RealizeFileNode(item_path);
+			for(const ConfigurationOption& opt : cf.conf.options) {
+				if (opt.type == ConfigurationOption::BUTTON_REFRESH) {
+					cb_queue.Add(callback1(&view, &ProjectWizardView::DefaultDynamicPath, item_path));
+					break;
+				}
+			}
+			
+		}
+		if (cb_queue.GetCount()) {
+			auto cb = cb_queue[0];
+			cb_queue.Remove(0);
+			PostCallback(cb);
+		}
+	}
 }
 
 int ProjectWizardCtrl::GetHistoryCursor(String path) {
@@ -898,6 +1109,8 @@ LabeledEditString::LabeledEditString() {
 	Add(lbl.LeftPos(0, w-5).VSizePos());
 	Add(edit.HSizePos(w,0).VSizePos());
 	lbl.AlignRight();
+	lbl.NoWantFocus();
+	edit.NoWantFocus();
 }
 
 END_TEXTLIB_NAMESPACE

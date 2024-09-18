@@ -4996,6 +4996,8 @@ void AiTask::CreateInput_GenericPrompt() {
 			String s = args.lists.GetKey(i);
 			auto& list = input.AddSub().Title(s);
 			const auto& arr = args.lists[i];
+			if (arr.IsEmpty())
+				continue;
 			for(int j = 0; j < arr.GetCount(); j++) {
 				list.Add(arr[j]);
 			}

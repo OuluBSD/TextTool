@@ -245,6 +245,12 @@ void RemoveEmptyLines3(String& s) {
 	s = Join(lines, "\n");
 }
 
+void RemoveColonTrail(String& s) {
+	int a = s.Find(":");
+	if (a >= 0)
+		s = s.Left(a);
+}
+
 
 
 
