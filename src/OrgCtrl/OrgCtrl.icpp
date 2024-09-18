@@ -526,6 +526,30 @@ INITBLOCK {
 		.PromptResponse("List of main modules for the code of the client program")
 		.OptionButton("Split response to components", &ProjectWizardView::SplitComponents);
 	
+	ProjectWizardView::RegisterDynamic("/Plan/Client program:Components")
+			.DefaultReadOptions()
+			.PromptInput("/Idea/Product:Statement")
+			.PromptInput("/Requirements/Specific needs:Statement")
+			.PromptInput("/Requirements/User experience:Statement")
+			.PromptInput("/Requirements/Features:Functionalities of the client application")
+			.PromptInput("/Requirements/Features:Classes and functions of the client program")
+			.PromptInputAllPrevious()
+			.PromptInputUserText("The main module in focus, which requires components to be defined")
+			.PromptResponse("List of components of the given main module")
+			.OptionButton("Split response to sub-tasks", &ProjectWizardView::SplitSubTasks);
+	
+	ProjectWizardView::RegisterDynamic("/Plan/Client program:Tasks")
+			.DefaultReadOptions()
+			.PromptInput("/Idea/Product:Statement")
+			.PromptInput("/Requirements/Specific needs:Statement")
+			.PromptInput("/Requirements/User experience:Statement")
+			.PromptInput("/Requirements/Features:Functionalities of the client application")
+			.PromptInput("/Requirements/Features:Classes and functions of the client program")
+			.PromptInputAllPrevious()
+			.PromptInputUserText("The main module in focus, which requires tasks to be defined")
+			.PromptResponse("List of tasks of the given main module");
+	
+	#if 0
 	for(int i = 0; i < 8; i++) {
 		ProjectWizardView::Register("/Plan/Client program:Components #" + IntStr(1+i))
 			.DefaultReadOptions()
@@ -559,7 +583,8 @@ INITBLOCK {
 		.PromptInput("/Requirements/Features:Classes and functions of the client program")
 		.PromptInputAllPrevious()
 		.PromptResponse("List of runtime processing order dependencies between main tasks")
-		.OptionButton("Split response to sub-tasks", &ProjectWizardView::SplitSubTasks);
+		.OptionButton("Split response to sub-tasks", &ProjectWizardView::SplitSubTasks)
+		;
 	
 		//4. Break down large tasks into smaller manageable tasks
 	for(int i = 0; i < 8; i++) {
@@ -574,6 +599,7 @@ INITBLOCK {
 			.PromptInputUserText("The task in focus, which requires smaller sub-tasks to be defined")
 			.PromptResponse("List of smaller sub-tasks of the given main task");
 	}
+	#endif
 	
 		//5. Consider any potential sub-tasks or sub-components
 	

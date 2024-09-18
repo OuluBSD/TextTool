@@ -4,22 +4,35 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
-String ConfigurationNode::GetFilePath() const {
+String FileNode::GetFilePath() const {
+	ASSERT(!path.IsEmpty());
 	int a = path.Find(":");
 	if (a >= 0)
 		return path.Left(a);
 	return path;
 }
 
-String ConfigurationNode::GetAnyUserInputString() const {
-	for(const auto& o : options)
+String FileNode::GetItemArg() const {
+	ASSERT(!path.IsEmpty());
+	int a = path.Find("[");
+	if (a >= 0) {
+		a++;
+		int b = path.ReverseFind("]");
+		if (b >= 0)
+			return path.Mid(a,b-a);
+	}
+	return path;
+}
+
+String FileNode::GetAnyUserInputString() const {
+	for(const auto& o : conf.options)
 		if (o.type == ConfigurationOption::USER_INPUT_TEXT)
 			return o.value;
 	return "";
 }
 
-String ConfigurationNode::GetAnyUserPromptInputString() const {
-	for(const auto& o : options)
+String FileNode::GetAnyUserPromptInputString() const {
+	for(const auto& o : conf.options)
 		if (o.type == ConfigurationOption::PROMPT_INPUT_USER_TEXT)
 			return o.value;
 	return "";
@@ -37,7 +50,7 @@ ConfigurationNode& ConfigurationNode::OptionFixed(Value v) {
 	return *this;
 }
 
-ConfigurationNode& ConfigurationNode::OptionButton(Value v, void(ProjectWizardView::*fn)(const ConfigurationNode* n)) {
+ConfigurationNode& ConfigurationNode::OptionButton(Value v, void(ProjectWizardView::*fn)(const FileNode* n)) {
 	ConfigurationOption& opt = options.Add();
 	opt.type = ConfigurationOption::BUTTON;
 	opt.value = v;
@@ -149,7 +162,13 @@ ConfigurationNode& ProjectWizardView::Register(String path, String title) {
 	return n;
 }
 
-void ProjectWizardView::DefaultDynamic(const ConfigurationNode* n) {
+ConfigurationNode& ProjectWizardView::RegisterDynamic(String path, String title) {
+	ConfigurationNode& n = Register(path, title);
+	n.is_dynamic = true;
+	return n;
+}
+
+void ProjectWizardView::DefaultDynamic(const FileNode* n) {
 	LOG("ProjectWizardView::DefaultDynamic: \"" << n->path << "\"");
 	
 	ValueArray& opts = GetItemOpts(n->path);
@@ -183,7 +202,8 @@ void ProjectWizardView::DefaultDynamic(const ConfigurationNode* n) {
 		}
 		
 		if (lines.GetCount()) {
-			Value& val = GetItemValue(n->path);
+			String path = n->path;
+			Value& val = GetItemValue(path);
 			String old_value = val.ToString();
 			if (old_value.IsEmpty()) {
 				val = lines[0];
@@ -196,38 +216,44 @@ void ProjectWizardView::DefaultDynamic(const ConfigurationNode* n) {
 	});
 }
 
-void ProjectWizardView::SplitComponents(const ConfigurationNode* n) {
+void ProjectWizardView::SplitComponents(const FileNode* n) {
 	const auto& confs = ProjectWizardView::GetConfs();
 	String file_path = n->GetFilePath();
 	ValueArray& arr = GetItemOpts(n->path);
 	for(int i = 0; i < arr.GetCount() && i < 8; i++) {
 		String s =  arr[i].ToString();
 		s = TrimBoth(s);
-		String item_path = file_path + ":Components #" + IntStr(1+i);
-		const ConfigurationNode& n0 = confs.Get(item_path);
+		String sub_item = "Components[" + s + "]";
+		String item_path = file_path + ":" + sub_item;
+		const FileNode& n0 = RealizeFileNode(item_path);
 		String lbl_str = n0.GetAnyUserPromptInputString();
-		ASSERT(lbl_str.GetCount());
+		ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
 		ValueMap& map0 = GetItem(item_path);
+		map0.GetAdd("src-arg") = n->GetItemArg();
 		Value& user_input = map0.GetAdd(lbl_str);
 		user_input = s;
 	}
+	WhenFile();
 }
 
-void ProjectWizardView::SplitSubTasks(const ConfigurationNode* n) {
+void ProjectWizardView::SplitSubTasks(const FileNode* n) {
 	const auto& confs = ProjectWizardView::GetConfs();
 	String file_path = n->GetFilePath();
 	ValueArray& arr = GetItemOpts(n->path);
 	for(int i = 0; i < arr.GetCount() && i < 8; i++) {
 		String s =  arr[i].ToString();
 		s = TrimBoth(s);
-		String item_path = file_path + ":Sub-tasks #" + IntStr(1+i);
-		const ConfigurationNode& n0 = confs.Get(item_path);
+		String sub_item = "Tasks[" + s + "]";
+		String item_path = file_path + ":" + sub_item;
+		const FileNode& n0 = RealizeFileNode(item_path);
 		String lbl_str = n0.GetAnyUserPromptInputString();
-		ASSERT(lbl_str.GetCount());
+		ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
 		ValueMap& map0 = GetItem(item_path);
+		map0.GetAdd("src-arg") = n->GetItemArg();
 		Value& user_input = map0.GetAdd(lbl_str);
 		user_input = s;
 	}
+	WhenFile();
 }
 
 Value& ProjectWizardView::GetItemValue(const String& path) {
@@ -241,30 +267,41 @@ ValueArray& ProjectWizardView::GetItemOpts(const String& path) {
 
 ValueMap& ProjectWizardView::GetItem(const String& path) {
 	int a = path.Find(":");
-	String file_path = a >= 0 ? path.Left(a) : path;
-	String sub_item = a >= 0 ? path.Mid(a+1) : "item";
+	ASSERT(a >= 0);
+	String file_path = path.Left(a);
+	String sub_item = path.Mid(a+1);
 	ValueMap& map = ValueToMap(node->data.GetAdd(file_path));
 	ValueMap& item = ValueToMap(map.GetAdd(sub_item));
 	return item;
 }
 
-bool ProjectWizardView::MakeArgs(GenericPromptArgs& args, const ConfigurationNode& n) {
+ValueMap& ProjectWizardView::GetFile(const String& file_path) {
+	ASSERT(file_path.Find(":") < 0);
+	ValueMap& map = ValueToMap(node->data.GetAdd(file_path));
+	return map;
+}
+
+bool ProjectWizardView::MakeArgs(GenericPromptArgs& args, const FileNode& n) {
 	error.Clear();
-	for(const ConfigurationOption& o : n.options) {
+	
+	for(const ConfigurationOption& o : n.conf.options) {
 		if (o.type == ConfigurationOption::PROMPT_INPUT) {
 			String path = o.value;
-			const ConfigurationNode* n0 = FindConfigurationNode(path);
-			if (n0->read_options) {
+			const FileNode& n0 = RealizeFileNode(path);
+			if (n0.conf.read_options) {
 				MakeArgsOptions(args, n, o);
 			}
 			else {
+				if (n0.conf.is_dynamic) {
+					TODO
+				}
 				Value& val = GetItemValue(path);
 				String s = val.ToString();
 				if (s.IsEmpty()) {
 					error = "Value is empty at " + path;
 					return false;
 				}
-				auto& arr = args.lists.GetAdd(n0->GetFilePath() + ": " + n0->title);
+				auto& arr = args.lists.GetAdd(n0.GetFilePath() + ": " + n0.title);
 				arr.Clear();
 				arr << s;
 			}
@@ -292,14 +329,25 @@ bool ProjectWizardView::MakeArgs(GenericPromptArgs& args, const ConfigurationNod
 	return true;
 }
 
-bool ProjectWizardView::MakeArgsOptions(GenericPromptArgs& args, const ConfigurationNode& n, const ConfigurationOption& o) {
+bool ProjectWizardView::MakeArgsOptions(GenericPromptArgs& args, const FileNode& n, const ConfigurationOption& o) {
 	bool skip_dynamic_values = o.type == ConfigurationOption::PROMPT_INPUT_OPTIONS_FIXED;
 	String path = o.value;
-	const ConfigurationNode* n0 = FindConfigurationNode(path);
-	auto& arr = args.lists.GetAdd(n0->GetFilePath() + ": " + n0->title);
+	const FileNode* np = &RealizeFileNode(path);
+	if (np->conf.is_dynamic) {
+		ValueMap& item = GetItem(n.path);
+		String arg = item.GetAdd("src-arg");
+		if (arg.IsEmpty()) {
+			error = "No arg for dynamic file-node";
+			return false;
+		}
+		path += "[" + arg + "]";
+		np = &RealizeFileNode(path);
+	}
+	const FileNode& n0 = *np;
+	auto& arr = args.lists.GetAdd(n0.GetFilePath() + ": " + n0.title);
 	arr.Clear();
 	
-	for(const ConfigurationOption& o0 : n0->options) {
+	for(const ConfigurationOption& o0 : n0.conf.options) {
 		if (o0.type == ConfigurationOption::FIXED) {
 			String s = o0.value.ToString();
 			arr << s;
@@ -318,11 +366,11 @@ bool ProjectWizardView::MakeArgsOptions(GenericPromptArgs& args, const Configura
 				return false;
 			}
 			
-			if (!n0) {
+			/*if (!n0) {
 				error = ("No configuration node found with the path: " + path);
 				return false;
-			}
-			if (n0->title.IsEmpty()) {
+			}*/
+			if (n0.title.IsEmpty()) {
 				error = ("Configuration node title is empty for the path: " + path);
 				return false;
 			}
@@ -340,6 +388,50 @@ const ConfigurationNode* ProjectWizardView::FindConfigurationNode(const String& 
 	if (i >= 0)
 		return &GetConfs()[i];
 	return 0;
+}
+
+const FileNode* ProjectWizardView::FindFileNode(const String& path) {
+	int i = nodes.Find(path);
+	if (i >= 0)
+		return &nodes[i];
+	return 0;
+}
+
+FileNode& ProjectWizardView::RealizeFileNode(const String& path, const ConfigurationNode* cf) {
+	String title;
+	
+	if (!cf) {
+		const auto& confs = GetConfs();
+		
+		// Check for dynamic path
+		int a = path.Find("[");
+		if (a >= 0) {
+			String item_path = path.Left(a);
+			int b = path.Find(":");
+			ASSERT(b >= 0);
+			String file_path = item_path.Left(b);
+			ValueMap& file = GetFile(file_path);
+			
+			int i = confs.Find(item_path);
+			ASSERT_(i >= 0, "Dynamic item path not registered: " + item_path);
+			cf = &confs[i];
+			
+			ValueMap& dyn_item = GetItem(path);
+			title = dyn_item.GetAdd("title");
+			if (title.IsEmpty())
+				title = cf->title;
+		}
+		else {
+			int i = confs.Find(path);
+			cf = &confs[i];
+			title = cf->title;
+		}
+	}
+	
+	ASSERT(path.Find("[") < 0 || cf->is_dynamic);
+	
+	FileNode& n = nodes.Add(path, new FileNode(path, title, *cf));
+	return n;
 }
 
 
@@ -459,7 +551,7 @@ void ProjectWizardCtrl::DataFile() {
 	
 	String sub_file = files.Get(0);
 	file_path = AppendUnixFileName(file_dir, sub_file);
-	Index<String> item_list = GetItems(file_path);
+	Index<String> item_list = GetView().MakeItems(file_path);
 	
 	
 	// List items
@@ -510,14 +602,14 @@ void ProjectWizardCtrl::DataItem() {
 	String sub_item = items.Get(0);
 	item_path = file_path + ":" + sub_item;
 	const auto& confs = ProjectWizardView::GetConfs();
-	int i = confs.Find(item_path);
+	int i = view.nodes.Find(item_path);
 	
 	if (i < 0) {
 		options.Clear();
 		return;
 	}
 	
-	const ConfigurationNode& cf = confs[i];
+	const FileNode& cf = view.nodes[i];
 	
 	if (main_type == MAIN_OPTION_LIST) {
 		String value;
@@ -533,8 +625,8 @@ void ProjectWizardCtrl::DataItem() {
 		options.Clear();
 		int cursor = 0;
 		int row = 0;
-		for(int i = 0; i < cf.options.GetCount(); i++) {
-			const ConfigurationOption& opt = cf.options[i];
+		for(int i = 0; i < cf.conf.options.GetCount(); i++) {
+			const ConfigurationOption& opt = cf.conf.options[i];
 			String s = opt.value.ToString();
 			if (opt.type == ConfigurationOption::FIXED) {
 				options.Set(row++, 0, s);
@@ -680,29 +772,64 @@ Index<String> ProjectWizardCtrl::GetFiles(String dir) {
 	return res;
 }
 
-Index<String> ProjectWizardCtrl::GetItems(String file) {
+Index<String> ProjectWizardView::MakeItems(String file_path) {
 	Index<String> res;
-	ProjectWizardView& view = GetView();
-	if (file.IsEmpty()) file = "/";
-	if (file[file.GetCount()-1] != ':') file.Cat(':'); // separator between file and item
-	const char* k0 = file.Begin();
-	int c = file.GetCount();
-	const auto& confs = view.GetConfs();
-	for (const String& key : confs.GetKeys()) {
-		if (key.GetCount() >= c) {
+	if (file_path.IsEmpty()) file_path = "/";
+	ASSERT(file_path.Find(":") < 0);
+	ASSERT(file_path.Find("[") < 0);
+	String static_cmp = file_path + ":";
+	
+	nodes.Clear();
+	
+	// Static nodes
+	const char* k0 = static_cmp.Begin();
+	int c0 = static_cmp.GetCount();
+	const auto& confs = GetConfs();
+	for(int i = 0; i < confs.GetCount(); i++) {
+		const String& key = confs.GetKey(i);
+		const ConfigurationNode& cf = confs[i];
+		if (cf.is_dynamic)
+			continue;
+		
+		if (key.GetCount() >= c0) {
 			const char* k1 = key.Begin();
-			if (strncmp(k0, k1, c) == 0) {
-				String s = key.Mid(c);
+			if (strncmp(k0, k1, c0) == 0) {
+				String s = key.Mid(c0);
 				if (s.IsEmpty()) continue;
 				res.FindAdd(s);
+				
+				RealizeFileNode(cf.path, &cf);
 			}
 		}
 	}
+	
+	// Dynamic nodes
+	const auto& file = GetFile(file_path);
+	for(int i = 0; i < file.GetCount(); i++) {
+		String key = file.GetKey(i);
+		if (key.IsEmpty()) continue;
+		
+		if (key[key.GetCount()-1] == ']') {
+			int a = key.Find("[");
+			if (a < 0) continue;
+			
+			String rule_path = file_path + ":" + key.Left(a);
+			int j = confs.Find(rule_path);
+			if (j < 0) continue;
+			
+			String item_path = file_path + ":" + key;
+			res.FindAdd(key);
+			
+			RealizeFileNode(item_path, &confs[j]);
+		}
+	}
+	
 	return res;
 }
 
 void ProjectWizardCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Refresh"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
+	bar.Add(t_("Additional button function"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	
 }
 
@@ -713,14 +840,29 @@ ProjectWizardView& ProjectWizardCtrl::GetView() {
 
 void ProjectWizardCtrl::Do(int fn) {
 	if (fn == 0) {
-		const auto& confs = ProjectWizardView::GetConfs();
-		int i = confs.Find(item_path);
+		auto& nodes = GetView().nodes;
+		int i = nodes.Find(item_path);
 		if (i < 0)
 			return;
-		const ConfigurationNode& cf = confs[i];
-		for(const ConfigurationOption& opt : cf.options) {
+		const FileNode& cf = nodes[i];
+		for(const ConfigurationOption& opt : cf.conf.options) {
 			if (opt.type == ConfigurationOption::BUTTON_REFRESH) {
 				PostCallback(callback1(&GetView(), opt.fn, &cf));
+				PostCallback([this]{items.SetFocus();});
+				return;
+			}
+		}
+	}
+	else if (fn == 1) {
+		auto& nodes = GetView().nodes;
+		int i = nodes.Find(item_path);
+		if (i < 0)
+			return;
+		const FileNode& cf = nodes[i];
+		for(const ConfigurationOption& opt : cf.conf.options) {
+			if (opt.type == ConfigurationOption::BUTTON) {
+				PostCallback(callback1(&GetView(), opt.fn, &cf));
+				PostCallback([this]{items.SetFocus();});
 				return;
 			}
 		}

@@ -7,6 +7,7 @@ BEGIN_TEXTLIB_NAMESPACE
 
 class ProjectWizardView;
 struct ConfigurationNode;
+struct FileNode;
 
 
 struct ConfigurationOption {
@@ -26,7 +27,7 @@ struct ConfigurationOption {
 	
 	Type type = UNDEFINED;
 	Value value;
-	void(ProjectWizardView::*fn)(const ConfigurationNode*) = 0;
+	void(ProjectWizardView::*fn)(const FileNode*) = 0;
 };
 
 struct ConfigurationNode {
@@ -34,13 +35,11 @@ struct ConfigurationNode {
 	String title;
 	Array<ConfigurationOption> options;
 	bool read_options = false;
+	bool is_dynamic = false;
 	
-	String GetFilePath() const;
-	String GetAnyUserInputString() const;
-	String GetAnyUserPromptInputString() const;
 	ConfigurationNode& DefaultReadOptions();
 	ConfigurationNode& OptionFixed(Value v);
-	ConfigurationNode& OptionButton(Value v, void(ProjectWizardView::*fn)(const ConfigurationNode* n));
+	ConfigurationNode& OptionButton(Value v, void(ProjectWizardView::*fn)(const FileNode* n));
 	ConfigurationNode& OptionRefresh();
 	ConfigurationNode& OptionValueArray();
 	ConfigurationNode& OptionUserInputText();
@@ -52,10 +51,28 @@ struct ConfigurationNode {
 	ConfigurationNode& PromptInputUserText(String title);
 };
 
+struct FileNode {
+	const ConfigurationNode& conf;
+	String path;
+	String title;
+	
+	FileNode(String path, String title, const ConfigurationNode& conf) : conf(conf), path(path), title(title) {}
+	bool IsDynamic() const {return conf.is_dynamic;}
+	String GetFilePath() const;
+	String GetItemArg() const;
+	String GetAnyUserInputString() const;
+	String GetAnyUserPromptInputString() const;
+	
+};
+
 class ProjectWizardView : public NodeViewBase {
 	
 	String error;
 	
+	
+public:
+	ArrayMap<String, FileNode> nodes;
+	Index<String> MakeItems(String file);
 	
 public:
 	typedef ProjectWizardView CLASSNAME;
@@ -69,16 +86,21 @@ public:
 	static ArrayMap<String, ConfigurationNode>& GetConfs() {static ArrayMap<String, ConfigurationNode> m; return m;}
 	static ConfigurationNode& Register(String path, String title=String());
 	static const ConfigurationNode* FindConfigurationNode(const String& path);
+	static ConfigurationNode& RegisterDynamic(String path, String title=String());
 	
-	void DefaultDynamic(const ConfigurationNode* n);
-	void SplitComponents(const ConfigurationNode* n);
-	void SplitSubTasks(const ConfigurationNode* n);
-	bool MakeArgs(GenericPromptArgs& args, const ConfigurationNode& n);
-	bool MakeArgsOptions(GenericPromptArgs& args, const ConfigurationNode& n, const ConfigurationOption& o);
+	void DefaultDynamic(const FileNode* n);
+	void SplitComponents(const FileNode* n);
+	void SplitSubTasks(const FileNode* n);
+	bool MakeArgs(GenericPromptArgs& args, const FileNode& n);
+	bool MakeArgsOptions(GenericPromptArgs& args, const FileNode& n, const ConfigurationOption& o);
 	
+	ValueMap& GetFile(const String& path);
 	Value& GetItemValue(const String& path);
 	ValueMap& GetItem(const String& path);
 	ValueArray& GetItemOpts(const String& path);
+	FileNode& RealizeFileNode(const String& path, const ConfigurationNode* cf=0);
+	
+	const FileNode* FindFileNode(const String& path);
 	
 	Event<> WhenFile;
 	Event<> WhenOptions;
@@ -143,7 +165,6 @@ public:
 	
 	Index<String> GetDirectories(String dir);
 	Index<String> GetFiles(String dir);
-	Index<String> GetItems(String file);
 	
 	void SetView(int i);
 	int GetHistoryCursor(String path);
