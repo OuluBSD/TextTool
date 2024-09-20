@@ -180,7 +180,8 @@ void ProjectWizardView::DefaultDynamicPath(String path) {
 void ProjectWizardView::DefaultDynamic(const FileNode* n) {
 	LOG("ProjectWizardView::DefaultDynamic: \"" << n->path << "\"");
 	
-	ValueArray& opts = GetItemOpts(n->path);
+	String path = n->path;
+	ValueArray& opts = GetItemOpts(path);
 	opts.Clear();
 	
 	GenericPromptArgs args;
@@ -189,9 +190,9 @@ void ProjectWizardView::DefaultDynamic(const FileNode* n) {
 		return;
 	}
 	
-	String path = n->path;
 	TaskMgr& m = TaskMgr::Single();
-	m.GetGenericPrompt(args, [this, &opts, path](String res) {
+	m.GetGenericPrompt(args, [this, path](String res) {
+		ValueArray& opts = GetItemOpts(path);
 		//LOG(res);
 		
 		res.Replace("\r", "");
@@ -369,6 +370,27 @@ void ProjectWizardView::SplitDependencies(const FileNode* n) {
 				user_input = s1;
 			}
 		}
+	}
+	WhenFile();
+}
+
+void ProjectWizardView::SplitTechnologyCategories(const FileNode* n) {
+	const auto& confs = ProjectWizardView::GetConfs();
+	String file_path = n->GetFilePath();
+	ValueArray& arr = GetItemOpts(n->path);
+	for(int i = 0; i < arr.GetCount(); i++) {
+		String s =  arr[i].ToString();
+		RemoveColonTrail(s);
+		s = TrimBoth(s);
+		String sub_item = "Libraries[" + s + "]";
+		String item_path = file_path + ":" + sub_item;
+		const FileNode& n0 = RealizeFileNode(item_path);
+		String lbl_str = n0.GetAnyUserPromptInputString();
+		ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
+		ValueMap& map0 = GetItem(item_path);
+		map0.GetAdd("src-path") = n->GetItemPath();
+		Value& user_input = map0.GetAdd(lbl_str);
+		user_input = s;
 	}
 	WhenFile();
 }
@@ -695,6 +717,7 @@ void ProjectWizardCtrl::Data() {
 	
 	
 	DataDirectory();
+	//PostCallback([this]{dirs.SetFocus();});
 }
 
 void ProjectWizardCtrl::DataDirectory() {
@@ -719,6 +742,7 @@ void ProjectWizardCtrl::DataDirectory() {
 	
 	
 	DataFile();
+	//PostCallback([this]{files.SetFocus();});
 }
 
 void ProjectWizardCtrl::DataFile() {
@@ -769,7 +793,7 @@ void ProjectWizardCtrl::DataFile() {
 	
 	
 	DataItem();
-	PostCallback([this]{items.SetFocus();});
+	//PostCallback([this]{items.SetFocus();});
 }
 
 void ProjectWizardCtrl::DataItem() {
@@ -872,7 +896,7 @@ void ProjectWizardCtrl::DataOption() {
 	else {
 		option.SetData(options.Get(0));
 	}
-	PostCallback([this]{items.SetFocus();});
+	//PostCallback([this]{items.SetFocus();});
 }
 
 void ProjectWizardCtrl::OnOption() {

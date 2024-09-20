@@ -96,6 +96,7 @@ public:
 	void SplitAllSubComponents(const FileNode* n);
 	void SplitSubComponents(const FileNode* n);
 	void SplitDependencies(const FileNode* n);
+	void SplitTechnologyCategories(const FileNode* n);
 	bool MakeArgs(GenericPromptArgs& args, const FileNode& n);
 	bool MakeArgsOptions(GenericPromptArgs& args, const FileNode& n, const ConfigurationOption& o);
 	
