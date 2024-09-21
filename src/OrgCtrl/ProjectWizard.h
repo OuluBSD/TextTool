@@ -39,7 +39,7 @@ struct ConfigurationNode {
 	
 	ConfigurationNode& DefaultReadOptions();
 	ConfigurationNode& OptionFixed(Value v);
-	ConfigurationNode& OptionButton(Value v, void(ProjectWizardView::*fn)(const FileNode* n));
+	ConfigurationNode& OptionButton(Value v, void(ProjectWizardView::*fn)(const FileNode* n), bool is_refresh=false);
 	ConfigurationNode& OptionRefresh();
 	ConfigurationNode& OptionValueArray();
 	ConfigurationNode& OptionUserInputText();
@@ -47,7 +47,7 @@ struct ConfigurationNode {
 	ConfigurationNode& PromptInputAllPrevious();
 	ConfigurationNode& PromptInputOptionsLocalFixed();
 	ConfigurationNode& PromptInputOptions(String path);
-	ConfigurationNode& PromptResponse(String title);
+	ConfigurationNode& PromptResponse(String title, bool have_refresh=true);
 	ConfigurationNode& PromptInputUserText(String title);
 };
 
@@ -73,7 +73,7 @@ class ProjectWizardView : public NodeViewBase {
 	
 public:
 	ArrayMap<String, FileNode> nodes;
-	Index<String> MakeItems(String file);
+	Vector<String> MakeItems(String file);
 	
 public:
 	typedef ProjectWizardView CLASSNAME;
@@ -93,12 +93,16 @@ public:
 	void DefaultDynamic(const FileNode* n);
 	void ClearAllDynamic(const FileNode* n);
 	void SplitComponents(const FileNode* n);
-	void SplitAllSubComponents(const FileNode* n);
+	//void SplitAllSubComponents(const FileNode* n);
 	void SplitSubComponents(const FileNode* n);
 	void SplitDependencies(const FileNode* n);
 	void SplitTechnologyCategories(const FileNode* n);
+	void SplitUniqueComponents(const FileNode* n);
+	void GetAllClasses(const FileNode* n);
+	void SplitItems(const FileNode* n, String key);
 	bool MakeArgs(GenericPromptArgs& args, const FileNode& n);
 	bool MakeArgsOptions(GenericPromptArgs& args, const FileNode& n, const ConfigurationOption& o);
+	bool MakeArgsOptionsNode(GenericPromptArgs& args, bool skip_dynamic_values, const String& path, const FileNode& n0);
 	
 	ValueMap& GetFile(const String& path);
 	Value& GetFileValue(const String& path);

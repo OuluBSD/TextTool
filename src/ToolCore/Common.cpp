@@ -184,7 +184,7 @@ void RemoveLineNumber( String& s) {
 	if (s.IsEmpty()) return;
 	for(int i = 0; i < s.GetCount(); i++) {
 		if (!IsDigit(s[i])) {
-			if (s[i] == '.') {
+			if (s[i] == '.' || s[i] == ')') {
 				s = TrimBoth(s.Mid(i+1));
 				break;
 			}

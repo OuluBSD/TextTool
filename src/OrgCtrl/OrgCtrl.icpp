@@ -767,6 +767,7 @@ INITBLOCK {
 		//Examples of steps
 		//1. Identify the main components or modules of the project
 	ProjectWizardView::Register("/Plan/Client program:Main modules")
+		.DefaultReadOptions()
 		.OptionButton("Clear tasks and classes", &ProjectWizardView::ClearAllDynamic)
 		.PromptInput("/Idea/Product:Statement")
 		.PromptInput("/Requirements/Specific needs:Statement")
@@ -776,7 +777,8 @@ INITBLOCK {
 		.PromptInputAllPrevious()
 		.PromptResponse("List of main modules for the code of the client program")
 		.OptionButton("Split response to components", &ProjectWizardView::SplitComponents)
-		.OptionButton("Split components' responses to tasks and classes", &ProjectWizardView::SplitAllSubComponents);
+		//.OptionButton("Split components' responses to tasks and classes", &ProjectWizardView::SplitAllSubComponents)
+		;
 	
 	ProjectWizardView::RegisterDynamic("/Plan/Client program:Components")
 			.DefaultReadOptions()
@@ -788,7 +790,29 @@ INITBLOCK {
 			.PromptInputAllPrevious()
 			.PromptInputUserText("The main module in focus, which requires components to be defined")
 			.PromptResponse("List of components of the given main module")
-			.OptionButton("Split response to tasks and classes", &ProjectWizardView::SplitSubComponents);
+			//.OptionButton("Split response to tasks and classes", &ProjectWizardView::SplitSubComponents)
+			;
+	
+	ProjectWizardView::Register("/Plan/Client program:Unique components")
+			.DefaultReadOptions()
+			.PromptInputAllPrevious()
+			//.PromptInputUserText("The main module in focus, which requires components to be defined")
+			.PromptResponse("List of every module and their every unique component (module: component(s) (in one line)). A component can only belong to one module")
+			.OptionButton("Split response to tasks and classes", &ProjectWizardView::SplitUniqueComponents)
+			;
+	
+	ProjectWizardView::RegisterDynamic("/Plan/Client program:UniqueComponents")
+			.DefaultReadOptions()
+			.PromptInput("/Idea/Product:Statement")
+			.PromptInput("/Requirements/Specific needs:Statement")
+			.PromptInput("/Requirements/User experience:Statement")
+			.PromptInput("/Requirements/Features:Functionalities of the client application")
+			.PromptInput("/Requirements/Features:Classes and functions of the client program")
+			.PromptInputAllPrevious()
+			//.PromptInputUserText("The main module in focus, which requires components to be defined")
+			.PromptResponse("List of components of the given main module", false)
+			;
+	
 	
 	ProjectWizardView::RegisterDynamic("/Plan/Client program:Tasks")
 			.DefaultReadOptions()
@@ -797,7 +821,8 @@ INITBLOCK {
 			.PromptInput("/Requirements/User experience:Statement")
 			.PromptInput("/Requirements/Features:Functionalities of the client application")
 			.PromptInput("/Requirements/Features:Classes and functions of the client program")
-			.PromptInputAllPrevious()
+			.PromptInput("/Plan/Client program:Unique components")
+			//.PromptInputAllPrevious()
 			.PromptInputUserText("The main module in focus, which requires tasks to be defined")
 			.PromptResponse("List of tasks of the given main module");
 	
@@ -808,11 +833,23 @@ INITBLOCK {
 			.PromptInput("/Requirements/User experience:Statement")
 			.PromptInput("/Requirements/Features:Functionalities of the client application")
 			.PromptInput("/Requirements/Features:Classes and functions of the client program")
-			.PromptInput("/Plan/Client program:Components")
+			.PromptInput("/Plan/Client program:Unique components")
 			.PromptInput("/Plan/Client program:Tasks")
-			.PromptInputAllPrevious()
+			//.PromptInputAllPrevious()
 			.PromptInputUserText("The main component in focus, which requires classes to be defined")
-			.PromptResponse("List of classes of the given component module (name: description)");
+			.PromptResponse("List of classes of the given component module (name (in UpperCamelCase): description)");
+	
+	ProjectWizardView::Register("/Plan/Client program:All classes")
+			.DefaultReadOptions()
+			.OptionButton("Get all classes", &ProjectWizardView::GetAllClasses, true)
+			.PromptResponse("List of all classes", false);
+	
+	#if 0
+	ProjectWizardView::Register("/Plan/Client program:Unique classes")
+			.DefaultReadOptions()
+			.PromptInput("/Plan/Client program:All classes")
+			.PromptResponse("List of all unique classes (names only). Merge almost same classes to one");
+	#endif
 	
 		//5. Consider any potential sub-tasks or sub-components
 	
@@ -848,7 +885,7 @@ INITBLOCK {
 		.PromptInput("/Plan/Hierarchy:Tasks")
 		//.PromptInputAllPrevious()
 		.PromptInputUserText("The module in focus, which requires hierarchical dependencies to be defined")
-		.PromptResponse("List of every hierarchical dependency between items in the given Classes list (class a -> class b: description)");
+		.PromptResponse("List of every hierarchical dependency between items in the given Classes list (class a (in UpperCamelCase) -> class b (in UpperCamelCase): description). Ignore hierarchy in");
 	
 		//Examples of steps
 		//1. Determine which tasks are dependent on each other

@@ -25,7 +25,7 @@ String FileNode::GetItemArg() const {
 		if (b >= 0)
 			return path.Mid(a,b-a);
 	}
-	return path;
+	return "";
 }
 
 String FileNode::GetAnyUserInputString() const {
@@ -54,9 +54,9 @@ ConfigurationNode& ConfigurationNode::OptionFixed(Value v) {
 	return *this;
 }
 
-ConfigurationNode& ConfigurationNode::OptionButton(Value v, void(ProjectWizardView::*fn)(const FileNode* n)) {
+ConfigurationNode& ConfigurationNode::OptionButton(Value v, void(ProjectWizardView::*fn)(const FileNode* n), bool is_refresh) {
 	ConfigurationOption& opt = options.Add();
-	opt.type = ConfigurationOption::BUTTON;
+	opt.type = is_refresh ? ConfigurationOption::BUTTON_REFRESH : ConfigurationOption::BUTTON;
 	opt.value = v;
 	opt.fn = fn;
 	return *this;
@@ -128,11 +128,12 @@ ConfigurationNode& ConfigurationNode::PromptInputOptions(String path) {
 	return *this;
 }
 
-ConfigurationNode& ConfigurationNode::PromptResponse(String s) {
+ConfigurationNode& ConfigurationNode::PromptResponse(String s, bool have_refresh) {
 	ConfigurationOption& opt = options.Add();
 	opt.type = ConfigurationOption::PROMPT_RESPONSE;
 	opt.value = s;
-	OptionRefresh();
+	if (have_refresh)
+		OptionRefresh();
 	return *this;
 }
 
@@ -200,7 +201,7 @@ void ProjectWizardView::DefaultDynamic(const FileNode* n) {
 		if (a >= 0)
 			res = res.Left(a);
 		
-		if (res.Find("\n- 2.") >= 0) {
+		if (res.Find("\n- 2.") >= 0 || res.Find("\n- 2)") >= 0) {
 			RemoveEmptyLines3(res);
 			RemoveEmptyLines2(res);
 		}
@@ -255,26 +256,10 @@ void ProjectWizardView::ClearAllDynamic(const FileNode* n) {
 }
 
 void ProjectWizardView::SplitComponents(const FileNode* n) {
-	const auto& confs = ProjectWizardView::GetConfs();
-	String file_path = n->GetFilePath();
-	ValueArray& arr = GetItemOpts(n->path);
-	for(int i = 0; i < arr.GetCount(); i++) {
-		String s =  arr[i].ToString();
-		RemoveColonTrail(s);
-		s = TrimBoth(s);
-		String sub_item = "Components[" + s + "]";
-		String item_path = file_path + ":" + sub_item;
-		const FileNode& n0 = RealizeFileNode(item_path);
-		String lbl_str = n0.GetAnyUserPromptInputString();
-		ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
-		ValueMap& map0 = GetItem(item_path);
-		map0.GetAdd("src-path") = n->GetItemPath();
-		Value& user_input = map0.GetAdd(lbl_str);
-		user_input = s;
-	}
-	WhenFile();
+	SplitItems(n, "Components");
 }
 
+#if 0
 void ProjectWizardView::SplitAllSubComponents(const FileNode* n) {
 	const auto& confs = ProjectWizardView::GetConfs();
 	String file_path = n->GetFilePath();
@@ -306,6 +291,7 @@ void ProjectWizardView::SplitAllSubComponents(const FileNode* n) {
 	}
 	WhenFile();
 }
+#endif
 
 void ProjectWizardView::SplitSubComponents(const FileNode* n) {
 	const auto& confs = ProjectWizardView::GetConfs();
@@ -344,13 +330,13 @@ void ProjectWizardView::SplitSubComponents(const FileNode* n) {
 void ProjectWizardView::SplitDependencies(const FileNode* n) {
 	const auto& confs = ProjectWizardView::GetConfs();
 	String file_path = n->GetFilePath();
-	ValueArray& arr0 = GetItemOpts("/Plan/Client program:Main modules");
+	ValueArray& arr0 = GetItemOpts("/Plan/Client program:Unique components");
 	for(int i = 0; i < arr0.GetCount(); i++) {
 		String s0 =  arr0[i].ToString();
 		RemoveColonTrail(s0);
 		s0 = TrimBoth(s0);
 		for (int k = 0; k < 2; k++) {
-			String sub_item0 = "Components[" + s0 + "]";
+			String sub_item0 = "UniqueComponents[" + s0 + "]";
 			String item_path0 = "/Plan/Client program:" + sub_item0;
 			ValueArray& arr1 = GetItemOpts(item_path0);
 			for(int j = 0; j < arr1.GetCount(); j++) {
@@ -374,7 +360,7 @@ void ProjectWizardView::SplitDependencies(const FileNode* n) {
 	WhenFile();
 }
 
-void ProjectWizardView::SplitTechnologyCategories(const FileNode* n) {
+void ProjectWizardView::SplitItems(const FileNode* n, String key) {
 	const auto& confs = ProjectWizardView::GetConfs();
 	String file_path = n->GetFilePath();
 	ValueArray& arr = GetItemOpts(n->path);
@@ -382,7 +368,7 @@ void ProjectWizardView::SplitTechnologyCategories(const FileNode* n) {
 		String s =  arr[i].ToString();
 		RemoveColonTrail(s);
 		s = TrimBoth(s);
-		String sub_item = "Libraries[" + s + "]";
+		String sub_item = key + "[" + s + "]";
 		String item_path = file_path + ":" + sub_item;
 		const FileNode& n0 = RealizeFileNode(item_path);
 		String lbl_str = n0.GetAnyUserPromptInputString();
@@ -392,6 +378,90 @@ void ProjectWizardView::SplitTechnologyCategories(const FileNode* n) {
 		Value& user_input = map0.GetAdd(lbl_str);
 		user_input = s;
 	}
+	WhenFile();
+}
+
+void ProjectWizardView::SplitTechnologyCategories(const FileNode* n) {
+	SplitItems(n, "Libraries");
+}
+
+void ProjectWizardView::SplitUniqueComponents(const FileNode* n) {
+	const auto& confs = ProjectWizardView::GetConfs();
+	String file_path = n->GetFilePath();
+	ValueArray& arr0 = GetItemOpts("/Plan/Client program:Unique components");
+	for(int i = 0; i < arr0.GetCount(); i++) {
+		String s =  arr0[i].ToString();
+		int a = s.Find(":");
+		if (a < 0) continue;
+		String comp_name = s.Left(a);
+		String sub_item0 = "UniqueComponents[" + comp_name + "]";
+		String item_path0 = "/Plan/Client program:" + sub_item0;
+		
+		Vector<String> classes = Split(s.Mid(a+1), ",");
+		ValueArray& arr1 = GetItemOpts(item_path0);
+		arr1.Clear();
+		for(int j = 0; j < classes.GetCount(); j++) {
+			String& cls_name = classes[j];
+			cls_name = Capitalize(TrimBoth(cls_name));
+			cls_name.Replace("/", " or ");
+			cls_name.Replace("  ", " ");
+			arr1.Add(cls_name);
+		}
+		for(int j = 0; j < arr1.GetCount(); j++) {
+			String src_path = item_path0;
+			for (int k = 0; k < 2; k++) {
+				String s1 = arr1[j];
+				RemoveColonTrail(s1);
+				s1 = TrimBoth(s1);
+				String key = k == 1 ? "Classes" : "Tasks";
+				String sub_item1 = key + "[" + s1 + "]";
+				String item_path1 = "/Plan/Client program:" + sub_item1;
+				const FileNode& n0 = RealizeFileNode(item_path1);
+				String lbl_str = n0.GetAnyUserPromptInputString();
+				ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
+				ValueMap& map0 = GetItem(item_path1);
+				map0.GetAdd("src-path") = src_path;
+				Value& user_input = map0.GetAdd(lbl_str);
+				user_input = s1;
+				src_path = item_path1;
+			}
+		}
+	}
+	WhenFile();
+}
+
+void ProjectWizardView::GetAllClasses(const FileNode* n) {
+	Vector<String> items = MakeItems("/Plan/Client program");
+	Index<String> cls_names;
+	for (String& item : items) {
+		if (item.Left(8) != "Classes[")
+			continue;
+		String item_path = "/Plan/Client program:" + item;
+		ValueArray& opts = GetItemOpts(item_path);
+		
+		for(int i = 0; i < opts.GetCount(); i++) {
+			String cls = opts[i];
+			
+			if (cls.IsEmpty()) continue;
+			int chr = cls[0];
+			if (!IsDigit(chr) && !IsAlpha(chr))
+				continue;
+			
+			int a = cls.Find(":");
+			if (a >= 0)
+				cls = cls.Left(a);
+			
+			cls_names.FindAdd(cls);
+		}
+	}
+	
+	SortIndex(cls_names, StdLess<String>());
+	
+	ValueArray& opts = GetItemOpts("/Plan/Client program:All classes");
+	opts.Clear();
+	for(int i = 0; i < cls_names.GetCount(); i++)
+		opts.Add(cls_names[i]);
+	
 	WhenFile();
 }
 
@@ -495,9 +565,30 @@ bool ProjectWizardView::MakeArgsOptions(GenericPromptArgs& args, const FileNode&
 		if (!success) {
 			String arg = n.GetItemArg();
 			if (arg.GetCount()) {
-				path += "[" + arg + "]";
-				np = FindFileNode(path);
-				if (np) success = true;
+				String s = path + "[" + arg + "]";
+				np = FindFileNode(s);
+				if (np) {
+					path = s;
+					success = true;
+				}
+			}
+		}
+		if (!success) {
+			int a = path.Find(":");
+			if (a >= 0) {
+				String file_path = path.Left(a);
+				String item_path = path.Mid(a+1);
+				Vector<String> items = MakeItems(file_path);
+				String comp = item_path + "[";
+				for (String item : items) {
+					if (item.Find(comp) == 0) {
+						String path0 = file_path + ":" + item;
+						FileNode& n0 = RealizeFileNode(path0);
+						if (!MakeArgsOptionsNode(args, skip_dynamic_values, path0, n0))
+							return false;
+					}
+				}
+				return true;
 			}
 		}
 		if (!success) {
@@ -505,7 +596,11 @@ bool ProjectWizardView::MakeArgsOptions(GenericPromptArgs& args, const FileNode&
 			return false;
 		}
 	}
-	const FileNode& n0 = *np;
+	
+	return MakeArgsOptionsNode(args, skip_dynamic_values, path, *np);
+}
+
+bool ProjectWizardView::MakeArgsOptionsNode(GenericPromptArgs& args, bool skip_dynamic_values, const String& path, const FileNode& n0) {
 	auto& arr = args.lists.GetAdd(path);
 	arr.Clear();
 	
@@ -754,7 +849,7 @@ void ProjectWizardCtrl::DataFile() {
 	
 	String sub_file = files.Get(0);
 	file_path = AppendUnixFileName(file_dir, sub_file);
-	Index<String> item_list = GetView().MakeItems(file_path);
+	Vector<String> item_list = GetView().MakeItems(file_path);
 	
 	
 	// List items
@@ -985,8 +1080,8 @@ Index<String> ProjectWizardCtrl::GetFiles(String dir) {
 	return res;
 }
 
-Index<String> ProjectWizardView::MakeItems(String file_path) {
-	Index<String> res;
+Vector<String> ProjectWizardView::MakeItems(String file_path) {
+	VectorMap<String,String> res;
 	if (file_path.IsEmpty()) file_path = "/";
 	ASSERT(file_path.Find(":") < 0);
 	ASSERT(file_path.Find("[") < 0);
@@ -1009,7 +1104,7 @@ Index<String> ProjectWizardView::MakeItems(String file_path) {
 			if (strncmp(k0, k1, c0) == 0) {
 				String s = key.Mid(c0);
 				if (s.IsEmpty()) continue;
-				res.FindAdd(s);
+				res.GetAdd(s) = Format("%05d", i);
 				
 				RealizeFileNode(cf.path, &cf);
 			}
@@ -1031,13 +1126,22 @@ Index<String> ProjectWizardView::MakeItems(String file_path) {
 			if (j < 0) continue;
 			
 			String item_path = file_path + ":" + key;
-			res.FindAdd(key);
 			
-			RealizeFileNode(item_path, &confs[j]);
+			FileNode& n0 = RealizeFileNode(item_path, &confs[j]);
+			for(int j = 0; j < confs.GetCount(); j++) {
+				if (&confs[j] == &n0.conf) {
+					res.GetAdd(key) = Format("%05d-%s", j, item_path);
+					break;
+				}
+			}
 		}
 	}
 	
-	return res;
+	SortByValue(res, StdLess<String>());
+	
+	Vector<String> v;
+	v <<= res.GetKeys();
+	return v;
 }
 
 void ProjectWizardCtrl::ToolMenu(Bar& bar) {
@@ -1084,7 +1188,7 @@ void ProjectWizardCtrl::Do(int fn) {
 	else if (fn == 2) {
 		auto& view = GetView();
 		cb_queue.Clear();
-		Index<String> item_list = view.MakeItems(file_path);
+		Vector<String> item_list = view.MakeItems(file_path);
 		for(String sub_item : item_list) {
 			String item_path = file_path + ":" + sub_item;
 			FileNode& cf = view.RealizeFileNode(item_path);
