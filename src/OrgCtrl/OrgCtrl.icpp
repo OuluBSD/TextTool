@@ -16,6 +16,9 @@ INITBLOCK {
 	NodeFactory::Register<FileCtrl,FileView>("File", NODE_FILE);
 	NodeFactory::Register<DebugCtrl,DebugView>("Debug", NODE_DEBUG);
 	NodeFactory::Register<ProjectWizardCtrl,ProjectWizardView>("Project Wizard", NODE_WIZARD);
+	NodeFactory::Register<DirectoryCtrl,DirectoryView>("Directory", NODE_DIRECTORY);
+	NodeFactory::Register<ModuleCtrl,ModuleView>("Module", NODE_MODULE);
+	NodeFactory::Register<ClassCtrl,ClassView>("Class", NODE_CLASS);
 	
 	ProjectWizardView::RegisterCategory("dummy", "Dummy values for testing only");
 	ProjectWizardView::Register("/dummy 0/example0:item 0", "3 fixed options")
@@ -907,6 +910,10 @@ INITBLOCK {
 	#endif
 	
 
+	ProjectWizardView::Register("/File tree/Builder:Build structure")
+		.OptionButton("Build structure", &ProjectWizardView::BuildStructure, true);
+	
+	
 	// Determine project structure and organization
 	
 	//// Consider the size and complexity of the project

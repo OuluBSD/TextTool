@@ -33,3 +33,15 @@ LAYOUT(File, 400, 200)
 	ITEM(Upp::Label, dv___2, SetLabel(t_("Description:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(8, 80).TopPosZ(20, 24))
 END_LAYOUT
 
+LAYOUT(Class, 472, 228)
+	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Class")).HSizePosZ(4, 4).VSizePosZ(8, 4))
+	ITEM(Upp::Label, dv___1, SetLabel(t_("Max depth:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 80).TopPosZ(24, 24))
+	ITEM(Upp::EditInt, max_depth, SetEditable(false).LeftPosZ(96, 60).TopPosZ(24, 24))
+	ITEM(Upp::Label, dv___3, SetLabel(t_("Description:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 80).TopPosZ(52, 24))
+	ITEM(Upp::DocEdit, description, SetEditable(false).HSizePosZ(96, 8).TopPosZ(52, 68))
+	ITEM(Upp::Label, dv___5, SetLabel(t_("Dependencies:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 80).TopPosZ(124, 24))
+	ITEM(Upp::ArrayCtrl, deps, LeftPosZ(96, 116).VSizePosZ(124, 8))
+	ITEM(Upp::Label, dv___7, SetLabel(t_("Dependend by:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(216, 80).TopPosZ(124, 24))
+	ITEM(Upp::ArrayCtrl, dep_bys, LeftPosZ(300, 116).VSizePosZ(124, 8))
+END_LAYOUT
+

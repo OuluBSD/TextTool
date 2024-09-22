@@ -22,6 +22,8 @@ Image GetNodeImage(NodeType n) {
 		case NODE_FILE: return OrgLibImgs::file();
 		case NODE_DEBUG: return OrgLibImgs::debug();
 		case NODE_WIZARD: return OrgLibImgs::wizard();
+		case NODE_DIRECTORY: return OrgLibImgs::directory();
+		case NODE_MODULE: return OrgLibImgs::module_();
 		
 		case NODE_GEN_USER_ENTRY_POINT: return OrgLibImgs::entrypoint();
 		case NODE_GEN_FEATURES: return OrgLibImgs::features();

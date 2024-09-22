@@ -24,6 +24,9 @@
 #include "FileNode.h"
 #include "DebugNode.h"
 #include "ProjectWizard.h"
+#include "Directory.h"
+#include "Module.h"
+#include "Class.h"
 
 
 #endif

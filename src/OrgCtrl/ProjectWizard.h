@@ -99,10 +99,12 @@ public:
 	void SplitTechnologyCategories(const FileNode* n);
 	void SplitUniqueComponents(const FileNode* n);
 	void GetAllClasses(const FileNode* n);
+	void BuildStructure(const FileNode* n);
 	void SplitItems(const FileNode* n, String key);
 	bool MakeArgs(GenericPromptArgs& args, const FileNode& n);
 	bool MakeArgsOptions(GenericPromptArgs& args, const FileNode& n, const ConfigurationOption& o);
 	bool MakeArgsOptionsNode(GenericPromptArgs& args, bool skip_dynamic_values, const String& path, const FileNode& n0);
+	Node& RealizeNode(const String& path);
 	
 	ValueMap& GetFile(const String& path);
 	Value& GetFileValue(const String& path);
@@ -113,6 +115,7 @@ public:
 	FileNode* FindFileNode(const String& path);
 	
 	Event<> WhenFile;
+	Event<> WhenTree;
 	Event<> WhenOptions;
 	Event<> WhenCallbackReady;
 };
@@ -173,6 +176,7 @@ public:
 	void DataOption();
 	void OnOption();
 	void OnCallbackReady();
+	void OnTreeChange();
 	void ToolMenu(Bar& bar) override;
 	void Do(int fn);
 	

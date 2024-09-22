@@ -465,6 +465,196 @@ void ProjectWizardView::GetAllClasses(const FileNode* n) {
 	WhenFile();
 }
 
+void VisitDepth(int cur_depth, int& max_depth, String cur_cls, const VectorMap<String, Index<String>>& cls_deps, Vector<String>& visited) {
+	if (VectorFind(visited, cur_cls) >= 0)
+		return;
+	
+	max_depth = max(max_depth, cur_depth);
+	if (max_depth >= 10)
+		return;
+	
+	visited.Add(cur_cls);
+	
+	int i = cls_deps.Find(cur_cls);
+	if (i >= 0) {
+		const auto& deps = cls_deps[i];
+		for(int i = 0; i < deps.GetCount(); i++) {
+			VisitDepth(cur_depth+1, max_depth, deps[i], cls_deps, visited);
+		}
+	}
+	
+	//visited.Remove(visited.GetCount()-1);
+}
+
+void ProjectWizardView::BuildStructure(const FileNode* n) {
+	VectorMap<String, Index<String>> cls_deps, cls_dep_bys, component_classes;
+	VectorMap<String, String> cls_descs;
+	
+	ValueArray& all_classes = GetItemOpts("/Plan/Client program:All classes");
+	if (all_classes.IsEmpty()) {
+		PromptOK("Error: No classes");
+		return;
+	}
+	
+	{
+		Index<String> found_classes;
+		Vector<String> components = MakeItems("/Plan/Client program");
+		Vector<int> rm_list;
+		for(int i = 0; i < components.GetCount(); i++) {
+			if (components[i].Left(8) != "Classes[") {
+				rm_list << i;
+				continue;
+			}
+		}
+		components.Remove(rm_list);
+		if (components.IsEmpty()) {
+			PromptOK("Error: No components");
+			return;
+		}
+		for (String& comp : components) {
+			ValueArray& all_classes = GetItemOpts("/Plan/Client program:" + comp);
+			for(int i = 0; i < all_classes.GetCount(); i++) {
+				String cls_name = all_classes.Get(i);
+				String desc;
+				int b = cls_name.Find(":");
+				if (b >= 0) {
+					desc = Capitalize(TrimBoth(cls_name.Mid(b+1)));
+					cls_name = cls_name.Left(b);
+				}
+				cls_name = TrimBoth(cls_name);
+				int j = found_classes.Find(cls_name);
+				if (j >= 0)
+					continue;
+				found_classes.FindAdd(cls_name); // class belongs to only one module/component
+				component_classes.GetAdd(comp).FindAdd(cls_name);
+				
+				String& d = cls_descs.GetAdd(cls_name);
+				if (d.IsEmpty())
+					d = desc;
+			}
+		}
+	}
+	{
+		Vector<String> components = MakeItems("/Plan/Hierarchy");
+		Vector<int> rm_list;
+		for(int i = 0; i < components.GetCount(); i++) {
+			if (components[i].Left(8) != "Classes[") {
+				rm_list << i;
+				continue;
+			}
+		}
+		components.Remove(rm_list);
+		if (components.IsEmpty()) {
+			PromptOK("Error: No components");
+			return;
+		}
+		
+		
+		
+		for (String& comp : components) {
+			ValueArray& all_classes = GetItemOpts("/Plan/Hierarchy:" + comp);
+			for(int i = 0; i < all_classes.GetCount(); i++) {
+				String dep_str = all_classes.Get(i);
+				String desc;
+				int b = dep_str.Find(":");
+				if (b >= 0) {
+					desc = TrimBoth(dep_str.Mid(b+1));
+					dep_str = dep_str.Left(b);
+				}
+				
+				int a = dep_str.Find("->");
+				if (a < 0) continue;
+				
+				String from = TrimBoth(dep_str.Left(a));
+				String to = TrimBoth(dep_str.Mid(a+2));
+				
+				cls_deps.GetAdd(from).FindAdd(to);
+				cls_dep_bys.GetAdd(to).FindAdd(from);
+			}
+		}
+	}
+	
+	//DUMPCC(component_classes);
+	//DUMPCC(cls_deps);
+	
+	
+	
+	Node& root = RealizeNode("/assembly");
+	
+	root.sub.Clear();
+	root.data.Clear();
+	
+	for(int i = 0; i < component_classes.GetCount(); i++) {
+		String comp_name = component_classes.GetKey(i);
+		int a = comp_name.Find("[");
+		if (a >= 0) {
+			a++;
+			int b = comp_name.ReverseFind("]");
+			if (b >= 0)
+				comp_name = TrimBoth(comp_name.Mid(a, b-a));
+		}
+		Node& comp = root.GetAddNode(comp_name, NODE_MODULE);
+		const auto& classes = component_classes[i];
+		
+		// Solve class order by depth
+		VectorMap<String, int> class_depths;
+		for(int j = 0; j < classes.GetCount(); j++) {
+			const String& cls_name = classes[j];
+			int max_depth = 0;
+			Vector<String> visited;
+			VisitDepth(0, max_depth, cls_name, cls_deps, visited);
+			class_depths.GetAdd(cls_name, max_depth);
+		}
+		SortByValue(class_depths, StdLess<int>());
+		
+		// Add classes
+		for(int j = 0; j < class_depths.GetCount(); j++) {
+			const String& cls_name = class_depths.GetKey(j);
+			Node& cls = comp.GetAddNode(cls_name, NODE_CLASS);
+			
+			int depth = class_depths.Get(cls_name);;
+			
+			cls.data.GetAdd("max_depth") = depth;
+			cls.data.GetAdd("description") = cls_descs.Get(cls_name);
+			ValueArray& deps = ValueToArray(cls.data.GetAdd("deps"));
+			ValueArray& dep_bys = ValueToArray(cls.data.GetAdd("dep_bys"));
+			
+			int k = cls_deps.Find(cls_name);
+			if (k >= 0) {
+				const auto& dep_list = cls_deps[k];
+				for(int k = 0; k < dep_list.GetCount(); k++) {
+					deps.Add(dep_list[k]);
+				}
+			}
+			
+			k = cls_dep_bys.Find(cls_name);
+			if (k >= 0) {
+				const auto& dep_list = cls_dep_bys[k];
+				for(int k = 0; k < dep_list.GetCount(); k++) {
+					dep_bys.Add(dep_list[k]);
+				}
+			}
+		}
+	}
+	
+	WhenTree();
+}
+
+Node& ProjectWizardView::RealizeNode(const String& path) {
+	Node* n = this->node;
+	ASSERT(n);
+	while (n->owner)
+		n = n->owner;
+	ASSERT(path.GetCount());
+	if (path[0] == '/') {
+		Vector<String> parts = Split(path, "/");
+		for (String& part : parts)
+			n = &n->GetAddNode(part, NODE_DIRECTORY);
+	}
+	else TODO;
+	return *n;
+}
+
 Value& ProjectWizardView::GetItemValue(const String& path) {
 	Value& val = GetItem(path).GetAdd("value");
 	return val;
@@ -797,6 +987,7 @@ void ProjectWizardCtrl::Data() {
 	view.WhenFile = [this]{PostCallback(THISBACK(DataFile));};
 	view.WhenOptions = [this]{PostCallback(THISBACK(DataItem));};
 	view.WhenCallbackReady = THISBACK(OnCallbackReady);
+	view.WhenTree = THISBACK(OnTreeChange);
 	
 	Index<String> dir_list = GetDirectories(cwd);
 	
@@ -1024,6 +1215,11 @@ void ProjectWizardCtrl::OnCallbackReady() {
 	auto cb = cb_queue[0];
 	cb_queue.Remove(0);
 	PostCallback(cb);
+}
+
+void ProjectWizardCtrl::OnTreeChange() {
+	if (org)
+		PostCallback(callback(org, &OrganizationCtrl::Data));
 }
 
 Index<String> ProjectWizardCtrl::GetDirectories(String dir) {

@@ -34,5 +34,11 @@ file
 	FileListNode.cpp,
 	FileNode.h,
 	FileNode.cpp,
+	Directory.h,
+	Directory.cpp,
+	Module.h,
+	Module.cpp,
+	Class.h,
+	Class.cpp,
 	_ readonly separator;
 

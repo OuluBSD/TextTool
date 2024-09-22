@@ -132,9 +132,15 @@ void OrganizationCtrl::DataPackage() {
 }
 
 void OrganizationCtrl::AddNodeToList(int cur, Node& n) {
-	String name = GetNodeName(n.type);
-	if (!n.name.IsEmpty())
-		name += ": " + n.name;
+	String name;
+	if (0) {
+		name = GetNodeName(n.type);
+		if (!n.name.IsEmpty())
+			name += ": " + n.name;
+	}
+	else {
+		name = n.name;
+	}
 	int ncur = nodes.Add(cur, GetNodeImage(n.type), name);
 	AddNodeSubToList(ncur, n);
 }
@@ -176,7 +182,6 @@ void OrganizationCtrl::DataNode() {
 	Node& n = *node_ptrs[i];
 	if (n.ff_i < 0) {
 		n.ff_i = 0;
-		return;
 	}
 	if (cur_view == n.type && cur_ff == n.ff_i) {
 		DataView();
