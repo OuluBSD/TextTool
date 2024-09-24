@@ -14,6 +14,7 @@ struct NodeViewBase {
 	virtual void Data() = 0;
 	
 	void SetNode(Node* n) {node = n;}
+	void Init(Node& n, OrganizationCtrl* org) {node = &n; this->org = org;}
 	
 	Node* node = 0;
 	OrganizationCtrl* org = 0;

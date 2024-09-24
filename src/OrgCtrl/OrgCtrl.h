@@ -27,6 +27,7 @@
 #include "Directory.h"
 #include "Module.h"
 #include "Class.h"
+#include "Package.h"
 
 
 #endif

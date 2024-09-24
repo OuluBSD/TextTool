@@ -19,6 +19,7 @@ INITBLOCK {
 	NodeFactory::Register<DirectoryCtrl,DirectoryView>("Directory", NODE_DIRECTORY);
 	NodeFactory::Register<ModuleCtrl,ModuleView>("Module", NODE_MODULE);
 	NodeFactory::Register<ClassCtrl,ClassView>("Class", NODE_CLASS);
+	NodeFactory::Register<PackageCtrl,PackageView>("Package", NODE_PACKAGE);
 	
 	ProjectWizardView::RegisterCategory("dummy", "Dummy values for testing only");
 	ProjectWizardView::Register("/dummy 0/example0:item 0", "3 fixed options")
@@ -909,7 +910,33 @@ INITBLOCK {
 	
 	#endif
 	
-
+	
+	ProjectWizardView::Register("/File tree/Builder:All components")
+		.DefaultReadOptions()
+		.OptionButton("Get all components", &ProjectWizardView::GetAllComponents, true)
+		.PromptResponse("", false);
+	
+	ProjectWizardView::Register("/File tree/Builder:All components (filenames)")
+		.DefaultReadOptions()
+		.PromptInput("/File tree/Builder:All components")
+		.PromptResponse("List of all components in UpperCamelCase");
+	
+	ProjectWizardView::Register("/File tree/Builder:Package components")
+		.DefaultReadOptions()
+		.PromptInput("/File tree/Builder:All components (filenames)")
+		.PromptResponse("List of packages with their components (package: component(s))");
+	
+	ProjectWizardView::Register("/File tree/Builder:Packages")
+		.DefaultReadOptions()
+		.PromptInput("/File tree/Builder:Package components")
+		.OptionButton("Get package names", &ProjectWizardView::GetPackageNames, true)
+		.PromptResponse("", false);
+	
+	ProjectWizardView::Register("/File tree/Builder:Package dependencies")
+		.DefaultReadOptions()
+		.PromptInput("/File tree/Builder:Packages")
+		.PromptResponse("List of hierarchical dependencies of packages (package a -> requires package b)");
+	
 	ProjectWizardView::Register("/File tree/Builder:Build structure")
 		.OptionButton("Build structure", &ProjectWizardView::BuildStructure, true);
 	

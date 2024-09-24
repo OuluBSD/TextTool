@@ -577,67 +577,166 @@ void ProjectWizardView::BuildStructure(const FileNode* n) {
 	//DUMPCC(component_classes);
 	//DUMPCC(cls_deps);
 	
+	ValueArray& pkgs = GetItemOpts("/File tree/Builder:Packages");
+	ValueArray& pkg_deps = GetItemOpts("/File tree/Builder:Package dependencies");
+	ValueArray& pkg_comp_arr = GetItemOpts("/File tree/Builder:Package components");
+	ValueArray& all_comps = GetItemOpts("/File tree/Builder:All components");
+	ValueArray& all_comp_types = GetItemOpts("/File tree/Builder:All components (filenames)");
 	
+	VectorMap<String,String> comp_type_to_name;
+	int c = min(all_comps.GetCount(), all_comp_types.GetCount());
+	for(int i = 0; i < c; i++) {
+		comp_type_to_name.Add(all_comp_types[i], all_comps[i]);
+	}
+	
+	VectorMap<String, Index<String>> pkg_comps;
+	for(int i = 0; i < pkg_comp_arr.GetCount(); i++) {
+		String s = pkg_comp_arr[i];
+		int a = s.Find(":");
+		if (a < 0) continue;
+		String pkg_name = TrimBoth(s.Left(a));
+		String list = TrimBoth(s.Mid(a+1));
+		Vector<String> comps = Split(list, ",");
+		for (String& comp : comps) {
+			comp = TrimBoth(comp);
+			pkg_comps.GetAdd(pkg_name).FindAdd(comp);
+		}
+	}
 	
 	Node& root = RealizeNode("/assembly");
-	
 	root.sub.Clear();
 	root.data.Clear();
 	
-	for(int i = 0; i < component_classes.GetCount(); i++) {
-		String comp_name = component_classes.GetKey(i);
-		int a = comp_name.Find("[");
-		if (a >= 0) {
-			a++;
-			int b = comp_name.ReverseFind("]");
-			if (b >= 0)
-				comp_name = TrimBoth(comp_name.Mid(a, b-a));
-		}
-		Node& comp = root.GetAddNode(comp_name, NODE_MODULE);
-		const auto& classes = component_classes[i];
+	
+	String main_pkg = "MainApplication";
+	Node& prj_file = root.GetAddNode(main_pkg, NODE_EXPORTER);
+	String dir = GetHomeDirFile("MyAssembly");
+	RealizeDirectory(dir);
+	prj_file.data.Add("assembly", dir);
+	prj_file.data.Add("main-package", main_pkg);
+	
+	UppExporterView exporter;
+	exporter.Init(prj_file, org);
+	exporter.Data();
+	
+	UppProject& main_prj = exporter.data.RealizeProject(main_pkg);
+	main_prj.ClearContent();
+	main_prj.GetAddConfig("");
+	main_prj.FindAddFile(main_pkg + ".h");
+	main_prj.FindAddFile(main_pkg + ".cpp");
+	
+	for(int pkg_i = 0; pkg_i < pkgs.GetCount(); pkg_i++) {
+		String pkg_name = pkgs[pkg_i];
+		Node& pkg = root.GetAddNode(pkg_name, NODE_PACKAGE);
 		
-		// Solve class order by depth
-		VectorMap<String, int> class_depths;
-		for(int j = 0; j < classes.GetCount(); j++) {
-			const String& cls_name = classes[j];
-			int max_depth = 0;
-			Vector<String> visited;
-			VisitDepth(0, max_depth, cls_name, cls_deps, visited);
-			class_depths.GetAdd(cls_name, max_depth);
+		UppProject& upp_prj = exporter.data.RealizeProject(pkg_name);
+		bool write_prj = pkg_name != main_pkg;
+		if (write_prj) {
+			upp_prj.ClearContent();
+			upp_prj.AddFile(pkg_name + ".h");
+			main_prj.AddUse(pkg_name); // TODO use dependency hierarchy instead of this
 		}
-		SortByValue(class_depths, StdLess<int>());
 		
-		// Add classes
-		for(int j = 0; j < class_depths.GetCount(); j++) {
-			const String& cls_name = class_depths.GetKey(j);
-			Node& cls = comp.GetAddNode(cls_name, NODE_CLASS);
+		const auto& comps = pkg_comps[pkg_i];
+		for(String comp_name : comps) {
+			Node& comp = pkg.GetAddNode(comp_name, NODE_MODULE);
+			String comp_desc = comp_type_to_name.GetAdd(comp_name);
+			String key = "Classes[" + comp_desc + "]";
+			const auto& classes = component_classes.GetAdd(key);
 			
-			int depth = class_depths.Get(cls_name);;
-			
-			cls.data.GetAdd("max_depth") = depth;
-			cls.data.GetAdd("description") = cls_descs.Get(cls_name);
-			ValueArray& deps = ValueToArray(cls.data.GetAdd("deps"));
-			ValueArray& dep_bys = ValueToArray(cls.data.GetAdd("dep_bys"));
-			
-			int k = cls_deps.Find(cls_name);
-			if (k >= 0) {
-				const auto& dep_list = cls_deps[k];
-				for(int k = 0; k < dep_list.GetCount(); k++) {
-					deps.Add(dep_list[k]);
-				}
+			if (write_prj) {
+				String h_file = comp_name + ".h";
+				String cpp_file = comp_name + ".cpp";
+				upp_prj.FindAddFile(h_file);
+				upp_prj.FindAddFile(cpp_file);
 			}
 			
-			k = cls_dep_bys.Find(cls_name);
-			if (k >= 0) {
-				const auto& dep_list = cls_dep_bys[k];
-				for(int k = 0; k < dep_list.GetCount(); k++) {
-					dep_bys.Add(dep_list[k]);
+			// Solve class order by depth
+			VectorMap<String, int> class_depths;
+			for(int j = 0; j < classes.GetCount(); j++) {
+				const String& cls_name = classes[j];
+				int max_depth = 0;
+				Vector<String> visited;
+				VisitDepth(0, max_depth, cls_name, cls_deps, visited);
+				class_depths.GetAdd(cls_name, max_depth);
+			}
+			SortByValue(class_depths, StdLess<int>());
+			
+			// Add classes
+			for(int j = 0; j < class_depths.GetCount(); j++) {
+				const String& cls_name = class_depths.GetKey(j);
+				Node& cls = comp.GetAddNode(cls_name, NODE_CLASS);
+				
+				int depth = class_depths.Get(cls_name);
+				
+				cls.data.GetAdd("max_depth") = depth;
+				cls.data.GetAdd("description") = cls_descs.Get(cls_name);
+				ValueArray& deps = ValueToArray(cls.data.GetAdd("deps"));
+				ValueArray& dep_bys = ValueToArray(cls.data.GetAdd("dep_bys"));
+				
+				int k = cls_deps.Find(cls_name);
+				if (k >= 0) {
+					const auto& dep_list = cls_deps[k];
+					for(int k = 0; k < dep_list.GetCount(); k++) {
+						deps.Add(dep_list[k]);
+					}
 				}
+				
+				k = cls_dep_bys.Find(cls_name);
+				if (k >= 0) {
+					const auto& dep_list = cls_dep_bys[k];
+					for(int k = 0; k < dep_list.GetCount(); k++) {
+						dep_bys.Add(dep_list[k]);
+					}
+				}
+			}
+		}
+		
+		upp_prj.Store();
+	}
+	
+	main_prj.Store();
+	
+	WhenTree();
+}
+
+void ProjectWizardView::GetAllComponents(const FileNode* n) {
+	Vector<String> items = MakeItems("/Plan/Client program");
+	
+	ValueArray& arr = GetItemOpts("/File tree/Builder:All components");
+	arr.Clear();
+	for(String& item : items) {
+		if (item.Find("UniqueComponents[") == 0) {
+			String path = "/Plan/Client program:" + item;
+			ValueArray& comps = GetItemOpts(path);
+			for(int i = 0; i < comps.GetCount(); i++) {
+				arr.Add(comps[i]);
 			}
 		}
 	}
 	
-	WhenTree();
+	WhenFile();
+}
+
+void ProjectWizardView::GetPackageNames(const FileNode* n) {
+	ValueArray& arr0 = GetItemOpts("/File tree/Builder:Package components");
+	ValueArray& arr1 = GetItemOpts("/File tree/Builder:Packages");
+	bool has_main = false;
+	arr1.Clear();
+	for(int i = 0; i < arr0.GetCount(); i++) {
+		String s = arr0[i];
+		int a = s.Find(":");
+		if (a >= 0)
+			s = TrimBoth(s.Left(a));
+		arr1.Add(s);
+		if (ToLower(s) == "mainapplication")
+			has_main = true;
+	}
+	
+	if (!has_main)
+		arr1.Add("MainApplication");
+	
+	WhenFile();
 }
 
 Node& ProjectWizardView::RealizeNode(const String& path) {

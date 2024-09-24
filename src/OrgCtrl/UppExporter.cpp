@@ -8,6 +8,13 @@ UppExporterView::UppExporterView() : cache(data), data(assembly) {
 	
 }
 
+void UppExporterView::Clear() {
+	assembly.Clear();
+	data.Clear();
+	cache.Clear();
+	main_prj = 0;
+}
+
 void UppExporterView::Data() {
 	ReadFiles();
 }
@@ -15,23 +22,27 @@ void UppExporterView::Data() {
 void UppExporterView::ReadFiles() {
 	main_prj = 0;
 	
-	String dir = node->data.GetAdd("dir");
-	if (dir.IsEmpty() || !DirectoryExists(dir))
+	String ass_dir = node->data.GetAdd("assembly");
+	if (ass_dir.IsEmpty())
 		return;
-	if (dir.Right(1) == DIR_SEPS)
-		dir = dir.Left(dir.GetCount()-1);
-	String name = GetFileName(dir);
-	String upp_path = AppendFileName(dir, name + ".upp");
-	if (!FileExists(upp_path))
-		return;
+	if (ass_dir.Right(1) == DIR_SEPS)
+		ass_dir = ass_dir.Left(ass_dir.GetCount()-1);
 	
-	if (assembly.GetDirectoryCount() == 0) {
-		String ass_dir = GetFileDirectory(dir);
-		assembly.AddPath(ass_dir);
+	RealizeDirectory(ass_dir);
+	assembly.AddPath(ass_dir);
+	
+	String name = node->data.GetAdd("main-package");
+	String pkg_dir = AppendFileName(ass_dir, name);
+	
+	String upp_path = AppendFileName(pkg_dir, name + ".upp");
+	if (!FileExists(upp_path)) {
+		RealizeDirectory(pkg_dir);
+		FileOut fout(upp_path);
 	}
 	
 	int i = assembly.FindProject(name);
-	ASSERT(i >= 0);
+	if (i < 0)
+		return;
 	
 	UppProject& prj = data.GetProject(name);
 	if (prj.Load(name, upp_path)) {
@@ -62,22 +73,30 @@ UppExporterCtrl::UppExporterCtrl() {
 		bar.Add("Remove file", THISBACK1(Do, REM_FILE));
 	};
 	
-	form.dir <<= THISBACK(OnValueChange);
-	form.update.WhenAction << [this]{view->Data(); Data();};
+	form.assembly <<= THISBACK(OnValueChange);
+	form.main_pkg <<= THISBACK(OnValueChange);
+	form.update.WhenAction << [this]{
+		UppExporterView& view = dynamic_cast<UppExporterView&>(*this->view);
+		view.Clear();
+		view.Data();
+		Data();
+	};
 	
 }
 
 void UppExporterCtrl::OnValueChange() {
 	Node& n = *view->node;
 	
-	n.data.GetAdd("dir") = (String)form.dir.GetData();
+	n.data.GetAdd("assembly") = (String)form.assembly.GetData();
+	n.data.GetAdd("main-package") = (String)form.main_pkg.GetData();
 }
 
 void UppExporterCtrl::Data() {
 	UppExporterView& view = dynamic_cast<UppExporterView&>(*this->view);
 	Node& n = *view.node;
 	
-	form.dir.SetData(n.data.GetAdd("dir"));
+	form.assembly.SetData(n.data.GetAdd("assembly"));
+	form.main_pkg.SetData(n.data.GetAdd("main-package"));
 	
 	if (!view.main_prj) {
 		pkgs.Clear();

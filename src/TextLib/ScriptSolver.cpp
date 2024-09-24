@@ -1608,6 +1608,66 @@ void ScriptSolver::GetSuggestions2(int part_i, int sub_i, const Vector<const Dyn
 	});
 }
 
+void ScriptSolver::GetStyleSuggestion(int part_i, int sub_i, const Vector<const DynLine*>& lines, Event<> WhenPartiallyReady) {
+	DynPart& part = script->parts[part_i];
+	DynSub& sub = part.sub[sub_i];
+	tmp_part = &part;
+	tmp_sub = &sub;
+	tmp_lines <<= lines;
+	this->WhenPartiallyReady = WhenPartiallyReady;
+	
+	Script& song = *this->script;
+	ScriptSolverArgs args; // 23
+	args.fn = 23;
+	args.lng_i = song.lng_i;
+	
+	
+	NavigatorState line_state;
+	for(int i = 0; i < lines.GetCount(); i++) {
+		const DynLine& dl = *lines[i];
+		if (dl.text.IsEmpty())
+			break;
+		args.phrases << dl.text;
+		args.phrases2 << dl.expanded;
+		
+		auto& state = args.line_states.Add();
+		ReadNavigatorState(song, part_i, sub_i, i, line_state,  2);
+		CopyState(state, line_state);
+		
+		const auto& ents = GetTypeclassEntities(appmode, dl.safety, artist->is_female);
+		state.style_type = ents.GetKey(dl.style_type);
+		state.style_entity = ents[dl.style_type][dl.style_entity];
+		state.safety = dl.safety;
+		state.line_len = dl.line_len;
+		state.connector = dl.connector;
+		state.line_begin = dl.line_begin;
+		
+		if (i == 0) {
+			for(int i = 0; i < ents.GetCount(); i++) {
+				args.styles.Add(ents.GetKey(i));
+			}
+		}
+	}
+	
+	TaskMgr& m = TaskMgr::Single();
+	m.GetScriptSolver(appmode, args, [this](String res) {
+		Vector<String> lines = Split(res, "\n");
+		
+		res = TrimBoth(res);
+		if (res.IsEmpty() || !IsDigit(res[0]))
+			return;
+		
+		int type = ScanInt(res);
+		
+		for (const DynLine* l : tmp_lines) {
+			DynLine& dl = const_cast<DynLine&>(*l);
+			dl.style_type = type;
+		}
+		
+		this->WhenPartiallyReady();
+	});
+}
+
 void ScriptSolver::GetSubStory(int part_i, int sub_i, Event<> WhenPartiallyReady) {
 	DynPart& part = script->parts[part_i];
 	DynSub& sub = part.sub[sub_i];

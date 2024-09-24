@@ -8,6 +8,11 @@ UppAssembly::UppAssembly() {
 	
 }
 
+void UppAssembly::Clear() {
+	dirs.Clear();
+	prj_paths.Clear();
+}
+
 void UppAssembly::AddPath(String dir) {
 	if (dirs.Find(dir) >= 0) return;
 	dirs.Add(dir);
@@ -34,6 +39,10 @@ void UppAssembly::AddPath(String dir) {
 
 void UppProject::Clear() {
 	name = ""; path = ""; dir = "";
+	ClearContent();
+}
+
+void UppProject::ClearContent() {
 	uses.Clear();
 	files.Clear();
 	configs.Clear();
@@ -161,6 +170,17 @@ void UppProject::GetRecursiveUses(Index<String>& idx, UppAssemblyData& as) {
 
 
 
+UppProject& UppAssemblyData::RealizeProject(String name) {
+	String dir = as.GetDirectory(0);
+	String upp_path = AppendFileName(dir, name + DIR_SEPS + name + ".upp");
+	if (FileExists(upp_path)) {
+		RealizeDirectory(AppendFileName(dir, name));
+		FileOut fout(upp_path);
+	}
+	
+	return GetProject(name);
+}
+
 UppProject& UppAssemblyData::GetProject(String name) {
 	int i = as.FindProject(name);
 	String upp_path;
@@ -183,6 +203,10 @@ UppProject& UppAssemblyData::GetProject(String name) {
 	UppProject& prj = prjs[i];
 	lock.Leave();
 	return prj;
+}
+
+void UppAssemblyData::Clear() {
+	prjs.Clear();
 }
 
 int UppAssemblyData::FindName(String s) const {
@@ -217,6 +241,10 @@ bool UppAssemblyCache::StoreThis() {
 
 void UppAssemblyCache::Serialize(Stream& s) {
 	s % files;
+}
+
+void UppAssemblyCache::Clear() {
+	files.Clear();
 }
 
 void UppAssemblyCache::Load() {

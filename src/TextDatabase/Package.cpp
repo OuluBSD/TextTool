@@ -24,6 +24,7 @@ String GetNodeName(NodeType n) {
 		case NODE_WIZARD: return "Wizard";
 		case NODE_DIRECTORY: return "Directory";
 		case NODE_MODULE: return "Module";
+		case NODE_PACKAGE: return "Package";
 		
 		case NODE_GEN_USER_ENTRY_POINT: return "User entry point";
 		case NODE_GEN_FEATURES: return "Features";

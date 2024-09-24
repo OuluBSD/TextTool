@@ -40,5 +40,7 @@ file
 	Module.cpp,
 	Class.h,
 	Class.cpp,
+	Package.h,
+	Package.cpp,
 	_ readonly separator;
 

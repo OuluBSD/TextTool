@@ -110,6 +110,7 @@ public:
 	
 	void GetExpanded(int part_i, int sub_i, int line_i, Event<> WhenPartiallyReady);
 	void GetSuggestions2(int part_i, int sub_i, const Vector<const DynLine*>& lines, Event<> WhenPartiallyReady);
+	void GetStyleSuggestion(int part_i, int sub_i, const Vector<const DynLine*>& lines, Event<> WhenPartiallyReady);
 	void GetSuggestions(const DynPart& part, const DynSub& sub, const Vector<const DynLine*>& lines, Event<> WhenPartiallyReady);
 	void GetSubStory(int part_i, int sub_i, Event<> WhenPartiallyReady);
 	void GetPartStory(int part_i, Event<> WhenPartiallyReady);

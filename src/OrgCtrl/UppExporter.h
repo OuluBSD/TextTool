@@ -13,6 +13,7 @@ public:
 	
 	void Data() override;
 	
+	void Clear();
 	void ReadFiles();
 	
 	

@@ -99,7 +99,9 @@ public:
 	void SplitTechnologyCategories(const FileNode* n);
 	void SplitUniqueComponents(const FileNode* n);
 	void GetAllClasses(const FileNode* n);
+	void GetPackageNames(const FileNode* n);
 	void BuildStructure(const FileNode* n);
+	void GetAllComponents(const FileNode* n);
 	void SplitItems(const FileNode* n, String key);
 	bool MakeArgs(GenericPromptArgs& args, const FileNode& n);
 	bool MakeArgsOptions(GenericPromptArgs& args, const FileNode& n, const ConfigurationOption& o);

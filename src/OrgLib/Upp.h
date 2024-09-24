@@ -16,6 +16,7 @@ class UppAssembly {
 public:
 	UppAssembly();
 	
+	void Clear();
 	void AddPath(String dir);
 	
 	int GetDirectoryCount() const {return dirs.GetCount();}
@@ -47,6 +48,7 @@ public:
 	String GetConfigKey(int i) const {return configs.GetKey(i);}
 	String GetConfigValue(int i) const {return configs[i];}
 	int GetConfigCount() const {return configs.GetCount();}
+	String& GetAddConfig(String name) {return configs.GetAdd(name);}
 	
 	String GetFilePath() const {return path;}
 	String GetFilePath(int i) const {return AppendFileName(dir, files[i]);}
@@ -58,6 +60,7 @@ public:
 	String GetDirectory() const {return dir;}
 	
 	void Clear();
+	void ClearContent();
 	void Store();
 	bool Load(String name, String path);
 	void Refresh() {Load(name, path);}
@@ -75,7 +78,9 @@ struct UppAssemblyData {
 	
 	UppAssemblyData(const UppAssembly& as) : as(as) {}
 	UppProject& GetProject(String name);
+	UppProject& RealizeProject(String name);
 	int FindName(String s) const;
+	void Clear();
 	
 };
 
@@ -93,6 +98,7 @@ struct UppAssemblyCache {
 	bool StoreThis();
 	void Serialize(Stream& s);
 	void Load();
+	void Clear();
 	
 	Callback2<int,int> WhenProgress;
 	Callback1<int> WhenLoaded;

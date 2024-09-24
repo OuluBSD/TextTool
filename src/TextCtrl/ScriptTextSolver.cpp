@@ -150,6 +150,7 @@ void ScriptTextSolverCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Fn 2"), AppImg::RedRing(), THISBACK1(Do, 3)).Key(K_F8);
 	bar.Add(t_("Fn 3"), AppImg::RedRing(), THISBACK1(Do, 4)).Key(K_F9);
 	bar.Add(t_("Fn 4"), AppImg::RedRing(), THISBACK1(Do, 5)).Key(K_F10);
+	bar.Add(t_("Fn 5"), AppImg::RedRing(), THISBACK1(Do, 6)).Key(K_F11);
 }
 
 void ScriptTextSolverCtrl::SwitchEditorText() {
@@ -437,7 +438,7 @@ void ScriptTextSolverCtrl::DoLine(int fn) {
 	Vector<const DynLine*> g = GetLineGroup(&part, &sub, &line, &part_i, &sub_i, &line_i);
 	Script& s = GetScript();
 	
-	if (fn == 2 || fn == 3 || fn == 5) {
+	if (fn == 2 || fn == 3 || fn == 5 || fn == 6) {
 		if (g.IsEmpty()) return;
 		
 		ScriptSolver& sdi = ScriptSolver::Get(GetAppMode(), GetEntity(), GetScript());
@@ -464,6 +465,14 @@ void ScriptTextSolverCtrl::DoLine(int fn) {
 		}
 		else if (fn == 5) {
 			sdi.GetSuggestions(*part, *sub, g, [this](){
+				PostCallback([this]() {
+					editor.Refresh();
+					DataLine();
+				});
+			});
+		}
+		else if (fn == 6) {
+			sdi.GetStyleSuggestion(part_i, sub_i, g, [this](){
 				PostCallback([this]() {
 					editor.Refresh();
 					DataLine();

@@ -2663,8 +2663,8 @@ void AiTask::CreateInput_ScriptSolver() {
 			String title = Format("Information about the line #%d", i+1);
 			auto& list = input.AddSub().Title(title);
 			if (state.content.GetCount()) list.Add("text", state.content);
-			if (state.style_type.GetCount()) list.Add("style-type", state.style_type);
-			if (state.style_entity.GetCount()) list.Add("style-entity", state.style_entity);
+			if (state.style_type.GetCount()) list.Add("style type", state.style_type);
+			if (state.style_entity.GetCount()) list.Add("mimic artist", state.style_entity);
 			list.Add("safety", state.safety ? "unsafe (cursing, sexual acts, dirty words, genital words, contempt, etc. are allowed)" : "safe");
 			if (state.connector >= 0 && state.connector < 3)
 				list.Add("the line should connect to the previous line with", conn_str[state.connector]);
@@ -2727,8 +2727,8 @@ void AiTask::CreateInput_ScriptSolver() {
 			auto& state = i == -1 ? args.state : args.line_states[i];
 			String title = Format("Writing instructions for the new line #%d", i+1);
 			auto& list = input.AddSub().Title(title);
-			if (state.style_type.GetCount()) list.Add("style-type", state.style_type);
-			if (state.style_entity.GetCount()) list.Add("style-entity", state.style_entity);
+			if (state.style_type.GetCount()) list.Add("style type", state.style_type);
+			if (state.style_entity.GetCount()) list.Add("mimic artist", state.style_entity);
 			list.Add("safety", state.safety ? "unsafe (cursing, sexual acts, dirty words, genital words, contempt, etc. are allowed)" : "safe");
 			if (state.line_len >= 0 && state.line_len < 4)
 				list.Add("the length should be", len_str[state.line_len]);
@@ -2740,12 +2740,48 @@ void AiTask::CreateInput_ScriptSolver() {
 			TaskTitledList& results = input.PreAnswer();
 			String t = "Create a list of different propositions that combines elements of two existing lines #1 and #2.  Propositions are not consecutive sentences"
 				". This lyrics should be " + IntStr(args.phrases.GetCount()) + " line inline & end rhyme";
-			t += ". The style should match the style of Nicki Minaj";
+			//t += ". The style should match the style of Nicki Minaj";
 			t += ". The lyrics should be explicit and in dialect";
 			results.Title(t);
 			results.NumberedLines();
 			tmp_str = "\"";
 			results.Add(tmp_str);
+		}
+		input.response_length = 2048;
+	}
+	else if (args.fn == 23) {
+		for(int i = 0; i < args.line_states.GetCount(); i++) {
+			auto& state = i == -1 ? args.state : args.line_states[i];
+			String title = Format("Line #%d", i+1);
+			auto& list = input.AddSub().Title(title);
+			list.Add("draft text", args.phrases[i]);
+			list.Add("expanded draft text", args.phrases2[i]);
+			if (state.element.GetCount()) list.Add("conceptual element", state.element);
+			if (state.attr.group.GetCount()) list.Add("attribute-group", state.attr.group);
+			if (state.attr.value.GetCount()) list.Add("attribute-value", state.attr.value);
+			if (state.clr_i >= 0) {
+				Color c = GetGroupColor(state.clr_i);
+				list.Add("metaphorical color", Format("RGB(%d,%d,%d)", (int)c.GetR(), (int)c.GetG(), (int)c.GetB()));
+			}
+			if (state.act.action.GetCount()) list.Add("action", state.act.action + "(" + args.state.act.arg + ")");
+			else if (state.act.arg.GetCount()) list.Add("action-argument", args.state.act.arg);
+			if (state.typeclass.GetCount()) list.Add("typeclass", state.typeclass);
+			if (state.content.GetCount()) list.Add("content", state.content);
+			if (state.content_mod.GetCount()) list.Add("content-mod", state.content_mod);
+		}
+		{
+			String title = ("Possible styles");
+			auto& list = input.AddSub().Title(title);
+			for(int i = 0; i < args.styles.GetCount(); i++) {
+				list.Add("#" + IntStr(i) + ": " + args.styles[i]);
+			}
+		}
+		{
+			TaskTitledList& results = input.PreAnswer();
+			String t = "Get top 3 styles for given lines";
+			results.Title(t);
+			results.NumberedLines();
+			results.Add("#");
 		}
 		input.response_length = 2048;
 	}

@@ -139,7 +139,7 @@ struct ScriptSolverArgs {
 	int sub_fn = -1;
 	int lng_i = -1;
 	VectorMap<String,String> artist, release, song;
-	Vector<String> parts, attrs, phrases, scores, phrases2;
+	Vector<String> parts, attrs, phrases, scores, phrases2, styles;
 	Vector<int> counts, offsets;
 	String part, vision, ref;
 	bool is_story = false;
@@ -200,6 +200,7 @@ struct ScriptSolverArgs {
 				("attrs", attrs)
 				("phrases", phrases)
 				("phrases2", phrases2)
+				("styles", styles)
 				("scores", scores)
 				("counts", counts)
 				("offsets", offsets)
