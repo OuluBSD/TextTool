@@ -5,6 +5,11 @@
 #include <Draw/iml_source.h>
 
 
+void InitDummy();
+void InitGoalBased();
+void InitMarketBased();
+void InitClassBased();
+
 INITBLOCK {
 	using namespace TextLib;
 	
@@ -21,6 +26,13 @@ INITBLOCK {
 	NodeFactory::Register<ClassCtrl,ClassView>("Class", NODE_CLASS);
 	NodeFactory::Register<PackageCtrl,PackageView>("Package", NODE_PACKAGE);
 	
+	//InitDummy();
+	InitMarketBased();
+	InitGoalBased();
+	//InitClassBased();
+}
+
+void InitDummy() {
 	ProjectWizardView::RegisterCategory("dummy", "Dummy values for testing only");
 	ProjectWizardView::Register("/dummy 0/example0:item 0", "3 fixed options")
 		.OptionFixed("A")
@@ -50,7 +62,102 @@ INITBLOCK {
 		.OptionFixed("d")
 		.OptionFixed("f");
 	
+}
+
+void InitGoalBased() {
 	
+	
+	/*
+	- goal
+		- purpose
+		- goal parts
+			- error/exception prediction and preparation (goal)
+			- data input (nämä on omat goal:it)
+				- reference fetching goal
+				- temporary variable construction goal
+			- context state and variable assertion before processing (goal)
+			- data processing (multiple goals)
+			- data output (goal)
+			- data cleanup (goal)
+			- logging (goal)
+	*/
+	
+	ProjectWizardView::Register("/Idea/Purpose:The initial purpose", "The initial purpose for the software codebase")
+		.OptionUserInputText();
+	
+	ProjectWizardView::Register("/Idea/Purpose:Reference", "The purpose of being the reference/tutorial/example code inside developer community")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of possible purposes of being the reference/tutorial/example code inside developer community");
+	
+	ProjectWizardView::Register("/Idea/Purpose:Technical", "The technical purpose from developer's perspective")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of target technical purposes for the software project from developer's perspective");
+	
+	ProjectWizardView::Register("/Idea/Purpose:Technical demand", "The technical or reference/tutorial/example demand from developer's perspective")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of target technical or reference/tutorial/example demands for the software project from developer's perspective");
+	
+	ProjectWizardView::Register("/Idea/Purpose:Project name")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of possible name for this software project");
+	
+	ProjectWizardView::Register("/Idea/Purpose:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("Consider all previous informations and write a short statement, which combines all the information");
+	
+	
+	ProjectWizardView::Register("/Time-domain/Program:Goal definition")
+		.DefaultReadOptions()
+		.OptionFixed("goal/purpose")
+		.OptionFixed("goal/goal parts/")
+		.OptionFixed("goal/goal parts/error and exception prediction and preparation (sub-goal)")
+		.OptionFixed("goal/goal parts/data input/reference fetching (sub-goal)")
+		.OptionFixed("goal/goal parts/data input/temporary variable construction (sub-goal)")
+		.OptionFixed("goal/goal parts/context state and variable assertion before processing (sub-goal)")
+		.OptionFixed("goal/goal parts/data processing (sub-goal or multiple sub-goals)")
+		.OptionFixed("goal/goal parts/data output (sub-goal)")
+		.OptionFixed("goal/goal parts/data cleanup (sub-goal)")
+		.OptionFixed("goal/goal parts/logging (sub-goal)");
+	
+	ProjectWizardView::Register("/Time-domain/Program:Main function")
+		.DefaultReadOptions()
+		//.OptionButton("Clear tasks and classes", &ProjectWizardView::ClearAllDynamic)
+		.PromptInput("/Idea/Purpose:Statement")
+		.PromptInputAllPrevious()
+		.PromptResponse("List of main goals for the code of the main function of the program (goal: purpose)")
+		//.OptionButton("Split response to components", &ProjectWizardView::SplitComponents)
+		//.OptionButton("Split components' responses to tasks and classes", &ProjectWizardView::SplitAllSubComponents)
+		;
+	
+	/*
+/Idea/Purpose: Statement:
+- EasyDraw is a GUI program created as a technology demonstration that allows users to draw 2D primitives and programmatically animate images in a single window. It also serves as a reference and tutorial for developers new to GUI programming, showcasing techniques like object-oriented programming and event handling. Its purpose is to help developers understand GUI concepts and principles through a hands-on example.
+
+
+Example meta-programming of the main program file:
+- include libraries
+- begin defining main function (entry point of the program)
+- initialize the libraries that this program depends on
+- parse main function's/program's arguments (possibly using the libraries)
+- end defining main function
+
+Meta-programming of the given "EasyDraw" program:
+- include necessary libraries, such as GUI and graphics libraries
+- begin defining EasyDraw class
+- inside the class, define and initialize necessary variables and data structures for drawing and animating
+- create methods for drawing different 2D primitives (e.g. rectangles, circles, lines)
+- create methods for animating images, such as moving, rotating, and resizing them
+- create event handlers for user input, such as mouse clicks and key presses
+- initialize the main GUI window
+- inside the main function, create an instance of the EasyDraw class
+- call methods to draw and animate objects based on user input
+- handle user events using the event handlers created in the EasyDraw class
+- end the main function and exit the program gracefully. 
+
+*/
+}
+
+void InitMarketBased() {
 	
 	// Which software project to invest (games, apps, virtual instruments, etc.):
 	
@@ -121,7 +228,7 @@ INITBLOCK {
 		.PromptResponse("Consider all previous informations and write a short statement, which combines all the information");
 	
 	
-	
+	#if 0
 	
 	
 	// Define project requirements and scope
@@ -321,6 +428,11 @@ INITBLOCK {
 		.PromptInputAllPrevious()
 		.PromptResponse("List of main functionalities of the supporting server program");
 	
+	#endif
+	
+}
+
+void InitClassBased() {
 	ProjectWizardView::Register("/Requirements/Features:Classes and functions of the client program")
 		.DefaultReadOptions()
 		.PromptInput("/Idea/Product:Statement")
@@ -767,7 +879,7 @@ INITBLOCK {
 	// Create a project plan and timeline
 	
 	//// Break down project deliverables into smaller tasks
-	#if 1
+	
 		//Examples of steps
 		//1. Identify the main components or modules of the project
 	ProjectWizardView::Register("/Plan/Client program:Main modules")
@@ -898,6 +1010,7 @@ INITBLOCK {
 		//4. Determine any potential delays or bottlenecks caused by dependencies
 		//5. Explore ways to mitigate the impact of dependencies on the project timeline
 	
+	#if 0
 	//// Determine milestones and checkpoints for measuring progress
 	ProjectWizardView::Register("/Plan/Progress:Milestones");
 	ProjectWizardView::Register("/Plan/Progress:Checkpoints");

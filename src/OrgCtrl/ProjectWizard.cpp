@@ -221,7 +221,7 @@ void ProjectWizardView::DefaultDynamic(const FileNode* n) {
 		if (lines.GetCount()) {
 			Value& val = GetItemValue(path);
 			String old_value = val.ToString();
-			if (old_value.IsEmpty()) {
+			/*if (old_value.IsEmpty())*/ {
 				val = lines[0];
 				WhenCallbackReady();
 				WhenFile();

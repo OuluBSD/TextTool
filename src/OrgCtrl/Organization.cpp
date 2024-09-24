@@ -122,11 +122,13 @@ void OrganizationCtrl::DataPackage() {
 	
 	AddNodeSubToList(0, root);
 	
-	nodes.OpenDeep(0);
+	//nodes.OpenDeep(0);
+	nodes.Open(0);
 	
 	INHIBIT_ACTION(nodes);
 	INHIBIT_CURSOR(nodes);
-	nodes.SetCursor(p.node_cursor);
+	if (p.node_cursor >= 0 && p.node_cursor < nodes.GetLineCount())
+		nodes.SetCursor(p.node_cursor);
 	
 	DataNode();
 }
