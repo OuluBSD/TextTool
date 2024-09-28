@@ -42,5 +42,10 @@ file
 	Class.cpp,
 	Package.h,
 	Package.cpp,
+	Meta.h,
+	Meta.cpp,
+	Trash readonly separator,
+	MetaWizard.h,
+	MetaWizard.cpp,
 	_ readonly separator;
 

@@ -213,7 +213,13 @@ void ProjectWizardView::DefaultDynamic(const FileNode* n) {
 		Vector<String> lines = Split(res, "\n");
 		for(int i = 0; i < lines.GetCount(); i++) {
 			String& s = lines[i];
-			RemoveQuotes(s);
+			int a = s.Find("\"");
+			int b = s.ReverseFind("\"");
+			if (a >= 0 && b >= 0 && a < b) {
+				Vector<String> parts = Split(s, "\"");
+				if (parts.GetCount() == 1)
+					RemoveQuotes(s);
+			}
 			s = TrimBoth(s);
 			opts.Add(s);
 		}
@@ -713,6 +719,33 @@ void ProjectWizardView::GetAllComponents(const FileNode* n) {
 				arr.Add(comps[i]);
 			}
 		}
+	}
+	
+	WhenFile();
+}
+
+void ProjectWizardView::SplitVirtualModules(const FileNode* n) {
+	String src_path = "/Meta/Headers:Virtual modules of the app";
+	ValueArray& arr = GetItemOpts(src_path);
+	for(int i = -1; i < arr.GetCount(); i++) {
+		String mod_name;
+		if (i < 0)
+			mod_name = "Main Application";
+		else {
+			String s = arr[i];
+			int a = s.Find("\"");
+			if (a < 0) continue;
+			mod_name = s.Mid(a);
+		}
+		RemoveQuotes(mod_name);
+		String item_path = "/Meta/Headers:Virtual module[" + mod_name + "]";
+		const FileNode& n0 = RealizeFileNode(item_path);
+		String lbl_str = n0.GetAnyUserPromptInputString();
+		ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
+		ValueMap& map0 = GetItem(item_path);
+		map0.GetAdd("src-path") = src_path;
+		Value& user_input = map0.GetAdd(lbl_str);
+		user_input = mod_name;
 	}
 	
 	WhenFile();

@@ -55,3 +55,19 @@ LAYOUT(Package, 472, 228)
 	ITEM(Upp::ArrayCtrl, deps, LeftPosZ(96, 116).VSizePosZ(96, 36))
 END_LAYOUT
 
+LAYOUT(Meta, 472, 228)
+	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Meta")).HSizePosZ(4, 4).VSizePosZ(4, 4))
+	ITEM(Upp::Label, dv___1, SetLabel(t_("Description:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 80).TopPosZ(24, 24))
+	ITEM(Upp::DocEdit, description, SetEditable(false).HSizePosZ(96, 8).TopPosZ(24, 68))
+	ITEM(Upp::Label, dv___3, SetLabel(t_("Dependencies:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 80).TopPosZ(96, 24))
+	ITEM(Upp::ArrayCtrl, deps, LeftPosZ(96, 116).VSizePosZ(96, 36))
+END_LAYOUT
+
+LAYOUT(MetaWizard, 472, 228)
+	ITEM(Upp::LabelBox, dv___0, SetLabel(t_("Meta Wizard")).HSizePosZ(4, 4).VSizePosZ(4, 4))
+	ITEM(Upp::Label, dv___1, SetLabel(t_("Description:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 80).TopPosZ(24, 24))
+	ITEM(Upp::DocEdit, description, SetEditable(false).HSizePosZ(96, 8).TopPosZ(24, 68))
+	ITEM(Upp::Label, dv___3, SetLabel(t_("Dependencies:")).SetAlign(Upp::ALIGN_RIGHT).LeftPosZ(12, 80).TopPosZ(96, 24))
+	ITEM(Upp::ArrayCtrl, deps, LeftPosZ(96, 116).VSizePosZ(96, 36))
+END_LAYOUT
+

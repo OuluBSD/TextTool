@@ -99,8 +99,8 @@ void OrganizationCtrl::Data() {
 	INHIBIT_CURSOR(pkgs);
 	pkgs.SetCount(db.pkgs.GetCount());
 	int cursor = p.pkg_cursor;
-	if (!pkgs.IsCursor() && pkgs.GetCount())
-		pkgs.SetCursor(0);
+	if (cursor >= 0 && cursor < pkgs.GetCount())
+		pkgs.SetCursor(cursor);
 	
 	DataPackage();
 }

@@ -7,6 +7,7 @@
 
 void InitDummy();
 void InitGoalBased();
+void InitMetaBased();
 void InitMarketBased();
 void InitClassBased();
 
@@ -25,10 +26,14 @@ INITBLOCK {
 	NodeFactory::Register<ModuleCtrl,ModuleView>("Module", NODE_MODULE);
 	NodeFactory::Register<ClassCtrl,ClassView>("Class", NODE_CLASS);
 	NodeFactory::Register<PackageCtrl,PackageView>("Package", NODE_PACKAGE);
+	NodeFactory::Register<MetaCtrl,MetaView>("Meta", NODE_META);
+	NodeFactory::Register<MetaWizardCtrl,MetaWizardView>("Meta Wizard", NODE_METAWIZARD);
+	
 	
 	//InitDummy();
 	InitMarketBased();
 	InitGoalBased();
+	InitMetaBased();
 	//InitClassBased();
 }
 
@@ -106,6 +111,7 @@ void InitGoalBased() {
 		.PromptResponse("Consider all previous informations and write a short statement, which combines all the information");
 	
 	
+	#if 0
 	ProjectWizardView::Register("/Time-domain/Program:Goal definition")
 		.DefaultReadOptions()
 		.OptionFixed("goal/purpose")
@@ -129,17 +135,101 @@ void InitGoalBased() {
 		//.OptionButton("Split components' responses to tasks and classes", &ProjectWizardView::SplitAllSubComponents)
 		;
 	
+	#endif
+}
+
+void InitMetaBased() {
+	ProjectWizardView::Register("/Meta/Reference:Example of virtual module importing")
+		.DefaultReadOptions()
+		.OptionFixed("IMPORT_VIRTUAL_MODULE \"GUI/Core\" // because the app uses OS with gui windows")
+		.OptionFixed("IMPORT_VIRTUAL_MODULE \"Standard/TextProcessing\" // because the app prints text to terminal or reads terminal text input")
+		.OptionFixed("IMPORT_VIRTUAL_MODULE \"Standard/Threading\" // because the program runs in multiple threads or forks itself")
+		.OptionFixed("IMPORT_VIRTUAL_MODULE \"CLI/CommandLineArguments\" // because calls the app in terminal and adds program params, which needs to be parsed")
+		.OptionFixed("IMPORT_VIRTUAL_MODULE \"System/SubProcess\" // because the program runs another program executable as a sub-process")
+		.OptionFixed("IMPORT_VIRTUAL_MODULE \"Audio/Output\" // because the program plays a sound effect or raw sound data")
+		.OptionFixed("IMPORT_VIRTUAL_MODULE \"Audio/Synthesis\" // because the program wants to play music using midi")
+		.OptionFixed("IMPORT_VIRTUAL_MODULE \"Network/TCP\" // because the program uses standard tcp sockets")
+		.OptionFixed("IMPORT_VIRTUAL_MODULE \"Network/UDP\" // because the program uses standard udp sockets")
+		.OptionFixed("IMPORT_VIRTUAL_MODULE \"Network/CustomOverUDP\" // because the program has custom persistent connection over standard udp packets")
+		.OptionFixed("etc.")
+		;
+	
+	ProjectWizardView::Register("/Meta/Reference:Example1", "Natural language meta-programming example")
+		.DefaultReadOptions()
+		.OptionFixed("include libraries")
+		.OptionFixed("begin defining main function (entry point of the program)")
+		.OptionFixed("initialize the libraries that this program depends on")
+		.OptionFixed("parse main function's/program's arguments (possibly using the libraries)")
+		.OptionFixed("end defining main function")
+		;
+	
+	ProjectWizardView::Register("/Meta/Reference:Example of meta instructions", "Hard coded meta-instructions")
+		.DefaultReadOptions()
+		.OptionFixed(">IMPORT_VIRTUAL_MODULE \"GUI\" // because the program uses Desktop OS windows")
+		.OptionFixed(">IMPORT_MODULE \"<Name>\" // Includes the actual library (e.g. Qt, SWT, MSC)")
+		.OptionFixed(">BEGIN_MODULE \"std\" // Begins defining local partial module (or namespace depending on the language)")
+		.OptionFixed(">>DECLARE_FUNCTION \"<Name>\", argv: char**, argv: int -> string // Declares the function with parameter(s)")
+		.OptionFixed(">>BEGIN_CLASS \"<ClassName>\"")
+		.OptionFixed(">>>DECLARE_METHOD \"<SomeMethodFunction>\", param0: int -> double // Only declares that the method exists (with parameter(s))")
+		.OptionFixed(">>>DECLARE_FUNCTION_VIRTUAL \"OnEvent\" -> int")
+		.OptionFixed(">>>DECLARE_FUNCTION_OVERRIDE \"OnEvent\" -> int // Binds a virtual function")
+		.OptionFixed("<<END_CLASS")
+		.OptionFixed(">>BEGIN_FUNCTION \"Main\", argv: char**, argv: int -> int // Begins defining the function with parameter(s)")
+		.OptionFixed(">>>BEGIN_STATEMENT // a statement inside a function or in a global scope as initializer")
+		.OptionFixed(">>>>INITIALIZE_MODULE")
+		.OptionFixed(">>>>UNINITIALIZE_MODULE")
+		.OptionFixed(">>>>CALL_FUNCTION \"Main\", 0, 0 // Function name, argument(s)")
+		.OptionFixed("<<<END_STATEMENT")
+		.OptionFixed("<<END_FUNCTION")
+		.OptionFixed(">>BEGIN_METHOD \"ClassName::SomeMethodFunction\", param0: int -> double // Begins to define the Methos")
+		.OptionFixed("<<END_METHOD")
+		/*
+>DECLARE_META_FUNCTION "CallModuleFeature", template_type: meta typename-> meta function // Declares existance of Macro/Meta function
+>BEGIN_META_FUNCTION "CallModuleFeature", template_type: meta typename-> meta function // Macro/Meta function, which can e.g. resolve the name of the actual function, and returns meta string
+>>BEGIN_META_STATEMENT
+>>>IF template_type == #int
+>>>>RETURN "<NameOfSomeFunctionThatReturnsInt>"
+>>>END_IF
+<<END_META_STATEMENT
+<END_META_FUNCTION
+*/
+
+		.OptionFixed(">>DECLARE_META_FUNCTION \"CallModuleFeature\", text: string -> string // Declares existance of Macro/Meta function")
+		.OptionFixed(">>BEGIN_META_FUNCTION \"CallModuleFeature\", text: string -> string // Macro/Meta function, which can e.g. resolve the name of the actual function, and returns meta string")
+		.OptionFixed(">>>DECLARE_META_STATEMENT \"text parameter is processed in a custom way and returned\" // Description of the statement inside the meta-function")
+		.OptionFixed("<<END_META_FUNCTION ")
+		.OptionFixed("<END_MODULE")
+		;
+	
+	ProjectWizardView::Register("/Meta/Headers:Includes of the app")
+		.DefaultReadOptions()
+		.PromptInput("/Idea/Purpose:Statement")
+		.PromptResponse("List of external C++-like file includes (with reasoning)")
+		;
+	
+	ProjectWizardView::Register("/Meta/Headers:Virtual modules of the app")
+		.DefaultReadOptions()
+		.OptionFixed("IMPORT_VIRTUAL_MODULE \"Main Application\"")
+		//.PromptInput("/Meta/Reference:Example of virtual module importing")
+		.PromptInput("/Meta/Reference:Example of meta instructions")
+		.PromptInput("/Idea/Purpose:Statement")
+		.PromptInput("/Meta/Headers:Includes of the app")
+		.PromptResponse("List of IMPORT_VIRTUAL_MODULE meta instructions in the main application module based on includes of the app. Don't include virtual libraries that the program doesn't use")
+		.OptionButton("Split virtual modules", &ProjectWizardView::SplitVirtualModules)
+		;
+	
+	ProjectWizardView::RegisterDynamic("/Meta/Headers:Virtual module")
+		.PromptInput("/Meta/Reference:Example of meta instructions")
+		.PromptInput("/Idea/Purpose:Statement")
+		.PromptInput("/Meta/Headers:Virtual modules of the app")
+		.PromptInputUserText("The virtual module in focus")
+		.PromptResponse("List of DECLARE_META_FUNCTION  inside the virtual module in focus. These DECLARE_META_FUNCTION don't fit in other virtual modules")
+		;
+	
 	/*
 /Idea/Purpose: Statement:
 - EasyDraw is a GUI program created as a technology demonstration that allows users to draw 2D primitives and programmatically animate images in a single window. It also serves as a reference and tutorial for developers new to GUI programming, showcasing techniques like object-oriented programming and event handling. Its purpose is to help developers understand GUI concepts and principles through a hands-on example.
 
-
-Example meta-programming of the main program file:
-- include libraries
-- begin defining main function (entry point of the program)
-- initialize the libraries that this program depends on
-- parse main function's/program's arguments (possibly using the libraries)
-- end defining main function
 
 Meta-programming of the given "EasyDraw" program:
 - include necessary libraries, such as GUI and graphics libraries
@@ -154,6 +244,74 @@ Meta-programming of the given "EasyDraw" program:
 - handle user events using the event handlers created in the EasyDraw class
 - end the main function and exit the program gracefully. 
 
+Hard-coded instructions of the given "EasyDraw" program:
+- IMPORT_MODULE "GUI"
+- IMPORT_MODULE "graphics"
+- BEGIN_CLASS "EasyDraw"
+		- CREATE_VARIABLE "canvas" // Creates an empty canvas to draw on
+		- CREATE_VARIABLE "shapes" // Stores all drawn objects
+		- CREATE_VARIABLE "animations" // Stores all animations
+		- BEGIN_METHOD "drawRectangle", x, y, width, height // Draws a rectangle at given coordinates and size
+				- BEGIN_STATEMENT
+						- FILL_RECTANGLE x, y, width, height // Draws a filled rectangle at given coordinates and size
+						- PUSH_OBJECT shapes // Adds the drawn rectangle to the list of shapes
+					- END_STATEMENT
+			- END_METHOD
+		- BEGIN_METHOD "animateObject", object, animationType, animationParameters // Animates an object based on given parameters and type
+				- BEGIN_STATEMENT
+						- IF animationType == "move"
+								- CALL_FUNCTION "moveObject", object, x, y // Moves the object to new coordinates
+						- ELSE IF animationType == "rotate"
+								- CALL_FUNCTION "rotateObject", object, angle // Rotates the object by a given angle
+						- ELSE IF animationType == "resize"
+								- CALL_FUNCTION "resizeObject", object, newWidth, newHeight // Resizes the object to new dimensions
+						- PUSH_OBJECT animations // Adds the animation to the list of animations
+					- END_STATEMENT
+			- END_METHOD
+		- BEGIN_METHOD "onMouseClick", mouseX, mouseY // Event handler for mouse clicks
+				- BEGIN_STATEMENT
+						- CALL_FUNCTION "createRectangle", mouseX, mouseY, 50, 50 // Calls the method to draw a rectangle at the click location
+					- END_STATEMENT
+			- END_METHOD
+		- BEGIN_METHOD "onKeyPress", key // Event handler for key presses
+				- BEGIN_STATEMENT
+						- IF key == "left arrow"
+								- CALL_FUNCTION "moveObject", shapes[-1], -10, 0 // Moves the last drawn object to the left
+						- ELSE IF key == "right arrow"
+								- CALL_FUNCTION "moveObject", shapes[-1], 10, 0 // Moves the last drawn object to the right
+					- END_STATEMENT
+			- END_METHOD
+		- BEGIN_FUNCTION "main"
+				- INITIALIZE_MODULE "GUI"
+				- INITIALIZE_MODULE "graphics"
+				- CREATE_VARIABLE "myEasyDraw" // Creates an instance of EasyDraw class
+				- WHILE true // Program runs continuously until user closes the window
+						- IF MOUSE_CLICK // Checks for mouse clicks
+								- CALL_FUNCTION "onMouseClick", mouseX, mouseY // Calls the event handler method for mouse clicks
+						- ELSE IF KEY_PRESS // Checks for key presses
+								- CALL_FUNCTION "onKeyPress", key // Calls the event handler method for key presses
+						- CALL_FUNCTION "animateObject", animations[-1], 0.5 // Animates the last added animation with a given duration
+				- END_STATEMENT
+				- END_FUNCTION
+	- END_CLASS
+
+TODO
+	- meta-wizard:
+		- programming-language level (verilog,assembly,c,c++,javascript,java)
+		- library levels (e.g. gui level (extensive (qt), basic(??? some X-gui lib), built-in(DIY) )
+		- ring-level: hardware, kernel, system program (root/user), vm
+		- user entry point:
+			- device usage (driver), cmd-line, gui
+			- remote-call (at web server), dll-call (add-on module)
+			- page layout file-system (web server)
+			- inside multimedia engine (2D/3D/VR)
+			- headless (e.g. game controller drives a robotic car)
+	- recursive "IMPORT_VIRTUAL_MODULE"
+		- separate project wizard to generic wizard base class and project wizards --> use base
+		  class in meta wizard
+	- main loop
+	- construct variable
+	
 */
 }
 

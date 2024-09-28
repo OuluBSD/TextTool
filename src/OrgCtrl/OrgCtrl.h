@@ -28,6 +28,8 @@
 #include "Module.h"
 #include "Class.h"
 #include "Package.h"
+#include "Meta.h"
+#include "MetaWizard.h"
 
 
 #endif
