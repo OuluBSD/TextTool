@@ -49,15 +49,19 @@ void VideoSolver::DoPhase() {
 			
 			RemoveEmptyLines3(res);
 			Vector<String> lines = Split(res, "\n");
+			int part_i = 0;
 			for (String& l : lines) {
 				int a = l.Find(":");
-				if (a < 0) continue;
-				String key = l.Left(a);
-				String value = TrimBoth(l.Mid(a+1));
-				if (value == "None" || value == "none")
-					continue;
-				
-				comp->storyboard_parts.Add(key, value);
+				if (a < 0)
+					comp->storyboard_parts.Add(IntStr(part_i++), l);
+				else {
+					String key = l.Left(a);
+					String value = TrimBoth(l.Mid(a+1));
+					if (value == "None" || value == "none")
+						continue;
+					
+					comp->storyboard_parts.Add(key, value);
+				}
 			}
 			
 			SetWaiting(0);

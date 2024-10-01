@@ -4,6 +4,19 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+String ParseItemArg(String path) {
+	ASSERT(!path.IsEmpty());
+	int a = path.Find("[");
+	if (a >= 0) {
+		a++;
+		int b = path.ReverseFind("]");
+		if (b >= 0)
+			return path.Mid(a,b-a);
+	}
+	return "";
+}
+
+
 String FileNode::GetFilePath() const {
 	ASSERT(!path.IsEmpty());
 	int a = path.Find(":");
@@ -391,6 +404,127 @@ void ProjectWizardView::SplitTechnologyCategories(const FileNode* n) {
 	SplitItems(n, "Libraries");
 }
 
+void ProjectWizardView::SplitPackages(const FileNode* n) {
+	const auto& confs = ProjectWizardView::GetConfs();
+	String file_path = n->GetFilePath();
+	ValueArray& arr = GetItemOpts(n->path);
+	Vector<String> keys;
+	keys << "Package includes";
+	keys << "Virtual package";
+	//keys << "External virtual modules";
+	for (String key : keys) {
+		for(int i = 0; i < arr.GetCount(); i++) {
+			String s =  arr[i].ToString();
+			RemoveCommentTrail(s);
+			RemoveColonTrail(s);
+			s = TrimBoth(s);
+			int a = s.Find("->");
+			Vector<String> deps;
+			if (a >= 0) {
+				deps = Split(s.Mid(a+2), ",");
+				for (String& s : deps) s = TrimBoth(s);
+				s = TrimBoth(s.Left(a));
+			}
+			String sub_item = key + "[" + s + "]";
+			String item_path = file_path + ":" + sub_item;
+			const FileNode& n0 = RealizeFileNode(item_path);
+			String lbl_str = n0.GetAnyUserPromptInputString();
+			ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
+			ValueMap& map0 = GetItem(item_path);
+			map0.GetAdd("src-path") = n->GetItemPath();
+			Value& user_input = map0.GetAdd(lbl_str);
+			user_input = s;
+			
+			Node& pkg = RealizeNode("/assembly/" + s, NODE_PACKAGE);
+			ValueArray& pkg_deps = ValueToArray(pkg.data.GetAdd("deps"));
+			pkg_deps.Clear();
+			for (String& dep : deps)
+				pkg_deps.Add(dep);
+		}
+	}
+	WhenTree();
+}
+
+void ProjectWizardView::ParseVirtualPackageData(const FileNode* n) {
+	Vector<String> items = MakeItems("/Meta/Headers");
+	
+	Node& root = RealizeNode("/assembly");
+	root.sub.Clear();
+	root.data.Clear();
+	
+	String main_pkg = "MainApplication";
+	Node& prj_file = root.GetAddNode(main_pkg, NODE_EXPORTER);
+	String dir = GetHomeDirFile("MyAssembly");
+	RealizeDirectory(dir);
+	prj_file.data.Add("assembly", dir);
+	prj_file.data.Add("main-package", main_pkg);
+	
+	
+	for (const String& item : items) {
+		if (item.Find("Virtual package[") != 0)
+			continue;
+		
+		String pkg_name = ParseItemArg(item);
+		String item_path = "/Meta/Headers:" + item;
+		ValueArray& opts = GetItemOpts(item_path);
+		String pkg_path = "/assembly/" + pkg_name;
+		Node& pkg = RealizeNode(pkg_path, NODE_PACKAGE);
+		
+		for(int i = 0; i < opts.GetCount(); i++) {
+			String s = opts[i];
+			MetaStatementString stmt;
+			
+			if (!Parser::ParseMetaStatementString(s, stmt))
+				continue;
+			
+			stmt.name = Capitalize(stmt.name);
+			
+			if (1) stmt.Dump();
+			
+			MetaInstructionType type;
+			if (!Parser::ParseMetaInstructionType(stmt.meta_instruction, type))
+				continue;
+			
+			String class_path = pkg_path;
+			if (!stmt.class_path.IsEmpty()) {
+				for (String& cp : stmt.class_path) {
+					cp = Capitalize(cp);
+					class_path += "/" + cp;
+				}
+				RealizeNode(class_path, NODE_CLASS);
+			}
+			String node_path = class_path + "/" + stmt.name;
+			
+			NodeType node_type;
+			Node* n = 0;
+			switch (type) {
+				case DECLARE_FUNCTION:
+				case DECLARE_METHOD: {
+					n = &RealizeNode(node_path, NODE_FUNCTION);
+					n->data.GetAdd("ret") = stmt.ret;
+					ValueArray& params = ValueToArray(n->data.GetAdd("params"));
+					for(int i = 0; i < stmt.params.GetCount(); i++) {
+						const auto& in = stmt.params[i];
+						ValueMap out;
+						out.Add("name", in.name);
+						out.Add("type", in.type);
+						params.Add(out);
+					}
+					break;}
+				case DECLARE_CLASS:
+					n = &RealizeNode(node_path, NODE_CLASS);
+					break;
+				case DECLARE_META_FUNCTION:
+					n = &RealizeNode(node_path, NODE_META);
+					break;
+				default: TODO
+			}
+		}
+		
+	}
+	WhenTree();
+}
+
 void ProjectWizardView::SplitUniqueComponents(const FileNode* n) {
 	const auto& confs = ProjectWizardView::GetConfs();
 	String file_path = n->GetFilePath();
@@ -772,7 +906,7 @@ void ProjectWizardView::GetPackageNames(const FileNode* n) {
 	WhenFile();
 }
 
-Node& ProjectWizardView::RealizeNode(const String& path) {
+Node& ProjectWizardView::RealizeNode(const String& path, NodeType type, NodeType sub_type) {
 	Node* n = this->node;
 	ASSERT(n);
 	while (n->owner)
@@ -781,7 +915,7 @@ Node& ProjectWizardView::RealizeNode(const String& path) {
 	if (path[0] == '/') {
 		Vector<String> parts = Split(path, "/");
 		for (String& part : parts)
-			n = &n->GetAddNode(part, NODE_DIRECTORY);
+			n = &n->GetAddNode(part, &part == &parts.Top() ? type : sub_type, true);
 	}
 	else TODO;
 	return *n;

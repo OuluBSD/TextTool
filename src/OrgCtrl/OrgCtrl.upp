@@ -28,6 +28,7 @@ file
 	SystemNode.cpp,
 	UppExporter.h,
 	UppExporter.cpp,
+	UppMakeFiles.cpp,
 	FeaturesNode.h,
 	FeaturesNode.cpp,
 	FileListNode.h,

@@ -104,10 +104,12 @@ public:
 	void GetAllComponents(const FileNode* n);
 	void SplitVirtualModules(const FileNode* n);
 	void SplitItems(const FileNode* n, String key);
+	void SplitPackages(const FileNode* n);
+	void ParseVirtualPackageData(const FileNode* n);
 	bool MakeArgs(GenericPromptArgs& args, const FileNode& n);
 	bool MakeArgsOptions(GenericPromptArgs& args, const FileNode& n, const ConfigurationOption& o);
 	bool MakeArgsOptionsNode(GenericPromptArgs& args, bool skip_dynamic_values, const String& path, const FileNode& n0);
-	Node& RealizeNode(const String& path);
+	Node& RealizeNode(const String& path, NodeType type = NODE_DIRECTORY, NodeType dir_type = NODE_DIRECTORY);
 	
 	ValueMap& GetFile(const String& path);
 	Value& GetFileValue(const String& path);

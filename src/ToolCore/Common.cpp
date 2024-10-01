@@ -251,6 +251,12 @@ void RemoveColonTrail(String& s) {
 		s = s.Left(a);
 }
 
+void RemoveCommentTrail(String& s) {
+	int a = s.Find("//");
+	if (a >= 0)
+		s = TrimRight(s.Left(a));
+}
+
 
 
 

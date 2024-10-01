@@ -139,6 +139,52 @@ void InitGoalBased() {
 }
 
 void InitMetaBased() {
+	ProjectWizardView::Register("/Meta/Reference:Example 1 (Console): packages and their dependencies", "List of packages inside the \"TextTool\" application. This doesn't include external library usage/dependencies")
+		.DefaultReadOptions()
+		.OptionFixed("TextTool -> Core, TextLib, OrgLib, Esc // Main application")
+		.OptionFixed("TextDatabase -> ToolCore// Library of TextTool's database")
+		.OptionFixed("TextLib -> TextDatabase // Library of core functionalities of the TextTool")
+		.OptionFixed("Task -> ToolCore, Core/SSL // Tasks to run external processes")
+		.OptionFixed("ToolBase -> Core // Generic base classes for core functionalities")
+		.OptionFixed("ToolCore -> ToolBase // Core functions and constants")
+		.OptionFixed("OrgLib -> Core // functional elements of the Organizational part of the TextTool")
+		.OptionFixed("Core -> plugin/z // Non-GUI code. Streams, NTL containers, concrete types, Value, XML, C parsing etc...")
+		.OptionFixed("Core/SSL // OpenSSL based SSL support for Core")
+		.OptionFixed("Draw -> Core // Fundamental graphics operations, including raster image processing")
+		.OptionFixed("Esc -> Core // Esc scripting language interpreter")
+		.OptionFixed("plugin/z // zlib compressor/decompressor and its U++ encapsulation")
+		;
+	
+	ProjectWizardView::Register("/Meta/Reference:Example 2 (GUI): packages and their dependencies", "List of packages inside the \"TextTool\" application. This doesn't include external library usage/dependencies")
+		.DefaultReadOptions()
+		.OptionFixed("TextTool -> CtrlLib, TextDataCtrl, TextCtrl, OrgCtrl, Esc // Main application")
+		.OptionFixed("TextCtrl -> TextLib, ToolCtrl // Library of TextTool's GUI elements")
+		.OptionFixed("TextDataCtrl -> Agent, ToolCtrl // Library of TextTool Database's GUI elements")
+		.OptionFixed("TextDatabase -> ToolCore// Library of TextTool's database")
+		.OptionFixed("TextLib -> TextDatabase // Library of core functionalities of the TextTool")
+		.OptionFixed("Task -> ToolCore, Core/SSL // Tasks to run external processes")
+		.OptionFixed("ToolBase // Generic base classes for core functionalities")
+		.OptionFixed("ToolCore -> ToolBase // Core functions and constants")
+		.OptionFixed("ToolCtrl -> Task, CtrlLib, CodeEditor, plugin/png, RichEdit, plugin/jpg // Core GUI elements as an extension to CtrlLib")
+		.OptionFixed("OrgCtrl -> OrgLib, CtrlLib // GUI elements of the Organizational part of the TextTool")
+		.OptionFixed("OrgLib -> Core // functional elements of the Organizational part of the TextTool")
+		.OptionFixed("CodeEditor -> CtrlLib, plugin/pcre // The source files edit, derived from CtrlLib's LineEdit")
+		.OptionFixed("Core -> plugin/z // Non-GUI code. Streams, NTL containers, concrete types, Value, XML, C parsing etc...")
+		.OptionFixed("Core/SSL // OpenSSL based SSL support for Core")
+		.OptionFixed("CtrlCore -> Draw, plugin/bmp, RichText, Painter // GUI core system")
+		.OptionFixed("CtrlLib -> CtrlCore, PdfDraw // Basic library of GUI elements")
+		.OptionFixed("Draw -> Core // Fundamental graphics operations, including raster image processing")
+		.OptionFixed("Esc -> Core // Esc scripting language interpreter")
+		.OptionFixed("Painter -> Draw // 2D software rendering with PDF/SVG strength")
+		.OptionFixed("PdfDraw -> Draw, Painter // PDF output as Draw derived class")
+		.OptionFixed("RichEdit -> CtrlLib // Rich text editor")
+		.OptionFixed("RichText -> Draw, Painter, plugin/png // Rich-text data structures and painting, including RTF and HTML export/import")
+		.OptionFixed("plubin/bmp -> Draw // BMP image file format")
+		.OptionFixed("plugin/jpg -> Draw  // JPEG image file format")
+		.OptionFixed("plugin/pcre -> Core // PCRE regular expressions library")
+		.OptionFixed("plugin/z // zlib compressor/decompressor and its U++ encapsulation")
+		;
+	
 	ProjectWizardView::Register("/Meta/Reference:Example of virtual module importing")
 		.DefaultReadOptions()
 		.OptionFixed("IMPORT_VIRTUAL_MODULE \"GUI/Core\" // because the app uses OS with gui windows")
@@ -168,6 +214,7 @@ void InitMetaBased() {
 		.OptionFixed(">IMPORT_VIRTUAL_MODULE \"GUI\" // because the program uses Desktop OS windows")
 		.OptionFixed(">IMPORT_MODULE \"<Name>\" // Includes the actual library (e.g. Qt, SWT, MSC)")
 		.OptionFixed(">BEGIN_MODULE \"std\" // Begins defining local partial module (or namespace depending on the language)")
+		.OptionFixed(">>DECLARE_CLASS \"<ClassName>\"")
 		.OptionFixed(">>DECLARE_FUNCTION \"<Name>\", argv: char**, argv: int -> string // Declares the function with parameter(s)")
 		.OptionFixed(">>BEGIN_CLASS \"<ClassName>\"")
 		.OptionFixed(">>>DECLARE_METHOD \"<SomeMethodFunction>\", param0: int -> double // Only declares that the method exists (with parameter(s))")
@@ -201,30 +248,58 @@ void InitMetaBased() {
 		.OptionFixed("<END_MODULE")
 		;
 	
-	ProjectWizardView::Register("/Meta/Headers:Includes of the app")
+	ProjectWizardView::Register("/Meta/Headers:Packages of the app")
+		.OptionButton("Clear dynamic values", &ProjectWizardView::ClearAllDynamic)
+		.DefaultReadOptions()
+		.PromptInput("/Meta/Reference:Example 1 (Console): packages and their dependencies")
+		.PromptInput("/Idea/Purpose:Statement")
+		.PromptResponse("List of packages and their dependencies of the given application")
+		.OptionButton("Split packages", &ProjectWizardView::SplitPackages)
+		;
+	
+	ProjectWizardView::RegisterDynamic("/Meta/Headers:Package includes")
 		.DefaultReadOptions()
 		.PromptInput("/Idea/Purpose:Statement")
+		.PromptInputAllPrevious()
+		.PromptInputUserText("The package in focus")
 		.PromptResponse("List of external C++-like file includes (with reasoning)")
 		;
 	
-	ProjectWizardView::Register("/Meta/Headers:Virtual modules of the app")
+	ProjectWizardView::RegisterDynamic("/Meta/Headers:Virtual package")
 		.DefaultReadOptions()
-		.OptionFixed("IMPORT_VIRTUAL_MODULE \"Main Application\"")
+		.PromptInput("/Meta/Reference:Example of meta instructions")
+		.PromptInput("/Idea/Purpose:Statement")
+		.PromptInput("/Meta/Headers:Package includes")
+		.PromptInputUserText("The package in focus")
+		.PromptResponse("List of DECLARE_FUNCTION and DECLARE_CLASS  inside the package in focus. These DECLARE_META_FUNCTION don't fit in other virtual modules")
+		;
+	
+	ProjectWizardView::Register("/Meta/Headers:Parse virtual package data")
+		.OptionButton("Parse", &ProjectWizardView::ParseVirtualPackageData, true)
+		;
+	/*
+	NOTE: seems like these must be solved after the virtual implementation
+	
+	ProjectWizardView::RegisterDynamic("/Meta/Headers:External virtual modules")
+		.DefaultReadOptions()
+		//.OptionFixed("IMPORT_VIRTUAL_MODULE \"Main Application\"")
 		//.PromptInput("/Meta/Reference:Example of virtual module importing")
 		.PromptInput("/Meta/Reference:Example of meta instructions")
 		.PromptInput("/Idea/Purpose:Statement")
-		.PromptInput("/Meta/Headers:Includes of the app")
-		.PromptResponse("List of IMPORT_VIRTUAL_MODULE meta instructions in the main application module based on includes of the app. Don't include virtual libraries that the program doesn't use")
-		.OptionButton("Split virtual modules", &ProjectWizardView::SplitVirtualModules)
+		.PromptInput("/Meta/Headers:Packages of the app")
+		.PromptInput("/Meta/Headers:Virtual package")
+		.PromptInputUserText("The package in focus")
+		.PromptResponse("List of IMPORT_VIRTUAL_MODULE meta instructions in the main application module based on external library dependencies of the app. Don't include packages the project")
+		//.OptionButton("Split virtual modules", &ProjectWizardView::SplitVirtualModules)
 		;
 	
 	ProjectWizardView::RegisterDynamic("/Meta/Headers:Virtual module")
 		.PromptInput("/Meta/Reference:Example of meta instructions")
 		.PromptInput("/Idea/Purpose:Statement")
-		.PromptInput("/Meta/Headers:Virtual modules of the app")
-		.PromptInputUserText("The virtual module in focus")
-		.PromptResponse("List of DECLARE_META_FUNCTION  inside the virtual module in focus. These DECLARE_META_FUNCTION don't fit in other virtual modules")
-		;
+		.PromptInput("/Meta/Headers:Package includes")
+		.PromptInputUserText("The package in focus")
+		.PromptResponse("List of DECLARE_META_FUNCTION  inside the package in focus. These DECLARE_META_FUNCTION don't fit in other virtual modules")
+		;*/
 	
 	/*
 /Idea/Purpose: Statement:

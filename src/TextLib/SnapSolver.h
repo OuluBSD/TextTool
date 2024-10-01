@@ -33,7 +33,7 @@ public:
 	int GetPhaseCount() const override;
 	void DoPhase() override;
 	
-	static SnapSolver& Get(Snapshot& s);
+	static SnapSolver& Get(Snapshot& s, int appmode);
 	
 };
 

@@ -167,8 +167,8 @@ ArrayMap<hash_t, SnapSolver>& __SnapSolvers() {
 	return map;
 }
 
-SnapSolver& SnapSolver::Get(Snapshot& e) {
-	String t = e.entity->profile->owner->name + ": " + e.entity->file_title + ": " + e.file_title;
+SnapSolver& SnapSolver::Get(Snapshot& e, int appmode) {
+	String t = e.entity->profile->owner->name + ": " + e.entity->file_title + ": " + e.file_title + " (" + IntStr(appmode) + ")";
 	hash_t h = t.GetHashValue();
 	ArrayMap<hash_t, SnapSolver>& map = __SnapSolvers();
 	int i = map.Find(h);
@@ -179,6 +179,7 @@ SnapSolver& SnapSolver::Get(Snapshot& e) {
 	ASSERT(e.entity);
 	ls.entity = e.entity;
 	ls.snap = &e;
+	ls.appmode = appmode;
 	return ls;
 }
 

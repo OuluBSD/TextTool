@@ -15,12 +15,15 @@ public:
 	
 	void Clear();
 	void ReadFiles();
+	void MakeFiles();
 	
 	
 	UppAssembly assembly;
 	UppAssemblyData data;
 	UppAssemblyCache cache;
 	UppProject* main_prj = 0;
+	
+	Event<> WhenTree;
 	
 };
 
@@ -32,6 +35,8 @@ class UppExporterCtrl : public NodeCtrlBase {
 	Index<String> pkg_list;
 	
 	enum {
+		MAKE_FILES,
+		UPDATE_FILES,
 		EXPORT_CODE,
 		REM_FILE,
 	};
@@ -46,6 +51,7 @@ public:
 	void ToolMenu(Bar& bar) override;
 	void OnValueChange();
 	void Do(int fn);
+	void OnTreeChange();
 	
 	
 };

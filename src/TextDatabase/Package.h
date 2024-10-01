@@ -84,9 +84,9 @@ struct Node {
 				return &n;
 		return 0;
 	}
-	Node& GetAddNode(const String& name, NodeType type) {
+	Node& GetAddNode(const String& name, NodeType type, bool ignore_type=false) {
 		for (Node& n : sub)
-			if (n.name == name && n.type == type)
+			if (n.name == name && (ignore_type || n.type == type))
 				return n;
 		Node& n = sub.Add();
 		n.owner = this;

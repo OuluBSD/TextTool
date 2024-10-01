@@ -5,5 +5,9 @@ file
 	"Project file formats" readonly separator,
 	Upp.h,
 	Upp.cpp,
+	Parser.h,
+	Parser.cpp,
+	FileWriter.h,
+	FileWriter.cpp,
 	_ readonly separator;
 

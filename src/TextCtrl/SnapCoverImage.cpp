@@ -153,7 +153,7 @@ void SnapCoverImage::Do(int fn) {
 	if (!p.release) return;
 	
 	if (fn == 0) {
-		SnapSolver& tm = SnapSolver::Get(*p.release);
+		SnapSolver& tm = SnapSolver::Get(*p.release, GetAppMode());
 		tm.Start();
 	}
 }

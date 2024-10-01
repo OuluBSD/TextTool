@@ -52,6 +52,13 @@ void UppExporterView::ReadFiles() {
 
 
 
+
+
+
+
+
+
+
 UppExporterCtrl::UppExporterCtrl() {
 	Add(hsplit.SizePos());
 	
@@ -75,12 +82,8 @@ UppExporterCtrl::UppExporterCtrl() {
 	
 	form.assembly <<= THISBACK(OnValueChange);
 	form.main_pkg <<= THISBACK(OnValueChange);
-	form.update.WhenAction << [this]{
-		UppExporterView& view = dynamic_cast<UppExporterView&>(*this->view);
-		view.Clear();
-		view.Data();
-		Data();
-	};
+	form.make_files <<= THISBACK1(Do, MAKE_FILES);
+	form.update <<= THISBACK1(Do, UPDATE_FILES);
 	
 }
 
@@ -94,6 +97,8 @@ void UppExporterCtrl::OnValueChange() {
 void UppExporterCtrl::Data() {
 	UppExporterView& view = dynamic_cast<UppExporterView&>(*this->view);
 	Node& n = *view.node;
+	
+	view.WhenTree = THISBACK(OnTreeChange);
 	
 	form.assembly.SetData(n.data.GetAdd("assembly"));
 	form.main_pkg.SetData(n.data.GetAdd("main-package"));
@@ -160,12 +165,24 @@ void UppExporterCtrl::DataFile() {
 }
 
 void UppExporterCtrl::ToolMenu(Bar& bar) {
-	bar.Add(t_("Export code"), AppImg::RedRing(), THISBACK1(Do, EXPORT_CODE)).Key(K_F5);
+	bar.Add(t_("Make files"), AppImg::RedRing(), THISBACK1(Do, MAKE_FILES)).Key(K_F5);
+	bar.Add(t_("Export code"), AppImg::RedRing(), THISBACK1(Do, EXPORT_CODE)).Key(K_F6);
 	
 }
 
 void UppExporterCtrl::Do(int fn) {
 	UppExporterView& view = dynamic_cast<UppExporterView&>(*this->view);
+	
+	if (fn == MAKE_FILES) {
+		view.MakeFiles();
+	}
+	
+	if (fn == MAKE_FILES || fn == UPDATE_FILES) {
+		UppExporterView& view = dynamic_cast<UppExporterView&>(*this->view);
+		view.Clear();
+		view.Data();
+		Data();
+	}
 	
 	if (fn == EXPORT_CODE) {
 		if (!pkgs.IsCursor())
