@@ -12,10 +12,13 @@ public:
 	typedef CppFileWriter CLASSNAME;
 	CppFileWriter();
 	
-	void WriteHeader(Node& n, const String& h_path);
+	void WriteHeader(Node& n, const String& h_path, const Vector<String>& inc_strs);
+	void WriteImplementation(Node& n, const String& h_path, const String& incl_file);
 	
-	String GetFunctionString(Node& n);
-	String GetClassString(Node& n);
+	String GetFunctionHeaderString(Node& n);
+	String GetFunctionImplString(Node& n, Node* cls_path);
+	String GetClassHeaderString(Node& n);
+	String GetClassImplString(Node& n);
 	
 };
 

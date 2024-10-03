@@ -61,6 +61,8 @@ public:
 	
 	static bool ParseMetaStatementString(const String& in, MetaStatementString& out);
 	static bool ParseMetaInstructionType(const String& in, MetaInstructionType& out);
+	static bool ParseTypeString(const String& in, Vector<String>& out);
+	static bool ParseTypeString(CParser& p, Vector<String>& out);
 	
 	static String GetMetaInstructionString(MetaInstructionType type);
 	

@@ -1,0 +1,59 @@
+This is the example of a software project, which uses Ultimate++ conventions in naming (see *Core, *Ctrl, *Lib). It has also dependencies (pkg -> dependencies):
+TextTool -> CtrlLib, TextDataCtrl, TextCtrl, OrgCtrl, Esc // Main application
+TextCtrl -> TextLib, ToolCtrl // Library of TextTool's GUI elements
+TextDataCtrl -> Agent, ToolCtrl // Library of TextTool Database's GUI elements
+TextDatabase -> ToolCore// Library of TextTool's database
+TextLib -> TextDatabase // Library of core functionalities of the TextTool
+Task -> ToolCore, Core/SSL // Tasks to run external processes
+ToolBase // Generic base classes for core functionalities
+ToolCore -> ToolBase // Core functions and constants
+ToolCtrl -> Task, CtrlLib, CodeEditor, plugin/png, RichEdit, plugin/jpg // Core GUI elements as an extension to CtrlLib
+OrgCtrl -> OrgLib, CtrlLib // GUI elements of the Organizational part of the TextTool
+OrgLib -> Core // functional elements of the Organizational part of the TextTool
+CodeEditor -> CtrlLib, plugin/pcre // The source files edit, derived from CtrlLib's LineEdit
+Core -> plugin/z // Non-GUI code. Streams, NTL containers, concrete types, Value, XML, C parsing etc...
+Core/SSL // OpenSSL based SSL support for Core
+CtrlCore -> Draw, plugin/bmp, RichText, Painter // GUI core system
+CtrlLib -> CtrlCore, PdfDraw // Basic library of GUI elements
+Draw -> Core // Fundamental graphics operations, including raster image processing
+Esc -> Core // Esc scripting language interpreter
+Painter -> Draw // 2D software rendering with PDF/SVG strength
+PdfDraw -> Draw, Painter // PDF output as Draw derived class
+RichEdit -> CtrlLib // Rich text editor
+RichText -> Draw, Painter, plugin/png // Rich-text data structures and painting, including RTF and HTML export/import
+plubin/bmp -> Draw // BMP image file format
+plugin/jpg -> Draw  // JPEG image file format
+plugin/pcre -> Core // PCRE regular expressions library
+plugin/z // zlib compressor/decompressor and its U++ encapsulation
+
+Ideas of improvements for the U++ conventions:
+- The suffix 'Ctrl' could be replaced with 'Elements' for more clarity and precision.
+- The namespace 'Core' could be renamed to 'Base' for consistency with 'GUI'.
+- The namespace 'Esc' could be renamed to 'Script' for clarity and consistency with other namespaces.
+- The use of 'plugin' as a prefix for libraries could be reconsidered. It could potentially be replaced with 'ext' or 'lib' for clarity and consistency. 
+- The organization and naming of the dependencies could be improved for better readability and understanding. 
+- Additional comments or documentation could be added to help developers understand the purpose and usage of each library or dependency.
+
+The new software project structure, which takes improvements in consideration: 
+TextTool -> GUIElements, TextDatabaseElements, TextElements, OrgElements, Scripting // Main application
+TextElements -> Base, TextLibrary, ToolElements // Library of TextTool's GUI elements
+TextDatabaseElements -> Agents, ToolElements // Library of TextTool Database's GUI elements
+TextDatabase -> ToolBase // Library of TextTool's database
+TextLibrary -> TextDatabase // Library of core functionalities of the TextTool
+Tasks -> ToolBase, Base/SSL // Tasks to run external processes
+ToolBase // Generic base classes for core functionalities
+Base -> ext/z // Non-GUI code. Streams, NTL containers, concrete types, Value, XML, C parsing etc...
+Base/SSL // OpenSSL based SSL support for Base
+GUIElements -> Draw, ext/bmp, RichText, Painter // GUI core system
+ToolElements -> Tasks, GUIElements, CodeEditor, ext/png, RichEdit, ext/jpg, Scripting // Core GUI elements as an extension to GUIElements
+OrgElements -> OrgLibrary, GUIElements // GUI elements of the Organizational part of the TextTool
+OrgLibrary -> Base // functional elements of the Organizational part of the TextTool
+CodeEditor -> GUIElements, ext/pcre // The source files edit, derived from GUIElements's LineEdit
+Draw -> Base // Fundamental graphics operations, including raster image processing
+Scripting -> Base // Scripting language interpreter
+Painter -> Draw // 2D software rendering with PDF/SVG strength
+ext/bmp -> Draw // BMP image file format
+ext/jpg -> Draw // JPEG image file format
+ext/png -> Draw // PNG image file format
+ext/pcre -> Base // PCRE regular expressions library
+ext/z // zlib compressor/decompressor and its U++ encapsulation

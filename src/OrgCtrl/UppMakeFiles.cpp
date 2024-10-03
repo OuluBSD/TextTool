@@ -23,6 +23,17 @@ void UppExporterView::MakeFiles() {
 	main_prj.GetAddConfig("");
 	main_prj.FindAddFile(main_pkg + ".h");
 	main_prj.FindAddFile(main_pkg + ".cpp");
+	{
+		String dir = main_prj.GetDirectory();
+		String h_path = AppendFileName(dir, main_pkg + ".h");
+		String cpp_path = AppendFileName(dir, main_pkg + ".cpp");
+		FileOut h_out(h_path);
+		FileOut cpp_out(cpp_path);
+		
+		cpp_out << "#include \"" << main_pkg << ".h\"\n";
+		cpp_out << "\n";
+		cpp_out << "\nint main(int argc, char** argv) {\n\treturn 0;\n}\n\n";
+	}
 	
 	Vector<Node*> packages;
 	prj_file.FindChildDeep(packages, NODE_PACKAGE);
@@ -32,18 +43,28 @@ void UppExporterView::MakeFiles() {
 	for (Node* pkg_ptr : packages) {
 		Node& pkg = *pkg_ptr;
 		String pkg_name = pkg.name;
+		String h_name = pkg_name + ".h";
+		String cpp_name = pkg_name + ".cpp";
 		ASSERT(pkg_name.GetCount());
+		
+		ValueArray& includes = ValueToArray(pkg.data.GetAdd("includes"));
+		Vector<String> inc_strs;
+		for(int i = 0; i < includes.GetCount(); i++)
+			inc_strs.Add(includes[i]);
 		
 		UppProject& upp_prj = data.RealizeProject(pkg_name);
 		bool write_prj = pkg_name != main_pkg;
 		if (write_prj) {
 			upp_prj.ClearContent();
-			upp_prj.AddFile(pkg_name + ".h");
+			upp_prj.AddFile(h_name);
+			upp_prj.AddFile(cpp_name);
 			main_prj.AddUse(pkg_name); // TODO use dependency hierarchy instead of this
 			
 			String dir = upp_prj.GetDirectory();
-			String h_path = AppendFileName(dir, pkg_name + ".h");
-			writer.WriteHeader(pkg, h_path);
+			String h_path = AppendFileName(dir, h_name);
+			String cpp_path = AppendFileName(dir, cpp_name);
+			writer.WriteHeader(pkg, h_path, inc_strs);
+			writer.WriteImplementation(pkg, cpp_path, h_name);
 		}
 		String prj_dir = AppendFileName(ass_dir, pkg_name);
 		
@@ -57,6 +78,8 @@ void UppExporterView::MakeFiles() {
 			
 			String cls_name = cls.name;
 			ASSERT(!cls_name.IsEmpty());
+			if (cls_name == pkg_name)
+				cls_name += "_";
 			
 			String h_file = cls_name + ".h";
 			String cpp_file = cls_name + ".cpp";
@@ -64,8 +87,10 @@ void UppExporterView::MakeFiles() {
 			upp_prj.FindAddFile(cpp_file);
 			
 			String h_path = AppendFileName(prj_dir, h_file);
+			String cpp_path = AppendFileName(prj_dir, cpp_file);
 			
-			writer.WriteHeader(cls, h_path);
+			writer.WriteHeader(cls, h_path, Vector<String>());
+			writer.WriteImplementation(cls, cpp_path, h_name);
 		}
 		
 		upp_prj.Store();

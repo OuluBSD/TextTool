@@ -461,63 +461,89 @@ void ProjectWizardView::ParseVirtualPackageData(const FileNode* n) {
 	
 	
 	for (const String& item : items) {
-		if (item.Find("Virtual package[") != 0)
-			continue;
+		int src = 0;
+		if (item.Find("Package includes[") == 0)
+			src = 1;
+		else if (item.Find("Virtual package[") == 0)
+			src = 2;
+		
+		if (!src) continue;
 		
 		String pkg_name = ParseItemArg(item);
 		String item_path = "/Meta/Headers:" + item;
 		ValueArray& opts = GetItemOpts(item_path);
 		String pkg_path = "/assembly/" + pkg_name;
 		Node& pkg = RealizeNode(pkg_path, NODE_PACKAGE);
+		ValueArray& includes = ValueToArray(pkg.data.GetAdd("includes"));
+		if (src == 1)
+			includes.Clear();
 		
 		for(int i = 0; i < opts.GetCount(); i++) {
 			String s = opts[i];
-			MetaStatementString stmt;
 			
-			if (!Parser::ParseMetaStatementString(s, stmt))
-				continue;
-			
-			stmt.name = Capitalize(stmt.name);
-			
-			if (1) stmt.Dump();
-			
-			MetaInstructionType type;
-			if (!Parser::ParseMetaInstructionType(stmt.meta_instruction, type))
-				continue;
-			
-			String class_path = pkg_path;
-			if (!stmt.class_path.IsEmpty()) {
-				for (String& cp : stmt.class_path) {
-					cp = Capitalize(cp);
-					class_path += "/" + cp;
+			if (src == 1) {
+				if (s.Find("#include") == 0 || s.Find("<") == 0) {
+					int a = s.Find("<");
+					int b = s.Find(">", a+1);
+					if (a >= 0 && b >= 0)
+						includes.Add(s.Mid(a+1, b-a-1));
 				}
-				RealizeNode(class_path, NODE_CLASS);
+				else if (s.Find("<") < 0 && s.Find("\"") < 0 && s.Find(":") >= 0) {
+					int b = s.Find(":");
+					includes.Add(TrimBoth(s.Left(b)));
+				}
+				else if (s.Find("<") < 0 && s.Find("\"") < 0 && s.Find("->") >= 0) {
+					int b = s.Find("->");
+					includes.Add(TrimBoth(s.Left(b)));
+				}
 			}
-			String node_path = class_path + "/" + stmt.name;
-			
-			NodeType node_type;
-			Node* n = 0;
-			switch (type) {
-				case DECLARE_FUNCTION:
-				case DECLARE_METHOD: {
-					n = &RealizeNode(node_path, NODE_FUNCTION);
-					n->data.GetAdd("ret") = stmt.ret;
-					ValueArray& params = ValueToArray(n->data.GetAdd("params"));
-					for(int i = 0; i < stmt.params.GetCount(); i++) {
-						const auto& in = stmt.params[i];
-						ValueMap out;
-						out.Add("name", in.name);
-						out.Add("type", in.type);
-						params.Add(out);
+			else if (src == 2) {
+				MetaStatementString stmt;
+				
+				if (!Parser::ParseMetaStatementString(s, stmt))
+					continue;
+				
+				//stmt.name = Capitalize(stmt.name);
+				
+				if (1) stmt.Dump();
+				
+				MetaInstructionType type;
+				if (!Parser::ParseMetaInstructionType(stmt.meta_instruction, type))
+					continue;
+				
+				String class_path = pkg_path;
+				if (!stmt.class_path.IsEmpty()) {
+					for (String& cp : stmt.class_path) {
+						//cp = Capitalize(cp);
+						class_path += "/" + cp;
 					}
-					break;}
-				case DECLARE_CLASS:
-					n = &RealizeNode(node_path, NODE_CLASS);
-					break;
-				case DECLARE_META_FUNCTION:
-					n = &RealizeNode(node_path, NODE_META);
-					break;
-				default: TODO
+					RealizeNode(class_path, NODE_CLASS);
+				}
+				String node_path = class_path + "/" + stmt.name;
+				
+				Node* n = 0;
+				switch (type) {
+					case DECLARE_FUNCTION:
+					case DECLARE_METHOD: {
+						n = &RealizeNode(node_path, NODE_FUNCTION);
+						n->data.GetAdd("ret") = stmt.ret;
+						ValueArray& params = ValueToArray(n->data.GetAdd("params"));
+						for(int i = 0; i < stmt.params.GetCount(); i++) {
+							const auto& in = stmt.params[i];
+							ValueMap out;
+							out.Add("name", in.name);
+							out.Add("type", in.type);
+							params.Add(out);
+						}
+						break;}
+					case DECLARE_CLASS:
+						n = &RealizeNode(node_path, NODE_CLASS);
+						break;
+					case DECLARE_META_FUNCTION:
+						n = &RealizeNode(node_path, NODE_META);
+						break;
+					default: TODO
+				}
 			}
 		}
 		
