@@ -23,12 +23,14 @@ void UppExporterView::MakeFiles() {
 	main_prj.GetAddConfig("");
 	main_prj.FindAddFile(main_pkg + ".h");
 	main_prj.FindAddFile(main_pkg + ".cpp");
-	
+	main_prj.Store(); // required at this point already
 	
 	Vector<Node*> packages;
 	prj_file.FindChildDeep(packages, NODE_PACKAGE);
 	
 	CppFileWriter writer;
+	
+	VectorMap<String,int> use_counts;
 	
 	for (Node* pkg_ptr : packages) {
 		Node& pkg = *pkg_ptr;
@@ -37,25 +39,38 @@ void UppExporterView::MakeFiles() {
 		String cpp_name = pkg_name + ".cpp";
 		ASSERT(pkg_name.GetCount());
 		
+		String pkg_dir = pkg.GetPathFrom(prj_file);
+		String full_pkg_name = pkg_dir + pkg_name;
+		
 		ValueArray& includes = ValueToArray(pkg.data.GetAdd("includes"));
 		Vector<String> inc_strs;
 		for(int i = 0; i < includes.GetCount(); i++)
 			inc_strs.Add(includes[i]);
 		
-		UppProject& upp_prj = data.RealizeProject(pkg_name);
-		{
+		ValueArray& pkg_deps = ValueToArray(pkg.data.GetAdd("deps"));
+		
+		UppProject& upp_prj = data.RealizeProject(full_pkg_name);
+		
+		if (&upp_prj != &main_prj) {
 			upp_prj.ClearContent();
 			upp_prj.AddFile(h_name);
 			upp_prj.AddFile(cpp_name);
-			main_prj.AddUse(pkg_name); // TODO use dependency hierarchy instead of this
-			
-			String dir = upp_prj.GetDirectory();
-			String h_path = AppendFileName(dir, h_name);
-			String cpp_path = AppendFileName(dir, cpp_name);
-			writer.WriteHeader(pkg, h_path, inc_strs);
-			writer.WriteImplementation(pkg, cpp_path, h_name);
+			use_counts.GetAdd(full_pkg_name,0);
+			for(int i = 0; i < pkg_deps.GetCount(); i++) {
+				String dep = pkg_deps[i];
+				upp_prj.AddUse(dep);
+				use_counts.GetAdd(dep,0)++;
+			}
 		}
-		String prj_dir = AppendFileName(ass_dir, pkg_name);
+		
+		String dir = upp_prj.GetDirectory();
+		RealizeDirectory(dir);
+		String h_path = AppendFileName(dir, h_name);
+		String cpp_path = AppendFileName(dir, cpp_name);
+		writer.WriteHeader(pkg, h_path, inc_strs);
+		writer.WriteImplementation(pkg, cpp_path, h_name);
+		
+		String prj_dir = AppendFileName(ass_dir, full_pkg_name);
 		
 		Vector<Node*> classes;
 		pkg.FindChildDeep(classes, NODE_CLASS);
@@ -83,6 +98,12 @@ void UppExporterView::MakeFiles() {
 		}
 		
 		upp_prj.Store();
+	}
+	
+	for(int i = 0; i < use_counts.GetCount(); i++) {
+		if (use_counts[i] > 0) continue;
+		String pkg_name = use_counts.GetKey(i);
+		main_prj.AddUse(pkg_name);
 	}
 	main_prj.Store();
 	//WhenTree();

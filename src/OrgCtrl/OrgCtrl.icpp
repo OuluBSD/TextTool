@@ -242,14 +242,27 @@ void InitMetaBased() {
 		.OptionFixed("<END_MODULE")
 		;
 	
+	ProjectWizardView::Register("/Meta/Headers:Clear assembly")
+		.OptionButton("Clear", &ProjectWizardView::ClearAssembly, true)
+		.SkipValue()
+		;
+	
+	ProjectWizardView::Register("/Meta/Headers:Clear dynamic")
+		.OptionButton("Clear", &ProjectWizardView::ClearAllDynamic, true)
+		.SkipValue()
+		;
+	
 	ProjectWizardView::Register("/Meta/Headers:Packages of the app")
-		.OptionButton("Clear dynamic values", &ProjectWizardView::ClearAllDynamic)
 		.DefaultReadOptions()
 		.PromptInput("/Meta/Reference:Example 1 (Console): packages and their dependencies")
 		.PromptInput("/Idea/Purpose:Statement")
 		.PromptResponse("List of packages and their dependencies of the given application")
-		.OptionButton("Split packages", &ProjectWizardView::SplitPackages)
 		;
+	
+	ProjectWizardView::Register("/Meta/Headers:Split packages")
+		.OptionButton("Split", &ProjectWizardView::SplitPackages, true)
+		.SkipValue()
+	;
 	
 	ProjectWizardView::RegisterDynamic("/Meta/Headers:Package includes")
 		.DefaultReadOptions()
@@ -1273,7 +1286,7 @@ void InitClassBased() {
 	ProjectWizardView::Register("/File tree/Builder:Packages")
 		.DefaultReadOptions()
 		.PromptInput("/File tree/Builder:Package components")
-		.OptionButton("Get package names", &ProjectWizardView::GetPackageNames, true)
+		//.OptionButton("Get package names", &ProjectWizardView::GetPackageNames, true)
 		.PromptResponse("", false);
 	
 	ProjectWizardView::Register("/File tree/Builder:Package dependencies")
@@ -1282,7 +1295,8 @@ void InitClassBased() {
 		.PromptResponse("List of hierarchical dependencies of packages (package a -> requires package b)");
 	
 	ProjectWizardView::Register("/File tree/Builder:Build structure")
-		.OptionButton("Build structure", &ProjectWizardView::BuildStructure, true);
+		//.OptionButton("Build structure", &ProjectWizardView::BuildStructure, true)
+		;
 	
 	
 	// Determine project structure and organization

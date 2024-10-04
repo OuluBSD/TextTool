@@ -170,19 +170,34 @@ void UppProject::GetRecursiveUses(Index<String>& idx, UppAssemblyData& as) {
 
 
 
-UppProject& UppAssemblyData::RealizeProject(String name) {
+UppProject& UppAssemblyData::RealizeProject(String full_name) {
+	String name;
+	int a = full_name.ReverseFind("/");
+	if (a >= 0)
+		name = full_name.Mid(a+1);
+	else
+		name = full_name;
 	String dir = as.GetDirectory(0);
-	String upp_path = AppendFileName(dir, name + DIR_SEPS + name + ".upp");
+	String prj_dir = AppendFileName(dir, full_name);
+	prj_dir.Replace("/", DIR_SEPS);
+	String upp_path = AppendFileName(prj_dir, name + ".upp");
 	if (FileExists(upp_path)) {
-		RealizeDirectory(AppendFileName(dir, name));
+		RealizeDirectory(prj_dir);
 		FileOut fout(upp_path);
 	}
 	
-	return GetProject(name);
+	return GetProject(full_name);
 }
 
-UppProject& UppAssemblyData::GetProject(String name) {
-	int i = as.FindProject(name);
+UppProject& UppAssemblyData::GetProject(String full_name) {
+	String name;
+	int a = full_name.ReverseFind("/");
+	if (a >= 0)
+		name = full_name.Mid(a+1);
+	else
+		name = full_name;
+	
+	int i = as.FindProject(full_name);
 	String upp_path;
 	if (i >= 0) {
 		upp_path = as.GetProjectPath(i);
@@ -190,7 +205,8 @@ UppProject& UppAssemblyData::GetProject(String name) {
 	else {
 		ASSERT(as.GetDirectoryCount() > 0);
 		String dir = as.GetDirectory(0);
-		upp_path = AppendFileName(dir, name + DIR_SEPS + name + ".upp");
+		upp_path = AppendFileName(dir, full_name + DIR_SEPS + name + ".upp");
+		upp_path.Replace("/", DIR_SEPS);
 	}
 	
 	lock.Enter();
@@ -198,7 +214,7 @@ UppProject& UppAssemblyData::GetProject(String name) {
 	if (i == -1) {
 		LLOG("Load " << upp_path);
 		i = prjs.GetCount();
-		prjs.Add(upp_path).Load(name, upp_path);
+		prjs.Add(upp_path).Load(full_name, upp_path);
 	}
 	UppProject& prj = prjs[i];
 	lock.Leave();

@@ -55,6 +55,15 @@ struct Node {
 	Array<Node>		sub;
 	ValueMap		data;
 	
+	String GetPathFrom(const Node& n) const {
+		String s;
+		const Node* p = owner;
+		while (p && p != &n) {
+			s = p->name + "/" + s;
+			p = p->owner;
+		}
+		return s;
+	}
 	void FindParentDeep(Vector<Node*>& nodes, const String& name, NodeType type) {
 		Node* n = this;
 		while (n) {

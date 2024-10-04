@@ -36,7 +36,9 @@ struct ConfigurationNode {
 	Array<ConfigurationOption> options;
 	bool read_options = false;
 	bool is_dynamic = false;
+	bool skip_value = false;
 	
+	ConfigurationNode& SkipValue();
 	ConfigurationNode& DefaultReadOptions();
 	ConfigurationNode& OptionFixed(Value v);
 	ConfigurationNode& OptionButton(Value v, void(ProjectWizardView::*fn)(const FileNode* n), bool is_refresh=false);
@@ -99,14 +101,17 @@ public:
 	void SplitTechnologyCategories(const FileNode* n);
 	void SplitUniqueComponents(const FileNode* n);
 	void GetAllClasses(const FileNode* n);
-	void GetPackageNames(const FileNode* n);
-	void BuildStructure(const FileNode* n);
+	//void GetPackageNames(const FileNode* n);
+	//void BuildStructure(const FileNode* n);
 	void GetAllComponents(const FileNode* n);
-	void SplitVirtualModules(const FileNode* n);
+	//void SplitVirtualModules(const FileNode* n);
 	void SplitItems(const FileNode* n, String key);
 	void SplitPackages(const FileNode* n);
 	void ParseVirtualPackageData(const FileNode* n);
+	void ClearAssembly(const FileNode* n);
 	void ReadNodeTree(const FileNode* n);
+	void PressReadyButton(const FileNode& n);
+	bool OnlyReadyButton(const FileNode& n);
 	bool MakeArgs(GenericPromptArgs& args, const FileNode& n);
 	bool MakeArgsOptions(GenericPromptArgs& args, const FileNode& n, const ConfigurationOption& o);
 	bool MakeArgsOptionsNode(GenericPromptArgs& args, bool skip_dynamic_values, const String& path, const FileNode& n0);

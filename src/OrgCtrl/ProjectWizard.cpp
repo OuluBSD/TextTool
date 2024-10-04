@@ -55,6 +55,11 @@ String FileNode::GetAnyUserPromptInputString() const {
 	return "";
 }
 
+ConfigurationNode& ConfigurationNode::SkipValue() {
+	skip_value = true;
+	return *this;
+}
+
 ConfigurationNode& ConfigurationNode::DefaultReadOptions() {
 	read_options = true;
 	return *this;
@@ -197,6 +202,13 @@ void ProjectWizardView::DefaultDynamic(const FileNode* n) {
 	String path = n->path;
 	ValueArray& opts = GetItemOpts(path);
 	opts.Clear();
+	
+	if (OnlyReadyButton(*n)) {
+		PressReadyButton(*n);
+		WhenCallbackReady();
+		WhenFile();
+		return;
+	}
 	
 	GenericPromptArgs args;
 	if (!MakeArgs(args, *n)) {
@@ -404,15 +416,23 @@ void ProjectWizardView::SplitTechnologyCategories(const FileNode* n) {
 	SplitItems(n, "Libraries");
 }
 
+void ProjectWizardView::ClearAssembly(const FileNode* n) {
+	Node& root = RealizeNode("/assembly");
+	root.sub.Clear();
+	root.data.Clear();
+}
+
 void ProjectWizardView::SplitPackages(const FileNode* n) {
 	const auto& confs = ProjectWizardView::GetConfs();
 	String file_path = n->GetFilePath();
-	ValueArray& arr = GetItemOpts(n->path);
+	ValueArray& arr = GetItemOpts("/Meta/Headers:Packages of the app");
 	Vector<String> keys;
 	keys << "Package includes";
 	keys << "Virtual package";
+	
 	//keys << "External virtual modules";
 	for (String key : keys) {
+		VectorMap<String,int> seen_pkgs;
 		for(int i = 0; i < arr.GetCount(); i++) {
 			String s =  arr[i].ToString();
 			RemoveCommentTrail(s);
@@ -425,6 +445,7 @@ void ProjectWizardView::SplitPackages(const FileNode* n) {
 				for (String& s : deps) s = TrimBoth(s);
 				s = TrimBoth(s.Left(a));
 			}
+			seen_pkgs.GetAdd(s,0)++;
 			String sub_item = key + "[" + s + "]";
 			String item_path = file_path + ":" + sub_item;
 			const FileNode& n0 = RealizeFileNode(item_path);
@@ -438,8 +459,24 @@ void ProjectWizardView::SplitPackages(const FileNode* n) {
 			Node& pkg = RealizeNode("/assembly/" + s, NODE_PACKAGE);
 			ValueArray& pkg_deps = ValueToArray(pkg.data.GetAdd("deps"));
 			pkg_deps.Clear();
-			for (String& dep : deps)
+			for (String& dep : deps) {
 				pkg_deps.Add(dep);
+				seen_pkgs.GetAdd(dep,0);
+			}
+		}
+		for(int i = 0; i < seen_pkgs.GetCount(); i++) {
+			if (seen_pkgs[i] > 0) continue;
+			String s = seen_pkgs.GetKey(i);
+			
+			String sub_item = key + "[" + s + "]";
+			String item_path = file_path + ":" + sub_item;
+			const FileNode& n0 = RealizeFileNode(item_path);
+			String lbl_str = n0.GetAnyUserPromptInputString();
+			ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
+			ValueMap& map0 = GetItem(item_path);
+			map0.GetAdd("src-path") = n->GetItemPath();
+			Value& user_input = map0.GetAdd(lbl_str);
+			user_input = s;
 		}
 	}
 	WhenTree();
@@ -447,10 +484,7 @@ void ProjectWizardView::SplitPackages(const FileNode* n) {
 
 void ProjectWizardView::ParseVirtualPackageData(const FileNode* n) {
 	Vector<String> items = MakeItems("/Meta/Headers");
-	
 	Node& root = RealizeNode("/assembly");
-	root.sub.Clear();
-	root.data.Clear();
 	
 	String main_pkg_name = StringToName(root.owner->name);
 	String exporter = "UppExporter";
@@ -674,220 +708,6 @@ void VisitDepth(int cur_depth, int& max_depth, String cur_cls, const VectorMap<S
 	//visited.Remove(visited.GetCount()-1);
 }
 
-void ProjectWizardView::BuildStructure(const FileNode* n) {
-	VectorMap<String, Index<String>> cls_deps, cls_dep_bys, component_classes;
-	VectorMap<String, String> cls_descs;
-	
-	ValueArray& all_classes = GetItemOpts("/Plan/Client program:All classes");
-	if (all_classes.IsEmpty()) {
-		PromptOK("Error: No classes");
-		return;
-	}
-	
-	{
-		Index<String> found_classes;
-		Vector<String> components = MakeItems("/Plan/Client program");
-		Vector<int> rm_list;
-		for(int i = 0; i < components.GetCount(); i++) {
-			if (components[i].Left(8) != "Classes[") {
-				rm_list << i;
-				continue;
-			}
-		}
-		components.Remove(rm_list);
-		if (components.IsEmpty()) {
-			PromptOK("Error: No components");
-			return;
-		}
-		for (String& comp : components) {
-			ValueArray& all_classes = GetItemOpts("/Plan/Client program:" + comp);
-			for(int i = 0; i < all_classes.GetCount(); i++) {
-				String cls_name = all_classes.Get(i);
-				String desc;
-				int b = cls_name.Find(":");
-				if (b >= 0) {
-					desc = Capitalize(TrimBoth(cls_name.Mid(b+1)));
-					cls_name = cls_name.Left(b);
-				}
-				cls_name = TrimBoth(cls_name);
-				int j = found_classes.Find(cls_name);
-				if (j >= 0)
-					continue;
-				found_classes.FindAdd(cls_name); // class belongs to only one module/component
-				component_classes.GetAdd(comp).FindAdd(cls_name);
-				
-				String& d = cls_descs.GetAdd(cls_name);
-				if (d.IsEmpty())
-					d = desc;
-			}
-		}
-	}
-	{
-		Vector<String> components = MakeItems("/Plan/Hierarchy");
-		Vector<int> rm_list;
-		for(int i = 0; i < components.GetCount(); i++) {
-			if (components[i].Left(8) != "Classes[") {
-				rm_list << i;
-				continue;
-			}
-		}
-		components.Remove(rm_list);
-		if (components.IsEmpty()) {
-			PromptOK("Error: No components");
-			return;
-		}
-		
-		
-		
-		for (String& comp : components) {
-			ValueArray& all_classes = GetItemOpts("/Plan/Hierarchy:" + comp);
-			for(int i = 0; i < all_classes.GetCount(); i++) {
-				String dep_str = all_classes.Get(i);
-				String desc;
-				int b = dep_str.Find(":");
-				if (b >= 0) {
-					desc = TrimBoth(dep_str.Mid(b+1));
-					dep_str = dep_str.Left(b);
-				}
-				
-				int a = dep_str.Find("->");
-				if (a < 0) continue;
-				
-				String from = TrimBoth(dep_str.Left(a));
-				String to = TrimBoth(dep_str.Mid(a+2));
-				
-				cls_deps.GetAdd(from).FindAdd(to);
-				cls_dep_bys.GetAdd(to).FindAdd(from);
-			}
-		}
-	}
-	
-	//DUMPCC(component_classes);
-	//DUMPCC(cls_deps);
-	
-	ValueArray& pkgs = GetItemOpts("/File tree/Builder:Packages");
-	ValueArray& pkg_deps = GetItemOpts("/File tree/Builder:Package dependencies");
-	ValueArray& pkg_comp_arr = GetItemOpts("/File tree/Builder:Package components");
-	ValueArray& all_comps = GetItemOpts("/File tree/Builder:All components");
-	ValueArray& all_comp_types = GetItemOpts("/File tree/Builder:All components (filenames)");
-	
-	VectorMap<String,String> comp_type_to_name;
-	int c = min(all_comps.GetCount(), all_comp_types.GetCount());
-	for(int i = 0; i < c; i++) {
-		comp_type_to_name.Add(all_comp_types[i], all_comps[i]);
-	}
-	
-	VectorMap<String, Index<String>> pkg_comps;
-	for(int i = 0; i < pkg_comp_arr.GetCount(); i++) {
-		String s = pkg_comp_arr[i];
-		int a = s.Find(":");
-		if (a < 0) continue;
-		String pkg_name = TrimBoth(s.Left(a));
-		String list = TrimBoth(s.Mid(a+1));
-		Vector<String> comps = Split(list, ",");
-		for (String& comp : comps) {
-			comp = TrimBoth(comp);
-			pkg_comps.GetAdd(pkg_name).FindAdd(comp);
-		}
-	}
-	
-	Node& root = RealizeNode("/assembly");
-	root.sub.Clear();
-	root.data.Clear();
-	
-	
-	String main_pkg = "MainApplication";
-	Node& prj_file = root.GetAddNode(main_pkg, NODE_EXPORTER);
-	String dir = GetHomeDirFile("MyAssembly");
-	RealizeDirectory(dir);
-	prj_file.data.Add("assembly", dir);
-	prj_file.data.Add("main-package", main_pkg);
-	
-	UppExporterView exporter;
-	exporter.Init(prj_file, org);
-	exporter.Data();
-	
-	UppProject& main_prj = exporter.data.RealizeProject(main_pkg);
-	main_prj.ClearContent();
-	main_prj.GetAddConfig("");
-	main_prj.FindAddFile(main_pkg + ".h");
-	main_prj.FindAddFile(main_pkg + ".cpp");
-	
-	for(int pkg_i = 0; pkg_i < pkgs.GetCount(); pkg_i++) {
-		String pkg_name = pkgs[pkg_i];
-		Node& pkg = root.GetAddNode(pkg_name, NODE_PACKAGE);
-		
-		UppProject& upp_prj = exporter.data.RealizeProject(pkg_name);
-		bool write_prj = pkg_name != main_pkg;
-		if (write_prj) {
-			upp_prj.ClearContent();
-			upp_prj.AddFile(pkg_name + ".h");
-			main_prj.AddUse(pkg_name); // TODO use dependency hierarchy instead of this
-		}
-		
-		const auto& comps = pkg_comps[pkg_i];
-		for(String comp_name : comps) {
-			Node& comp = pkg.GetAddNode(comp_name, NODE_MODULE);
-			String comp_desc = comp_type_to_name.GetAdd(comp_name);
-			String key = "Classes[" + comp_desc + "]";
-			const auto& classes = component_classes.GetAdd(key);
-			
-			if (write_prj) {
-				String h_file = comp_name + ".h";
-				String cpp_file = comp_name + ".cpp";
-				upp_prj.FindAddFile(h_file);
-				upp_prj.FindAddFile(cpp_file);
-			}
-			
-			// Solve class order by depth
-			VectorMap<String, int> class_depths;
-			for(int j = 0; j < classes.GetCount(); j++) {
-				const String& cls_name = classes[j];
-				int max_depth = 0;
-				Vector<String> visited;
-				VisitDepth(0, max_depth, cls_name, cls_deps, visited);
-				class_depths.GetAdd(cls_name, max_depth);
-			}
-			SortByValue(class_depths, StdLess<int>());
-			
-			// Add classes
-			for(int j = 0; j < class_depths.GetCount(); j++) {
-				const String& cls_name = class_depths.GetKey(j);
-				Node& cls = comp.GetAddNode(cls_name, NODE_CLASS);
-				
-				int depth = class_depths.Get(cls_name);
-				
-				cls.data.GetAdd("max_depth") = depth;
-				cls.data.GetAdd("description") = cls_descs.Get(cls_name);
-				ValueArray& deps = ValueToArray(cls.data.GetAdd("deps"));
-				ValueArray& dep_bys = ValueToArray(cls.data.GetAdd("dep_bys"));
-				
-				int k = cls_deps.Find(cls_name);
-				if (k >= 0) {
-					const auto& dep_list = cls_deps[k];
-					for(int k = 0; k < dep_list.GetCount(); k++) {
-						deps.Add(dep_list[k]);
-					}
-				}
-				
-				k = cls_dep_bys.Find(cls_name);
-				if (k >= 0) {
-					const auto& dep_list = cls_dep_bys[k];
-					for(int k = 0; k < dep_list.GetCount(); k++) {
-						dep_bys.Add(dep_list[k]);
-					}
-				}
-			}
-		}
-		
-		upp_prj.Store();
-	}
-	
-	main_prj.Store();
-	
-	WhenTree();
-}
-
 void ProjectWizardView::GetAllComponents(const FileNode* n) {
 	Vector<String> items = MakeItems("/Plan/Client program");
 	
@@ -902,59 +722,6 @@ void ProjectWizardView::GetAllComponents(const FileNode* n) {
 			}
 		}
 	}
-	
-	WhenFile();
-}
-
-void ProjectWizardView::SplitVirtualModules(const FileNode* n) {
-	String src_path = "/Meta/Headers:Virtual modules of the app";
-	ValueArray& arr = GetItemOpts(src_path);
-	for(int i = -1; i < arr.GetCount(); i++) {
-		String mod_name;
-		if (i < 0)
-			mod_name = "Main Application";
-		else {
-			String s = arr[i];
-			int a = s.Find("\"");
-			if (a < 0) continue;
-			mod_name = s.Mid(a);
-		}
-		RemoveQuotes(mod_name);
-		String item_path = "/Meta/Headers:Virtual module[" + mod_name + "]";
-		const FileNode& n0 = RealizeFileNode(item_path);
-		String lbl_str = n0.GetAnyUserPromptInputString();
-		ASSERT(lbl_str.GetCount()); // rule requires PromptInputUserText
-		ValueMap& map0 = GetItem(item_path);
-		map0.GetAdd("src-path") = src_path;
-		Value& user_input = map0.GetAdd(lbl_str);
-		user_input = mod_name;
-	}
-	
-	WhenFile();
-}
-
-void ProjectWizardView::GetPackageNames(const FileNode* n) {
-	Node* root_node = this->node;
-	while (root_node->owner) root_node = root_node->owner;
-	String main_pkg_name = StringToName(root_node->name);
-	String lower_main_pkg_name = ToLower(main_pkg_name);
-	
-	ValueArray& arr0 = GetItemOpts("/File tree/Builder:Package components");
-	ValueArray& arr1 = GetItemOpts("/File tree/Builder:Packages");
-	bool has_main = false;
-	arr1.Clear();
-	for(int i = 0; i < arr0.GetCount(); i++) {
-		String s = arr0[i];
-		int a = s.Find(":");
-		if (a >= 0)
-			s = TrimBoth(s.Left(a));
-		arr1.Add(s);
-		if (ToLower(s) == lower_main_pkg_name)
-			has_main = true;
-	}
-	
-	if (!has_main)
-		arr1.Add(main_pkg_name);
 	
 	WhenFile();
 }
@@ -1004,6 +771,23 @@ ValueMap& ProjectWizardView::GetFile(const String& file_path) {
 	return map;
 }
 
+void ProjectWizardView::PressReadyButton(const FileNode& n) {
+	for(const ConfigurationOption& o : n.conf.options)
+		if (o.type == ConfigurationOption::BUTTON_REFRESH)
+			callback1(this, o.fn, &n)();
+}
+
+bool ProjectWizardView::OnlyReadyButton(const FileNode& n) {
+	bool has_prompt = false, has_skip_value = false;
+	for(const ConfigurationOption& o : n.conf.options) {
+		if (o.type == ConfigurationOption::BUTTON_REFRESH)
+			has_skip_value = true;
+		if (o.type == ConfigurationOption::PROMPT_INPUT)
+			has_prompt = true;
+	}
+	return !has_prompt && has_skip_value;
+}
+
 bool ProjectWizardView::MakeArgs(GenericPromptArgs& args, const FileNode& n) {
 	error.Clear();
 	
@@ -1015,6 +799,8 @@ bool ProjectWizardView::MakeArgs(GenericPromptArgs& args, const FileNode& n) {
 				MakeArgsOptions(args, n, o);
 			}
 			else {
+				if (n0.conf.skip_value)
+					continue;
 				if (n0.conf.is_dynamic) {
 					TODO
 				}
