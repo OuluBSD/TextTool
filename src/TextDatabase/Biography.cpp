@@ -23,6 +23,24 @@ String KeyToName(String s) {
 	return o;
 }
 
+String StringToName(String s) {
+	s = ToLower(s);
+	String o;
+	bool upper = true;
+	for(int i = 0; i < s.GetCount(); i++) {
+		int chr = s[i];
+		if (chr == ' ') {
+			upper = true;
+			continue;
+		}
+		if (upper && chr >= 'a' && chr <= 'z')
+			chr = ToUpper(chr);
+		upper = false;
+		o.Cat(chr);
+	}
+	return o;
+}
+
 void BioYear::RealizeImageSummaries() {
 	if (images.IsEmpty()) return;
 	int begin = 0;

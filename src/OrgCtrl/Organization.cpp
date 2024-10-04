@@ -118,6 +118,7 @@ void OrganizationCtrl::DataPackage() {
 	
 	auto& pkg = db.pkgs[pkg_i];
 	Node& root = pkg.root;
+	root.name = pkg.name;
 	nodes.SetRoot(OrgLibImgs::root, pkg.name);
 	
 	AddNodeSubToList(0, root);

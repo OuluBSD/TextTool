@@ -81,6 +81,7 @@ enum {
 };
 
 String KeyToName(String s);
+String StringToName(String s);
 String GetBiographyCategoryEnum(int i);
 String GetBiographyCategoryKey(int i);
 const char* GetBiographyCategoryEnumCstr(int i);

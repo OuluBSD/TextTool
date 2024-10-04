@@ -271,6 +271,10 @@ void InitMetaBased() {
 	ProjectWizardView::Register("/Meta/Headers:Parse virtual package data")
 		.OptionButton("Parse", &ProjectWizardView::ParseVirtualPackageData, true)
 		;
+		
+	ProjectWizardView::Register("/Meta/Implementation:Read node-tree")
+		.OptionButton("Read", &ProjectWizardView::ReadNodeTree, true)
+		;
 	/*
 	NOTE: seems like these must be solved after the virtual implementation
 	

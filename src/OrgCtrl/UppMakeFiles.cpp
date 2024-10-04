@@ -17,23 +17,13 @@ void UppExporterView::MakeFiles() {
 	Init(prj_file, org);
 	Data();
 	
-	String main_pkg = "MainApplication";
+	String main_pkg = name;
 	UppProject& main_prj = data.RealizeProject(main_pkg);
 	main_prj.ClearContent();
 	main_prj.GetAddConfig("");
 	main_prj.FindAddFile(main_pkg + ".h");
 	main_prj.FindAddFile(main_pkg + ".cpp");
-	{
-		String dir = main_prj.GetDirectory();
-		String h_path = AppendFileName(dir, main_pkg + ".h");
-		String cpp_path = AppendFileName(dir, main_pkg + ".cpp");
-		FileOut h_out(h_path);
-		FileOut cpp_out(cpp_path);
-		
-		cpp_out << "#include \"" << main_pkg << ".h\"\n";
-		cpp_out << "\n";
-		cpp_out << "\nint main(int argc, char** argv) {\n\treturn 0;\n}\n\n";
-	}
+	
 	
 	Vector<Node*> packages;
 	prj_file.FindChildDeep(packages, NODE_PACKAGE);
@@ -53,8 +43,7 @@ void UppExporterView::MakeFiles() {
 			inc_strs.Add(includes[i]);
 		
 		UppProject& upp_prj = data.RealizeProject(pkg_name);
-		bool write_prj = pkg_name != main_pkg;
-		if (write_prj) {
+		{
 			upp_prj.ClearContent();
 			upp_prj.AddFile(h_name);
 			upp_prj.AddFile(cpp_name);

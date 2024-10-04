@@ -106,6 +106,7 @@ public:
 	void SplitItems(const FileNode* n, String key);
 	void SplitPackages(const FileNode* n);
 	void ParseVirtualPackageData(const FileNode* n);
+	void ReadNodeTree(const FileNode* n);
 	bool MakeArgs(GenericPromptArgs& args, const FileNode& n);
 	bool MakeArgsOptions(GenericPromptArgs& args, const FileNode& n, const ConfigurationOption& o);
 	bool MakeArgsOptionsNode(GenericPromptArgs& args, bool skip_dynamic_values, const String& path, const FileNode& n0);

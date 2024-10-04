@@ -452,13 +452,27 @@ void ProjectWizardView::ParseVirtualPackageData(const FileNode* n) {
 	root.sub.Clear();
 	root.data.Clear();
 	
-	String main_pkg = "MainApplication";
-	Node& prj_file = root.GetAddNode(main_pkg, NODE_EXPORTER);
+	String main_pkg_name = StringToName(root.owner->name);
+	String exporter = "UppExporter";
+	Node& prj_file = root.GetAddNode(exporter, NODE_EXPORTER);
 	String dir = GetHomeDirFile("MyAssembly");
 	RealizeDirectory(dir);
 	prj_file.data.Add("assembly", dir);
-	prj_file.data.Add("main-package", main_pkg);
+	prj_file.data.Add("main-package", main_pkg_name);
 	
+	{
+		Node& main_pkg = root.GetAddNode(main_pkg_name, NODE_PACKAGE);
+		Node& main_fn = main_pkg.GetAddNode("main", NODE_FUNCTION);
+		main_fn.data.GetAdd("ret") = "int";
+		ValueArray& params = ValueToArray(main_fn.data.GetAdd("params"));
+		params.SetCount(2);
+		ValueMap& arg0 = ValueToMap(params.At(0));
+		ValueMap& arg1 = ValueToMap(params.At(1));
+		arg0.GetAdd("type") = "int";
+		arg0.GetAdd("name") = "argc";
+		arg1.GetAdd("type") = "char**";
+		arg1.GetAdd("name") = "argv";
+	}
 	
 	for (const String& item : items) {
 		int src = 0;
@@ -549,6 +563,14 @@ void ProjectWizardView::ParseVirtualPackageData(const FileNode* n) {
 		
 	}
 	WhenTree();
+}
+
+void ProjectWizardView::ReadNodeTree(const FileNode* n) {
+	
+	
+	
+	
+	
 }
 
 void ProjectWizardView::SplitUniqueComponents(const FileNode* n) {
@@ -912,6 +934,11 @@ void ProjectWizardView::SplitVirtualModules(const FileNode* n) {
 }
 
 void ProjectWizardView::GetPackageNames(const FileNode* n) {
+	Node* root_node = this->node;
+	while (root_node->owner) root_node = root_node->owner;
+	String main_pkg_name = StringToName(root_node->name);
+	String lower_main_pkg_name = ToLower(main_pkg_name);
+	
 	ValueArray& arr0 = GetItemOpts("/File tree/Builder:Package components");
 	ValueArray& arr1 = GetItemOpts("/File tree/Builder:Packages");
 	bool has_main = false;
@@ -922,12 +949,12 @@ void ProjectWizardView::GetPackageNames(const FileNode* n) {
 		if (a >= 0)
 			s = TrimBoth(s.Left(a));
 		arr1.Add(s);
-		if (ToLower(s) == "mainapplication")
+		if (ToLower(s) == lower_main_pkg_name)
 			has_main = true;
 	}
 	
 	if (!has_main)
-		arr1.Add("MainApplication");
+		arr1.Add(main_pkg_name);
 	
 	WhenFile();
 }
