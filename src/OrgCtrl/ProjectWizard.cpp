@@ -600,9 +600,34 @@ void ProjectWizardView::ParseVirtualPackageData(const FileNode* n) {
 }
 
 void ProjectWizardView::ReadNodeTree(const FileNode* n) {
+	Node& root = RealizeNode("/assembly");
+	String main_pkg_name = StringToName(root.owner->name);
+	
+	Node* main_pkg = root.FindNode(main_pkg_name, NODE_PACKAGE);
+	if (!main_pkg)
+		return;
+	
+	Node* main_fn = main_pkg->FindNode("main", NODE_FUNCTION);
+	if (!main_fn)
+		return;
+	
+	String path = n->path;
+	
+	GenericPromptArgs args;
+	if (!MakeArgs(args, *n)) {
+		PromptOK(error);
+		return;
+	}
+	
+	//PromptOK("fix args"); return; // add info about the function
 	
 	
-	
+	TaskMgr& m = TaskMgr::Single();
+	m.GetGenericPrompt(args, [this, path](String res) {
+		
+		WhenCallbackReady();
+		WhenOptions();
+	});
 	
 	
 }

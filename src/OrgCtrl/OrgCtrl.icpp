@@ -215,12 +215,13 @@ void InitMetaBased() {
 		.OptionFixed(">>>DECLARE_FUNCTION_VIRTUAL \"OnEvent\" -> int")
 		.OptionFixed(">>>DECLARE_FUNCTION_OVERRIDE \"OnEvent\" -> int // Binds a virtual function")
 		.OptionFixed("<<END_CLASS")
-		.OptionFixed(">>BEGIN_FUNCTION \"Main\", argv: char**, argv: int -> int // Begins defining the function with parameter(s)")
-		.OptionFixed(">>>BEGIN_STATEMENT // a statement inside a function or in a global scope as initializer")
-		.OptionFixed(">>>>INITIALIZE_MODULE")
-		.OptionFixed(">>>>UNINITIALIZE_MODULE")
-		.OptionFixed(">>>>CALL_FUNCTION \"Main\", 0, 0 // Function name, argument(s)")
-		.OptionFixed("<<<END_STATEMENT")
+		.OptionFixed(">>BEGIN_FUNCTION \"main\", argv: char**, argv: int -> int // Begins defining the function with parameter(s)")
+		.OptionFixed(">>>CALL_FUNCTION \"FunctionName\", 4, \"some string arg\" -> stack0// a standalone call statement calling a function and stores return value to stack variable #0")
+		.OptionFixed(">>>BEGIN_EXPRESSION // an expression inside a function or in a global scope as initializer")
+		.OptionFixed(">>>>ADD [stack0], 5 -> [temp0] // add stack variable to integer constant 5 and save the result in temporary expression variable")
+		.OptionFixed(">>>>MOVE [temp0] -> [stack1] // move temporary expression variable to stack variable")
+		.OptionFixed(">>>>CALL_FUNCTION \"Other function\", [stack1], 0 // Function name, argument(s)")
+		.OptionFixed("<<<END_EXPRESSION")
 		.OptionFixed("<<END_FUNCTION")
 		.OptionFixed(">>BEGIN_METHOD \"ClassName::SomeMethodFunction\", param0: int -> double // Begins to define the Methos")
 		.OptionFixed("<<END_METHOD")
@@ -286,6 +287,10 @@ void InitMetaBased() {
 		;
 		
 	ProjectWizardView::Register("/Meta/Implementation:Read node-tree")
+		.PromptInput("/Meta/Reference:Example of meta instructions")
+		.PromptInput("/Idea/Purpose:Statement")
+		.PromptInput("/Meta/Headers:Virtual package")
+		.PromptResponse("List of meta-instructions of the implementation of the main function following 'BEGIN_FUNCTION \"main\", argv: char**, argv: int -> int'", false)
 		.OptionButton("Read", &ProjectWizardView::ReadNodeTree, true)
 		;
 	/*
