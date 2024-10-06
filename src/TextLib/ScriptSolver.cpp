@@ -1503,7 +1503,8 @@ void ScriptSolver::GetExpanded(int part_i, int sub_i, int line_i, Event<> WhenPa
 			
 			const auto& ents = GetTypeclassEntities(appmode, dl.safety, artist->is_female);
 			state.style_type = ents.GetKey(dl.style_type);
-			state.style_entity = ents[dl.style_type][dl.style_entity];
+			const auto& vec = dl.style_type < ents.GetCount() ? ents[dl.style_type] : ents.Top();
+			state.style_entity = dl.style_entity < vec.GetCount() ? vec [dl.style_entity] : vec.Top();
 			state.safety = dl.safety;
 			state.connector = dl.connector;
 		}

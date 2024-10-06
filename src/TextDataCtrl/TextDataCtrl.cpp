@@ -18,6 +18,10 @@ TextDatabase& ToolAppCtrl::GetDatabase() const {
 	#endif
 }
 
+bool ToolAppCtrl::HasPointers() const {
+	return HasAnyEditor();
+}
+
 EditorPtrs& ToolAppCtrl::GetPointers() const {
 	#if 1
 	return GetAnyEditor().GetPointers();

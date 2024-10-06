@@ -39,6 +39,7 @@ void StructuredScriptEditor::CheckClearSelected() {
 	bool part_found = false;
 	bool sub_found = false;
 	if (!HasAnyEditor()) return;
+	if (!owner->GetPointers().script) return;
 	Script& s = owner->GetScript();
 	for(int i = 0; i < s.parts.GetCount(); i++) {
 		const DynPart& dp = s.parts[i];

@@ -215,14 +215,14 @@ void InitMetaBased() {
 		.OptionFixed(">>>DECLARE_FUNCTION_VIRTUAL \"OnEvent\" -> int")
 		.OptionFixed(">>>DECLARE_FUNCTION_OVERRIDE \"OnEvent\" -> int // Binds a virtual function")
 		.OptionFixed("<<END_CLASS")
-		.OptionFixed(">>BEGIN_FUNCTION \"main\", argv: char**, argv: int -> int // Begins defining the function with parameter(s)")
+/*		.OptionFixed(">>BEGIN_FUNCTION \"main\", argv: char**, argv: int -> int // Begins defining the function with parameter(s)")
 		.OptionFixed(">>>CALL_FUNCTION \"FunctionName\", 4, \"some string arg\" -> stack0// a standalone call statement calling a function and stores return value to stack variable #0")
 		.OptionFixed(">>>BEGIN_EXPRESSION // an expression inside a function or in a global scope as initializer")
 		.OptionFixed(">>>>ADD [stack0], 5 -> [temp0] // add stack variable to integer constant 5 and save the result in temporary expression variable")
 		.OptionFixed(">>>>MOVE [temp0] -> [stack1] // move temporary expression variable to stack variable")
 		.OptionFixed(">>>>CALL_FUNCTION \"Other function\", [stack1], 0 // Function name, argument(s)")
 		.OptionFixed("<<<END_EXPRESSION")
-		.OptionFixed("<<END_FUNCTION")
+		.OptionFixed("<<END_FUNCTION")*/
 		.OptionFixed(">>BEGIN_METHOD \"ClassName::SomeMethodFunction\", param0: int -> double // Begins to define the Methos")
 		.OptionFixed("<<END_METHOD")
 		/*
@@ -241,6 +241,38 @@ void InitMetaBased() {
 		.OptionFixed(">>>DECLARE_META_STATEMENT \"text parameter is processed in a custom way and returned\" // Description of the statement inside the meta-function")
 		.OptionFixed("<<END_META_FUNCTION ")
 		.OptionFixed("<END_MODULE")
+		;
+	
+	ProjectWizardView::Register("/Meta/Reference:Example of instructions of a implementation", "Hard coded meta-instructions")
+		.DefaultReadOptions()
+		/*.OptionFixed(">>BEGIN_FUNCTION \"main\", argv: char**, argv: int -> int // Begins defining the function with parameter(s)")
+		.OptionFixed(">>>DECLARE_VARIABLE some_number: int (0) // variable, which exists during the function")
+		.OptionFixed(">>>DECLARE_VARIABLE some_other_number: int (3)")
+		.OptionFixed(">>>CALL_FUNCTION \"FunctionName\", 4, \"some string arg\" -> some_number // a standalone call statement calling a function and stores return value to stack variable #0")
+		.OptionFixed(">>>BEGIN_STATEMENT // an expression inside a function or in a global scope as initializer")
+		.OptionFixed(">>>>DECLARE_VARIABLE temp0: int:  // temporary variable, which exists only during the statement")
+		.OptionFixed(">>>>ADD some_number, 5 -> temp0 // add stack variable to integer constant 5 and save the result in temporary expression variable")
+		.OptionFixed(">>>>MOVE temp0 -> some_other_number // move temporary expression variable to stack variable")
+		.OptionFixed(">>>>CALL_FUNCTION \"Other function\", some_other_number, 0 // Function name, argument(s)")
+		.OptionFixed("<<<END_STATEMENT")
+		.OptionFixed("<<END_FUNCTION")*/
+		.OptionFixed("main(argv: char**, argv: int) -> int { // Begins defining the function with parameter(s)")
+		.OptionFixed("	var some_number: int (0) // variable, which exists during the function")
+		.OptionFixed("	var some_other_number: int (3)")
+		.OptionFixed("	var temp0: int")
+		.OptionFixed("	some_number = SomeFunction(4, \"some string arg\") // a standalone call statement calling a function and stores return value to stack variable #0")
+		.OptionFixed("	temp0 = some_number + 5 // add variable to integer constant 5 and save the result in temporary expression variable")
+		.OptionFixed("	some_other_number = temp0 // move temporary expression variable to stack variable")
+		.OptionFixed("	OtherFunction(&some_other_number, 0) // Function name, argument(s)")
+		.OptionFixed("	if (some_other_number == (temp0 + 1)) {")
+		.OptionFixed("		while (true) {")
+		.OptionFixed("			temp0 = temp0 + 2")
+		.OptionFixed("			if (temp0 > 10) {")
+		.OptionFixed("				break")
+		.OptionFixed("			}")
+		.OptionFixed("		}")
+		.OptionFixed("	}")
+		.OptionFixed("}")
 		;
 	
 	ProjectWizardView::Register("/Meta/Headers:Clear assembly")
@@ -288,9 +320,10 @@ void InitMetaBased() {
 		
 	ProjectWizardView::Register("/Meta/Implementation:Read node-tree")
 		.PromptInput("/Meta/Reference:Example of meta instructions")
+		.PromptInput("/Meta/Reference:Example of instructions of a implementation")
 		.PromptInput("/Idea/Purpose:Statement")
 		.PromptInput("/Meta/Headers:Virtual package")
-		.PromptResponse("List of meta-instructions of the implementation of the main function following 'BEGIN_FUNCTION \"main\", argv: char**, argv: int -> int'", false)
+		.PromptResponse("List of instructions of the implementation of the main function following 'main(argv: char**, argv: int) -> int'", false)
 		.OptionButton("Read", &ProjectWizardView::ReadNodeTree, true)
 		;
 	/*

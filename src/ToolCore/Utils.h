@@ -67,6 +67,7 @@ public:
 	TextLib::Script& GetScript();
 	TextLib::TaskManager& GetTaskManager();
 	bool IsScript() const;
+	bool HasPointers() const;
 	
 /*	SocialLib::Company& GetCompany();
 	SocialLib::Campaign& GetCampaign();
