@@ -1,0 +1,4916 @@
+{
+	"saved_hash": "66b79558683ff75fd113ad44f09a28262a86631b",
+	"files": [
+		{
+			"key": "OrgLib.h",
+			"value": {
+				"items": [
+					{
+						"k": 501,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "_OrgLib_OrgLib_h",
+						"t": "",
+						"i": "_OrgLib_OrgLib_h",
+						"r": "_OrgLib_OrgLib_h",
+						"s": "",
+						"u": "_ORGLIB_ORGLIB_H",
+						"q": "",
+						"w": "",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "e390d93f1fb4f5d61e81bde1ba4deebbf1dff96a"
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			"key": "Upp.h",
+			"value": {
+				"items": [
+					{
+						"k": 501,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "_OrgLib_Upp_h_",
+						"t": "",
+						"i": "_OrgLib_Upp_h_",
+						"r": "_OrgLib_Upp_h_",
+						"s": "",
+						"u": "_ORGLIB_UPP_H_",
+						"q": "",
+						"w": "",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "da4d608e4e59739811fea130db41dc1daa875d5d"
+							}
+						]
+					},
+					{
+						"k": 2,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "UppAssemblyData",
+						"t": "TextLib::UppAssemblyData",
+						"i": "TextLib::UppAssemblyData",
+						"r": "UppAssemblyData",
+						"s": "TextLib",
+						"u": "UPPASSEMBLYDATA",
+						"q": "TextLib::UppAssemblyData",
+						"w": "TEXTLIB::UPPASSEMBLYDATA",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "e354c5790e5e69191eec90fd55f31ec4274fdd83"
+							}
+						]
+					},
+					{
+						"k": 4,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "UppAssembly",
+						"t": "TextLib::UppAssembly",
+						"i": "TextLib::UppAssembly",
+						"r": "UppAssembly",
+						"s": "TextLib",
+						"u": "UPPASSEMBLY",
+						"q": "TextLib::UppAssembly",
+						"w": "TEXTLIB::UPPASSEMBLY",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "3b06a936c1d571bbfc0f791e547ace52d6f79b0e"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "dirs",
+						"t": "Index<String>",
+						"i": "TextLib::UppAssembly::dirs",
+						"r": "Index<String> dirs",
+						"s": "TextLib",
+						"u": "DIRS",
+						"q": "TextLib::UppAssembly",
+						"w": "TEXTLIB::UPPASSEMBLY",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "9a8e784405cfd1855cbf81b8f3058ff4aee5dbe3"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "prj_paths",
+						"t": "VectorMap<String, String>",
+						"i": "TextLib::UppAssembly::prj_paths",
+						"r": "VectorMap<String, String> prj_paths",
+						"s": "TextLib",
+						"u": "PRJ_PATHS",
+						"q": "TextLib::UppAssembly",
+						"w": "TEXTLIB::UPPASSEMBLY",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "a8d329cfc9fd5329cc1e278a65f9d0f46f15b774"
+							}
+						]
+					},
+					{
+						"k": 24,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "UppAssembly",
+						"t": "void ()",
+						"i": "TextLib::UppAssembly::UppAssembly()",
+						"r": "UppAssembly()",
+						"s": "TextLib",
+						"u": "UPPASSEMBLY",
+						"q": "TextLib::UppAssembly",
+						"w": "TEXTLIB::UPPASSEMBLY",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "0905a524eae684ac2e317d75f07c971e5981e8a7"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "Clear",
+						"t": "void ()",
+						"i": "TextLib::UppAssembly::Clear()",
+						"r": "void Clear()",
+						"s": "TextLib",
+						"u": "CLEAR",
+						"q": "TextLib::UppAssembly",
+						"w": "TEXTLIB::UPPASSEMBLY",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "56766c399cb93bacc209e4c3e9b70b078f6f4e2d"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "AddPath",
+						"t": "void (String)",
+						"i": "TextLib::UppAssembly::AddPath(String)",
+						"r": "void AddPath(String dir)",
+						"s": "TextLib",
+						"u": "ADDPATH",
+						"q": "TextLib::UppAssembly",
+						"w": "TEXTLIB::UPPASSEMBLY",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "d0e5b192d783f203f01f27eb398128eefa6a6367"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetDirectoryCount",
+						"t": "int () const",
+						"i": "TextLib::UppAssembly::GetDirectoryCount()const",
+						"r": "int GetDirectoryCount() const",
+						"s": "TextLib",
+						"u": "GETDIRECTORYCOUNT",
+						"q": "TextLib::UppAssembly",
+						"w": "TEXTLIB::UPPASSEMBLY",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "428d55439155c96492cc3bedf3aae8f6412d5b6d"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetDirectory",
+						"t": "String (int) const",
+						"i": "TextLib::UppAssembly::GetDirectory(int)const",
+						"r": "String GetDirectory(int i) const",
+						"s": "TextLib",
+						"u": "GETDIRECTORY",
+						"q": "TextLib::UppAssembly",
+						"w": "TEXTLIB::UPPASSEMBLY",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "1e73e22f2a403dc2e8159962cd564d1f904bea57"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "FindProject",
+						"t": "int (String) const",
+						"i": "TextLib::UppAssembly::FindProject(String)const",
+						"r": "int FindProject(String name) const",
+						"s": "TextLib",
+						"u": "FINDPROJECT",
+						"q": "TextLib::UppAssembly",
+						"w": "TEXTLIB::UPPASSEMBLY",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "7a22fa6bc91ef7b6df939e2824d99f26e32e3a45"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetProjectPath",
+						"t": "String (int) const",
+						"i": "TextLib::UppAssembly::GetProjectPath(int)const",
+						"r": "String GetProjectPath(int i) const",
+						"s": "TextLib",
+						"u": "GETPROJECTPATH",
+						"q": "TextLib::UppAssembly",
+						"w": "TEXTLIB::UPPASSEMBLY",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "6c73dca2833e4f80ddcba4f5e2045f38c1afee6f"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "Dump",
+						"t": "void ()",
+						"i": "TextLib::UppAssembly::Dump()",
+						"r": "void Dump()",
+						"s": "TextLib",
+						"u": "DUMP",
+						"q": "TextLib::UppAssembly",
+						"w": "TEXTLIB::UPPASSEMBLY",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "01c4bddc718e7d26a5030837e62e79757555a1cd"
+							}
+						]
+					},
+					{
+						"k": 4,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "UppProject",
+						"t": "TextLib::UppProject",
+						"i": "TextLib::UppProject",
+						"r": "UppProject",
+						"s": "TextLib",
+						"u": "UPPPROJECT",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "495cab166bcd2b80315e95e5b5ec40c0006820ed"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "name",
+						"t": "String",
+						"i": "TextLib::UppProject::name",
+						"r": "String name",
+						"s": "TextLib",
+						"u": "NAME",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "5233278cb3ddd461efca2b742dc40bb7e9dfde0f"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "path",
+						"t": "String",
+						"i": "TextLib::UppProject::path",
+						"r": "String path",
+						"s": "TextLib",
+						"u": "PATH",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "95365194c94e9fa9d07b1738eff05587046fb8bb"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "dir",
+						"t": "String",
+						"i": "TextLib::UppProject::dir",
+						"r": "String dir",
+						"s": "TextLib",
+						"u": "DIR",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "c755bb21c0665348d6cfac74f23fa8748a6e2086"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "uses",
+						"t": "Index<String>",
+						"i": "TextLib::UppProject::uses",
+						"r": "Index<String> uses",
+						"s": "TextLib",
+						"u": "USES",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "0c5d2ab6b10b1ff8dfc6dc22e3484b2d69a558b7"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "files",
+						"t": "Index<String>",
+						"i": "TextLib::UppProject::files",
+						"r": "Index<String> files",
+						"s": "TextLib",
+						"u": "FILES",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "1ce05759f5d94cc6f2bf8e73c531861b3b0df7b4"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "configs",
+						"t": "VectorMap<String, String>",
+						"i": "TextLib::UppProject::configs",
+						"r": "VectorMap<String, String> configs",
+						"s": "TextLib",
+						"u": "CONFIGS",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "255dcbba275831285bba06d420b579f5d9cc267b"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "AddUse",
+						"t": "void (String)",
+						"i": "TextLib::UppProject::AddUse(String)",
+						"r": "void AddUse(String use)",
+						"s": "TextLib",
+						"u": "ADDUSE",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "6b30face639c1376374f89b638aed26378716ea0"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetUse",
+						"t": "String (int) const",
+						"i": "TextLib::UppProject::GetUse(int)const",
+						"r": "String GetUse(int i) const",
+						"s": "TextLib",
+						"u": "GETUSE",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "5433343b4b0604b6d8849beeeb285923c4758022"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetUseCount",
+						"t": "int () const",
+						"i": "TextLib::UppProject::GetUseCount()const",
+						"r": "int GetUseCount() const",
+						"s": "TextLib",
+						"u": "GETUSECOUNT",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "8ab201c12dbe27a9072be398f5c03e79bacd9248"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetFile",
+						"t": "String (int) const",
+						"i": "TextLib::UppProject::GetFile(int)const",
+						"r": "String GetFile(int i) const",
+						"s": "TextLib",
+						"u": "GETFILE",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "3fed87010eadc31662287f27388165f30d35ef87"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "FindAddFile",
+						"t": "int (String)",
+						"i": "TextLib::UppProject::FindAddFile(String)",
+						"r": "int FindAddFile(String file)",
+						"s": "TextLib",
+						"u": "FINDADDFILE",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "a428d87279c7e30b4fd58eb392d739a39082ff24"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetFileCount",
+						"t": "int () const",
+						"i": "TextLib::UppProject::GetFileCount()const",
+						"r": "int GetFileCount() const",
+						"s": "TextLib",
+						"u": "GETFILECOUNT",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "9298cb70cde4f77c49c3bf7b07a20a76a596a27a"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetConfigKey",
+						"t": "String (int) const",
+						"i": "TextLib::UppProject::GetConfigKey(int)const",
+						"r": "String GetConfigKey(int i) const",
+						"s": "TextLib",
+						"u": "GETCONFIGKEY",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "ea2e2b6cc5f8525e822770b291d5248baffcc704"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetConfigValue",
+						"t": "String (int) const",
+						"i": "TextLib::UppProject::GetConfigValue(int)const",
+						"r": "String GetConfigValue(int i) const",
+						"s": "TextLib",
+						"u": "GETCONFIGVALUE",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "aecd7fd11156f8b60f07647c4482f34a70c81ca6"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetConfigCount",
+						"t": "int () const",
+						"i": "TextLib::UppProject::GetConfigCount()const",
+						"r": "int GetConfigCount() const",
+						"s": "TextLib",
+						"u": "GETCONFIGCOUNT",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "e9ba228c078179327d6b5717c0d4d5b786472c1e"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetAddConfig",
+						"t": "String &(String)",
+						"i": "TextLib::UppProject::GetAddConfig(String)",
+						"r": "String& GetAddConfig(String name)",
+						"s": "TextLib",
+						"u": "GETADDCONFIG",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "fab125b74caaf85b3f410c001220ecebd3691668"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetFilePath",
+						"t": "String () const",
+						"i": "TextLib::UppProject::GetFilePath()const",
+						"r": "String GetFilePath() const",
+						"s": "TextLib",
+						"u": "GETFILEPATH",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "88a41d3eebfa3d4345e9283bff8885bfbfddfe64"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetFilePath",
+						"t": "String (int) const",
+						"i": "TextLib::UppProject::GetFilePath(int)const",
+						"r": "String GetFilePath(int i) const",
+						"s": "TextLib",
+						"u": "GETFILEPATH",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "b9bae92d16d5c74340270bd21eab158da567850b"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "AddFile",
+						"t": "String (String)",
+						"i": "TextLib::UppProject::AddFile(String)",
+						"r": "String AddFile(String filename)",
+						"s": "TextLib",
+						"u": "ADDFILE",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "707635052beeab1cfc7a2864841311b3159c1793"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "ClearFiles",
+						"t": "void ()",
+						"i": "TextLib::UppProject::ClearFiles()",
+						"r": "void ClearFiles()",
+						"s": "TextLib",
+						"u": "CLEARFILES",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "7f6dfc1f324a63b8485f47dedb7d6b069fd5c1e0"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "RemoveFile",
+						"t": "void (int)",
+						"i": "TextLib::UppProject::RemoveFile(int)",
+						"r": "void RemoveFile(int i)",
+						"s": "TextLib",
+						"u": "REMOVEFILE",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "e7c6f9a2331c527eae37fd52121315af425d1e81"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetName",
+						"t": "String () const",
+						"i": "TextLib::UppProject::GetName()const",
+						"r": "String GetName() const",
+						"s": "TextLib",
+						"u": "GETNAME",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "23815b8c192509004e0b2a99fd2ed67d95c71f13"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetDirectory",
+						"t": "String () const",
+						"i": "TextLib::UppProject::GetDirectory()const",
+						"r": "String GetDirectory() const",
+						"s": "TextLib",
+						"u": "GETDIRECTORY",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "5ca0713de5cba7f887b9343924bc8de917ad12ec"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "Clear",
+						"t": "void ()",
+						"i": "TextLib::UppProject::Clear()",
+						"r": "void Clear()",
+						"s": "TextLib",
+						"u": "CLEAR",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "56766c399cb93bacc209e4c3e9b70b078f6f4e2d"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "ClearContent",
+						"t": "void ()",
+						"i": "TextLib::UppProject::ClearContent()",
+						"r": "void ClearContent()",
+						"s": "TextLib",
+						"u": "CLEARCONTENT",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "78cee515d5072ca030531b32b0899d4ab95e471e"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "Store",
+						"t": "void ()",
+						"i": "TextLib::UppProject::Store()",
+						"r": "void Store()",
+						"s": "TextLib",
+						"u": "STORE",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "d798fc509aab09c8f1624a7e717a51fdc3f28c03"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "Load",
+						"t": "bool (String, String)",
+						"i": "TextLib::UppProject::Load(String,String)",
+						"r": "bool Load(String name, String path)",
+						"s": "TextLib",
+						"u": "LOAD",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "ddb53ed2f3bff9813c59be066c3c148a7e55b38b"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "Refresh",
+						"t": "void ()",
+						"i": "TextLib::UppProject::Refresh()",
+						"r": "void Refresh()",
+						"s": "TextLib",
+						"u": "REFRESH",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "36bc37d72f972d41736e05b24b1b7a5dbf87b083"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "GetRecursiveUses",
+						"t": "void (Index<String> &, UppAssemblyData &)",
+						"i": "TextLib::UppProject::GetRecursiveUses(Index&,UppAssemblyData&)",
+						"r": "void GetRecursiveUses(Index<String>& idx, UppAssemblyData& as)",
+						"s": "TextLib",
+						"u": "GETRECURSIVEUSES",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "6cdad646f345f8341bbf6a6805464410d10de6e6"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "Dump",
+						"t": "void ()",
+						"i": "TextLib::UppProject::Dump()",
+						"r": "void Dump()",
+						"s": "TextLib",
+						"u": "DUMP",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "934011e4411cfe4fb0d77744142c898ab00ed638"
+							}
+						]
+					},
+					{
+						"k": 2,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "UppAssemblyData",
+						"t": "TextLib::UppAssemblyData",
+						"i": "TextLib::UppAssemblyData",
+						"r": "UppAssemblyData",
+						"s": "TextLib",
+						"u": "UPPASSEMBLYDATA",
+						"q": "TextLib::UppAssemblyData",
+						"w": "TEXTLIB::UPPASSEMBLYDATA",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "8422047561adc71b0b676ffd480c5fe7a6d9f15c"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "as",
+						"t": "const UppAssembly &",
+						"i": "TextLib::UppAssemblyData::as",
+						"r": "const UppAssembly& as",
+						"s": "TextLib",
+						"u": "AS",
+						"q": "TextLib::UppAssemblyData",
+						"w": "TEXTLIB::UPPASSEMBLYDATA",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "59fa15a501b390db427fc5ae1f5b9dd8a6298084"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "prjs",
+						"t": "ArrayMap<String, UppProject>",
+						"i": "TextLib::UppAssemblyData::prjs",
+						"r": "ArrayMap<String, UppProject> prjs",
+						"s": "TextLib",
+						"u": "PRJS",
+						"q": "TextLib::UppAssemblyData",
+						"w": "TEXTLIB::UPPASSEMBLYDATA",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "4a5c1933979f7714843fd4bde94a2e4568765b8f"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "lock",
+						"t": "Mutex",
+						"i": "TextLib::UppAssemblyData::lock",
+						"r": "Mutex lock",
+						"s": "TextLib",
+						"u": "LOCK",
+						"q": "TextLib::UppAssemblyData",
+						"w": "TEXTLIB::UPPASSEMBLYDATA",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "9e814325391fbcaaa460fc56e6e8ca30826f4676"
+							}
+						]
+					},
+					{
+						"k": 24,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "UppAssemblyData",
+						"t": "void (const UppAssembly &)",
+						"i": "TextLib::UppAssemblyData::UppAssemblyData(const UppAssembly&)",
+						"r": "UppAssemblyData(const UppAssembly& as)",
+						"s": "TextLib",
+						"u": "UPPASSEMBLYDATA",
+						"q": "TextLib::UppAssemblyData",
+						"w": "TEXTLIB::UPPASSEMBLYDATA",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "4f29061c78f01955663b4e62b606332adfca33bb"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "GetProject",
+						"t": "UppProject &(String)",
+						"i": "TextLib::UppAssemblyData::GetProject(String)",
+						"r": "UppProject& GetProject(String name)",
+						"s": "TextLib",
+						"u": "GETPROJECT",
+						"q": "TextLib::UppAssemblyData",
+						"w": "TEXTLIB::UPPASSEMBLYDATA",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "5e0062d9df2dabb89b6f22c467eb45e2b9d2c500"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "RealizeProject",
+						"t": "UppProject &(String)",
+						"i": "TextLib::UppAssemblyData::RealizeProject(String)",
+						"r": "UppProject& RealizeProject(String name)",
+						"s": "TextLib",
+						"u": "REALIZEPROJECT",
+						"q": "TextLib::UppAssemblyData",
+						"w": "TEXTLIB::UPPASSEMBLYDATA",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "8a8e26f8b94012bc99a99eeaf68f7cbe16027dce"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "FindName",
+						"t": "int (String) const",
+						"i": "TextLib::UppAssemblyData::FindName(String)const",
+						"r": "int FindName(String s) const",
+						"s": "TextLib",
+						"u": "FINDNAME",
+						"q": "TextLib::UppAssemblyData",
+						"w": "TEXTLIB::UPPASSEMBLYDATA",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "34ac32888945a13823d267e1a840578b714d4a93"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "Clear",
+						"t": "void ()",
+						"i": "TextLib::UppAssemblyData::Clear()",
+						"r": "void Clear()",
+						"s": "TextLib",
+						"u": "CLEAR",
+						"q": "TextLib::UppAssemblyData",
+						"w": "TEXTLIB::UPPASSEMBLYDATA",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "56766c399cb93bacc209e4c3e9b70b078f6f4e2d"
+							}
+						]
+					},
+					{
+						"k": 2,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "UppAssemblyCache",
+						"t": "TextLib::UppAssemblyCache",
+						"i": "TextLib::UppAssemblyCache",
+						"r": "UppAssemblyCache",
+						"s": "TextLib",
+						"u": "UPPASSEMBLYCACHE",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "2060d95c97b0db3286f4dd29ee6a5b00ea2022d1"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "asd",
+						"t": "const UppAssemblyData &",
+						"i": "TextLib::UppAssemblyCache::asd",
+						"r": "const UppAssemblyData& asd",
+						"s": "TextLib",
+						"u": "ASD",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "0c4e47c874dceaeea7e3642a506d5ba0eeae181a"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "persistent_path",
+						"t": "String",
+						"i": "TextLib::UppAssemblyCache::persistent_path",
+						"r": "String persistent_path",
+						"s": "TextLib",
+						"u": "PERSISTENT_PATH",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "77ec75f16368dd49bd31eb3384dfed68dcb204f1"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "files",
+						"t": "VectorMap<String, String>",
+						"i": "TextLib::UppAssemblyCache::files",
+						"r": "VectorMap<String, String> files",
+						"s": "TextLib",
+						"u": "FILES",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "9621e27578b85b284bced0027f02dbe0fc334663"
+							}
+						]
+					},
+					{
+						"k": 24,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "UppAssemblyCache",
+						"t": "void (const UppAssemblyData &)",
+						"i": "TextLib::UppAssemblyCache::UppAssemblyCache(const UppAssemblyData&)",
+						"r": "UppAssemblyCache(const UppAssemblyData& asd)",
+						"s": "TextLib",
+						"u": "UPPASSEMBLYCACHE",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "e2952df4145282a07e649846a428942758a6bfd7"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "SetPersistent",
+						"t": "void (String)",
+						"i": "TextLib::UppAssemblyCache::SetPersistent(String)",
+						"r": "void SetPersistent(String path)",
+						"s": "TextLib",
+						"u": "SETPERSISTENT",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "bed3dfd1d841b8b7c4340ee1dc2ad1cde77b8f1b"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "LoadThis",
+						"t": "bool ()",
+						"i": "TextLib::UppAssemblyCache::LoadThis()",
+						"r": "bool LoadThis()",
+						"s": "TextLib",
+						"u": "LOADTHIS",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "3e4ac7038dc84a83513ac42e675aa988dbf66ab6"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "StoreThis",
+						"t": "bool ()",
+						"i": "TextLib::UppAssemblyCache::StoreThis()",
+						"r": "bool StoreThis()",
+						"s": "TextLib",
+						"u": "STORETHIS",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "edcfe2ab376e9282a03013dd7b2cf0093b1b0f80"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "Serialize",
+						"t": "void (Stream &)",
+						"i": "TextLib::UppAssemblyCache::Serialize(Stream&)",
+						"r": "void Serialize(Stream& s)",
+						"s": "TextLib",
+						"u": "SERIALIZE",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "3f5ff1b04345f18c0331a975aca2f02c3deb3c46"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "Load",
+						"t": "void ()",
+						"i": "TextLib::UppAssemblyCache::Load()",
+						"r": "void Load()",
+						"s": "TextLib",
+						"u": "LOAD",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "15c956b3862eeafe97f7817b5d1ebb3a1fa98556"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "Clear",
+						"t": "void ()",
+						"i": "TextLib::UppAssemblyCache::Clear()",
+						"r": "void Clear()",
+						"s": "TextLib",
+						"u": "CLEAR",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "56766c399cb93bacc209e4c3e9b70b078f6f4e2d"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "WhenProgress",
+						"t": "Callback2<int, int>",
+						"i": "TextLib::UppAssemblyCache::WhenProgress",
+						"r": "Callback2<int, int> WhenProgress",
+						"s": "TextLib",
+						"u": "WHENPROGRESS",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "e15d3328fbd9a320a8a5889793b50af59b3f6aae"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "WhenLoaded",
+						"t": "Callback1<int>",
+						"i": "TextLib::UppAssemblyCache::WhenLoaded",
+						"r": "Callback1<int> WhenLoaded",
+						"s": "TextLib",
+						"u": "WHENLOADED",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "17ce0ab9a8a528238cf9578e7c3e7c889c390a77"
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			"key": "Parser.h",
+			"value": {
+				"items": [
+					{
+						"k": 501,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "_OrgLib_Parser_h_",
+						"t": "",
+						"i": "_OrgLib_Parser_h_",
+						"r": "_OrgLib_Parser_h_",
+						"s": "",
+						"u": "_ORGLIB_PARSER_H_",
+						"q": "",
+						"w": "",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "c03d79906a43c110522ebddb565b1aa833bc31e3"
+							}
+						]
+					},
+					{
+						"k": 501,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "META_INSTRUCTION_LIST",
+						"t": "",
+						"i": "META_INSTRUCTION_LIST",
+						"r": "META_INSTRUCTION_LIST",
+						"s": "",
+						"u": "META_INSTRUCTION_LIST",
+						"q": "",
+						"w": "",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "5204e54d2edb153daad916bc35b9d69727531a73"
+							}
+						]
+					},
+					{
+						"k": 5,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "MetaInstructionType",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::MetaInstructionType",
+						"r": "enum",
+						"s": "TextLib",
+						"u": "METAINSTRUCTIONTYPE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "a6b37b270ab7f1f269297e75629ed875096c9dea"
+							}
+						]
+					},
+					{
+						"k": 501,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "INS",
+						"t": "",
+						"i": "INS",
+						"r": "INS",
+						"s": "",
+						"u": "INS",
+						"q": "",
+						"w": "",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "fd3045d7ad8599c9c8b9246b1f0d3905fb3005a8"
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "DECLARE_METHOD",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::DECLARE_METHOD",
+						"r": "DECLARE_METHOD",
+						"s": "TextLib",
+						"u": "DECLARE_METHOD",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "BEGIN_MODULE",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::BEGIN_MODULE",
+						"r": "BEGIN_MODULE",
+						"s": "TextLib",
+						"u": "BEGIN_MODULE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "DECLARE_CLASS",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::DECLARE_CLASS",
+						"r": "DECLARE_CLASS",
+						"s": "TextLib",
+						"u": "DECLARE_CLASS",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "DECLARE_FUNCTION",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::DECLARE_FUNCTION",
+						"r": "DECLARE_FUNCTION",
+						"s": "TextLib",
+						"u": "DECLARE_FUNCTION",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "BEGIN_CLASS",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::BEGIN_CLASS",
+						"r": "BEGIN_CLASS",
+						"s": "TextLib",
+						"u": "BEGIN_CLASS",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "DECLARE_METHOD",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::DECLARE_METHOD",
+						"r": "DECLARE_METHOD",
+						"s": "TextLib",
+						"u": "DECLARE_METHOD",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "DECLARE_FUNCTION_VIRTUAL",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::DECLARE_FUNCTION_VIRTUAL",
+						"r": "DECLARE_FUNCTION_VIRTUAL",
+						"s": "TextLib",
+						"u": "DECLARE_FUNCTION_VIRTUAL",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "DECLARE_FUNCTION_OVERRIDE",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::DECLARE_FUNCTION_OVERRIDE",
+						"r": "DECLARE_FUNCTION_OVERRIDE",
+						"s": "TextLib",
+						"u": "DECLARE_FUNCTION_OVERRIDE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "END_CLASS",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::END_CLASS",
+						"r": "END_CLASS",
+						"s": "TextLib",
+						"u": "END_CLASS",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "BEGIN_FUNCTION",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::BEGIN_FUNCTION",
+						"r": "BEGIN_FUNCTION",
+						"s": "TextLib",
+						"u": "BEGIN_FUNCTION",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "BEGIN_STATEMENT",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::BEGIN_STATEMENT",
+						"r": "BEGIN_STATEMENT",
+						"s": "TextLib",
+						"u": "BEGIN_STATEMENT",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "INITIALIZE_MODULE",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::INITIALIZE_MODULE",
+						"r": "INITIALIZE_MODULE",
+						"s": "TextLib",
+						"u": "INITIALIZE_MODULE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "UNINITIALIZE_MODULE",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::UNINITIALIZE_MODULE",
+						"r": "UNINITIALIZE_MODULE",
+						"s": "TextLib",
+						"u": "UNINITIALIZE_MODULE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "CALL_FUNCTION",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::CALL_FUNCTION",
+						"r": "CALL_FUNCTION",
+						"s": "TextLib",
+						"u": "CALL_FUNCTION",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "END_STATEMENT",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::END_STATEMENT",
+						"r": "END_STATEMENT",
+						"s": "TextLib",
+						"u": "END_STATEMENT",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "END_FUNCTION",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::END_FUNCTION",
+						"r": "END_FUNCTION",
+						"s": "TextLib",
+						"u": "END_FUNCTION",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "BEGIN_METHOD",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::BEGIN_METHOD",
+						"r": "BEGIN_METHOD",
+						"s": "TextLib",
+						"u": "BEGIN_METHOD",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "END_METHOD",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::END_METHOD",
+						"r": "END_METHOD",
+						"s": "TextLib",
+						"u": "END_METHOD",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "DECLARE_META_FUNCTION",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::DECLARE_META_FUNCTION",
+						"r": "DECLARE_META_FUNCTION",
+						"s": "TextLib",
+						"u": "DECLARE_META_FUNCTION",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "BEGIN_META_FUNCTION",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::BEGIN_META_FUNCTION",
+						"r": "BEGIN_META_FUNCTION",
+						"s": "TextLib",
+						"u": "BEGIN_META_FUNCTION",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "DECLARE_META_STATEMENT",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::DECLARE_META_STATEMENT",
+						"r": "DECLARE_META_STATEMENT",
+						"s": "TextLib",
+						"u": "DECLARE_META_STATEMENT",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "END_META_FUNCTION",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::END_META_FUNCTION",
+						"r": "END_META_FUNCTION",
+						"s": "TextLib",
+						"u": "END_META_FUNCTION",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "END_MODULE",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::END_MODULE",
+						"r": "END_MODULE",
+						"s": "TextLib",
+						"u": "END_MODULE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "BEGIN_STATEMENT",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::BEGIN_STATEMENT",
+						"r": "BEGIN_STATEMENT",
+						"s": "TextLib",
+						"u": "BEGIN_STATEMENT",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "BEGIN_FUNCTION",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::BEGIN_FUNCTION",
+						"r": "BEGIN_FUNCTION",
+						"s": "TextLib",
+						"u": "BEGIN_FUNCTION",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "IMPORT_VIRTUAL_MODULE",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::IMPORT_VIRTUAL_MODULE",
+						"r": "IMPORT_VIRTUAL_MODULE",
+						"s": "TextLib",
+						"u": "IMPORT_VIRTUAL_MODULE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "IMPORT_MODULE",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::IMPORT_MODULE",
+						"r": "IMPORT_MODULE",
+						"s": "TextLib",
+						"u": "IMPORT_MODULE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "BEGIN_MODULE",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::BEGIN_MODULE",
+						"r": "BEGIN_MODULE",
+						"s": "TextLib",
+						"u": "BEGIN_MODULE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "DECLARE_CLASS",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::DECLARE_CLASS",
+						"r": "DECLARE_CLASS",
+						"s": "TextLib",
+						"u": "DECLARE_CLASS",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "DECLARE_FUNCTION",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::DECLARE_FUNCTION",
+						"r": "DECLARE_FUNCTION",
+						"s": "TextLib",
+						"u": "DECLARE_FUNCTION",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "BEGIN_CLASS",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::BEGIN_CLASS",
+						"r": "BEGIN_CLASS",
+						"s": "TextLib",
+						"u": "BEGIN_CLASS",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "END_MODULE",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::END_MODULE",
+						"r": "END_MODULE",
+						"s": "TextLib",
+						"u": "END_MODULE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "DECLARE_FUNCTION_VIRTUAL",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::DECLARE_FUNCTION_VIRTUAL",
+						"r": "DECLARE_FUNCTION_VIRTUAL",
+						"s": "TextLib",
+						"u": "DECLARE_FUNCTION_VIRTUAL",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "DECLARE_FUNCTION_OVERRIDE",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::DECLARE_FUNCTION_OVERRIDE",
+						"r": "DECLARE_FUNCTION_OVERRIDE",
+						"s": "TextLib",
+						"u": "DECLARE_FUNCTION_OVERRIDE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "END_CLASS",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::END_CLASS",
+						"r": "END_CLASS",
+						"s": "TextLib",
+						"u": "END_CLASS",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "DECLARE_META_STATEMENT",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::DECLARE_META_STATEMENT",
+						"r": "DECLARE_META_STATEMENT",
+						"s": "TextLib",
+						"u": "DECLARE_META_STATEMENT",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "IMPORT_MODULE",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::IMPORT_MODULE",
+						"r": "IMPORT_MODULE",
+						"s": "TextLib",
+						"u": "IMPORT_MODULE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "INITIALIZE_MODULE",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::INITIALIZE_MODULE",
+						"r": "INITIALIZE_MODULE",
+						"s": "TextLib",
+						"u": "INITIALIZE_MODULE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "UNINITIALIZE_MODULE",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::UNINITIALIZE_MODULE",
+						"r": "UNINITIALIZE_MODULE",
+						"s": "TextLib",
+						"u": "UNINITIALIZE_MODULE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "CALL_FUNCTION",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::CALL_FUNCTION",
+						"r": "CALL_FUNCTION",
+						"s": "TextLib",
+						"u": "CALL_FUNCTION",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "END_STATEMENT",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::END_STATEMENT",
+						"r": "END_STATEMENT",
+						"s": "TextLib",
+						"u": "END_STATEMENT",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "END_FUNCTION",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::END_FUNCTION",
+						"r": "END_FUNCTION",
+						"s": "TextLib",
+						"u": "END_FUNCTION",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "BEGIN_METHOD",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::BEGIN_METHOD",
+						"r": "BEGIN_METHOD",
+						"s": "TextLib",
+						"u": "BEGIN_METHOD",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "END_METHOD",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::END_METHOD",
+						"r": "END_METHOD",
+						"s": "TextLib",
+						"u": "END_METHOD",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "DECLARE_META_FUNCTION",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::DECLARE_META_FUNCTION",
+						"r": "DECLARE_META_FUNCTION",
+						"s": "TextLib",
+						"u": "DECLARE_META_FUNCTION",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "BEGIN_META_FUNCTION",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::BEGIN_META_FUNCTION",
+						"r": "BEGIN_META_FUNCTION",
+						"s": "TextLib",
+						"u": "BEGIN_META_FUNCTION",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "IMPORT_VIRTUAL_MODULE",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::IMPORT_VIRTUAL_MODULE",
+						"r": "IMPORT_VIRTUAL_MODULE",
+						"s": "TextLib",
+						"u": "IMPORT_VIRTUAL_MODULE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "END_META_FUNCTION",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::END_META_FUNCTION",
+						"r": "END_META_FUNCTION",
+						"s": "TextLib",
+						"u": "END_META_FUNCTION",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": ""
+							}
+						]
+					},
+					{
+						"k": 20,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "MetaInstructionType",
+						"t": "TextLib::MetaInstructionType",
+						"i": "TextLib::MetaInstructionType",
+						"r": "typedef enum MetaInstructionType MetaInstructionType",
+						"s": "TextLib",
+						"u": "METAINSTRUCTIONTYPE",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "TextLib::MetaInstructionType",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "dbef1213148ec1975ec8375f0776175d59d7b9b3"
+							}
+						]
+					},
+					{
+						"k": 2,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "MetaStatementString",
+						"t": "TextLib::MetaStatementString",
+						"i": "TextLib::MetaStatementString",
+						"r": "MetaStatementString",
+						"s": "TextLib",
+						"u": "METASTATEMENTSTRING",
+						"q": "TextLib::MetaStatementString",
+						"w": "TEXTLIB::METASTATEMENTSTRING",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "68c8c12d528378f12dcc579f5e2c991121791264"
+							}
+						]
+					},
+					{
+						"k": 2,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "Param",
+						"t": "TextLib::MetaStatementString::Param",
+						"i": "TextLib::MetaStatementString::Param",
+						"r": "Param : Moveable<Param>",
+						"s": "TextLib",
+						"u": "PARAM",
+						"q": "TextLib::MetaStatementString::Param",
+						"w": "TEXTLIB::METASTATEMENTSTRING::PARAM",
+						"y": "Upp::Moveable",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "4885ee52ba8556c173bad34c908991a193e07046"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "name",
+						"t": "String",
+						"i": "TextLib::MetaStatementString::Param::name",
+						"r": "String name",
+						"s": "TextLib",
+						"u": "NAME",
+						"q": "TextLib::MetaStatementString::Param",
+						"w": "TEXTLIB::METASTATEMENTSTRING::PARAM",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "5233278cb3ddd461efca2b742dc40bb7e9dfde0f"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "type",
+						"t": "String",
+						"i": "TextLib::MetaStatementString::Param::type",
+						"r": "String type",
+						"s": "TextLib",
+						"u": "TYPE",
+						"q": "TextLib::MetaStatementString::Param",
+						"w": "TEXTLIB::METASTATEMENTSTRING::PARAM",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "8b770d9b1040bd8da07c63713ae77c092e6c3935"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "meta_instruction",
+						"t": "String",
+						"i": "TextLib::MetaStatementString::meta_instruction",
+						"r": "String meta_instruction",
+						"s": "TextLib",
+						"u": "META_INSTRUCTION",
+						"q": "TextLib::MetaStatementString",
+						"w": "TEXTLIB::METASTATEMENTSTRING",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "4643e998b3fa48624c63c5a215dc4d0a64f8f472"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "class_path",
+						"t": "Vector<String>",
+						"i": "TextLib::MetaStatementString::class_path",
+						"r": "Vector<String> class_path",
+						"s": "TextLib",
+						"u": "CLASS_PATH",
+						"q": "TextLib::MetaStatementString",
+						"w": "TEXTLIB::METASTATEMENTSTRING",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "4ff8b0f36ab04bf11577aa352c82e8cd85331fd8"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "name",
+						"t": "String",
+						"i": "TextLib::MetaStatementString::name",
+						"r": "String name",
+						"s": "TextLib",
+						"u": "NAME",
+						"q": "TextLib::MetaStatementString",
+						"w": "TEXTLIB::METASTATEMENTSTRING",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "5233278cb3ddd461efca2b742dc40bb7e9dfde0f"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "ret",
+						"t": "String",
+						"i": "TextLib::MetaStatementString::ret",
+						"r": "String ret",
+						"s": "TextLib",
+						"u": "RET",
+						"q": "TextLib::MetaStatementString",
+						"w": "TEXTLIB::METASTATEMENTSTRING",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "efae129675f7224bd9091adde92ef6757c07fb41"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "comment",
+						"t": "String",
+						"i": "TextLib::MetaStatementString::comment",
+						"r": "String comment",
+						"s": "TextLib",
+						"u": "COMMENT",
+						"q": "TextLib::MetaStatementString",
+						"w": "TEXTLIB::METASTATEMENTSTRING",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "bc11257fd0cf00154d155c13298cdf0702512860"
+							}
+						]
+					},
+					{
+						"k": 6,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "params",
+						"t": "Vector<Param>",
+						"i": "TextLib::MetaStatementString::params",
+						"r": "Vector<Param> params",
+						"s": "TextLib",
+						"u": "PARAMS",
+						"q": "TextLib::MetaStatementString",
+						"w": "TEXTLIB::METASTATEMENTSTRING",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "66af7d6ebe642c9349165e6003270e89dcd9be6f"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "Dump",
+						"t": "void ()",
+						"i": "TextLib::MetaStatementString::Dump()",
+						"r": "void Dump()",
+						"s": "TextLib",
+						"u": "DUMP",
+						"q": "TextLib::MetaStatementString",
+						"w": "TEXTLIB::METASTATEMENTSTRING",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "6a2ac51d61f962a1fde5b8ad22a2fd85418a76fd"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "GetInstruction",
+						"t": "String () const",
+						"i": "TextLib::MetaStatementString::GetInstruction()const",
+						"r": "String GetInstruction() const",
+						"s": "TextLib",
+						"u": "GETINSTRUCTION",
+						"q": "TextLib::MetaStatementString",
+						"w": "TEXTLIB::METASTATEMENTSTRING",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "27c1586541e8fab496771082528134eca6b295b2"
+							}
+						]
+					},
+					{
+						"k": 4,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "Parser",
+						"t": "TextLib::Parser",
+						"i": "TextLib::Parser",
+						"r": "Parser",
+						"s": "TextLib",
+						"u": "PARSER",
+						"q": "TextLib::Parser",
+						"w": "TEXTLIB::PARSER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "57729a1f508399b44244ce40e5e125e7bcd0bd87"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": true,
+						"n": "ParseMetaStatementString",
+						"t": "bool (const String &, MetaStatementString &)",
+						"i": "TextLib::Parser::ParseMetaStatementString(const String&,MetaStatementString&)",
+						"r": "static bool ParseMetaStatementString(const String& in, MetaStatementString& out)",
+						"s": "TextLib",
+						"u": "PARSEMETASTATEMENTSTRING",
+						"q": "TextLib::Parser",
+						"w": "TEXTLIB::PARSER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "236b08150ff1db912ba33e89a1ca652c88115ae6"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": true,
+						"n": "ParseMetaInstructionType",
+						"t": "bool (const String &, MetaInstructionType &)",
+						"i": "TextLib::Parser::ParseMetaInstructionType(const String&,MetaInstructionType&)",
+						"r": "static bool ParseMetaInstructionType(const String& in, MetaInstructionType& out)",
+						"s": "TextLib",
+						"u": "PARSEMETAINSTRUCTIONTYPE",
+						"q": "TextLib::Parser",
+						"w": "TEXTLIB::PARSER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "cd97aff3b741fdb75bdb16711e7e6331c686c6ac"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": true,
+						"n": "ParseTypeString",
+						"t": "bool (const String &, Vector<String> &)",
+						"i": "TextLib::Parser::ParseTypeString(const String&,Vector&)",
+						"r": "static bool ParseTypeString(const String& in, Vector<String>& out)",
+						"s": "TextLib",
+						"u": "PARSETYPESTRING",
+						"q": "TextLib::Parser",
+						"w": "TEXTLIB::PARSER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "071afb8cb6ce2fd073aff5b90a5da5a9e2491939"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": true,
+						"n": "ParseTypeString",
+						"t": "bool (CParser &, Vector<String> &)",
+						"i": "TextLib::Parser::ParseTypeString(CParser&,Vector&)",
+						"r": "static bool ParseTypeString(CParser& p, Vector<String>& out)",
+						"s": "TextLib",
+						"u": "PARSETYPESTRING",
+						"q": "TextLib::Parser",
+						"w": "TEXTLIB::PARSER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "1e23018897e6ea3d81486a70598f0eaa2e311817"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": true,
+						"n": "GetMetaInstructionString",
+						"t": "String (MetaInstructionType)",
+						"i": "TextLib::Parser::GetMetaInstructionString(MetaInstructionType)",
+						"r": "static String GetMetaInstructionString(MetaInstructionType type)",
+						"s": "TextLib",
+						"u": "GETMETAINSTRUCTIONSTRING",
+						"q": "TextLib::Parser",
+						"w": "TEXTLIB::PARSER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "54a757cdf1f2c8feb29ec58aedaebd83dd343bac"
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			"key": "FileWriter.h",
+			"value": {
+				"items": [
+					{
+						"k": 501,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "_OrgLib_FileWriter_h_",
+						"t": "",
+						"i": "_OrgLib_FileWriter_h_",
+						"r": "_OrgLib_FileWriter_h_",
+						"s": "",
+						"u": "_ORGLIB_FILEWRITER_H_",
+						"q": "",
+						"w": "",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "008b876ac1ee2824b51b9c30a2a7ed63a4f91902"
+							}
+						]
+					},
+					{
+						"k": 4,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "CppFileWriter",
+						"t": "TextLib::CppFileWriter",
+						"i": "TextLib::CppFileWriter",
+						"r": "CppFileWriter",
+						"s": "TextLib",
+						"u": "CPPFILEWRITER",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "80681492aa1ea5cf7ee2b36b10968c03087c4bf4"
+							}
+						]
+					},
+					{
+						"k": 20,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "CLASSNAME",
+						"t": "TextLib::CppFileWriter::CLASSNAME",
+						"i": "TextLib::CppFileWriter::CLASSNAME",
+						"r": "typedef CppFileWriter CLASSNAME",
+						"s": "TextLib",
+						"u": "CLASSNAME",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "TextLib::CppFileWriter",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "5b6682b320b42df41d8f9f877419292928d2b242"
+							}
+						]
+					},
+					{
+						"k": 24,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "CppFileWriter",
+						"t": "void ()",
+						"i": "TextLib::CppFileWriter::CppFileWriter()",
+						"r": "CppFileWriter()",
+						"s": "TextLib",
+						"u": "CPPFILEWRITER",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "e04a1cdd326465dd653d10eff6bc878ba31136cd"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "WriteHeader",
+						"t": "void (Node &, const String &, const Vector<String> &)",
+						"i": "TextLib::CppFileWriter::WriteHeader(Node&,const String&,const Vector&)",
+						"r": "void WriteHeader(Node& n, const String& h_path, const Vector<String>& inc_strs)",
+						"s": "TextLib",
+						"u": "WRITEHEADER",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "9fe48194b79d696b921a585e0c520bc4a7c104b8"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "WriteImplementation",
+						"t": "void (Node &, const String &, const String &)",
+						"i": "TextLib::CppFileWriter::WriteImplementation(Node&,const String&,const String&)",
+						"r": "void WriteImplementation(Node& n, const String& h_path, const String& incl_file)",
+						"s": "TextLib",
+						"u": "WRITEIMPLEMENTATION",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "5dc54bfecd01d7a221594a4f71a68f76e4038507"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "GetFunctionHeaderString",
+						"t": "String (Node &)",
+						"i": "TextLib::CppFileWriter::GetFunctionHeaderString(Node&)",
+						"r": "String GetFunctionHeaderString(Node& n)",
+						"s": "TextLib",
+						"u": "GETFUNCTIONHEADERSTRING",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "d2b5b5ca671a0044feeecb5834ae2f4222c5b286"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "GetFunctionImplString",
+						"t": "String (Node &, Node *)",
+						"i": "TextLib::CppFileWriter::GetFunctionImplString(Node&,Node*)",
+						"r": "String GetFunctionImplString(Node& n, Node *cls_path)",
+						"s": "TextLib",
+						"u": "GETFUNCTIONIMPLSTRING",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "a5e3e43cf20d61005cc290a99dfac9f1bf4730f0"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "GetClassHeaderString",
+						"t": "String (Node &)",
+						"i": "TextLib::CppFileWriter::GetClassHeaderString(Node&)",
+						"r": "String GetClassHeaderString(Node& n)",
+						"s": "TextLib",
+						"u": "GETCLASSHEADERSTRING",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "893a64e459c81a0815fe9ed7ea4c257f72104776"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "GetClassImplString",
+						"t": "String (Node &)",
+						"i": "TextLib::CppFileWriter::GetClassImplString(Node&)",
+						"r": "String GetClassImplString(Node& n)",
+						"s": "TextLib",
+						"u": "GETCLASSIMPLSTRING",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "348801e52dcb70a4c76302776b4ae20672a9cd5a"
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			"key": "Upp.cpp",
+			"value": {
+				"items": [
+					{
+						"k": 501,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "LLOG",
+						"t": "",
+						"i": "LLOG",
+						"r": "LLOG",
+						"s": "",
+						"u": "LLOG",
+						"q": "",
+						"w": "",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "d83c43df219c111fa516fe33b765574dc658780b"
+							}
+						]
+					},
+					{
+						"k": 24,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "UppAssembly",
+						"t": "void ()",
+						"i": "TextLib::UppAssembly::UppAssembly()",
+						"r": "UppAssembly()",
+						"s": "TextLib",
+						"u": "UPPASSEMBLY",
+						"q": "TextLib::UppAssembly",
+						"w": "TEXTLIB::UPPASSEMBLY",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "9b434c33d5b02d32da095d002486f65999f0cada"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "Clear",
+						"t": "void ()",
+						"i": "TextLib::UppAssembly::Clear()",
+						"r": "void Clear()",
+						"s": "TextLib",
+						"u": "CLEAR",
+						"q": "TextLib::UppAssembly",
+						"w": "TEXTLIB::UPPASSEMBLY",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "4e2cd95477e141fa514552afc4a39a6303d86e2c"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "AddPath",
+						"t": "void (String)",
+						"i": "TextLib::UppAssembly::AddPath(String)",
+						"r": "void AddPath(String dir)",
+						"s": "TextLib",
+						"u": "ADDPATH",
+						"q": "TextLib::UppAssembly",
+						"w": "TEXTLIB::UPPASSEMBLY",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "b4fca0f9a7cb8af3c6e301c89387233f5d0c83dd"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "Clear",
+						"t": "void ()",
+						"i": "TextLib::UppProject::Clear()",
+						"r": "void Clear()",
+						"s": "TextLib",
+						"u": "CLEAR",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "16f348be534613cf0743ea19bf406733ebd964a6"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "ClearContent",
+						"t": "void ()",
+						"i": "TextLib::UppProject::ClearContent()",
+						"r": "void ClearContent()",
+						"s": "TextLib",
+						"u": "CLEARCONTENT",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "c487fc10ebdf15926565536c67e11a2186684b64"
+							}
+						]
+					},
+					{
+						"k": 8,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "CommaOrSemicolon",
+						"t": "const char *(bool)",
+						"i": "TextLib::CommaOrSemicolon(bool)",
+						"r": "const char *CommaOrSemicolon(bool comma)",
+						"s": "TextLib",
+						"u": "COMMAORSEMICOLON",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "c7ffed037808b5695368c71ea2332646d34e2bad"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "Store",
+						"t": "void ()",
+						"i": "TextLib::UppProject::Store()",
+						"r": "void Store()",
+						"s": "TextLib",
+						"u": "STORE",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "a8ef3ccce99e0c653844e246aa148a9ca7160887"
+							}
+						]
+					},
+					{
+						"k": 5,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "(unnamed enum at C:\\Users\\sblo\\SongTool\\src\\OrgLib\\Upp.cpp:86:1)",
+						"t": "TextLib::(unnamed enum at C:\\Users\\sblo\\SongTool\\src\\OrgLib\\Upp.cpp:86:1)",
+						"i": "TextLib::(unnamed at C:\\Users\\sblo\\SongTool\\src\\OrgLib\\Upp.)",
+						"r": "enum",
+						"s": "TextLib",
+						"u": "(UNNAMED ENUM AT C:\\USERS\\SBLO\\SONGTOOL\\SRC\\ORGLIB\\UPP.CPP:86:1)",
+						"q": "",
+						"w": "",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "90119313df88aecd84747255468e372426012673"
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "USES",
+						"t": "TextLib::(unnamed enum at C:\\Users\\sblo\\SongTool\\src\\OrgLib\\Upp.cpp:86:1)",
+						"i": "TextLib::USES",
+						"r": "USES",
+						"s": "TextLib",
+						"u": "USES",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "b4cd077d7d04acd98babc25a68ae06e97630ca35"
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "FILES",
+						"t": "TextLib::(unnamed enum at C:\\Users\\sblo\\SongTool\\src\\OrgLib\\Upp.cpp:86:1)",
+						"i": "TextLib::FILES",
+						"r": "FILES",
+						"s": "TextLib",
+						"u": "FILES",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "9fb4f1d17ef878fbfbe96076658397ad86bd5264"
+							}
+						]
+					},
+					{
+						"k": 7,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "CONFIGS",
+						"t": "TextLib::(unnamed enum at C:\\Users\\sblo\\SongTool\\src\\OrgLib\\Upp.cpp:86:1)",
+						"i": "TextLib::CONFIGS",
+						"r": "CONFIGS",
+						"s": "TextLib",
+						"u": "CONFIGS",
+						"q": "TextLib",
+						"w": "TEXTLIB",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "1b60475bdf6c255935719787aac6a03a89ebfd0b"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "Load",
+						"t": "bool (String, String)",
+						"i": "TextLib::UppProject::Load(String,String)",
+						"r": "bool Load(String name, String path)",
+						"s": "TextLib",
+						"u": "LOAD",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "feaee83289c70c41684e24117adc5938bfadcaf0"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetRecursiveUses",
+						"t": "void (Index<String> &, UppAssemblyData &)",
+						"i": "TextLib::UppProject::GetRecursiveUses(Index&,UppAssemblyData&)",
+						"r": "void GetRecursiveUses(Index<String>& idx, UppAssemblyData& as)",
+						"s": "TextLib",
+						"u": "GETRECURSIVEUSES",
+						"q": "TextLib::UppProject",
+						"w": "TEXTLIB::UPPPROJECT",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "ad213bca651d355925ea9024189597c5acb3a5de"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "RealizeProject",
+						"t": "UppProject &(String)",
+						"i": "TextLib::UppAssemblyData::RealizeProject(String)",
+						"r": "UppProject& RealizeProject(String full_name)",
+						"s": "TextLib",
+						"u": "REALIZEPROJECT",
+						"q": "TextLib::UppAssemblyData",
+						"w": "TEXTLIB::UPPASSEMBLYDATA",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "3d562f88c9542633620374412a5855dfc4db032c"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetProject",
+						"t": "UppProject &(String)",
+						"i": "TextLib::UppAssemblyData::GetProject(String)",
+						"r": "UppProject& GetProject(String full_name)",
+						"s": "TextLib",
+						"u": "GETPROJECT",
+						"q": "TextLib::UppAssemblyData",
+						"w": "TEXTLIB::UPPASSEMBLYDATA",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "956c54030ecd7589db72cb1145b731bd1a4c0b97"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "Clear",
+						"t": "void ()",
+						"i": "TextLib::UppAssemblyData::Clear()",
+						"r": "void Clear()",
+						"s": "TextLib",
+						"u": "CLEAR",
+						"q": "TextLib::UppAssemblyData",
+						"w": "TEXTLIB::UPPASSEMBLYDATA",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "cd643a5dbda563d53499d4cfb47d3643f5251b96"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "FindName",
+						"t": "int (String) const",
+						"i": "TextLib::UppAssemblyData::FindName(String)const",
+						"r": "int FindName(String s) const",
+						"s": "TextLib",
+						"u": "FINDNAME",
+						"q": "TextLib::UppAssemblyData",
+						"w": "TEXTLIB::UPPASSEMBLYDATA",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "8b01ab1c6b8aced165984ee06f9a23240d924eea"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "LoadThis",
+						"t": "bool ()",
+						"i": "TextLib::UppAssemblyCache::LoadThis()",
+						"r": "bool LoadThis()",
+						"s": "TextLib",
+						"u": "LOADTHIS",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "9cee728334291db0ca21a19e1de1cbf9b29e73bf"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "StoreThis",
+						"t": "bool ()",
+						"i": "TextLib::UppAssemblyCache::StoreThis()",
+						"r": "bool StoreThis()",
+						"s": "TextLib",
+						"u": "STORETHIS",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "608ae35067c4ee4bd3bd7ea49c7c2f6b0c07c37a"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "Serialize",
+						"t": "void (Stream &)",
+						"i": "TextLib::UppAssemblyCache::Serialize(Stream&)",
+						"r": "void Serialize(Stream& s)",
+						"s": "TextLib",
+						"u": "SERIALIZE",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "365735eaef98a586b9edc547572f58d721bac167"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "Clear",
+						"t": "void ()",
+						"i": "TextLib::UppAssemblyCache::Clear()",
+						"r": "void Clear()",
+						"s": "TextLib",
+						"u": "CLEAR",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "91c0d26d24cc53797eb8a62b1d2d8286adc42702"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "Load",
+						"t": "void ()",
+						"i": "TextLib::UppAssemblyCache::Load()",
+						"r": "void Load()",
+						"s": "TextLib",
+						"u": "LOAD",
+						"q": "TextLib::UppAssemblyCache",
+						"w": "TEXTLIB::UPPASSEMBLYCACHE",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "2d5411550161a785501396857d442bfe16039beb"
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			"key": "Parser.cpp",
+			"value": {
+				"items": [
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "Dump",
+						"t": "void ()",
+						"i": "TextLib::MetaStatementString::Dump()",
+						"r": "void Dump()",
+						"s": "TextLib",
+						"u": "DUMP",
+						"q": "TextLib::MetaStatementString",
+						"w": "TEXTLIB::METASTATEMENTSTRING",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "488dbc22a4ec8506331a1c110b678b880b9ee5b3"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetInstruction",
+						"t": "String () const",
+						"i": "TextLib::MetaStatementString::GetInstruction()const",
+						"r": "String GetInstruction() const",
+						"s": "TextLib",
+						"u": "GETINSTRUCTION",
+						"q": "TextLib::MetaStatementString",
+						"w": "TEXTLIB::METASTATEMENTSTRING",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "5e92fccd3671deb90afcfce08de6b07a790fff1f"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "ParseTypeString",
+						"t": "bool (const String &, Vector<String> &)",
+						"i": "TextLib::Parser::ParseTypeString(const String&,Vector&)",
+						"r": "bool ParseTypeString(const String& s, Vector<String>& parts)",
+						"s": "TextLib",
+						"u": "PARSETYPESTRING",
+						"q": "TextLib::Parser",
+						"w": "TEXTLIB::PARSER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "0b9d8c74dc4d7ff9626d77c3b9bf4614069f4c86"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "ParseTypeString",
+						"t": "bool (CParser &, Vector<String> &)",
+						"i": "TextLib::Parser::ParseTypeString(CParser&,Vector&)",
+						"r": "bool ParseTypeString(CParser& p, Vector<String>& parts)",
+						"s": "TextLib",
+						"u": "PARSETYPESTRING",
+						"q": "TextLib::Parser",
+						"w": "TEXTLIB::PARSER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "280cfbd129b3c513ea7ec71d3c817164980b56d1"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "ParseMetaStatementString",
+						"t": "bool (const String &, MetaStatementString &)",
+						"i": "TextLib::Parser::ParseMetaStatementString(const String&,MetaStatementString&)",
+						"r": "bool ParseMetaStatementString(const String& in, MetaStatementString& out)",
+						"s": "TextLib",
+						"u": "PARSEMETASTATEMENTSTRING",
+						"q": "TextLib::Parser",
+						"w": "TEXTLIB::PARSER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "f00263e672cbcb793c8b67653108015a6bd7d35f"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "ParseMetaInstructionType",
+						"t": "bool (const String &, MetaInstructionType &)",
+						"i": "TextLib::Parser::ParseMetaInstructionType(const String&,MetaInstructionType&)",
+						"r": "bool ParseMetaInstructionType(const String& in, MetaInstructionType& out)",
+						"s": "TextLib",
+						"u": "PARSEMETAINSTRUCTIONTYPE",
+						"q": "TextLib::Parser",
+						"w": "TEXTLIB::PARSER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "fe2023c955b33f1e0c8d99ea7cc5899dac5f22e9"
+							}
+						]
+					},
+					{
+						"k": 501,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "INS",
+						"t": "",
+						"i": "INS",
+						"r": "INS",
+						"s": "",
+						"u": "INS",
+						"q": "",
+						"w": "",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "47811477c6df9132451b3217270c783c914705bc"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetMetaInstructionString",
+						"t": "String (MetaInstructionType)",
+						"i": "TextLib::Parser::GetMetaInstructionString(MetaInstructionType)",
+						"r": "String GetMetaInstructionString(MetaInstructionType type)",
+						"s": "TextLib",
+						"u": "GETMETAINSTRUCTIONSTRING",
+						"q": "TextLib::Parser",
+						"w": "TEXTLIB::PARSER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "5a98b09c7e84d44b59dea7b95f2655d296a910dd"
+							}
+						]
+					},
+					{
+						"k": 501,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "INS",
+						"t": "",
+						"i": "INS",
+						"r": "INS",
+						"s": "",
+						"u": "INS",
+						"q": "",
+						"w": "",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "22501ade35a922d85492565a9523c33f5f1844b1"
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			"key": "FileWriter.cpp",
+			"value": {
+				"items": [
+					{
+						"k": 24,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "CppFileWriter",
+						"t": "void ()",
+						"i": "TextLib::CppFileWriter::CppFileWriter()",
+						"r": "CppFileWriter()",
+						"s": "TextLib",
+						"u": "CPPFILEWRITER",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "397b81cb49be8c96048afa6fe6de41846fa4b36f"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "WriteHeader",
+						"t": "void (Node &, const String &, const Vector<String> &)",
+						"i": "TextLib::CppFileWriter::WriteHeader(Node&,const String&,const Vector&)",
+						"r": "void WriteHeader(Node& n, const String& h_path, const Vector<String>& inc_strs)",
+						"s": "TextLib",
+						"u": "WRITEHEADER",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "407d6cc17d2043d15663893b57ced6891be6ac54"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "WriteImplementation",
+						"t": "void (Node &, const String &, const String &)",
+						"i": "TextLib::CppFileWriter::WriteImplementation(Node&,const String&,const String&)",
+						"r": "void WriteImplementation(Node& n, const String& path, const String& incl_file)",
+						"s": "TextLib",
+						"u": "WRITEIMPLEMENTATION",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "f4581de7e9f992d39c62b37cfc986265020f1d0a"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetFunctionHeaderString",
+						"t": "String (Node &)",
+						"i": "TextLib::CppFileWriter::GetFunctionHeaderString(Node&)",
+						"r": "String GetFunctionHeaderString(Node& n)",
+						"s": "TextLib",
+						"u": "GETFUNCTIONHEADERSTRING",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "98073bfad3c8ec86295342e1c8b661001b55c6f0"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetFunctionImplString",
+						"t": "String (Node &, Node *)",
+						"i": "TextLib::CppFileWriter::GetFunctionImplString(Node&,Node*)",
+						"r": "String GetFunctionImplString(Node& n, Node *cls_path)",
+						"s": "TextLib",
+						"u": "GETFUNCTIONIMPLSTRING",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "323dd4541dabb747c91deefe4109ccedb02b8a12"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetClassHeaderString",
+						"t": "String (Node &)",
+						"i": "TextLib::CppFileWriter::GetClassHeaderString(Node&)",
+						"r": "String GetClassHeaderString(Node& n)",
+						"s": "TextLib",
+						"u": "GETCLASSHEADERSTRING",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "8d5c72d28b3fd8cccc261fe7f53981f3f961302a"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "GetClassImplString",
+						"t": "String (Node &)",
+						"i": "TextLib::CppFileWriter::GetClassImplString(Node&)",
+						"r": "String GetClassImplString(Node& n)",
+						"s": "TextLib",
+						"u": "GETCLASSIMPLSTRING",
+						"q": "TextLib::CppFileWriter",
+						"w": "TEXTLIB::CPPFILEWRITER",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "b3b4994fd246830c2ceb31127fc1025b595fd89b"
+							}
+						]
+					}
+				]
+			}
+		}
+	]
+}

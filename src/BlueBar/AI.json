@@ -1,0 +1,416 @@
+{
+	"saved_hash": "28ff22e06d1240f74878ff2360fe91b73318eef7",
+	"files": [
+		{
+			"key": "BlueBar.h",
+			"value": {
+				"items": [
+					{
+						"k": 501,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "_BlueSkin_BlueSkin_h",
+						"t": "",
+						"i": "_BlueSkin_BlueSkin_h",
+						"r": "_BlueSkin_BlueSkin_h",
+						"s": "",
+						"u": "_BLUESKIN_BLUESKIN_H",
+						"q": "",
+						"w": "",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "f00f221bd51c1b569f112da7fb167fb74beb18b9"
+							}
+						]
+					},
+					{
+						"k": 8,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "InstallBlueToolBar",
+						"t": "void ()",
+						"i": "Upp::InstallBlueToolBar()",
+						"r": "void InstallBlueToolBar()",
+						"s": "Upp",
+						"u": "INSTALLBLUETOOLBAR",
+						"q": "Upp",
+						"w": "UPP",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "d64372e990ae339d9572dafb7d78d50f7c9e36ca"
+							}
+						]
+					},
+					{
+						"k": 8,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "InstallBlueMenuBar",
+						"t": "void ()",
+						"i": "Upp::InstallBlueMenuBar()",
+						"r": "void InstallBlueMenuBar()",
+						"s": "Upp",
+						"u": "INSTALLBLUEMENUBAR",
+						"q": "Upp",
+						"w": "UPP",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "c4f77131a1c42b24b916f41efb4ca7168608501a"
+							}
+						]
+					},
+					{
+						"k": 8,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "InstallBlueBar",
+						"t": "void ()",
+						"i": "Upp::InstallBlueBar()",
+						"r": "void InstallBlueBar()",
+						"s": "Upp",
+						"u": "INSTALLBLUEBAR",
+						"q": "Upp",
+						"w": "UPP",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "b641c8015ccd73e295f1af8cc6955af80d3d656f"
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			"key": "BlueSkin.cpp",
+			"value": {
+				"items": [
+					{
+						"k": 501,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "IMAGECLASS",
+						"t": "",
+						"i": "IMAGECLASS",
+						"r": "IMAGECLASS",
+						"s": "",
+						"u": "IMAGECLASS",
+						"q": "",
+						"w": "",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "1bfdcb20be02181c0870bb717bfd5a005ab31c92"
+							}
+						]
+					},
+					{
+						"k": 501,
+						"d": false,
+						"iv": false,
+						"is": false,
+						"n": "IMAGEFILE",
+						"t": "",
+						"i": "IMAGEFILE",
+						"r": "IMAGEFILE",
+						"s": "",
+						"u": "IMAGEFILE",
+						"q": "",
+						"w": "",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "28a434695d62105137ee604e936d0479f3b5c45d"
+							}
+						]
+					},
+					{
+						"k": 8,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "InstallBlueToolBar",
+						"t": "void ()",
+						"i": "Upp::InstallBlueToolBar()",
+						"r": "void InstallBlueToolBar()",
+						"s": "Upp",
+						"u": "INSTALLBLUETOOLBAR",
+						"q": "Upp",
+						"w": "UPP",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "ed27e2dc71d990525493a52e09650accf9482ffd"
+							}
+						]
+					},
+					{
+						"k": 8,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "InstallBlueMenuBar",
+						"t": "void ()",
+						"i": "Upp::InstallBlueMenuBar()",
+						"r": "void InstallBlueMenuBar()",
+						"s": "Upp",
+						"u": "INSTALLBLUEMENUBAR",
+						"q": "Upp",
+						"w": "UPP",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "f00dd5157b64ee1ce6488b321cf916cb1c35290d"
+							}
+						]
+					},
+					{
+						"k": 8,
+						"d": true,
+						"iv": false,
+						"is": false,
+						"n": "InstallBlueBar",
+						"t": "void ()",
+						"i": "Upp::InstallBlueBar()",
+						"r": "void InstallBlueBar()",
+						"s": "Upp",
+						"u": "INSTALLBLUEBAR",
+						"q": "Upp",
+						"w": "UPP",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "beeb4ffdea096b73b4dea097505b1c10232175ab"
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			"key": "BlueSkin.iml",
+			"value": {
+				"items": [
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": true,
+						"n": "BH",
+						"t": "Upp::Image ()",
+						"i": "Upp::BlueImg::BH()",
+						"r": "static Upp::Image BH()",
+						"s": "Upp",
+						"u": "BH",
+						"q": "Upp::BlueImg",
+						"w": "UPP::BLUEIMG",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "228cb16b98963ea951051f0b3c1107f285a7b556"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": true,
+						"n": "BP",
+						"t": "Upp::Image ()",
+						"i": "Upp::BlueImg::BP()",
+						"r": "static Upp::Image BP()",
+						"s": "Upp",
+						"u": "BP",
+						"q": "Upp::BlueImg",
+						"w": "UPP::BLUEIMG",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "1d04de90b6bbfcc191c397d69b595f435b9db965"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": true,
+						"n": "B1",
+						"t": "Upp::Image ()",
+						"i": "Upp::BlueImg::B1()",
+						"r": "static Upp::Image B1()",
+						"s": "Upp",
+						"u": "B1",
+						"q": "Upp::BlueImg",
+						"w": "UPP::BLUEIMG",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "b338609e34ede40c6b786b8a31147fd878d7040c"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": true,
+						"n": "LK",
+						"t": "Upp::Image ()",
+						"i": "Upp::BlueImg::LK()",
+						"r": "static Upp::Image LK()",
+						"s": "Upp",
+						"u": "LK",
+						"q": "Upp::BlueImg",
+						"w": "UPP::BLUEIMG",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "f90c813e9ec457bec106c7045bd2d3d689c1cbef"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": true,
+						"n": "LR",
+						"t": "Upp::Image ()",
+						"i": "Upp::BlueImg::LR()",
+						"r": "static Upp::Image LR()",
+						"s": "Upp",
+						"u": "LR",
+						"q": "Upp::BlueImg",
+						"w": "UPP::BLUEIMG",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "5dcec8cc4cfee1874bc1ebdabdc3c4b2d31b1f2f"
+							}
+						]
+					},
+					{
+						"k": 21,
+						"d": true,
+						"iv": false,
+						"is": true,
+						"n": "TK",
+						"t": "Upp::Image ()",
+						"i": "Upp::BlueImg::TK()",
+						"r": "static Upp::Image TK()",
+						"s": "Upp",
+						"u": "TK",
+						"q": "Upp::BlueImg",
+						"w": "UPP::BLUEIMG",
+						"y": "",
+						"da": [
+
+						],
+						"sf": [
+							{
+								"items": [
+
+								],
+								"h": "cc75ddc0182b5b4fcfeec4bf373d6fe326fda51c"
+							}
+						]
+					}
+				]
+			}
+		}
+	]
+}
