@@ -119,6 +119,7 @@ void ToolEditor::InitSimplified() {
 	AddItem("Script", t_("Reference maker"), script_ref_maker);
 	//AddItem("Script", t_("Range solver"), script_range_solver);
 	AddItem("Script", t_("Text editor"), script_text_solver);
+	AddItem("Script", t_("Reasoning"), script_reasoning);
 	
 	// Deprecated
 	AddItem("Script", t_("_ Structure"), comp_struct);

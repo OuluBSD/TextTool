@@ -47,6 +47,7 @@ struct LineElement {
 			("s", (int64&)sorter)
 			;
 	}
+	void Overlay(const LineElement& le);
 };
 
 

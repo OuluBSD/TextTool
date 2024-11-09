@@ -824,6 +824,7 @@ void ReplaceWord(String& s, const String& orig_word, const String& replace_word)
 
 int GetColorGroupCount();
 const Color& GetGroupColor(int i);
+String GetColorString(int i);
 int GetColorGroup(const Color& clr);
 
 

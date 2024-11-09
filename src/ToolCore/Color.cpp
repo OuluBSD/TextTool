@@ -1040,6 +1040,38 @@ const Color& GetGroupColor(int i) {
 	return clrs[i];
 }
 
+String GetColorString(int i) {
+	static const char* clrs[COLOR_GROUP_COUNT] = {
+		"White",
+		"Gray",
+		
+		"Red",
+		"Violet",
+		"Blue",
+		"Cyan",
+		"Aqua",
+		"Lime",
+
+		"Light Red",
+		"Light Violet",
+		"Light Pink",
+		"Light Cyan",
+		"Light Blue",
+		"Light Yellow",
+
+		"Dark Red",
+		"Dark Violet",
+		"Dark Blue",
+		"Dark Cyan",
+		"Dark Green",
+		"Dark Yellow",
+		
+		"Black"
+	};
+	if (i < 0 || i >= COLOR_GROUP_COUNT) return "<error>";
+	return clrs[i];
+}
+
 int GetColorGroup(const Color& clr) {
 	const Color* begin = &GetGroupColor(0);
 	const Color* it = begin;

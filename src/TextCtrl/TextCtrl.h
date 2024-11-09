@@ -53,6 +53,7 @@
 #include "VideoStoryboardCtrl.h"
 
 #include "Marketplace.h"
+#include "ScriptReasoning.h"
 
 
 #endif

@@ -75,6 +75,8 @@ file
 	ScriptTextSolver.h,
 	ScriptTextSolver.cpp,
 	StructuredScriptEditor.cpp,
+	ScriptReasoning.h,
+	ScriptReasoning.cpp,
 	TRASH readonly separator,
 	SocialTimeline.h,
 	SocialTimeline.cpp,

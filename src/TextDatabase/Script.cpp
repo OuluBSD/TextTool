@@ -4,6 +4,18 @@
 BEGIN_TEXTLIB_NAMESPACE
 
 
+void LineElement::Overlay(const LineElement& le) {
+	if (!le.element.IsEmpty()) element = le.element;
+	if (!le.attr.group.IsEmpty()) attr.group = le.attr.group;
+	if (!le.attr.value.IsEmpty()) attr.value = le.attr.value;
+	if (!le.act.action.IsEmpty()) act.action = le.act.action;
+	if (!le.act.arg.IsEmpty()) act.arg = le.act.arg;
+	if (le.clr_i >= 0) clr_i = le.clr_i;
+	if (le.typeclass_i >= 0) typeclass_i = le.typeclass_i;
+	if (le.con_i >= 0) con_i = le.con_i;
+}
+
+
 String DynPart::GetName(int appmode) const {
 	ASSERT(appmode == DB_SONG);
 	String s = GetTextTypeString(text_type);
