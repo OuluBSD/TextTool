@@ -1,6 +1,6 @@
 #include "TextDatabase.h"
-
-
+#include <plugin/bz2/bz2.h>
+#include <plugin/zstd/zstd.h>
 
 BEGIN_TEXTLIB_NAMESPACE
 
@@ -315,6 +315,83 @@ void DatasetAnalysis::Load() {
 		sa.Load(ff.GetPath());
 	}
 	while (ff.Next());
+	
+	PostCallback([this]() {
+		Export();
+	});
+}
+
+void DatasetAnalysis::Export() {
+	String dir = GetHomeDirFile("Temp");
+	RealizeDirectory(dir);
+	int appmode = GetAppModeGlobal();
+	SourceData& sd = MetaDatabase::Single().db[appmode].src_data;
+	{
+		if (tokens.GetCount() == 0)
+			return;
+		
+		StringStream s;
+		s.SetStoring();
+		int v = 1; s % v; if (v >= 1) {
+			scripts.Serialize(s);
+			tokens.Serialize(s);
+			token_texts.Serialize(s);
+			word_classes.Serialize(s);
+			words.Serialize(s);
+			ambiguous_word_pairs.Serialize(s);
+			virtual_phrases.Serialize(s);
+			virtual_phrase_parts.Serialize(s);
+			virtual_phrase_structs.Serialize(s);
+			phrase_parts.Serialize(s);
+			struct_part_types.Serialize(s);
+			struct_types.Serialize(s);
+			attrs.Serialize(s);
+			actions.Serialize(s);
+			parallel.Serialize(s);
+			trans.Serialize(s);
+			action_phrases.Serialize(s);
+			//for(int i = 0; i < LNG_COUNT; i++)
+			//	translations[i].Serialize(s);
+			wordnets.Serialize(s);
+			diagnostics.Serialize(s);
+			simple_attrs.Serialize(s);
+			//phrase_translations[LNG_COUNT];
+			element_keys.Serialize(s);
+			s % sd.entities;
+		}
+		String result = s.GetResult();
+		if (result.IsEmpty()) return;
+		String sha1 = SHA1String(result);
+		result = BZ2Compress(result);
+		String filename = GetAppModeString(appmode) + "1.db";
+		
+		struct Header {
+			Time written;
+			String sha1;
+			Vector<String> files;
+			void Jsonize(JsonIO& o) {o("written",written)("sha1",sha1)("files",files);}
+		};
+		
+		Header head;
+		head.written = GetUtcTime();
+		head.sha1 = sha1;
+		String path = AppendFileName(dir, filename);
+		
+		int per_file = 1024 * 1024 * 25;
+		int parts = 1 + (result.GetCount() + 1) / per_file;
+		for(int i = 0; i < parts; i++) {
+			int begin = i * per_file;
+			int end = min(begin+per_file, result.GetCount());
+			String part = result.Mid(begin,end-begin);
+			String part_path = path + "." + IntStr(i);
+			FileOut fout(part_path);
+			fout.Put(part);
+			head.files.Add(filename + "." + IntStr(i));
+		}
+		
+		StoreAsJsonFile(head, path, true);
+		
+	}
 }
 
 ComponentAnalysis& DatasetAnalysis::GetComponentAnalysis(int appmode, const String& name) {

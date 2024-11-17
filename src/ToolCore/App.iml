@@ -17,7 +17,6 @@ IMAGE_ID(RedRing)
 IMAGE_ID(Root)
 IMAGE_ID(RedBall)
 IMAGE_ID(icon) IMAGE_META("exp", "")
-
 IMAGE_ID(Artist)
 
 IMAGE_BEGIN_DATA

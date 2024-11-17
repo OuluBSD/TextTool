@@ -75,7 +75,7 @@ public:
 	const String& operator[](int i) const {return idx[i];}
 	int GetCount() const {return idx.GetCount();}
 	const Vector<String>& GetKeys() const {return idx.GetKeys();}
-	
+	void Serialize(Stream& s) {s % idx;}
 };
 
 
@@ -306,7 +306,7 @@ public:
 		}
 	}
 	void Clear() {map.Clear();}
-	
+	void Serialize(Stream& s) {s % map;}
 };
 
 template <class K, class T>
@@ -392,6 +392,7 @@ public:
 	}
 	
 	void Clear() {map.Clear();}
+	void Serialize(Stream& s) {s % map;}
 	
 };
 
@@ -405,7 +406,8 @@ public:
 	MapMapFile(const String& p) {Load(p);}
 	MapMapFile(const String& dir, const String& title) {Load(AppendFileName(dir, title + ".txt"));}
 	~MapMapFile() {Store();}
-
+	
+	void Serialize(Stream& s) {s % map;}
 	int FindAdd(const K0& s) {return map.FindAdd(s);}
 	int Find(const K0& s) const {return map.Find(s);}
 	int FindAdd(int i, const K1& s) {return map[i].FindAdd(s);}

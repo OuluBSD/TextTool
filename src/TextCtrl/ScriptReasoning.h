@@ -26,7 +26,7 @@ class ScriptReasoningCtrl : public ToolAppCtrl {
 		} Type;
 		
 		Type type;
-		String new_value, part;
+		String new_value, final_value, part;
 		Color clr;
 		int line = -1;
 		
@@ -53,8 +53,8 @@ class ScriptReasoningCtrl : public ToolAppCtrl {
 		String part;
 		int line;
 	};
-	void AddItem(const Cursor& c, Item::Type type, String new_value, Color clr=White());
-	void AddItem(const Cursor& c, DatabaseBrowser::ColumnType type, String new_value, Color clr=White());
+	void AddItem(const Cursor& c, Item::Type type, String new_value, String final_value="", Color clr=White());
+	void AddItem(const Cursor& c, DatabaseBrowser::ColumnType type, String new_value, String final_value="", Color clr=White());
 	
 public:
 	typedef ScriptReasoningCtrl CLASSNAME;

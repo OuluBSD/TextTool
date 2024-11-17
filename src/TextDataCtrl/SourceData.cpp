@@ -7,7 +7,6 @@ BEGIN_TEXTLIB_NAMESPACE
 
 
 
-
 SourceDataCtrl::SourceDataCtrl() {
 	Add(hsplit.VSizePos(0,30).HSizePos());
 	Add(prog.BottomPos(0,30).HSizePos(300));
@@ -121,4 +120,5 @@ void SourceDataCtrl::Do(int fn) {
 
 
 END_TEXTLIB_NAMESPACE
+
 

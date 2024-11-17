@@ -8,7 +8,6 @@ BEGIN_TEXTLIB_NAMESPACE
 class ToolEditor;
 class ScriptReferenceMakerCtrl;
 class PartContentCtrl;
-class PartLineCtrl;
 
 
 class PartLineCtrl : public Ctrl {

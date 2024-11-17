@@ -5,7 +5,8 @@ uses
 	Painter,
 	plugin/png,
 	RichEdit,
-	plugin/jpg;
+	plugin/jpg,
+	plugin/zstd;
 
 file
 	Info.txt,

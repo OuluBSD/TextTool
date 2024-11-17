@@ -11,6 +11,7 @@ ScriptReasoningCtrl::ScriptReasoningCtrl() {
 	itemlist.AddColumn("Line");
 	itemlist.AddColumn("Type");
 	itemlist.AddColumn("New value");
+	itemlist.AddColumn("Final value");
 	
 }
 
@@ -28,6 +29,7 @@ void ScriptReasoningCtrl::Data() {
 		itemlist.Set(i, 1, it.line);
 		itemlist.Set(i, 2, Item::TypeString(it.type));
 		itemlist.Set(i, 3, AttrText(it.new_value).NormalPaper(it.clr));
+		itemlist.Set(i, 4, AttrText(it.final_value).NormalPaper(it.clr));
 	}
 	itemlist.SetCount(items.GetCount());
 	
@@ -49,6 +51,14 @@ void ScriptReasoningCtrl::MakeItems() {
 		cursor.line = 0;
 		
 		LineElement previous;
+		previous.element = "All";
+		previous.attr.group = "All";
+		previous.attr.value = "All";
+		previous.act.action = "All";
+		previous.act.arg = "All";
+		previous.clr_i = 0;
+		previous.typeclass_i = 0;
+		previous.con_i = 0;
 		
 		for(int j = 0; j < dp.sub.GetCount(); j++) {
 			const DynSub& ds = dp.sub[j];
@@ -64,7 +74,7 @@ void ScriptReasoningCtrl::MakeItems() {
 					
 				}
 				
-				AddItem(cursor, Item::INSPIRATIONAL_TEXT, dl.user_text);
+				AddItem(cursor, Item::INSPIRATIONAL_TEXT, dl.text, dl.user_text);
 				
 				Swap(previous, current);
 				cursor.line++;
@@ -119,7 +129,7 @@ bool ScriptReasoningCtrl::MakeElementChange(const Cursor& cursor, const LineElem
 			
 			case DatabaseBrowser::COLOR:
 			if (cur.clr_i != el.clr_i) {
-				AddItem(cursor, t, GetColorString(el.clr_i), GetGroupColor(el.clr_i));
+				AddItem(cursor, t, GetColorString(el.clr_i), "", GetGroupColor(el.clr_i));
 			}
 			break;
 			
@@ -145,19 +155,21 @@ bool ScriptReasoningCtrl::MakeElementChange(const Cursor& cursor, const LineElem
 	return prev_items_count < items.GetCount();
 }
 
-void ScriptReasoningCtrl::AddItem(const Cursor& c, Item::Type type, String new_value, Color clr) {
+void ScriptReasoningCtrl::AddItem(const Cursor& c, Item::Type type, String new_value, String final_value, Color clr) {
 	Item& it = items.Add();
 	it.type = type;
 	it.new_value = new_value;
+	it.final_value = final_value;
 	it.clr = clr;
 	it.part = c.part;
 	it.line = c.line;
 }
 
-void ScriptReasoningCtrl::AddItem(const Cursor& c, DatabaseBrowser::ColumnType type, String new_value, Color clr) {
+void ScriptReasoningCtrl::AddItem(const Cursor& c, DatabaseBrowser::ColumnType type, String new_value, String final_value, Color clr) {
 	Item& it = items.Add();
 	it.type = (Item::Type)type; // same as in DatabaseBrowser
 	it.new_value = new_value;
+	it.final_value = final_value;
 	it.clr = clr;
 	it.part = c.part;
 	it.line = c.line;

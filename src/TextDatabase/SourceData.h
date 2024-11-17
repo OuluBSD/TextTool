@@ -8,11 +8,13 @@ BEGIN_TEXTLIB_NAMESPACE
 struct ScriptDataset : Moveable<ScriptDataset> {
 	String name;
 	String text;
+	void Serialize(Stream& s) {s / name / text;}
 };
 
 struct EntityDataset : Moveable<EntityDataset> {
 	String name;
 	Vector<ScriptDataset> scripts;
+	void Serialize(Stream& s) {s / name % scripts;}
 };
 
 struct EntityAnalysis : Moveable<EntityAnalysis> {
@@ -46,7 +48,7 @@ struct PackedRhymeHeader : Moveable<PackedRhymeHeader> {
 			("at", attr);
 	}
 	void Serialize(Stream& s) {
-		s % syllable_count % color_group % attr;
+		s / syllable_count / color_group / attr;
 	}
 	bool operator==(const PackedRhymeHeader& b) const {
 		return	syllable_count == b.syllable_count &&
@@ -74,7 +76,7 @@ struct ActionAttrs : Moveable<ActionAttrs> {
 		json("clr", clr)("group",group)("value",value);
 	}
 	void Serialize(Stream& s) {
-		s % clr % group % value;
+		s / clr / group / value;
 	}
 };
 
@@ -85,7 +87,7 @@ struct ActionParallel : Moveable<ActionParallel> {
 		json("count", count)("score_sum",score_sum);
 	}
 	void Serialize(Stream& s) {
-		s % count % score_sum;
+		s / count / score_sum;
 	}
 };
 
@@ -96,7 +98,7 @@ struct ActionTransition : Moveable<ActionTransition> {
 		json("count", count)("score_sum",score_sum);
 	}
 	void Serialize(Stream& s) {
-		s % count % score_sum;
+		s / count / score_sum;
 	}
 };
 
@@ -110,7 +112,7 @@ struct StructurePhrase : Moveable<StructurePhrase> {
 			;
 	}
 	void Serialize(Stream& s) {
-		s % sent_parts % type;
+		s / sent_parts / type;
 	}
 };
 
@@ -132,7 +134,7 @@ struct StructureType : Moveable<StructureType> {
 			;
 	}
 	void Serialize(Stream& s) {
-		s % part_types % struct_type % transition_to % clr % phrases;
+		s / part_types / struct_type / transition_to / clr / phrases;
 	}
 };
 #endif
@@ -150,12 +152,14 @@ struct Token : Moveable<Token> {
 		StringParser p(s);
 		p % word_;
 	}
+	void Serialize(Stream& s) {s / word_;}
 };
 
 struct TokenText : Moveable<TokenText> {
 	Vector<int> tokens;
 	int virtual_phrase = -1;
 	
+	void Serialize(Stream& s) {s % tokens / virtual_phrase;}
 	String StoreToString() {
 		StringDumper d;
 		d % tokens.GetCount();
@@ -186,6 +190,11 @@ struct ExportWord : Moveable<ExportWord> {
 	int classes[MAX_CLASS_COUNT];
 	int link = -1;
 	
+	void Serialize(Stream& s) {
+		s / spelling / phonetic / count % clr / class_count;
+		for(int i = 0; i < MAX_CLASS_COUNT; i++) s / classes[i];
+		s / link;
+	}
 	String StoreToString() {
 		StringDumper d;
 		d % spelling % phonetic % count % clr % class_count;
@@ -223,6 +232,8 @@ struct WordPairType : Moveable<WordPairType> {
 	int from = -1, to = -1; // word index
 	int from_type = -1, to_type = -1; // word class index
 	
+	void Serialize(Stream& s) {s / from / to / from_type / to_type;}
+	
 	String StoreToString() {
 		StringDumper d;
 		d % from % to % from_type % to_type;
@@ -243,6 +254,8 @@ struct WordPairType : Moveable<WordPairType> {
 struct VirtualPhrase : Moveable<VirtualPhrase> {
 	Vector<int> word_classes;
 	int virtual_phrase_struct = -1;
+	
+	void Serialize(Stream& s) {s % word_classes / virtual_phrase_struct;}
 	
 	String StoreToString() {
 		StringDumper d;
@@ -275,6 +288,8 @@ struct VirtualPhrasePart : Moveable<VirtualPhrasePart> {
 	int struct_part_type = -1;
 	int count = 0;
 	
+	void Serialize(Stream& s) {s % word_classes / struct_part_type / count;}
+	
 	String StoreToString() {
 		StringDumper d;
 		d % word_classes.GetCount();
@@ -305,6 +320,9 @@ struct VirtualPhraseStruct : Moveable<VirtualPhraseStruct> {
 	Vector<int> virtual_phrase_parts;
 	int struct_type = -1;
 	
+	void Serialize(Stream& s) {
+		s % virtual_phrase_parts / struct_type;
+	}
 	String StoreToString() {
 		StringDumper d;
 		d % virtual_phrase_parts.GetCount();
@@ -343,6 +361,10 @@ struct PhrasePart : Moveable<PhrasePart> {
 	Vector<int> contrasts;
 	int scores[SCORE_COUNT] = {0,0,0,0,0,0,0,0,0,0};
 	
+	void Serialize(Stream& s) {
+		s % words / tt_i / virtual_phrase_part / attr / el_i % clr % actions % typecasts % contrasts;
+		for(int i = 0; i < SCORE_COUNT; i++) s / scores[i];
+	}
 	bool HasScores() const {
 		for(int i = 0; i < SCORE_COUNT; i++)
 			if (scores[i] != 0)
@@ -430,6 +452,9 @@ struct ExportAttr : Moveable<ExportAttr> {
 	int positive = -1, link = -1;
 	int count = 0;
 	
+	void Serialize(Stream& s) {
+		s / simple_attr / unused / positive / link / count;
+	}
 	String StoreToString() {
 		StringDumper d;
 		d % simple_attr % unused % positive % link % count;
@@ -448,6 +473,9 @@ struct ExportAction : Moveable<ExportAction> {
 	Color clr;
 	int count = 0;
 	
+	void Serialize(Stream& s) {
+		s / attr % clr / count;
+	}
 	String StoreToString() {
 		StringDumper d;
 		d % attr % clr % count;
@@ -463,6 +491,8 @@ struct ExportAction : Moveable<ExportAction> {
 struct ExportParallel : Moveable<ExportParallel> {
 	int count = 0, score_sum= 0;
 	
+	void Serialize(Stream& s) {s / count / score_sum;}
+	
 	String StoreToString() {
 		StringDumper d;
 		d % count % score_sum;
@@ -477,6 +507,8 @@ struct ExportParallel : Moveable<ExportParallel> {
 
 struct ExportTransition : Moveable<ExportTransition> {
 	int count = 0, score_sum= 0;
+	
+	void Serialize(Stream& s) {s / count / score_sum;}
 	
 	String StoreToString() {
 		StringDumper d;
@@ -498,6 +530,9 @@ struct ExportDepActionPhrase : Moveable<ExportDepActionPhrase> {
 	int attr = -1;
 	Color clr = Black();
 	
+	void Serialize(Stream& s) {
+		s % actions % next_phrases % next_scores / first_lines / attr % clr;
+	}
 	String StoreToString() {
 		StringDumper d;
 		d.Do(actions.GetCount());
@@ -551,13 +586,19 @@ struct ExportWordnet : Moveable<ExportWordnet> {
 	static const int MAX_WORDS = 64;
 	int word_count = 0;
 	int words[MAX_WORDS] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
-	int word_clr_count = 0;
 	Color word_clrs[MAX_WORDS];
+	int word_clr_count = 0;
 	int main_class = -1;
 	int attr = -1;
 	Color clr;
 	int scores[SCORE_COUNT] = {0,0,0,0,0,0,0,0,0,0};
 	
+	void Serialize(Stream& s) {
+		s / word_count;
+		for(int i = 0; i < MAX_WORDS; i++) s / words[i] / word_clrs[i];
+		s / word_clr_count / main_class / attr / clr;
+		for(int i = 0; i < SCORE_COUNT; i++) s / scores[i];
+	}
 	String StoreToString() {
 		StringDumper d;
 		d % word_count;
@@ -589,6 +630,7 @@ struct ExportWordnet : Moveable<ExportWordnet> {
 struct ExportSimpleAttr : Moveable<ExportSimpleAttr> {
 	int attr_i0 = -1, attr_i1 = -1;
 	
+	void Serialize(Stream& s) {s / attr_i0 / attr_i1;}
 	String StoreToString() {
 		StringDumper d;
 		d % attr_i0 % attr_i1;
@@ -723,6 +765,7 @@ struct DatasetAnalysis {
 	DatasetAnalysis(DatasetAnalysis&) {}
 	DatasetAnalysis(DatasetAnalysis&& o) {LOG("warning: TODO: DatasetAnalysis(DatasetAnalysis&& o)");}
 	void Load();
+	void Export();
 	String GetTokenTextString(const TokenText& txt) const;
 	String GetTokenTypeString(const TokenText& txt) const;
 	String GetWordString(const Vector<int>& words) const;

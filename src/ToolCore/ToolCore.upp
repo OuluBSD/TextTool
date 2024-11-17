@@ -1,5 +1,8 @@
 description "\377B128,0,0";
 
+uses
+	plugin/bz2;
+
 file
 	ToolCore.h,
 	App.iml,
