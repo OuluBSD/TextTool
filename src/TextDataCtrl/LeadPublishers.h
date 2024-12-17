@@ -23,6 +23,7 @@ public:
 	void RemovePublisher();
 	void ValueChange();
 	void PasteArtists();
+	void ExportJson();
 	
 	
 };

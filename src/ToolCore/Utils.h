@@ -21,6 +21,7 @@ struct ContentType : Moveable<ContentType> {
 	static const int PART_COUNT = 3;
 	String key, parts[PART_COUNT];
 	
+	void Serialize(Stream& s) {s / key; for(int i = 0; i < PART_COUNT; i++) s / parts[i];}
 	void Set(String k, String p0, String p1, String p2, const char* p3=0) {
 		key = k;
 		parts[0] = p0;

@@ -512,6 +512,8 @@ void LeadWebsites::ToolMenu(Bar& bar) {
 	bar.Separator();
 	bar.Add(t_("Create script"), AppImg::BlueRing(), THISBACK(CreateScript)).Key(K_F7);
 	bar.Add(t_("Copy script header to clipboard"), AppImg::BlueRing(), THISBACK(CopyHeaderClipboard)).Key(K_F8);
+	bar.Separator();
+	bar.Add(t_("Export json"), AppImg::RedRing(), THISBACK(ExportJson));
 	
 }
 
@@ -525,6 +527,41 @@ void LeadWebsites::Do(int fn) {
 		if (p.owner) {
 			LeadSolver& tm = LeadSolver::Get(*p.owner);
 			tm.Start();
+		}
+	}
+}
+
+void LeadWebsites::ExportJson() {
+	MetaDatabase& db = MetaDatabase::Single();
+	LeadData& ld = db.lead_data;
+	LeadDataAnalysis& sda = db.lead_data.a;
+	
+	if (!websites.IsCursor())
+		return;
+	
+	struct TempHolder {
+		Array<LeadOpportunity> opps;
+		void Jsonize(JsonIO& json) {
+			json("opportunities", opps);
+		}
+	};
+	TempHolder out;
+	int leadsite_i = websites.Get("IDX");
+	for (LeadOpportunity& o : ld.opportunities) {
+		if (o.leadsite != leadsite_i)
+			continue;
+		String json = StoreAsJson(o);
+		LeadOpportunity& to = out.opps.Add();
+		LoadFromJson(to, json);
+	}
+	
+	FileSelNative sel;
+	sel.ActiveDir(GetHomeDirectory());
+	sel.Type("JSON", "*.json");
+	if (sel.ExecuteSaveAs("Select json file to write")) {
+		String path = sel.Get();
+		if (FileExists(path) && PromptYesNo(DeQtf("Are you sure you want to overwrite the file?"))) {
+			StoreAsJsonFile(out, path, true);
 		}
 	}
 }

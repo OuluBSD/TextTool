@@ -84,11 +84,26 @@ void LeadTemplateCtrl::Data() {
 }
 
 void LeadTemplateCtrl::ToolMenu(Bar& bar) {
-	ToolAppCtrl::ToolMenu(bar);
+	bar.Add("Export Json", AppImg::RedRing(), THISBACK(ExportJson));
 }
 
 void LeadTemplateCtrl::Do(int fn) {
 	
+}
+
+void LeadTemplateCtrl::ExportJson() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadDataTemplate& ldt = LeadDataTemplate::Single();
+	
+	FileSelNative sel;
+	sel.ActiveDir(GetHomeDirectory());
+	sel.Type("JSON", "*.json");
+	if (sel.ExecuteSaveAs("Select json file to write")) {
+		String path = sel.Get();
+		if (!FileExists(path) || PromptYesNo(DeQtf("Are you sure you want to overwrite the file?"))) {
+			StoreAsJsonFile(ldt, path, true);
+		}
+	}
 }
 
 

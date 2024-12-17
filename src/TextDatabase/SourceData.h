@@ -14,7 +14,9 @@ struct ScriptDataset : Moveable<ScriptDataset> {
 struct EntityDataset : Moveable<EntityDataset> {
 	String name;
 	Vector<ScriptDataset> scripts;
-	void Serialize(Stream& s) {s / name % scripts;}
+	Vector<String> genres;
+	
+	void Serialize(Stream& s) {s / name % scripts; /*if (s.IsStoring())*/ s % genres;}
 };
 
 struct EntityAnalysis : Moveable<EntityAnalysis> {
@@ -191,7 +193,7 @@ struct ExportWord : Moveable<ExportWord> {
 	int link = -1;
 	
 	void Serialize(Stream& s) {
-		s / spelling / phonetic / count % clr / class_count;
+		s / spelling / phonetic / count / clr / class_count;
 		for(int i = 0; i < MAX_CLASS_COUNT; i++) s / classes[i];
 		s / link;
 	}
@@ -362,7 +364,7 @@ struct PhrasePart : Moveable<PhrasePart> {
 	int scores[SCORE_COUNT] = {0,0,0,0,0,0,0,0,0,0};
 	
 	void Serialize(Stream& s) {
-		s % words / tt_i / virtual_phrase_part / attr / el_i % clr % actions % typecasts % contrasts;
+		s % words / tt_i / virtual_phrase_part / attr / el_i / clr % actions % typecasts % contrasts;
 		for(int i = 0; i < SCORE_COUNT; i++) s / scores[i];
 	}
 	bool HasScores() const {
@@ -474,7 +476,7 @@ struct ExportAction : Moveable<ExportAction> {
 	int count = 0;
 	
 	void Serialize(Stream& s) {
-		s / attr % clr / count;
+		s / attr / clr / count;
 	}
 	String StoreToString() {
 		StringDumper d;
@@ -531,7 +533,7 @@ struct ExportDepActionPhrase : Moveable<ExportDepActionPhrase> {
 	Color clr = Black();
 	
 	void Serialize(Stream& s) {
-		s % actions % next_phrases % next_scores / first_lines / attr % clr;
+		s % actions % next_phrases % next_scores / first_lines / attr / clr;
 	}
 	String StoreToString() {
 		StringDumper d;

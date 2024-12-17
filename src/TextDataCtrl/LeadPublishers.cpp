@@ -65,6 +65,8 @@ void LeadPublishers::DataItem() {
 
 void LeadPublishers::ToolMenu(Bar& bar) {
 	bar.Add(t_("Paste artist list"), AppImg::VioletRing(), THISBACK(PasteArtists));
+	bar.Separator();
+	bar.Add(t_("Export Json"), AppImg::RedRing(), THISBACK(ExportJson));
 }
 
 void LeadPublishers::ListMenu(Bar& bar) {
@@ -75,6 +77,27 @@ void LeadPublishers::ListMenu(Bar& bar) {
 
 void LeadPublishers::Do(int fn) {
 	
+}
+
+void LeadPublishers::ExportJson() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	LeadDataTemplate& ldt = LeadDataTemplate::Single();
+	
+	FileSelNative sel;
+	sel.ActiveDir(GetHomeDirectory());
+	sel.Type("JSON", "*.json");
+	if (sel.ExecuteSelectDir("Select directory for json files")) {
+		String dir = sel.Get();
+		RealizeDirectory(dir);
+		
+		for(int i = 0; i < ldt.publishers.GetCount(); i++) {
+			LeadDataPublisher& ldp = ldt.publishers[i];
+			if (ldp.name.IsEmpty())
+				continue;
+			String path = AppendFileName(dir, ldp.name + ".json");
+			StoreAsJsonFile(ldp, path, true);
+		}
+	}
 }
 
 void LeadPublishers::AddPublisher() {

@@ -316,9 +316,12 @@ void DatasetAnalysis::Load() {
 	}
 	while (ff.Next());
 	
+	#ifdef flagDEBUG
+	LOG("WARNING! REMOVE THIS CODE: " __FILE__ ":" + IntStr(__LINE__));
 	PostCallback([this]() {
 		Export();
 	});
+	#endif
 }
 
 void DatasetAnalysis::Export() {
@@ -336,6 +339,7 @@ void DatasetAnalysis::Export() {
 			scripts.Serialize(s);
 			tokens.Serialize(s);
 			token_texts.Serialize(s);
+			element_keys.Serialize(s);
 			word_classes.Serialize(s);
 			words.Serialize(s);
 			ambiguous_word_pairs.Serialize(s);
@@ -356,36 +360,51 @@ void DatasetAnalysis::Export() {
 			diagnostics.Serialize(s);
 			simple_attrs.Serialize(s);
 			//phrase_translations[LNG_COUNT];
-			element_keys.Serialize(s);
 			s % sd.entities;
+			
+			Index<String>& typeclasses = const_cast<Index<String>&>(GetTypeclasses(appmode));
+			Vector<ContentType>& contents = const_cast<Vector<ContentType>&>(GetContents(appmode));
+			Vector<String>& content_parts = const_cast<Vector<String>&>(GetContentParts(appmode));
+			s % typeclasses % contents % content_parts;
+			
+			dword lang = LNG_enUS;
+			s % lang;
+			
+			for(int i = 0; i < 4; i++) {
+				const auto& types = GetTypeclassEntities(appmode, i / 2, i % 2);
+				auto& types_ = const_cast<VectorMap<String,Vector<String>>&>(types);
+				s % types_;
+			}
+			
 		}
-		String result = s.GetResult();
-		if (result.IsEmpty()) return;
-		String sha1 = SHA1String(result);
-		result = BZ2Compress(result);
-		String filename = GetAppModeString(appmode) + "1.db";
+		String decompressed = s.GetResult();
+		if (decompressed.IsEmpty()) return;
+		String sha1 = SHA1String(decompressed);
+		String compressed = BZ2Compress(decompressed);
+		String filename = GetAppModeString(appmode) + "1.db-src";
 		
 		struct Header {
 			Time written;
+			int64 size = 0;
 			String sha1;
 			Vector<String> files;
-			void Jsonize(JsonIO& o) {o("written",written)("sha1",sha1)("files",files);}
+			void Jsonize(JsonIO& o) {o("written",written)("size",size)("sha1",sha1)("files",files);}
 		};
 		
 		Header head;
 		head.written = GetUtcTime();
 		head.sha1 = sha1;
+		head.size = decompressed.GetCount();
 		String path = AppendFileName(dir, filename);
 		
 		int per_file = 1024 * 1024 * 25;
-		int parts = 1 + (result.GetCount() + 1) / per_file;
+		int parts = 1 + compressed.GetCount() / per_file;
 		for(int i = 0; i < parts; i++) {
 			int begin = i * per_file;
-			int end = min(begin+per_file, result.GetCount());
-			String part = result.Mid(begin,end-begin);
+			int end = min(begin+per_file, compressed.GetCount());
 			String part_path = path + "." + IntStr(i);
 			FileOut fout(part_path);
-			fout.Put(part);
+			fout.Put(compressed.Begin() + begin, end-begin);
 			head.files.Add(filename + "." + IntStr(i));
 		}
 		

@@ -24,6 +24,7 @@ public:
 	void DataAnalyzedList();
 	void CreateScript();
 	void CopyHeaderClipboard();
+	void ExportJson();
 	void ToolMenu(Bar& bar) override;
 	void Do(int fn);
 	
