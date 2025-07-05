@@ -23,7 +23,7 @@ public:
 	void Do(int fn);
 	void SetSorting(int col);
 	void OnPhotoPrompt();
-	
+	void ExportJson();
 };
 
 

@@ -167,6 +167,16 @@ struct BioYear {
 			("elements", elements)
 			("source_hash", (int64&)source_hash)
 			;
+		#if 0
+		int c = image_summaries.GetCount();
+		json("image_summaries.count", c);
+		for(int i = 0; i < image_summaries.GetCount(); i++) {
+			auto& key = const_cast<BioRange&>(image_summaries.GetKey(i));
+			auto& value = image_summaries[i];
+			json("image_summaries[" + IntStr(i) + "].k", key);
+			json("image_summaries[" + IntStr(i) + "].v", value);
+		}
+		#endif
 	}
 	bool operator()(const BioYear& a, const BioYear& b) const {return a.year < b.year;}
 	void RealizeImageSummaries();
@@ -192,6 +202,16 @@ struct BiographyCategory {
 			("years", years)
 			("summaries", summaries)
 			;
+		#if 0
+		int c = summaries.GetCount();
+		json("summaries.count", c);
+		for(int i = 0; i < summaries.GetCount(); i++) {
+			auto& key = const_cast<BioRange&>(summaries.GetKey(i));
+			auto& value = summaries[i];
+			json("summaries[" + IntStr(i) + "].k", key);
+			json("summaries[" + IntStr(i) + "].v", value);
+		}
+		#endif
 	}
 	BioYear& GetAdd(int year);
 	int GetFilledCount() const;
@@ -203,9 +223,6 @@ struct BiographyCategory {
 
 struct Biography {
 protected:
-	//friend class BiographyCtrl;
-	//friend class BiographyProcess;
-	//friend class BiographySummaryProcess;
 	ArrayMap<String, BiographyCategory> categories;
 	
 public:

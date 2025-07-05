@@ -33,7 +33,7 @@ public:
 	void EntryListMenu(Bar& bar);
 	void SnapshotMenu(Bar& bar);
 	void Do(int fn);
-	
+	void ExportJson();
 	
 };
 

@@ -18,7 +18,7 @@ void UppAssembly::AddPath(String dir) {
 	dirs.Add(dir);
 	
 	Index<String> files;
-	GetDirectoryFiles(dir, files);
+	TextLib::GetDirectoryFiles(dir, files);
 	
 	for(int i = 0; i < files.GetCount(); i++) {
 		String name = files[i];

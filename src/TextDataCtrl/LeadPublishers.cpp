@@ -86,6 +86,7 @@ void LeadPublishers::ExportJson() {
 	FileSelNative sel;
 	sel.ActiveDir(GetHomeDirectory());
 	sel.Type("JSON", "*.json");
+	sel.Set("lead publishers");
 	if (sel.ExecuteSelectDir("Select directory for json files")) {
 		String dir = sel.Get();
 		RealizeDirectory(dir);

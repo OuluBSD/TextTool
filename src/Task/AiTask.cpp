@@ -405,7 +405,7 @@ bool AiTask::RunOpenAI_Completion() {
 		prompt.Replace("\n", "\\n");
 		prompt.Replace("\t", "\\t");
 		prompt.Replace("\"", "\\\"");*/
-		EscapeString(prompt);
+		TextLib::EscapeString(prompt);
 		
 		//prompt = FixInvalidChars(prompt); // NOTE: warning: might break something
 		//prompt.Replace("\'", "\\\'");
@@ -525,7 +525,7 @@ bool AiTask::RunOpenAI_Vision() {
 	String base64 = Base64Encode(this->jpeg);
 	
 	{
-		EscapeString(prompt);
+		TextLib::EscapeString(prompt);
 		
 		if (GetDefaultCharset() != CHARSET_UTF8)
 			prompt = ToCharset(CHARSET_UTF8, prompt, CHARSET_DEFAULT);

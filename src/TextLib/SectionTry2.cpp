@@ -249,7 +249,7 @@ void TryStrDistSectionSolverBase::MakeMetaSections() {
 				meta_sect = sect.meta_section;
 			}
 			
-			VectorFindAdd(meta_sections[meta_sect].sections, line.section);
+			TextLib::VectorFindAdd(meta_sections[meta_sect].sections, line.section);
 			
 			sect.meta_section = meta_sect;
 			

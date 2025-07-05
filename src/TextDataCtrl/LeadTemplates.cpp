@@ -98,6 +98,7 @@ void LeadTemplateCtrl::ExportJson() {
 	FileSelNative sel;
 	sel.ActiveDir(GetHomeDirectory());
 	sel.Type("JSON", "*.json");
+	sel.Set("lead templates.json");
 	if (sel.ExecuteSaveAs("Select json file to write")) {
 		String path = sel.Get();
 		if (!FileExists(path) || PromptYesNo(DeQtf("Are you sure you want to overwrite the file?"))) {

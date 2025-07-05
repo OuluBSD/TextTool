@@ -196,7 +196,8 @@ void PlatformProfileCtrl::DataImageType() {
 void PlatformProfileCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Start"), AppImg::RedRing(), THISBACK1(Do, 0)).Key(K_F5);
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
-	
+	bar.Separator();
+	bar.Add(t_("Export Json"), AppImg::BlueRing(), THISBACK(ExportJson));
 }
 
 void PlatformProfileCtrl::PhotoPromptMenu(Bar& bar) {
@@ -300,7 +301,21 @@ void PlatformProfileCtrl::OnPhotoPrompt() {
 	
 }
 
+void PlatformProfileCtrl::ExportJson() {
+	MetaPtrs& mp = MetaPtrs::Single();
+	BiographyAnalysis& analysis = *mp.analysis;
+	
+	FileSelNative sel;
+	sel.ActiveDir(GetHomeDirectory());
+	sel.Type("JSON", "*.json");
+	sel.Set("biography_platform.json");
+	if (sel.ExecuteSaveAs("Select json file to write")) {
+		String path = sel.Get();
+		if (!FileExists(path) || PromptYesNo(DeQtf("Are you sure you want to overwrite the file?"))) {
+			StoreAsJsonFile(analysis, path, true);
+		}
+	}
+}
 
 
 END_TEXTLIB_NAMESPACE
-

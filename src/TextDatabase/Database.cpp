@@ -426,4 +426,3 @@ int MetaDatabase::FindBelief(int64 belief_uniq) const {
 
 
 END_TEXTLIB_NAMESPACE
-

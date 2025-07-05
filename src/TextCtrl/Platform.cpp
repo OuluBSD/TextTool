@@ -174,7 +174,8 @@ void PlatformCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	bar.Separator();
 	bar.Add(t_("Fetch text prompt image"), AppImg::BlueRing(), THISBACK1(Do, 2)).Key(K_CTRL_Q);
-	
+	bar.Separator();
+	bar.Add(t_("Export Json"), AppImg::BlueRing(), THISBACK(ExportJson));
 }
 
 void PlatformCtrl::Do(int fn) {
@@ -209,6 +210,21 @@ void PlatformCtrl::SetSorting(int col) {
 
 void PlatformCtrl::OnPhotoPrompt() {
 	
+}
+
+void PlatformCtrl::ExportJson() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	
+	FileSelNative sel;
+	sel.ActiveDir(GetHomeDirectory());
+	sel.Type("JSON", "*.json");
+	sel.Set("platform_manager.json");
+	if (sel.ExecuteSaveAs("Select json file to write")) {
+		String path = sel.Get();
+		if (!FileExists(path) || PromptYesNo(DeQtf("Are you sure you want to overwrite the file?"))) {
+			StoreAsJsonFile(mdb, path, true);
+		}
+	}
 }
 
 

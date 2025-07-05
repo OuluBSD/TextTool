@@ -9,7 +9,7 @@ namespace Upp {
 void InstallRedToolBar()
 {
 	ToolBar::Style& s = ToolBar::StyleDefault().Write();
-	s = s.Standard();
+	//s = s.Standard();
 	s.buttonstyle.look[CTRL_NORMAL] = Null;
 	s.buttonstyle.look[CTRL_HOT] = RedImg::BH();
 	s.buttonstyle.look[CTRL_PRESSED] = RedImg::BP();
@@ -29,7 +29,7 @@ void InstallRedToolBar()
 void InstallRedMenuBar()
 {
 	MenuBar::Style& s = MenuBar::StyleDefault().Write();
-	s = s.Standard();
+	//s = s.Standard();
 	s.arealook = Null;
 	s.look = RedImg::LK();
 	s.topitem[1] = s.item = RedImg::BH();

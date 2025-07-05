@@ -546,6 +546,7 @@ void LeadWebsites::ExportJson() {
 		}
 	};
 	TempHolder out;
+	String name = websites.Get(0);
 	int leadsite_i = websites.Get("IDX");
 	for (LeadOpportunity& o : ld.opportunities) {
 		if (o.leadsite != leadsite_i)
@@ -558,6 +559,7 @@ void LeadWebsites::ExportJson() {
 	FileSelNative sel;
 	sel.ActiveDir(GetHomeDirectory());
 	sel.Type("JSON", "*.json");
+	sel.Set(name + ".json");
 	if (sel.ExecuteSaveAs("Select json file to write")) {
 		String path = sel.Get();
 		if (FileExists(path) && PromptYesNo(DeQtf("Are you sure you want to overwrite the file?"))) {

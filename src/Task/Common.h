@@ -518,19 +518,6 @@ struct ConceptualFrameworkArgs {
 	void Put(const String& s) {LoadFromJson(*this, s);}
 };
 
-struct MarketplaceArgs {
-	int fn = 0;
-	VectorMap<String,String> map;
-	
-	void Jsonize(JsonIO& json) {
-		json	("fn", fn)
-				("map", map)
-				;
-	}
-	String Get() const {return StoreAsJson(*this);}
-	void Put(const String& s) {LoadFromJson(*this, s);}
-};
-
 struct BiographyGeneratorArgs {
 	int fn = 0;
 	String name, biography, preferred_genres, text;
@@ -625,6 +612,18 @@ struct GenericPromptArgs {
 	void Put(const String& s) {LoadFromJson(*this, s);}
 };
 
+struct MarketplaceArgs {
+	int fn = 0;
+	VectorMap<String,String> map;
+	void Jsonize(JsonIO& json) {
+		json	("fn", fn)
+				("map", map)
+				;
+	}
+	
+	String Get() const {return StoreAsJson(*this);}
+	void Put(const String& s) {LoadFromJson(*this, s);}
+};
 
 END_TEXTLIB_NAMESPACE
 
