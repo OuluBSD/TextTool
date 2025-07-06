@@ -34,6 +34,7 @@ public:
 	void SnapshotMenu(Bar& bar);
 	void Do(int fn);
 	void ExportJson();
+	void WriteBiographyTexts();
 	
 };
 

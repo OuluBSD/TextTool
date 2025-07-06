@@ -423,6 +423,8 @@ void BiographyCtrl::ToolMenu(Bar& bar) {
 	bar.Add(t_("Stop"), AppImg::RedRing(), THISBACK1(Do, 1)).Key(K_F6);
 	bar.Separator();
 	bar.Add(t_("Export Json"), AppImg::BlueRing(), THISBACK(ExportJson));
+	bar.Separator();
+	bar.Add(t_("Write biography.txt files"), AppImg::BlueRing(), THISBACK(WriteBiographyTexts));
 }
 
 void BiographyCtrl::Do(int fn) {
@@ -453,6 +455,40 @@ void BiographyCtrl::ExportJson() {
 	Profile& profile = *mp.profile;
 	Biography& biography = *mp.biography;
 	
+	FileSelNative sel;
+	sel.ActiveDir(GetHomeDirectory());
+	sel.Type("JSON", "*.json");
+	sel.Set("biography.json");
+	if (sel.ExecuteSaveAs("Select json file to write")) {
+		String path = sel.Get();
+		if (!FileExists(path) || PromptYesNo(DeQtf("Are you sure you want to overwrite the file?"))) {
+			StoreAsJsonFile(biography, path, true);
+		}
+	}
+}
+
+void BiographyCtrl::WriteBiographyTexts() {
+	MetaDatabase& mdb = MetaDatabase::Single();
+	MetaPtrs& mp = MetaPtrs::Single();
+	Owner& owner = *mp.owner;
+	Profile& profile = *mp.profile;
+	Biography& biography = *mp.biography;
+	
+	String dir = "C:\\Users\\sgebe\\RemakingSteve\\escsrc";
+	
+	for(int i = 1990; i < 2025; i++) {
+		String dir1 = AppendFileName(dir, IntStr(i));
+		if (i >= 1996)
+			dir1 += "Q3";
+		String file = AppendFileName(dir1, "Biography.txt");
+		
+		VectorMap<String,String> sections;
+		
+		for (auto it : ~biography.categories) {
+			String& cate = sections.Add(it.key);
+			
+		}
+	}
 	FileSelNative sel;
 	sel.ActiveDir(GetHomeDirectory());
 	sel.Type("JSON", "*.json");
